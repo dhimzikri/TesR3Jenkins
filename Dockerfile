@@ -19,9 +19,9 @@ COPY package.json ./
 
 # Copy the application code
 COPY . .
-COPY ./node_modules ./node_modules
+# COPY ./node_modules ./node_modules
 # Build the application (if needed)
-RUN npm run build
+# RUN npm run build
 
 # Expose the default AngularJS port
 EXPOSE 4200
