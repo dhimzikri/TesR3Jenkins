@@ -12,7 +12,7 @@ ARG NPM_AUTH_TOKEN
 RUN echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
 
 # Install dependencies
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # Remove the .npmrc to avoid leaving secrets in the final image
 RUN rm .npmrc
