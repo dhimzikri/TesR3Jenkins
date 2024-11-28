@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
+                sh 'docker build --build-arg NPM_AUTH_TOKEN=${NPM_AUTH_TOKEN} -t angular_front .'
             }
         }
         stage('Docker Push') {
