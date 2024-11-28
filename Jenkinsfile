@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_HOST = 'tcp://docker:2376' // Replace with your Docker host, if required
-        DOCKER_IMAGE = 'dimas182/node:latest'
+        DOCKER_IMAGE = 'dimas182/node'
     }
     tools {
         nodejs "node14.16.1" // Replace with your Node.js version name from Jenkins
@@ -32,7 +32,7 @@ pipeline {
           steps {
             withCredentials([string(credentialsId: 'NPM_AUTH_TOKEN', variable: 'NPM_AUTH_TOKEN')]) {
                 sh '''
-                    docker build --no-cache --build-arg NPM_AUTH_TOKEN=${NPM_AUTH_TOKEN} -t angular_front .
+                    docker build --no-cache --build-arg NPM_AUTH_TOKEN=${NPM_AUTH_TOKEN} -t node .
                   '''
             }
           }
