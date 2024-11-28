@@ -1,0 +1,237 @@
+{
+    "title": "Refund Request",
+    "id": "Refundrequestpaging",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "ARUrl",
+                "apiVersion": "v2",
+                "pagingInput": {
+                    "title": "Refund Request",
+                    "querystring": {
+                        "name": "searchRefundRequest"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "roofficeCodeSearchId",
+                            "type": "officeRoleCodes",
+                            "label": "Office Name",
+                            "name": "RO.OFFICE_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isQueryIn": true,
+                            "environment": "FOU",
+                            "path": "/v1/RefOffice/GetListKvpActiveRefOfficeForPaging",
+                            "itemsUrl": []
+                        },
+                        {
+                            "id": "aagrmntNoSearchId",
+                            "type": "textbox",
+                            "label": "Agreement No",
+                            "name": "A.AGRMNT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "ccustNameSearchId",
+                            "type": "textbox",
+                            "label": "Customer Name",
+                            "name": "C.CUST_NAME",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "case when acontractStatCode = 'exp' then n'yes' else n'no' endSearchId",
+                            "type": "dropdown",
+                            "label": "Contract Status Expired",
+                            "name": "CASE WHEN A.CONTRACT_STAT_CODE = 'EXP' THEN N'Yes' ELSE N'No' END",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "Yes",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "No",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "aacprepaidAmtSearchId",
+                            "type": "currency",
+                            "label": "Prepaid Balance >=",
+                            "name": "AAC.PREPAID_AMT",
+                            "value": "0",
+                            "placeholder": "",
+                            "datatype": "numeric",
+                            "restriction": "gte"
+                        },
+                        {
+                            "id": "aacprepaidAmtSearchId",
+                            "type": "currency",
+                            "label": "Prepaid Balance <=",
+                            "name": "AAC.PREPAID_AMT",
+                            "value": "999999999",
+                            "placeholder": "",
+                            "datatype": "numeric",
+                            "restriction": "lte"
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Agreement No",
+                            "position": "center",
+                            "name": "A.AGRMNT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Customer Name",
+                            "position": "center",
+                            "name": "C.CUST_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Office Name",
+                            "position": "center",
+                            "name": "RO.OFFICE_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Currency Code",
+                            "position": "center",
+                            "name": "A.CURR_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Contract Status",
+                            "position": "center",
+                            "name": "A.CONTRACT_STAT_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Installment Amount",
+                            "position": "center",
+                            "name": "A.INST_AMT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Prepaid Balance",
+                            "position": "center",
+                            "name": "AAC.PREPAID_AMT"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Refund",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "link",
+                            "position": "center",
+                            "property": "AgrmntNo",
+                            "target": "_blank",
+                            "path": "/agrmntview/view",
+                            "param": [
+                                {
+                                    "type": "AgrmntNo",
+                                    "property": "AgrmntNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "CustName",
+                            "key": "Cust"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "OfficeName"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "CurrCode"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "ContractStatCode"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "InstallmentAmt"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "PrepaidAmt"
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "callback",
+                                    "key": "Refund",
+                                    "isText": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1
+            },
+            "id": "dc33b52e-2c60-4040-9f65-96463bae73d3"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "customToastrMsg": ""
+}

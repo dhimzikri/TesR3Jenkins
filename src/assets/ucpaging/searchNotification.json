@@ -1,0 +1,121 @@
+{
+    "title": "Notification",
+    "exportExcel": false,
+    "component": [
+      {
+        "type": "dropdown",
+        "name": "NH.MR_NOTIFICATION_TYPE_CODE", 
+        "id": "NotificationTypeCode",
+        "value": "",
+        "placeholder": "Placeholder",
+        "datatype": "text",
+        "isFromURL": true,
+        "ddlType": "all",
+        "url": "",
+        "path": "/RefMaster/GetListKeyValueActiveByCode",
+        "label": "Notification Type",
+        "criteriaPropName" : "RefMasterTypeCode",
+        "criteriaPropValue" : "NOTIFICATION_TYPE",
+        "items": [],
+        "itemsUrl": [],
+        "environment": "FOU"
+      },
+      {
+        "type": "textbox",
+        "name": "NH.REQ_BY",
+        "id": "ReqBy",
+        "value": "",
+        "label": "Request By",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "NH.TITLE",
+        "id": "Title",
+        "value": "",
+        "label": "Title",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "dropdown",
+        "name": "NH.STATUS", 
+        "id": "Status",
+        "value": "",
+        "placeholder": "Placeholder",
+        "datatype": "text",
+        "isFromURL": true,
+        "ddlType": "all",
+        "url": "",
+        "path": "/RefStatus/GetListKeyValueActiveGrpCodeByCode",
+        "label": "Status",
+        "criteriaPropName" : "StatusGrpCode",
+        "criteriaPropValue" : "NOTIFICATION_STAT",
+        "items": [],
+        "itemsUrl": [],
+        "environment":"FOU"
+      }
+    ],
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Notification Type",
+        "name": "NotificationTypeDescr"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Title",
+        "name": "Title"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Short Description",
+        "name": "ShortDesc"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Request By",
+        "name": "ReqBy"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Status",
+        "name": "StatusDescr"
+      }
+    ],
+    "querystring": {
+      "name": "searchNotification"
+    },
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "center",
+        "property": "NotificationTypeDescr"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "Title"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "ShortDesc"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "ReqBy"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "StatusDescr"
+      }
+    ]
+  }
+  

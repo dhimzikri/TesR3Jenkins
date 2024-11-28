@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-body">
+    <div class="px-3">
+
+      <lib-ucSubsection [id]="'GrpId'" [title]="'Customer / Debitur Group'" [panel]="'GrpId'">
+      </lib-ucSubsection>
+      <div id="GrpId" *ngIf="IsReady" style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-left"><span class="thead-header" name='fullAssetCode' translate>NEGATIVE STATUS</span> </th>
+              <th class="text-center"><span class="thead-header" name='fullAssetName' translate>CUSTOMER / DEBITUR NO.</span> </th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>CUSTOMER / DEBITUR NAME</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>CUSTOMER / DEBITUR RELATIONSHIP</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>NOTES</span> </th>
+              <th class="text-center"><span class="thead-header" name='assetCategoryName' translate>ACTIVE STATUS</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td *ngIf="responseObj.NegativeStatus == null || responseObj.NegativeStatus == ''" class="text-left">Normal</td>
+              <td *ngIf="responseObj.NegativeStatus == 'BAD'" class="text-left">Bad</td>
+              <td *ngIf="responseObj.NegativeStatus == 'WARNING'" class="text-left">Warning</td>
+              <td class="text-center"><a href="{{custViewUrl + responseObj.CustId}}" target="_blank">{{responseObj.CustNo}}</a></td>
+              <td class="text-left">{{responseObj.CustName}}</td>
+              <td class="text-left">{{responseObj.CustRelationship}}</td>
+              <td class="text-left">{{responseObj.Notes}}</td>
+              <td class="text-center" *ngIf="responseObj.IsActive == true">Yes</td>
+              <td class="text-center" *ngIf="responseObj.IsActive == false">No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <lib-ucSubsection [id]="'MemberId'" [title]="'Member Of Customer / Debitur Group'" [panel]="'MemberId'">
+      </lib-ucSubsection>
+      <div id="MemberId" *ngIf="IsReady" style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-left"><span class="thead-header" name='fullAssetCode' translate>NEGATIVE STATUS</span> </th>
+              <th class="text-center"><span class="thead-header" name='fullAssetName' translate>CUSTOMER / DEBITUR NO.</span> </th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>CUSTOMER / DEBITUR NAME</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>CUSTOMER / DEBITUR RELATIONSHIP</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>NOTES</span> </th>
+              <th class="text-center"><span class="thead-header" name='assetCategoryName' translate>ACTIVE STATUS</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let item of responseMemberCustGrpObj">
+              <tr>
+                <td *ngIf="item.NegativeStatus == null" class="text-left">Normal</td>
+                <td *ngIf="item.NegativeStatus == 'BAD'" class="text-left">Bad</td>
+                <td *ngIf="item.NegativeStatus == 'WARNING'" class="text-left">Warning</td>
+                <td class="text-center"><a href="{{custViewUrl + item.CustId}}" target="_blank">{{item.CustNo}}</a></td>
+                <td class="text-left">{{item.CustName}}</td>
+                <td class="text-left">{{item.CustRelationship}}</td>
+                <td class="text-left">{{item.Notes}}</td>
+                <td class="text-center" *ngIf="item.IsActive == true">Yes</td>
+                <td class="text-center" *ngIf="item.IsActive == false">No</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>

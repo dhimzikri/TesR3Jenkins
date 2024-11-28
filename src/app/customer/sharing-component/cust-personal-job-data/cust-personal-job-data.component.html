@@ -1,0 +1,169 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <form class="form form-horizontal" [formGroup]="CustomerJobForm" (ngSubmit)="CustomerJobForm.valid && SaveForm() "
+        #enjiForm="ngForm">
+        <div class="form-group row">
+          <label class="col-md-2 adInsLabel" translate>Customer Model</label>
+          <div class="col-md-4">
+            <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeCustModel]"
+              [parentForm]="CustomerJobForm" [enjiForm]="enjiForm" [identifier]="'MrCustModelCode'"
+              (callback)="changeCustModel()"></lib-ucdropdownlist>
+          </div>
+        </div>
+        <lib-ucSubsection [id]="'JobDataInfoId'" [title]="'Job Data'" [panel]="'JobDataInfo'">
+        </lib-ucSubsection>
+        <div class="form-body" id="JobDataInfo">
+          <div class="form-group row">
+            <div class="col-md-6">
+
+              <div class="form-group row">
+                <label class="col-md-4 adins-required-label" translate> Profession Name </label>
+                <div class="col-md-8">
+                  <lib-uclookupgeneric [lookupInput]="professionLookUpObj" [parentForm]="CustomerJobForm"
+                    [enjiForm]="enjiForm" [identifier]="'JobProfession'" (lookup)=getLookUpProfession($event) #LookupProfession>
+                  </lib-uclookupgeneric>
+                </div>
+              </div>
+
+              <div class="form-group row" [hidden]="!dictIsShow['IsWellknownCoy']">
+                <label class="col-md-4 adInsLabel" translate>Is Wellknown Company</label>
+                <div class="col-md-8">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsWellknownCoy"
+                    (change)="CheckRequiredCompanyName()" />
+                </div>
+              </div>
+
+              <div class="form-group row adins-required" [hidden]="!dictIsShow['MrWellknownCoyCode']">
+                <label class="col-md-4 adInsLabel" translate>Company Name </label>
+                <div class="col-md-8" *ngIf="CustomerJobForm.controls.IsWellknownCoy.value && companyLookupObj.isReady">
+                  <lib-uclookupgeneric [lookupInput]="companyLookupObj" [parentForm]="CustomerJobForm"
+                    [enjiForm]="enjiForm" [identifier]="'CompanyName'" (lookup)=getLookUpCompanyName($event)>
+                  </lib-uclookupgeneric>
+                </div>
+                <div class="col-md-8" *ngIf="!CustomerJobForm.controls.IsWellknownCoy.value">
+                  <input class="form-control adInsInput" formControlName="CoyName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.CoyName.invalid}">
+                  <lib-uc-show-errors [control]="CustomerJobForm.controls.CoyName"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row adins-required" [hidden]="!dictIsShow['ProfessionalNo']">
+                <label class="col-md-4 adInsLabel" translate>Profesional No </label>
+                <div class="col-md-8">
+                  <input class="form-control adInsInput" formControlName="ProfessionalNo"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.ProfessionalNo.invalid}">
+                  <lib-uc-show-errors [control]="CustomerJobForm.controls.ProfessionalNo" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row" [hidden]="!dictIsShow['MrJobPositionCode']">
+                <label class="col-md-4 adins-required-label" translate>Job Position </label>
+                <div class="col-md-8" *ngIf="jobPositionLookupObj?.isReady">
+                  <lib-uclookupgeneric [lookupInput]="jobPositionLookupObj" [parentForm]="CustomerJobForm"
+                    [enjiForm]="enjiForm" [identifier]="'JobPosition'" (lookup)=getLookUpJobPosition($event)>
+                  </lib-uclookupgeneric>
+                </div>
+              </div>
+
+              <div class="form-group row" [hidden]="!dictIsShow['JobTitleName']">
+                <label class="col-md-4 adInsLabel" translate>Job Title Name</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control adInsInput" formControlName="JobTitleName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.JobTitleName.invalid}">
+                  <lib-uc-show-errors [control]="CustomerJobForm.controls.JobTitleName" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row" [hidden]="!dictIsShow['MrJobStatCode']">
+                <label class="col-md-4 adInsLabel" translate>Job Status </label>
+                <div class="col-md-8" *ngIf="DictUcDDLObj[RefMasterTypeCodeJobStat]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeJobStat]"
+                    [parentForm]="CustomerJobForm" [enjiForm]="enjiForm" [identifier]="'MrJobStatCode'">
+                  </lib-ucdropdownlist>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+              <div class="form-group row" [hidden]="!dictIsShow['RefIndustryTypeId']">
+                <label class="col-md-4 adins-required-label" translate> Industry Type </label>
+                <div class="col-md-8">
+                  <lib-uclookupgeneric [lookupInput]="industryLookUpObj" [parentForm]="CustomerJobForm"
+                    [enjiForm]="enjiForm" [identifier]="'IndustryType'" (lookup)=getLookUpIndustryType($event)>
+                  </lib-uclookupgeneric>
+                </div>
+              </div>
+
+              <div class="form-group row" [hidden]="!dictIsShow['IsMfEmp']">
+                <label class="col-md-4 adInsLabel" translate>Is Internal Employee</label>
+                <div class="col-md-8">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsMfEmp" />
+                </div>
+              </div>
+
+              <div class="form-group row" [hidden]="!dictIsShow['EmploymentEstablishmentDt']">
+                <label class="col-md-4 adins-required-label" translate>Start Working Date</label>
+                <div class="col-md-8">
+                  <input type="date" class="form-control adInsInput" formControlName="EmploymentEstablishmentDt"
+                    [max]="businessDtMin | date: 'yyyy-MM-dd'"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.EmploymentEstablishmentDt.invalid}">
+                  <lib-uc-show-errors [control]="CustomerJobForm.controls.EmploymentEstablishmentDt"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row" [hidden]="!dictIsShow['MrCoyScaleCode']">
+                <label class="col-md-4 adins-required-label" translate>Company Scale </label>
+                <div class="col-md-8" *ngIf="DictUcDDLObj[RefMasterTypeCodeCoyScale]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeCoyScale]"
+                    [parentForm]="CustomerJobForm" [enjiForm]="enjiForm" [identifier]="'MrCoyScaleCode'">
+                  </lib-ucdropdownlist>
+                </div>
+              </div>
+
+              <div class="form-group row" [hidden]="!dictIsShow['NoOfEmploy']">
+                <label class="col-md-4 adInsLabel" translate>Number of Employee</label>
+                <div class="col-md-8">
+                  <input type="number" class="form-control adInsInput" formControlName="NoOfEmploy"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.NoOfEmploy.invalid}">
+                  <lib-uc-show-errors [control]="CustomerJobForm.controls.NoOfEmploy" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row" [hidden]="!dictIsShow['MrInvestmentTypeCode']">
+                <label class="col-md-4 adins-required-label" translate>Investment Type </label>
+                <div class="col-md-8" *ngIf="DictUcDDLObj[RefMasterTypeCodeInvestmentType]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeInvestmentType]"
+                    [parentForm]="CustomerJobForm" [enjiForm]="enjiForm" [identifier]="'MrInvestmentTypeCode'">
+                  </lib-ucdropdownlist>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        <app-job-addr-section *ngIf="this.dictIsShow['IsShowJobAddr']" [CustId]="CustId" [DictCustAddr]="DictCustAddr"
+          [CustPersonalJobDataObj]="tempCustPersonalJobDataObj" [parentForm]="CustomerJobForm" [enjiForm]="enjiForm"
+          #JobAddrForm></app-job-addr-section>
+        <div class="form-actions right">
+          <!-- <button type="button" class="btn btn-raised btn-warning mr-1"  (click)="getFormValidationErrors()">
+              <i class="far fa-window-close"></i> test
+            </button> -->
+          <button type="submit" class="btn btn-raised btn-primary">
+            <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

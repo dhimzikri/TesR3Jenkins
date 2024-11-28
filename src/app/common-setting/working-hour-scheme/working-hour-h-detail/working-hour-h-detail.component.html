@@ -1,0 +1,54 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Working Hour Scheme</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="WorkingHourSchmHForm" (ngSubmit)="WorkingHourSchmHForm.valid && SaveForm()"
+        #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'WorkingHourSchmId'" [title]="'Working Hour Scheme '+ pageType" [panel]="'WorkingHourSchm'"></lib-ucSubsection>
+            <div class="form-body" id="WorkingHourSchm">
+            <div class="form-group row adins-required">
+              <label class="col-md-3  adInsLabel" translate>Working Hour Scheme Code </label>
+              <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput code" formControlName="WorkingHourSchmCode"
+                  [ngClass]="{ 'is-invalid': enjiForm.submitted && WorkingHourSchmHForm.controls.WorkingHourSchmCode.invalid }">
+                  <lib-uc-show-errors [control]="WorkingHourSchmHForm.controls.WorkingHourSchmCode" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+              </div>
+            </div>
+            <div class="form-group row adins-required">
+              <label class="col-md-3  adInsLabel" translate>Working Hour Scheme Name </label>
+              <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput name" formControlName="WorkingHourSchmName"
+                  [ngClass]="{ 'is-invalid': enjiForm.submitted && WorkingHourSchmHForm.controls.WorkingHourSchmName.invalid }">
+                  <lib-uc-show-errors [control]="WorkingHourSchmHForm.controls.WorkingHourSchmName" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3  adInsLabel" translate>Active </label>
+              <div class="col-md-9">
+                <input class="border-primary" type="checkbox" data-md-icheck
+                formControlName="IsActive">
+              </div>
+            </div>
+            </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+            <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+          </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+{
+    "id": "FundingBatchMainInformation_QueryView",
+    "name": "Funding Batch Main Information",
+    "saveState": false,
+    "customComponent": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "FundingBatchMainInformationId",
+                    "subSectionTitle": "Funding Batch Main Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanBatchViewDetail"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Batch No.",
+                            "property": "FundingBatchNo",
+                            "key": "ViewVendor",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Currency",
+                            "property": "Currency",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Batch Status",
+                            "property": "BatchStatus",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Drawdown Date",
+                            "property": "DrawdownDate",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Drawdown Amount",
+                            "property": "DrawdownAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Scheme",
+                            "property": "PaymentScheme",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Installment Period",
+                            "property": "InstallmentPeriod",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Installment Scheme",
+                            "property": "InstallmentScheme",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Collateral Location",
+                            "property": "CollateralLocation",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Tenor",
+                            "property": "Tenor",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Plafond Amount",
+                            "property": "PlafondAmount",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "LoanBatchNo"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "cb6c7449-abad-4ea0-844f-559877860d25"
+        }
+    ]
+}

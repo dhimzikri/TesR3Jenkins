@@ -1,0 +1,511 @@
+{
+    "title": "Bank Account Registration",
+    "hideTitle": false,
+    "id": "VendorBankInfoRegistration",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Bank Account Info",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [
+                                {
+                                    "type": "bindValue",
+                                    "condition": {
+                                        "variable": "BankName",
+                                        "restriction": "NEQ",
+                                        "value": ""
+                                    },
+                                    "listBind": [
+                                        {
+                                            "variable": "RefBankId",
+                                            "value": "LookupEv.RefBankId"
+                                        }
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "LOOKUP",
+                            "Label": "Bank",
+                            "Variable": "BankName",
+                            "IsRequired": true,
+                            "IsCallback": true,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "IsClear": false,
+                            "LookupName": "${Lookup-Bank}",
+                            "Criteria": [],
+                            "pagingInput": {
+                                "lookupId": "Lookup-Bank",
+                                "title": "Lookup - Bank",
+                                "component": [
+                                    {
+                                        "id": "bankCodeSearchId",
+                                        "type": "textbox",
+                                        "label": "Bank Code",
+                                        "name": "BANK_CODE",
+                                        "value": "",
+                                        "placeholder": "",
+                                        "datatype": "text"
+                                    },
+                                    {
+                                        "id": "bankNameSearchId",
+                                        "type": "textbox",
+                                        "label": "Bank Name",
+                                        "name": "BANK_NAME",
+                                        "value": "",
+                                        "placeholder": "",
+                                        "datatype": "text"
+                                    }
+                                ],
+                                "querystring": {
+                                    "name": "lookupBank"
+                                },
+                                "orderby": null,
+                                "headerList": [
+                                    {
+                                        "type": "sort",
+                                        "label": "Bank Code",
+                                        "position": "center",
+                                        "name": "BANK_CODE"
+                                    },
+                                    {
+                                        "type": "sort",
+                                        "label": "Bank Name",
+                                        "position": "center",
+                                        "name": "BANK_NAME"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "position": "center",
+                                        "label": "Select"
+                                    }
+                                ],
+                                "bodyList": [
+                                    {
+                                        "type": "text",
+                                        "position": "center",
+                                        "property": "BankCode"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "position": "left",
+                                        "property": "BankName"
+                                    },
+                                    {
+                                        "type": "action",
+                                        "position": "center",
+                                        "action": [
+                                            {
+                                                "type": "select",
+                                                "property": "BankName"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "propertyId": "BankName",
+                                "propertyName": "BankName",
+                                "environment": "FoundationR3Url",
+                                "apiVersion": "v1"
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Bank Branch",
+                            "Variable": "BankBranch",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Account Number",
+                            "Variable": "BankAccountNo",
+                            "Value": "",
+                            "Pattern": "^[0-9]+$",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Account Name",
+                            "Variable": "BankAccountName",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "bindValue",
+                                    "condition": {
+                                        "variable": "IsDefault",
+                                        "restriction": "Eq",
+                                        "value": "true"
+                                    },
+                                    "listBind": [
+                                        {
+                                            "variable": "IsActive",
+                                            "value": "true"
+                                        }
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "disabledField",
+                                    "condition": {
+                                        "variable": "IsDefault",
+                                        "restriction": "Eq",
+                                        "value": "true"
+                                    },
+                                    "listField": [
+                                        "IsActive"
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "BOOL",
+                            "Label": "Default",
+                            "Variable": "IsDefault",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "Active Status",
+                            "Variable": "IsActive",
+                            "Value": true,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Ref Bank Id",
+                            "Variable": "RefBankId",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Vendor Id",
+                            "Variable": "VendorIdModal",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/VendorBankAcc/GetVendorBankAccByVendorBankAccId",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "Id",
+                                    "propValue": "VendorBankAccId"
+                                }
+                            ],
+                            "action": [
+                                {
+                                    "type": "disabledField",
+                                    "condition": {
+                                        "variable": "IsDefault",
+                                        "restriction": "Eq",
+                                        "value": "true"
+                                    },
+                                    "listField": [
+                                        "IsActive"
+                                    ],
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "bindValue",
+                                    "condition": {
+                                        "variable": "IsDefault",
+                                        "restriction": "Eq",
+                                        "value": "true"
+                                    },
+                                    "listBind": [
+                                        {
+                                            "variable": "IsActive",
+                                            "value": "true"
+                                        }
+                                    ],
+                                    "isRevertable": false
+                                }
+                            ]
+                        }
+                    ],
+                    "criteria": [
+                        {
+                            "propName": "Id",
+                            "propValue": "Id",
+                            "isFromDict": true,
+                            "setOnEdit": false
+                        }
+                    ],
+                    "mapCookie": [],
+                    "initAction": [
+                        {
+                            "type": "bindValue",
+                            "condition": [],
+                            "listBind": [
+                                {
+                                    "variable": "VendorIdModal",
+                                    "value": "VendorIdModal"
+                                }
+                            ],
+                            "isRevertable": false
+                        }
+                    ]
+                }
+            },
+            "id": "013c31d8-7a57-49f0-b515-91279be86617"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [
+                {
+                    "property": "type",
+                    "restriction": "EQ",
+                    "value": "add"
+                }
+            ],
+            "result": {
+                "type": "http",
+                "environment": "FoundationR3Url",
+                "path": "/v1/VendorBankAcc/AddVendorBankAcc",
+                "reqObj": [
+                    {
+                        "propName": "BankAccountName",
+                        "propValue": "form.BankAccountName"
+                    },
+                    {
+                        "propName": "BankAccountNo",
+                        "propValue": "form.BankAccountNo"
+                    },
+                    {
+                        "propName": "BankBranch",
+                        "propValue": "form.BankBranch"
+                    },
+                    {
+                        "propName": "IsActive",
+                        "propValue": "formRaw.IsActive"
+                    },
+                    {
+                        "propName": "IsDefault",
+                        "propValue": "form.IsDefault"
+                    },
+                    {
+                        "propName": "Notes",
+                        "propValue": "form.Notes"
+                    },
+                    {
+                        "propName": "RefBankId",
+                        "propValue": "formRaw.RefBankId"
+                    },
+                    {
+                        "propName": "VendorBankAccId",
+                        "propValue": "VendorBankAccId"
+                    },
+                    {
+                        "propName": "VendorId",
+                        "propValue": "VendorIdModal"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success!"
+                        },
+                        "conditions": []
+                    }
+                ],
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": []
+            }
+        },
+        {
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "edit"
+                },
+                {
+                    "property": "VendorBankAccId",
+                    "restriction": "NEQ",
+                    "value": "0"
+                }
+            ],
+            "result": {
+                "type": "http",
+                "environment": "FoundationR3Url",
+                "path": "/v1/VendorBankAcc/EditVendorBankAcc",
+                "reqObj": [
+                    {
+                        "propName": "BankAccountName",
+                        "propValue": "form.BankAccountName"
+                    },
+                    {
+                        "propName": "BankAccountNo",
+                        "propValue": "form.BankAccountNo"
+                    },
+                    {
+                        "propName": "BankBranch",
+                        "propValue": "form.BankBranch"
+                    },
+                    {
+                        "propName": "IsActive",
+                        "propValue": "formRaw.IsActive"
+                    },
+                    {
+                        "propName": "IsDefault",
+                        "propValue": "form.IsDefault"
+                    },
+                    {
+                        "propName": "Notes",
+                        "propValue": "form.Notes"
+                    },
+                    {
+                        "propName": "RefBankId",
+                        "propValue": "formRaw.RefBankId"
+                    },
+                    {
+                        "propName": "RowVersion",
+                        "propValue": "RowVersion"
+                    },
+                    {
+                        "propName": "VendorId",
+                        "propValue": "VendorId"
+                    },
+                    {
+                        "propName": "VendorBankAccId",
+                        "propValue": "VendorBankAccId"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success!"
+                        },
+                        "conditions": []
+                    }
+                ],
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": []
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "customToastrMsg": "",
+    "persistData": false,
+    "persistPropName": ""
+}

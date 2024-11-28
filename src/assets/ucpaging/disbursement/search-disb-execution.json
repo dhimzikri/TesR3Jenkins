@@ -1,0 +1,218 @@
+{
+    "title": "DISBURSEMENT EXECUTION",
+    "keyProperty": "PayVoucherHId",
+    "keyPropCriteria": "PVH.PAY_VOUCHER_H_ID",
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "RAPT.REF_ACC_PAYABLE_TYPE_ID",
+            "id": "RefAccPayableTypeId",
+            "label": "AP Type Name",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "one",
+            "url": "",
+            "environment": "AP",
+            "path": "/AccPayable/GetAPTypeList",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "AP.ACC_PAYABLE_DESTINATION",
+            "id": "AccPayableDestination",
+            "value": "",
+            "label": "AP Destination",
+            "placeholder": ""
+        },
+        {
+            "type": "dropdown",
+            "name": "PVH.CURR_CODE",
+            "id": "CurrCode",
+            "label": "Currency",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "one",
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefCurr/GetListKvpActiveRefCurr",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "PVH.PAY_VOUCHER_NO",
+            "id": "PayVoucherNo",
+            "value": "",
+            "label": "Payment Voucher No",
+            "placeholder": ""
+        },
+        {
+            "type": "datepicker",
+            "label": "Payment Voucher Date <=",
+            "name": "PVH.PAY_VOUCHER_DT",
+            "id": "PayVoucherDt",
+            "value": "",
+            "restriction": "lte",
+            "datatype": "date"
+        },
+        {
+            "type": "dropdown",
+            "name": "AP.OFFICE_CODE",
+            "id": "OfficeName",
+            "label": "Office Name",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "dropdown",
+            "name": "AP.BANK_CODE",
+            "id": "BankName",
+            "label": "Bank Name",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefBank/GetListKeyValueActiveByCode",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+          "type": "textbox",
+          "name": "Assignee",
+          "id": "ClaimById",
+          "value": "",
+          "label": "Claim By",
+          "placeholder": "Placeholder",
+          "isCriteriaDataTable" : true
+        }
+    ],
+    "isSeq": true,
+    "headerList": [
+        {
+            "type": "label",
+            "position": "center",
+            "label": "SLA",
+            "name": "IndicatorSLA"
+        },
+        {
+          "type": "label",
+          "position": "center",
+          "label": "Claim By",
+          "name": "Assignee"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PAYMENT VOUCHER NO",
+            "name": "PVH.PAY_VOUCHER_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP DESTINATION",
+            "name": "AP.ACC_PAYABLE_DESTINATION"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "BANK ACCOUNT NAME",
+            "name": "obal.OFFICE_BANK_ACC_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "BANK ACCOUNT NO",
+            "name": "obal.OFFICE_BANK_ACC_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PAYMENT VOUCHER AMOUNT",
+            "name": "PVH.PAY_VOUCHER_AMT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PAYMENT VOUCHER DATE",
+            "name": "PVH.PAY_VOUCHER_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PAID LOCATION",
+            "name": "rolPaidLoc.OFFICE_NAME"
+        }
+    ],
+    "querystring": {
+        "name": "searchDisbursementExecution"
+    },
+    "bodyList": [
+        {
+            "type": "sla",
+            "position": "center",
+            "property": "IndicatorSLA"
+        },
+        {
+          "type": "text",
+          "position": "left",
+          "property": "Assignee"
+        },
+        {
+            "type": "link",
+            "position": "center",
+            "property": "PayVoucherNo",
+            "target": "_blank",
+            "path": "PAY_VOUCHER_VIEW",
+            "param": [
+                {
+                    "type": "PayVoucherNo",
+                    "property": "PayVoucherNo"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AccPayableDestination"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "PvhOfficeBankAccName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "PvhOfficeBankAccNo"
+        },
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "PayVoucherAmt"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "PayVoucherDt"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AccPayablePaidLocName"
+        }
+    ]
+}

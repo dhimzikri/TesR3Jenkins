@@ -1,0 +1,82 @@
+{
+    "title": "JOURNAL - EXCEL FILES",
+    "exportExcel": false,
+    "keyProperty": "JrSourceFileId",
+    "keyPropCriteria": "jsf.JR_SOURCE_FILE_ID",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "jsf.FILE_CODE",
+            "id": "FileCodeId",
+            "value": "",
+            "label": "File Code",
+            "placeholder": "Placeholder"
+        },
+        
+        {
+            "type": "textbox",
+            "name": "jsf.FILE_NAME",
+            "id": "FileNameId",
+            "value": "",
+            "label": "File Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "isSeq": false,
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "File Code",
+            "name": "jsf.FILE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "File Name",
+            "name": "jsf.FILE_NAME"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Edit"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "FileCode"
+        },
+        {
+            "type": "callback",
+            "position": "center",
+            "property": "FileName",
+            "key": "Download"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "UPLOAD_JOURNAL_FILE_DETAIL",
+                    "param": [
+                        {
+                            "type": "JrSourceFileId",
+                            "property": "JrSourceFileId"
+                        },
+                        {
+                            "type": "FileCode",
+                            "property": "FileCode"
+                        }
+                    ],
+                    "icon": "ft-edit-2"
+                }
+            ]
+        }
+    ],
+    "querystring": {
+        "name": "searchJournalSourceFile"
+    }
+}

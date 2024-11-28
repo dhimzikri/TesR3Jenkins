@@ -1,0 +1,114 @@
+{
+    "title": "Payment Out Prepare Detail Edit",
+    "hideTitle": true,
+    "id": "PaymentOutPrepareDetailEdit",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "PaymentBatchMainInfoId",
+                    "subSectionTitle": "Payment Batch Main Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "PayoutUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewMainInfoPayoutPrepare"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Funding Company Name",
+                            "property": "FundCoyName",
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "link",
+                            "label": "Payment Batch No",
+                            "property": "TrxNo",
+                            "isFullpath": false,
+                            "path": "/ViewPaymentOut/View",
+                            "target": "_blank",
+                            "position": "",
+                            "param": [
+                                {
+                                    "type": "PaymentBatchNo",
+                                    "property": "TrxNo"
+                                }
+                            ],
+                            "isCurrency": false,
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Batch Status",
+                            "property": "TrxStat",
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Out Type",
+                            "property": "PayoutType",
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "Mirroring Status",
+                            "property": "IsMirroring",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "AssetTypeId"
+                    ],
+                    "fromValue": [],
+                    "subsectionId": "PaymentBatchMainInfoId"
+                }
+            },
+            "id": "3ca686dd-4e83-4ccc-aa16-2819351ec223"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {}
+}

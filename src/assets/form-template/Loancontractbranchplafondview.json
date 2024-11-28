@@ -1,0 +1,112 @@
+{
+    "title": "LoanContractBranchPlafondView",
+    "hideTitle": true,
+    "id": "Loancontractbranchplafondview",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "Branch Plafond",
+                "resultData": "",
+                "isSubsection": true,
+                "usePagination": true,
+                "includeSubmit": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Branch Name",
+                            "position": "left",
+                            "name": "OfficeCode"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Plafond Amount",
+                            "position": "right",
+                            "name": "PlafondAmount"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "OS Plafond Amount",
+                            "position": "right",
+                            "name": "OsPlafondAmount"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "OfficeCode",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "PlafondAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "OsPlafondAmount",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityMntUrl",
+                    "apiPath": "/v1/LoanContract/GetListLoanContractBranchPlafondInfoByLoanContractNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "Code",
+                            "propValue": "LoanContractNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "09481257-aeac-4e5f-bd74-12587017f995"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

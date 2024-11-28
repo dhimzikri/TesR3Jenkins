@@ -1,0 +1,99 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Zipcode Registration</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="RefZipCodeForm" (ngSubmit)="RefZipCodeForm.valid && SaveForm()"
+          #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'ZipcodeInfoId'" [title]="'Zipcode Information '+ pageType" [panel]="'ZipcodeInfo'"></lib-ucSubsection>
+            <div id="ZipcodeInfo">
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel adins-required-label" translate>Kelurahan </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput name" formControlName="AreaCode2"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefZipCodeForm.controls.AreaCode2.invalid }">
+                  <lib-uc-show-errors [control]="RefZipCodeForm.controls.AreaCode2" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel  adins-required-label" translate>Kecamatan </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput name" formControlName="AreaCode1"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefZipCodeForm.controls.AreaCode1.invalid }">
+                  <lib-uc-show-errors [control]="RefZipCodeForm.controls.AreaCode1" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel  adins-required-label" translate>City </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput name" formControlName="City"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefZipCodeForm.controls.City.invalid }">
+                  <lib-uc-show-errors [control]="RefZipCodeForm.controls.City" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel  adins-required-label" translate>Zipcode </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput code" formControlName="Zipcode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefZipCodeForm.controls.Zipcode.invalid }">
+                  <lib-uc-show-errors [control]="RefZipCodeForm.controls.Zipcode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel code" translate>Sub Zipcode </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput code" formControlName="SubZipcode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefZipCodeForm.controls.SubZipcode.invalid }">
+                  <lib-uc-show-errors [control]="RefZipCodeForm.controls.SubZipcode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel  adins-required-label" translate>District </label>
+                <div class="col-md-9 name">
+                  <lib-uclookupgeneric width-75-per [lookupInput]="inputDistrictLookupObj"
+                    [identifier]="'RefProvDistrictId'" [enjiForm]='enjiForm' [parentForm]='RefZipCodeForm'>
+                  </lib-uclookupgeneric>
+                </div>
+              </div>
+              <!-- <div class="form-group row">
+                <label class="col-md-3  adInsLabel  adins-required-label" translate>Phone Area Number </label>
+                <div class="col-md-9">
+                  <input type="number" class="form-control adInsInput width-20-per" formControlName="PhnArea"
+                         [ngClass]="{ 'is-invalid': enjiForm.submitted && RefZipCodeForm.controls.PhnArea.invalid }">
+                  <lib-uc-show-errors [control]="RefZipCodeForm.controls.PhnArea" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div> -->
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel  adins-required-label" translate>Active Status </label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1"
+              [routerLink]="[CancelLink]" skipLocationChange>
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

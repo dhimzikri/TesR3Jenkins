@@ -1,0 +1,97 @@
+{
+    "title": "Lookup - Customer",
+    "sectionTitle": "Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "C.CUST_NO",
+            "id": "CustNo",
+            "value": "",
+            "label": "Customer No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "C.CUST_NAME",
+            "id": "CustName",
+            "value": "",
+            "label": "Customer Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "C.MR_CUST_TYPE_CODE", 
+            "id": "CustTypeCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Type",
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "CUST_TYPE",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        }
+    ],
+    "querystring": {
+        "name": "lookupCust_CustGrp_Company"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Customer No",
+            "name": "custNo"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Customer Name",
+            "name": "custName"
+        }, 
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Customer Group Name",
+            "name": "CustGroupName"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "custNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "custName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "CustGroupName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "custId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "custId",
+    "propertyName": "custNo"
+}

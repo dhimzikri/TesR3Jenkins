@@ -1,0 +1,67 @@
+<div class="bg-light-blue-card">
+  <lib-ucSubsection [id]="'MainInfoId'" [title]="'Main Information'" [panel]="'MainInfo'">
+  </lib-ucSubsection>
+  <div class="card-body" id="MainInfo">
+    <div class="form-body p-3 border-top border-bottom">
+      <div class="form-group row">
+  
+        <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-12 py-2">
+          <span>
+            <div class="row">
+              <div class="col-md-12">
+                <label class="label-control label-field" translate> Customer No </label>
+              </div>
+              <div class="col-md-12">
+                <span>
+                  <label class="label-control label-value breakword">
+                    <a (click)="openCustView(CustExpsrInfoObj.CustNo)" style="color: #009DA0;"><span>{{ CustExpsrInfoObj.CustNo }}</span></a>
+                  </label>
+                </span>
+              </div>
+            </div>
+          </span>
+        </div>
+  
+        <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-12 py-2">
+          <span>
+            <div class="row">
+              <div class="col-md-12">
+                <label class="label-control label-field"> Customer Name </label>
+              </div>
+              <div class="col-md-12">
+                <span>
+                  <span id="CustIndicator" style="float: left;">
+                    <i [ngClass]="CustExpsrInfoObj.CustIndicator == null ? 'far fa-circle' : CustExpsrInfoObj.CustIndicator != whiteIndicator ? 'fa fa-circle' : 'far fa-circle'"
+                    [ngStyle]="{'color': CustExpsrInfoObj.CustIndicator == null ? '' : CustExpsrInfoObj.CustIndicator != whiteIndicator ? CustExpsrInfoObj.CustIndicator : ''}" class="font-medium-3 tooltips">
+                      <span class="tooltipstext">
+                        <span *ngIf="CustExpsrInfoObj.CustIndicatorDescr != null && CustExpsrInfoObj.CustIndicatorDescr != ''"> {{CustExpsrInfoObj.CustIndicatorDescr}} </span>
+                        <span *ngIf="CustExpsrInfoObj.CustIndicatorDescr == null || CustExpsrInfoObj.CustIndicatorDescr == ''"> No Data </span>
+                      </span>
+                    </i>
+                  </span>
+                  <label class="label-control label-value breakword">&nbsp; {{CustExpsrInfoObj.CustName}} </label>
+                </span>
+              </div>
+            </div>
+          </span>
+        </div>
+  
+        <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-12 py-2">
+          <span>
+            <div class="row">
+              <div class="col-md-12">
+                <label class="label-control label-field"> Relation With Customer </label>
+              </div>
+              <div class="col-md-12">
+                <span>
+                  <label class="label-control label-value breakword">{{CustExpsrInfoObj.CustName}} </label>
+                </span>
+              </div>
+            </div>
+          </span>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+</div>

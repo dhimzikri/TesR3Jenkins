@@ -1,0 +1,43 @@
+<lib-UCSearch id="ucSearch" style="width:100%;" [searchInput]='inputObj' (result)="getResult($event)"></lib-UCSearch>
+
+<div [hidden]="resultData?.data == null">
+  <div style="overflow-x: auto;">
+    <table class="table table-responsive-md text-center table-hover">
+      <thead>
+        <tr class="table-header">
+          <th class="text-left"><span class="thead-header" (click)="searchSort($event)" name='refMasterTypeCode'>Master Type Code</span></th>
+          <th class="text-left"><span class="thead-header" (click)="searchSort($event)" name='descr'>Description</span></th>
+          <th><span class="thead-header" (click)="searchSort($event)" name='isSandiBi'>Sandi BI</span></th>
+          <th><span class="thead-header" (click)="searchSort($event)" name='isActive'>Active</span></th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of resultData?.data">
+          <td class="text-left">{{item.refMasterTypeCode}}</td>
+          <td class="text-left">{{item.descr}}</td>
+          <td>
+            <span *ngIf="item.isSandiBi == '1'">Yes</span>
+            <span *ngIf="item.isSandiBi == '0'">No</span>
+          </td>
+          <td>
+            <span *ngIf="item.isActive == '1'">Yes</span>
+            <span *ngIf="item.isActive == '0'">No</span>
+          </td>
+          <td>
+            <a class="success p-0" data-original-title="" title="" [routerLink]="[EditLink]" skipLocationChange
+              [queryParams]="{refRoleId:item.refRoleId,mode:'edit'}">
+              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+            </a>
+            <a class="danger p-0" data-original-title="" title="" (click)="del(item.refRoleId)">
+              <i class="ft-trash-2 font-medium-3 mr-2"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <lib-ucgridfooter (select)="onSelect($event)"></lib-ucgridfooter>
+</div>
+<i class="fa fa-plus-circle" [routerLink]="[EditLink]" skipLocationChange
+  style="position: absolute; right: 30px; bottom: 0; cursor: pointer; font-size: 36px"></i>

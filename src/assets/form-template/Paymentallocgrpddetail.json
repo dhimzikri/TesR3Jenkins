@@ -1,0 +1,334 @@
+{
+    "title": "PAYMENT ALLOCATION MAPPING ADD",
+    "hideTitle": false,
+    "id": "Paymentallocgrpddetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "Id",
+                    "subSectionTitle": "Payment Allocation Group Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "FOU",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/v1/RefPaymentAllocGrpHObj/GetObjectByUniqueNo",
+                    "querystring": {
+                        "name": ""
+                    },
+                    "reqObj": {
+                        "TrxNo": "PayAllocGrpCode"
+                    },
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Payment Alloc Group Code",
+                            "property": "PayAllocGrpCode",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Alloc Group Name",
+                            "property": "PayAllocGrpName",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "Is Active",
+                            "property": "IsActive",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "Is System",
+                            "property": "IsSystem",
+                            "position": "left",
+                            "isHide": false
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "PaymentAllocationGroupInfoId"
+                }
+            },
+            "id": "57d73058-3a05-4573-8aef-996df1416cb0"
+        },
+        {
+            "addtotemp": {
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Payment Allocation",
+                    "querystring": {
+                        "name": "searchPaymentAllocPaging"
+                    },
+                    "component": [
+                        {
+                            "id": "paymentAllocCodeSearchId",
+                            "type": "textbox",
+                            "label": "Payment Allocation Code",
+                            "name": "PAYMENT_ALLOC_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "paymentAllocNameSearchId",
+                            "type": "textbox",
+                            "label": "Payment Allocation Name",
+                            "name": "PAYMENT_ALLOC_NAME",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "isActiveSearchId",
+                            "type": "dropdown",
+                            "label": "Is Active",
+                            "name": "IS_ACTIVE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "isSystemSearchId",
+                            "type": "dropdown",
+                            "label": "Is System",
+                            "name": "IS_SYSTEM",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Payment Allocation Code",
+                            "position": "center",
+                            "name": "PAYMENT_ALLOC_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Payment Allocation Name",
+                            "position": "center",
+                            "name": "PAYMENT_ALLOC_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Is Active",
+                            "position": "center",
+                            "name": "IS_ACTIVE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Is System",
+                            "position": "center",
+                            "name": "IS_SYSTEM"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "PaymentAllocCode"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "PaymentAllocName"
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsActive"
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsSystem"
+                        }
+                    ],
+                    "keyPropCriteria": "PAYMENT_ALLOC_CODE",
+                    "keyProperty": "PaymentAllocCode"
+                },
+                "criteria": [
+                    {
+                        "isFromDict": true,
+                        "propName": "PAYMENT_ALLOC_CODE",
+                        "restriction": "NotIn",
+                        "value": "PayAllocCodes"
+                    }
+                ],
+                "whereValue": [],
+                "fromValue": [],
+                "environment": "FoundationR3Url",
+                "apiVersion": "v2",
+                "useIntegration": false
+            },
+            "id": "914e4261-31c0-4499-8420-b9ab2a49200d"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [
+        {
+            "displayName": "Submit",
+            "id": "submitId",
+            "key": "",
+            "position": "bottom",
+            "icon": "",
+            "cssClass": "btn-primary-2",
+            "conditions": [
+                {
+                    "property": "listTemp.length",
+                    "restriction": "GT",
+                    "value": "0"
+                }
+            ],
+            "action": {
+                "type": "http",
+                "environment": "FoundationR3Url",
+                "path": "/v1/RefPaymentAllocGrp/SubmitRefPaymentAllocGrpD",
+                "reqObj": [
+                    {
+                        "propName": "ListRefPayAllocObj",
+                        "propValue": "listTemp"
+                    },
+                    {
+                        "propName": "PayAllocGrpCode",
+                        "propValue": "PayAllocGrpCode"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "result": {
+                            "type": "link",
+                            "path": "/CommonSetting/PaymentAllocGrpD/Paging",
+                            "target": "_self",
+                            "params": [
+                                {
+                                    "propName": "PayAllocGrpCode",
+                                    "propValue": "PayAllocGrpCode"
+                                }
+                            ]
+                        },
+                        "conditions": []
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "params": [],
+                            "mode": "success",
+                            "message": "${Message}"
+                        }
+                    }
+                ],
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                }
+            },
+            "btnType": "button"
+        },
+        {
+            "displayName": "Back",
+            "id": "backId",
+            "key": "Back",
+            "position": "top",
+            "icon": "fas fa-arrow-left",
+            "cssClass": "btn-outline-2",
+            "conditions": [],
+            "btnType": "button",
+            "action": {
+                "type": "link",
+                "path": "/CommonSetting/PaymentAllocGrpD/Paging",
+                "target": "_self",
+                "params": [
+                    {
+                        "propName": "PayAllocGrpCode",
+                        "propValue": "PayAllocGrpCode"
+                    }
+                ]
+            }
+        }
+    ],
+    "customToastrMsg": "",
+    "onInit": [
+        {
+            "environment": "FoundationR3Url",
+            "apiPath": "/v1/RefPaymentAllocGrp/GetListRefPayAllocCodeByPayAllocGrpCode",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Code",
+                    "propValue": "PayAllocGrpCode"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "PayAllocCodes",
+                    "propValue": "ReturnObject"
+                }
+            ]
+        }
+    ],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "hideCancelButton": false
+}

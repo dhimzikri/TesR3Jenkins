@@ -1,0 +1,25 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "WorkingHourSchemeInfoId",
+        "subSectionTitle": "Working Hour Scheme Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Working Hour Scheme Code",
+            "property": "WorkingHourSchmCode"
+          },
+          {
+            "type": "text",
+            "label": "Working Hour Scheme Name",
+            "property": "WorkingHourSchmName"
+          }
+        ],
+        "querystring": {
+            "name": "viewWorkingHourScheme"
+        }
+      }
+    ]
+  }

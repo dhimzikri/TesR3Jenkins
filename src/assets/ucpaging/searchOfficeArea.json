@@ -1,0 +1,128 @@
+{
+    "title": "Office Area",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "AREA_CODE",
+            "id": "areaCodeId",
+            "value": "",
+            "label": "Area Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "IS_ACTIVE",
+            "id": "activeStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "AREA_NAME",
+            "id": "areaNameId",
+            "value": "",
+            "label": "Area Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "searchOfficeArea"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Area Code",
+            "name": "AREA_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Area Name",
+            "name": "AREA_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "IS_ACTIVE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Area Member"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "AreaCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AreaName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "OFFICE_AREA_MEMBER",
+                    "param": [
+                        {
+                            "type": "RefOfficeAreaId",
+                            "property": "RefOfficeAreaId"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "OFFICE_AREA_DETAIL",
+                    "param": [
+                        {
+                            "type": "RefOfficeAreaId",
+                            "property": "RefOfficeAreaId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

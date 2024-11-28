@@ -1,0 +1,239 @@
+{
+  "title": "Vendor Grading Inquiry",
+  "component": [
+    {
+      "type": "textbox",
+      "name": "vdr.VENDOR_CODE",
+      "id": "VendorCodeId",
+      "value": "",
+      "label": "Vendor Code",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "textbox",
+      "name": "vdr.VENDOR_NAME",
+      "id": "VendorNameId",
+      "value": "",
+      "label": "Vendor Name",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "textbox",
+      "name": "hist.VENDOR_GRADING_HIST_NO",
+      "id": "VendorGradingHistNo",
+      "value": "",
+      "label": "Transaction No",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "textbox",
+      "name": "hist.NEW_GRADE",
+      "id": "Grade",
+      "label": "Grade",
+      "value": "",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "datepicker",
+      "label": "Request Date >=",
+      "name": "hist.REQ_DT",
+      "id": "ReqDtGte",
+      "value": "1999-01-01",
+      "maxDate" : "31-Dec-9999",
+      "restriction": "gte",
+      "placeholder": "",
+      "datatype": "date"
+    },
+    {
+      "type": "datepicker",
+      "label": "Request Date <=",
+      "name": "hist.REQ_DT",
+      "id": "ReqDtLte",
+      "value": "2100-01-01",
+      "maxDate" : "31-Dec-9999",
+      "restriction": "lte",
+      "placeholder": "",
+      "datatype": "date"
+    },
+    {
+      "type": "dropdown",
+      "name": "vdr.IS_ACTIVE",
+      "id": "IsActiveId",
+      "label": "Active",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromUrl": false,
+      "ddlType": "all",
+      "items": [
+        {
+          "key": "1",
+          "value": "Active"
+        },
+        {
+          "key": "0",
+          "value": "Not Active"
+        }
+      ],
+      "itemsUrl": []
+    },
+    {
+      "type": "dropdown",
+      "name": "hist.status",
+      "id": "GradingStatus",
+      "label": "Status",
+      "value": "",
+      "placeholder": "Placeholder",
+      "ddlType": "all",
+      "itemsUrl": [],
+      "isFromURL": true,
+      "url": "",
+      "environment": "FOU",
+      "path": "/RefMaster/GetListKeyValueActiveByCode",
+      "criteriaPropName": "RefMasterTypeCode",
+      "criteriaPropValue": "VENDOR_GRADING_STATUS"
+    },
+    {
+      "type": "dropdown",
+      "name": "rm2.MASTER_CODE",
+      "id": "MrVendorCategoryDescr",
+      "value": "",
+      "placeholder": "Placeholder",
+      "datatype": "text",
+      "isFromURL": true,
+      "ddlType": "all",
+      "url": "",
+      "path": "/RefMaster/GetListKeyValueActiveByCode",
+      "label": "Vendor Category",
+      "criteriaPropName": "RefMasterTypeCode",
+      "criteriaPropValue": "VENDOR_GRADING_CATEGORY",
+      "items": [],
+      "itemsUrl": [],
+      "environment": "FOU"
+    }
+  ],
+  "querystring": {
+    "name": "searchInquirySupplBranchGrading"
+  },
+  "headerList": [
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "VENDOR CODE",
+      "name": "vdr.VENDOR_CODE"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "VENDOR NAME",
+      "name": "vdr.VENDOR_NAME"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "VENDOR CATEGORY",
+      "name": "rm2.DESCR"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "TRANSACTION NO",
+      "name": "hist.vendor_grading_hist_no"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "REQUEST DATE",
+      "name": "hist.req_dt"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "APPROVAL DATE",
+      "name": "hist.apv_dt"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "EXECUTE DATE",
+      "name": "hist.exe_dt"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "Grade Status",
+      "name": "hist.NEW_GRADE"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "Status",
+      "name": "rm.DESCR"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "Is Active",
+      "name": "vdr.IS_ACTIVE"
+    }
+  ],
+  "bodyList": [
+    {
+      "type": "text",
+      "position": "center",
+      "property": "VendorCode"
+    },
+    {
+      "type": "link",
+      "position": "center",
+      "property": "VendorName",
+      "target": "_blank",
+      "path": "/View/Vendor/VendorBranch",
+      "param": [
+        {
+          "type": "VendorId",
+          "property": "VendorId"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "position": "center",
+      "property": "MrVendorCategoryDescr"
+    },
+    {
+      "type": "text",
+      "position": "center",
+      "property": "VendorGradingHistNo"
+    },
+    {
+      "type": "date",
+      "position": "center",
+      "property": "ReqDt"
+    },
+    {
+      "type": "date",
+      "position": "center",
+      "property": "ApvDt"
+    },
+    {
+      "type": "date",
+      "position": "center",
+      "property": "ExeDt"
+    },
+    {
+      "type": "text",
+      "position": "center",
+      "property": "Grade"
+    },
+    {
+      "type": "text",
+      "position": "center",
+      "property": "descr"
+    },
+    {
+      "type": "boolean",
+      "position": "center",
+      "property": "IsActive"
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+    "title": "Loan Payment Batch Fee",
+    "hideTitle": false,
+    "id": "LoanPaymentBatchFee",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "service": "",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Search",
+                    "querystring": {
+                        "name": "searchLoanPaymentBatchFee"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LCT.LOAN_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "lctloanContractNameSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract",
+                            "name": "LCT.LOAN_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanContract/GetListLoanContractKeyAndValue",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LBT.LOAN_BATCH_NO"
+                            ],
+                            "filterPropName": "LoanContractNo"
+                        },
+                        {
+                            "id": "lbtloanBatchNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "LBT.LOAN_BATCH_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanBatch/GetListLoanBatchByContractNo",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "lctcurrCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Currency",
+                            "name": "LCT.CURR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/RefCurr/GetListKvpActiveRefCurr",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LCT.CURR_CODE"
+                            ],
+                            "filterPropName": "Currency"
+                        },
+                        {
+                            "id": "lctfacilityKindCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Facility Type",
+                            "name": "LCT.FACILITY_KIND_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/RefMaster/GetListKeyValueActiveByCode",
+                            "criteriaPropName": "RefMasterTypeCode",
+                            "criteriaPropValue": "TMS_FACILITY_TYPE",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company",
+                            "position": "left",
+                            "name": "VT.VENDOR_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract",
+                            "position": "left",
+                            "name": "LCT.LOAN_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "left",
+                            "name": "LBT.LOAN_BATCH_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Currency",
+                            "position": "left",
+                            "name": "RCT.CURR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Facility Type",
+                            "position": "left",
+                            "name": "LCT.FACILITY_KIND_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Plan Amount",
+                            "position": "right",
+                            "name": "LBT.DRAWDOWN_AMT"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundCoyName",
+                            "isFlagColor": false,
+                            "key": "ViewFundCoy"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundContractName",
+                            "isFlagColor": false,
+                            "key": "ViewFundContract"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "BatchNo",
+                            "isFlagColor": false,
+                            "key": "ViewFundBatch"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "CurrencyName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "FacilityTypeName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "DrawdownAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/PaymentOut/PayoutFee/Detail",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "TrxNo",
+                                            "property": "BatchNo"
+                                        },
+                                        {
+                                            "type": "Level",
+                                            "property": "BATCH"
+                                        }
+                                    ],
+                                    "property": "Detail Loan Payout Fee"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "bd0e465c-01c1-44c2-b6b6-b9538456987a"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

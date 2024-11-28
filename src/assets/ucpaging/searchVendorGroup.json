@@ -1,0 +1,144 @@
+{
+    "title": "Vendor Group",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "VG.VENDOR_GRP_CODE",
+            "id": "VendorGrpCodeId",
+            "value": "",
+            "label": "Group Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "VG.VENDOR_GRP_NAME",
+            "id": "VendorGrpNameId",
+            "value": "",
+            "label": "Group Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "VG.IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchVendorGroup"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "GROUP CODE",
+            "name": "VG.VENDOR_GRP_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "GROUP NAME",
+            "name": "VG.VENDOR_GRP_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "VG.IS_ACTIVE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "# OF MEMBER",
+            "name": "NumOfMbr"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Member"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VendorGrpCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VendorGrpName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "NumOfMbr"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VENDOR_GRP_VIEW",
+                    "param": [
+                        {
+                            "type": "VendorGrpId",
+                            "property": "VendorGrpId"
+                        },
+                        {
+                            "type": "MrVendorCategoryCode",
+                            "property": "MrVendorCategoryCode"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VENDOR_GRP_ADD",
+                    "param": [
+                        {
+                            "type": "VendorGrpId",
+                            "property": "VendorGrpId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,187 @@
+{
+  "title": "Funding Company View",
+  "id": "VendorFundingCoyViewXcnaf",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "view": {
+        "subsection": {
+          "subSectionId": "MainInformationId",
+          "subSectionTitle": "Main Information",
+          "concatDate": false,
+          "setDate": "",
+          "formatDate": "",
+          "environment": "FoundationR3Url",
+          "apiVersion": "v1",
+          "uri": "",
+          "mainInfoPath": "/Generic/GetDataViewBySQL",
+          "service": "",
+          "querystring": { "name": "ViewFundCoyX" },
+          "reqObj": {},
+          "resObjName": "",
+          "mainInfo": [
+            {
+              "type": "text",
+              "label": "Vendor Code",
+              "property": "FundCoyCode",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Vendor Name",
+              "property": "FundCoyName",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Active Status",
+              "property": "IsActive",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Syariah Status",
+              "property": "IsSyariah",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Address",
+              "property": "Address",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Jurisdiction",
+              "property": "Jurisdiction",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            }
+          ],
+          "whereValue": [],
+          "fromValue": []
+        }
+      },
+      "id": "5e6344f8-83d3-46d6-95dd-899327f97294"
+    },
+    {
+      "container": {
+        "key": "FundingCompanyDetailComponent",
+        "className": "FundingCompanyDetailComponent",
+        "cssClass": "",
+        "input": {}
+      },
+      "id": "36cd5ea7-f246-4b6c-8c89-d66711f21075"
+    },
+    {
+      "table": {
+        "isFromApi": true,
+        "title": "Contact Information",
+        "resultData": "",
+        "isSubsection": true,
+        "usePagination": false,
+        "includeSubmit": false,
+        "defaultChecked": false,
+        "tableInput": {
+          "isSeq": false,
+          "headerList": [
+            {
+              "type": "label",
+              "label": "Contact Person Name",
+              "position": "left",
+              "isSelectAll": false
+            },
+            {
+              "type": "label",
+              "label": "Contact Person Number",
+              "position": "center",
+              "isSelectAll": false
+            },
+            {
+              "type": "label",
+              "label": "Contact Person Email",
+              "position": "left",
+              "isSelectAll": false
+            }
+          ],
+          "bodyList": [
+            {
+              "type": "text",
+              "position": "left",
+              "property": "Name",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "Phone1",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "left",
+              "property": "Email",
+              "isFlagColor": false
+            }
+          ]
+        },
+        "getData": {
+          "environment": "FoundationR3Url",
+          "apiPath": "/v1/VendorContactPerson/GetListVendorContactPersonByVendorCode",
+          "customObjName": "ReturnObject",
+          "reqObj": [
+            {
+              "isFromDict": false,
+              "propName": "code",
+              "propValue": "FundCoyCode"
+            }
+          ],
+          "conditions": []
+        }
+      },
+      "id": "47536f3c-3fda-4de2-96ce-ce1b3aa11250"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "hideTitle": false,
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "listBtn": [],
+  "onCancel": {},
+  "isOverrideSubmit": false,
+  "isOverrideCancel": false,
+  "onSubmit": [],
+  "hideCancelButton": false,
+  "onInit": [],
+  "conditionalTitle": [],
+  "persistData": false,
+  "persistPropName": "",
+  "overrideSubmitBtnText": "",
+  "customToastrMsg": ""
+}

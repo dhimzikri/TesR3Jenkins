@@ -1,0 +1,10 @@
+<lib-ucviewgeneric [viewGenericObj]="viewGenericObj"></lib-ucviewgeneric>
+<div class="card" *ngIf="stringBodyEmail">
+    <div class="card-body px-3">
+      <lib-ucSubsection [id]="'TemplateBodyId'" [title]="'Email Template Body'" [panel]="'TemplateBody'">
+      </lib-ucSubsection>
+      <div id="TemplateBody">
+          <label class="col-md-8" [innerHTML]="stringBodyEmail"></label>
+      </div>
+    </div>
+</div>

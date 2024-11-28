@@ -1,0 +1,35 @@
+img {
+    width: 70%;
+    height: auto;
+}
+
+.title {
+    color: #6E93DC;
+    font-weight: bold;
+    font-size: large;
+}
+
+.outerBox {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-btn {
+    font-size: medium;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 1.2rem;
+    color: #FFF;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: #5d8eee;
+    transition: 200ms;
+}
+
+.custom-btn:hover {
+    background: #0746c2;
+    transition: 200ms;
+}

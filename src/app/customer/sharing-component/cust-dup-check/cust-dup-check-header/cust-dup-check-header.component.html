@@ -1,0 +1,195 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card bg-light-blue-card">
+      <div class="card-body">
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate>Debtor Duplicate Checking Match
+                {{CustType}} </h4>
+            </div>
+            <div class="col-md-4" style="text-align-last: right">
+              <button type="button" class="btn btn-raised btn-outline-2 mr-1" (click)="Back()">
+                <i class="fa fa-arrow-left"></i>&nbsp;<span translate>Back</span>
+              </button>
+              <button [hidden]="IsLock" type="button" class="btn btn-raised btn-primary-2" (click)="SaveForm()">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>New Debtor</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <app-cust-dup-check-personal *ngIf="CustType == CustTypePersonal" [CustObj]="CustPersonalObj">
+        </app-cust-dup-check-personal>
+        <app-cust-dup-check-company *ngIf="CustType == CustTypeCoy" [CustObj]="CustCoyObj">
+        </app-cust-dup-check-company>
+        <!-- Match / Similar Data -->
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <lib-ucSubsection [id]="'MatchSimilarDataId'" [title]="'Match / Similar Data'"
+                [panel]="'MatchSimilarData'">
+              </lib-ucSubsection>
+              <div class="table-responsive" id="MatchSimilarData">
+                <table class="table table-responsive-md text-center table-hover">
+                  <thead>
+                    <tr class="table-header">
+                      <th><span class="thead-header" name='No' translate>NO.</span>
+                      </th>
+                      <th><span style="float: left; text-align: left; width: 120px;" class="thead-header" name='CustNo'
+                          translate>DEBTOR NO.</span>
+                      </th>
+                      <th><span style="float: left; text-align: left; width: 200px;" class="thead-header"
+                          name='CustName' translate>DEBTOR NAME</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 100px;" class="thead-header" name='MrIdType'
+                          translate>ID TYPE</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 100px;" class="thead-header" name='IdNo'
+                          translate>ID NO.</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 100px;" class="thead-header" name='TaxIdNo'
+                          translate>TAX ID NO</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 100px;" class="thead-header" name='BirthDt'
+                          translate>BIRTH DATE</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 200px;" class="thead-header"
+                          name='MotherMaidenName' translate>MOTHER MAIDEN NAME</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 150px;" class="thead-header" name='MobilePhnNo1'
+                          translate>MOBILE PHONE</span>
+                      </th>
+                      <th><span class="thead-header" name='Status' translate>STATUS</span>
+                      </th>
+                      <th><span style="float: left; text-align: left; width: 220px;" class="thead-header"
+                          name='DuplicateItem' translate>DUPLICATE ITEM</span>
+                      </th>
+                      <th><span class="thead-header" name='Select' translate>SELECT</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="ResultDuplicate?.length == 0">
+                    <tr>
+                      <td colspan="100%">No Data Available</td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <ng-container *ngFor="let item of ResultDuplicate; let i = index">
+                      <tr>
+                        <td>{{i+1}}</td>
+                        <td align="left">{{item.CustNo}}</td>
+                        <td align="left">{{item.CustName}}</td>
+                        <td *ngIf="CustType == CustTypePersonal" align="left">{{item.MrIdType}}</td>
+                        <td *ngIf="CustType == CustTypePersonal" align="left">{{item.IdNo}}</td>
+                        <td *ngIf="CustType == CustTypePersonal" align="left">{{item.TaxIdNo}}</td>
+                        <td *ngIf="CustType == CustTypePersonal" align="left">{{item.BirthDt | date: 'yyyy-MM-dd'}}</td>
+                        <td *ngIf="CustType == CustTypePersonal" align="left">{{item.MotherMaidenName}}</td>
+                        <td *ngIf="CustType == CustTypePersonal" align="left">{{item.MobilePhnNo1}}</td>
+                        <td>{{DuplicateStatus}}</td>
+                        <td align="left">{{item.DuplicateItem}}</td>
+                        <td>
+                          <a class="success p-0" data-original-title="" title="" (click)="EditCust(item)">
+                            <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+
+              <lib-ucSubsection [id]="'NegMatchSimilarDataId'" [title]="'Negative Debtor Match / Similar Data'"
+                [panel]="'NegMatchSimilarData'">
+              </lib-ucSubsection>
+              <div class="table-responsive" id="NegMatchSimilarData">
+                <table class="table table-responsive-md text-center table-hover">
+                  <thead>
+                    <tr class="table-header">
+                      <th><span class="thead-header" name='No' translate>NO.</span>
+                      </th>
+                      <th><span style="float: left; text-align: left; width: 120px;" class="thead-header" name='CustNo'
+                          translate>DEBTOR NO.</span>
+                      </th>
+                      <th><span style="float: left; text-align: left; width: 200px;" class="thead-header"
+                          name='CustName' translate>DEBTOR NAME</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 100px;" class="thead-header" name='MrIdType'
+                          translate>ID TYPE</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 100px;" class="thead-header" name='IdNo'
+                          translate>ID NO</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 100px;" class="thead-header" name='TaxIdNo'
+                          translate>TAX ID NO</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 100px;" class="thead-header" name='BirthDt'
+                          translate>BIRTH DATE</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 200px;" class="thead-header"
+                          name='MotherMaidenName' translate>MOTHER MAIDEN NAME</span>
+                      </th>
+                      <th *ngIf="CustType == CustTypePersonal"><span
+                          style="float: left; text-align: left; width: 150px;" class="thead-header" name='MobilePhnNo1'
+                          translate>MOBILE PHONE</span>
+                      </th>
+                      <th><span style="float: left; float: left; text-align: left; width: 150px;" class="thead-header"
+                          name='MrNegCustSource' translate>NEGATIVE SOURCE</span>
+                      </th>
+                      <th><span style="float: left; float: left; text-align: left; width: 150px;" class="thead-header"
+                          name='MrNegCustType' translate>NEGATIVE TYPE</span>
+                      </th>
+                      <th><span class="thead-header" name='Status' translate>STATUS</span>
+                      </th>
+                      <th><span style="float: left; text-align: left; width: 220px;" class="thead-header"
+                          name='DuplicateItem' translate>DUPLICATE ITEM</span>
+                      </th>
+                      <th><span class="thead-header" name='Select' translate>SELECT</span>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="ResultDuplicateNegative?.length == 0">
+                    <tr>
+                      <td colspan="100%">No Data Available</td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <tr *ngFor="let item of ResultDuplicateNegative; let i = index">
+                      <td>{{i+1}}</td>
+                      <td class="text-left">{{item.CustNo}}</td>
+                      <td class="text-left">{{item.CustName}}</td>
+                      <td *ngIf="CustType == CustTypePersonal" align="left">{{item.MrIdTypeCode}}</td>
+                      <td *ngIf="CustType == CustTypePersonal" class="text-left">{{item.IdNo}}</td>
+                      <td *ngIf="CustType == CustTypePersonal" class="text-left">{{item.TaxIdNo}}</td>
+                      <td *ngIf="CustType == CustTypePersonal">{{item.BirthDt | date: 'yyyy-MM-dd'}}</td>
+                      <td *ngIf="CustType == CustTypePersonal" align="left">{{item.MotherMaidenName}}</td>
+                      <td *ngIf="CustType == CustTypePersonal" align="left">{{item.MobilePhnNo1}}</td>
+                      <td align="left">{{item.MrNegCustSource}}</td>
+                      <td align="left">{{item.MrNegCustType}}</td>
+                      <td>{{DuplicateStatus}}</td>
+                      <td class="text-left">{{item.DuplicateItem}}</td>
+                      <td>
+                        <a class="success p-0" data-original-title="" title="" (click)="EditNegativeCust(item)">
+                          <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

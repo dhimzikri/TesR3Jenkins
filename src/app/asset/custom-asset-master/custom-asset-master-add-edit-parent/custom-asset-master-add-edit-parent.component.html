@@ -1,0 +1,14 @@
+<adins-uctemplate [pageName]="pageName" [handler]="handler" [Form]="parentForm" (onFormCreated)="onFormCreate($event)"></adins-uctemplate>
+<!-- <div *ngIf="isFinal == true" class="px-3">
+  <div class="form-group row">
+    <label class="col-md-3 adInsLabel adins-required-label" translate>Asset Category </label>
+    <div class="col-md-9">
+      <select class="form-control adInsInput" formControlName="AssetCategoryId" [attr.disabled]="mode == 'edit' ? true : null">
+        <option *ngFor="let ram of resultAssetCategory" [value]="ram.Key">
+          {{ram.Value}}
+        </option>
+      </select>
+      <lib-uc-show-errors [control]="AssetMasterParentForm.controls.AssetCategoryId"></lib-uc-show-errors>
+    </div>
+  </div>
+</div> -->

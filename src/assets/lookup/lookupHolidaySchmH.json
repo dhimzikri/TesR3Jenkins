@@ -1,0 +1,22 @@
+{
+  "title": "Lookup - Holiday Scheme",
+  "sectionTitle": "Search",
+  "component": [
+    {
+      "type": "textbox",
+      "name": "holiday_schm_code",
+      "id": "HolidaySchmCode",
+      "value": "",
+      "label": "Holiday Scheme Code",
+      "placeholder": "Holiday Scheme Code"
+    },
+    {
+      "type": "textbox",
+      "name": "holiday_schm_name",
+      "id": "HolidaySchmName",
+      "value": "",
+      "label": "Holiday Scheme Name",
+      "placeholder": "Holiday Scheme Name"
+    }
+  ]
+}

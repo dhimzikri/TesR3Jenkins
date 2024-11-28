@@ -1,0 +1,35 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "AddressId",
+        "subSectionTitle": "Job Data",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Customer Model",
+            "property": "CustModel"
+          },
+          {
+            "type": "text",
+            "label": "Job Title Name",
+            "property": "JobTitleName"
+          },
+          {
+            "type": "text",
+            "label": "Profession Name",
+            "property": "ProfessionName"
+          },
+          {
+            "type": "text",
+            "label": "Number Of Employee",
+            "property": "NoOfEmp"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustJobDataNonProf"
+        }
+      }
+    ]
+  }

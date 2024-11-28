@@ -1,0 +1,147 @@
+{
+  "title": "Unpledge",
+  "hideTitle": false,
+  "id": "Unpledge",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "view": {
+        "subsection": {
+          "subSectionId": "FundingMainInfoId",
+          "subSectionTitle": "Funding Main Info",
+          "concatDate": false,
+          "setDate": "",
+          "formatDate": "",
+          "environment": "facilityMntUrl",
+          "apiVersion": "v1",
+          "uri": "",
+          "mainInfoPath": "/Generic/GetDataViewBySQL",
+          "querystring": {
+            "name": "fundingContractMasterEntityByBatchNo"
+          },
+          "reqObj": {},
+          "mainInfo": [
+            {
+              "type": "callback",
+              "label": "Funding Company Name",
+              "property": "FundingCompanyName",
+              "key": "ViewVendor",
+              "position": "left",
+              "isHide": false,
+              "isText": false
+            },
+            {
+              "type": "link",
+              "label": "Funding Contract No",
+              "property": "FundingContractNo",
+              "environment": "facilityMNTWeb",
+              "path": "/View/FundingContract/View",
+              "target": "_blank",
+              "position": "left",
+              "param": [
+                {
+                  "type": "JfContractNo",
+                  "property": "FundingContractNo"
+                }
+              ],
+              "isCurrency": false,
+              "isHide": false
+            },
+            {
+              "type": "link",
+              "label": "Funding Batch No",
+              "property": "BatchNo",
+              "environment": "facilityMNTWeb",
+              "path": "/View/fundingBatch/ViewX",
+              "target": "_blank",
+              "position": "left",
+              "param": [
+                {
+                  "type": "BatchNo",
+                  "property": "BatchNo"
+                }
+              ],
+              "isCurrency": false,
+              "isHide": false
+            },
+            {
+              "type": "currency",
+              "label": "Funding Pledged Amount",
+              "property": "PrincipalAmountToFunding",
+              "position": "left",
+              "isHide": false
+            },
+            {
+              "type": "text",
+              "label": "Num Of Pledged Agreement",
+              "property": "NumOfAgrmnt",
+              "position": "left",
+              "isHide": false
+            }
+          ],
+          "whereValue": [],
+          "fromValue": [],
+          "subsectionId": "FundingMainInfoId"
+        }
+      },
+      "id": "18b90280-2d0c-403a-863c-f6028a416d54"
+    },
+    {
+      "container": {
+        "key": "UnpledgeID",
+        "className": "UnpledgeAgrmntComponent",
+        "cssClass": "",
+        "input": {
+          "JfBatchNo": "JfBatchNo"
+        }
+      },
+      "id": "6909da83-e4fe-4637-bd0f-8c50ffc0a9e7"
+    }
+  ],
+  "serviceUrl": {
+    "add": {
+      "environment": "",
+      "apiPath": "",
+      "apiUrl": ""
+    },
+    "edit": {
+      "environment": "",
+      "apiPath": "",
+      "apiUrl": ""
+    },
+    "createRfa": {
+      "environment": "",
+      "apiPath": "",
+      "apiUrl": ""
+    }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "listBtn": [
+    {
+      "displayName": "Back",
+      "id": "backId",
+      "key": "",
+      "position": "top",
+      "icon": "",
+      "cssClass": "btn-outline-2",
+      "conditions": [],
+      "action": {
+        "type": "link",
+        "path": "/Setting/FundingContract/pledging/Paging",
+        "target": "_self",
+        "params": []
+      }
+    }
+  ],
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {}
+}

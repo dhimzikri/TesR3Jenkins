@@ -1,0 +1,69 @@
+{
+    "title": "Lookup - Holiday Scheme",
+    "sectionTitle": "Search",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "HOLIDAY_SCHM_CODE",
+            "id": "HolidaySchmCode",
+            "value": "",
+            "label": "Holiday Scheme Code",
+            "placeholder": ""
+        },
+        {
+            "type": "textbox",
+            "name": "HOLIDAY_SCHM_NAME",
+            "id": "HolidaySchmName",
+            "value": "",
+            "label": "Holiday Scheme Name",
+            "placeholder": ""
+        }
+    ],
+    "querystring": {
+        "name": "lookupHolidayScheme"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "HOLIDAY SCHEME CODE",
+            "name": "HolidaySchmCode"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "HOLIDAY SCHEME NAME",
+            "name": "HolidaySchmName"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "SELECT"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "HolidaySchmCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "HolidaySchmName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "HolidaySchmHId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "HolidaySchmName",
+    "propertyName": "HolidaySchmName"
+}

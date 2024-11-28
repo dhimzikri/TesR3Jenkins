@@ -1,0 +1,45 @@
+{
+    "propertyId":"refFormId",
+    "propertyName":"title",
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Form Code",
+            "name": "formCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Title",
+            "name": "title"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "formCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "title"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "refFormId"
+                }
+            ]
+        }
+    ]
+}

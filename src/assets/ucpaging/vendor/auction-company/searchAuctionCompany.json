@@ -1,0 +1,111 @@
+{
+    "title": "Auction Company",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "v.VENDOR_CODE",
+            "id": "Auction Company Code",
+            "value": "",
+            "label": "Auction Company Code",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "v.VENDOR_NAME",
+            "id": "VendorNameId",
+            "value": "",
+            "label": "Auction Company Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "dropdown",
+            "name": "v.is_Active",
+            "id": "IsActive",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "https://api.myjson.com/bins/ld6e8",
+            "label": "Active Status",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Auction Company Code",
+            "name": "VendorCode"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Auction Company Name",
+            "name": "VendorName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "querystring": {
+        "name": "searchAuctionCompany"
+    },
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "VendorCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VendorName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VENDOR_AUCTION_COY_ADD_EDIT",
+                    "param": [
+                    {
+                        "type": "VendorId",
+                        "property": "VendorId"
+                    },
+                    {
+                        "type": "mode",
+                        "property": "edit"
+                    }
+                    ]
+                }
+            ]
+        }
+    ]
+}

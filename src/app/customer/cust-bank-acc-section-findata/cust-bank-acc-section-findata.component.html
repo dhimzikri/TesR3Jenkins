@@ -1,0 +1,79 @@
+<span class="mr-1 pull-right">
+  <button type="button" class="addButton btn-primary-2" (click)="custBankHandler('add', '0')" style="margin-right: 0!important;"
+    translate>
+    <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+  </button>
+</span>
+<lib-ucSubsection [id]="'CustBankAccId'" [title]="'Debtor Bank Account'" [panel]="'CustBankAccSection'">
+</lib-ucSubsection>
+<div id="CustBankAccSection">
+  <div class="col-md-12" *ngFor="let item of cbaFinDataList" style="padding: 0; margin-top: 20px;">
+    <div class="col-md-12">
+      <h5 class="col-md-7" style="display: inline-block;">
+        <i class="fas fa-circle" style="color: green" *ngIf="item.IsActive == true"></i>
+        <i class="fas fa-circle" style="color: red" *ngIf="item.IsActive == false"></i>
+        - {{item.BankName}} - {{item.BankBranch}} - {{item.BankAccNo}} - {{item.BankAccName}}
+      </h5>
+      <div class="col-md-5" style="display: inline-block; text-align: right;">
+        <button type="button" class="addButton btn-primary-2" (click)="custBankHandler('editStmnt', item.CustBankAccId)" translate>
+          Add Bank Statement
+        </button>
+        <button type="button" class="addButton btn-primary-2" (click)="custBankHandler('edit', item.CustBankAccId)" translate>
+          Edit Bank Account
+        </button>
+        <button type="button" class="backButton btn-outline-2" (click)="custBankHandler('delete', item.CustBankAccId)" translate>
+          Delete Bank Account
+        </button>
+      </div>
+    </div>
+    <div class="col-md-12" style="overflow-x:auto;">
+      <table class="table table-responsive-md text-center table-hover table-new">
+        <thead>
+          <tr class="table-header-2">
+            <th style="text-align: left;">
+              <span class="thead-header" name='month' translate>MONTH</span>
+            </th>
+            <th style="text-align: left;">
+              <span class="thead-header" name='year' translate>YEAR</span>
+            </th>
+            <th style="text-align: center;">
+              <span class="thead-header" name='debitTrxCount' translate>DEBIT TRANSACTION COUNT</span>
+            </th>
+            <th style="text-align: left;">
+              <span class="thead-header" name='debit' translate>DEBIT (-)</span>
+            </th>
+            <th style="text-align: center;">
+              <span class="thead-header" name='creditTrxCount' translate>CREDIT TRANSACTION COUNT</span>
+            </th>
+            <th style="text-align: left;">
+              <span class="thead-header" name='credit' translate>CREDIT (+)</span>
+            </th>
+            <th style="text-align: left;">
+              <span class="thead-header" name='endingBalance' translate>ENDING BALANCE</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: left;">Beginning Balance</td>
+            <td style="text-align: left;"></td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: left;"></td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: left;"></td>
+            <td style="text-align: left;">{{item.BegBalanceAmt | number:'.2':'en-US'}}</td>
+          </tr>
+          <tr *ngFor="let stmnt of item.BankStmntList">
+            <td style="text-align: left;">{{stmnt.Month}}</td>
+            <td style="text-align: left;">{{stmnt.Year}}</td>
+            <td style="text-align: center;">{{stmnt.DebitTrxCount}}</td>
+            <td style="text-align: left;">{{stmnt.DebitAmt | number:'.2':'en-US'}}</td>
+            <td style="text-align: center;">{{stmnt.CreditTrxCount}}</td>
+            <td style="text-align: left;">{{stmnt.CreditAmt | number:'.2':'en-US'}}</td>
+            <td style="text-align: left;">{{stmnt.BalanceAmt | number:'.2':'en-US'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

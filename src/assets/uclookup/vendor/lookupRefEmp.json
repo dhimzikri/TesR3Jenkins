@@ -1,0 +1,68 @@
+{
+    "title": "Lookup - Employee",
+    "sectionTitle": "Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "A.EMP_NO",
+            "id": "EmpCodeId",
+            "value": "",
+            "label": "Employee No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "A.EMP_NAME",
+            "id": "EmpNameId",
+            "value": "",
+            "label": "Employee Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "lookupRefEmp"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "VENDOR CODE",
+            "name": "A.EMP_NO"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "VENDOR NAME",
+            "name": "A.EMP_NAME"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "EmpNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "EmpName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefEmpId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "RefEmpId",
+    "propertyName": "EmpName"  
+}

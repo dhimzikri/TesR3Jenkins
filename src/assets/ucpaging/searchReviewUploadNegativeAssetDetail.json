@@ -1,0 +1,171 @@
+{
+    "title": "NEGATIVE ASSET MASTER",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "FULL_ASSET_CODE",
+            "id": "FullAssetId",
+            "value": "",
+            "label": "Full Asset Code",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "SERIAL_NO_1",
+            "id": "SerialNo1Id",
+            "value": "",
+            "label": "Serial No 1",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "SERIAL_NO_2",
+            "id": "SerialNo2Id",
+            "value": "",
+            "label": "Serial No 2",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "SERIAL_NO_3",
+            "id": "SerialNo3Id",
+            "value": "",
+            "label": "Serial No 3",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "SERIAL_NO_4",
+            "id": "SerialNo4Id",
+            "value": "",
+            "label": "Serial No 4",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "SERIAL_NO_5",
+            "id": "SerialNo5Id",
+            "value": "",
+            "label": "Serial No 5",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "MR_NEG_ASSET_SOURCE_CODE",
+            "id": "SourceTypeCode",
+            "value": "",
+            "label": "Source Type Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "NOTES",
+            "id": "NotesId",
+            "value": "",
+            "label": "Notes",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "searchReviewUploadNegativeAssetDetail"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "FULL ASSET CODE",
+            "name": "FULL_ASSET_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "SERIAL NO 1",
+            "name": "SERIAL_NO_1"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "SERIAL NO 2",
+            "name": "SERIAL_NO_2"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "SERIAL NO 3",
+            "name": "SERIAL_NO_3"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "SERIAL NO 4",
+            "name": "SERIAL_NO_4"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "SERIAL NO 5",
+            "name": "SERIAL_NO_5"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "SOURCE TYPE CODE",
+            "name": "MrNegAssetSourceCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "NOTES",
+            "name": "NOTES"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "FullAssetCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "SerialNo1"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "SerialNo2"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "SerialNo3"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "SerialNo4"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "SerialNo5"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "MrNegAssetSourceCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Notes"
+        }
+    ]
+}

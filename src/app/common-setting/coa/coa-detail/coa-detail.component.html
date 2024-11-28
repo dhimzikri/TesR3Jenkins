@@ -1,0 +1,136 @@
+ 
+  <div class="card bg-primary-2 bg-lighten-6 card-shadow">
+    <div class="card-body"> 
+        <form class="form form-horizontal" [formGroup]="CoaForm" (ngSubmit)="CoaForm.valid && Submit()"
+          #enjiForm="ngForm">
+          <div class="form-body">
+
+            <lib-ucSubsection [id]="'EntityTypeInfoId'" [title]="'Entity Type Information'" [panel]="'EntityTypeInfo'">
+            </lib-ucSubsection>
+            <div id='EntityTypeInfo'>
+              <div class="px-1 py-3">
+
+              <div class="form-group row">
+                <div class="col-md-6">
+                <label class="col-md-12 label-field-2" translate>Entity Type</label>
+                <div class="col-md-12">
+                  <div class="input-group mb-0">
+                    <select class="form-control input-field-2" #entityselect>
+                      <option value="">-Select One-</option>
+                      <option *ngFor="let item of entityTypeList" [value]="item.Key">
+                        {{item.Value}}
+                      </option>
+                    </select>
+
+                    <div class="input-group-append ml-2">
+                      <span class="input-group-btn">
+                        <button class="btn btn-raised btn-primary-2" type="button" (click)="Show(entityselect)">
+                          <em class="fa fa-check-square-o"></em>Show
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+          </div>
+
+            <div *ngIf="Shows">
+              <lib-ucSubsection [id]="'CurrInfoId'" [title]="'Currency Information'" [panel]="'CurrInfo'">
+              </lib-ucSubsection>
+              <div id='CurrInfo'>
+                <div class="px-1 py-3">
+
+                <div class="form-group row">
+                <div class="col-md-6">
+                  <label class="col-md-12  label-field-2" translate>Currency Code</label>
+                  <div class="col-md-12">
+                    <div class="input-group mb-0">
+                      <select class="form-control input-field-2" #currselect>
+                        <option disabled>-Select One-</option>
+                        <option *ngFor="let item of ListCurrCode" [value]="item.Key">
+                          {{item.Value}}
+                        </option>
+                      </select>
+
+                      <div class="input-group-append ml-2">
+                        <span class="input-group-btn">
+                          <button class="btn btn-raised btn-primary-2" [disabled]="!isReady" type="button" (click)="Add(currselect)">
+                            <em class="fa fa-check-square-o"></em>Add
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+              <lib-ucSubsection [id]="'CoaDetailInfoId'" [title]="'COA Detail Information'" [panel]="'CoaDetailInfo'">
+              </lib-ucSubsection>
+              <div id='CoaDetailInfo'>
+
+                <div class="pt-3">
+                  <div class="table-responsive" style="overflow-x: auto;">
+                  <table class="table table-responsive-md text-center table-hover table-new">
+                    <caption></caption>
+                    <thead>
+                      <tr class="table-header-2">
+                        <th id="no">
+                          <span class="thead-header" style="cursor: default" translate>No</span>
+                        </th>
+                        <th id="entitytype">
+                          <span class="thead-header" style="cursor: default" translate>Entity Type</span>
+                        </th>
+                        <th id="payalloccode">
+                          <span class="thead-header" style="cursor: default" translate>Payment Allocation Code</span>
+                        </th>
+                        <th id="entitycode">
+                          <span class="thead-header" style="cursor: default" translate>Entity Code</span>
+                        </th>
+                        <th id="i" *ngFor="let item of colHeadTable; let i = index">
+                          <span class="thead-header" style="cursor: default" translate>{{item.newHead}}</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of ListCOA; let i = index" formArrayName="ListCoa">
+                        <ng-container [formGroupName]="i">
+                          <td class="text-center">{{i+1}}</td>
+                          <td class="text-left">{{item.coa[0].EntityType}}</td>
+                          <td class="text-center">{{item.coa[0].PaymentAllocCode}}</td>
+                          <td class="text-center">{{item.coa[0].EntityCode}}</td>
+                          <ng-container formArrayName="DataCOA" *ngIf="ListCurr.length > 0">
+                            <td class="text-center" *ngFor="let currs of ListCurr; let x = index" [formGroupName]="x">
+                              <input type="number" class="form-control input-field-2" formControlName="COA">
+                            </td>
+                          </ng-container>
+                        </ng-container>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-actions right">
+            <div class="px-3">
+            <button type="button" [routerLink]="[CancelLink]" class="btn btn-raised btn-outline-2 mr-1" translate>
+              <em class="fa fa-arrow-circle-left"></em> Back
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary-2" translate>Submit</button>
+          </div>
+        </div>
+
+        </form> 
+    </div>
+
+  </div> 

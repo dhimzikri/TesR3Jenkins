@@ -1,0 +1,18 @@
+<div class="ucSearch-Button-Right">
+  <span class="mr-1">
+    <div ngbDropdown>
+      <button class="btn btn-primary btn-flat" id="dropdownAdd" ngbDropdownToggle>Add</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownAdd">
+          <button class="dropdown-item" [routerLink]="[AddLink]" skipLocationChange
+          [queryParams]="{MrVendorCategoryCode:'SUPPLIER_HO'}">Add Supplier</button>
+          <button class="dropdown-item" [routerLink]="[AddLink]" skipLocationChange
+          [queryParams]="{MrVendorCategoryCode:'LIFE_INSCO_HO'}">Add Life Insurance</button>
+          <button class="dropdown-item" [routerLink]="[AddLink]" skipLocationChange
+          [queryParams]="{MrVendorCategoryCode:'ASSET_INSCO_HO'}">Add Asset Insurance</button>
+          <button class="dropdown-item" [routerLink]="[AddLink]" skipLocationChange
+          [queryParams]="{MrVendorCategoryCode:'SURVEYOR_HO'}">Add Surveyor</button>
+      </div>
+      </div>
+  </span>
+</div>
+<lib-ucpaging [searchObj]="inputPagingObj"></lib-ucpaging>

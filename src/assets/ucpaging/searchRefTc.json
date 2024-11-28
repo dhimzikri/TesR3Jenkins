@@ -1,0 +1,147 @@
+{
+    "title": "Term & Conditions",
+    "exportExcel": false,
+    "component": [
+      {
+        "type": "textbox",
+        "name": "A.TC_CODE",
+        "id": "tcCodeId",
+        "value": "",
+        "label": "TC Code",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "A.TC_NAME",
+        "id": "tcNameId",
+        "value": "",
+        "label": "TC Name",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "dropdown",
+        "name": "A.TC_TYPE",
+        "id": "tcTypeId",
+        "value": "",
+        "placeholder": "Placeholder",
+        "isFromURL": false,
+        "ddlType": "all",
+        "url": "",
+        "label": "TC Type",
+        "items": [
+            {
+                "key": "ALL",
+                "value": "Type All"
+            },
+            {
+                "key": "P",
+                "value": "Personal"
+            },
+            {
+                "key": "C",
+                "value": "Company"
+            }
+        ],
+        "itemsUrl": []
+      },
+      {
+        "type": "dropdown",
+        "name": "A.IS_ACTIVE",
+        "id": "IsActiveId",
+        "value": "",
+        "placeholder": "Placeholder",
+        "isFromURL": false,
+        "ddlType": "all",
+        "url": "",
+        "label": "Active Status",
+        "items": [
+            {
+                "key": "1",
+                "value": "Yes"
+            },
+            {
+                "key": "0",
+                "value": "No"
+            }
+        ],
+        "itemsUrl": []
+      }
+    ],
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "TC Code",
+        "name": "TcCode"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "TC Name",
+        "name": "TcName"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "TC Type",
+        "name": "TcType"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Active Status",
+        "name": "IsActive"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Action"
+      }
+    ],
+    "querystring": {
+      "name": "searchRefTc"
+    },
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "left",
+        "property": "TcCode"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "TcName"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "TcType"
+      },
+      {
+        "type": "boolean",
+        "position": "center",
+        "property": "IsActive"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "edit",
+            "path": "CS_REF_TC_DETAIL",
+            "param": [
+              {
+                "type": "refTcId",
+                "property": "refTcId"
+              },
+              {
+                "type": "mode",
+                "property": "edit"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

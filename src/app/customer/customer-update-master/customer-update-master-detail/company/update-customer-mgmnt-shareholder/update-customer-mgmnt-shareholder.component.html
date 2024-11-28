@@ -1,0 +1,106 @@
+<div class="form-body">
+  <lib-ucSubsection [id]="'ShareholderId'" [title]="'Shareholder'" [panel]="'ShareholderSection'">
+  </lib-ucSubsection>
+  <div id="ShareholderSection">
+    <div class="form-group row">
+      <div class="col-md-6">
+        Application Data
+      </div>
+      <div class="col-md-6">
+        Master Customer Data
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-6" style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th style="text-align: left;">
+                <span class="thead-header" name='ShareholderName' translate>SHAREHOLDER NAME</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='Type' translate>TYPE</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='SharePrcnt' translate>SHARE</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='Owner' translate>OWNER</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='Action' translate>COPY</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody *ngIf="AppShareholder?.length == 0">
+            <tr>
+              <td colspan="100%">No Data Available</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr *ngFor="let item of AppShareholder; let i = index">
+              <td style="text-align: left;">{{item.CustName}}</td>
+              <td style="text-align: left;">{{item.MrCustTypeCodeDescr}}</td>
+              <td style="text-align: left;">{{item.SharePrcnt | number:'.6':'en-US'}} %</td>
+              <td style="text-align: left;">{{item.IsOwner ? 'Yes' : 'No'}}</td>
+              <td style="text-align: center; padding-left: 0;">
+                <a (click)="addShareholderHandler(i)" *ngIf="!item.IsMasterData">
+                  Copy
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6" style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th style="text-align: left;">
+                <span class="thead-header" name='ShareholderName' translate>SHAREHOLDER NAME</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='Type' translate>TYPE</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='SharePrcnt' translate>SHARE</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='Owner' translate>OWNER</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='Action' translate>UNDO</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody *ngIf="MasterShareholder?.length == 0">
+            <tr>
+              <td colspan="100%">No Data Available</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr *ngFor="let item of MasterShareholder; let i = index">
+              <td style="text-align: left;">{{item.CustName}}</td>
+              <td style="text-align: left;">{{item.MrCustTypeCodeDescr}}</td>
+              <td style="text-align: left;">{{item.SharePrcnt | number:'.6':'en-US'}} %</td>
+              <td style="text-align: left;">{{item.IsOwner ? 'Yes' : 'No'}}</td>
+              <td style="text-align: center; padding-left: 0;">
+                <a (click)="cancelShareholderHandler(i)" *ngIf="!item.IsMasterData">
+                  Undo
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions right" style="text-align: right;">
+    <button type="button" class="btn btn-raised btn-warning mr-1" (click)="back()">
+      <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+    </button>
+    <button type="button" class="btn btn-raised btn-primary" (click)="SaveValue()">
+      <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+    </button>
+  </div>
+</div>

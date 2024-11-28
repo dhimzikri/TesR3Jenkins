@@ -1,0 +1,84 @@
+          <form class="form form-horizontal" [formGroup]="SurveyTaskForm" (ngSubmit)="SurveyTaskForm.valid && SaveForm()"
+            #enjiForm="ngForm">
+            <div class="form-body">
+              <div class="px-3">
+                <lib-ucSubsection [id]="'SrvyTaskListId'" [title]="'Survey Task List'" [panel]="'SrvyTasksDetail'">
+                </lib-ucSubsection>
+                <div id="SrvyTaskListId">
+                  <div style="overflow-x: auto;">
+                    <table class="table table-responsive text-center table-hover table-new">
+                      <thead>
+                        <tr class="table-header table-header-2">
+                          <th><span translate class="thead-header text-center">Survey Task No / Resurvey Ref</span></th>
+                          <th><span translate class="thead-header text-center">Survey Object</span></th>
+                          <th><span translate class="thead-header text-center">Surveyee Name</span></th>
+                          <th><span translate class="thead-header text-center">Address</span></th>
+                          <th><span translate class="thead-header text-center">Survey Type</span></th>
+                          <th><span translate class="thead-header text-center">Surveyor Name</span></th>
+                          <th><span translate class="thead-header text-center">Survey Form Scheme</span></th>
+                          <th><span translate class="thead-header text-center">Survey Task Status</span></th>
+                          <th><span translate class="thead-header text-center">Result Date</span></th>
+                          <th><span translate class="thead-header text-center">Review Comment</span></th>
+                        </tr>
+                      </thead>
+                      <tbody formArrayName="ListSurveyTask">
+                        <tr *ngIf="SurveyTaskForm.controls['ListSurveyTask']['controls'].length == 0">
+                          <td align="center" colspan="11">No data available</td>
+                        </tr>
+                        <tr *ngFor="let item of SurveyTaskForm.controls['ListSurveyTask']['controls'];let i = index">
+                          <td [formGroupName]="i" class="text-center">
+                            <div *ngIf="SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']['ResurveyRef'].value == ''">
+                              <a target="_blank" [routerLink]="[ViewLink]" skipLocationChange
+                              [queryParams]="{ SrvyTaskId: SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']['SurveyTaskId'].value}">{{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["SurveyTaskNo"].value}}</a>
+                            </div>
+                            <div *ngIf="SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']['ResurveyRef'].value != ''">
+                              <a target="_blank" [routerLink]="[ViewLink]" skipLocationChange
+                              [queryParams]="{ SrvyTaskId: SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']['SurveyTaskId'].value}">{{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["SurveyTaskNo"].value}}</a>
+                              /{{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["ResurveyRef"].value}}
+                            </div>                        
+                          </td>
+                          <td [formGroupName]="i" class="text-center">
+                            {{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["SurveyObject"].value}}
+                          </td>
+                          <td [formGroupName]="i" class="text-center">
+                            {{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["SurveyeeName"].value}}
+                          </td>
+                          <td [formGroupName]="i" class="text-center">
+                            {{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["Address"].value}}
+                          </td>
+                          <td [formGroupName]="i" class="text-center">
+                            {{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["SurveyType"].value}}
+                          </td>
+                          <td [formGroupName]="i" class="text-center">
+                            {{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["SurveyorName"].value}}
+                          </td>
+                          <td [formGroupName]="i" class="text-center">
+                            {{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["SurveyFormSchm"].value}}
+                          </td>
+                          <td [formGroupName]="i" class="text-center">
+                            {{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["SurveyTaskStatus"].value}}
+                          </td>
+                          <td [formGroupName]="i" class="text-center">
+                            {{SurveyTaskForm.controls['ListSurveyTask']['controls'][i]['controls']["ResultDate"].value}}
+                          </td>
+                          <td [formGroupName]="i" class="text-center">
+                            <input type="text" formControlName="ReviewComment" class="form-control input-field-2" name="SurveyForm">
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+  
+                  <div class="form-actions right">
+                    <button type="button" class="btn btn-raised btn-outline-2 mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+                      <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+                    </button>                  
+                    <button type="submit" class="btn btn-raised btn-primary-2">
+                      <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+                    </button>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+          </form>

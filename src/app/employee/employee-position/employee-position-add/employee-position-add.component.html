@@ -1,0 +1,134 @@
+<div class="card">
+    <div class="card-header header-title">
+        <div class="row">
+            <div class="col-md-8">
+                <h4 class="form card-title form-section" translate> Employee Position</h4>
+            </div>
+            <div class="col-md-4" style="text-align-last: right">
+                <button type="button" class="backButton" [routerLink]="[CancelLink]" skipLocationChange [queryParams]="{refEmpId:refEmpId}" translate>
+                    <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="px-3">
+            <form class="form form-horizontal" name="EmpPositionForm" [formGroup]="RefEmpPositionForm" #EmpPositionForm="ngForm" novalidate
+                (ngSubmit)="EmpPositionForm.form.valid && SaveForm(EmpPositionForm)">
+                <div class="form-body">
+                    <div class="form-group row">
+                        <label class="col-md-3  adInsLabel">Employee No </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control adInsInput" name="empNo" required [disabled]="true"
+                                [(ngModel)]="empNo" #EmpNo="ngModel"
+                                [ngClass]="{ 'is-invalid': EmpPositionForm.submitted && EmpNo.invalid }">
+                            <div *ngIf="EmpPositionForm.submitted && EmpNo.invalid" class="invalid-feedback">
+                                <div *ngIf="EmpNo.errors.required" class="adInsReqMsg" translate>This field is
+                                    required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3  adInsLabel">Employee Name </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control adInsInput" name="empName" required [disabled]="true"
+                                [(ngModel)]="empName" #EmpName="ngModel"
+                                [ngClass]="{ 'is-invalid': EmpPositionForm.submitted && EmpName.invalid }">
+                            <div *ngIf="EmpPositionForm.submitted && EmpName.invalid" class="invalid-feedback">
+                                <div *ngIf="EmpName.errors.required" class="adInsReqMsg" translate>This field is
+                                    required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3  adInsLabel">Office Name </label>
+                        <div class="col-md-9">
+                            <select class="form-control" id="refOfficeId" name="refOfficeId" [(ngModel)]="refOfficeId"
+                                #RefOfficeId="ngModel">
+                                <option *ngFor="let ro of allRefOffice" value="{{ro.refOfficeId}}">{{ro.officeName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3  adInsLabel">Business Unit Name </label>
+                        <div class="col-md-9">
+                            <select class="form-control" id="refBizUnitId" name="refBizUnitId" required
+                                (change)="onChangeBiz($event.target.value)" #RefBizUnitId="ngModel"
+                                [(ngModel)]="refBizUnitId">
+                                <option *ngFor="let biz of allBiz" value="{{biz.orgMdlStrucId}}">{{biz.bizUnitName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3  adInsLabel">Job Title </label>
+                        <div class="col-md-9">
+                            <select class="form-control" id="orgJobTitleId" name="orgJobTitleId"
+                                [(ngModel)]="orgJobTitleId" #OrgJobTitleId="ngModel" required
+                                [ngClass]="{ 'is-invalid': (EmpPositionForm.submitted || OrgJobTitleId.touched || OrgJobTitleId.dirty) && OrgJobTitleId.value == undefined  }">
+                                <option *ngFor="let ojt of allOrgJobTitle" value="{{ojt.orgJobTitleId}}">
+                                    {{ojt.jobTitleName}}
+                                </option>
+                            </select>
+                            <div *ngIf="(EmpPositionForm.submitted || OrgJobTitleId.touched || OrgJobTitleId.dirty) && OrgJobTitleId.value == undefined "
+                                class="invalid-feedback">
+                                <div *ngIf="OrgJobTitleId.errors.required" class="adInsReqMsg" translate>This field
+                                    is
+                                    required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3  adInsLabel">Skill Level </label>
+                        <div class="col-md-9">
+                            <select class="form-control" id="masterCode" name="masterCode" [(ngModel)]="masterCode"
+                                #MasterCode="ngModel">
+                                <option *ngFor="let skill of allSkillLvl" value="{{skill.masterCode}}">{{skill.descr}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3  adInsLabel">Supervisor </label>
+                        <div class="col-md-9">
+                            <lib-uclookupgeneric [lookupInput]="inputLookupObj" [parentForm]='RefEmpPositionForm' [enjiForm]='EmpPositionForm' [identifier]="'Supervisor'"
+                            (lookup)="getLookupResponse($event)"></lib-uclookupgeneric>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3  adInsLabel">Position Start Date </label>
+                        <div class="col-md-9">
+                            <input type="date" id="positionStartDt" class="form-control adInsInput"
+                                name="positionStartDt" required [(ngModel)]="positionStartDt" #PositionStartDt="ngModel"
+                                [ngClass]="{ 'is-invalid': EmpPositionForm.submitted && PositionStartDt.invalid }">
+                            <div *ngIf="EmpPositionForm.submitted && PositionStartDt.invalid" class="invalid-feedback">
+                                <div *ngIf="PositionStartDt.errors.required" class="adInsReqMsg" translate>This
+                                    field is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3  adInsLabel">Position Finish Date </label>
+                        <div class="col-md-9">
+                            <input type="date" id="positionFinishDt" class="form-control adInsInput"
+                                name="positionFinishDt" [(ngModel)]="positionFinishDt" #PositionFinishDt="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3  adInsLabel">Active </label>
+                        <div class="col-md-9">
+                            <input class="border-primary" type="checkbox" [ngModel]="isActive" data-md-icheck
+                                (change)="toggleActive($event)" name="isActive">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <button type="submit" class="btn btn-raised btn-primary">
+                        <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

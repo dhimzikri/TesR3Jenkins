@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-body">
+    <div class="px-3">
+      <lib-ucSubsection [id]="'ShareId'" [title]="'Management / Shareholder Listing'" [panel]="'MngmntId'">
+      </lib-ucSubsection>
+      <div id="MngmntId" style="overflow-x: auto;">
+        <br>
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-left"><span class="thead-header" name='Status' translate>STATUS</span> </th>
+              <th class="text-left"><span class="thead-header" name='CustNo' translate>Shareholder No</span></th>
+              <th class="text-left"><span class="thead-header" name='ShareholderName' translate>SHAREHOLDER NAME</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='ShareType' translate>SHARE TYPE</span> </th>
+              <th class="text-right"><span class="thead-header" name='Share' translate>SHARE (%)</span> </th>
+              <th class="text-center"><span class="thead-header" name='IsSigner' translate>Is Signer</span> 
+              </th>
+              <th class="text-center"><span class="thead-header" name='IsOwner' translate>Is OWNER</span></th>
+              <th class="text-center"><span class="thead-header" name='IsActive' translate>Is Active</span></th>
+            </tr>
+          </thead>
+          <tbody *ngIf="responseObj.length == 0">
+            <tr>
+              <td colspan="100%">No Data Available</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <ng-container *ngFor="let item of responseObj">
+              <tr>
+                <!-- NOTES: JANGAN DIUBAH KE CORE -->
+                <!-- <td class="text-left">{{item.NegCustTypeCodeDesc}}</td> -->
+                <td class="text-left">
+                  <span id="CustIndicator" style="float: left;" *ngIf="item.ShareholderType != CustomerPublic">
+                    <i [ngClass]="'fa fa-circle'"
+                      [ngStyle]="{'color': dictNegCustType[item.NegCustTypeCode] ? dictNegCustType[item.NegCustTypeCode] : 'green'}" class="font-medium-3 tooltips">
+                      <span class="tooltipstext">
+                        <span *ngIf="item.NegCustTypeCodeDesc"> {{item.NegCustTypeCodeDesc}} </span>
+                        <span *ngIf="!item.NegCustTypeCodeDesc"> Good </span>
+                      </span>
+                    </i>
+                  </span>
+                  <!-- <span [ngStyle]="{'color': item.NegCustTypeCodeDesc === '-' || item.NegCustTypeCodeDesc === 'GOOD' ? 'green' : item.NegCustTypeCodeDesc === 'WARNING' ? 'yellow' : 'red'}">
+                    <i class="font-medium-3 fa fa-circle"></i>
+                  </span> -->
+                </td>
+                <td class="text-left" >
+                  <a class="link" *ngIf="item.ShareholderType == CustomerPersonal" (click)="openViewPersonal(item.ShareholderId)"> {{item.CustNo}} </a>
+                  <a class="link" *ngIf="item.ShareholderType == CustomerCompany" (click)="openViewCoy(item.ShareholderId)"> {{item.CustNo}} </a>
+                </td>
+                <td class="text-left">{{item.ShareholderName}}</td> 
+                <td class="text-left">{{item.ShareholderTypeDesc}}</td>
+                <td class="text-right">{{item.SharePrcnt | number:'.6':'en-US'}} %</td>
+                <td *ngIf="item.IsSigner" class="text-center">Yes</td>
+                <td *ngIf="!item.IsSigner" class="text-center">No</td>
+                <td *ngIf="item.IsOwner" class="text-center">Yes</td>
+                <td *ngIf="!item.IsOwner" class="text-center">No</td>
+                <td *ngIf="item.IsActive" class="text-center">Yes</td>
+                <td *ngIf="!item.IsActive" class="text-center">No</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

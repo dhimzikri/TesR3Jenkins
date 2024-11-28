@@ -1,0 +1,98 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="form-actions right">
+          <span style="display: block; float:right;">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]">
+              <i class="fa fa-arrow-circle-left"></i>&nbsp;<span translate>Back</span>
+            </button>
+            <button type="button" class="btn btn-raised btn-primary mr-1" [routerLink]="[AddLink]" 
+            [queryParams]="{ Mode: 'Add', CabinetCode: Cabinet.CabinetCode}">
+              <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+            </button>
+          </span>
+        </div>
+
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate> RACK </h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-3">
+
+          <lib-ucSubsection [id]="'CabinetId'" [title]="'Cabinet Detail'" [panel]="'CabDetail'"></lib-ucSubsection>
+          <div class="form-body" id="CabDetail">
+            <div class="form-group row">
+                <label class="col-md-3">Cabinet Code</label>
+                <label class="col-md-3">{{Cabinet.CabinetCode}}</label>
+                <label class="col-md-3">Cabinet Name</label>
+                <label class="col-md-3">{{Cabinet.CabinetName}}</label>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3">Active</label>
+              <label class="col-md-3" *ngIf="Cabinet.IsActive === true">Yes</label>
+              <label class="col-md-3" *ngIf="Cabinet.IsActive === false">No</label>
+            </div>
+          </div>
+
+          <lib-ucSubsection [id]="'RackListId'" [title]="'Rack List'" [panel]="'FilingList'"></lib-ucSubsection>
+          <div class="form-body" id="FilingList" style="overflow-x: auto;">
+            <table class="table table-responsive-md text-center table-hover">
+              <thead>
+                <tr class="table-header">
+                  <th>
+                    <span class="thead-header" translate>Rack Code</span>
+                  </th>
+                  <th>
+                    <span class="thead-header" translate>Rack Name</span>
+                  </th>
+                  <th>
+                    <span class="thead-header" translate>Active</span>
+                  </th>
+                  <th>
+                    <span class="thead-header" translate>Filing</span>
+                  </th>
+                  <th>
+                    <span class="thead-header" translate>Edit</span>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let item of Cabinet.ListRack; let i = index">
+                  <td>
+                    <a [routerLink]="[ViewLink]" target="_blank" 
+                    [queryParams]="{ RackCode: item.RackCode, CabinetCode: Cabinet.CabinetCode}">{{item.RackCode}}
+                    </a>
+                  </td>
+                  <td class="align-center">{{item.RackName}}</td>
+                  <td class="align-center" *ngIf="item.IsActive === true">Yes</td>
+                  <td class="align-center" *ngIf="item.IsActive === false">No</td>
+                  <td class="align-center">
+                    <a class="success p-0">
+                      <i class="ft-edit-2 font-medium-3 mr-2" [routerLink]="[FilingLink]"
+                      [queryParams]="{ RackCode: item.RackCode, CabinetCode: Cabinet.CabinetCode}" ></i>
+                    </a>
+                  </td>
+                  <td class="align-center">
+                    <a class="success p-0" [routerLink]="[EditLink]" [queryParams]="{ Mode: 'Edit', RackCode: item.RackCode, CabinetCode: Cabinet.CabinetCode}">
+                      <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+{
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "IS_PUBLIC_HOLIDAY",
+            "id": "IsPublicHolidayId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "label": "Public Holiday",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "datepicker",
+            "name": "HOLIDAY_DT",
+            "id": "HolidayDtIdGte",
+            "value": "",
+            "label": "Date From",
+            "restriction": "gte",
+            "datatype": "date"
+        },
+        {
+            "type": "textbox",
+            "name": "DESCR",
+            "id": "DescrId",
+            "value": "",
+            "label": "Description",
+            "placeholder": "Input Description"
+        },
+        {
+            "type": "datepicker",
+            "name": "HOLIDAY_DT",
+            "id": "HolidayDtIdLte",
+            "value": "",
+            "label": "Date To",
+            "restriction": "lte",
+            "datatype": "date"
+        }
+    ],
+    "querystring": {
+        "name": "searchHolidayDetail"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "DATE",
+            "name": "HoliD.HOLIDAY_DT"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "DESCRIPTION",
+            "name": "HoliD.DESCR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PUBLIC HOLIDAY",
+            "name": "HoliD.IS_PUBLIC_HOLIDAY"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "date",
+            "position": "center",
+            "property": "HolidayDt"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Descr"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsPublicHoliday"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "delete",
+                    "property": "HolidaySchmDId"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate> VERIFICATION QUESTION ANSWER {{mode}}
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="QuestionAnswerForm"
+            (ngSubmit)="QuestionAnswerForm.valid && SaveForm()" #enjiForm="ngForm">
+            <lib-ucSubsection [id]="'QuestionAnswerId'" [title]="'Verification Question Answer'"
+              [panel]="'QuestionAnswer'">
+            </lib-ucSubsection>
+            <div class="form-body" id="QuestionAnswer">
+
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>Verification Question Code </label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control adInsInput width-75-per" [attr.disabled]="mode == 'edit' ? true : null" formControlName="VerfQuestionCode" [ngClass]="{ 'is-invalid': enjiForm.submitted && QuestionAnswerForm.controls.VerfQuestionCode.invalid }">
+                  <lib-uc-show-errors [control]="QuestionAnswerForm.controls.VerfQuestionCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>Verification Question Text </label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control adInsInput width-75-per" formControlName="VerfQuestionText" [ngClass]="{ 'is-invalid': enjiForm.submitted && QuestionAnswerForm.controls.VerfQuestionText.invalid }">
+                  <lib-uc-show-errors [control]="QuestionAnswerForm.controls.VerfQuestionText" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" translate>Verification Answer Type </label>
+                <div class="col-md-3">
+                  <lib-ucdropdownlist *ngIf="dropdownListObj.isReady" [dropdownListObj]="dropdownListObj" [parentForm]="QuestionAnswerForm"
+                    [enjiForm]="enjiForm" [identifier]="'RefVerfAnswerTypeId'" (callback)="selectedValueHandler($event)" [genericList]="itemVerfQuestionAnswer"></lib-ucdropdownlist>
+                </div>
+              </div>
+
+              <div *ngIf="!isHidden" class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>Verification Answer </label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control adInsInput width-75-per" formControlName="VerfAnswer">
+                  <lib-uc-show-errors [customPattern]="customPattern" [control]="QuestionAnswerForm.controls.VerfAnswer" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Active Status </label>
+                <div class="col-md-9">
+                  <input type="checkbox" class="border-primary" formControlName="IsActive">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Mandatory Status</label>
+                <div class="col-md-9">
+                  <input type="checkbox" class="border-primary" formControlName="IsMandatory">
+                </div>
+              </div>
+
+              <div class="form-actions right">
+                <button type="button" class="btn btn-raised btn-warning mr-1"
+                        [routerLink]="[CancelLink]" skipLocationChange>
+                  <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary">
+                  <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

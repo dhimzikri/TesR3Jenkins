@@ -1,0 +1,154 @@
+import { NgxRouterService } from '@adins/fe-core';
+import { HttpClient } from '@angular/common/http';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NGXToastrService } from 'app/components/extra/toastr/toastr.service';
+import { AdInsHelper } from 'app/shared/AdInsHelper';
+import { AdInsConstant } from 'app/shared/AdInstConstant';
+import { NavigationConstant } from 'app/shared/NavigationConstant';
+import { CommonConstant } from 'app/shared/constant/CommonConstant';
+import { UrlConstantNew } from 'app/shared/constant/URLConstantNew';
+import { CustObj } from 'app/shared/model/cust-obj.model';
+import { CustPersonalObj } from 'app/shared/model/cust-personal-obj.model';
+import { InputGridObj } from 'app/shared/model/input-grid-obj.model';
+import { FamilyListingObj } from 'app/shared/model/new-cust/family/family-listing-obj.model';
+
+@Component({
+  selector: 'app-self-custom-container-family-listing',
+  templateUrl: './self-custom-container-family-listing.component.html'
+})
+export class SelfCustomContainerFamilyListingComponent implements OnInit {
+
+  @Output()
+  next: EventEmitter<any> = new EventEmitter<any>();
+
+  IdCust: number = 0;
+  CustNo: string;
+  isMarried: boolean = false;
+  isReady: boolean = false;
+
+  PageType: string = CommonConstant.CustPageTypePaging;
+
+  readonly CustDataModeFamily: string = CommonConstant.CustMainDataModeFamily;
+
+  readonly CustPageTypeHeader = CommonConstant.CustPageTypeHeader;
+  readonly CustPageTypePaging = CommonConstant.CustPageTypePaging;
+
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router,
+    private toastr: NGXToastrService, private UrlConstantNew: UrlConstantNew,
+    private ngxRouter: NgxRouterService) {
+    this.route.queryParams.subscribe(params => {
+      const queryParams = this.ngxRouter.getQueryParams(params);
+      if (queryParams["IdCust"] != null) {
+        this.IdCust = queryParams["IdCust"];
+      }
+    });
+  }
+
+  async ngOnInit() {
+    this.http.post(this.UrlConstantNew.GetCustByCustId, { Id: this.IdCust }).subscribe(
+      (response: CustObj) => {
+        this.CustNo = response.CustNo;
+      }
+    );
+    
+    await this.http.post<CustPersonalObj>(this.UrlConstantNew.GetCustPersonalbyCustId, { Id: this.IdCust }).toPromise().then(
+      (response) => {
+        if (response.MrMaritalStatCode == CommonConstant.MasteCodeMartialStatsMarried) {
+          this.isMarried = true;
+        }
+      });
+
+    this.BindGridViewObj();
+    await this.GetListPaging();
+  }
+
+  tempFamilyListingObj: Array<FamilyListingObj> = new Array();
+  listCustNoToExclude: Array<string> = new Array();
+  IsSpouseInputed: boolean = false;
+  async GetListPaging() {
+    this.IsSpouseInputed = false;
+    await this.http.post(this.UrlConstantNew.GetMainCustAndListCustPersonalFamilyByCustId, { Id: this.IdCust }).toPromise().then(
+      (response) => {
+        this.tempFamilyListingObj = response["CustPersonalFamilyList"];
+        for (const item of this.tempFamilyListingObj) {
+          if (item["FamilyId"] && item["FamilyId"] > 0) {
+            this.listCustNoToExclude.push(item["CustNo"]);
+          }
+          if (item["MrCustRelationship"] == CommonConstant.MasteCodeRelationshipSpouse && item["MrMaritalStatCode"] == CommonConstant.MaritalStatusMarried) this.IsSpouseInputed = true;
+        }
+        this.inputGridObj.resultData["Data"] = new Array();
+        this.inputGridObj.resultData.Data = this.tempFamilyListingObj;
+        this.isReady = true;
+      }
+    ).catch(
+      (error) => {
+        console.log(error);
+        this.isReady = true;
+      }
+    );
+  }
+  
+  inputGridObj: InputGridObj = new InputGridObj();
+  BindGridViewObj() {
+    this.inputGridObj = new InputGridObj();
+    this.inputGridObj.pagingJson = "./assets/ucgridview/Customer/gridCustFamily.json";
+    this.inputGridObj.deleteUrl = this.UrlConstantNew.DeleteCustPersonalFamily;
+    this.inputGridObj.resultData = { Data: [] };
+  }
+
+  selectedCustId: number = 0;
+  selectedCustPersonalFamilyId: number = 0;
+  addCustFamily(isAdd: boolean = true) {
+    this.PageType = this.CustPageTypeHeader;
+    if (isAdd) {
+      this.selectedCustId = 0;
+      this.selectedCustPersonalFamilyId = 0;
+    }
+  }
+
+  readonly CustTypePersonal: string = CommonConstant.CustomerPersonal;
+  event(ev) {
+    if(ev.Key = 'Edit'){
+      this.selectedCustId = ev.RowObj.FamilyId;
+      this.selectedCustPersonalFamilyId = ev.RowObj.CustPersonalFamilyId;
+      this.addCustFamily(false);
+    }
+  }
+
+  ReloadPaging() {
+    this.GetListPaging();
+    this.PageType = this.CustPageTypePaging;
+  }
+
+  SaveAndSync()
+  {
+    this.http.post(this.UrlConstantNew.SendCustomerDataToRabbitMq, { CustNo: this.CustNo }, AdInsConstant.SpinnerOptions).toPromise().then(
+      (response) => {
+        if (response["StatusCode"] == 200) {
+          this.toastr.successMessage("Sync Customer Succses");
+          AdInsHelper.RedirectUrl(this.ngxRouter, [NavigationConstant.SELF_CUSTOM_CUST_PAGING], {});
+        }
+      }
+    )
+  }
+
+  SaveAndContinue(ev: any)
+  {
+    const actions = [
+      {
+        'result': {
+          'type': 'function',
+          'target': 'self',
+          'alias': '',
+          'methodName': 'NextStep',
+          'params': []
+        },
+        'conditions': []
+      }
+    ];
+
+    this.next.emit({Actions: actions});
+  }
+
+}

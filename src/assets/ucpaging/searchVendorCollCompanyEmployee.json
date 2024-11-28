@@ -1,0 +1,121 @@
+{
+    "component": [
+      {
+        "type": "textbox",
+        "name": "VENDOR_EMP_NO",
+        "id": "VendorEmpNoId",
+        "value": "",
+        "label": "Employee Code",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "VENDOR_EMP_NAME",
+        "id": "VendorEmpNameId",
+        "value": "",
+        "label": "Employee Name",
+        "placeholder": "Placeholder"
+      },
+      {
+          "type": "dropdown",
+          "name": "IS_ACTIVE",
+          "id": "IsActiveId",
+          "value": "",
+          "placeholder": "Placeholder",
+          "isFromURL": false,
+          "ddlType": "all",
+          "label": "Active Status",
+          "items": [
+              {
+                  "key": "true",
+                  "value": "Yes"
+              },
+              {
+                  "key": "false",
+                  "value": "No"
+              }
+          ],
+          "itemsUrl": []
+      }
+    ],
+    "querystring": {
+      "name": "searchVendorBranchEmployee"
+    },
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Employee Code",
+        "name": "VENDOR_EMP_NO"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Employee Name",
+        "name": "VENDOR_EMP_NAME"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Employee Phone",
+        "name": "MOBILE_PHN_NO_1"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Active Status",
+        "name": "IS_ACTIVE"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Action"
+      }
+    ],
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "left",
+        "property": "VendorEmpNo"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "VendorEmpName"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "MobilePhnNo1"
+      },
+      {
+        "type": "boolean",
+        "position": "center",
+        "property": "IsActive"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "edit",
+            "path": "VENDOR_COLL_COMPANY_EMP_DETAIL",
+            "param": [
+              {
+                "type": "VendorId",
+                "property": "VendorId"
+              },
+              {
+                "type": "VendorEmpId",
+                "property": "VendorEmpId"
+              },
+              {
+                "type": "mode",
+                "property": "edit"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

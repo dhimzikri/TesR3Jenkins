@@ -1,0 +1,91 @@
+{
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Customer No",
+            "name": "CustNo"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Name",
+            "name": "CustName"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Customer Type",
+            "name": "MrCustRelationshipDesc"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "MrCustRelationshipDesc",
+                                    "value": "Self Customer",
+                                    "restriction": "NEQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "link",
+                                "position": "center",
+                                "property": "CustNo",
+                                "path": "VIEW_CUST_PERSONAL_DETAIL",
+                                "target": "_blank",
+                                "param": [
+                                    {
+                                        "type": "CustId",
+                                        "property": "FamilyId"
+                                    }
+                                ]
+                            },
+                            "isHide": false
+                        },
+                        {
+                            "conditions": [
+                                {
+                                    "property": "MrCustRelationshipDesc",
+                                    "value": "Self Customer",
+                                    "restriction": "EQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "link",
+                                "position": "center",
+                                "property": "CustNo",
+                                "path": "VIEW_CUST_PERSONAL_DETAIL",
+                                "target": "_blank",
+                                "param": [
+                                    {
+                                        "type": "CustId",
+                                        "property": "CustId"
+                                    }
+                                ]
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "CustName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrCustRelationshipDesc"
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+  "title": "Leave Inquiry",
+  "component": [
+    {
+      "type": "textbox",
+      "name": "empName",
+      "id": "empNameId",
+      "value": "",
+      "label": "Employee Name",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "dropdown",
+      "datatype": "text",
+      "name": "jobPosition",
+      "id": "jobPositionId",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "url": "https://api.myjson.com/bins/ld6e8",
+      "label": "Job Position",
+      "items": [
+        {
+          "key": "Staff",
+          "value": "Staff"
+        },
+        {
+          "key": "Branch Manager",
+          "value": "Branch Manager"
+        },
+        {
+          "key": "Area Manager",
+          "value": "Area Manager"
+        }
+      ],
+      "itemsUrl": []
+    },
+    {
+      "type": "datepicker",
+      "datatype": "date",
+      "name": "startDt",
+      "id": "startDtId",
+      "value": "BD",
+      "restriction": "gte",
+      "label": "Start Date >=",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "datepicker",
+      "datatype": "date",
+      "name": "endDt",
+      "id": "endDtId",
+      "value": "BD+500",
+      "restriction": "lte",
+      "label": "End Date <=",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "dropdown",
+      "datatype": "text",
+      "name": "status",
+      "id": "statusId",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "url": "https://api.myjson.com/bins/ld6e8",
+      "label": "Status",
+      "items": [
+        {
+          "key": "APV",
+          "value": "Approved"
+        },
+        {
+          "key": "RJC",
+          "value": "Rejected"
+        },
+        {
+          "key": "REQ",
+          "value": "Requested"
+        }
+      ],
+      "itemsUrl": []
+    }
+  ]
+}

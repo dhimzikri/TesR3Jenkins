@@ -1,0 +1,228 @@
+<!-- Sidebar Header starts -->
+<div class="sidebar-header">
+    <div class="logo clearfix">
+      <a [routerLink]="[URLHome]" class="logo-text float-left">
+        <!-- <div class="logo-img">
+            <img src="assets/img/icon-confins.png" />
+        </div> -->
+  
+        <div class="logo-menu d-none" style="margin-left: 6px; margin-top: 16px;">
+          <i class="ft-menu toggle-icon" data-toggle="expanded"></i>
+        </div>
+  
+        <div class="sidebar-element-collapsed">
+          <img alt="element 06" class="mb-1" src="assets/img/logo-01.png" width="110" style="align-items: center;">
+        </div>
+        <!-- <span class="text align-middle">LMS</span> -->
+        <!-- <span class="text align-middle" style="font-size: 8px !important;">Version - {{version}}</span> -->
+      </a>
+      <a class="nav-toggle d-none d-sm-none d-md-none d-lg-block" id="sidebarToggle" href="javascript:;">
+        <i class="ft-menu toggle-icon" data-toggle="expanded"></i>
+      </a>
+      <a class="nav-close d-block d-md-block d-lg-none d-xl-none" id="sidebarClose" href="javascript:;">
+        <i class="ft-menu"></i>
+      </a>
+      <div class="sidebar-element-collapsed" style="width: 100%; background: #FFE9E9;padding: 10px 70px; border-radius: 4px; margin-top: 60px;">
+        <a style="font-size: 14px; font-weight: 500; color: #3e4464;">Main Menu</a>
+      </div>
+    </div>
+  </div>
+  <!-- Sidebar Header Ends -->
+  
+  <!-- Sidebar Content starts -->
+  <div class="sidebar-content">
+      <div class="nav-container pb-4">
+          <ul class="navigation" data-scroll-to-active="true">
+              <!-- First level menu -->
+              <li *ngFor="let menuItemLevelOne of menuItems" [ngClass]="[menuItemLevelOne.Class]"
+                  [routerLinkActive]="menuItemLevelOne.Submenu.length != 0 ? '' : 'active'"
+                  [routerLinkActiveOptions]="{ exact : true }">
+                  <span *ngIf="menuItemLevelOne.Class != 'has-sub'; then internalNoSubBlock else internalHasSubBlock"></span>
+                  <ng-template #internalNoSubBlock>
+                      <a (click)="navigateSkipLocationChange(menuItemLevelOne)" [routerLink]="menuItemLevelOne.Path" [queryParams]="menuItemLevelOne.GeneratedParam"
+                          *ngIf="!menuItemLevelOne.IsExternalLink; else externalLinkBlockLevelOne" [contextMenu]="basicMenu"
+                          [contextMenuSubject]="menuItemLevelOne">
+                          <i [ngClass]="[menuItemxcLevelOne.Icon]"></i>
+                          <span class="menu-title">{{menuItemLevelOne.Title | translate }}</span>
+                          <span *ngIf="menuItemLevelOne.Badge != undefined && menuItemLevelOne.Badge != '' "
+                              [ngClass]="[menuItemLevelOne.BadgeClass]">{{menuItemLevelOne.Badge}}</span>
+                      </a>
+                  </ng-template>
+                  <ng-template #internalHasSubBlock>
+                      <a *ngIf="!menuItemLevelOne.IsExternalLink; else externalLinkBlockLevelOne" [contextMenu]="basicMenu"
+                          [contextMenuSubject]="menuItemLevelOne">
+                          <i [ngClass]="[menuItemLevelOne.Icon]"></i>
+                          <span class="menu-title">{{menuItemLevelOne.Title | translate }}</span>
+                          <span *ngIf="menuItemLevelOne.Badge != undefined && menuItemLevelOne.Badge != '' "
+                              [ngClass]="[menuItemLevelOne.BadgeClass]">{{menuItemLevelOne.Badge}}</span>
+                      </a>
+                  </ng-template>
+                  <ng-template #externalLinkBlockLevelOne>
+                      <a [href]="[menuItemLevelOne.Path]" target="_blank">
+                          <i [ngClass]="[menuItemLevelOne.Icon]"></i>
+                          <span class="menu-title">{{menuItemLevelOne.Title | translate }}</span>
+                          <span *ngIf="menuItemLevelOne.Badge != undefined && menuItemLevelOne.Badge != '' "
+                              [ngClass]="[menuItemLevelOne.BadgeClass]">{{menuItemLevelOne.Badge}}</span>
+                      </a>
+                  </ng-template>
+                  <!-- Second level menu -->
+                  <ul class="menu-content" *ngIf="menuItemLevelOne.Submenu.length > 0">
+                      <li *ngFor="let menuItemLevelTwo of menuItemLevelOne.Submenu"
+                          [routerLinkActive]="menuItemLevelTwo.Submenu.length > 0 ? '' : 'active'"
+                          [routerLinkActiveOptions]="{ exact : true }" [ngClass]="[menuItemLevelTwo.Class]">
+                          <span
+                              *ngIf="menuItemLevelTwo.Class != 'has-sub'; then secondLevelNoSubBlock else secondLevelHasSubBlock"></span>
+                          <ng-template #secondLevelNoSubBlock>
+                              <a [routerLink]="menuItemLevelTwo.Path" [queryParams]="menuItemLevelTwo.GeneratedParam"
+                                  *ngIf="!menuItemLevelTwo.IsExternalLink; else externalLinkBlockLevelTwo">
+                                  <i [ngClass]="[menuItemLevelTwo.Icon]"></i>
+                                  <span class="menu-title">{{menuItemLevelTwo.Title | translate }}</span>
+                                  <span *ngIf="menuItemLevelTwo.Badge != undefined && menuItemLevelTwo.Badge != '' "
+                                      [ngClass]="[menuItemLevelTwo.BadgeClass]">{{menuItemLevelTwo.Badge}}</span>
+                              </a>
+                          </ng-template>
+                          <ng-template #secondLevelHasSubBlock>
+                              <a *ngIf="!menuItemLevelTwo.IsExternalLink; else externalLinkBlockLevelTwo">
+                                  <i [ngClass]="[menuItemLevelTwo.Icon]"></i>
+                                  <span class="menu-title">{{menuItemLevelTwo.Title | translate }}</span>
+                                  <span *ngIf="menuItemLevelTwo.Badge != undefined && menuItemLevelTwo.Badge != '' "
+                                      [ngClass]="[menuItemLevelTwo.BadgeClass]">{{menuItemLevelTwo.Badge}}</span>
+                              </a>
+                          </ng-template>
+                          <ng-template #externalLinkBlockLevelTwo>
+                              <a [href]="[menuItemLevelTwo.Path]">
+                                  <i [ngClass]="[menuItemLevelTwo.Icon]"></i>
+                                  <span class="menu-title">{{menuItemLevelTwo.Title | translate }}</span>
+                                  <span *ngIf="menuItemLevelTwo.Badge != undefined && menuItemLevelTwo.Badge != '' "
+                                      [ngClass]="[menuItemLevelTwo.BadgeClass]">{{menuItemLevelTwo.Badge}}</span>
+                              </a>
+                          </ng-template>
+  
+                          <!-- Third level menu -->
+                          <ul class="menu-content" *ngIf="menuItemLevelTwo.Submenu.length > 0">
+                              <li *ngFor="let menuItemLevelThree of menuItemLevelTwo.Submenu"
+                                  [routerLinkActive]="menuItemLevelThree.Submenu.length > 0 ? '' : 'active'"
+                                  [routerLinkActiveOptions]="{ exact : true }" [ngClass]="[menuItemLevelThree.Class]">
+                                  <span
+                                      *ngIf="menuItemLevelThree.Class != 'has-sub'; then thirdLevelNoSubBlock else thirdLevelHasSubBlock"></span>
+                                  <ng-template #thirdLevelNoSubBlock>
+                                      <a (click)="navigateSkipLocationChange(menuItemLevelThree)" [routerLink]="menuItemLevelThree.Path" [queryParams]="menuItemLevelThree.GeneratedParam"
+                                          *ngIf="!menuItemLevelThree.IsExternalLink; else externalLinkBlockLevelThree">
+                                          <i [ngClass]="[menuItemLevelThree.Icon]"></i>
+                                          <span class="menu-title">{{menuItemLevelThree.Title | translate }}</span>
+                                          <span *ngIf="menuItemLevelThree.Badge != undefined && menuItemLevelThree.Badge != '' "
+                                              [ngClass]="[menuItemLevelThree.BadgeClass]">{{menuItemLevelThree.Badge}}</span>
+                                      </a>
+                                  </ng-template>
+                                  <ng-template #thirdLevelHasSubBlock>
+                                      <a *ngIf="!menuItemLevelThree.IsExternalLink; else externalLinkBlockLevelThree">
+                                          <i [ngClass]="[menuItemLevelThree.Icon]"></i>
+                                          <span class="menu-title">{{menuItemLevelThree.Title | translate }}</span>
+                                          <span *ngIf="menuItemLevelThree.Badge != undefined && menuItemLevelThree.Badge != '' "
+                                              [ngClass]="[menuItemLevelThree.BadgeClass]">{{menuItemLevelThree.Badge}}</span>
+                                      </a>
+                                  </ng-template>
+                                  <!-- </div> -->
+                                  <ng-template #externalLinkBlockLevelThree>
+                                      <a [href]="[menuItemLevelThree.Path]">
+                                          <i [ngClass]="[menuItemLevelThree.Icon]"></i>
+                                          <span class="menu-title">{{menuItemLevelThree.Title | translate }}</span>
+                                          <span *ngIf="menuItemLevelThree.Badge != undefined && menuItemLevelThree.Badge != '' "
+                                              [ngClass]="[menuItemLevelThree.BadgeClass]">{{menuItemLevelThree.Badge}}</span>
+                                      </a>
+                                  </ng-template>
+  
+  
+                                  <!-- Fourth level menu -->
+                                  <ul class="menu-content" *ngIf="menuItemLevelThree.Submenu.length > 0">
+                                      <li *ngFor="let menuItemLevelFour of menuItemLevelThree.Submenu"
+                                          [routerLinkActive]="menuItemLevelFour.Submenu.length > 0 ? '' : 'active'"
+                                          [routerLinkActiveOptions]="{ exact : true }"
+                                          [ngClass]="[menuItemLevelFour.Class]">
+                                          <span
+                                              *ngIf="menuItemLevelFour.Class != 'has-sub'; then fourthLevelNoSubBlock else fourthLevelHasSubBlock"></span>
+                                          <ng-template #fourthLevelNoSubBlock>
+                                              <a (click)="navigateSkipLocationChange(menuItemLevelFour)" [routerLink]="menuItemLevelFour.Path" [queryParams]="menuItemLevelFour.GeneratedParam"
+                                                  *ngIf="!menuItemLevelFour.IsExternalLink; else externalLinkBlockLevelFour">
+                                                  <i [ngClass]="[menuItemLevelFour.Icon]"></i>
+                                                  <span class="menu-title">{{menuItemLevelFour.Title | translate }}</span>
+                                                  <span
+                                                      *ngIf="menuItemLevelFour.Badge != undefined && menuItemLevelFour.Badge != '' "
+                                                      [ngClass]="[menuItemLevelFour.BadgeClass]">{{menuItemLevelFour.Badge}}</span>
+                                              </a>
+                                          </ng-template>
+                                          <ng-template #fourthLevelHasSubBlock>
+                                              <a *ngIf="!menuItemLevelFour.IsExternalLink; else externalLinkBlockLevelFour">
+                                                  <i [ngClass]="[menuItemLevelFour.Icon]"></i>
+                                                  <span class="menu-title">{{menuItemLevelFour.Title | translate }}</span>
+                                                  <span *ngIf="menuItemLevelFour.Badge != undefined && menuItemLevelFour.Badge != '' "
+                                                      [ngClass]="[menuItemLevelFour.BadgeClass]">{{menuItemLevelFour.Badge}}</span>
+                                              </a>
+                                          </ng-template>
+                                          <ng-template #externalLinkBlockLevelFour>
+                                              <a [href]="[menuItemLevelFour.Path]">
+                                                  <i [ngClass]="[menuItemLevelFour.Icon]"></i>
+                                                  <span class="menu-title">{{menuItemLevelFour.Title | translate }}</span>
+                                                  <span
+                                                      *ngIf="menuItemLevelFour.Badge != undefined && menuItemLevelFour.Badge != '' "
+                                                      [ngClass]="[menuItemLevelFour.BadgeClass]">{{menuItemLevelFour.Badge}}</span>
+                                              </a>
+                                          </ng-template>
+  
+                                          <!-- Fifth level menu -->
+                                          <ul class="menu-content" *ngIf="menuItemLevelFour.Submenu.length > 0">
+                                              <li *ngFor="let menuItemLevelFive of menuItemLevelFour.Submenu"
+                                                  [routerLinkActive]="menuItemLevelFive.Submenu.length > 0 ? '' : 'active'"
+                                                  [routerLinkActiveOptions]="{ exact : true }"
+                                                  [ngClass]="[menuItemLevelFive.Class]">
+                                                  <span
+                                                      *ngIf="menuItemLevelFive.Class != 'has-sub'; then fifthLevelNoSubBlock else fifthLevelHasSubBlock"></span>
+                                                  <ng-template #fifthLevelNoSubBlock>
+                                                      <a (click)="navigateSkipLocationChange(menuItemLevelFive)" [routerLink]="menuItemLevelFive.Path" [queryParams]="menuItemLevelFive.GeneratedParam"
+                                                          *ngIf="!menuItemLevelFive.IsExternalLink; else externalLinkBlockLevelFive">
+                                                          <i [ngClass]="[menuItemLevelFive.Icon]"></i>
+                                                          <span class="menu-title">{{menuItemLevelFive.Title | translate }}</span>
+                                                          <span
+                                                              *ngIf="menuItemLevelFive.Badge != undefined && menuItemLevelFive.Badge != '' "
+                                                              [ngClass]="[menuItemLevelFive.BadgeClass]">{{menuItemLevelFive.Badge}}</span>
+                                                      </a>
+                                                  </ng-template>
+                                                  <ng-template #fifthLevelHasSubBlock>
+                                                      <a *ngIf="!menuItemLevelFive.IsExternalLink; else externalLinkBlockLevelFive">
+                                                          <i [ngClass]="[menuItemLevelFive.Icon]"></i>
+                                                          <span class="menu-title">{{menuItemLevelFive.Title | translate }}</span>
+                                                          <span *ngIf="menuItemLevelFive.Badge != undefined && menuItemLevelFive.Badge != '' "
+                                                              [ngClass]="[menuItemLevelFive.BadgeClass]">{{menuItemLevelFive.Badge}}</span>
+                                                      </a>
+                                                  </ng-template>
+                                                  <ng-template #externalLinkBlockLevelFive>
+                                                      <a [href]="[menuItemLevelFive.Path]">
+                                                          <i [ngClass]="[menuItemLevelFive.Icon]"></i>
+                                                          <span class="menu-title">{{menuItemLevelFive.Title | translate }}</span>
+                                                          <span
+                                                              *ngIf="menuItemLevelFive.Badge != undefined && menuItemLevelFive.Badge != '' "
+                                                              [ngClass]="[menuItemLevelFive.BadgeClass]">{{menuItemLevelFive.Badge}}</span>
+                                                      </a>
+                                                  </ng-template>
+                                              </li>
+                                          </ul>
+                                      </li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+          <context-menu>
+              <ng-template contextMenuItem>
+                  Add to Favorites!
+              </ng-template>
+              <!-- <ng-template contextMenuItem passive="true">
+              Input something: <input type="text">
+            </ng-template> -->
+          </context-menu>
+      </div>
+  </div>
+  <!-- Sidebar Content Ends -->
+  

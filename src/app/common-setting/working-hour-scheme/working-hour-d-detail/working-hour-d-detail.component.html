@@ -1,0 +1,59 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="card-title" id="horz-layout-colored-controls" translate> WORKING HOUR MANAGEMENT </h4>
+            <br>
+          </div>
+        </div>
+      </div>
+      <lib-ucviewgeneric [viewGenericObj]="viewGenericObj"></lib-ucviewgeneric>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="WorkingHourSchmDForm"
+          (ngSubmit)="WorkingHourSchmDForm.valid && SaveForm()" #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'WorkingHourSchmDId'" [title]="'Working Hour'" [panel]="'WorkingHourSchmD'">
+            </lib-ucSubsection>
+            <div id="WorkingHourSchmD">
+              <div class="form-group row">
+                <label class="col-md-2 text-center" translate>Day </label>
+                <label class="col-md-4 text-center" translate>Working Hour Before Break</label>
+                <label class="col-md-4 text-center" translate>Working Hour After Break </label>
+              </div> 
+              <div formArrayName="items">
+                <div *ngFor="let item of WorkingHourSchmDForm.controls.items['controls'];let i = index;">
+                  <div class="form-group row" [formGroupName]="i">
+                    <label class="col-md-2 text-center" translate>{{item.controls.Label.value}}</label>
+                    <div class="col-md-2" style="border-right: 1px solid grey">
+                      <input type="time" class="form-control" formControlName="WorkingHourFrom1">
+                    </div>
+                    <div class="col-md-2">
+                      <input type="time" class="form-control" formControlName="WorkingHourTo1">
+                    </div>
+                    <div class="col-md-2" style="border-right: 1px solid grey">
+                      <input type="time" class="form-control" formControlName="WorkingHourFrom2">
+                    </div>
+                    <div class="col-md-2">
+                      <input type="time" class="form-control" formControlName="WorkingHourTo2">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1"
+                [routerLink]="[CancelLink]" skipLocationChange>
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

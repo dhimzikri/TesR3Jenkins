@@ -1,0 +1,254 @@
+{
+    "title": "Vendor Grading Approval",
+    "exportExcel": false,
+    "component": [
+      {
+        "type": "textbox",
+        "name": "TransactionNo",
+        "id": "TrxNo",
+        "value": "",
+        "label": "Transaction No",
+        "placeholder": "Placeholder",
+        "isCriteriaDataTable" : true
+      },
+      {
+        "type": "textbox",
+        "name": "V.VENDOR_CODE",
+        "id": "VendorCode",
+        "value": "",
+        "label": "Vendor Code",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "V.VENDOR_NAME",
+        "id": "VendorName",
+        "value": "",
+        "label": "Vendor Name",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "dropdown",
+        "name": "RM.MASTER_CODE",
+        "id": "MrVendorCategoryDescr",
+        "value": "",
+        "placeholder": "Placeholder",
+        "datatype": "text",
+        "isFromURL": true,
+        "ddlType": "all",
+        "url": "",
+        "path": "/RefMaster/GetListKeyValueActiveByCode",
+        "label": "Vendor Category",
+        "criteriaPropName": "RefMasterTypeCode",
+        "criteriaPropValue": "VENDOR_GRADING_CATEGORY",
+        "items": [],
+        "itemsUrl": [],
+        "environment": "FOU"
+      }
+    ],
+    "querystring": {
+      "name": "searchApprovalSupplBranchGradingV2"
+    },
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Transaction No",
+        "name": "P.VENDOR_GRADING_HIST_NO"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Vendor Code",
+        "name": "V.VENDOR_CODE"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Vendor Name",
+        "name": "V.VENDOR_NAME"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "VENDOR CATEGORY",
+        "name": "RM.DESCR"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Request By",
+        "name": "RequestBy"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Request Date",
+        "name": "RequestDate"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Main User Id",
+        "name": "MainUser"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Current User Id",
+        "name": "CurrentUser"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Process"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Hold"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Take Back"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Unclaim"
+      }
+    ],
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "center",
+        "property": "VendorGradingHistNo"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "VendorCode"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "VendorName"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "MrVendorCategoryDescr"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "RequestBy"
+      },
+      {
+        "type": "date",
+        "position": "center",
+        "property": "RequestDate"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "MainUser"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "CurrentUser"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "callback",
+            "key": "Process"
+          }
+        ]
+      },
+      {
+        "type" : "action",
+        "position" : "center",
+        "action" : [
+          {
+            "type": "switch",
+            "case": [
+              {
+                "conditions" : [ 
+                  {
+                      "isUser": false,
+                      "property" : "IsRoleAssignment", 
+                      "value" : false, 
+                      "restriction" : "EQ" 
+                  }
+                ],
+                "result" : { 
+                  "type": "callback",
+                  "key": "HoldTask",
+                  "icon" : "ft-edit-2"
+                },
+                "isHide" : false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type" : "action",
+        "position" : "center",
+        "action" : [
+          {
+            "type": "switch",
+            "case": [
+              {
+                "conditions" : [ 
+                  {
+                    "property" : "CurrentUser", 
+                    "value" : "-", 
+                    "restriction" : "NEQ" 
+                  }
+                ],
+                "result" : { 
+                  "type": "callback",
+                  "key": "TakeBack",
+                  "icon" : "ft-edit-2"
+                },
+                "isHide" : false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type" : "action",
+        "position" : "center",
+        "action" : [
+          {
+            "type": "switch",
+            "case": [
+              {
+                "conditions" : [ 
+                  {
+                      "isUser": false,
+                      "property" : "IsRoleAssignment", 
+                      "value" : true, 
+                      "restriction" : "EQ" 
+                  }
+                ],
+                "result" : { 
+                  "type": "callback",
+                  "key": "UnClaim",
+                  "icon" : "ft-edit-2"
+                },
+                "isHide" : false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

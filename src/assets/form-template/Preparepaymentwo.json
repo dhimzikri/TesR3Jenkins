@@ -1,0 +1,37 @@
+{
+  "title": "Payment After WO Prepare Detail",
+  "hideTitle": false,
+  "id": "Preparepaymentwo",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "customComponent": {
+        "componentRef": "${Paymentafterworeceivebatchmaininformation}"
+      },
+      "id": "5104c826-68c5-4e2f-8677-a87710c30978"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [],
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false,
+  "customToastrMsg": "",
+  "persistPropName": ""
+}

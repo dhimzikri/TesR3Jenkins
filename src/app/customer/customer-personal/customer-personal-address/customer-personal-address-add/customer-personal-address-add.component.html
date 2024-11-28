@@ -1,0 +1,66 @@
+<div class="bg-light-blue-card">
+  <form class="form form-horizontal" [formGroup]="CustDataPersonalForm"
+    (ngSubmit)="CustDataPersonalForm.valid && SaveForm()" #enjiForm="ngForm">
+    <div class="form-body">
+      <lib-ucSubsection [id]="'custAddrId'" [title]="'Debtor Address'" [panel]="'customerAddr'">
+      </lib-ucSubsection>
+      <div id="customerAddr" class="px-3">
+        <div class="form-group row">
+          <label class="col-md-12  adInsLabel label-field-2" translate>Address Type Name </label>
+          <div class="col-md-12">
+            <select class="form-control adInsInput input-field-2" style="width: 100%;" formControlName="MrCustAddrTypeCode" required (change)="checkCustAddrType()">
+              <option *ngFor="let ram of listAddressType" [value]="ram.Key">
+                {{ram.Value}}
+              </option>
+            </select>
+            <div class="message-box">
+              <lib-uc-show-errors [control]="CustDataPersonalForm.controls.MrCustAddrTypeCode" [submit]="enjiForm.submitted">
+              </lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-12  adInsLabel label-field-2" translate>Copy Address From
+            <span class="optional-text">(Optional)</span>
+          </label>
+          <div class="col-md-9">
+            <select class="form-control adInsInput input-field-2" style="width: 100%;" formControlName="CopyAddrFrom">
+              <option *ngFor="let ram of listCustAddr" [value]="ram.CustAddrId">{{ram.MrCustAddrTypeCode}}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-raised btn-primary-2" (click)="copyAddress()">
+              <i class="fa fa-files-o"></i>&nbsp;<span translate>Copy</span>
+            </button>
+          </div>
+        </div>
+        <div id="CustMainDataPersonal">
+          <lib-ucaddress #UcAddrGrp [addressObj]="inputAddressObj" [enjiForm]="enjiForm" [identifier]="'custAddress'" [UCAddrForm]="CustDataPersonalForm" *ngIf="isReady"></lib-ucaddress>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-12 adInsLabel label-field-2" translate>Notes
+            <span class="optional-text">(Optional)</span>
+          </label>
+          <div class="col-md-12">
+            <textarea type="text" class="form-control adInsInput textarea-field-2" formControlName="Notes"
+              [ngClass]="{ 'is-invalid': enjiForm.submitted && CustDataPersonalForm.controls.Notes.invalid }"></textarea>
+            <div class="message-box">
+              <lib-uc-show-errors [control]="CustDataPersonalForm.controls.Notes" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions right">
+      <div class="px-3">
+        <button type="button" class="btn btn-raised btn-outline-2 mr-1" (click)="back()" translate>
+          <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+        </button>
+        <button type="submit" class="btn btn-raised btn-primary-2" translate>
+          <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

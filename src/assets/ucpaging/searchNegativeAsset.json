@@ -1,0 +1,275 @@
+{
+    "title": "Negative Asset",
+    "exportExcel": true,
+    "component": [
+        {
+            "type" : "dropdown",
+            "label" : "Asset Type Name",
+            "name" : "ATH.ASSET_TYPE_CODE",
+            "id" : "assetTypeName",
+            "value" : "",
+            "datatype" : "text",
+            "ddlType": "all",
+            "items" : [],
+            "isFromURL" : true, 
+            "url" : "", 
+            "path":"/AssetType/GetListKeyValueActiveByCode",
+            "itemsUrl" : [],
+            "isEvent" : true,
+            "affectedFilter" : ["AC.ASSET_CATEGORY_CODE"],
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "A.SERIAL_NO_1",
+            "id": "serialNo1",
+            "value": "",
+            "label": "Serial No 1",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type" : "dropdown",
+            "label" : "Asset Category Name",
+            "name" : "AC.ASSET_CATEGORY_CODE",
+            "id" : "assetCategoryName",
+            "value" : "",
+            "datatype" : "text",
+            "ddlType": "all",
+            "items" : [],
+            "isFromURL" : true, 
+            "url" : "", 
+            "path":"/AssetCategory/GetListAssetCategoryByCodeWithCriteriaObj",
+            "itemsUrl" : [],
+            "environment":"FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "A.SERIAL_NO_2",
+            "id": "serialNo2",
+            "value": "",
+            "label": "Serial No 2",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "B.FULL_ASSET_CODE",
+            "id": "fullAssetCode",
+            "value": "",
+            "label": "Full Asset Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "A.SERIAL_NO_3",
+            "id": "serialNo3",
+            "value": "",
+            "label": "Serial No 3",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "B.FULL_ASSET_NAME",
+            "id": "fullAssetName",
+            "value": "",
+            "label": "Full Asset Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "A.SERIAL_NO_4",
+            "id": "serialNo4",
+            "value": "",
+            "label": "Serial No 4",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type" : "dropdown",
+            "label" : "Negative Source",
+            "name" : "A.MR_NEG_ASSET_SOURCE_CODE",
+            "id" : "negativeSource",
+            "value" : "",
+            "datatype" : "text",
+            "ddlType": "all",
+            "items" : [],
+            "isFromURL" : true, 
+            "url" : "", 
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "itemsUrl" : [], 
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "NEG_ASSET_SOURCE",
+            "environment":"FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "A.SERIAL_NO_5",
+            "id": "serialNo5",
+            "value": "",
+            "label": "Serial No 5",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "A.IS_ACTIVE",
+            "id": "isActive",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "",
+            "label": "Active Status",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": { 
+        "name": "searchNegativeAsset"
+    },
+    "headerList" : [ 
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Asset Type Name",
+            "name" : "ATH.ASSET_TYPE_NAME" 
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Full Asset Code", 
+            "name" : "B.FULL_ASSET_CODE" 
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Full Asset Name", 
+            "name" : "B.FULL_ASSET_NAME" 
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Serial No. 1", 
+            "name" : "A.SERIAL_NO_1"
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Serial No. 2", 
+            "name" : "A.SERIAL_NO_2"
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Serial No. 3", 
+            "name" : "A.SERIAL_NO_3"
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Serial No. 4", 
+            "name" : "A.SERIAL_NO_4"
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Serial No. 5", 
+            "name" : "A.SERIAL_NO_5"
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Negative Source", 
+            "name" : "D.DESCR"
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Active Status", 
+            "name" : "A.IS_ACTIVE"
+        },
+        {
+            "type" : "label",
+            "position" : "center",
+            "label" : "Action"
+        }
+    ],
+    "bodyList" : [
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "assetTypeName" 
+        },
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "fullAssetCode" 
+        },
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "fullAssetName" 
+        },
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "serialNo1" 
+        },
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "serialNo2" 
+        },
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "serialNo3" 
+        },
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "serialNo4" 
+        },
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "serialNo5" 
+        },
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "descr" 
+        },
+        {
+            "type" : "boolean", 
+            "position" : "center", 
+            "property" : "isActive" 
+        },
+        {
+            "type" : "action", 
+            "position" : "center",
+            "action" : [ 
+                {
+                    "type" : "edit", 
+                    "path" : "ASSET_NEG_DETAIL", 
+                    "param" : [ 
+                        {
+                            "type" : "assetNegativeId", 
+                            "property" : "assetNegativeId" 
+                        },
+                        {
+                            "type": "param",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,132 @@
+{
+    "title": "Industry Type",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "INDUSTRY_TYPE_CODE",
+            "id": "IndustryTypeCode",
+            "value": "",
+            "label": "Industry Type Code",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "REF_INDUSTRY_TYPE_CATEGORY_NAME",
+            "id": "RefIndustryTypeCategoryName",
+            "value": "",
+            "label": "Industry Type Category Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "INDUSTRY_TYPE_NAME",
+            "id": "IndustryTypeName",
+            "value": "",
+            "label": "Industry Type Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "dropdown",
+            "name": "A.IS_ACTIVE",
+            "datatype": "text",
+            "id": "IsActive",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "",
+            "label": "Active Status",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchIndustryType"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Industry Type Code",
+            "name": "IndustryTypeCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Industry Type Name",
+            "name": "IndustryTypeName"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Industry Type Category Name",
+            "name": "RefIndustryTypeCategoryName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "IndustryTypeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "IndustryTypeName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "RefIndustryTypeCategoryName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "/CommonSetting/IndustryType/Detail",
+                    "param": [
+                        {
+                            "type": "RefIndustryTypeId",
+                            "property": "RefIndustryTypeId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

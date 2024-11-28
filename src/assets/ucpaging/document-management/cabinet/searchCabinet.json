@@ -1,0 +1,138 @@
+{
+    "title": "Cabinet",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "CB.CABINET_CODE",
+            "id": "CabinetCode",
+            "value": "",
+            "label": "Cabinet Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "CB.CABINET_NAME",
+            "id": "CabinetName",
+            "value": "",
+            "label": "Cabinet Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "CB.IS_ACTIVE",
+            "id": "IsActive",
+            "label": "Active",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchCabinet"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "CABINET CODE",
+            "name": "CB.CABINET_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "CABINET NAME",
+            "name": "CB.CABINET_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "ACTIVE",
+            "name": "IsActive"
+        },
+        {
+            "type" : "label",
+            "position" : "center",
+            "label" : "RACK"
+        },
+        {
+            "type" : "label",
+            "position" : "center",
+            "label" : "EDIT"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "link",
+            "position": "center",
+            "property": "CabinetCode",
+            "target": "_blank",
+            "path": "DOC_MNGMNT_VIEW_CABINET",
+            "param": [
+                {
+                    "type": "CabinetCode",
+                    "property": "CabinetCode"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "CabinetName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type" : "action",
+            "position" : "center",
+            "action" : [
+                {
+                    "type" : "edit",
+                    "path" : "DOC_MNGMNT_RACK_PAGING",
+                    "param" : [
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        },
+                        {
+                            "type" : "CabinetCode",
+                            "property" : "CabinetCode"
+                        }
+                    ],
+                    "icon" : "ft-edit-2"
+                }
+            ]
+        },
+        {
+            "type" : "action",
+            "position" : "center",
+            "action" : [
+                {
+                    "type" : "edit",
+                    "path" : "DOC_MNGMNT_CABINET_ADD_EDIT",
+                    "param" : [
+                        {
+                            "type" : "CabinetCode",
+                            "property" : "CabinetCode"
+                        }
+                    ],
+                    "icon" : "ft-edit-2"
+                }
+            ]
+        }
+    ]
+}

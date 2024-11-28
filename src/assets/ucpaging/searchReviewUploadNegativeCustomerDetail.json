@@ -1,0 +1,187 @@
+{
+    "title": "",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "CUST_NAME",
+            "id": "CustNameId",
+            "value": "",
+            "label": "Customer Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        }
+    ],
+    "querystring": {
+        "name": "searchReviewUploadNegativeCustomerDetail"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "CUSTOMER NO",
+            "name": "CUST_NO"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "CUSTOMER NAME",
+            "name": "CUST_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "CUSTOMER TYPE CODE",
+            "name": "MR_CUST_TYPE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "BIRTH PLACE",
+            "name": "BIRTH_PLACE"
+        },
+		{
+            "type": "sort",
+            "position": "center",
+            "label": "BIRTH DATE",
+            "name": "BIRTH_DT"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "GENDER CODE",
+            "name": "MR_GENDER_CODE"
+        },
+		{
+            "type": "sort",
+            "position": "left",
+            "label": "MOTHER MAIDEN NAME",
+            "name": "MOTHER_MAIDEN_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "LEGAL ADDRESS",
+            "name": "LEGAL_ADDR"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "MOBILE PHONE",
+            "name": "MOBILE_PHN"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "NEG CUSTOMER TYPE CODE",
+            "name": "MR_NEG_CUST_TYPE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "NEG CUSTOMER SOURCE CODE",
+            "name": "MR_NEG_CUST_SOURCE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "UPLOAD STATUS",
+            "name": "UPLOAD_STATUS"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "NEGATIVE CUSTOMER CAUSE",
+            "name": "NEG_CUST_CAUSE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "NOTES",
+            "name": "NOTES"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "ACTIVE STATUS",
+            "name": "IS_ACTIVE"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "CustNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "CustName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrCustTypeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BirthPlace"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "BirthDt"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrGenderCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MotherMaidenName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "LegalAddr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MobilePhn"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrNegCustTypeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrNegCustSourceCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "UploadStatus"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NegCustCause"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Notes"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        }
+    ]
+}

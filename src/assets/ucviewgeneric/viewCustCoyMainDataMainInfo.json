@@ -1,0 +1,35 @@
+{
+  "title": "",
+  "subsection": [
+    {
+      "subSectionId": "viewCustCoyMainDataMainInfoId1",
+      "subSectionTitle": "Main Info",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Industry Type Name",
+          "property": "IndTypeName"
+        },
+        {
+          "type": "date",
+          "label": "Establishment Date",
+          "property": "EstDt"
+        },
+        {
+          "type": "text",
+          "label": "Number Of Employee",
+          "property": "NumOfEmp"
+        },
+        {
+          "type": "boolean",
+          "label": "SKT",
+          "property": "IsSkt"
+        }
+      ],
+      "querystring": {
+        "name": "viewCustCoyMainDataMainInfo"
+      }
+    }
+  ]
+}

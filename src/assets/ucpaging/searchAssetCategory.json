@@ -1,0 +1,115 @@
+{
+  "component": [
+    {
+      "type": "textbox",
+      "name": "ASSET_CATEGORY_CODE",
+      "id": "assetTypeCode",
+      "value": "",
+      "label": "Asset Category Code",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "textbox",
+      "name": "ASSET_CATEGORY_NAME",
+      "id": "assetTypeName",
+      "value": "",
+      "label": "Asset Category Name",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "dropdown",
+      "name": "IS_ACTIVE",
+      "id": "isActive",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "url": "https://api.myjson.com/bins/ld6e8",
+      "label": "Active Status",
+      "items": [
+        {
+          "key": "1",
+          "value": "Yes"
+        },
+        {
+          "key": "0",
+          "value": "No"
+        }
+      ],
+      "itemsUrl": []
+    }
+  ],
+  "headerList": [
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "ASSET CATEGORY CODE",
+      "name": "ASSET_CATEGORY_CODE"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "ASSET CATEGORY NAME",
+      "name": "ASSET_CATEGORY_NAME"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "ACTIVE STATUS",
+      "name": "IS_ACTIVE"
+    },
+    {
+      "type": "label",
+      "position": "center",
+      "label": "ACTION"
+    }
+  ],
+  "querystring": {
+    "name": "searchAssetCategory"
+  },
+  "bodyList": [
+    {
+      "type": "text",
+      "position": "left",
+      "property": "AssetCategoryCode"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "AssetCategoryName"
+    },
+    {
+      "type": "boolean",
+      "position": "center",
+      "property": "IsActive"
+    },
+    {
+      "type": "action",
+      "position": "center",
+      "action": [
+        {
+          "type": "edit",
+          "path": "ASSET_CATEGORY_DETAIL",
+          "param": [
+            {
+              "type": "mode",
+              "property": "edit"
+            },
+            {
+              "type": "AssetTypeId",
+              "property": "AssetTypeId"
+            },
+            {
+              "type": "AssetCategoryId",
+              "property": "AssetCategoryId"
+            }
+          ]
+        },
+        {
+          "type": "delete",
+          "property": "AssetCategoryId"
+        }
+      ]
+    }
+  ]
+}

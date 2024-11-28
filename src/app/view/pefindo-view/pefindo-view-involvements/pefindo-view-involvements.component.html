@@ -1,0 +1,44 @@
+<div class="mt-3">
+	<div class="card">
+		<div class="card-body">
+			<div class="pl-3">
+				<div class="form-body mt-1">
+          
+          <lib-ucSubsection [id]="'InvolvementsId'" [title]="'Involvements'" [panel]="'Involvements'">
+          </lib-ucSubsection>
+          <div class="row" id="Involvements">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>No. of Active Involvements</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> {{ ResViewInvolvementsObj.ActvInvlvmntNum }} </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>No. of Past Involvements</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> {{ ResViewInvolvementsObj.PastInvlvmntNum }} </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>Total Active Involvements Amount</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> IDR {{ ResViewInvolvementsObj.TtlActvInvlvmntAmt | number: '.2':'en-US' }} </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

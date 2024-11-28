@@ -1,0 +1,24 @@
+{
+  "title": "General Setting",
+  "exportExcel": true,
+  "component": [
+    {
+      "type": "textbox",
+      "name": "gsCode",
+      "id": "gsCodeId",
+      "value": "",
+      "label": "General Setting Code",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "textbox",
+      "name": "gsName",
+      "id": "gsNameId",
+      "value": "",
+      "label": "General Setting Name",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+    "title": "Payout Execution Paging",
+    "hideTitle": false,
+    "id": "PayoutExecutionPaging",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "param search",
+                    "sectionTitle": "param search",
+                    "querystring": {
+                        "name": "searchPaymentOutExecution"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "JC.JF_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "jcjfContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract Name",
+                            "name": "JC.JF_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDLWithoutACtiveCondition",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "bpthisMirroringSearchId",
+                            "type": "dropdown",
+                            "label": "Mirroring status",
+                            "name": "BPTH.IS_MIRRORING",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "YES"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "NO"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "bpthbatchTypeSearchId",
+                            "type": "dropdown",
+                            "label": "Batch Type",
+                            "name": "BPTH.BATCH_TYPE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefMasterTms/GetListKeyValueByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "BATCH_TYPE",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "bpthpayoutTypeSearchId",
+                            "type": "dropdown",
+                            "label": "Payment Out Type",
+                            "name": "BPTH.PAYOUT_TYPE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefMasterTms/GetListKeyValueByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "PAYOUT_TYPE",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "VT.VENDOR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "JC.JF_CONTRACT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch Payment No",
+                            "position": "center",
+                            "name": "BPTH.TRX_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "payment out type",
+                            "position": "center",
+                            "name": "BPTH.PAYOUT_TYPE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch Type",
+                            "position": "center",
+                            "name": " BPTH.BATCH_TYPE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Mirroring Status",
+                            "position": "center",
+                            "name": "BPTH.IS_MIRRORING"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch Status",
+                            "position": "center",
+                            "name": "RST.DESCR"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "VendorName",
+                            "key": "ViewVendor"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "ContractName",
+                            "key": "ViewFundingContract"
+                        },
+                        {
+                            "type": "link",
+                            "position": "center",
+                            "property": "BatchPaymentNo",
+                            "isFlagColor": false,
+                            "path": "/ViewPaymentOut/View",
+                            "param": [
+                                {
+                                    "type": "PaymentBatchNo",
+                                    "property": "BatchPaymentNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "PayoutTypeName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "BatchTypeName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsMirroring",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "BatchStat",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "callback",
+                                    "key": "GenerateTextfile",
+                                    "isText": false,
+                                    "property": "",
+                                    "icon": "ft-download"
+                                },
+                                {
+                                    "type": "switch",
+                                    "case": [
+                                        {
+                                            "isHide": false,
+                                            "conditions": [
+                                                {
+                                                    "isUser": false,
+                                                    "property": "BatchStat",
+                                                    "restriction": "EQ",
+                                                    "value": "Generated"
+                                                }
+                                            ],
+                                            "result": {
+                                                "path": "/PaymentOut/PaymentOutExecution/View",
+                                                "icon": "ft-play",
+                                                "type": "url",
+                                                "param": [
+                                                    {
+                                                        "type": "BatchPaymentNo",
+                                                        "property": "BatchPaymentNo"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1
+            },
+            "id": "0d858d32-c22b-4165-a678-45f2af28ed8d"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "type": "link",
+                "path": "Setting/PayoutExecution/Paging",
+                "target": "_self",
+                "params": []
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {
+        "type": "link",
+        "path": "",
+        "target": "_self",
+        "params": []
+    },
+    "hideCancelButton": false
+}

@@ -1,0 +1,85 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="ScoreCategoryForm" #enjiForm="ngForm"
+          (ngSubmit)="ScoreCategoryForm.valid && Save()">
+          <lib-ucSubsection [id]="'summaryId'" [title]="'Summary'" [panel]="'summary'">
+          </lib-ucSubsection>
+          <div id="summary">
+            <div class="form-group row">
+              <label class="col-md-3">Score Category Code</label>
+              <label class="col-md-4">{{scoreCategorySchmHObj?.ScoreCategorySchmHCode}}</label>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3" for="Descr">Score Category Name</label>
+              <label class="col-md-4">{{scoreCategorySchmHObj?.ScoreCategorySchmHName}}</label>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3" for="Notes" translate>Notes </label>
+              <label class="col-md-4">{{scoreCategorySchmHObj?.Notes}}</label>
+            </div>
+          </div>
+          <lib-ucSubsection [id]="'scoreId'" [title]="'Score'" [panel]="'score'">
+          </lib-ucSubsection>
+          <div id="score">
+            <div class="form-actions right">
+              <button type="button" name="add" id="add" (click)="addScore()" class="btn btn-raised btn-primary">
+                Add
+              </button>
+            </div>
+            <div formArrayName="ScoreCategorySchmDObjs" style="overflow-x: auto;">
+              <table class="table table-responsive-md text-center table-hover">
+                <thead>
+                  <tr class="table-header">
+                    <th><span translate class="thead-header">Bottom Value</span></th>
+                    <th><span translate class="thead-header">Top Value</span></th>
+                    <th><span translate class="thead-header">Color</span></th>
+                    <th><span translate class="thead-header">Action</span></th>
+                  </tr>
+                </thead>
+                <tbody *ngIf = "ScoreCategoryForm.controls.ScoreCategorySchmDObjs['controls'].length == 0">
+                  <tr>
+                    <td colspan="100%">No Data Available</td>
+                  </tr>
+                </tbody>
+                <tbody *ngIf = "ScoreCategoryForm.controls.ScoreCategorySchmDObjs['controls'].length > 0">
+                  <tr *ngFor="let item of ScoreCategoryForm.controls.ScoreCategorySchmDObjs.controls;let i = index">
+                    <td [formGroupName]="i" class="text-center">
+                      <input type="number" max="maxBottomValue[i]" class="form-control" formControlName="BottomValue" style="width: 100%;" (change)="BottomValueChanged($event, i)"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && ScoreCategoryForm.controls.ScoreCategorySchmDObjs['controls'][i]['controls'].BottomValue.invalid }">
+                      <lib-uc-show-errors [control]="ScoreCategoryForm.controls.ScoreCategorySchmDObjs['controls'][i]['controls'].BottomValue" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                    </td>
+                    <td [formGroupName]="i">
+                      <input type="number" min="minTopValue[i]" class="form-control" formControlName="TopValue" style="width: 100%;" (change)="TopValueChanged($event, i)"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && ScoreCategoryForm.controls.ScoreCategorySchmDObjs['controls'][i]['controls'].TopValue.invalid }">
+                      <lib-uc-show-errors [control]="ScoreCategoryForm.controls.ScoreCategorySchmDObjs['controls'][i]['controls'].TopValue" [submit]="enjiForm.submitted"></lib-uc-show-errors>            
+                    </td>
+                    <td [formGroupName]="i">
+                      <input class="form-control pointer" [(colorPicker)]="ListHexColorValue[i]" [style.background]="ListHexColorValue[i]" [cpOutputFormat]="'hex'" (colorPickerChange)="HexColorValueChanged($event, i)" [readonly]="true" [cpPosition]="'bottom'"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && ScoreCategoryForm.controls.ScoreCategorySchmDObjs['controls'][i]['controls'].HexColorValue.invalid }"/>
+                      <lib-uc-show-errors [control]="ScoreCategoryForm.controls.ScoreCategorySchmDObjs['controls'][i]['controls'].HexColorValue" [submit]="enjiForm.submitted"></lib-uc-show-errors>            
+                    </td>
+                    <td [formGroupName]="i">
+                      <a class="danger p-0" (click)="deleteScore(i)">
+                        <i class="ft-trash-2 font-medium-3 mr-2"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

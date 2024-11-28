@@ -1,0 +1,11 @@
+<lib-ucviewgeneric [viewGenericObj]="viewGenericObj"></lib-ucviewgeneric>
+<div class="ucSearch-Button-Right">
+  <span class="mr-1">
+    <button type="button" class="backButton"  [routerLink]="[CancelLink]" skipLocationChange
+    [queryParams]="{ Type: 'Group', MrVendorCategoryCode : this.MrVendorCategoryCode }"><i class="fa fa-arrow-left"></i>&nbsp;<span translate>Back</span></button>
+    <button type="button" class="addButton" [routerLink]="[AddLink]" skipLocationChange
+      [queryParams]="{VendorGrpId:VendorGrpId,MrVendorCategoryCode:MrVendorCategoryCode}"><i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+    </button>
+  </span>
+</div>
+<lib-ucpaging [searchObj]="inputPagingObj"></lib-ucpaging>

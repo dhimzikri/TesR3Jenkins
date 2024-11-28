@@ -1,0 +1,89 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "viewCustMainDataMainInfoId1",
+        "subSectionTitle": "Main Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Full Name",
+            "property": "CustFullName"
+          },
+          {
+            "type": "text",
+            "label": "Nick Name",
+            "property": "NickName"
+          },
+          {
+            "type": "text",
+            "label": "Salutation",
+            "property": "MrSalutationCode"
+          },
+          {
+            "type": "text",
+            "label": "Marital Status",
+            "property": "MrMaritalStatCode"
+          },
+          {
+            "type": "text",
+            "label": "Gelar Depan Nama",
+            "property": "CustPrefixName"
+          },
+          {
+            "type": "text",
+            "label": "Num Of Dependents",
+            "property": "NoOfDependents"
+          },
+          {
+            "type": "text",
+            "label": "Gelar Belakang Nama",
+            "property": "CustSuffixName"
+          },
+          {
+            "type": "text",
+            "label": "Num Of Residence (Last 3 Years)",
+            "property": "NoOfResidence"
+          },
+          {
+            "type": "text",
+            "label": "Nationality",
+            "property": "MrNationalityCode"
+          },
+          {
+            "type": "text",
+            "label": "Family Card Num",
+            "property": "FamilyCardNo"
+          },
+          {
+            "type": "text",
+            "label": "Country",
+            "property": "CountryName"
+          },
+          {
+            "type": "text",
+            "label": "Mother Maiden Name",
+            "property": "MotherMaidenName"
+          },
+          {
+            "type": "text",
+            "label": "Education",
+            "property": "MrEducationCode"
+          },
+          {
+            "type": "text",
+            "label": "Religion",
+            "property": "MrReligionCode"
+          },          {
+            "type": "boolean",
+            "label": "Rest In Peace",
+            "property": "IsRestInPeace"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustMainDataMainInfo"
+        }
+      }
+    ]
+  }

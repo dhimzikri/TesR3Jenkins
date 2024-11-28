@@ -1,0 +1,204 @@
+{
+  "title": "ListOfAggrementLoanBatch",
+  "hideTitle": true,
+  "id": "Listofaggrementloanbatch",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "view": {
+        "subsection": {
+          "subSectionId": "SecurityCoverageId",
+          "subSectionTitle": "Security Coverage",
+          "concatDate": false,
+          "setDate": "",
+          "formatDate": "",
+          "environment": "facilityMntUrl",
+          "apiVersion": "v1",
+          "uri": "",
+          "mainInfoPath": "/Generic/GetDataViewBySQL",
+          "service": "",
+          "querystring": { "name": "viewLoanBatchListofAgreement" },
+          "reqObj": {},
+          "resObjName": "",
+          "mainInfo": [
+            {
+              "type": "text",
+              "label": "Security Percentage",
+              "property": "SecurityPercentage",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Security Percentage of",
+              "property": "SecurityPercentageof",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Security Scheme",
+              "property": "SecurityScheme",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Total Agreement",
+              "property": "TotalAgreement",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "currency",
+              "label": "Total Security Amount",
+              "property": "TotalSecurityAmount",
+              "precision": "0.2",
+              "IsPrcnt": false,
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "currency",
+              "label": "Total Pledge Amount",
+              "property": "TotalPledgeAmount",
+              "precision": "0.2",
+              "IsPrcnt": false,
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "currency",
+              "label": "Remaining Amount",
+              "property": "RemainingAmount",
+              "precision": "0.2",
+              "position": "left",
+              "isHide": false,
+              "IsPrcnt": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            }
+          ],
+          "whereValue": ["FundingBatchNo"],
+          "fromValue": []
+        }
+      },
+      "id": "01fab628-0916-45c7-8fe7-b81fd0781931"
+    },
+    {
+      "table": {
+        "isFromApi": true,
+        "title": "List Of Agreement",
+        "resultData": "",
+        "isSubsection": true,
+        "usePagination": true,
+        "includeSubmit": false,
+        "tableInput": {
+          "isSeq": false,
+          "headerList": [
+            { "type": "label", "label": "Agreement No.", "position": "center" },
+            { "type": "label", "label": "Customer Name", "position": "left" },
+            {
+              "type": "label",
+              "label": "Outstanding Principal",
+              "position": "right"
+            },
+            { "type": "label", "label": "OTR", "position": "right" },
+            {
+              "type": "label",
+              "label": "Outstanding AR\t",
+              "position": "right"
+            }
+          ],
+          "bodyList": [
+            {
+              "type": "text",
+              "position": "center",
+              "property": "AgreementNo",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "left",
+              "property": "CustomerName",
+              "isFlagColor": false
+            },
+            {
+              "type": "decimal",
+              "position": "right",
+              "property": "OutstandindPrincipal",
+              "isFlagColor": false,
+              "precision": "0.2",
+              "IsPrcnt": false
+            },
+            {
+              "type": "decimal",
+              "position": "right",
+              "property": "Otr",
+              "isFlagColor": false,
+              "precision": "0.2",
+              "IsPrcnt": false
+            },
+            {
+              "type": "decimal",
+              "position": "right",
+              "property": "OutstandingAgreement",
+              "isFlagColor": false,
+              "precision": "0.2",
+              "IsPrcnt": false
+            }
+          ]
+        },
+        "getData": {
+          "environment": "facilityMntUrl",
+          "apiPath": "/v1/LoanBatch/GetListOfAgreementByBatchNo",
+          "customObjName": "ReturnObject",
+          "reqObj": [
+            {
+              "isFromDict": false,
+              "propName": "BatchNo",
+              "propValue": "FundingBatchNo"
+            }
+          ],
+          "conditions": []
+        }
+      },
+      "id": "af434dfb-bc38-4072-a65c-2f9b3dc28239"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [],
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false,
+  "customToastrMsg": "",
+  "persistPropName": ""
+}

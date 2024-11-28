@@ -1,0 +1,113 @@
+{
+  "lookupId": "Lookupcustomer",
+  "title": "Lookup - Debtor",
+  "component": [
+    {
+      "id": "ccustNoSearchId",
+      "type": "textbox",
+      "label": "Debtor No",
+      "name": "C.CUST_NO",
+      "value": "",
+      "placeholder": "",
+      "datatype": "text"
+    },
+    {
+      "id": "ccustNameSearchId",
+      "type": "textbox",
+      "label": "Debtor Name",
+      "name": "C.CUST_NAME",
+      "value": "",
+      "placeholder": "",
+      "datatype": "text"
+    },
+    {
+      "id": "baddrSearchId",
+      "type": "textbox",
+      "label": "Address",
+      "name": "B.ADDR",
+      "value": "",
+      "placeholder": "",
+      "datatype": "text"
+    },
+    {
+      "id": "cgccustNameSearchId",
+      "type": "textbox",
+      "label": "Debtor Group Name",
+      "name": "CGC.CUST_NAME",
+      "value": "",
+      "placeholder": "",
+      "datatype": "text"
+    }
+  ],
+  "querystring": {
+    "name": "lookupCustomer"
+  },
+  "orderby": null,
+  "headerList": [
+    {
+      "type": "sort",
+      "label": "Debtor No",
+      "position": "left",
+      "name": "C.CUST_NO"
+    },
+    {
+      "type": "sort",
+      "label": "Debtor Name",
+      "position": "left",
+      "name": "C.CUST_NAME"
+    },
+    {
+      "type": "sort",
+      "label": "FullAddr",
+      "position": "left",
+      "name": "B.ADDR"
+    },
+    {
+      "type": "sort",
+      "label": "Debtor Group Name",
+      "position": "left",
+      "name": "CGC.CUST_NAME"
+    },
+    {
+      "type": "label",
+      "position": "center",
+      "label": "Select"
+    }
+  ],
+  "bodyList": [
+    {
+      "type": "text",
+      "position": "left",
+      "property": "CustNo"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "CustName"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "Address"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "CustGroupName"
+    },
+    {
+      "type": "action",
+      "position": "center",
+      "action": [
+        {
+          "type": "select",
+          "property": "CustNo"
+        }
+      ]
+    }
+  ],
+  "propertyId": "CustId",
+  "propertyName": "CustName",
+  "environment": "FoundationR3Url",
+  "apiVersion": "v1"
+}

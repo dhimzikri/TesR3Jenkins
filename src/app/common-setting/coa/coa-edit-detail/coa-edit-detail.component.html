@@ -1,0 +1,67 @@
+<div class="col-md-12">
+  <div class="card">
+
+    <div class="card-header">
+      <h4 class="card-title" id="horz-layout-colored-controls" translate>COA</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="CoaForm" (ngSubmit)="CoaForm.valid && Submit()"
+          #enjiForm="ngForm">
+          <div class="form-body">
+
+            <lib-ucSubsection [id]="'paymentAllocInfoId'" [title]="'COA Information'" [panel]="'paymentAllocInfo'">
+            </lib-ucSubsection>
+            <div id='paymentAllocInfo'>
+              <div class="form-group row">
+                <label class="col-md-3  adins-label" translate>Entity Type</label>
+                <label class="col-md-3  adins-label" translate>{{this.refCoaObj.EntityTypeName}}</label>
+              </div>
+              
+              <div class="form-group row" *ngIf="this.refCoaObj.CoaScheme != '-'">
+                <label class="col-md-3  adins-label" translate>COA Scheme</label>
+                <label class="col-md-3  adins-label" translate>{{this.refCoaObj.CoaScheme}}</label>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adins-label" translate>Payment Allocation Code</label>
+                <label class="col-md-3  adins-label" translate>{{this.refCoaObj.PaymentAllocCode}}</label>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adins-label" translate>Entity Code</label>
+                <label class="col-md-3  adins-label" translate>{{this.refCoaObj.MrEntityCode}}</label>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adins-label" translate>Currency</label>
+                <label class="col-md-3  adins-label" translate>{{this.refCoaObj.CurrName}}</label>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 adins-required-label" translate>COA</label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control adInsInput" formControlName="Coa">
+                  <lib-uc-show-errors [control]="CoaForm.controls.Coa" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-actions right">
+            <button type="button" [routerLink]="[CancelLink]" class="btn btn-raised btn-warning mr-1" translate>
+              <em class="fa fa-arrow-circle-left"></em> Back
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary" translate>Submit
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

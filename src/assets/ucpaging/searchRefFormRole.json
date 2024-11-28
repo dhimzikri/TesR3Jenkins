@@ -1,0 +1,64 @@
+{
+    "component": [
+        {
+            "type": "textbox",
+            "name": "RR.ROLE_CODE",
+            "id": "RoleCodeId",
+            "value": "",
+            "label": "Role Code",
+            "placeholder": "RoleCode"
+        },
+        {
+            "type": "textbox",
+            "name": "RR.ROLE_NAME",
+            "id": "RoleNameId",
+            "value": "",
+            "label": "Role Name",
+            "placeholder": "RoleName"
+        }
+    ],
+    "querystring": {
+        "name": "searchRefFormRole"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Role Code",
+            "name": "RR.ROLE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Role Name",
+            "name": "RR.ROLE_NAME"
+        },
+        {
+          "type": "label",
+          "position": "center",
+          "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "RoleCode"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "RoleName"
+        },
+        {
+          "type": "action",
+          "position": "center",
+          "action": [
+            {
+                "type": "delete",
+                "property": "AuthFormId"
+            }
+          ]
+        }
+    ]
+}

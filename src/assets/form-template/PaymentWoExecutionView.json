@@ -1,0 +1,35 @@
+{
+  "title": "Payment Wo Execution View",
+  "hideTitle": false,
+  "id": "PaymentWoExecutionView",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "customComponent": {
+        "componentRef": "${Paymentafterworeceivebatchmaininformation}"
+      },
+      "id": "f9e37a6f-f0b3-4e1f-96d3-e3144dda16fb"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [],
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false
+}

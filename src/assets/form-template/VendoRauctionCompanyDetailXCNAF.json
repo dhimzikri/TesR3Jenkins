@@ -1,0 +1,184 @@
+{
+  "title": "Auction Company Detail",
+  "id": "VendoRauctionCompanyDetailXCNAF",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "view": {
+        "subsection": {
+          "subSectionId": "MainInformationId",
+          "subSectionTitle": "Main Information",
+          "concatDate": false,
+          "setDate": "",
+          "formatDate": "",
+          "environment": "FoundationR3Url",
+          "apiVersion": "v1",
+          "uri": "http://r3app-server.ad-ins.com/FOUNDATION_DEV",
+          "mainInfoPath": "/Generic/GetDataViewBySQL",
+          "querystring": { "name": "viewVendorBranchMainInfo" },
+          "reqObj": {},
+          "mainInfo": [
+            {
+              "type": "text",
+              "label": "Vendor Category",
+              "property": "VendorCategory",
+              "position": "left",
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "boolean",
+              "label": "Active Status",
+              "property": "IsActive",
+              "position": "left",
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Branch Code",
+              "property": "VendorCode",
+              "position": "left",
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Tax Id No",
+              "property": "TaxIdNo",
+              "position": "left",
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Branch Name",
+              "property": "VendorName",
+              "position": "left",
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Branch Type",
+              "property": "VendorType",
+              "position": "left",
+              "customClassLabel": "",
+              "customClassProperty": ""
+            }
+          ],
+          "whereValue": [],
+          "fromValue": []
+        }
+      },
+      "id": "952d34b2-715f-494a-8729-dc5042f0d9d5"
+    },
+    {
+      "stepper": {
+        "linear": false,
+        "animation": true,
+        "tablist": [
+          {
+            "step": { "code": "AddrInfo", "index": 1 },
+            "label": "Address",
+            "panel": [
+              {
+                "isTemplate": true,
+                "conditions": [],
+                "params": [],
+                "output": [],
+                "content": "VendorAddress"
+              }
+            ]
+          },
+          {
+            "step": { "code": "BankInfo", "index": 2 },
+            "label": "Bank Info",
+            "panel": [
+              {
+                "isTemplate": true,
+                "conditions": [],
+                "params": [],
+                "output": [],
+                "content": "VendorBankInfo"
+              }
+            ]
+          }
+        ],
+        "onNext": [],
+        "onChange": []
+      },
+      "id": "a7fc443a-83e3-4fa3-a0ef-afcb50505865"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "hideTitle": false,
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "listBtn": [
+    {
+      "displayName": "Edit Main Info",
+      "id": "edit main infoId",
+      "key": "",
+      "position": "top",
+      "icon": "ft-plus-circle",
+      "cssClass": "btn-primary-2",
+      "conditions": [],
+      "btnType": "button",
+      "action": {
+        "path": "/Vendor/Branch/RegistrationX",
+        "type": "link",
+        "target": "_self",
+        "params": [
+          { "propName": "VendorId", "propValue": "VendorId" },
+          {
+            "propName": "MrVendorCategoryCode",
+            "propValue": "MrVendorCategoryCode"
+          },
+          { "propName": "mode", "propValue": "edit" }
+        ]
+      }
+    },
+    {
+      "displayName": "Back",
+      "id": "backId",
+      "key": "",
+      "position": "top",
+      "icon": "fa fa-arrow-left",
+      "cssClass": "btn-outline-2",
+      "conditions": [],
+      "btnType": "button",
+      "action": {
+        "path": "/Vendor/PagingX",
+        "type": "link",
+        "target": "_self",
+        "params": [
+          {
+            "propName": "MrVendorCategoryCode",
+            "propValue": "MrVendorCategoryCode"
+          }
+        ]
+      }
+    }
+  ],
+  "customToastrMsg": "",
+  "onCancel": {},
+  "isOverrideSubmit": false,
+  "isOverrideCancel": false,
+  "onSubmit": [],
+  "hideCancelButton": false,
+  "onInit": [],
+  "conditionalTitle": [],
+  "persistData": false,
+  "persistPropName": "",
+  "overrideSubmitBtnText": ""
+}

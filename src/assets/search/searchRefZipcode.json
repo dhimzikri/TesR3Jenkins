@@ -1,0 +1,54 @@
+{
+  "title": "Zipcode",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "rz.area_Code_2",
+        "id": "Kelurahan",
+        "value": "",
+        "label": "Kelurahan",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "rz.area_Code_1",
+        "id": "Kecamatan",
+        "value": "",
+        "label": "Kecamatan",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "rz.City",
+        "id": "City",
+        "value": "",
+        "label": "City",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "rz.Zipcode",
+        "id": "Zipcode",
+        "value": "",
+        "label": "Zipcode",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "rpd.Name",
+        "id": "DistrictName",
+        "value": "",
+        "label": "District Name",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "rz.Sub_Zipcode",
+        "id": "SubZipcodeCode",
+        "value": "",
+        "label": "Sub Zipcode Code",
+        "placeholder": "Placeholder"
+      }
+    ]
+  }
+  

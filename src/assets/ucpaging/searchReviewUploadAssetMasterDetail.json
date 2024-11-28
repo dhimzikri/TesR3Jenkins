@@ -1,0 +1,143 @@
+{
+    "title": "ASSET MASTER",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "ASSET_TYPE_CODE",
+            "id": "AssetTypeId",
+            "value": "",
+            "label": "Asset Type",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "ASSET_CODE",
+            "id": "AssetCodeId",
+            "value": "",
+            "label": "Asset Code",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "ASSET_NAME",
+            "id": "AssetNameId",
+            "value": "",
+            "label": "Asset Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "ASSET_CATEGORY_CODE",
+            "id": "AssetCatId",
+            "value": "",
+            "label": "Asset Category Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "PARENT_FULL_ASSET_CODE",
+            "id": "ParentAssetCodeId",
+            "value": "",
+            "label": "Parent Full Asset Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "IS_ACTIVE",
+            "id": "IsActive",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "https://api.myjson.com/bins/ld6e8",
+            "label": "Active Status",
+            "items": [
+              {
+                "key": "1",
+                "value": "Yes"
+              },
+              {
+                "key": "0",
+                "value": "No"
+              }
+            ],
+            "itemsUrl": []
+          }
+    ],
+    "querystring": {
+        "name": "searchReviewUploadAssetMasterDetail"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ASSET TYPE CODE",
+            "name": "ASSET_TYPE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ASSET CATEGORY CODE",
+            "name": "ASSET_CATEGORY_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ASSET CODE",
+            "name": "ASSET_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ASSET NAME",
+            "name": "ASSET_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "PARENT FULL ASSET CODE",
+            "name": "PARENT_FULL_ASSET_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "ACTIVE STATUS",
+            "name": "IS_ACTIVE"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AssetTypeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AssetCategoryCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AssetCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AssetName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "ParentAssetCode"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "ActiveStatus"
+        }
+    ]
+}

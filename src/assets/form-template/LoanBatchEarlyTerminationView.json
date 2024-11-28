@@ -1,0 +1,531 @@
+{
+    "title": "Loan Batch Early Termination View",
+    "hideTitle": false,
+    "id": "LoanBatchEarlyTerminationView",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "customComponent": {
+                "componentRef": "${ViewFundingBatchMainInformation}"
+            },
+            "id": "8e335f67-a2fd-4fb4-a9c5-59d8c8d9ea42"
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "LoanInformationId",
+                    "subSectionTitle": "Loan Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityExecUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanPaymentOutInformation"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Installment Due No",
+                            "property": "InstallmentDueNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Installment Due Date",
+                            "property": "NextInstDueDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Next Inst To Be Paid No",
+                            "property": "NextInstToBePaidNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Next Inst To Be Paid Date",
+                            "property": "NextInstToBePaidDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "FundingBatchNo"
+                    ],
+                    "fromValue": [],
+                    "gridViews": [
+                        {
+                            "title": "LoanInformationTable",
+                            "isSubsection": false,
+                            "isFromApi": true,
+                            "resultData": "",
+                            "getData": {
+                                "environment": "PAYOUT",
+                                "apiPath": "/LoanBatchInstSchdl/GetListAllocNameDueAmountAndOutstandingAmount",
+                                "customObjName": "ReturnObject",
+                                "reqObj": [
+                                    {
+                                        "isFromDict": false,
+                                        "propName": "LoanBatchNo",
+                                        "propValue": "FundingBatchNo"
+                                    }
+                                ],
+                                "conditions": []
+                            },
+                            "tableInput": {
+                                "isSeq": false,
+                                "headerList": [
+                                    {
+                                        "type": "label",
+                                        "label": "Allocation Name",
+                                        "position": "left"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Due Amount",
+                                        "position": "right"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Outstanding Amount",
+                                        "position": "right"
+                                    }
+                                ],
+                                "bodyList": [
+                                    {
+                                        "type": "text",
+                                        "position": "left",
+                                        "property": "AllocName",
+                                        "isFlagColor": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "DueAmount",
+                                        "isFlagColor": false,
+                                        "precision": "0.2",
+                                        "IsPrcnt": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "OutstandingAmount",
+                                        "isFlagColor": false,
+                                        "precision": "0.2",
+                                        "IsPrcnt": false
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "id": "6941c669-0432-487c-a203-7f753fa3d7bf"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Early Termination Detail",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Value Date",
+                            "Variable": "ValueDate",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Bank Account",
+                            "Variable": "BankAccount",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/OfficeBankAcc/GetListActiveOfficeBankAccByMrBankAccPurposeCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "FUND"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reference No",
+                            "Variable": "RefNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "NUMERIC",
+                            "Label": "Exchange Rate",
+                            "Variable": "ExchangeRate",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": ""
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "2b08cc5b-d74c-4581-8c70-9078a00e34d4"
+        },
+        {
+            "formarray": {
+                "title": "Form Array To Be Paid",
+                "isSubsection": false,
+                "isModeAdd": false,
+                "formGroupName": "ToBePaid",
+                "canAdd": false,
+                "isFromApi": true,
+                "resultData": "",
+                "customObjName": "ReturnObject",
+                "formInput": {
+                    "headerList": [
+                        {
+                            "Label": "To Be Paid",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "",
+                            "IsHide": true
+                        },
+                        {
+                            "Label": "Amount",
+                            "IsHide": false
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "Type": "LABEL",
+                            "Label": "To Be Paid",
+                            "Variable": "RefPaymentAllocCode",
+                            "LabelType": "TEXT",
+                            "Position": "text-left",
+                            "Action": []
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "",
+                            "Variable": "Percentage",
+                            "LabelType": "TEXT",
+                            "Position": "text-right"
+                        },
+                        {
+                            "Type": "NUMERIC",
+                            "Label": "Detail Seq No",
+                            "Variable": "DetailSeqNo",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": ""
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "Amount",
+                            "Variable": "Amount",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            },
+                            "Action": []
+                        }
+                    ],
+                    "addBodyList": [],
+                    "footerList": [
+                        {
+                            "Type": "BLANK"
+                        },
+                        {
+                            "Type": "BLANK"
+                        },
+                        {
+                            "Type": "LABEL",
+                            "IsCurr": true,
+                            "IsAggregate": true,
+                            "Label": "Total",
+                            "Variable": "TotalAmount",
+                            "Mode": "SUM",
+                            "Component": "Amount"
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "PayoutUrl",
+                    "apiPath": "/v1/LoanTermination/GetRefPaymentAllocCodeLoan",
+                    "reqObj": {
+                        "LoanBatchNo": "FundingBatchNo"
+                    },
+                    "action": []
+                }
+            },
+            "id": "590f0fa6-bb85-49f5-94f8-b2bc8f2d10cd"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [
+        {
+            "displayName": "Save As Draft",
+            "id": "save as draftId",
+            "key": "",
+            "position": "bottom",
+            "icon": "",
+            "cssClass": "",
+            "conditions": [],
+            "btnType": "button",
+            "action": {
+                "type": "http",
+                "environment": "PayoutUrl",
+                "path": "/v1/Termination/InsertToLoanTermination",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "reqObj": [
+                    {
+                        "propName": "ValueDate",
+                        "propValue": "form.ValueDate"
+                    },
+                    {
+                        "propName": "OfficeBankAccCode",
+                        "propValue": "form.BankAccount"
+                    },
+                    {
+                        "propName": "RefNo",
+                        "propValue": "form.RefNo"
+                    },
+                    {
+                        "propName": "Notes",
+                        "propValue": "form.Notes"
+                    },
+                    {
+                        "propName": "ExchangeRate",
+                        "propValue": "form.ExchangeRate"
+                    },
+                    {
+                        "propName": "LoanBatchNo",
+                        "propValue": "FundingBatchNo"
+                    },
+                    {
+                        "propName": "IsDraft",
+                        "propValue": "true"
+                    },
+                    {
+                        "propName": "listPaidDObj",
+                        "propValue": "form.ToBePaid"
+                    }
+                ],
+                "excObj": [],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "message": "Success",
+                            "mode": "success"
+                        }
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "path": "/LoanTermination/termination/Paging",
+                            "params": [],
+                            "target": "_self"
+                        }
+                    }
+                ],
+                "mapResToDict": []
+            }
+        }
+    ],
+    "onInit": [],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "environment": "PayoutUrl",
+                "path": "/v1/Termination/InsertToLoanTermination",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "ValueDate",
+                        "propValue": "form.ValueDate"
+                    },
+                    {
+                        "propName": "OfficeBankAccCode",
+                        "propValue": "form.BankAccount"
+                    },
+                    {
+                        "propName": "RefNo",
+                        "propValue": "form.RefNo"
+                    },
+                    {
+                        "propName": "Notes",
+                        "propValue": "form.Notes"
+                    },
+                    {
+                        "propName": "ExchangeRate",
+                        "propValue": "form.ExchangeRate"
+                    },
+                    {
+                        "propName": "LoanBatchNo",
+                        "propValue": "FundingBatchNo"
+                    },
+                    {
+                        "propName": "IsDraft",
+                        "propValue": "false"
+                    },
+                    {
+                        "propName": "listPaidDObj",
+                        "propValue": "form.ToBePaid"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success"
+                        }
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "params": [],
+                            "path": "/LoanTermination/termination/Paging",
+                            "target": "_self"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "customToastrMsg": "",
+    "persistPropName": ""
+}

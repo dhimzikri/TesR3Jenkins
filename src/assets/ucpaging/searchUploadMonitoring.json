@@ -1,0 +1,180 @@
+{
+    "title": "Upload",
+    "exportExcel": true,
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "UT.UPLOAD_TYPE_CODE",
+            "id": "UploadTypeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/UploadType/GetKvpUploadType",
+            "label": "Upload Type Name",
+            "isQueryIn": true,
+            "items": [],
+            "itemsUrl": [],
+            "environment": "INTEGRATION"
+        },
+        {
+            "type": "dropdown",
+            "name": "UMH.OFFICE_CODE",
+            "id": "OriOfficeNameId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "label": "Office Name",
+            "isQueryIn": true,
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "UMH.FILE_NAME",
+            "id": "FileNameId",
+            "value": "",
+            "label": "File Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "UMH.UPLOAD_MONITORING_NO",
+            "id": "UploadMonitoringNoId",
+            "value": "",
+            "label": "Upload No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "datatype": "text",
+            "name": "UMH.UPLOAD_STATUS",
+            "id": "UploadStatusId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefStatus/GetRefStatusByTrxTypeCode",
+            "label": "Upload Status",
+            "items": [],
+            "itemsUrl": [],
+            "criteriaPropName": "Code",
+            "criteriaPropValue": "UPLOAD",
+            "environment": "FOU"
+        }
+    ],
+    "querystring": {
+        "name": "searchUploadMonitoring"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "UPLOAD NO",
+            "name": "UMH.UPLOAD_MONITORING_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "UPLOAD TYPE NAME",
+            "name": "UT.UPLOAD_TYPE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "OFFICE CODE",
+            "name": "UMH.OFFICE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "FILE NAME",
+            "name": "UMH.FILE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "right",
+            "label": "TOTAL RECORD",
+            "name": "UMH.TOTAL_RECORD"
+        },
+        {
+            "type": "sort",
+            "position": "right",
+            "label": "TOTAL RECORD PROCESSED",
+            "name": "UMH.TOTAL_RECORD_PROCESSED"
+        },
+        {
+            "type": "sort",
+            "position": "right",
+            "label": "TOTAL RECORD ERROR",
+            "name": "UMH.TOTAL_RECORD_ERROR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "UPLOAD STATUS",
+            "name": "UMH.UPLOAD_STATUS"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ERROR MESSAGE",
+            "name": "UMH.ERROR_MESSAGE"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "UploadMonitoringNo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "UploadTypeName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "FileName"
+        },
+        {
+            "type": "text",
+            "position": "right",
+            "property": "TotalRecord"
+        },
+        {
+            "type": "text",
+            "position": "right",
+            "property": "TotalRecordProcessed"
+        },
+        {
+            "type": "text",
+            "position": "right",
+            "property": "TotalRecordError"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "UploadStatus"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "ErrorMessage"
+        }
+    ]
+}

@@ -1,0 +1,641 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"cli": {
+		"analytics": false,
+    "cache": {"enabled": false}
+	},
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"matngular": {
+			"root": "",
+			"sourceRoot": "src",
+			"projectType": "application",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"preserveSymlinks": true,
+						"outputPath": "dist",
+						"index": "src/index.html",
+						"main": "src/main.ts",
+						"tsConfig": "src/tsconfig.app.json",
+						"polyfills": "src/polyfills.ts",
+						"assets": [
+							"src/assets",
+							"src/favicon.ico",
+							"src/manifest.webmanifest"
+						],
+						"styles": [
+							"src/assets/css/prism.min.css",
+							"src/assets/css/wizard.css",
+							"src/assets/css/hopscotch.css",
+							"node_modules/ngx-toastr/toastr.css",
+							"node_modules/@swimlane/ngx-datatable/release/index.css",
+							"node_modules/@swimlane/ngx-datatable/release/assets/icons.css",
+							"node_modules/bootstrap-icons/font/bootstrap-icons.css",
+							"node_modules/@fortawesome/fontawesome-free/css/all.css",
+							"node_modules/bs-stepper/dist/css/bs-stepper.min.css",
+							"src/assets/sass/app.scss",
+							"src/adins-theme/styles-theme-red.scss",
+							"src/styles.css",
+							"src/adInsStyles.css",
+							"node_modules/intl-tel-input/build/css/intlTelInput.css",
+							"node_modules/angular-archwizard/archwizard.css",
+							"node_modules/ngx-spinner/animations/ball-atom.css"
+
+						],
+						"scripts": [
+							"node_modules/jquery/dist/jquery.min.js",
+							"src/assets/vendor/pace/pace.min.js",
+							"src/assets/js/perfect-scrollbar.jquery.min.js",
+							"src/assets/js/aes.js",
+							"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+						],
+						"vendorChunk": true,
+						"extractLicenses": false,
+						"buildOptimizer": false,
+						"sourceMap": true,
+						"optimization": false,
+						"namedChunks": true,
+						"serviceWorker": true,
+						"ngswConfigPath": "ngsw-config.json",
+						"extraWebpackConfig": "webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"aot": true,
+							"extractLicenses": true,
+							"vendorChunk": false,
+							"buildOptimizer": false,
+							"extraWebpackConfig": "webpack.prod.config.js"
+						},
+						"uat": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.uat.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"aot": true,
+							"extractLicenses": true,
+							"vendorChunk": false,
+							"buildOptimizer": false,
+							"extraWebpackConfig": "webpack.prod.config.js"
+						},
+						"dev": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.dev.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false
+						},
+						"devTest": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.dev.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"showCircularDependencies": false,
+							"extractLicenses": true,
+							"statsJson": false,
+							"progress": false,
+							"vendorChunk": false
+						},
+						"sit": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.sit.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"aot": true,
+							"extractLicenses": true,
+							"vendorChunk": false,
+							"buildOptimizer": false
+						},
+						"demo_env": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.demo.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false
+						},
+						"demo_los_env": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.demo.los.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false
+						},
+						"integration_env": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.integration.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false
+						},
+						"https_env": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.https.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false
+						},
+						"test_env": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.stresstest.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"aot": false,
+							"extractLicenses": true,
+							"vendorChunk": false
+						},
+						"OPL": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.OPL.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false
+						},
+						"OPLsit": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.OPLSIT.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false
+						},
+						"camunda": {
+							"budgets": [
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false
+						}
+					},
+					"defaultConfiguration": ""
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"options": {
+						"browserTarget": "matngular:build",
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "webpack.config.js"
+					},
+					"configurations": {
+						"production": {
+							"browserTarget": "matngular:build:production",
+							"extraWebpackConfig": "webpack.prod.config.js"
+						},
+						"uat": {
+							"browserTarget": "matngular:build:uat",
+							"extraWebpackConfig": "webpack.prod.config.js"
+						}
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "matngular:build",
+						"extraWebpackConfig": "webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "src/test.ts",
+						"karmaConfig": "./karma.conf.js",
+						"polyfills": "src/polyfills.ts",
+						"tsConfig": "src/tsconfig.spec.json",
+						"scripts": [
+							"node_modules/jquery/dist/jquery.min.js",
+							"src/assets/vendor/pace/pace.min.js",
+							"src/assets/js/perfect-scrollbar.jquery.min.js"
+						],
+						"styles": [
+							"src/assets/css/prism.min.css",
+							"src/assets/css/wizard.css",
+							"src/assets/css/hopscotch.css",
+							"node_modules/@swimlane/ngx-datatable/release/index.css",
+							"node_modules/@swimlane/ngx-datatable/release/assets/icons.css",
+							"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+							"node_modules/bootstrap-icons/font/bootstrap-icons.css",
+							"node_modules/font-awesome/css/font-awesome.min.css",
+							"src/assets/sass/app.scss",
+							"src/styles.css",
+							"node_modules/intl-tel-input/build/css/intlTelInput.css",
+							"src/adInsStyles.css"
+						],
+						"assets": [
+							"src/assets",
+							"src/favicon.ico",
+							"src/manifest.webmanifest"
+						]
+					}
+				},
+				"server": {
+					"builder": "@angular-devkit/build-angular:server",
+					"options": {
+						"outputPath": "dist/matngular/server",
+						"main": "server.ts",
+						"tsConfig": "src/tsconfig.server.json",
+						"optimization": false,
+						"sourceMap": true,
+						"preserveSymlinks": true,
+						"extractLicenses": false
+					},
+					"configurations": {
+						"production": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"uat": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.uat.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"dev": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.dev.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"devTest": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.dev.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"sit": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.sit.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"demo_env": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.demo.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"demo_los_env": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.demo.los.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"integration_env": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.integration.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"https_env": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.https.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"test_env": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.stresstest.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"OPL": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.OPL.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"OPLsit": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.OPLSIT.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						},
+						"1_4_16_env": {
+							"outputHashing": "media",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/envi_1_4_16.ts"
+								}
+							],
+							"optimization": true,
+							"sourceMap": false,
+							"extractLicenses": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve-ssr": {
+					"builder": "@nguniversal/builders:ssr-dev-server",
+					"configurations": {
+						"development": {
+							"browserTarget": "matngular:build:development",
+							"serverTarget": "matngular:server:development"
+						},
+						"production": {
+							"browserTarget": "matngular:build:production",
+							"serverTarget": "matngular:server:production"
+						},
+						"uat": {
+							"browserTarget": "matngular:build:uat",
+							"serverTarget": "matngular:server:uat"
+						}
+					},
+					"defaultConfiguration": "development"
+				},
+				"prerender": {
+					"builder": "@nguniversal/builders:prerender",
+					"options": {
+						"guessRoutes": false,
+						"routes": [
+							"/"
+						]
+					},
+					"configurations": {
+						"production": {
+							"browserTarget": "matngular:build:production",
+							"serverTarget": "matngular:server:production"
+						},
+						"uat": {
+							"browserTarget": "matngular:build:uat",
+							"serverTarget": "matngular:server:uat"
+						},
+						"development": {
+							"browserTarget": "matngular:build:development",
+							"serverTarget": "matngular:server:development"
+						}
+					},
+					"defaultConfiguration": "production"
+				}
+			}
+		},
+		"matngular-e2e": {
+			"root": "",
+			"sourceRoot": "",
+			"projectType": "application",
+			"architect": {
+				"e2e": {
+					"builder": "@angular-devkit/build-angular:protractor",
+					"options": {
+						"protractorConfig": "./protractor.conf.js",
+						"devServerTarget": "matngular:serve"
+					}
+				}
+			}
+		}
+	},
+	"defaultProject": "matngular",
+	"schematics": {
+		"@schematics/angular:component": {
+			"prefix": "app",
+			"style": "css"
+		},
+		"@schematics/angular:directive": {
+			"prefix": "app"
+		}
+	}
+}

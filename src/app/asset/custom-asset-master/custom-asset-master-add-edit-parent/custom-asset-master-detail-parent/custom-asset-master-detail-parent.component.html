@@ -1,0 +1,35 @@
+<div style="overflow-x: auto;">
+  <table *ngIf="isFinal == true" class="table table-responsive-md text-center table-hover table-new">
+    <thead>
+      <tr class="table-header-2">
+        <th><input type="checkbox" [checked]="checkboxAll" (change)="SelectAll($event.target.checked)"
+            id="checkAll" name="CheckAll" hidden>
+        </th>
+        <th style="text-align: left;"><span class="thead-header-2" name='assetSchemeCode' translate>ASSET
+            SCHEME CODE
+          </span>
+        </th>
+        <th style="text-align: left;"><span class="thead-header-2" name='assetSchemeName' translate>ASSET
+            SCHEME NAME
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listAssetScheme">
+        <td>
+          <div *ngIf="listSelectedId.indexOf(item.AssetSchmHIdFromD) >- 1">
+            <input class="border-primary" type="checkbox"
+              (change)="Checked(item.AssetSchmHIdFromH, $event.target.checked)" [checked]="true">
+          </div>
+          <div *ngIf="listSelectedId.indexOf(item.AssetSchmHIdFromD) < 0">
+            <input class="border-primary" type="checkbox"
+              (change)="Checked(item.AssetSchmHIdFromH, $event.target.checked)" [checked]="false">
+          </div>
+        </td>
+        <td style="text-align: left;">{{item.AssetSchmCode}}</td>
+        <td style="text-align: left;">{{item.AssetSchmName}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

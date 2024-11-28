@@ -1,0 +1,175 @@
+<div class="card bg-primary-2 bg-lighten-6">
+  <div *ngIf="mode == 'add'" class="card-header header-title ml-2">
+    <h4 class="card-title">Add Funding Company</h4>
+  </div>
+  <div *ngIf="mode == 'edit'" class="card-header header-title ml-2">
+    <h4 class="card-title">Edit Funding Company</h4>
+  </div>
+  <div class="card-body mt-3">
+    <form class="form form-horizontal" [formGroup]="FormUtama" (ngSubmit)="addVendor()" #enjiForm="ngForm">
+      <div class="ucSearch-Button-Right">
+        <span class="mr-1">
+          <button type="button" class="btn btn-outline-2 btn-raised mt-3" (click)="back()">
+            <i class="ft-x-square button-icon mr-1"></i><span class="button-text" translate>Cancel</span>
+          </button>
+          <button type="submit" class="btn btn-primary-2 btn-raised mt-3 ml-2">
+            <i class="ft-save button-icon mr-1"></i>&nbsp;<span class="button-text" translate>Save</span>
+          </button>
+        </span>
+      </div>
+
+    <lib-ucSubsection [id]="'section1'" [title]="'Main Information'" [panel]="'section1'"></lib-ucSubsection>
+      <div id="section1">
+       <div class="p-3">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-md-12 label-field-2 adins-required-label">Code</label>
+              <div class="col-md-12">
+                <input type="text" id="InputCode" class="form-control input-field-2" formControlName="InputCode"
+                  [ngClass]="{ 'is-invalid': enjiForm.submitted && FormUtama['controls']['InputCode'].invalid }" required>
+                <div class="message-box">
+                  <lib-uc-show-errors [control]="FormUtama['controls']['InputCode']"
+                  [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-12 label-field-2 adins-required-label">Name</label>
+              <div class="col-md-12">
+                <input type="text" id="WorkingHourSchmCode" class="form-control input-field-2"
+                  formControlName="InputName" [required]="true"
+                  [ngClass]="{'is-invalid' : enjiForm.submitted && FormUtama['controls']['InputName'].invalid}">
+                <div class="message-box">
+                  <lib-uc-show-errors [control]="FormUtama['controls']['InputName']"
+                  [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-12 label-field-2">Active</label>
+              <div class="col-md-12 mb-3">
+                <ui-switch class="custom-switches"
+                   uncheckedLabel="no" checkedLabel="yes" size="small"   
+                  (change)="ChangeCallbackSwitch('IsActive',$event)"
+                  [formControlName]="'IsActive'">
+                </ui-switch>
+                <!-- <input type="checkbox" name="IsActiveId" id="IsActive" formControlName="IsActive"
+                  [ngClass]="{'is-invalid' : enjiForm.submitted && FormUtama['controls']['IsActive'].invalid}"> -->
+              </div>
+            </div>
+            <!-- ADDRESS -->
+            <div class="form-group row">
+              <label class="col-md-12 label-field-2 adins-required-label">Address</label>
+              <div class="col-md-12">
+                <textarea type="textarea" id="WorkingHourSchmCode" class="form-control textarea-field-2"
+                  formControlName="Address"
+                  [ngClass]="{'is-invalid' : enjiForm.submitted && FormUtama.controls['Address'].invalid}"></textarea>
+                <div class="message-box">
+                  <lib-uc-show-errors [control]="FormUtama.controls['Address']"
+                  [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+            </div>
+          </div>
+      <div class="col-md-6">  
+        <div *ngIf="MrVendorCategoryCode=='JF_FUNDING_COMPANY'">
+          <div class="form-body" formGroupName="VendorAttrList" *ngIf="isFormReady">
+            <ng-container *ngFor="let attr of VendorAttrList">
+              <!-- DAYS_PER_YEAR  -->
+              <div class="form-group row" *ngIf="attr.AttrInputType == 'N'" [formGroupName]="attr.AttrCode">
+                <label class="col-md-12 label-field-2 adins-required-label">{{attr.AttrName}}</label>
+                <div class="col-md-12">
+                  <input type="number" class="form-control input-field-2" formControlName="VendorAttrValue"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && FormUtama.controls['VendorAttrList']['controls'][attr['AttrCode']].controls.VendorAttrValue.invalid }">
+                  <div class="message-box">
+                    <lib-uc-show-errors
+                    [control]="FormUtama.controls['VendorAttrList']['controls'][attr['AttrCode']].controls.VendorAttrValue"
+                    [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+              <!-- BANK NAME  -->
+              <div class="form-group row" *ngIf="attr.AttrInputType == 'LU'  && attr.AttrCode == 'BANK_CODE'" [formGroupName]="attr.AttrCode">
+                <label class="col-md-12 label-field-2 adins-required-label">{{attr.AttrName}}</label>
+                <div class="col-md-12">
+                  <lib-uclookupgeneric [lookupInput]="ListInputLookUpObj[0][attr['AttrCode']]" [parentForm]="FormUtama"
+                    [enjiForm]="enjiForm" [identifier]="'lookup'+ attr.AttrCode"
+                    (lookup)="getLookUpAttrBank($event,attr.AttrCode)"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && FormUtama.controls['VendorAttrList']['controls'][attr['AttrCode']].controls.VendorAttrValue.invalid }">
+                  </lib-uclookupgeneric>
+
+                </div>
+              </div>
+              <!-- AFFILIATE WITH MF  -->
+              <div class="form-group row" *ngIf="attr.AttrInputType == 'C'" [formGroupName]="attr.AttrCode">
+                <label class="col-md-12 label-field-2">{{attr.AttrName}}</label>
+                <div class="col-md-12 mb-3">
+                  <ui-switch class="custom-switches"
+                    uncheckedLabel="no" checkedLabel="yes" size="small"   
+                    (change)="ChangeCallbackSwitch('VendorAttrValue',$event)"
+                    [formControlName]="'VendorAttrValue'">
+                  </ui-switch>
+                  <!-- <input type="checkbox" formControlName="VendorAttrValue" id="flexCheckDefault"> -->
+                </div>
+              </div>
+              <!-- COUNTERPART CATEGORY -->
+              <div class="form-group row"
+                *ngIf="attr.AttrInputType == 'LU' && attr.AttrCode == 'MR_COUNTERPART_CATEGORY'"
+                [formGroupName]="attr.AttrCode">
+                <label class="col-md-12 label-field-2 adins-required-label">{{attr.AttrName}}</label>
+                <div class="col-md-12">
+                  <lib-uclookupgeneric [lookupInput]="ListInputLookUpObj[0][attr['AttrCode']]" [parentForm]="FormUtama"
+                    [enjiForm]="enjiForm" [identifier]="'lookup'+ attr.AttrCode"
+                    (lookup)="getLookUpAttrCategory($event,attr.AttrCode)"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && FormUtama.controls['VendorAttrList']['controls'][attr['AttrCode']].controls.VendorAttrValue.invalid }">
+                  </lib-uclookupgeneric>
+
+                </div>
+              </div>
+              <div class="form-group row" *ngIf="attr.AttrInputType == 'R'" [formGroupName]="attr.AttrCode">
+                <label class="col-md-12 label-field-2">{{attr.AttrName}}</label>
+                <div class="col-md-12 mb-2">
+                  <mat-radio-group formControlName="VendorAttrValue">
+                    <mat-radio-button class="custom-control custom-radio-2 display-inline-block p-2"
+                      *ngFor="let valueItem of RadioButtonVendorAttr[attr.AttrCode]" [value]="valueItem">
+                      {{valueItem}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+              <!-- Tax Treaty Rate -->
+              <div class="form-group row" *ngIf="attr.AttrInputType == 'P'" [formGroupName]="attr.AttrCode">
+                <label class="col-md-12 label-field-2">{{attr.AttrName}}</label>
+                <div class="col-md-12">
+                  <input type="text" currencyMask class="form-control input-field-2"
+                    formControlName="VendorAttrValue"
+                    [options]="{ thousands: ',', decimal: '.', align: 'right', allowNegative: true, allowZero:true, precision: 6, nullable: false }" 
+                    [ngClass]="{'is-invalid' : enjiForm.submitted && FormUtama.controls['VendorAttrList']['controls'][attr['AttrCode']].controls.VendorAttrValue.invalid}"/>
+                  <div class="message-box">
+                    <lib-uc-show-errors
+                    [control]="FormUtama.controls['VendorAttrList']['controls'][attr['AttrCode']].controls.VendorAttrValue"
+                    [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                  </div>
+                </div>
+
+              </div>
+            </ng-container>
+            <div class="form-group row">
+              <label class="col-md-12 label-field-2">Jurisdiction</label>
+              <div class="col-md-12">
+                {{this.jurisdictionValue}}
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </form>
+    <!-- <app-funding-company-contact-person (outputValue)="addCPValues($event)" ></app-funding-company-contact-person> -->
+    <app-funding-company-contact-person [VendorId]="VendorId" (addContactPerson)="addVendorContactPerson($event)"
+      [mode]="mode"></app-funding-company-contact-person>
+  </div>
+</div>

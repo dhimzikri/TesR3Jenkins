@@ -1,0 +1,110 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="AddressForm" (ngSubmit)="AddressForm.valid && SaveForm()"
+            #enjiForm="ngForm">
+            <lib-ucSubsection [id]="'AddressInfoId'" [title]="'Address Info'" [panel]="'AddressInformation'">
+            </lib-ucSubsection>
+            <div class="form-body" id="AddressInformation">
+              <div class="form-group row">
+                <label class="col-md-3  adins-required-label" translate>Address</label>
+                <div class="col-md-5">
+                  <textarea autoUpperCase class="form-control" formControlName="Addr"> </textarea>
+                  <lib-uc-show-errors [control]="AddressForm.controls.Addr" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>RT / RW</label>
+                <div class="col-md-5">
+                  <div class="row">
+                    <div class="col-md-6" style="border-right: 1px solid grey">
+                      <input type="text" class="form-control" formControlName="AreaCode4">
+                      <lib-uc-show-errors [control]="AddressForm.controls.AreaCode4" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" formControlName="AreaCode3">
+                      <lib-uc-show-errors [control]="AddressForm.controls.AreaCode3" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="form-group row" *ngIf="inputLookupZipcodeObj.isReady">
+                <label class="col-md-3">Zip Code</label>
+                <div class="col-md-5">
+                  <lib-uclookupgeneric [lookupInput]="inputLookupZipcodeObj" [parentForm]="AddressForm"
+                    [enjiForm]="enjiForm" [identifier]="'lookupZipcode'" (lookup)="getLookupZipcode($event)">
+                  </lib-uclookupgeneric>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Kelurahan</label>
+                <div class="col-md-5">
+                  <input type="text" class="form-control" formControlName="AreaCode2">
+                  <lib-uc-show-errors [control]="AddressForm.controls.AreaCode2" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Kecamatan</label>
+                <div class="col-md-5">
+                  <input type="text" class="form-control" formControlName="AreaCode1">
+                  <lib-uc-show-errors [control]="AddressForm.controls.AreaCode1" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>City</label>
+                <div class="col-md-5">
+                  <input type="text" class="form-control" formControlName="City">
+                  <lib-uc-show-errors [control]="AddressForm.controls.City" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Province</label>
+                <div class="col-md-5">
+                  <input type="text" class="form-control" formControlName="Province">
+                  <lib-uc-show-errors [control]="AddressForm.controls.Province" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="MrVendorClass!='BRANCH'">
+              <lib-ucSubsection [id]="'LatLongInfoId'" [title]="'Latitude Longitude Info'" [panel]="'LatLongInformation'">
+              </lib-ucSubsection>
+              <div class="form-body" id="LatLongInformation">
+                <div class="form-group row">
+                  <label class="col-md-3  adInsLabel" translate>Latitude</label>
+                  <div class="col-md-5">
+                    <input type="text" class="form-control" formControlName="Latitude">
+                    <lib-uc-show-errors [control]="AddressForm.controls.Latitude" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3  adInsLabel" translate>Longitude</label>
+                  <div class="col-md-5">
+                    <input type="text" class="form-control" formControlName="Longitude">
+                    <lib-uc-show-errors [control]="AddressForm.controls.Longitude" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions right">
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save and Continue</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,181 @@
+{
+    "title": "Customer Pefindo Request",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "C.CUST_NO",
+            "id": "CustNo",
+            "value": "",
+            "label": "Customer No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "C.CUST_NAME",
+            "id": "CustName",
+            "value": "",
+            "label": "Customer Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "C.MR_CUST_TYPE_CODE",
+            "id": "CustTypeCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Type",
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "CUST_TYPE",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "ID_NO",
+            "id": "IdNo",
+            "value": "",
+            "label": "Id No",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "CUSTOMER NO",
+            "name": "C.CUST_NO"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "CUSTOMER NAME",
+            "name": "C.CUST_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "TYPE",
+            "name": "C.MR_CUST_TYPE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ID NO",
+            "name": "C.ID_NO"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Request"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "View"
+        }
+    ],
+    "querystring": {
+        "name": "searchCustPefindoReq"
+    },
+    "bodyList": [
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "MrCustTypeCode",
+                                    "value": "PERSONAL",
+                                    "restriction": "EQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "link",
+                                "position": "left",
+                                "property": "CustNo",
+                                "path": "VIEW_CUST_PERSONAL_DETAIL",
+                                "target": "_blank",
+                                "param": [
+                                    {
+                                        "type": "CustId",
+                                        "property": "CustId"
+                                    }
+                                ]
+                            },
+                            "isHide": false
+                        },
+                        {
+                            "conditions": [
+                                {
+                                    "property": "MrCustTypeCode",
+                                    "value": "COMPANY",
+                                    "restriction": "EQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "link",
+                                "position": "left",
+                                "property": "CustNo",
+                                "path": "VIEW_CUST_COY_DETAIL",
+                                "target": "_blank",
+                                "param": [
+                                    {
+                                        "type": "CustId",
+                                        "property": "CustId"
+                                    }
+                                ]
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "CustName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrCustTypeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "IdNo"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+              {
+                "type": "callback",
+                "key": "request"
+              }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+              {
+                "type": "callback",
+                "key": "view_pefindo"
+              }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "StatusId",
+        "subSectionTitle": "Status",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Payment Voucher Status",
+            "property": "PayVoucherStat"
+          },
+          {
+            "type": "text",
+            "label": "Verification User Request",
+            "property": "VerifUsrReq"
+          },
+          {
+            "type": "text",
+            "label": "Verification User Approve",
+            "property": "VerifUsrApv"
+          },
+          {
+            "type": "date",
+            "label": "Verification Date",
+            "property": "VerifDt"
+          },
+          {
+            "type": "text",
+            "label": "Verification Status",
+            "property": "VerifStat"
+          },
+          {
+            "type": "date",
+            "label": "Execution Value Date",
+            "property": "ExeValDt"
+          }          
+        ],
+        "querystring": {
+            "name": "viewPayVoucherStatusInfo"
+        }
+      }
+    ]
+  }

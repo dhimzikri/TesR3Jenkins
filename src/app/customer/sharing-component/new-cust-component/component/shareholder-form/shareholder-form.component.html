@@ -1,0 +1,126 @@
+<div class="form-group row" *ngIf="isShareholderReady">
+
+  <div class="col-md-6">
+
+    <div class="form-group row" *ngIf="CustType == CustTypePersonal">
+      <label class="col-md-12 adins-required-label" translate>Job Position </label>
+      <div class="col-md-12" *ngIf="jobPositionLookupObj?.isReady">
+        <lib-uclookupgeneric [lookupInput]="jobPositionLookupObj" [parentForm]="parentForm" [enjiForm]="enjiForm"
+          [identifier]="'JobPosition'" (lookup)=getLookUpJobPosition($event)>
+        </lib-uclookupgeneric>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-12 adins-required-label" translate> Position SLIK </label>
+      <div class="col-md-12">
+        <lib-uclookupgeneric [lookupInput]="positionSlikLookUpObj" [parentForm]="parentForm" [enjiForm]="enjiForm"
+          [identifier]="'PositionSlikCode'" (lookup)=getLookUpSlik($event)>
+        </lib-uclookupgeneric>
+      </div>
+    </div>
+
+    <div class="form-group row" *ngIf="CustType == CustTypePersonal">
+      <label class="col-md-12 adInsLabel" translate>Establishment Date</label>
+      <div class="col-md-12">
+        <input type="date" class="form-control input-field-2" formControlName="EstablishmentDt"
+          max="{{MaxDate | date: 'yyyy-MM-dd'}}"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.EstablishmentDt.invalid}">
+        <div class="message-box">
+          <lib-uc-show-errors [control]="parentForm.controls.EstablishmentDt" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-12 adInsLabel" translate>Is Active</label>
+      <div class="col-md-12">
+        <ui-switch class="custom-switches" uncheckedLabel="no" checkedLabel="yes" size="small"
+          [formControlName]="'IsActive'">
+        </ui-switch>
+        <!-- <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" /> -->
+      </div>
+    </div>
+
+    <div class="form-group row" *ngIf="CustType == CustTypePersonal">
+      <label class="col-md-12 adInsLabel" translate>Is Signer
+      </label>
+      <div class="col-md-12">
+        <ui-switch class="custom-switches" uncheckedLabel="no" checkedLabel="yes" size="small"
+          [formControlName]="'IsSigner'">
+        </ui-switch>
+        <!-- <input class="border-primary input-field-2" type="checkbox" data-md-icheck formControlName="IsSigner" /> -->
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-6">
+
+    <div class="form-group row" *ngIf="CustType == CustTypePersonal">
+      <label class="col-md-12 adInsLabel" translate>Debtor Model</label>
+      <div class="col-md-12" *ngIf="DictUcDDLObj[RefMasterTypeCodeCustModel]?.isReady">
+        <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeCustModel]" [parentForm]="parentForm"
+          [enjiForm]="enjiForm" [identifier]="'MrCustModelCode'" (callback)="changeCustModel()"></lib-ucdropdownlist>
+      </div>
+    </div>
+
+    <div class="form-group row" *ngIf="CustType == CustTypePersonal">
+      <label class="col-md-12 adInsLabel" translate> Profession Name </label>
+      <div class="col-md-12">
+        <lib-uclookupgeneric [lookupInput]="professionLookUpObj" [parentForm]="parentForm" [enjiForm]="enjiForm"
+          [identifier]="'JobProfession'" (lookup)=getLookUpProfession($event) #LookupProfession>
+        </lib-uclookupgeneric>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-12 adInsLabel" translate> Share(%)</label>
+      <div class="col-md-12">
+        <input type="" currencyMask min="0" max="100" class="form-control input-field-2" formControlName="SharePrcnt"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.SharePrcnt.invalid}"
+          [options]="CurrencyMaskPrct">
+        <div class="message-box">
+          <lib-uc-show-errors [control]="parentForm.controls.SharePrcnt" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-12 adInsLabel" translate>Is Owner</label>
+      <div class="col-md-12">
+        <ui-switch class="custom-switches" uncheckedLabel="no" checkedLabel="yes" size="small"
+          [formControlName]="'IsOwner'" (valueChange)="onChangeIsOwnerInput($event)">
+        </ui-switch>
+        <!-- <input class="border-primary input-field-2" type="checkbox" data-md-icheck formControlName="IsOwner" /> -->
+      </div>
+    </div>
+    <div class="form-group row" *ngIf="CustType == CustTypeCompany">
+      <label class="col-md-12 label-field-2 adins-required-label" translate>Business Start Date</label>
+      <div class="col-md-12">
+        <input type="date" class="form-control input-field-2" formControlName="BusinessStartDt"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.BusinessStartDt.invalid}">
+        <div class="message-box">
+          <lib-uc-show-errors [control]="parentForm.controls.BusinessStartDt" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row" *ngIf="CustType == CustTypePersonal" [hidden]="!parentForm.controls.IsSigner.value">
+      <label class="col-md-12 label-field-2 adins-required-label" translate>Signer End Date</label>
+      <div class="col-md-12">
+        <input type="date" class="form-control input-field-2" formControlName="SignerEndDt"
+          [min]="businessDtMin | date: 'yyyy-MM-dd'"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.SignerEndDt.invalid}">
+        <div class="message-box"><lib-uc-show-errors [control]="parentForm.controls.SignerEndDt"
+            [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

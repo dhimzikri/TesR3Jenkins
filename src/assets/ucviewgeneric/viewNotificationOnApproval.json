@@ -1,0 +1,48 @@
+{
+    "title":"Notification Detail",
+      "subsection": [
+        {
+          "subSectionId": "NotificationInfoId",
+          "subSectionTitle": "Notification Info",
+          "mainInfoPath": "/Generic/GetDataViewBySQL",
+          "mainInfo": [
+            {
+              "type": "text",
+              "label": "Notification Type:",
+              "property": "NotificationTypeDescr"
+            },
+            {
+              "type": "text",
+              "label": "Notification Method:",
+              "property": "NotificationMethodDescr"
+            },
+            {
+              "type": "text",
+              "label": "Title:",
+              "property": "Title"
+            },
+            {
+              "type": "text",
+              "label": "Short Description:",
+              "property": "ShortDesc"
+            },
+            {
+              "type": "text",
+              "label": "Long Description:",
+              "property": "LongDesc"
+            },
+            {
+              "type": "date",
+              "label": "Publish Date:",
+              "property": "PublishDt"
+            }
+  
+          ],
+          "querystring": {
+            "name": "viewNotificationOnApproval"       
+          }
+        }
+      ]
+    }
+    
+  

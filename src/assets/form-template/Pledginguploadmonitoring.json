@@ -1,0 +1,276 @@
+{
+  "title": "PledgingUploadMonitoring",
+  "hideTitle": false,
+  "id": "Pledginguploadmonitoring",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "upload": {
+        "title": "",
+        "uploadTypeCode": "UPL_PLDGE_TMS",
+        "environment": "",
+        "errorDownloadUrl": "",
+        "templateName": "",
+        "fileErrorName": "",
+        "formatsAllowed": "",
+        "downloadTmpltOpt": [],
+        "useCustomApi": false,
+        "pagingInput": {
+          "title": "",
+          "exportExcel": false,
+          "querystring": { "name": "" },
+          "component": [
+            {
+              "id": "vtvendorCodeSearchId",
+              "type": "dropdown",
+              "label": "Funding Company",
+              "name": "VT.VENDOR_CODE",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": true,
+              "environment": "FOU",
+              "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+              "criteriaPropName": "Code",
+              "criteriaPropValue": "JF_FUNDING_COMPANY",
+              "isQueryIn": false,
+              "affectedFilter": ["LC.LOAN_CONTRACT_NO"],
+              "filterPropName": "VendorCode"
+            },
+            {
+              "id": "lcloanContractNoSearchId",
+              "type": "dropdown",
+              "label": "Funding Contract",
+              "name": "LC.LOAN_CONTRACT_NO",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": true,
+              "environment": "FACILITYMNT",
+              "path": "/LoanContract/GetListLoanContractKeyAndValue",
+              "criteriaPropName": "Key",
+              "criteriaPropValue": "JF_FUNDING_COMPANY",
+              "isQueryIn": false,
+              "affectedFilter": ["LC.LOAN_CONTRACT_NO"],
+              "filterPropName": "VendorCode"
+            },
+            {
+              "id": "lbloanBatchNoSearchId",
+              "type": "dropdown",
+              "label": "Funding Batch No",
+              "name": "LB.LOAN_BATCH_NO",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": false,
+              "environment": "FACILITYMNT",
+              "path": "/LoanBatch/GetListLoanBatchByLoanContractNo",
+              "criteriaPropName": "key",
+              "criteriaPropValue": "LB.LOAN_BATCH_NO",
+              "isQueryIn": false
+            },
+            {
+              "id": "SearchId",
+              "type": "datepicker",
+              "label": "Upload Date",
+              "name": "",
+              "value": "",
+              "placeholder": "",
+              "datatype": "date",
+              "restriction": "",
+              "useDefVal": false
+            },
+            {
+              "id": "SearchId",
+              "type": "dropdown",
+              "label": "Security Scheme",
+              "name": "",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": false,
+              "ddlType": "all",
+              "isEvent": false,
+              "items": []
+            },
+            {
+              "id": "SearchId",
+              "type": "dropdown",
+              "label": "Status",
+              "name": "",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "",
+              "isEvent": false,
+              "environment": "",
+              "path": "",
+              "criteriaPropName": "",
+              "criteriaPropValue": "",
+              "isQueryIn": false
+            },
+            {
+              "id": "SearchId",
+              "type": "textbox",
+              "label": "Textfile Name",
+              "name": "",
+              "value": "",
+              "placeholder": "Input textfile name",
+              "datatype": "text",
+              "isReadonly": false,
+              "useAutofill": false,
+              "isUppercase": false,
+              "isCriteriaDataTable": false
+            }
+          ],
+          "headerList": [
+            {
+              "type": "sort",
+              "label": "Funding Company Name",
+              "position": "left",
+              "name": "VT.VENDOR_CODE"
+            },
+            {
+              "type": "sort",
+              "label": "Funding Contract Name",
+              "position": "left",
+              "name": "LC.LOAN_CONTRACT_NO"
+            },
+            {
+              "type": "sort",
+              "label": "Funding Batch No",
+              "position": "center",
+              "name": "LB.LOAN_BATCH_NO"
+            },
+            {
+              "type": "label",
+              "label": "Upload Date",
+              "position": "center",
+              "name": ""
+            },
+            { "type": "label", "label": "Security Scheme", "position": "left" },
+            { "type": "label", "label": "Status", "position": "left" },
+            { "type": "label", "label": "Textfile Name", "position": "left" },
+            {
+              "type": "label",
+              "label": "Agreement Uploaded",
+              "position": "center"
+            },
+            {
+              "type": "label",
+              "label": "Agreement Pledged",
+              "position": "center"
+            },
+            {
+              "type": "label",
+              "label": "Failed to Pledge",
+              "position": "center"
+            },
+            { "type": "label", "label": "On Process", "position": "center" }
+          ],
+          "bodyList": [
+            {
+              "type": "callback",
+              "position": "left",
+              "property": "FundingCompanyName",
+              "isFlagColor": false,
+              "key": "ViewVendor"
+            },
+            {
+              "type": "callback",
+              "position": "left",
+              "property": "FundingContractName",
+              "isFlagColor": false,
+              "key": "ViewContract"
+            },
+            {
+              "type": "callback",
+              "position": "center",
+              "property": "FundingBatchNo",
+              "isFlagColor": false,
+              "key": "ViewFundingBatch"
+            },
+            {
+              "type": "date",
+              "position": "center",
+              "property": "UploadDate",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "left",
+              "property": "SecurityScheme",
+              "isFlagColor": false
+            },
+            {
+              "type": "callback",
+              "position": "left",
+              "property": "",
+              "isFlagColor": false,
+              "key": ""
+            },
+            {
+              "type": "text",
+              "position": "left",
+              "property": "",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "",
+              "isFlagColor": false
+            }
+          ]
+        }
+      },
+      "id": "697dad11-175c-4dbb-a9ac-686c5e6144ab"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [],
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false
+}

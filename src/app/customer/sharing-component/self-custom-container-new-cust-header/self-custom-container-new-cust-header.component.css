@@ -1,0 +1,8 @@
+.custom-radio,
+input[type="checkbox"].border-primary {
+    height: 26.5px;
+}
+
+.custom-control.custom-radio {
+    padding-right: 10px;
+}

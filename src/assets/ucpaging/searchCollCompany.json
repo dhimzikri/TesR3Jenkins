@@ -1,0 +1,225 @@
+{
+    "title": "Collection Company",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "vdr.VENDOR_CODE",
+            "id": "VendorCodeId",
+            "value": "",
+            "label": "Collection Company Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "vdr.VENDOR_NAME",
+            "id": "VendorNameId",
+            "value": "",
+            "label": "Collection Company Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "numeric",
+            "name": "vdr.VENDOR_RATING",
+            "id": "VendorRatingGteId",
+            "value": 0,
+            "label": "Rating >=",
+            "restriction": "GTE",
+            "datatype": "numeric",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "numeric",
+            "name": "vdr.VENDOR_RATING",
+            "id": "VendorRatingLteId",
+            "value": 100,
+            "label": "Rating <=",
+            "restriction": "LTE",
+            "datatype": "numeric",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "vdr.IS_ACTIVE",
+            "id": "activeStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchSupplier"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Collection Company Code",
+            "name": "vdr.VENDOR_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Collection Company Name",
+            "name": "vdr.VENDOR_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Collection Company Address",
+            "name": "ADDR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "RATING",
+            "name": "vdr.VENDOR_RATING"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "vdr.IS_ACTIVE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "OFFICE MEMBER"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "EMPLOYEE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "ACTION"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BranchCode"
+        },
+        {
+            "type": "link",
+            "position": "left",
+            "property": "BranchName",
+            "target": "_blank",
+            "path": "VIEW_VENDOR_COLL_COMPANY",
+            "param": [
+                {
+                    "type": "VendorId",
+                    "property": "VendorId"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BranchAddress"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "BranchRating"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "icon": "fa fa-sitemap",
+                    "path": "VENDOR_COLL_COMPANY_MBR_PAGING",
+                    "param": [
+                        {
+                            "type": "VendorId",
+                            "property": "VendorId"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "MrVendorCategoryCode",
+                                    "value": "AGENCY_PERSONAL",
+                                    "restriction": "NEQ"
+                                },
+                                {
+                                    "property": "MrVendorType",
+                                    "value": "P",
+                                    "restriction": "NEQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "url",
+                                "icon": "ft-users",
+                                "path": "VENDOR_COLL_COMPANY_EMP_PAGING",
+                                "param": [
+                                    {
+                                        "type": "VendorId",
+                                        "property": "VendorId"
+                                    }
+                                ]
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VENDOR_COLL_COMPANY_REG",
+                    "param": [
+                        {
+                            "type": "VendorId",
+                            "property": "VendorId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        },
+                        {
+                            "type": "MrVendorCategoryCode",
+                            "property": "MrVendorCategoryCode"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

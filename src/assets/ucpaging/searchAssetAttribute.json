@@ -1,0 +1,159 @@
+{
+    "component": [
+        {
+            "type": "textbox",
+            "name": "RA.ATTR_CODE",
+            "id": "AssetAttrCode",
+            "value": "",
+            "label": "Asset Attribute Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RA.ATTR_NAME",
+            "id": "AssetAttrName",
+            "value": "",
+            "label": "Asset Attribute Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RA.ATTR_TYPE_CODE",
+            "id": "AssetAttrTypeCode",
+            "value": "",
+            "label": "Asset Attribute Type Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RA.ATTR_VALUE",
+            "id": "AssetAttrTypeCode",
+            "value": "",
+            "label": "Asset Attribute Value",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RM.DESCR",
+            "id": "AssetAttrTypeCode",
+            "value": "",
+            "label": "Asset Attribute Input Type",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "AST.IS_EDITABLE_AFTER_GO_LIVE",
+            "id": "isActive",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "https://api.myjson.com/bins/ld6e8",
+            "label": "Editable After Go Live",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ASSET ATTRIBUTE CODE",
+            "name": "RA.ATTR_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ASSET ATTRIBUTE NAME",
+            "name": "RA.ATTR_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ASSET ATTRIBUTE TYPE CODE",
+            "name": "RA.ATTR_TYPE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ASSET ATTRIBUTE VALUE",
+            "name": "RA.ATTR_TYPE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ASSET ATTRIBUTE INPUT TYPE",
+            "name": "RM.DESCR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "EDITABLE AFTER GO LIVE",
+            "name": "AST.IS_EDITABLE_AFTER_GO_LIVE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "ACTION"
+        }
+    ],
+    "querystring": {
+        "name": "searchAssetAttribute"
+    },
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AttrCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AttrName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AttrTypeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AttrValue"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AttrInputType"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsEditable"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+              {
+                "type": "callback",
+                "property": "AssetAttrId",
+                "icon" : "ft-edit"
+              },
+              {
+                "type": "delete",
+                "property": "AssetAttrId"
+              }
+            ]
+        }
+    ]
+}

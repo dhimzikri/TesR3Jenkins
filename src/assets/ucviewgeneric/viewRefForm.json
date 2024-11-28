@@ -1,0 +1,20 @@
+{
+    "title": "Role Form Mapping Add",
+    "subsection": [
+      {
+        "subSectionId": "RefFormId",
+        "subSectionTitle": "Ref Form",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Title",
+            "property": "Title"
+          }
+        ],
+        "querystring": {
+          "name": "viewRefForm"
+        }
+      }
+    ]
+  }

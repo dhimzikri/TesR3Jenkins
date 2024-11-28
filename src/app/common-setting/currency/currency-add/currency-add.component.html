@@ -1,0 +1,73 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Currency Registration</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="RefCurrForm" (ngSubmit)="RefCurrForm.valid && SaveForm()"
+          #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'CurrencyInfoId'" [title]="'Currency '+ pageType" [panel]="'CurrencyInfo'"></lib-ucSubsection>
+            <div id="CurrencyInfo">
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required-label" translate>Currency Code </label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control adInsInput" formControlName="CurrCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefCurrForm.controls.CurrCode.invalid }">
+                  <lib-uc-show-errors [control]="RefCurrForm.controls.CurrCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel adins-required-label" translate>Currency </label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control adInsInput" formControlName="CurrName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefCurrForm.controls.CurrName.invalid }">
+                  <lib-uc-show-errors [control]="RefCurrForm.controls.CurrName" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required-label" translate>Rounded Amount </label>
+                <div class="col-md-4">
+                  <input type="number" class="form-control adInsInput" formControlName="RoundedAmt"
+                         [ngClass]="{ 'is-invalid': enjiForm.submitted && RefCurrForm.controls.RoundedAmt.invalid }" min=0 max=2>
+                  <lib-uc-show-errors [control]="RefCurrForm.controls.RoundedAmt" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required-label" translate>BI Code </label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control adInsInput" formControlName="RegRptCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefCurrForm.controls.RegRptCode.invalid }">
+                  <lib-uc-show-errors [control]="RefCurrForm.controls.RegRptCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Active </label>
+                <div class="col-md-4">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1"
+              [routerLink]="[CancelLink]" skipLocationChange>
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

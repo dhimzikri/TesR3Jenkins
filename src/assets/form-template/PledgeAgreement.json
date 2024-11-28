@@ -1,0 +1,261 @@
+{
+  "title": "Pledge Agreement",
+  "id": "PledgeAgreement",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+      {
+          "view": {
+              "subsection": {
+                  "subSectionId": "FundingContractMainInfoId",
+                  "subSectionTitle": "Funding Contract Main Info",
+                  "concatDate": false,
+                  "setDate": "",
+                  "formatDate": "",
+                  "environment": "facilityMntUrl",
+                  "apiVersion": "v1",
+                  "uri": "",
+                  "mainInfoPath": "/Generic/GetDataViewBySQL",
+                  "querystring": {
+                      "name": "fundingContractMasterEntityByBatchNo"
+                  },
+                  "reqObj": {},
+                  "mainInfo": [
+                      {
+                          "type": "callback",
+                          "label": "Funding Company Name",
+                          "property": "FundingCompanyName",
+                          "key": "ViewVendor",
+                          "position": "left",
+                          "isHide": false,
+                          "isText": false
+                      },
+                      {
+                          "type": "boolean",
+                          "label": "Mirroring Status",
+                          "property": "MirroringStat",
+                          "position": "left",
+                          "isHide": false
+                      },
+                      {
+                          "type": "text",
+                          "label": "Funding Contract Name",
+                          "property": "FundingContractName",
+                          "position": "left",
+                          "isHide": false
+                      },
+                      {
+                          "type": "link",
+                          "label": "Funding Contract No",
+                          "property": "FundingContractNo",
+                          "environment": "facilityMNTWeb",
+                          "path": "/View/FundingContract/View",
+                          "target": "_blank",
+                          "position": "left",
+                          "param": [
+                              {
+                                  "type": "JfContractNo",
+                                  "property": "FundingContractNo"
+                              }
+                          ],
+                          "isCurrency": false,
+                          "isHide": false
+                      },
+                      {
+                          "type": "date",
+                          "label": "Contract Period - From ",
+                          "property": "ContractPeriodeFrom",
+                          "dateFormat": "dd/mm/yyyy",
+                          "position": "left",
+                          "isHide": false
+                      },
+                      {
+                          "type": "date",
+                          "label": "Contract Period - To",
+                          "property": "ContractPeriodeTo",
+                          "dateFormat": "dd/mm/yyyy",
+                          "position": "left",
+                          "isHide": false
+                      },
+                      {
+                          "type": "currency",
+                          "label": "Funding Contract Portion",
+                          "property": "FundingPortionPercentage",
+                          "precision": "0.2",
+                          "IsPrcnt": true,
+                          "position": "left",
+                          "isHide": false
+                      }
+                  ],
+                  "whereValue": [],
+                  "fromValue": [],
+                  "subsectionId": "FundingContractMainInfoId"
+              }
+          },
+          "id": "89f494fc-24ec-405c-a8d4-38262be3d97f"
+      },
+      {
+          "view": {
+              "subsection": {
+                  "subSectionId": "FundingBatchMainInfoId",
+                  "subSectionTitle": "Funding Batch Main Info",
+                  "concatDate": false,
+                  "setDate": "",
+                  "formatDate": "",
+                  "environment": "facilityMntUrl",
+                  "apiVersion": "v1",
+                  "uri": "",
+                  "mainInfoPath": "/Generic/GetDataViewBySQL",
+                  "querystring": {
+                      "name": "fundingBatchFundingContractMainInfo"
+                  },
+                  "reqObj": {},
+                  "mainInfo": [
+                      {
+                          "type": "link",
+                          "label": "Funding Batch No",
+                          "property": "BatchNo",
+                          "environment": "facilityMNTWeb",
+                          "path": "/View/fundingBatch/View",
+                          "target": "_blank",
+                          "position": "left",
+                          "param": [
+                              {
+                                  "type": "BatchNo",
+                                  "property": "BatchNo"
+                              }
+                          ],
+                          "isCurrency": false,
+                          "isHide": false,
+                          "customClassLabel": "",
+                          "customClassProperty": ""
+                      },
+                      {
+                          "type": "date",
+                          "label": "Drawdown Plan Date",
+                          "property": "DrawdownPlanDate",
+                          "dateFormat": "dd/mm/yyyy",
+                          "position": "left",
+                          "isHide": false
+                      },
+                      {
+                          "type": "text",
+                          "label": "Funding Batch Status",
+                          "property": "BatchStatus",
+                          "position": "left",
+                          "isHide": false
+                      },
+                      {
+                          "type": "currency",
+                          "label": "Drawdown Plan Amount",
+                          "property": "DrawdownPlanAmt",
+                          "precision": "0.2",
+                          "IsPrcnt": false,
+                          "position": "left",
+                          "isHide": false
+                      }
+                  ],
+                  "whereValue": [],
+                  "fromValue": [],
+                  "subsectionId": "FundingBatchMainInfoId"
+              }
+          },
+          "id": "e7888dc1-ed34-42f9-8de9-26ae017100c4"
+      },
+      {
+          "view": {
+              "subsection": {
+                  "subSectionId": "PledgingInfoId",
+                  "subSectionTitle": "Pledging Info",
+                  "concatDate": false,
+                  "setDate": "",
+                  "formatDate": "",
+                  "environment": "facilityMntUrl",
+                  "apiVersion": "v1",
+                  "uri": "",
+                  "mainInfoPath": "/Generic/GetDataViewBySQL",
+                  "querystring": {
+                      "name": "PledgingMainInfo"
+                  },
+                  "reqObj": {},
+                  "mainInfo": [
+                      {
+                          "type": "currency",
+                          "label": "Funding Pledged Amount",
+                          "property": "PledgedAmount",
+                          "precision": "0.2",
+                          "IsPrcnt": false,
+                          "position": "right",
+                          "isHide": false
+                      },
+                      {
+                          "type": "currency",
+                          "label": "Amount To Be Pledged",
+                          "property": "AmountToBePledged",
+                          "precision": "0.2",
+                          "IsPrcnt": false,
+                          "position": "right",
+                          "isHide": false
+                      },
+                      {
+                          "type": "text",
+                          "label": "Number Of Pledged Agreement",
+                          "property": "NumOfPledgedAgrmnt",
+                          "position": "right",
+                          "isHide": false
+                      }
+                  ],
+                  "whereValue": [],
+                  "fromValue": [],
+                  "subsectionId": "PledgingInfoId"
+              }
+          },
+          "id": "c9610b22-9ee9-4a67-be3c-e242bec07755"
+      },
+      {
+          "container": {
+              "key": "PledgeMenu",
+              "className": "PledgingUnpledgeMasterMenuComponent",
+              "cssClass": "",
+              "input": {
+                  "JfBatchNo": "JfBatchNo"
+              }
+          },
+          "id": "16559f47-8c4d-4786-84c5-51b78a092a3c"
+      }
+  ],
+  "serviceUrl": {
+      "add": {
+          "environment": "",
+          "apiPath": "",
+          "apiUrl": ""
+      },
+      "edit": {
+          "environment": "",
+          "apiPath": "",
+          "apiUrl": ""
+      },
+      "createRfa": {
+          "environment": "",
+          "apiPath": "",
+          "apiUrl": ""
+      }
+  },
+  "hideTitle": false,
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "listBtn": [],
+  "customToastrMsg": "",
+  "onCancel": {},
+  "isOverrideSubmit": false,
+  "isOverrideCancel": false,
+  "onSubmit": [],
+  "onInit": [],
+  "conditionalTitle": [],
+  "persistData": false,
+  "persistPropName": ""
+}

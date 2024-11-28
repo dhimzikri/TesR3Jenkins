@@ -1,0 +1,83 @@
+
+{
+    "title": "Verification Question Group",
+    "keyProperty": "VerfQuestionGrpHId",
+    "keyPropCriteria": "VERF_QUESTION_GRP_H_ID",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "VERF_QUESTION_GRP_CODE",
+            "id": "QuestGrpCodeId",
+            "label": "Verification Question Group Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "VERF_QUESTION_GRP_NAME",
+            "id": "QuestGrpNameId",
+            "label": "Verification Question Group Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "verifQuestionSchmMbrTempPaging"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Verification Question Group Code",
+            "name": "VERF_QUESTION_GRP_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Verification Question Group Name",
+            "name": "VERF_QUESTION_GRP_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active",
+            "name": "IS_ACTIVE"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "VerfQuestionGrpCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VerfQuestionGrpName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        }
+    ]
+}

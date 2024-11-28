@@ -1,0 +1,293 @@
+{
+    "title": "Add New Template Email",
+    "hideTitle": false,
+    "id": "Addnewtemplateemailxcnaf",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Main Information",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Template Name",
+                            "Variable": "TemplateName",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": "Input template name"
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "isPassword",
+                                            "restriction": "Eq",
+                                            "value": "true"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "Password"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "showField",
+                                    "condition": [
+                                        {
+                                            "variable": "isPassword",
+                                            "restriction": "Eq",
+                                            "value": "true"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "Password"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "bindValue",
+                                    "condition": [
+                                        {
+                                            "variable": "isPassword",
+                                            "restriction": "Eq",
+                                            "value": "true"
+                                        }
+                                    ],
+                                    "listBind": [
+                                        {
+                                            "variable": "Password",
+                                            "value": "Password"
+                                        }
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "BOOL",
+                            "Label": "Use Password for ZIP Attachment",
+                            "Variable": "isPassword",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDLMULTI",
+                            "Label": "Affected Funding Company",
+                            "Variable": "AffectedFundingCompany",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "JF_FUNDING_COMPANY"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "PASSWORD",
+                            "Label": "Password",
+                            "Variable": "Password",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": "Input password"
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [],
+                            "isUseApi": true,
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "TemplateName",
+                                    "propValue": "TemplateNames"
+                                }
+                            ],
+                            "environment": "facilityMntUrl",
+                            "apiPath": "/v1/MasterSettingTexfileX/GetMasterSettingAndFundComByTemplateName",
+                            "action": [
+                                {
+                                    "type": "showField",
+                                    "condition": [
+                                        {
+                                            "variable": "isPassword",
+                                            "restriction": "Eq",
+                                            "value": "true"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "Password"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "isPassword",
+                                            "restriction": "Eq",
+                                            "value": "true"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "Password"
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ]
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [
+                        {
+                            "variableName": "isPassword",
+                            "cookieName": "IsPassword",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "AffectedFundingCompany",
+                            "cookieName": "AffectedFundingCompany",
+                            "isEmptyNotFound": false
+                        }
+                    ],
+                    "initAction": []
+                }
+            },
+            "id": "abc3c293-e459-43e4-b10b-c80cf9c8759e"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "hideCancelButton": false,
+    "listBtn": [
+        {
+            "displayName": "Next",
+            "id": "nextId",
+            "key": "OnNext",
+            "position": "bottom",
+            "icon": "",
+            "cssClass": "",
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "NEQ",
+                    "value": "edit"
+                }
+            ],
+            "btnType": "submit",
+            "action": {
+                "excObj": [],
+                "type": "link",
+                "path": "/Setting/MasterSettingTextfile/AddX/DetailX",
+                "params": [],
+                "target": "_self"
+            }
+        },
+        {
+            "displayName": "Next",
+            "id": "nextId",
+            "key": "OnNext",
+            "position": "bottom",
+            "icon": "",
+            "cssClass": "",
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "edit"
+                }
+            ],
+            "btnType": "submit",
+            "action": {
+                "type": "link",
+                "path": "/Setting/MasterSettingTextfile/AddX/DetailX",
+                "params": [
+                    {
+                        "propName": "mode",
+                        "propValue": "edit"
+                    },
+                    {
+                        "propName": "TemplateName",
+                        "propValue": "TemplateNames"
+                    }
+                ],
+                "target": "_self"
+            }
+        }
+    ],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": true,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [
+        {
+            "title": "Edit New Template Email",
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "edit"
+                }
+            ]
+        }
+    ],
+    "persistData": true,
+    "persistPropName": "MainInfo"
+}

@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="px-3">
+        <form class="form form-horizontal">
+          <div class="form-body">
+            <lib-ucviewgeneric [viewGenericObj]="viewGenericObj"></lib-ucviewgeneric>
+          </div>
+          <div class="form-body">
+            <lib-ucviewgeneric [viewGenericObj]="viewGenericSbjctObj"></lib-ucviewgeneric>
+          </div>
+          <mat-tab-group>
+            <mat-tab label="CUSTOMER DATA">
+              <ng-template matTabContent>
+                <app-view-survey-task-detail [SrvyTaskId]="SrvyTaskId"> </app-view-survey-task-detail>
+              </ng-template>
+            </mat-tab>
+            <mat-tab label="DOCUMENT">
+              <ng-template matTabContent>
+                <app-dms-iframe *ngIf="isDmsReady" [dmsObj]="dmsObj"></app-dms-iframe>
+              </ng-template>
+            </mat-tab>
+          </mat-tab-group>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

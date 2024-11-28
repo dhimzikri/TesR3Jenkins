@@ -1,0 +1,557 @@
+<form class="form form-horizontal" [formGroup]="CustomerCompanyFinDataForm" #enjiForm="ngForm"
+    (ngSubmit)="CustomerCompanyFinDataForm.valid && SaveValue()">
+    <div class="form-body">
+      <div class="form-group row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4 label-field-2">Application Data</div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-raised btn-primary-2" (click)="CopyAllHandler()">Copy All</button>
+        </div>
+        <div class="col-md-4 label-field-2">Master Customer Data</div>
+      </div>
+      <div class="p-3">
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="GrossMonthlyIncomeAmt" translate>Gross Monthly Income Amount</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.GrossMonthlyIncomeAmt | number:'.2':'en-US'}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.GrossMonthlyIncomeAmt.value != AppCompanyFinData.GrossMonthlyIncomeAmt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('GrossMonthlyIncomeAmt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control input-field-2" formControlName="GrossMonthlyIncomeAmt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.GrossMonthlyIncomeAmt.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.GrossMonthlyIncomeAmt"
+            [submit]="enjiForm.submitted"></lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="GrossProfitAmt" translate>Gross Profit Amount</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.GrossProfitAmt}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.GrossProfitAmt.value != AppCompanyFinData.GrossProfitAmt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('GrossProfitAmt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="GrossProfitAmt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.GrossProfitAmt.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.GrossProfitAmt"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="ReturnOfInvestmentPrcnt" translate>Return Of Investment Percentage</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.ReturnOfInvestmentPrcnt | number:'.6':'en-US'}} %</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.ReturnOfInvestmentPrcnt.value != AppCompanyFinData.ReturnOfInvestmentPrcnt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('ReturnOfInvestmentPrcnt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="ReturnOfInvestmentPrcnt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.ReturnOfInvestmentPrcnt.invalid }"
+            [options]="CurrencyMaskPrct" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.ReturnOfInvestmentPrcnt"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="ReturnOfEquityPrcnt" translate>Return Of Equity Percentage</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.ReturnOfEquityPrcnt | number:'.6':'en-US'}} %</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.ReturnOfEquityPrcnt.value != AppCompanyFinData.ReturnOfEquityPrcnt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('ReturnOfEquityPrcnt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="ReturnOfEquityPrcnt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.ReturnOfEquityPrcnt.invalid }"
+            [options]="CurrencyMaskPrct" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.ReturnOfEquityPrcnt"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="ReturnOfAssetPrcnt" translate>Return Of Asset Percentage</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.ReturnOfAssetPrcnt | number:'.6':'en-US'}} %</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.ReturnOfAssetPrcnt.value != AppCompanyFinData.ReturnOfAssetPrcnt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('ReturnOfAssetPrcnt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="ReturnOfAssetPrcnt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.ReturnOfAssetPrcnt.invalid }"
+            [options]="CurrencyMaskPrct" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.ReturnOfAssetPrcnt"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="ProfitMarginPrcnt" translate>Profit Margin Percentage</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.ProfitMarginPrcnt | number:'.6':'en-US'}} %</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.ProfitMarginPrcnt.value != AppCompanyFinData.ProfitMarginPrcnt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('ProfitMarginPrcnt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="ProfitMarginPrcnt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.ProfitMarginPrcnt.invalid }"
+            [options]="CurrencyMaskPrct" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.ProfitMarginPrcnt"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="CurrentRatioPrcnt" translate>Current Ratio Percentage</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.CurrentRatioPrcnt | number:'.6':'en-US'}} %</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.CurrentRatioPrcnt.value != AppCompanyFinData.CurrentRatioPrcnt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('CurrentRatioPrcnt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="CurrentRatioPrcnt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.CurrentRatioPrcnt.invalid }"
+            [options]="CurrencyMaskPrct" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.CurrentRatioPrcnt"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="DebtEquityRatioPrcnt" translate>Debt Equity Ratio Percentage</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.DebtEquityRatioPrcnt | number:'.6':'en-US'}} %</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.DebtEquityRatioPrcnt.value != AppCompanyFinData.DebtEquityRatioPrcnt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('DebtEquityRatioPrcnt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="DebtEquityRatioPrcnt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.DebtEquityRatioPrcnt.invalid }"
+            [options]="CurrencyMaskPrct" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.DebtEquityRatioPrcnt"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="InvTurnOverPrcnt" translate>Inventory Turn Over Percentage</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.InvTurnOverPrcnt | number:'.6':'en-US'}} %</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.InvTurnOverPrcnt.value != AppCompanyFinData.InvTurnOverPrcnt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('InvTurnOverPrcnt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="InvTurnOverPrcnt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.InvTurnOverPrcnt.invalid }"
+            [options]="CurrencyMaskPrct" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.InvTurnOverPrcnt"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="ArTurnOverPrcnt" translate>Account Receivable Turn Over
+          Percentage</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.ArTurnOverPrcnt | number:'.6':'en-US'}} %</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.ArTurnOverPrcnt.value != AppCompanyFinData.ArTurnOverPrcnt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('ArTurnOverPrcnt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="ArTurnOverPrcnt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.ArTurnOverPrcnt.invalid }"
+            [options]="CurrencyMaskPrct" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.ArTurnOverPrcnt"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="GrowthPrcnt" translate>Growth Percentage</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.GrowthPrcnt | number:'.6':'en-US'}} %</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.GrowthPrcnt.value != AppCompanyFinData.GrowthPrcnt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('GrowthPrcnt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="GrowthPrcnt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.GrowthPrcnt.invalid }"
+            [options]="CurrencyMaskPrct" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.GrowthPrcnt"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="WorkingCapitalAmt" translate>Working Capital Amount</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.WorkingCapitalAmt | number:'.2':'en-US'}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.WorkingCapitalAmt.value != AppCompanyFinData.WorkingCapitalAmt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('WorkingCapitalAmt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="WorkingCapitalAmt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.WorkingCapitalAmt.invalid }"/>
+          <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.WorkingCapitalAmt"
+            [submit]="enjiForm.submitted"></lib-uc-show-errors>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="OthMonthlyInstAmt" translate>Other Monthly Installment Amount</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.OthMonthlyInstAmt | number:'.2':'en-US'}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.OthMonthlyInstAmt.value != AppCompanyFinData.OthMonthlyInstAmt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('OthMonthlyInstAmt')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="OthMonthlyInstAmt"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.OthMonthlyInstAmt.invalid }"/>
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.OthMonthlyInstAmt"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="DateAsOf" translate>Date As Of</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.DateAsOf}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.DateAsOf.value != AppCompanyFinData.DateAsOf" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('DateAsOf')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="date" class="form-control adInsInput input-field-2" formControlName="DateAsOf"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.DateAsOf.invalid }" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.DateAsOf" [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="Revenue" translate>Revenue</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.Revenue}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.Revenue.value != AppCompanyFinData.Revenue" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('Revenue')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="Revenue"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.Revenue.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.Revenue" [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="OprCost" translate>Operational Cost</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.OprCost}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.OprCost.value != AppCompanyFinData.OprCost" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('OprCost')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="OprCost"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.OprCost.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.OprCost" [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="ProfitBeforeTax" translate>Profit Before Tax</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.ProfitBeforeTax}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.ProfitBeforeTax.value != AppCompanyFinData.ProfitBeforeTax" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('ProfitBeforeTax')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="ProfitBeforeTax"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.ProfitBeforeTax.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.ProfitBeforeTax"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="CurrAsset" translate>Current Asset</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.CurrAsset}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.CurrAsset.value != AppCompanyFinData.CurrAsset" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('CurrAsset')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="CurrAsset"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.CurrAsset.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.CurrAsset"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="NetFixedAsset" translate>Net Fixed Asset</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.NetFixedAsset}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.NetFixedAsset.value != AppCompanyFinData.NetFixedAsset" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('NetFixedAsset')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="NetFixedAsset"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.NetFixedAsset.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.NetFixedAsset"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="TotalAsset" translate>Total Asset</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.TotalAsset}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.TotalAsset.value != AppCompanyFinData.TotalAsset" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('TotalAsset')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="TotalAsset"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.TotalAsset.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.TotalAsset"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="CurrLiablts" translate>Current Liabilities</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.CurrLiablts}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.CurrLiablts.value != AppCompanyFinData.CurrLiablts" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('CurrLiablts')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="CurrLiablts"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.CurrLiablts.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.CurrLiablts"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="LongTemrLiablts" translate>Long Term Liabilities</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.LongTemrLiablts}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.LongTemrLiablts.value != AppCompanyFinData.LongTemrLiablts" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('LongTemrLiablts')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="LongTemrLiablts"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.LongTemrLiablts.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.LongTemrLiablts"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="ShareholderEquity" translate>Shareholder Equity</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.ShareholderEquity}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.ShareholderEquity.value != AppCompanyFinData.ShareholderEquity" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('ShareholderEquity')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="ShareholderEquity"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.ShareholderEquity.invalid }"
+            [options]="{align: 'right'}" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.ShareholderEquity"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel label-field-2" for="CurrRatio" translate>Current Ratio</label>
+        <div class="col-md-4">
+          <label>{{AppCompanyFinData.CurrRatio}}</label>
+        </div>
+        <div class="col-md-2">
+          <button *ngIf="CustomerCompanyFinDataForm.controls.CurrRatio.value != AppCompanyFinData.CurrRatio" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('CurrRatio')">Copy</button>
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control adInsInput input-field-2" formControlName="CurrRatio"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerCompanyFinDataForm.controls.CurrRatio.invalid }" />
+          <div class="message-box">
+            <lib-uc-show-errors [control]="CustomerCompanyFinDataForm.controls.CurrRatio"
+              [submit]="enjiForm.submitted">
+            </lib-uc-show-errors>
+          </div>
+        </div>
+      </div>
+      </div>
+      <lib-ucSubsection [id]="'BankAccId'" [title]="'Bank Account'" [panel]="'BankAccSection'">
+      </lib-ucSubsection>
+      <div class="p-3">
+      <div id="BankAccSection">
+        <div class="form-group row" *ngFor="let item of ArrayNum; let i = index">
+          <div class="col-md-6">
+            <div *ngIf="AppCustBankAcc[i] && AppCustBankAcc[i].BankAccNo">
+              <div class="col-md-12 row" style="padding: 0; margin: 0;">
+                <label class="col-md-9 label-field-2" style="padding-left: 0;">{{i+1}}. {{AppCustBankAcc[i].BankName}} - {{AppCustBankAcc[i].BankAccNo}} - {{AppCustBankAcc[i].BankAccName}} - {{AppCustBankAcc[i].BankBranch}}{{AppCustBankAcc[i].IsDefault ? ' - Default' : ''}}</label>
+                <div class="col-md-3" *ngIf="!AppCustBankAcc[i].IsMasterData && !AppCustBankAcc[i].IsAddedBankAcc"><button type="button" class="btn btn-raised btn-primary-2" (click)="AddNewBankAcc(i)">Copy</button></div>
+              </div>
+              <div class="col-md-12 row" style="padding: 0; margin: 0;">
+                <label class="col-md-4 label-field-2" style="padding-left: 0;">Bank Statement</label>
+                <!-- <div class="col-md-4" *ngIf="!AppCustBankAcc[i].IsMasterStmnt && !AppCustBankAcc[i].IsAddedBankStmnt && AppCustBankAcc[i].IsAddedBankAcc"><button type="button" class="btn btn-raised btn-primary" (click)="AddNewBankStmnt(i)">Add As New Data</button></div> -->
+              </div>
+              <div class="col-md-12" style="padding: 0; overflow-x: auto;">
+                <table class="table table-responsive-md text-center table-hover table-new">
+                  <thead>
+                    <tr class="table-header-2">
+                      <th style="text-align: left;">
+                        <span class="thead-header" name='Month' translate>MONTH</span>
+                      </th>
+                      <th style="text-align: left;">
+                        <span class="thead-header" name='Year' translate>YEAR</span>
+                      </th>
+                      <th style="text-align: left;">
+                        <span class="thead-header" name='Debit' translate>DEBIT</span>
+                      </th>
+                      <th style="text-align: left;">
+                        <span class="thead-header" name='Credit' translate>CREDIT</span>
+                      </th>
+                      <th style="text-align: left;">
+                        <span class="thead-header" name='Balance' translate>BALANCE</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let appStmnt of AppCustBankAcc[i].CustBankStmntList;">
+                      <td style="text-align: left;">{{appStmnt.Month}}</td>
+                      <td style="text-align: left;">{{appStmnt.Year}}</td>
+                      <td style="text-align: left;">{{appStmnt.DebitAmt | number:'.2':'en-US'}}</td>
+                      <td style="text-align: left;">{{appStmnt.CreditAmt | number:'.2':'en-US'}}</td>
+                      <td style="text-align: left;">{{appStmnt.BalanceAmt | number:'.2':'en-US'}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div *ngIf="MainCustBankAcc[i] && MainCustBankAcc[i].BankAccNo">
+              <div class="col-md-12 row" style="padding: 0; margin: 0;">
+                <label class="col-md-9 label-field-2" style="padding-left: 0;">{{i+1}}. {{MainCustBankAcc[i].BankName}} - {{MainCustBankAcc[i].BankAccNo}} - {{MainCustBankAcc[i].BankAccName}} - {{MainCustBankAcc[i].BankBranch}}{{MainCustBankAcc[i].IsDefault ? ' - Default' : ''}}</label>
+              </div>
+              <div class="col-md-12 row" style="padding: 0; margin: 0;">
+                <label class="col-md-4 label-field-2" style="padding-left: 0;">Bank Statement</label>
+              </div>
+              <div class="col-md-12" style="padding: 0; overflow-x: auto;">
+                <table class="table table-responsive-md text-center table-hover table-new">
+                  <thead>
+                    <tr class="table-header-2">
+                      <th style="text-align: left;">
+                        <span class="thead-header" name='Month' translate>MONTH</span>
+                      </th>
+                      <th style="text-align: left;">
+                        <span class="thead-header" name='Year' translate>YEAR</span>
+                      </th>
+                      <th style="text-align: left;">
+                        <span class="thead-header" name='Debit' translate>DEBIT</span>
+                      </th>
+                      <th style="text-align: left;">
+                        <span class="thead-header" name='Credit' translate>CREDIT</span>
+                      </th>
+                      <th style="text-align: left;">
+                        <span class="thead-header" name='Balance' translate>BALANCE</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let mainStmnt of MainCustBankAcc[i].CustBankStmntList;">
+                      <td style="text-align: left;">{{mainStmnt.Month}}</td>
+                      <td style="text-align: left;">{{mainStmnt.Year}}</td>
+                      <td style="text-align: left;">{{mainStmnt.DebitAmt | number:'.2':'en-US'}}</td>
+                      <td style="text-align: left;">{{mainStmnt.CreditAmt | number:'.2':'en-US'}}</td>
+                      <td style="text-align: left;">{{mainStmnt.BalanceAmt | number:'.2':'en-US'}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-3">
+    <div class="form-actions right" style="text-align: right;">
+      <button type="button" class="btn btn-raised mr-1 btn-outline-2" (click)="back()">
+        <i class="far fa-window-close button-icon "></i>&nbsp;<span class="button-text" translate>Cancel</span>
+      </button>
+      <button type="submit" class="btn btn-raised btn-primary-2">
+        <i class="far fa-check-square button-icon "></i>&nbsp;<span class="button-text" translate>Save</span>
+      </button>
+    </div>
+  </div>
+  </form>

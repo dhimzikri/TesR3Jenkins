@@ -1,0 +1,101 @@
+{
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Zipcode Number",
+            "name": "zipCodeNum"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Area Code 1",
+            "name": "areaCode1"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Area Code 2",
+            "name": "areaCode2"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "City",
+            "name": "city"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Zipcode",
+            "name": "zipcode"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "isActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "zipCodeNum"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "areaCode1"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "areaCode2"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "city"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "zipcode"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "isActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "/rey/add",
+                    "param": [
+                        {
+                            "type": "refZipcodeId",
+                            "property": "refZipcodeId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                },
+                {
+                    "type": "delete",
+                    "property": "refZipcodeId"
+                }
+            ]
+        }
+    ]
+}

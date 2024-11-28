@@ -1,0 +1,242 @@
+{
+    "title": "Loan Payment Out Fee Inquiry",
+    "hideTitle": false,
+    "id": "Loanpaymentoutfeeinquiry",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "service": "",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Search",
+                    "querystring": {
+                        "name": "loanPaymentOutFeeInquiry"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "case when loanbatchvendorCode is null then loancontractvendorCode else loanbatchvendorCode endSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "case when LOANBATCH.VENDOR_CODE IS NULL THEN LOANCONTRACT.VENDOR_CODE ELSE LOANBATCH.VENDOR_CODE END",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LCT.LOAN_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "case when loanbatchloanContractNo is null then loancontractloanContractNo else loanbatchloanContractNo end SearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract Name",
+                            "name": "case when LOANBATCH.LOAN_CONTRACT_NO IS NULL THEN LOANCONTRACT.LOAN_CONTRACT_NO ELSE LOANBATCH.LOAN_CONTRACT_NO END ",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanContract/GetListLoanContractKeyAndValue",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LBT.LOAN_CONTRACT_NO"
+                            ],
+                            "filterPropName": "LoanContractNo"
+                        },
+                        {
+                            "id": "case when loanbatchpayoutFeeRefNo is null then loancontractpayoutFeeRefNo else loanbatchpayoutFeeRefNo endSearchId",
+                            "type": "textbox",
+                            "label": "Reference No.",
+                            "name": "case when LOANBATCH.PAYOUT_FEE_REF_NO IS NULL THEN LOANCONTRACT.PAYOUT_FEE_REF_NO ELSE LOANBATCH.PAYOUT_FEE_REF_NO END",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true
+                        },
+                        {
+                            "id": "case when loanbatchpayoutFeeRefNo is not null then loanbatchpayoutFeeRefNo  else '-' endSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "case when LOANBATCH.PAYOUT_FEE_REF_NO IS NOT NULL THEN LOANBATCH.PAYOUT_FEE_REF_NO  ELSE '-' END",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "PAYOUT",
+                            "path": "/PayoutFee/GetListLoanBatch",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "case when LOANBATCH.VENDOR_NAME IS NULL THEN LOANCONTRACT.VENDOR_NAME ELSE LOANBATCH.VENDOR_NAME END"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "case when LOANBATCH.LOAN_CONTRACT_NAME IS NULL THEN LOANCONTRACT.LOAN_CONTRACT_NAME ELSE LOANBATCH.LOAN_CONTRACT_NAME END"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "left",
+                            "name": "case when LOANBATCH.PAYOUT_FEE_REF_NO IS NOT NULL THEN LOANBATCH.PAYOUT_FEE_REF_NO  ELSE '-' END"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Transaction No",
+                            "position": "left",
+                            "name": "LPFH.TRX_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Reference No",
+                            "position": "left",
+                            "name": "case when LOANBATCH.PAYOUT_FEE_REF_NO IS NULL THEN LOANCONTRACT.PAYOUT_FEE_REF_NO ELSE LOANBATCH.PAYOUT_FEE_REF_NO END"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Posting Date",
+                            "position": "center",
+                            "name": "LPFH.START_REQUEST_DT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Payout Amount",
+                            "position": "center",
+                            "name": "LPFH.TOTAL_PAID_AMT"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "VendorName",
+                            "isFlagColor": false,
+                            "key": "ViewFundCoy"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "LoanContractName",
+                            "isFlagColor": false,
+                            "key": "ViewFundContract"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundingBatchNo",
+                            "isFlagColor": false,
+                            "key": "ViewFundBatch"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TrxNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "link",
+                            "position": "left",
+                            "property": "RefNo",
+                            "isFlagColor": false,
+                            "target": "_blank",
+                            "path": "/ViewPaymentOut/PayoutFee/Inquiry/Detail",
+                            "param": [
+                                {
+                                    "type": "TrxNo",
+                                    "property": "TrxNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "PostingDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "PayoutAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "aca42c09-5f37-4753-b0dd-ef33cbb7b7d1"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "customToastrMsg": "",
+    "persistPropName": ""
+}

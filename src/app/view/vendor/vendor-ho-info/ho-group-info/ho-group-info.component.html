@@ -1,0 +1,37 @@
+<div class="card-header header-title">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="px-3">
+            <form>
+              <lib-ucSubsection [id]="'GrpListId'" [title]="'Group List'" [panel]="'GrpList'">
+              </lib-ucSubsection>
+              <div id="GrpList" style="overflow-x: auto;">                
+                <table class="table table-responsive-md text-center table-hover">
+                  <thead>
+                    <tr class="table-header">
+                      <th class="text-left"><span class="thead-header" name='VendorGrpCode' translate>Group Code</span>
+                      </th>
+                      <th class="text-left"><span class="thead-header" name='VendorGrpName' translate>Group Name</span>
+                      </th>
+                      <th class="text-left"><span class="thead-header" name='IsActive' translate>Active Status</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of resultData">
+                      <td class="text-left">{{item.VendorGrpCode}}</td>
+                      <td class="text-left">{{item.VendorGrpName}}</td>
+                      <td class="text-left" *ngIf="item.IsActive === true">Yes</td>
+                      <td class="text-left" *ngIf="item.IsActive === false">No</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

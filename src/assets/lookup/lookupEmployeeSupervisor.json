@@ -1,0 +1,88 @@
+{
+    "title": "Lookup - Supervisor",
+    "sectionTitle": "Search",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "USERNAME",
+            "id": "UsernameId",
+            "value": "",
+            "label": "Username",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "EMP_NO",
+            "id": "EmpNoId",
+            "value": "",
+            "label": "Employee No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "EMP_NAME",
+            "id": "EmpNameId",
+            "value": "",
+            "label": "Employee Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "lookupEmployeeSupervisor"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "USERNAME",
+            "name": "Username"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "EMPLOYEE NO",
+            "name": "EmployeeNo"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "EMPLOYEE NAME",
+            "name": "EmployeeName"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "SELECT"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Username"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "EmployeeNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "EmployeeName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefEmpId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "EmployeeName",
+    "propertyName": "EmployeeName"
+}

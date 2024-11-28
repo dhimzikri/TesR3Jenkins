@@ -1,0 +1,77 @@
+{
+    "lookupId": "LookupTaxOffice",
+    "title": "Lookup Tax Office",
+    "component": [
+        {
+            "id": "taxOfficeCodeSearchId",
+            "type": "textbox",
+            "label": "Tax Office Code",
+            "name": "TAX_OFFICE_CODE",
+            "value": "",
+            "placeholder": "",
+            "datatype": "text"
+        },
+        {
+            "id": "taxOfficeNameSearchId",
+            "type": "textbox",
+            "label": "Tax Office Name",
+            "name": "TAX_OFFICE_NAME",
+            "value": "",
+            "placeholder": "",
+            "datatype": "text"
+        }
+    ],
+    "querystring": {
+        "name": "lookupTaxOffice"
+    },
+    "orderby": null,
+    "headerList": [
+        {
+            "type": "sort",
+            "label": "Tax Office Code",
+            "position": "center",
+            "name": "TAX_OFFICE_CODE",
+            "isSelectAll": false
+        },
+        {
+            "type": "sort",
+            "label": "Tax Office Name",
+            "position": "center",
+            "name": "TAX_OFFICE_NAME",
+            "isSelectAll": false
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Select"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "TaxOfficeCode",
+            "isFlagColor": false
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "TaxOfficeName",
+            "isFlagColor": false
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefTaxOfficeId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "RefTaxOfficeId",
+    "propertyName": "TaxOfficeName",
+    "environment": "FoundationR3Url",
+    "apiVersion": "v1"
+}

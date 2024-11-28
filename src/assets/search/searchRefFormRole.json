@@ -1,0 +1,49 @@
+{
+    "component": [
+        {
+            "type": "textbox",
+            "name": "ROLE_CODE",
+            "id": "RoleCodeId",
+            "value": "",
+            "label": "Role Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "ROLE_NAME",
+            "id": "RoleNameId",
+            "value": "",
+            "label": "Role Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "searchRefFormRole_2"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Branch CODE",
+            "name": "ROLE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Branch NAME",
+            "name": "ROLE_NAME"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "RoleCode"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "RoleName"
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "title": "InterestRateTab",
+    "hideTitle": true,
+    "id": "Interestratetab",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "default interest rate",
+                "resultData": "",
+                "isSubsection": true,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Tenor From",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Tenor To",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Interest Rate",
+                            "position": "left"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TenorFrom",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TenorTo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "InterestRate",
+                            "isFlagColor": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityMntUrl",
+                    "apiPath": "/v1/JfContract/GetListJfContractInterestRateByJfContractNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "JfContractNo",
+                            "propValue": "JfContractNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "52e4c935-3f5e-460f-9016-2d5d7d0835b8"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "hideCancelButton": true,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": []
+}

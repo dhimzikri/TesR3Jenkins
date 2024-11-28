@@ -1,0 +1,39 @@
+<div class="card-body">
+    <div class="px-3">
+        <lib-ucSubsection [id]="'ATPMInfo'" [title]="'ATPM Info'" [panel]="'ATPMInformation'">
+        </lib-ucSubsection>
+        <div id="ATPMInformation">
+            <div class="col-md-12" style="padding: 0;">
+                <div class="col-md-12" style="overflow-x: auto;">
+                    <table class="table table-responsive-md text-center table-hover">
+                        <thead>
+                            <tr class="table-header">
+                                <th style="text-align: left;">
+                                    <span class="thead-header" name='vendorAtpmCode' translate>VENDOR CODE</span>
+                                </th>
+                                <th style="text-align: left;">
+                                    <span class="thead-header" name='vendorAtpmName' translate>VENDOR NAME</span>
+                                </th>
+                                <th style="text-align: left;">
+                                    <span class="thead-header" name='vendorAddress' translate>VENDOR LEGAL ADDRESS</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="vendorAtpmList?.length == 0">
+                          <tr>
+                            <td colspan="100%">No Data Available</td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                            <tr *ngFor="let item of vendorAtpmList; let i = index">
+                                <td style="text-align: left;">{{item.VendorAtpmCode}}</td>
+                                <td style="text-align: left;">{{item.VendorAtpmName}}</td>
+                                <td style="text-align: left;">{{item.VendorAtpmLegalAddr}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

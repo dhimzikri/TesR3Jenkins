@@ -1,0 +1,244 @@
+{
+    "title": "Payment Out Fee Batch",
+    "hideTitle": false,
+    "id": "PaymentOutFeeBatch",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Search",
+                    "querystring": {
+                        "name": "searchPayoutFeeBatch"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "JFC.JF_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "jfcjfContractNameSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract Name",
+                            "name": "JFC.JF_CONTRACT_NAME",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "JFB.JF_BATCH_NO"
+                            ],
+                            "filterPropName": "JfContractNo"
+                        },
+                        {
+                            "id": "jfbjfBatchNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "JFB.JF_BATCH_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListKvpJfBatchByJfContractNo",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "jfbdrawdownDtSearchId",
+                            "type": "datepicker",
+                            "label": "Drawdown Date >=",
+                            "name": "JFB.DRAWDOWN_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "gte",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "jfbdrawdownDtSearchId",
+                            "type": "datepicker",
+                            "label": "Drawdown Date <=",
+                            "name": "JFB.DRAWDOWN_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "lte",
+                            "useDefVal": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "VT.VENDOR_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "JFC.JF_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "center",
+                            "name": "JFB.JF_BATCH_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Date ",
+                            "position": "center",
+                            "name": "JFB.DRAWDOWN_DT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Amount",
+                            "position": "center",
+                            "name": "JFB.DRAWDOWN_AMT"
+                        },
+                        {
+                            "type": "label",
+                            "label": "action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundCoyName",
+                            "isFlagColor": false,
+                            "key": "ViewFundCoy"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundContractName",
+                            "isFlagColor": false,
+                            "key": "ViewFundContract"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "center",
+                            "property": "BatchNo",
+                            "isFlagColor": false,
+                            "key": "ViewFundBatch"
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "DrawdownDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "DrawdownAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/PaymentOut/PaymentOutFee/Detail",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "BatchNo",
+                                            "property": "BatchNo"
+                                        },
+                                        {
+                                            "type": "Level",
+                                            "property": "BATCH"
+                                        }
+                                    ],
+                                    "property": "Pay Fee"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "8d687e8f-ef20-46d1-9f60-4601fbd88e6d"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": true,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "customToastrMsg": ""
+}

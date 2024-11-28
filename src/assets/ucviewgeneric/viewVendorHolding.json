@@ -1,0 +1,45 @@
+{
+  "title": "",
+  "subsection": [
+    {
+      "subSectionId": "HoldingViewInformationId",
+      "subSectionTitle": "Main Info",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Vendor Category:",
+          "property": "VendorCategory"
+        },
+        {
+          "type": "boolean",
+          "label": "Active Status:",
+          "property": "AciveStatus"
+        },
+        {
+          "type": "text",
+          "label": "Holding Code:",
+          "property": "HoldingCode"
+        },
+        {
+          "type": "text",
+          "label": "Tax Number:",
+          "property": "TaxNumber"
+        },
+        {
+          "type": "text",
+          "label": "Holding Name:",
+          "property": "HoldingName"
+        },
+        {
+          "type": "text",
+          "label": "Holding Type:",
+          "property": "HoldingType"
+        }
+      ],
+      "querystring": {
+        "name": "viewVendorHolding"
+      }
+    }
+  ]
+}

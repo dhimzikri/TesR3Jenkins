@@ -1,0 +1,143 @@
+
+<div formGroupName="{{identifier}}" *ngIf ="isFormReady" class="bg-light-blue-card">
+
+  <lib-ucSubsection [id]="'CustFinAttributeId'" [title]="title" [panel]="'CustFinAttribute'">
+  </lib-ucSubsection> 
+  <div id="CustFinAttribute">  
+    <div class="form-body px-3"> 
+      <div *ngFor="let attr of RefAttrList; let i = index">
+        <div class="form-group row" *ngIf="attr.AttrInputType == 'T'" [formGroupName]="attr.AttrCode" >
+          <label class="col-md-12 adInsLabel label-field-2 "  translate>{{attr.AttrName}}
+            <span class="optional-text" *ngIf="!parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.IsMandatory.value">(Optional)</span>
+          </label>
+          <div class="col-md-12" >
+            <input type="text" class="form-control adInsInput input-field-2" formControlName="AttrValue"
+              maxlength="{{attr.AttrLength}}"
+              [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue.invalid }" />
+            <div class="message-box">
+              <lib-uc-show-errors [control]="parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" *ngIf="attr.AttrInputType == 'N'" [formGroupName]="attr.AttrCode" >
+          <label class="col-md-12 adInsLabel label-field-2 " translate>{{attr.AttrName}}
+            <span class="optional-text" *ngIf="!parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.IsMandatory.value">(Optional)</span>
+          </label>
+          <div class="col-md-12" >
+            <input currencyMask type="" class="form-control adInsInput input-field-2" formControlName="AttrValue"
+              [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue.invalid }" [options]="{align: 'right'}"
+              (focusout)="CalculateAmt(attr.AttrGroup, $event.target.value, i)"/>
+            <div class="message-box">
+              <lib-uc-show-errors [control]="parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" *ngIf="attr.AttrInputType == 'L'" [formGroupName]="attr.AttrCode" >
+          <label class="col-md-12 adInsLabel label-field-2 " translate>{{attr.AttrName}}
+            <span class="optional-text" *ngIf="!parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.IsMandatory.value">(Optional)</span>
+          </label>
+          <div class="col-md-12" *ngIf="attr.IsMandatory == false" >
+            <select class="form-control adInsInput input-field-2" formControlName="AttrValue" style="width: 100%;"
+              [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue.invalid }">
+              <option value = "">Select One</option>
+              <option *ngFor="let valueItem of SplitAttrListValue(attr.AttrValue)"
+                [value]="valueItem">
+                {{valueItem}}
+              </option>
+            </select>
+            <div class="message-box">
+              <lib-uc-show-errors [control]="parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </div>
+          </div>
+          <div class="col-md-12" *ngIf="attr.IsMandatory == true">
+            <select class="form-control adInsInput input-field-2" formControlName="AttrValue" style="width: 100%;"
+              [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue.invalid }">
+              <option value = "">Select One</option>
+              <option *ngFor="let valueItem of SplitAttrListValue(attr.AttrValue)"
+                [value]="valueItem">
+                {{valueItem}}
+              </option>
+            </select>
+            <div class="message-box">
+              <lib-uc-show-errors [control]="parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" *ngIf="attr.AttrInputType == 'TA'" [formGroupName]="attr.AttrCode"
+          >
+          <label class="col-md-12 adInsLabel label-field-2 " translate>{{attr.AttrName}}
+            <span class="optional-text" *ngIf="!parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.IsMandatory.value">(Optional)</span>
+          </label>
+          <div class="col-md-12" >
+            <textarea class="form-control adInsInput textarea-field-2" formControlName="AttrValue"
+              [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue.invalid }"></textarea>
+            <div class="message-box">
+              <lib-uc-show-errors [control]="parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" *ngIf="attr.AttrInputType == 'D'" [formGroupName]="attr.AttrCode" >
+          <label class="col-md-12 adInsLabel label-field-2 "   translate>{{attr.AttrName}}
+            <span class="optional-text" *ngIf="!parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.IsMandatory.value">(Optional)</span>
+          </label>
+          <div class="col-md-12" >
+            <input type="date" class="form-control adInsInput input-field-2" formControlName="AttrValue"
+              [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue.invalid }" />
+            <div class="message-box">
+              <lib-uc-show-errors [control]="parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" *ngIf="attr.AttrInputType == 'P'" [formGroupName]="attr.AttrCode" >
+          <label class="col-md-12 adInsLabel label-field-2 " translate>{{attr.AttrName}}
+            <span class="optional-text" *ngIf="!parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.IsMandatory.value">(Optional)</span>
+          </label>
+          <div class="col-md-12" >
+            <input type="" currencyMask class="form-control adInsInput input-field-2" formControlName="AttrValue"
+              [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue.invalid }"[options]="{ thousands: ',', decimal: '.', align: 'right', allowNegative: true, allowZero:true, precision: 6, nullable: false }" />
+            <div class="message-box">
+              <lib-uc-show-errors [control]="parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" *ngIf="attr.AttrInputType == AttrInputTypeSearchList" [formGroupName]="attr.AttrCode" >
+          <label class="col-md-12 adInsLabel label-field-2 " translate>{{attr.AttrName}}
+            <span class="optional-text" *ngIf="!parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.IsMandatory.value">(Optional)</span>
+          </label>
+          <div class="col-md-12" >            
+            <ng-multiselect-dropdown [placeholder]="'Search'"
+              [data]="dictMultiOptions[attr['AttrCode']]"
+              [(ngModel)]="selectedMultiDDLItems[attr['AttrCode']]" [ngModelOptions]="{standalone: true}"
+              [settings]="dropdownSettings"
+              (onDropDownClose)="onMultiDDLChangeEvent(attr['AttrCode'], idx)">
+            </ng-multiselect-dropdown>
+            <div class="message-box">
+              <lib-uc-show-errors [control]="parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.AttrValue"
+              [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" *ngIf="attr.AttrInputType == 'RM'" [formGroupName]="attr.AttrCode"
+          >
+          <label class="col-md-12 adInsLabel label-field-2 " translate>{{attr.AttrName}}
+            <span class="optional-text" *ngIf="!parentForm.controls[identifier]['controls'][attr['AttrCode']].controls.IsMandatory.value">(Optional)</span>
+          </label>
+          <div class="col-md-12" >
+            <lib-uclookupgeneric [lookupInput]="ListInputLookUpObj[0][attr['AttrCode']]" [parentForm]="parentForm"
+              [enjiForm]="enjiForm" [identifier]="'lookup'+ attr.AttrCode" (lookup)=getLookUp($event,attr.AttrCode)>
+            </lib-uclookupgeneric>
+            
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+
+</div>

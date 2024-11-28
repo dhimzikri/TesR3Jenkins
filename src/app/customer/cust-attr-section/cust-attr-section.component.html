@@ -1,0 +1,59 @@
+<form class="form form-horizontal" [formGroup]="OtherInformationForm" #enjiForm="ngForm" novalidate
+  (ngSubmit)="enjiForm.form.valid && SaveForm(true)">
+  <lib-ucSubsection [id]="'OtherInformationId'" [title]="'Other Information'" [panel]="'OtherInformationSection'">
+  </lib-ucSubsection>
+
+  <div id="OtherInformationSection">
+    <div class="form-body" *ngIf="isLookupReady">
+      <div class="form-group row">
+        <label class="col-md-3 adInsLabel adins-required-label" translate>Debtor Group</label>
+        <div class="col-md-9">
+          <lib-uclookupgeneric [lookupInput]="inputDebitorGroupLookupObj" [identifier]="'DebitorGroup'"
+            [enjiForm]='enjiForm' [parentForm]='OtherInformationForm' (lookup)="getLookupDebitorGroup($event)">
+          </lib-uclookupgeneric>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 adInsLabel adins-required-label" translate>Debtor Business Scale</label>
+        <div class="col-md-9">
+          <lib-uclookupgeneric [lookupInput]="inputDebitorBusinessScaleLookupObj" [identifier]="'DebitorBusinessScale'"
+            [enjiForm]='enjiForm' [parentForm]='OtherInformationForm' (lookup)="getLookupDebitorBusinessScale($event)">
+          </lib-uclookupgeneric>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 adInsLabel adins-required-label" translate>Counterpart Category</label>
+        <div class="col-md-9">
+          <lib-uclookupgeneric [lookupInput]="inputCounterpartCategoryLookupObj" [identifier]="'CounterpartCategry'"
+            [enjiForm]='enjiForm' [parentForm]='OtherInformationForm' (lookup)="getLookupCounterpartCategory($event)">
+          </lib-uclookupgeneric>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 adInsLabel adins-required-label" translate>Sustainable Financial Business</label>
+        <div class="col-md-9">
+          <lib-uclookupgeneric [lookupInput]="inputSustaianableFinancialBusinessLookupObj"
+            [identifier]="'SustainableFinancialBusiness'" [enjiForm]='enjiForm' [parentForm]='OtherInformationForm'
+            (lookup)="getLookupSustainableFinancialBusiness($event)">
+          </lib-uclookupgeneric>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <app-cust-attr-list [title]="'Attribute List'" [CustId]="this.CustId" [enjiForm]="enjiForm"
+    [parentForm]="OtherInformationForm" [identifier]="identifierCustAttr" [attrGroup]="attrGroup" #CustAttrFormOld></app-cust-attr-list> -->
+  <app-cust-attr-form [Label]="'List'" [CustId]="CustId" [AttrGroup]="attrGroup" [parentForm]="OtherInformationForm" [identifier]="identifierCustAttr" [enjiForm]="enjiForm" [IsVertical]="true" #CustAttrForm></app-cust-attr-form>
+
+  <div class="form-group row">
+    <div class="col-md-12" style="text-align: right">
+      <!-- <button type="button" class="btn btn-raised btn-warning mr-1" translate>
+        <i class="far fa-window-close"></i> Back
+      </button> -->
+      <button class="btn btn-raised btn-primary" type="submit">
+        <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+      </button>
+    </div>
+  </div>
+</form>

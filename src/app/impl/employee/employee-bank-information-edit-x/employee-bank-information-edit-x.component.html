@@ -1,0 +1,93 @@
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Employee</h4>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="RefEmpForm" #enjiForm="ngForm" (ngSubmit)="RefEmpForm.valid && SaveForm()">
+            <lib-ucSubsection [id]="'BankPanelId'" [title]="'Bank Information'" [panel]="'BankPanel'"></lib-ucSubsection>
+            <div class="form-group row">
+                <label class="col-md-3" translate>User Name </label>
+                <div class="col-md-9" *ngIf="this.pageType == 'edit'">
+                  <label>{{username}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3" translate>Employee No </label>
+                <div class="col-md-9" *ngIf="this.pageType == 'edit'">
+                  <label>{{empNo}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3" translate>Employee Name </label>
+                <div class="col-md-9" *ngIf="this.pageType == 'edit'">
+                  <label>{{empName}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3" translate>Active </label>
+                <div class="col-md-9" *ngIf="this.pageType == 'edit'">
+                  <label>{{isActive ? 'Yes': 'No'}}</label>
+                </div>
+            </div>
+
+            <lib-ucSubsection [id]="'BankPanelId'" [title]="'Bank Information'" [panel]="'BankPanel'"></lib-ucSubsection>
+            <div class="form-body" id="BankPanel">
+              <div class="form-group row adins-required">
+                <label class="col-md-2  adInsLabel" for="BankName" translate>Bank Name </label>
+                <div class="col-md-9">
+                  <div class="width-75-per">
+                    <lib-uclookupgeneric [lookupInput]="inputLookupBankObj" [parentForm]='RefEmpForm' [enjiForm]='enjiForm' [identifier]="'BankName'"
+                      (lookup)="getLookupBankResponse($event)"></lib-uclookupgeneric>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-2  adInsLabel" for="BankBranch">Bank Branch </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput width-75-per" formControlName="BankBranch" required
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefEmpForm.controls.BankBranch.invalid }">
+                  <lib-uc-show-errors [control]="RefEmpForm.controls.BankBranch" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-2  adInsLabel" for="BankBranchRegCode">Bank BI Code</label>
+                <div class="col-md-9">
+                  <input [attr.disabled]="true" type="text" class="form-control adInsInput width-75-per" formControlName="BankBranchRegCode" />
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-2  adInsLabel" for="BankAccName">Account Name</label>
+                <div class="col-md-9">
+                  <input type="text" id="bankAccName" class="form-control adInsInput width-75-per" formControlName="BankAccName" required
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefEmpForm.controls.BankAccName.invalid }" />
+                  <lib-uc-show-errors [control]="RefEmpForm.controls.BankAccName" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-2  adInsLabel" for="BankAccNo">Account No</label>
+                <div class="col-md-9">
+                  <input type="text" id="bankAccNo" class="form-control adInsInput width-75-per" formControlName="BankAccNo" required
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefEmpForm.controls.BankAccNo.invalid }" />
+                  <lib-uc-show-errors [control]="RefEmpForm.controls.BankAccNo" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]">
+                <i class="ft-arrow-left"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

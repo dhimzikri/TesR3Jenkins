@@ -1,0 +1,108 @@
+{
+    "title": "Loan Contract Negative Covenant View",
+    "hideTitle": true,
+    "id": "LoanContractNegativeCovenantView",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "Negative Covenant",
+                "resultData": "",
+                "isSubsection": true,
+                "usePagination": true,
+                "includeSubmit": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Negative Covenant",
+                            "position": "left",
+                            "name": "RefCovName"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "N1",
+                            "position": "center",
+                            "name": "N1"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "N2",
+                            "position": "center",
+                            "name": "N2"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "RefCovName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "N1",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "N2",
+                            "isFlagColor": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityMntUrl",
+                    "apiPath": "/v1/LoanContract/GetListNegativeCovenantByLoanContractNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "Code",
+                            "propValue": "LoanContractNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "36f3c811-c4dc-4949-ae89-2d0d5ad90c7f"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

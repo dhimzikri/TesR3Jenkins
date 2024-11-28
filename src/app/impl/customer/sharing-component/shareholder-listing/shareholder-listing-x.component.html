@@ -1,0 +1,25 @@
+<div *ngIf="PageType == CustPageTypePaging">
+    <form class="form form-horizontal">
+      <span class="mr-1 pull-right">
+        <button type="button" class="addButton" (click)="addCustShareHolder()">
+          <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+        </button>
+      </span>
+    </form>
+    <lib-ucSubsection [id]="'ShareHolderListingId'" [title]="'Management / Shareholder Listing'" [panel]="'ShareHolderListing'">
+      </lib-ucSubsection>
+      <div id="ShareHolderListing">
+        <lib-ucgridview [gridInput]="inputGridObj" (callback)="event($event)"></lib-ucgridview>
+      
+        <div class="form-actions right" style="text-align: right;">
+            <button type="submit" class="btn btn-raised btn-primary" (click)="next()">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save and Continue</span>
+            </button>
+        </div>
+      </div>
+  </div>
+  <app-new-cust-header-x *ngIf="PageType == CustPageTypeHeader" [CustId]="selectedCustId" [CustType]="CustType" [ParentCustId]="CustId" 
+    [CustCompanyMgmntShrholderId]="selectedCustCompanyMgmntShrholderId" [listCustNoToExclude]="listCustNoToExclude" [CustDataMode]="CustDataModeShareholder" 
+    [tempTotalSharePrct]="tempTotalSharePrct" (outputCancel)="ReloadPaging()"></app-new-cust-header-x>
+  
+   

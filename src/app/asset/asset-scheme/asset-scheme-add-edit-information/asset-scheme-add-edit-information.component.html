@@ -1,0 +1,68 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Asset Scheme Registration</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="AssetSchemeInfoForm"
+          (ngSubmit)="AssetSchemeInfoForm.valid && SaveForm()" #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'AssetSchmInfoId'" [title]="'Asset Scheme Information '+ pageType"
+              [panel]="'AssetSchmInfo'"></lib-ucSubsection>
+            <div id="AssetSchmInfo">
+              <div *ngIf="!isAuto" class="form-group row adins-required">
+                <label class="col-md-4 adInsLabel" translate>Asset Scheme Code </label>
+                <div class="col-md-7">
+                  <input type="text" class="form-control adInsInput" formControlName="AssetSchmCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && AssetSchemeInfoForm.controls.AssetSchmCode.invalid }">
+                  <lib-uc-show-errors [control]="AssetSchemeInfoForm.controls.AssetSchmCode"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-4  adInsLabel" translate>Asset Scheme Name </label>
+                <div class="col-md-7">
+                  <input type="text" class="form-control adInsInput" formControlName="AssetSchmName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && AssetSchemeInfoForm.controls.AssetSchmName.invalid }">
+                  <lib-uc-show-errors [control]="AssetSchemeInfoForm.controls.AssetSchmName"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-4  adInsLabel" translate>Asset Type Name</label>
+                <div class="col-md-7">
+                  <select class="form-control adInsInput" style="width: auto" formControlName="AssetTypeId"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && AssetSchemeInfoForm.controls.AssetTypeId.invalid }">
+                    <option *ngFor="let it of ItemAssetType" value="{{it.AssetTypeId}}">
+                      {{it.AssetTypeName}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row ">
+                <label class="col-md-4  adInsLabel" translate>Active Status</label>
+                <div class="col-md-7">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

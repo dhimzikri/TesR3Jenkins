@@ -1,0 +1,25 @@
+{
+  "title": "OFFICE AREA MEMBER",
+    "subsection": [
+      {
+        "subSectionId": "Area Info",
+        "subSectionTitle": "Area Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Area Code",
+            "property": "AreaCode"
+          },
+          {
+            "type": "text",
+            "label": "Area Name",
+            "property": "AreaName"
+          } 
+        ],
+        "querystring": {
+            "name": "viewOfficeAreaMember"
+        }
+      }
+    ]
+  }

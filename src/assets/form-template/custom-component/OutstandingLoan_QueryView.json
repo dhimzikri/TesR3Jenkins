@@ -1,0 +1,138 @@
+{
+    "id": "OutstandingLoan_QueryView",
+    "name": "Outstanding Loan",
+    "saveState": false,
+    "customComponent": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "OutstandingLoanId",
+                    "subSectionTitle": "Outstanding Loan",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityExecUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewOutstandingLoan"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Next Installment Due No",
+                            "property": "NextInstDueNum",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Next Installment Due Date",
+                            "property": "NextInstDueDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Os Installment",
+                            "property": "OsInstallment",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Os Principal",
+                            "property": "OsPrincipalAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Os Interest",
+                            "property": "OsInterestAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Next Installment No",
+                            "property": "NextInstNum",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Next Installment Date",
+                            "property": "NextInstDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Os Undue Installment",
+                            "property": "OsUndueInstallment",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Os Undue Principal",
+                            "property": "OsUnduePrincipal",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Os Undue Interest",
+                            "property": "OsUndueInterest",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "FundingBatchNo"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "6d51a1aa-8c2c-4a88-824f-24445bc1a966"
+        }
+    ]
+}

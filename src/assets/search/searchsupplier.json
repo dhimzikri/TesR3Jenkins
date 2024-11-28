@@ -1,0 +1,43 @@
+{
+  "title": "Supplier",
+  "component": [
+    {
+      "type": "textbox",
+      "name": "ProductType",
+      "id": "ProductType",
+      "value": "MCYNW",
+      "label": "Product Type",
+      "placeholder": "Product Type",
+      "datatype": "Text"
+    },
+    {
+      "type": "textbox",
+      "name": "ProductName",
+      "id": "ProductName",
+      "value": "%",
+      "label": "Product Name",
+      "placeholder": "Product Type",
+      "datatype": "Text"
+    },
+    {
+      "type": "lookupProduct",
+      "name": "ProductName",
+      "urlLookup": "./assets/lookup/lookupProduct.json",
+      "id": "ProductName",
+      "value": "lookup",
+      "label": "Lookup Product",
+      "placeholder": "Product Type",
+      "datatype": "Text"
+    },
+    {
+      "type": "lookupProduct",
+      "name": "ProductNam2e",
+      "urlLookup": "./assets/lookup/lookupProduct.json",
+      "id": "ProductName2",
+      "value": "lookup",
+      "label": "Lookup Product",
+      "placeholder": "Product Type",
+      "datatype": "Text"
+    }
+  ]
+}

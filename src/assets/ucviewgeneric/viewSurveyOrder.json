@@ -1,0 +1,45 @@
+{
+  "title": "Survey",
+  "subsection": [
+    {
+      "subSectionId": "SurveyOrderId",
+      "subSectionTitle": "Survey Order",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Survey Order No",
+          "property": "SrvyOrderNo"
+        },
+        {
+          "type": "text",
+          "label": "Office Name",
+          "property": "OfficeName"
+        },
+        {
+          "type": "text",
+          "label": "Survey Initial",
+          "property": "SurveyInitial"
+        },
+        {
+          "type": "date",
+          "label": "Order Date",
+          "property": "RequestDate"
+        },        
+        {
+          "type": "text",
+          "label": "Reference No",
+          "property": "TransactionRefNo"
+        },        
+        {
+          "type": "text",
+          "label": "Order By",
+          "property": "RequestBy"
+        }        
+      ],
+      "querystring": {
+        "name": "viewSurveyOrder"
+      }
+    }
+  ]
+}

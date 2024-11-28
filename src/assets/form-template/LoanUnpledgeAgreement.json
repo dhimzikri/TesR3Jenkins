@@ -1,0 +1,187 @@
+{
+    "title": "Loan Unpledge Agreement",
+    "hideTitle": false,
+    "id": "LoanUnpledgeAgreement",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "FundingBatchMainInformationId",
+                    "subSectionTitle": "Funding Batch Main Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanPledgingMainInformation"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Funding Batch No",
+                            "property": "FundingBatchNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Currency",
+                            "property": "Currency",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Batch Status",
+                            "property": "BatchStatus",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Drawdown Date",
+                            "property": "DrawdownDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Drawdown Amount",
+                            "property": "DrawdownAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Scheme",
+                            "property": "PaymentScheme",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Installment Period",
+                            "property": "InstallmentPeriod",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Installment Scheme",
+                            "property": "IstallmentScheme",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Collateral Location",
+                            "property": "CollateralLocation",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Tenor",
+                            "property": "Tenor",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Plafond Amount",
+                            "property": "PlafondAmount",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "LoanBatchNo"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "ee7e18bb-d27f-460f-8975-0d19852f1c17"
+        },
+        {
+            "customComponent": {
+                "componentRef": "${SecurityCoverageTms}"
+            },
+            "id": "917daff5-52f3-4021-9acd-0ec14a990e71"
+        },
+        {
+            "container": {
+                "key": "UnpledgeLoan",
+                "className": "UnpledgeLoanComponent",
+                "cssClass": "",
+                "input": {
+                    "LoanBatchNo": "LoanBatchNo"
+                }
+            },
+            "id": "14c0da43-17f6-47c5-ac8a-60fa9c15d1a6"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

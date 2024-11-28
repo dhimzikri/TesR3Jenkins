@@ -1,0 +1,309 @@
+{
+    "title": "Loan Auto Pledge",
+    "hideTitle": true,
+    "id": "LoanAutoPledge",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Auto Pledge",
+                    "isVertical": false,
+                    "isSubsection": false,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [
+                                {
+                                    "type": "updateDict",
+                                    "condition": [],
+                                    "key": "OfficeCode",
+                                    "propName": "OfficeCode"
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "Office Name",
+                            "Variable": "OfficeCode",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FACILITYMNT",
+                                "Url": "/LoanBatch/GetListKvpRefOfficeInContractBranchPlafondByLoanBatchNo",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "BatchNo": "LoanBatchNo"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "updateDict",
+                                    "condition": [],
+                                    "key": "Amount",
+                                    "propName": "Amount"
+                                }
+                            ],
+                            "Type": "CURRENCY",
+                            "Label": "Amount",
+                            "Variable": "Amount",
+                            "Value": "",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "0",
+                            "Max": "999999999",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [
+                        {
+                            "propName": "BatchNo",
+                            "propValue": "LoanBatchNo",
+                            "isFromDict": true,
+                            "setOnEdit": false
+                        }
+                    ],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "ac3f4bb8-231d-44f1-bfc3-5dc7aec903ec",
+            "conditions": [
+                {
+                    "property": "SecuritySchmCode",
+                    "restriction": "EQ",
+                    "value": "LOAN"
+                }
+            ]
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Auto Pledge",
+                    "isVertical": false,
+                    "isSubsection": false,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Office Name",
+                            "Variable": "OfficeCode",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FACILITYMNT",
+                                "Url": "/LoanContract/GetListKvpRefOfficeInContractBranchPlafondByLoanContractNo",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "LoanContractNo": "LoanContractNo"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "CURRENCY",
+                            "Label": "Amount",
+                            "Variable": "Amount",
+                            "Value": "",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "0",
+                            "Max": "999999999",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [
+                        {
+                            "propName": "ContractNo",
+                            "propValue": "LoanContractNo",
+                            "isFromDict": true,
+                            "setOnEdit": false
+                        }
+                    ],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "64e2610e-1a1d-432d-ab11-2ebaf3694a30",
+            "conditions": [
+                {
+                    "property": "SecuritySchmCode",
+                    "restriction": "EQ",
+                    "value": "PLF"
+                }
+            ]
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [
+    ],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [
+                {
+                    "property": "SecuritySchmCode",
+                    "restriction": "EQ",
+                    "value": "LOAN"
+                }
+            ],
+            "result": {
+                "environment": "facilityMntUrl",
+                "path": "/v1/PledgingX/StartLoanAutoPledgingX",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "OfficeCode",
+                        "propValue": "form.OfficeCode"
+                    },
+                    {
+                        "propName": "Amount",
+                        "propValue": "form.Amount"
+                    },
+                    {
+                        "propName": "BatchNo",
+                        "propValue": "LoanBatchNo"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success"
+                        }
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "params": [],
+                            "path": "/pledging/LoanContract/pledging/Paging",
+                            "target": "_self"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        },
+        {
+            "conditions": [
+                {
+                    "property": "SecuritySchmCode",
+                    "restriction": "EQ",
+                    "value": "PLF"
+                }
+            ],
+            "result": {
+                "environment": "facilityMntUrl",
+                "path": "/v1/PledgingX/AutoPledgeLoanContractAgrmntX",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "LoanContractNo",
+                        "propValue": "LoanContractNo"
+                    },
+                    {
+                        "propName": "OfficeCode",
+                        "propValue": "form.OfficeCode"
+                    },
+                    {
+                        "propName": "Amount",
+                        "propValue": "form.Amount"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success"
+                        }
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "params": [],
+                            "path": "/pledging/LoanContract/pledging/Paging",
+                            "target": "_self"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

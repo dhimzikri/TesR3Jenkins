@@ -1,0 +1,24 @@
+{
+  "subsection": [
+    {
+      "subSectionId": "AssetTypeId",
+      "subSectionTitle": "Asset Type",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Asset Type Code",
+          "property": "AssetTypeCode"
+        },
+        {
+          "type": "text",
+          "label": "Asset Type Name",
+          "property": "AssetTypeName"
+        } 
+      ],
+      "querystring": {
+        "name": "viewAssetType"
+      }
+    }
+  ]
+}

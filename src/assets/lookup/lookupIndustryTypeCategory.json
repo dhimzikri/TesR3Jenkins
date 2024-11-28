@@ -1,0 +1,88 @@
+{
+  "url": "",
+  "title":"Lookup - Industry Type Category",
+  "sectionTitle": "Search",
+  "component": [
+    {
+      "type": "textbox",
+      "name": "REF_INDUSTRY_TYPE_CATEGORY_CODE",
+      "id": "RefIndustryTypeCategoryCodeId",
+      "value": "",
+      "label": "Industry Type Category Code",
+      "placeholder": ""
+    },
+    {
+      "type": "textbox",
+      "name": "REF_INDUSTRY_TYPE_CATEGORY_NAME",
+      "id": "RefIndustryTypeCategoryNameId",
+      "value": "",
+      "label": "Industry Type Category Name",
+      "placeholder": ""
+    },
+    {
+      "type": "textbox",
+      "name": "REG_RPT_CODE",
+      "id": "RegRptCodeId",
+      "value": "",
+      "label": "BI Code",
+      "placeholder": ""
+    }
+  ],
+  "querystring": {
+      "name": "lookupIndustryTypeCategory"
+  },
+  "headerList": [
+      {
+          "type": "sort",
+          "position": "center",
+          "label": "Industry Type Category Code",
+          "name": "REF_INDUSTRY_TYPE_CATEGORY_CODE"
+      },
+      {
+          "type": "sort",
+          "position": "left",
+          "label": "Industry Type Category Name",
+          "name": "REF_INDUSTRY_TYPE_CATEGORY_NAME"
+      },
+      {
+          "type": "sort",
+          "position": "center",
+          "label": "BI Code",
+          "name": "REG_RPT_CODE"
+      },
+      {
+          "type": "label",
+          "position": "center",
+          "label": "Select"
+      }
+  ],
+  "bodyList": [
+      {
+          "type": "text",
+          "position": "center",
+          "property": "RefIndustryTypeCategoryCode"
+      },
+      {
+          "type": "text",
+          "position": "left",
+          "property": "RefIndustryTypeCategoryName"
+      },
+      {
+          "type": "text",
+          "position": "center",
+          "property": "RegRptCode"
+      },
+      {
+          "type": "action",
+          "position": "center",
+          "action": [
+              {
+                  "type": "select",
+                  "property": "RefIndustryTypeCategoryId"
+              }
+          ]
+      }
+  ],
+  "propertyId": "RefIndustryTypeCategoryId",
+  "propertyName": "RefIndustryTypeCategoryName"
+}

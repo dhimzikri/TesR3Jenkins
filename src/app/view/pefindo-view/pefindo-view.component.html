@@ -1,0 +1,68 @@
+<div class="col-md-12 mt-3">
+	<div class="card">
+		<div class="card-body">
+			<div class="px-3">
+				<div class="form-body">
+					<h4 class="form-section card-title"  translate>PEFINDO</h4>
+					<div *ngIf="GroupTrxNo != null" id="stepper" class="bs-stepper">
+						<div class="bs-stepper-header" role="tablist" style="overflow-x: auto;">
+							<ng-container *ngFor="let item of ListPefindoMulti; let i = index">
+								<div class="step" [ngClass]="{'active': ListActive[i]}" [attr.data-target]="'#'+ item.TrxNo +'-tab'">
+									<button type="button" class="step-trigger" role="tab" [attr.aria-controls]="item.TrxNo + '-tab'"
+										[id]="item.TrxNo + '-tab-trigger'" (click)="ChangeTab(item.TrxNo, item.CustType)">
+										<div style="width: 100%;"><span class="bs-stepper-circle">{{ i + 1 }}</span></div>
+										<span class="bs-stepper-label">{{ item.PefindoId }} - {{ item.CustName }}</span>
+									</button>
+								</div>
+								<div class="line" *ngIf="i != (ListPefindoMulti.length - 1)"></div>
+							</ng-container>
+						</div>
+					</div>
+
+					<div class="alert" *ngIf="IsTrxStatRequest">
+						<h3 class="text-center"><i class="fa fa-spinner fa-spin"></i></h3>
+  					<div class="text-center"><label class="adInsLabel" translate>Requesting data to pefindo still on going, please wait..</label></div>
+					</div>
+
+					<div class="alert alert-primary" *ngIf="IsTrxStatInProgress">
+  					<div class="text-left"><i class="fa fa-exclamation-triangle"></i> &nbsp; <label class="adInsLabel" translate>Capture data still on progress, some data may not appear...</label></div>
+					</div>
+
+					<ng-container *ngIf="!IsTrxStatRequest">
+					<div *ngIf="GroupTrxNo == null || (GroupTrxNo != null && isReady)">
+						<mat-tab-group (selectedIndexChange)="redirectTab($event)">
+							<mat-tab [label]="MrCustTypeCode == 'PERSONAL' ? 'Subject Info Personal' : 'Subject Info Company' ">
+							</mat-tab>
+							<mat-tab label="MO Summary">
+							</mat-tab>
+							<mat-tab label="PEFINDO Score">
+							</mat-tab>
+							<mat-tab label="Contracts">
+							</mat-tab>
+							<!--mat-tab label="PEFINDO Alert Quest">
+							</mat-tab>
+							<mat-tab label="Securities">
+							</mat-tab>
+							<mat-tab label="Other Liabilities">
+							</mat-tab>
+							<mat-tab label="Involvements">
+							</mat-tab>
+							<mat-tab label="Relations">
+							</mat-tab-->
+							<mat-tab label="Inquiries">
+							</mat-tab>
+							<!--mat-tab label="Disputes">
+							</mat-tab-->
+							<mat-tab *ngIf="MrCustTypeCode == 'COMPANY'" label="Financial Statements">
+							</mat-tab>
+							<mat-tab label="Others">
+							</mat-tab>
+						</mat-tab-group>
+					</div>
+					<router-outlet *ngIf="GroupTrxNo == null || (GroupTrxNo != null && isReady)"></router-outlet>
+					</ng-container>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

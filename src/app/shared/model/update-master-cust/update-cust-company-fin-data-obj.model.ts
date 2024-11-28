@@ -1,0 +1,29 @@
+export class UpdateCustCompanyFinDataObj {
+    CustCompanyFinDataId: any;
+    CustCompanyId: any;
+    GrossMonthlyIncomeAmt: any;
+    GrossProfitAmt: any;
+    ReturnOfInvestmentPrcnt: any;
+    ReturnOfEquityPrcnt: any;
+    ReturnOfAssetPrcnt: any;
+    ProfitMarginPrcnt: any;
+    CurrentRatioPrcnt: any;
+    DebtEquityRatioPrcnt: any;
+    InvTurnOverPrcnt: any;
+    ArTurnOverPrcnt: any;
+    GrowthPrcnt: any;
+    WorkingCapitalAmt: any;
+    OthMonthlyInstAmt: any;
+    DateAsOf: any;
+    Revenue: any;
+    OprCost: any;
+    ProfitBeforeTax: any;
+    CurrAsset: any;
+    NetFixedAsset: any;
+    TotalAsset: any;
+    CurrLiablts: any;
+    LongTemrLiablts: any;
+    ShareholderEquity: any;
+    CurrRatio: any;
+    RowVersion: any;
+}

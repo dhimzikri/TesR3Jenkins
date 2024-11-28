@@ -1,0 +1,146 @@
+{
+    "title": "Funding Company",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "v.VENDOR_NAME",
+            "id": "FundingCompanyCodeId",
+            "value": "",
+            "label": "Funding Company Name",
+            "placeholder": "Funding Company Name",
+            "datatype": "text"
+        },
+        {
+            "id": "pbankCodeSearchId",
+            "type": "dropdown",
+            "label": "Bank Name",
+            "name": "rb.BANK_CODE",
+            "value": "",
+            "placeholder": "",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "isEvent": false,
+            "environment": "FOU",
+            "path": "/RefBank/GetListKeyValueActiveByCode",
+            "criteriaPropName": "",
+            "criteriaPropValue": ""
+        },
+        {
+            "type": "dropdown",
+            "name": "v.IS_ACTIVE",
+            "id": "IsActive",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "https://api.myjson.com/bins/ld6e8",
+            "label": "Status",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Funding Company Code",
+            "name": "v.VENDOR_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Funding Company Name",
+            "name": "v.VENDOR_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Bank Name",
+            "name": "rb.BANK_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "v.IS_ACTIVE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "querystring": {
+        "name": "searchFundingCompanyX"
+    },
+    "bodyList": [
+        {
+            "type" : "link", 
+            "position" : "center",
+            "property" : "FundCoyCode",
+            "target" : "_blank", 
+            "path" : "VIEW_FUNDING_COMPANY", 
+            "param" : [ 
+                  {
+                    "type": "VendorId",
+                    "property": "VendorId"
+                  },
+                  {
+                    "type": "FundCoyCode",
+                    "property": "FundCoyCode"
+                  }
+            ]
+    
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "FundCoyName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BankName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VENDOR_FUNDING_COY_ADD_EDIT_X",
+                    "param": [
+                        {
+                            "type": "VendorId",
+                            "property": "VendorId"
+                        },
+                    {
+                        "type": "FundCoyCode",
+                        "property": "FundCoyCode"
+                    },
+                    {
+                        "type": "mode",
+                        "property": "edit"
+                    }
+                    ]
+                }
+            ]
+        }
+    ]
+}

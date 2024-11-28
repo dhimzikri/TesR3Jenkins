@@ -1,0 +1,312 @@
+{
+    "title": "Jf Agrmnt Inquiry",
+    "hideTitle": false,
+    "id": "JfAgrmntInquiry",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "facilityMntUrl",
+                "apiVersion": "v1",
+                "pagingInput": {
+                    "title": "Jf Agreement Inquiry",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchJfAgrmntInquiry"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "JC.JF_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "jcjfContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract Name",
+                            "name": "JC.JF_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "VendorCode",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "JB.JF_BATCH_NO"
+                            ],
+                            "filterPropName": "JfContractNo"
+                        },
+                        {
+                            "id": "jbjfBatchNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "JB.JF_BATCH_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListKvpJfBatchByJfContractNo",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "jbjfBatchStatSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch Status",
+                            "name": "JB.JF_BATCH_STAT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefStatusTms/GetListKeyValueActiveGrpCodeByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_BATCH_STATUS_TMS",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "jajfAgrmntNoSearchId",
+                            "type": "textbox",
+                            "label": "Jf Agreement No",
+                            "name": "JA.JF_AGRMNT_NO",
+                            "value": "",
+                            "placeholder": "Input Jf Agreement No",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "falmsAgrmntNoSearchId",
+                            "type": "textbox",
+                            "label": "LMS Agreement No",
+                            "name": "FA.LMS_AGRMNT_NO",
+                            "value": "",
+                            "placeholder": "Input LMS Agreement No",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "jaisActiveSearchId",
+                            "type": "dropdown",
+                            "label": "JF STATUS",
+                            "name": "JA.IS_ACTIVE",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefStatusTms/GetListKeyValueActiveGrpCodeByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JA.IS_ACTIVE",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "VT.VENDOR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract No",
+                            "position": "center",
+                            "name": "JC.JF_CONTRACT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "JC.JF_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "center",
+                            "name": "JB.JF_BATCH_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch Status",
+                            "position": "center",
+                            "name": "RSTT.DESCR"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "JF Agreement No",
+                            "position": "center",
+                            "name": "JA.JF_AGRMNT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "LMS Agreement No",
+                            "position": "center",
+                            "name": "FA.LMS_AGRMNT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Jf Status",
+                            "position": "center",
+                            "name": " CASE WHEN JA.IS_ACTIVE = 1 THEN 'PLEDGE' ELSE 'UNPLEDGE' END"
+                        },
+                        {
+                            "type": "label",
+                            "label": "View",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundingCompanyName",
+                            "key": "ViewVendor"
+                        },
+                        {
+                            "type": "link",
+                            "position": "center",
+                            "property": "ContractNo",
+                            "isFlagColor": false,
+                            "target": "_blank",
+                            "path": "/View/FundingContract/View",
+                            "param": [
+                                {
+                                    "type": "JfContractNo",
+                                    "property": "ContractNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "FundingContractName"
+                        },
+                        {
+                            "type": "link",
+                            "position": "center",
+                            "property": "BatchNo",
+                            "isFlagColor": false,
+                            "target": "_blank",
+                            "path": "/View/fundingBatch/ViewX",
+                            "param": [
+                                {
+                                    "type": "BatchNo",
+                                    "property": "BatchNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "JfBatchStat",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "JfAgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "AgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "FundAgrmntStat",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "VIEW_JF_AGRMNT_INQUIRY",
+                                    "target": "_blank",
+                                    "param": [
+                                        {
+                                            "type": "JfAgrmntNo",
+                                            "property": "JfAgrmntNo"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1
+            },
+            "id": "a2ed4b44-79e5-4c58-9119-e3902a2944f3"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {}
+}

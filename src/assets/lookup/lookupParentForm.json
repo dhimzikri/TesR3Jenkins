@@ -1,0 +1,26 @@
+{
+    "url": "http://getParentForm",
+    "title":"Lookup - Parent Form",
+    "sectionTitle": "Search",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "jobTitleName",
+        "id": "jobTitleNameId",
+        "value": "",
+        "label": "Job Title Name",
+        "placeholder": "Placeholder",
+        "datatype": "text"
+      },
+      {
+        "type": "textbox",
+        "name": "parentId",
+        "id": "parentIdId",
+        "value": "",
+        "label": "Parent Name",
+        "placeholder": "Placeholder",
+        "datatype": "text"
+      }
+    ]
+  }
+  

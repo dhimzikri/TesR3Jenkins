@@ -1,0 +1,152 @@
+{
+    "title": "Report Payment Out JFCHN",
+    "hideTitle": false,
+    "id": "ReportPaymentOutJfchn",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "report": {
+                "apiReportPath": "/v1/Report/GenerateReportR3",
+                "apiEnvironmentUrl": "FoundationR3Url",
+                "pagingInput": {
+                    "title": "",
+                    "reportName": "Payment Out JFCHN",
+                    "reportTemplateCode": "PAYMENT_OUT_JFCHN",
+                    "component": [
+                        {
+                            "id": "fundingcompanySearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company",
+                            "name": "FundingCompany",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "ContractNo"
+                            ],
+                            "filterPropName": "VendorCode",
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "contractnoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract",
+                            "name": "ContractNo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "batchdtfromSearchId",
+                            "type": "datepicker",
+                            "label": "Batch Date From",
+                            "name": "BatchDtFrom",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": false,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "batchdttoSearchId",
+                            "type": "datepicker",
+                            "label": "Batch Date To",
+                            "name": "BatchDtTo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": false,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "contractperiodfromSearchId",
+                            "type": "datepicker",
+                            "label": "Period From",
+                            "name": "ContractPeriodFrom",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": true,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "contractperiodtoSearchId",
+                            "type": "datepicker",
+                            "label": "Period To",
+                            "name": "ContractPeriodTo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": true,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        }
+                    ]
+                }
+            },
+            "id": "d00fa75e-1807-483e-a714-9ef46a392742"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "overrideSubmitBtnText": ""
+}

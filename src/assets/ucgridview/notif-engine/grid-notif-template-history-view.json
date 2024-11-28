@@ -1,0 +1,98 @@
+{
+    "isSeq": false,
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "TEMPLATE DESCRIPTION",
+            "name": "NotificationTemplateDescr"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "NOTIFICATION TYPE",
+            "name": "MrNotificationTypeDescr"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "NOTIFICATION SOURCE",
+            "name": "MrNotificationSourceDescr"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "NOTIFICATION LEVEL",
+            "name": "MrNotificationLevelDescr"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "VERSION",
+            "name": "Version"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "START DATE",
+            "name": "StartDt"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "END DATE",
+            "name": "EndDt"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotificationTemplateDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrNotificationTypeDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrNotificationSourceDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrNotificationLevelDescr"
+        },
+        {
+            "type": "link",
+            "position": "center",
+            "property": "Version",
+            "path": "VIEW_NOTIF_TEMPLATE",
+            "target": "_blank",
+            "param":[
+                {
+                    "type": "TemplateCode",
+                    "property": "NotificationTemplateCode"
+                },
+                {
+                    "type": "TemplateVersion",
+                    "property": "Version"
+                }
+            ]
+        },
+        {
+            "type": "date",
+            "dateFormat": "medium",
+            "position": "center",
+            "property": "StartDt"
+        },
+        {
+            "type": "date",
+            "dateFormat": "medium",
+            "position": "center",
+            "property": "EndDt"
+        }
+    ]
+}

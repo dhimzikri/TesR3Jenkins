@@ -1,0 +1,154 @@
+{
+  "title": "ZipCode",
+  "exportExcel": false,
+  "component": [
+    {
+      "type": "textbox",
+      "name": "A.AREA_CODE_2",
+      "id": "areaCode2Id",
+      "value": "",
+      "label": "Kelurahan",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "textbox",
+      "name": "A.AREA_CODE_1",
+      "id": "areaCode1Id",
+      "label": "Kecamatan",
+      "value": "",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "textbox",
+      "name": "A.CITY",
+      "id": "cityId",
+      "label": "City",
+      "value": "",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "textbox",
+      "name": "A.ZIPCODE",
+      "id": "zipcodeId",
+      "label": "Zipcode",
+      "value": "",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "textbox",
+      "name": "B.PROV_DISTRICT_NAME",
+      "id": "provDistrictNameId",
+      "label": "District Name",
+      "value": "",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "textbox",
+      "name": "A.SUB_ZIPCODE",
+      "id": "subZipcodeId",
+      "label": "Sub Zipcode",
+      "value": "",
+      "placeholder": "Placeholder"
+    }
+
+  ],
+  "headerList": [
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Kelurahan",
+      "name": "areaCode2"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Kecamatan",
+      "name": "areaCode1"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "City",
+      "name": "city"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Zipcode",
+      "name": "zipcode"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Sub Zipcode",
+      "name": "subZipcode"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "District Name",
+      "name": "provDistrictName"
+    },
+    {
+      "type": "label",
+      "position": "center",
+      "label": "Action"
+    }
+  ],
+  "querystring": {
+    "name": "searchZip"
+  },
+
+  "bodyList": [
+    {
+      "type": "text",
+      "position": "left",
+      "property": "areaCode2"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "areaCode1"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "city"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "zipcode"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "subZipcode"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "provDistrictName"
+    },
+    {
+      "type": "action",
+      "position": "center",
+      "action": [
+        {
+          "type": "edit",
+          "path": "/CommonSetting/Zipcode/Detail",
+          "param": [
+            {
+              "type": "refZipcodeId",
+              "property": "refZipcodeId"
+            },
+            {
+              "type": "mode",
+              "property": "edit"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

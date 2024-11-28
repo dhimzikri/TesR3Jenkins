@@ -1,0 +1,136 @@
+
+{
+    "title": "verification Question Answer",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "VQA.VERF_QUESTION_CODE",
+            "id": "SchemeCodeId",
+            "value": "",
+            "label": "Question Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "VQA.VERF_QUESTION_TEXT",
+            "id": "SchemeNameId",
+            "value": "",
+            "label": "Question Text",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "VQA.REF_VERF_ANSWER_TYPE_ID", 
+            "id": "RefVerfAnswerTypeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefVerfAnswerType/GetListKeyValueActiveByCode",
+            "label": "Answer Type",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "VQA.IS_ACTIVE",
+            "id": "activeStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchVerificationQuestionAnswer"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Question Code",
+            "name": "VerfQuestionCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Question Text",
+            "name": "VerfQuestionText"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Answer Type",
+            "name": "VerfAnswerTypeDescr"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "VerfQuestionCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VerfQuestionText"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VerfAnswerTypeDescr"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VERIF_QA_EDIT",
+                    "param": [
+                        {
+                            "type": "VerfQuestionAnswerId",
+                            "property": "VerfQuestionAnswerId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+<div class="ucSearch-Button-Right">
+    <span class="mr-1">
+        <button type="button" class="addButton" [routerLink]="['/organization/organization/add']" skipLocationChange>
+            <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+        </button>
+    </span>
+</div>
+<lib-UCSearch id="ucSearch" style="width:100%;" [searchInput]='inputObj' (result)="getResult($event)"></lib-UCSearch>
+
+<div [hidden]="resultData?.data == null">
+  <div style="overflow-x: auto;">
+    <table class="table table-responsive-md text-center table-hover">
+      <thead>
+        <tr class="table-header">
+          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='hierarchyNo'>Hierarchy No</span></th>
+          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)"
+              name='orgName'>Organization Name</span></th>
+          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)"
+              name='parentRefOrgName'>Parent Organization</span></th>
+          <th><span translate class="thead-header" (click)="searchSort($event)" name='isActive'>Active Status</span></th>
+          <th translate>Models</th>
+          <th translate>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of resultData?.data">
+          <td class="text-left">{{item.hierarchyNo}}</td>
+          <td class="text-left">{{item.orgName}}</td>
+          <td class="text-left">{{item.parentRefOrgName}}</td>
+          <td>
+            <span *ngIf="item.isActive == '1'">Yes</span>
+            <span *ngIf="item.isActive == '0'">No</span>
+          </td>
+          <td>
+            <a class="success p-0" data-original-title="" title="" [routerLink]="['/organization/model']" skipLocationChange
+              [queryParams]="{refOrgId:item.refOrgId}">
+              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+            </a>
+          </td>
+          <td>
+            <a class="success p-0" data-original-title="" title="" [routerLink]="['/organization/organization/edit']" skipLocationChange
+              [queryParams]="{refOrgId:item.refOrgId,mode:'edit'}">
+              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+            </a>
+            <a class="danger p-0" data-original-title="" title="" (click)="del(item.refOrgId)">
+              <i class="ft-trash-2 font-medium-3 mr-2"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <lib-ucgridfooter (select)="onSelect($event)"></lib-ucgridfooter>
+</div>
+<!--<i class="fa fa-plus-circle" [routerLink]="['/organization/organization/add']"
+  style="position: absolute; right: 30px; bottom: 0; cursor: pointer; font-size: 36px"></i>-->

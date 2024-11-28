@@ -1,0 +1,36 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "viewCustMainDataContactInformationId",
+        "subSectionTitle": "Contact Information",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Mobile Phone 1",
+            "property": "MobilePhone1"
+          },
+          {
+            "type": "text",
+            "label": "Mobile Phone 2",
+            "property": "MobilePhone2"
+          },
+          {
+            "type": "text",
+            "label": "Email 1",
+            "property": "Email1"
+          },
+          {
+            "type": "text",
+            "label": "Email 2",
+            "property": "Email2"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustMainDataContactInformation"
+        }
+      }
+    ]
+  }
+  

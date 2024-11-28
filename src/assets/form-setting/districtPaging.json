@@ -1,0 +1,43 @@
+{
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "District Name",
+            "name": "name"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "District Sandi BI",
+            "name": "districtRegRptCode"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "name"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "districtRegRptCode"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "refProvDistrictId"
+                }
+            ]
+        }
+    ]
+}

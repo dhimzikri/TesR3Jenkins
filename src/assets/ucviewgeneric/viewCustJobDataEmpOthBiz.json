@@ -1,0 +1,40 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "OthBizAddId",
+        "subSectionTitle": "Other Business",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Other Business Name",
+            "property": "OthBizName"
+          },
+          {
+            "type": "text",
+            "label": "Other Job Position",
+            "property": "OthBizJobPos"
+          },
+          {
+            "type": "text",
+            "label": "Other Business Type",
+            "property": "OthBizType"
+          },
+          {
+            "type": "date",
+            "label": "Establishment Date",
+            "property": "OthBizEstDt"
+          },
+          {
+            "type": "text",
+            "label": "Other Business Industry Type",
+            "property": "OthBizIndType"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustJobDataEmpOthBiz"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,198 @@
+{
+    "title": "Payment Voucher Inquiry",
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "AP.REF_ACC_PAYABLE_TYPE_ID",
+            "id": "AccPayableTypeName",
+            "label": "AP Type Name",
+            "value": "",
+            "ddlType": "one",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "isSelectOne": false,
+            "url": "",
+            "environment": "AP",
+            "path": "/AccPayable/GetAPTypeList",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "datepicker",
+            "name": "AP.ACC_PAYABLE_DUE_DT",
+            "id": "APDueDt",
+            "value": "",
+            "label": "AP Due Date <=",
+            "restriction": "lte",
+            "placeholder": "AP Payable Due Dt"
+        },
+        {
+            "type": "dropdown",
+            "name": "AP.OFFICE_CODE",
+            "id": "OfficeNameId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "label": "Office Name",
+            "criteriaPropName": "",
+            "criteriaPropValue": "",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "dropdown",
+            "name": "PVH.PAY_VOUCHER_STAT_CODE",
+            "id": "PayVoucherStatCode",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefStatus/GetListKeyValueActiveGrpCodeByCode",
+            "label": "Contract Status",
+            "criteriaPropName": "Code",
+            "criteriaPropValue": "PAY_VCHR_STAT",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "PVH.PAY_VOUCHER_NO",
+            "id": "VoucherNoId",
+            "value": "",
+            "label": "Voucher No.",
+            "placeholder": "Voucher No"
+        },
+        {
+            "type": "datepicker",
+            "name": "PVH.PAY_VOUCHER_DT",
+            "id": "PaymentVoucherDateId",
+            "value": "",
+            "label": "Payment Voucher Date <=",
+            "restriction": "lte",
+            "placeholder": "Payment Voucher Date"
+        },
+        {
+            "type": "dropdown",
+            "name": "PVH.CURR_CODE",
+            "id": "CurrCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "one",
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefCurr/GetListKvpActiveRefCurr",
+            "label": "Currency",
+            "criteriaPropName": "",
+            "criteriaPropValue": "",
+            "items": [],
+            "itemsUrl": []
+        }
+        
+    ],
+    "querystring": {
+        "name": "searchPayVoucherInquiry"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Voucher No.",
+            "name": "PVH.PAY_VOUCHER_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP Destination",
+            "name": "AP.ACC_PAYABLE_DESTINATION"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PV Amount",
+            "name": "PVH.PAY_VOUCHER_AMT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Currency Rate",
+            "name": "PVH.CURR_RATE_AMT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PV Date",
+            "name": "PVH.PAY_VOUCHER_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP Due Date",
+            "name": "AP.ACC_PAYABLE_DUE_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Status",
+            "name": "RSF.DESCR"
+        }
+       
+
+    ],
+    "bodyList": [
+        {
+            "type": "link",
+            "position": "center",
+            "property": "PayVoucherNo",
+            "target": "_blank",
+            "path": "PAY_VOUCHER_VIEW",
+            "param": [
+                {
+                    "type": "PayVoucherNo",
+                    "property": "PayVoucherNo"
+                }
+            ]
+
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "APDest"
+        },
+        {
+            "type": "decimal",
+            "position": "center",
+            "property": "PayVoucherAmt"
+        },
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "CurrRateAmt"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "PayVouherDt"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "APDueDt"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "PayVoucherStat"
+        }
+    ]
+}

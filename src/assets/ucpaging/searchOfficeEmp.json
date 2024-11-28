@@ -1,0 +1,140 @@
+{
+    "title": "",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "RE.EMP_NO",
+            "id": "EmpNoId",
+            "value": "",
+            "label": "Employee No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RE.EMP_NAME",
+            "id": "EmpNameId",
+            "value": "",
+            "label": "Employee Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RR.ROLE_NAME",
+            "id": "RoleNameId",
+            "value": "",
+            "label": "Role",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RBU.BIZ_UNIT_NAME",
+            "id": "BizUnitId",
+            "value": "",
+            "label": "Business Unit",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RJT.JOB_TITLE_NAME",
+            "id": "JobTitleId",
+            "value": "",
+            "label": "Job Title",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "RUR.IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchOfficeEmp"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Employee No",
+            "name": "EmpNo"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Employee Name",
+            "name": "EmpName"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Role",
+            "name": "RoleName"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Business Unit",
+            "name": "BizUnitName"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Job Title",
+            "name": "JobTitleName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "IsActive"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "EmpNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "EmpName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "RoleName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BizUnitName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "JobTitleName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        }
+    ]
+}

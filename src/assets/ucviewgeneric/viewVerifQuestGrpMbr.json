@@ -1,0 +1,25 @@
+{
+    "title": "Verification Question Group Member",
+    "subsection": [
+      {
+        "subSectionId": "MainInfoId",
+        "subSectionTitle": "Main Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Verification Question Group Code",
+            "property": "VerfQuestionGrpCode"
+          },
+          {
+            "type": "text",
+            "label": "Verification Question Group Name",
+            "property": "VerfQuestionGrpName"
+          }
+        ],
+        "querystring": {
+            "name": "viewVerifQuestGrpMbr"
+        }
+      }
+    ]
+  }

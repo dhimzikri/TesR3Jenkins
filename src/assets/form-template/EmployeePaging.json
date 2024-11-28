@@ -1,0 +1,245 @@
+{
+    "title": "Employee",
+    "hideTitle": false,
+    "id": "EmployeePaging",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "FoundationR3Url",
+                "apiVersion": "v1",
+                "pagingInput": {
+                    "title": "EMPLOYEE PAGING",
+                    "sectionTitle": "Paging",
+                    "querystring": {
+                        "name": "searchEmployee"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "upper(busername)SearchId",
+                            "type": "textbox",
+                            "label": "Username",
+                            "name": "UPPER(B.USERNAME)",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true
+                        },
+                        {
+                            "id": "aempNameSearchId",
+                            "type": "textbox",
+                            "label": "Employee Name",
+                            "name": "A.EMP_NAME",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "aempNoSearchId",
+                            "type": "textbox",
+                            "label": "Employee No",
+                            "name": "A.EMP_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "aisActiveSearchId",
+                            "type": "dropdown",
+                            "label": "Active Status",
+                            "name": "A.IS_ACTIVE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Username",
+                            "position": "center",
+                            "name": "B.USERNAME",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Employee No",
+                            "position": "center",
+                            "name": "A.EMP_NO",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Employee Name",
+                            "position": "center",
+                            "name": "A.EMP_NAME",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "label",
+                            "label": "Active Status",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Business Unit",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "username",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "empNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "empName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "isActive",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "RefUserId",
+                                            "property": "RefUserId"
+                                        }
+                                    ],
+                                    "path": "/Employee/SelfCustomEmployeeBusinessUnit/Paging",
+                                    "icon": "ft-edit-2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "RefEmpId",
+                                            "property": "RefEmpId"
+                                        },
+                                        {
+                                            "type": "mode",
+                                            "property": "edit"
+                                        }
+                                    ],
+                                    "path": "/Employee/SelfCustom/Detail",
+                                    "icon": "ft-edit-2"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "33ef4397-ecc6-441a-8264-40ccb18e4993"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [
+        {
+            "displayName": "Add",
+            "id": "addId",
+            "key": "",
+            "position": "top",
+            "icon": "ft-plus-circle",
+            "cssClass": "btn-primary-2",
+            "conditions": [],
+            "btnType": "button",
+            "action": {
+                "type": "link",
+                "path": "/Employee/SelfCustom/Detail",
+                "target": "_self",
+                "params": [
+                    {
+                        "propName": "mode",
+                        "propValue": "add"
+                    }
+                ]
+            }
+        }
+    ],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "persistData": false,
+    "persistPropName": "",
+    "overrideSubmitBtnText": ""
+}

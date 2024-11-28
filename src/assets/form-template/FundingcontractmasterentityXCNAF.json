@@ -1,0 +1,319 @@
+{
+  "title": "Funding Contract",
+  "id": "FundingcontractmasterentityXCNAF",
+  "addButton": true,
+  "addLink": "/Setting/FundingContract/DetailX",
+  "pathOption": "selfCustom",
+  "backButton": false,
+  "component": [
+    {
+      "paging": {
+        "environment": "facilityMntUrl",
+        "apiVersion": "v2.1",
+        "pagingInput": {
+          "title": "Funding Contract",
+          "querystring": { "name": "searchFundingContractMasterEntity" },
+          "exportExcel": false,
+          "component": [
+            {
+              "id": "vtvendorCodeSearchId",
+              "type": "dropdown",
+              "label": "Funding company name",
+              "name": "VT.VENDOR_CODE",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": true,
+              "environment": "FOU",
+              "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+              "criteriaPropName": "Code",
+              "criteriaPropValue": "JF_FUNDING_COMPANY",
+              "isQueryIn": false,
+              "affectedFilter": ["JC.JF_CONTRACT_NO"],
+              "filterPropName": "VendorCode"
+            },
+            {
+              "id": "jcjfContractNoSearchId",
+              "type": "dropdown",
+              "label": "Funding Contract Name",
+              "name": "JC.JF_CONTRACT_NO",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": false,
+              "environment": "FACILITYMNT",
+              "path": "/JfContract/GetListFundingContractNameDDLWithoutACtiveCondition",
+              "criteriaPropName": "",
+              "criteriaPropValue": "",
+              "isQueryIn": false
+            },
+            {
+              "id": "jcisActiveSearchId",
+              "type": "dropdown",
+              "label": "Active status",
+              "name": "JC.IS_ACTIVE",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": false,
+              "ddlType": "all",
+              "isEvent": false,
+              "items": [
+                { "key": "1", "value": "YES" },
+                { "key": "0", "value": "NO" }
+              ]
+            }
+          ],
+          "headerList": [
+            {
+              "type": "sort",
+              "label": "Funding company name",
+              "position": "left",
+              "name": "VT.VENDOR_NAME"
+            },
+            {
+              "type": "sort",
+              "label": "Funding Contract No",
+              "position": "left",
+              "name": "JC.JF_CONTRACT_NO"
+            },
+            {
+              "type": "sort",
+              "label": "Funding Contract Name",
+              "position": "left",
+              "name": "JC.JF_CONTRACT_NAME"
+            },
+            {
+              "type": "sort",
+              "label": "Contract Period Start",
+              "position": "left",
+              "name": "JC.PERIOD_FROM"
+            },
+            {
+              "type": "sort",
+              "label": "Contract Period End",
+              "position": "left",
+              "name": "JC.PERIOD_TO"
+            },
+            {
+              "type": "label",
+              "label": "Mirroring Status",
+              "position": "center"
+            },
+            {
+              "type": "sort",
+              "label": "Active Status",
+              "position": "center",
+              "name": "JC.IS_ACTIVE"
+            },
+            { "type": "label", "label": "Edit", "position": "center" },
+            { "type": "label", "label": "Default Fee", "position": "center" },
+            {
+              "type": "label",
+              "label": "Branch Plafond",
+              "position": "center"
+            },
+            {
+              "type": "label",
+              "label": "Negative Covenant",
+              "position": "center"
+            },
+            {
+              "type": "label",
+              "label": "Term And Condition",
+              "position": "center"
+            },
+            { "type": "label", "label": "Interest Rate", "position": "center" },
+            { "type": "label", "label": "batch", "position": "center" }
+          ],
+          "bodyList": [
+            {
+              "type": "callback",
+              "position": "left",
+              "property": "FundCoyName",
+              "key": "ViewVendor"
+            },
+            {
+              "type": "link",
+              "position": "left",
+              "property": "No",
+              "target": "_blank",
+              "path": "/View/FundingContract/View",
+              "param": [{ "type": "JfContractNo", "property": "No" }]
+            },
+            {
+              "type": "text",
+              "position": "left",
+              "property": "FundingContractName"
+            },
+            {
+              "type": "date",
+              "position": "left",
+              "property": "ContractPeriodeStart"
+            },
+            {
+              "type": "date",
+              "position": "left",
+              "property": "ContractPeriodeEnd"
+            },
+            {
+              "type": "boolean",
+              "position": "center",
+              "property": "MirroringStat",
+              "isFlagColor": false
+            },
+            {
+              "type": "boolean",
+              "position": "center",
+              "property": "ActiveStat"
+            },
+            {
+              "type": "action",
+              "position": "center",
+              "action": [
+                {
+                  "type": "edit",
+                  "param": [
+                    { "type": "No", "property": "No" },
+                    { "type": "mode", "property": "edit" }
+                  ],
+                  "path": "/Setting/FundingContract/DetailX",
+                  "icon": "ft-edit"
+                }
+              ]
+            },
+            {
+              "type": "action",
+              "position": "center",
+              "action": [
+                {
+                  "type": "link",
+                  "path": "SETTING_FUNDING_CONTRACT_ADDITIONAL_ENTITY",
+                  "target": "_self",
+                  "param": [
+                    { "type": "ContractNo", "property": "No" },
+                    { "type": "Type", "property": "DEFAULT_FEE" }
+                  ],
+                  "property": ""
+                }
+              ]
+            },
+            {
+              "type": "action",
+              "position": "center",
+              "action": [
+                {
+                  "type": "link",
+                  "path": "SETTING_FUNDING_CONTRACT_ADDITIONAL_ENTITY",
+                  "target": "_self",
+                  "param": [
+                    { "type": "ContractNo", "property": "No" },
+                    { "type": "Type", "property": "BRANCH_PLAFOND" }
+                  ],
+                  "property": ""
+                }
+              ]
+            },
+            {
+              "type": "action",
+              "position": "center",
+              "action": [
+                {
+                  "type": "link",
+                  "path": "SETTING_FUNDING_CONTRACT_ADDITIONAL_ENTITY",
+                  "target": "_self",
+                  "param": [
+                    { "type": "ContractNo", "property": "No" },
+                    { "type": "Type", "property": "NEG_COV" }
+                  ],
+                  "property": ""
+                }
+              ]
+            },
+            {
+              "type": "action",
+              "position": "center",
+              "action": [
+                {
+                  "type": "link",
+                  "path": "SETTING_FUNDING_CONTRACT_ADDITIONAL_ENTITY",
+                  "target": "_self",
+                  "param": [
+                    { "type": "ContractNo", "property": "No" },
+                    { "type": "Type", "property": "TERMCOND" }
+                  ],
+                  "property": ""
+                }
+              ]
+            },
+            {
+              "type": "action",
+              "position": "center",
+              "action": [
+                {
+                  "type": "link",
+                  "path": "SETTING_FUNDING_CONTRACT_ADDITIONAL_ENTITY",
+                  "target": "_self",
+                  "param": [
+                    { "type": "ContractNo", "property": "No" },
+                    { "type": "Type", "property": "INTEREST_RATE" }
+                  ],
+                  "property": ""
+                }
+              ]
+            },
+            {
+              "type": "action",
+              "position": "center",
+              "action": [
+                {
+                  "type": "link",
+                  "path": "/Setting/funding-batch-pagingX",
+                  "target": "_self",
+                  "param": [{ "type": "ContractNo", "property": "No" }],
+                  "property": ""
+                }
+              ]
+            }
+          ],
+          "sectionTitle": "Funding Contract Main Info"
+        },
+        "criteria": [],
+        "whereValue": [],
+        "fromValue": [],
+        "useIntegration": false,
+        "isHideSearch": false,
+        "isSearched": false,
+        "delay": 1,
+        "service": "",
+        "isUseCustomApi": false,
+        "customApiQryPaging": ""
+      },
+      "id": "1bd1f110-03e1-432e-af95-099a7d5f57e7"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "hideTitle": false,
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "listBtn": [],
+  "customToastrMsg": "Success",
+  "child": ["Addfundingcontractmasterentity"],
+  "isOverrideSubmit": false,
+  "isOverrideCancel": false,
+  "conditionalTitle": [],
+  "persistData": false,
+  "persistPropName": "",
+  "hideCancelButton": false,
+  "overrideSubmitBtnText": ""
+}

@@ -1,0 +1,66 @@
+{
+  "title": "",
+  "subsection": [
+    {
+      "subSectionId": "MainInformationPId",
+      "subSectionTitle": "Main Info",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Id Type:",
+          "property": "IdType"
+        },
+        {
+          "type": "text",
+          "label": "Id Number:",
+          "property": "IdNo"
+        },
+        {
+          "type": "date",
+          "label": "Establishment Date:",
+          "property": "EstablishmentDt"
+        },
+        {
+          "type": "date",
+          "label": "Partnership Date:",
+          "property": "PartnershipDt"
+        },
+        {
+          "type": "text",
+          "label": "Vendor Rating:",
+          "property": "VendorRating"
+        },
+        {
+          "type": "text",
+          "label": "Email:",
+          "property": "Email"
+        },
+        {
+          "type": "text",
+          "label": "Mobile Phone 1:",
+          "property": "Mp1"
+        },
+        {
+          "type": "text",
+          "label": "Mobile Phone 2:",
+          "property": "Mp2"
+        },
+        {
+          "type": "boolean",
+          "label": "Activity Status :",
+          "property": "IsActive"
+        },
+        {
+          "type": "boolean",
+          "label": "Is One Affiliate :",
+          "property": "IsOneAffiliate"
+        }
+
+      ],
+      "querystring": {
+          "name":"viewVendorHoldingMainP"
+      }
+    }
+  ]
+}

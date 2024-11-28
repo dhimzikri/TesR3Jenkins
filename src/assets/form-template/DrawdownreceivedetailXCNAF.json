@@ -1,0 +1,105 @@
+{
+    "title": "Drawdown Receive Detail",
+    "id": "DrawdownreceivedetailXCNAF",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "FundingInfoId",
+                    "subSectionTitle": "Funding Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityExecUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewBatchDrawdown"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Coy Name",
+                            "property": "VendorName",
+                            "key": "ViewVendor",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false
+                        },
+                        {
+                            "type": "callback",
+                            "label": "Funding Contract Name",
+                            "property": "JfContractName",
+                            "key": "ViewFundingContract",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false
+                        },
+                        {
+                            "type": "callback",
+                            "label": "Fund Batch No",
+                            "property": "JfBatchNo",
+                            "key": "ViewFundingBatch",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "FundingInfoId",
+                    "service": ""
+                }
+            },
+            "id": "bef66c2c-0384-4df0-939d-b4a3b6b7ec85"
+        },
+        {
+            "container": {
+                "key": "JfBatchFeeDrawdownX",
+                "className": "DrawdownAgrmntFeeXComponent",
+                "cssClass": "",
+                "input": {
+                    "batchNo": "batchNo"
+                }
+            },
+            "id": "adf25753-ddc1-4a7c-bdfe-8c4234c49538"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/JfBatchFeeX/AddJfBatchFeeAndGenerateCashBankX",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onSubmit": [],
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

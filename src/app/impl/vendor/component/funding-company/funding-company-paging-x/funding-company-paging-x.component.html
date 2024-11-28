@@ -1,0 +1,25 @@
+<div class="subsection-title" style="font-size: 16pt;">
+  Funding Company Maintenance
+</div>
+<div class="ucSearch-Button-Right">
+  <span class="mr-1">
+    <button
+      type="button"
+      class="btn btn-primary-2 btn-raised"
+      (click)="onClickAdd()"
+    >
+      <i class="ft-plus-circle button-icon mr-1"></i>&nbsp;<span
+        class="button-text"
+        translate
+        >Add Funding Company</span
+      >
+    </button>
+  </span>
+</div>
+<div class="card bg-primary-2 bg-lighten-6" style="padding: 0 !important">
+  <lib-ucpaging
+    *ngIf="isReady"
+    [searchObj]="inputPagingObj"
+    (callback)="getCallBack($event)"
+  ></lib-ucpaging>
+</div>

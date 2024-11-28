@@ -1,0 +1,19 @@
+<div id="documentId" *ngIf="dicts.formRaw.MrCustTypeCode=='PERSONAL' && dicts.mode != 'edit'">
+<lib-ucSubsection [id]="'OcrKtpId'" [title]="'OCR FOR KTP'" [panel]="'OcrKtp'"></lib-ucSubsection>
+<div id="OcrKtp" class="px-3">
+  <div class="form-group row">
+    <label class="col-md-12 label-field-2" translate>KTP UPLOAD</label>
+    <div class="col-md-12">
+      <label [for]="'doc'" class="btn btn-primary-2 btn-sm afu-select-btn label-field-2" >Choose File</label>
+      <input class="input-field-2" type="file" [id]="'doc'" style="display: none" (change)="HandleFileInput($event.target.files)"
+        [accept]="ExtStr" [disabled]="isDisableButton"/>
+        <div [hidden]="!reqOcrKtpObj.img" style="padding-left: 15px" class="row afu-valid-file">
+          <p class="col-xs-3 textOverflow"><span class="text-primary">{{reqOcrKtpObj?.img?.name}}</span></p>
+          <p class="col-xs-3 padMarg sizeC">
+            <strong>({{ConvertSize(reqOcrKtpObj?.img?.size)}})</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+        </div>
+    </div>
+  </div>
+</div>
+</div>

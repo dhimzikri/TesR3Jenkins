@@ -1,0 +1,99 @@
+{
+    "title": "PDC Transit Receive",
+    "component": [
+        {
+            "type": "dropdown",
+            "label": "From Office",
+            "name": "pth.OFFICE_CODE_FROM",
+            "id": "OfficeCodeFromId",
+            "value": "",
+            "datatype": "text",
+            "ddlType": "all",
+            "isFromURL": true,
+            "items": [],
+            "url": "",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeTypeHOAndBranchWoCurrBranch",
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "label": "PDC Transit Number",
+            "name": "pth.PDC_TRANSIT_NO",
+            "id": "PdcTransitNoId",
+            "value": "",
+            "placeholder": "",
+            "datatype": "text"
+        }
+    ],
+    "querystring": {
+        "name": "searchPdcTransitReceiveFromOffice"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "From Office",
+            "name": "pth.OFFICE_CODE_FROM"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PDC Transit No",
+            "name": "pth.PDC_TRANSIT_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Send Date",
+            "name": "pth.SEND_DT"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OfficeFromName"
+        },
+        {
+            "type": "link",
+            "position": "center",
+            "property": "PdcTransitNo",
+            "target": "_blank",
+            "path": "/pdctransitview/view",
+            "param": [
+                {
+                    "type": "PdcTransitNo",
+                    "property": "PdcTransitNo"
+                }
+            ]
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "SendDt"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "PDC_TRANSIT_RECEIVE_DETAIL",
+                    "param": [
+                        {
+                            "type" : "PdcTransitNo",
+                            "property" : "PdcTransitNo"
+                        }
+                    ],
+                    "icon": "ft-edit-2"                       
+                }
+            ]
+        }
+    ]
+}

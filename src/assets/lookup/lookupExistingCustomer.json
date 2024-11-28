@@ -1,0 +1,74 @@
+  {
+    "title": "Lookup - Customer",
+    "sectionTitle": "Search",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "CUST_NO",
+        "id": "custNoId",
+        "value": "",
+        "label": "Customer No",
+        "placeholder": "Customer No"
+      },
+      {
+        "type": "textbox",
+        "name": "CUST_NAME",
+        "id": "custNameId",
+        "value": "",
+        "label": "Customer Name",
+        "placeholder": "Customer Name"
+      }
+    ],
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Customer No",
+        "name": "CUST_NO"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Customer Name",
+        "name": "CUST_NAME"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Action"
+      }
+    ],
+  
+    "querystring": {
+      "name": "lookupExistingCustomer"
+    },
+  
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "center",
+        "property": "CustNo"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "CustName"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "select",
+            "property": "CustId"
+          }
+        ]
+      }
+    ],
+  
+    "propertyId": "CustName",
+    "propertyName": "CustName"
+  
+  
+  }
+  

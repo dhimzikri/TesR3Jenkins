@@ -1,0 +1,111 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "viewCustMainDataMainInfoId1",
+        "subSectionTitle": "Emergency Contact Data",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Name",
+            "property": "CustFullName"
+          },
+          {
+            "type": "text",
+            "label": "Mother Maiden Name",
+            "property": "MotherMaidenName"
+          },
+          {
+            "type": "text",
+            "label": "Id Type",
+            "property": "MrIdTypeCode"
+          },
+          {
+            "type": "text",
+            "label": "Nationality",
+            "property": "MrNationalityCode"
+          },
+          {
+            "type": "text",
+            "label": "Id Number",
+            "property": "IdNo"
+          },
+          {
+            "type": "text",
+            "label": "Country",
+            "property": "CountryName"
+          },
+          {
+            "type": "date",
+            "label": "Id Expired Date",
+            "property": "ExpDt"
+          },
+          {
+            "type": "text",
+            "label": "Education",
+            "property": "MrEducationCode"
+          },
+          {
+            "type": "text",
+            "label": "Gender",
+            "property": "Gender"
+          },
+          {
+            "type": "text",
+            "label": "Religion",
+            "property": "MrReligionCode"
+          },
+          {
+            "type": "text",
+            "label": "Birth Place",
+            "property": "BirthPl"
+          },
+          {
+            "type": "text",
+            "label": "Marital Status",
+            "property": "MrMaritalStatCode"
+          },
+          {
+            "type": "date",
+            "label": "Birth Date",
+            "property": "BirthDt"
+          },
+
+          {
+            "type": "text",
+            "label": "Profession Name",
+            "property": "JobName"
+          },
+          {
+            "type": "text",
+            "label": "Tax Id No",
+            "property": "TaxNo"
+          },
+          {
+            "type": "text",
+            "label": "Customer Relationship",
+            "property": "Relation"
+          },
+          {
+            "type": "text",
+            "label": "Mobile Phone 1",
+            "property": "Phn1"
+          },
+          {
+            "type": "text",
+            "label": "Mobile Phone 2",
+            "property": "Phn2"
+          },
+          {
+            "type": "text",
+            "label": "Email",
+            "property": "Email"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustEmergency"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,36 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "TaxInfoId",
+        "subSectionTitle": "Tax Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text", 
+            "label": "Tax Payer Calculation Method:",
+            "property": "TaxCalculationMethod"
+          },
+          {
+            "type": "boolean",
+            "label": "VAT:",
+            "property": "Vat"
+          },
+          {
+            "type": "text",
+            "label": "Tax Payer Number :",
+            "property": "TaxNo"
+          },
+          {
+            "type": "text",
+            "label": "Tax Payer Name :",
+            "property": "TaxName"
+          }
+        ],
+        "querystring": {
+         "name": "viewVendorHoldingTax"
+        }
+      }
+    ]
+  }
+  

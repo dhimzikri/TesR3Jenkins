@@ -1,0 +1,25 @@
+{
+    "title": "Role Form Mapping Add",
+    "subsection": [
+      {
+        "subSectionId": "RoleFormId",
+        "subSectionTitle": "Role Form",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Role Code",
+            "property": "RoleCode"
+          },
+          {
+            "type": "text",
+            "label": "Role Name",
+            "property": "RoleName"
+          }
+        ],
+        "querystring": {
+          "name": "viewRefRole"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,260 @@
+{
+    "title": "Survey Order Inquiry",
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "RO.OFFICE_CODE",
+            "id": "OfficeNameId",
+            "value": "Office Name",
+            "placeholder": "",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "label": "Office Name",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "RM.MASTER_CODE",
+            "id": "MasterCodeId",
+            "value": "",
+            "placeholder": "",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Survey Initial",
+            "items": [],
+            "itemsUrl": [],
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "SRVY_SOURCE_CODE",
+            "environment":"FOU"
+        },
+        {
+            "type": "datepicker",
+            "datatype": "date",
+            "name": "SO.REQ_DT",
+            "id": "reqDtGte",
+            "value": "",
+            "restriction": "Gte",
+            "label": "Request Date >=",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "datepicker",
+            "datatype": "date",
+            "name": "SO.REQ_DT",
+            "id": "reqDtLte",
+            "value": "",
+            "restriction": "Lte",
+            "label": "Request Date <=",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "SO.TRX_REF_NO",
+            "id": "TrxRefNoId",
+            "value": "",
+            "label": "Reference No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "SO.CUST_NAME",
+            "id": "CustNameId",
+            "value": "",
+            "label": "Customer Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RUReq.USERNAME",
+            "id": "RequestById",
+            "value": "",
+            "label": "RequestBy",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "RS.REF_STATUS_CODE",
+            "id": "RefStatusCodeId",
+            "value": "",
+            "label": "Status",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "path": "/RefStatus/GetRefStatusByTrxTypeCode",
+            "items": [],
+            "itemsUrl": [],
+            "criteriaPropName": "Code",
+            "criteriaPropValue": "FOU_SURVEY_ORDER",
+            "environment":"FOU"
+        }
+    ],
+    "querystring": {
+        "name": "searchSurveyOrder"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "Center",
+            "label": "Office Name",
+            "name": "RO.OFFICE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Survey Initial",
+            "name": "RM.DESCR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Reference No",
+            "name": "SO.TRX_REF_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Customer Name",
+            "name": "SO.CUST_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Request Date",
+            "name": "SO.REQ_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Request By",
+            "name": "RUReq.USERNAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Assignment Date",
+            "name": "SO.ASSIGN_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Assign By",
+            "name": "RUAssign.USERNAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Result Submitted",
+            "name": "ResultSubmitted"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Submit Date",
+            "name": "SO.SUBMIT_DT "
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Submit By",
+            "name": "RUSub.USERNAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Status",
+            "name": "RS.DESCR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "View Detail"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OfficeName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyInitial"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "TrxRefNo"
+        },
+        {
+            "type": "link",
+            "position": "center",
+            "property": "CustName",
+            "path": "VIEW_CUST_PERSONAL_DETAIL",
+            "target": "_blank",
+            "param": [
+                {
+                    "type": "CustId",
+                    "property": "CustId"
+                }
+            ]
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "RequestDate"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "RequestBy"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "AssignDate"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "AssignBy"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "ResultSubmitted"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "SubmitDate"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SubmitBy"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Status"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "callback",
+                    "position": "center",                    
+                    "property": "SrvyOrderId"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-body">
+    <div class="px-3">
+      <div class="form-body">
+        <lib-ucSubsection [id]="'Family'" [title]="'Family'" [panel]="'FamilyId'">
+        </lib-ucSubsection>
+        <div id="FamilyId">
+          <div *ngIf="ListFamily?.length == 0" style="overflow-x: auto;">
+            <table class="table table-responsive-md text-center table-hover">
+              <thead>
+                <tr class="table-header">
+                  <th style="text-align: center;">
+                    <span class="thead-header" name="NoName" translate>Customer No</span>
+                  </th>
+                  <th style="text-align: center;">
+                    <span class="thead-header" name="FamilyName" translate>Customer Name</span>
+                  </th>
+                  <th style="text-align: center;">
+                    <span class="thead-header" name="Relationship" translate>Customer Relationship</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="100%">No Data Available</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="ListFamily?.length > 0">
+            <lib-ucgridview [gridInput]="InputGridFamilyObj"></lib-ucgridview>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

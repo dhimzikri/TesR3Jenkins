@@ -1,0 +1,243 @@
+{
+    "title": "Loan Drawdown",
+    "hideTitle": false,
+    "id": "TermLoanDrawdownPaging",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "facilityExecUrl",
+                "apiVersion": "v2.1",
+                "service": "",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Search",
+                    "querystring": {
+                        "name": "searchLoanBatchDrawdown"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "lctvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company",
+                            "name": "LCT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LCT.LOAN_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "lctloanContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract",
+                            "name": "LCT.LOAN_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanContract/GetListLoanContractKeyAndValue",
+                            "criteriaPropName": "VendorCode",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LBT.LOAN_BATCH_NO"
+                            ],
+                            "filterPropName": "LoanContractNo"
+                        },
+                        {
+                            "id": "lbtloanBatchNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No.",
+                            "name": "LBT.LOAN_BATCH_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanBatch/GetListLoanBatchByContractNo",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company",
+                            "position": "left",
+                            "name": "LCT.VENDOR_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract",
+                            "position": "left",
+                            "name": "LCT.LOAN_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No.",
+                            "position": "center",
+                            "name": "LBT.LOAN_BATCH_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Currency",
+                            "position": "left",
+                            "name": "LCT.CURR_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Facility Type",
+                            "position": "left",
+                            "name": "LCT.FACILITY_KIND_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Amount",
+                            "position": "right",
+                            "name": "LBT.DRAWDOWN_AMT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Date",
+                            "position": "center",
+                            "name": "LBT.DRAWDOWN_DT"
+                        },
+                        {
+                            "type": "label",
+                            "label": "action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "LoanCoyName",
+                            "isFlagColor": false,
+                            "key": "ViewLoanCoy"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "LoanContractName",
+                            "isFlagColor": false,
+                            "key": "ViewLoanContract"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "center",
+                            "property": "LoanBatchNo",
+                            "isFlagColor": false,
+                            "key": "ViewLoanBatch"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "CurrCode",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "FacilityType",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "DrawdownPlanAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "DrawdownPlanDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "LoanBatchNo",
+                                            "property": "LoanBatchNo"
+                                        }
+                                    ],
+                                    "path": "/Drawdown/TermLoan/Detail",
+                                    "icon": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false
+            },
+            "id": "78fbe28d-214f-4455-839f-92a4ab27d963"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

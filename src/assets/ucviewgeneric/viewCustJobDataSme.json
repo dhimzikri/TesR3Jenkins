@@ -1,0 +1,62 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "JobDataId",
+        "subSectionTitle": "Job Data",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Customer Model",
+            "property": "MrCustModelCode"
+          },
+          {
+            "type": "text",
+            "label": "Profession Name",
+            "property": "ProfessionName"
+          },
+          {
+            "type": "text",
+            "label": "Job Position",
+            "property": "JobPosition"
+          },
+          {
+            "type": "text",
+            "label": "Job Title Name",
+            "property": "JobTitleName"
+          },
+         
+          {
+            "type": "text",
+            "label": "Company Name",
+            "property": "CoyName"
+          },
+
+          {
+            "type": "text",
+            "label": "Industry Type Name",
+            "property": "IndustryTypeName"
+          },
+          {
+            "type": "text",
+            "label": "Company Scale",
+            "property": "CoyScale"
+          },
+          {
+            "type": "text",
+            "label": "Number Of Employee",
+            "property": "NoOfEmp"
+          },
+          {
+            "type": "date",
+            "label": "Employment Establishment Date",
+            "property": "EmploymentEstablishmentDt"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustJobDataSme"
+        }
+      }
+    ]
+  }

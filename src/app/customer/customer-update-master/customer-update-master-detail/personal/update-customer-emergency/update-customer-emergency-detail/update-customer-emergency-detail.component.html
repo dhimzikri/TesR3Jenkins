@@ -1,0 +1,274 @@
+
+<form class="form form-horizontal" [formGroup]="CustomerEmergencyForm"
+(ngSubmit)="CustomerEmergencyForm.valid && SaveValue()" #enjiForm="ngForm">
+<div class="form-body">
+  <div class="form-group row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">Application Data</div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-raised btn-primary" (click)="CopyAllHandler()">Copy All</button>
+    </div>
+    <div class="col-md-4">Master Customer Data</div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel adins-required-label" translate>Contact Person Name</label>
+    <div class="col-md-4">
+      <label>{{AppEmergencyData.CustName}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.CustName.value != AppEmergencyData.CustName" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('CustName', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control adInsInput" formControlName="CustName"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.CustName.invalid}" />
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.CustName" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adins-required-label" translate>Customer Relationship</label>
+    <div class="col-md-4">
+      <label>{{appCustRelationship}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.CustRelation.value != AppEmergencyData.CustRelation" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('CustRelation', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <lib-ucdropdownlist [dropdownListObj]="ddlMrCustRelationshipCode" [parentForm]="CustomerEmergencyForm" [enjiForm]="enjiForm"
+      [identifier]="'CustRelation'"></lib-ucdropdownlist>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adins-label" translate>ID Type</label>
+    <div class="col-md-4">
+      <label>{{appIdType}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.IdType.value != AppEmergencyData.IdType" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('IdType', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <lib-ucdropdownlist [dropdownListObj]="ddlIdType" [parentForm]="CustomerEmergencyForm" [enjiForm]="enjiForm"
+            [identifier]="'IdType'" (callback)="setValidatorPattern()"></lib-ucdropdownlist>	
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.IdType" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adins-label" translate>ID No</label>
+    <div class="col-md-4">
+      {{AppEmergencyData.IdNo}}
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.IdNo.value != AppEmergencyData.IdNo" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('IdNo', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control adInsInput" formControlName="IdNo"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.IdNo.invalid}">
+      <lib-uc-show-errors [customPattern]="customPattern" [control]="CustomerEmergencyForm.controls.IdNo" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adins-label" translate>Birth Place</label>
+    <div class="col-md-4">
+      {{AppEmergencyData.BirthPlace}}
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.BirthPlace.value != AppEmergencyData.BirthPlace" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('BirthPlace', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control adInsInput" formControlName="BirthPlace"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.BirthPlace.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.BirthPlace" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adins-label" translate>Id Expired Date</label>
+    <div class="col-md-4" *ngIf="AppEmergencyData.IdExpiredDt">
+      {{AppEmergencyData.IdExpiredDt | date: 'dd-MMM-yyyy'}}
+    </div>
+    <div class="col-md-4" *ngIf="!AppEmergencyData.IdExpiredDt"> - </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.IdExpiredDt.value != AppEmergencyData.IdExpiredDt" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('IdExpiredDt', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="date" class="form-control adInsInput" formControlName="IdExpiredDt"
+      [min]="businessDtMin | date: 'yyyy-MM-dd'" [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.IdExpiredDt.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.IdExpiredDt" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adins-label" translate>Birth Date</label>
+    <div class="col-md-4">
+      {{AppEmergencyData.BirthDate | date: 'dd-MMM-yyyy'}}
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.BirthDate.value != AppEmergencyData.BirthDate" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('BirthDate', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="date" class="form-control adInsInput" formControlName="BirthDate"
+      [max]="businessDtMin | date: 'yyyy-MM-dd'" [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.BirthDate.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.BirthDate" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel adins-required-label" translate>Gender</label>
+    <div class="col-md-4">
+      <label>{{appGender}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.Gender.value != AppEmergencyData.Gender" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('Gender', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <lib-ucdropdownlist [dropdownListObj]="ddlGender" [parentForm]="CustomerEmergencyForm" [enjiForm]="enjiForm"
+      [identifier]="'Gender'"></lib-ucdropdownlist>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel" translate>Email</label>
+    <div class="col-md-4">
+      <label>{{AppEmergencyData.Email}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.Email.value != AppEmergencyData.Email" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('Email', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control adInsInput" formControlName="Email"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.Email.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.Email" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row"> 
+    <label class="col-md-2 adins-required-label" translate>Mobile Phone 1</label>
+    <div class="col-md-4">
+      <label>{{AppEmergencyData.MobilePhn1}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.MobilePhn1.value != AppEmergencyData.MobilePhn1" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('MobilePhn1', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control adInsInput" formControlName="MobilePhn1"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.MobilePhn1.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.MobilePhn1" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel" translate>Mobile Phone 2</label>
+    <div class="col-md-4">
+      <label>{{AppEmergencyData.MobilePhn2}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerEmergencyForm.controls.MobilePhn2.value != AppEmergencyData.MobilePhn2" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('MobilePhn2', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control adInsInput" formControlName="MobilePhn2"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.MobilePhn2.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.MobilePhn2" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel adins-label" translate>Legal Address</label>
+    <div class="col-md-4">
+      <label>{{AppEmergencyData.Address}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="IsAddressDifferent" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('Address', '')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <textarea class="form-control adInsInput" formControlName="Address" (blur)="AddressCopyButtonHandler()"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.Address.invalid}"></textarea>
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.Address" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel" translate>RT / RW</label>
+    <div class="col-md-4">
+      <label>{{AppEmergencyData.AreaCode4}} / {{AppEmergencyData.AreaCode3}}</label>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-2">
+      <input type="text" class="form-control adInsInput" formControlName="AreaCode4" (blur)="AddressCopyButtonHandler()"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.AreaCode4.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.AreaCode4" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+    <div class="col-md-2">
+      <input type="text" class="form-control adInsInput" formControlName="AreaCode3" (blur)="AddressCopyButtonHandler()"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.AreaCode3.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.AreaCode3" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel" translate>Zipcode</label>
+    <div class="col-md-4">
+      <label>{{AppEmergencyData.Zipcode}}</label>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+      <lib-uclookupgeneric [lookupInput]="lookupObj['Zipcode']" [parentForm]="CustomerEmergencyForm" [enjiForm]="enjiForm"
+        [identifier]="'ZipcodeLookup'" (lookup)="getZipcodeData($event)">
+      </lib-uclookupgeneric>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel" translate>Kelurahan</label>
+    <div class="col-md-4">
+      <label>{{AppEmergencyData.AreaCode2}}</label>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control adInsInput" formControlName="AreaCode2" [readonly]="true"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.AreaCode2.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.AreaCode2" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel" translate>Kecamatan</label>
+    <div class="col-md-4">
+      <label>{{AppEmergencyData.AreaCode1}}</label>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control adInsInput" formControlName="AreaCode1" [readonly]="true"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.AreaCode1.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.AreaCode1" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel" translate>City</label>
+    <div class="col-md-4">
+      <label>{{AppEmergencyData.City}}</label>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control adInsInput" formControlName="City" [readonly]="true"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerEmergencyForm.controls.City.invalid}">
+      <lib-uc-show-errors [control]="CustomerEmergencyForm.controls.City" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-actions right">
+    <button type="button" class="btn btn-raised btn-warning mr-1" (click)="back()">
+      <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+    </button>
+    <button type="submit" class="btn btn-raised btn-primary">
+      <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+    </button>
+  </div>
+</div>
+</form>

@@ -1,0 +1,165 @@
+{
+    "title": "Funding Batch Detail",
+    "id": "FundingBatchDetailxcnaf",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "FundingBatchMainInfoId",
+                    "subSectionTitle": "Funding Batch Main Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "fundingContractMasterEntity"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Company name",
+                            "property": "FundingCompanyName",
+                            "position": "left",
+                            "isHide": false,
+                            "key": "ViewVendor"
+                        },
+                        {
+                            "type": "callback",
+                            "label": "Funding Contract Name",
+                            "property": "FundingContractName",
+                            "position": "left",
+                            "isHide": false,
+                            "key": "ViewLoanContract"
+                        },
+                        {
+                            "type": "text",
+                            "label": "Funding Contract No",
+                            "property": "FundingContractNo",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "blank"
+                        },
+                        {
+                            "type": "date",
+                            "label": "Contract Period From",
+                            "property": "ContractPeriodeFrom",
+                            "dateFormat": "dd/MM/YYYY",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "date",
+                            "label": "Contract Period To",
+                            "property": "ContractPeriodeTo",
+                            "dateFormat": "dd/MM/YYYY",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "OS Plafond Contract",
+                            "property": "OsPlafondAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "ContractNo",
+                        "JfBatchNo"
+                    ],
+                    "fromValue": [],
+                    "subsectionId": "FundingBatchMainInfoId"
+                }
+            },
+            "id": "ad12f5a2-9309-4d78-aa96-a4f2dcbd6fe7"
+        },
+        {
+            "container": {
+                "key": "Fee",
+                "className": "DetailFundingBatchFeeComponentX",
+                "cssClass": "",
+                "input": {
+                    "JfBatchNo": "JfBatchNo"
+                }
+            },
+            "id": "3cfb1ee7-f523-4186-ac2a-66e96a17c16f"
+        },
+        {
+            "container": {
+                "key": "Fee",
+                "className": "DetailFundingBatchFeeXComponent",
+                "cssClass": "",
+                "input": {
+                    "JfBatchNo": "JfBatchNo"
+                }
+            },
+            "id": "3cfb1ee7-f523-4186-ac2a-66e96a17c16f"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/JfBatchX/AddJfBatchX",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/JfBatchX/EditJfBatchX",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "child": [
+        "FundingBatchPaging"
+    ],
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onInit": [
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/JfContractInterestRate/GetListJfContractInterestRateByJfContractNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "trxNo",
+                    "propValue": "ContractNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ReturnObject",
+                    "propValue": "ReturnObject"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

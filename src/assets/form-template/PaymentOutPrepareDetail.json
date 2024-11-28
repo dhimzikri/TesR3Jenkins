@@ -1,0 +1,75 @@
+{
+    "title": "Payment Out Prepare Detail",
+    "hideTitle": false,
+    "id": "PaymentOutPrepareDetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": true,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "Id",
+                    "subSectionTitle": "Payment Out Batch Detail",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": ""
+                    },
+                    "reqObj": {},
+                    "mainInfo": [],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "PaymentOutBatchDetailId"
+                }
+            },
+            "id": "1faebf65-fc23-436f-b344-58a72ad41e5a"
+        },
+        {
+            "container": {
+                "key": "PayoutPrepareDetailStepper",
+                "className": "PayoutPrepareDetailStepper",
+                "cssClass": "",
+                "input": {
+                    "JfContractNo": "JfContractNo"
+                }
+            },
+            "id": "73e6cbf7-65f3-4ac2-880a-b2660a88dd70"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "child": [],
+    "customToastrMsg": ""
+}

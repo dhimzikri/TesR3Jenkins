@@ -1,0 +1,98 @@
+{
+    "title": "Office",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "A.OFFICE_CODE",
+            "id": "OfficeCodeId",
+            "value": "",
+            "label": "OFFICE CODE",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "B.OFFICE_NAME",
+            "id": "OfficeParentId",
+            "value": "",
+            "label": "OFFICE PARENT",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "A.OFFICE_NAME",
+            "id": "OfficeNameId",
+            "value": "",
+            "label": "OFFICE NAME",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "A.IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "ACTIVE",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "A.OFFICE_ADDR",
+            "id": "OfficeAddrId",
+            "value": "",
+            "label": "OFFICE ADDRESS",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "A.MR_OFFICE_TYPE_CODE",
+            "id": "OfficeCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isQueryIn": true,
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "http://r3app-server.ad-ins.com/FOUNDATION_R3/RefMaster/GetListKeyValueActiveByCode",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Office Type",
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "OFFICE_TYPE",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "dropdown",
+            "name": "A.MR_OFFICE_CLASS_CODE",
+            "id": "OfficeCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isQueryIn": true,
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "http://r3app-server.ad-ins.com/FOUNDATION_R3/RefMaster/GetListKeyValueActiveByCode",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Office Class",
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "OFFICE_CLASS",
+            "items": [],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchTest"
+    }
+}

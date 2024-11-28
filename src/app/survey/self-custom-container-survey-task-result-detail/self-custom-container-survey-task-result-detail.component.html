@@ -1,0 +1,72 @@
+<div class="bg-light-blue-card" *ngIf="isReady">
+  <form class="form form-horizontal" [formGroup]="parentForm">
+    <div formGroupName="QuestionObjs" *ngIf="isStatScs">
+        <div class="form-body" [formGroupName]="i"
+          *ngFor="let QuestionGrpList of QuestionObj.VerfQuestionAnswerListObj; let i = index">
+          <lib-ucSubsection [id]="'grp'+i+'id'" [title]="QuestionGrpList.VerfQuestionGrpName"
+            [panel]="'grpName'+i">
+          </lib-ucSubsection>
+          <div id="grpName{{i}}" class="p-3">
+            <span formGroupName="VerfQuestionAnswerList">
+              <div class= "row">
+                <label class="col-md-3 label-field-2" tanslate><h4 class="modal-title">Question</h4></label>
+                <label class="col-md-4 label-field-2" translate><h4 class="modal-title">Answer</h4></label>
+                <label class="col-md-5 label-field-2" translate><h4 class="modal-title">Notes</h4></label>
+              </div>
+              <div class="form-group row" [formGroupName]="j"
+                *ngFor="let QRList of QuestionObj.VerfQuestionAnswerListObj[i].verfQuestionAnswerList; let j = index">
+                <label class="col-md-3 label-field-2 adins-required-label" *ngIf="isStatScs"
+                  translate>{{QRList.VerfQuestionText}} </label>
+                <div class="col-md-4" formGroupName="ResultGrp">
+                  <span *ngIf="QRList.VerfAnswerTypeCode == 'DDL' || QRList.VerfAnswerTypeCode == 'RBL'">
+                    <select class="form-control input-field-2" style="width: 100%;" formControlName="Answer"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls['QuestionObjs']['controls'][i].controls['VerfQuestionAnswerList']['controls'][j].controls.ResultGrp.controls.Answer.invalid }">
+                      <option *ngFor="let item of ListVerfAnswer[i][j]" value="{{item}}">
+                        {{item}}
+                      </option>
+                    </select>
+                    <div class="message-box">
+                      <lib-uc-show-errors [control]="parentForm.controls['QuestionObjs']['controls'][i].controls['VerfQuestionAnswerList']['controls'][j].controls.ResultGrp.controls.Answer"
+                      [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+
+                  </span>
+                  <span *ngIf="QRList.VerfAnswerTypeCode == 'TXT'">
+                    <input type="text" class="form-control input-field-2" formControlName="Answer"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls['QuestionObjs']['controls'][i].controls['VerfQuestionAnswerList']['controls'][j].controls.ResultGrp.controls.Answer.invalid }">
+                    <div class="message-box">
+                      <lib-uc-show-errors [control]="parentForm.controls['QuestionObjs']['controls'][i].controls['VerfQuestionAnswerList']['controls'][j].controls.ResultGrp.controls.Answer"
+                      [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </span>
+                  <span *ngIf="QRList.VerfAnswerTypeCode == 'DT_PICKER'">
+                    <input type="date" class="form-control input-field-2" formControlName="Answer"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls['QuestionObjs']['controls'][i].controls['VerfQuestionAnswerList']['controls'][j].controls.ResultGrp.controls.Answer.invalid }">
+                    <div class="message-box">
+                      <lib-uc-show-errors [control]="parentForm.controls['QuestionObjs']['controls'][i].controls['VerfQuestionAnswerList']['controls'][j].controls.ResultGrp.controls.Answer"
+                      [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </span>
+                  <span *ngIf="QRList.VerfAnswerTypeCode == 'UC_INPUT_NUMBER'">
+                    <input type="" currencyMask id="AnswerId" class="form-control input-field-2" formControlName="Answer"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls['QuestionObjs']['controls'][i].controls['VerfQuestionAnswerList']['controls'][j].controls.ResultGrp.controls.Answer.invalid }">
+                    <div class="message-box">
+                      <lib-uc-show-errors [control]="parentForm.controls['QuestionObjs']['controls'][i].controls['VerfQuestionAnswerList']['controls'][j].controls.ResultGrp.controls.Answer"
+                      [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </span>
+                </div>
+                <div class="col-md-5" formGroupName="ResultGrp">
+                  <textarea class="form-control textarea-field-2" formControlName="Notes"></textarea>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+    </div>
+  </form>
+</div>

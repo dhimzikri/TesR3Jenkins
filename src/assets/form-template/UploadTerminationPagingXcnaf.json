@@ -1,0 +1,277 @@
+{
+    "title": "Upload Termination",
+    "hideTitle": false,
+    "id": "UploadTerminationPagingXcnaf",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "service": "",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchUploadTermination"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company",
+                            "name": "V.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "uthuploadMonitoringNoSearchId",
+                            "type": "textbox",
+                            "label": "Upload Monitoring No",
+                            "name": "UTH.UPLOAD_MONITORING_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        },
+                        {
+                            "id": "uthbatchTerminationTrxNoSearchId",
+                            "type": "textbox",
+                            "label": "Batch Termination No",
+                            "name": "UTH.BATCH_TERMINATION_TRX_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        },
+                        {
+                            "id": "uthuploadDtSearchId",
+                            "type": "datepicker",
+                            "label": "Upload Date",
+                            "name": "UTH.UPLOAD_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "eq",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "rmdescrSearchId",
+                            "type": "dropdown",
+                            "label": "Status",
+                            "name": "RM.DESCR",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/RefMaster/GetListKeyValueActiveByCode",
+                            "criteriaPropName": "RefMasterTypeCode",
+                            "criteriaPropValue": "UPLOAD_STAT_CODE",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company",
+                            "position": "left",
+                            "name": "V.VENDOR_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Upload Monitoring No",
+                            "position": "center",
+                            "name": "UTH.UPLOAD_MONITORING_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch Termination No",
+                            "position": "center",
+                            "name": "UTH.BATCH_TERMINATION_TRX_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Upload Date",
+                            "position": "center",
+                            "name": "UTH.UPLOAD_DT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Status",
+                            "position": "center",
+                            "name": "RM.DESCR"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "VendorName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "UploadMonitoringNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "BatchTerminationTrxNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "UploadDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "callback",
+                            "position": "center",
+                            "property": "Status",
+                            "isFlagColor": false,
+                            "key": "ViewStat"
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "switch",
+                                    "case": [
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "property": "StatCode",
+                                                    "value": "SCS",
+                                                    "isUser": false,
+                                                    "restriction": "EQ"
+                                                }
+                                            ],
+                                            "isHide": false,
+                                            "result": {
+                                                "path": "UPLOAD_TERMINATION_DETAIL_X",
+                                                "type": "url",
+                                                "param": [
+                                                    {
+                                                        "type": "TrxNo",
+                                                        "property": "BatchTerminationTrxNo"
+                                                    },
+                                                    {
+                                                        "type": "Type",
+                                                        "property": "Type"
+                                                    }
+                                                ],
+                                                "icon": "ft-play"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [
+                    {
+                        "propName": "UTH.TERMINATION_TYPE",
+                        "restriction": "Eq",
+                        "value": "Type",
+                        "conditions": []
+                    }
+                ],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "5db42f9f-402c-45c6-ba24-76f021d7dc11"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [
+        {
+            "displayName": "Upload Data Agreement",
+            "id": "upload data agreementId",
+            "key": "",
+            "position": "top",
+            "icon": "ft-upload",
+            "cssClass": "",
+            "conditions": [],
+            "btnType": "button",
+            "action": {
+                "path": "/Termination/UploadTermination/DetailX",
+                "type": "link",
+                "params": [
+                    {
+                        "propName": "Type",
+                        "propValue": "Type"
+                    }
+                ],
+                "target": "_self"
+            }
+        }
+    ],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

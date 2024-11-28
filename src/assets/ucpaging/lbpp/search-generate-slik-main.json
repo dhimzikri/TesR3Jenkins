@@ -1,0 +1,111 @@
+{
+    "title": "SCHEDULE",
+    "exportExcel": false,
+    "component": [],
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "DATA PROCESS START",
+            "name": "SL.SCHDL_START_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "DATA PROCESS END",
+            "name": "SL.SCHDL_END_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "RUN START",
+            "name": "SL.RUN_START_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "RUN END",
+            "name": "SL.RUN_END_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PROGRESS",
+            "name": "SL.PROGRESS"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "STATUS",
+            "name": "SL.STATUS"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "DOWNLOAD"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "date",
+            "position": "center",
+            "property": "SchdlStartDt"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "SchdlEndDt"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "RunStartDt",
+            "dateFormat": "dd-MMM-yyyy, h:mm a"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "RunEndDt",
+            "dateFormat": "dd-MMM-yyyy, h:mm a"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Progress"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Status"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "Status",
+                                    "value": "Success",
+                                    "restriction": "EQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "callback",
+                                "key": "Print",
+                                "icon": "ft-printer"
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "querystring": {
+        "name": "searchGenerateSlikMain"
+    }
+}

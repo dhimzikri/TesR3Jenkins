@@ -1,0 +1,57 @@
+<div class="ucSearch-Button-Right">
+  <span class="mr-1">
+      <button type="button" class="backButton" [routerLink]="[CancelLink]" skipLocationChange>
+        <i class="fa fa-arrow-left"></i>&nbsp;<span translate>Back</span>
+      </button>
+  </span>
+</div>
+<div class="card">
+  <div class="card-header header-title">
+    <div class="row">
+      <div class="col-md-8">
+        <h4 class="form-section card-title" translate>License Manager</h4>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="px-3">
+        <lib-ucSubsection [id]="'LicenseDetailId'" [title]="'License Detail'" [panel]="'LicenseDetail'">
+          </lib-ucSubsection>
+          <div *ngIf="LicenseData" id="LicenseDetail">
+            <div class="form-group row">
+              <label class="col-md-3  adInsLabel" translate>System Name</label>
+              <label class="col-md-9  adInsLabel" translate>{{systemName}}</label>          
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3  adInsLabel" translate>License Type</label>
+              <label class="col-md-9  adInsLabel" translate>{{licenseType}}</label>          
+            </div>
+            <div *ngIf="licenseType !== 'Module'" class="form-group row">
+              <label class="col-md-3  adInsLabel" translate>Active Date</label>
+              <label class="col-md-9  adInsLabel" translate>{{LicenseData.License.ActivationDate | date:'dd/MM/yyyy'}}</label>           
+            </div>
+            <div *ngIf="licenseType !== 'Module'" class="form-group row">
+              <label class="col-md-3  adInsLabel" translate>Expired Date</label>
+              <label class="col-md-9  adInsLabel" translate>{{LicenseData.License.ExpiredDate | date:'dd/MM/yyyy'}}</label>           
+            </div>
+            <div *ngIf="licenseType === 'Module'" class="form-group row">
+              <label class="col-md-3  adInsLabel" translate>Modules</label>
+              <label class="col-md-9  adInsLabel" translate>{{modules}}</label>           
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3  adInsLabel" translate>Last Tracking Date</label>
+              <label class="col-md-9  adInsLabel" translate>{{LicenseData.UnitUsage.LastTrackingDt | date:'dd/MM/yyyy'}}</label>           
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3  adInsLabel" translate>Day(s) Remaining</label>
+              <label *ngIf="LicenseData.UnitUsage.GraceRemainingDays !== null" class="col-md-9  adInsLabel" translate>{{LicenseData.UnitUsage.GraceRemainingDays}}</label>
+              <label *ngIf="LicenseData.UnitUsage.GraceRemainingDays === null" class="col-md-9  adInsLabel" translate>-</label>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3  adInsLabel" translate>Status</label>
+              <label class="col-md-9  adInsLabel" translate>{{status}}</label>           
+            </div>
+          </div>
+    </div>
+  </div>
+</div>

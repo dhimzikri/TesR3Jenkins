@@ -1,0 +1,41 @@
+<div class="row text-left">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="px-3">
+            <div class="addEdit">
+              <div class="form-body">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4 class="card-title" id="horz-layout-colored-controls" translate> Vendor Employee</h4>
+                  </div>
+                  <div class="col-md-4" style="text-align-last: right">
+                    <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" [queryParams]="{VendorId: this.VendorId}" skipLocationChange translate>
+                    <i class="fa fa-arrow-left"></i>&nbsp;<span translate>Back</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            <app-main-info-view></app-main-info-view>
+            </div>
+  
+          <aw-wizard #wizard navBarLayout="large-empty-symbols" [awNavigationMode] navigateBackward="allow"
+          navigateForward="allow" >
+          <aw-wizard-step [stepTitle]="'Employee'"
+            [navigationSymbol]="{ symbol: '1', fontFamily: 'FontAwesome' }" (stepEnter)="EnterTab('Employee')">
+            <app-vendor-employee-x [objInput]="objPassing" (objOutput)="outputValue($event)" *ngIf="IsReload"></app-vendor-employee-x>
+          </aw-wizard-step>
+          <aw-wizard-step [stepTitle]="'Address'"
+            [navigationSymbol]="{ symbol: '2', fontFamily: 'FontAwesome' }" (stepEnter)="EnterTab('Address')">
+            <app-address  [objInput]="objPassing" *ngIf="IsReload"> </app-address>
+          </aw-wizard-step>
+          <aw-wizard-step [stepTitle]="'Bank Info'"
+          [navigationSymbol]="{ symbol: '3', fontFamily: 'FontAwesome' }" (stepEnter)="EnterTab('BankInfo')">
+          <app-bank-info [objInput]="objPassing"> </app-bank-info>
+        </aw-wizard-step>
+          </aw-wizard>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

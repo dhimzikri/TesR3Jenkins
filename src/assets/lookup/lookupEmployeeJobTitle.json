@@ -1,0 +1,69 @@
+{
+    "title": "LOOK UP - JOB TITLE",
+    "sectionTitle": "Search",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "JOB_TITLE_CODE",
+            "id": "JobTitleCodeId",
+            "value": "",
+            "label": "Job Title Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "JOB_TITLE_NAME",
+            "id": "JobTitleNameId",
+            "value": "",
+            "label": "Job Title Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "lookupEmployeeJobTitle"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "JOB TITLE CODE",
+            "name": "JobTitleCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "JOB TITLE NAME",
+            "name": "JobTitleName"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "SELECT"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "JobTitleCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "JobTitleName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefJobTitleId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "JobTitleName",
+    "propertyName": "JobTitleName"
+}

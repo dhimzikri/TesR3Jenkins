@@ -1,0 +1,98 @@
+<!--Login Page Starts-->
+<section id="login">
+  <div class="container-fluid">
+    <div class="row full-height-vh">
+      <div class="col-12 d-flex align-items-center justify-content-center">
+        <div class="card text-center width-400">
+          <div class="card-img">
+            <img alt="element 06" class="mb-1" src="assets/img/logo-01.png" width="190" style="margin-top: 10px;">
+          </div>
+          <div class="card-body">
+            <div class="card-block">
+              <h5 class="black">Application Foundation - {{version}}</h5>
+              <div *ngIf="mode === 'login'">
+                <form novalidate="" (ngSubmit)="onSubmit($event)" #f="ngForm">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" name="inputUser" id="inputUser" placeholder="User" ngModel required #user>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <input type="password" class="form-control" name="inputPass" id="inputPass" placeholder="Password" ngModel required #pass>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-12">
+                        <button type="submit" [disabled]="isEod"
+                            class="btn btn-primary btn-block btn-raised">LOGIN</button>
+                    </div>
+                    <div *ngIf="isEod">
+                        <p style="font-size:15px;color: red;">
+                            Currently System Under Maintenance!
+                        </p>
+                    </div>
+                </div>
+                </form>
+                <div class="card-footer">
+                  <div class="float-right"><a (click)="onForgotPassword()" class="black">Forgot Password?</a></div>
+                </div>
+              </div>
+              <div *ngIf="mode === 'locked'">
+                <p style="font-size:14px;">
+                  Your Account has been locked
+                  due to several wrong password attempts.
+                  Click Reset Password link below
+                  to gain access to your account.
+                </p>
+                <div class="align-items-center">
+                  <a (click)="onForgotPassword()" class="pointer">Reset Password</a>
+                </div>
+              </div>
+              <div *ngIf="mode === 'otp'">
+                <form (ngSubmit)="onSubmitOtp()" #o="ngForm">
+                  <br>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label class="text-left" style="width: 35%; vertical-align: top;" translate>User</label>
+                      <label class="text-left" style="width: 65%; vertical-align: top;" translate>{{result.Username}}</label>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label class="text-left" style="width: 35%; vertical-align: top;" translate>Phone</label>
+                      <label class="text-left" style="width: 65%; vertical-align: top;" translate>{{result.MobilePhnNo1}}</label>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-left" style="width: 35%; vertical-align: top;" translate>Email</label>
+                      <label class="text-left" style="width: 65%; vertical-align: top;" translate>{{result.Email1}}</label>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" name="inputOtp" id="inputOtp" ngModel required #otp>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <span style="display: block; float: left;">
+                        <button type="submit" class="btn btn-primary btn-raised mr-1">CONFRIM</button>
+                        <button type="button" (click)="onRegenerateClick()" class="btn btn-primary btn-raised">REGENERATE CODE</button>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-group row" *ngIf="isInvalidOtp">
+                    <label class="col-md-12 text-left" style="color: red;" translate>Invalid Code</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Login Page Ends-->

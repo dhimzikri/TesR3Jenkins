@@ -1,0 +1,45 @@
+<div class="col-md-12">
+  <div class="card">
+    
+    <lib-ucviewgeneric [viewGenericObj]="viewGenericObj"> </lib-ucviewgeneric>
+
+    <div class="card-body">
+      <div class="px-3">
+        <div class="form-body">
+          <lib-ucSubsection [id]="'FilingList'" [title]="'Filing List'" [panel]="'FilingListId'">
+          </lib-ucSubsection>
+          <div id="FilingListId" style="overflow-x: auto;">
+            <table class="table table-responsive-md text-center table-hover">
+              <thead>
+                <tr class="table-header">
+                  <th><span class="thead-header" name='filingCode' translate>FILING CODE</span> </th>
+                  <th><span class="thead-header" name='filingName' translate>FILING NAME</span> </th>
+                  <th><span class="thead-header" name='Active' translate>ACTIVE</span></th>
+                  <th><span class="thead-header" name='filingInfo' translate>FILING INFORMATION</span></th>
+                </tr>
+              </thead>
+              <tbody *ngIf="responseFiling?.length == 0">
+                <tr>
+                  <td colspan="100%">No Data Available</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <ng-container *ngFor="let item of responseFiling">
+                  <tr>
+                    <td class="text-center">{{item.FilingCode}}</td>
+                    <td class="text-left">{{item.FilingName}}</td>
+                    <td class="align-center" *ngIf="item.IsActive === true">Yes</td>
+                    <td class="align-center" *ngIf="item.IsActive === false">No</td>
+                    <td class="text-left">{{item.FilingInfo}}</td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

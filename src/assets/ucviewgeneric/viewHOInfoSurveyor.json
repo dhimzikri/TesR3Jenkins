@@ -1,0 +1,24 @@
+{
+    "subsection": [
+      {
+        "subSectionId": "HOInfoId",
+        "subSectionTitle": "HO Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Assignment Type",
+            "property": "AssignmentType"
+          },
+          {
+            "type": "text",
+            "label": "Maximum Task Load",
+            "property": "MaxTaskLoad"
+          }
+        ],
+        "querystring": {
+            "name": "viewHOInfoSurveyor"
+        }
+      }
+    ]
+  }

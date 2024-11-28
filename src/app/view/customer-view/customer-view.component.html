@@ -1,0 +1,118 @@
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-body">
+			<div class="px-3">
+				<div class="form-body">
+					<h4 class="form-section card-title" *ngIf="custType == 'PERSONAL'" translate>CUSTOMER PERSONAL</h4>
+					<h4 class="form-section card-title" *ngIf="custType == 'COMPANY'" translate>CUSTOMER COMPANY</h4>
+					<div *ngIf="custType == 'PERSONAL'">
+						<app-customer-view-header-personal></app-customer-view-header-personal>
+						<mat-tab-group (selectedIndexChange)="mencuba($event)" [selectedIndex]="selectedIndex">
+							<mat-tab label="Main Data">
+							</mat-tab>
+							<mat-tab label="Address">
+							</mat-tab>
+							<mat-tab label="Family">
+							</mat-tab>
+							<mat-tab label="Emergency Contact Person">
+							</mat-tab>
+							<mat-tab label="Customer / Debitur Group">
+							</mat-tab>
+							<mat-tab label="Job Data">
+							</mat-tab>
+							<mat-tab label="Financial Data">
+							</mat-tab>
+							<mat-tab label="List of Asset in Operation">
+							</mat-tab>
+							<mat-tab label="Highlight Comment">
+							</mat-tab>
+
+							<div *ngIf="IsUseDms">
+								<mat-tab label="Document">
+								</mat-tab>
+							</div>
+
+							<!-- <div *ngIf="IsLos">
+								<mat-tab label="Application List">
+								</mat-tab>
+							</div> -->
+
+							<!-- <div *ngIf="IsLms">
+								<mat-tab label="Agreement List">
+								</mat-tab>
+							</div> -->
+							<div *ngIf="IsUseDigitalization && IsUseTs">
+								<mat-tab label="Trusting Social">
+								</mat-tab>
+							</div>
+							<div *ngIf="IsUseDigitalization && IsUseAsliRi">
+								<mat-tab label="Asli Ri">
+								</mat-tab>
+							</div>
+							<div *ngIf="IsUseDigitalization && IsUseCbasSlik">
+								<mat-tab label="CBAS SLIK">
+								</mat-tab>
+							</div>
+							<div *ngIf="IsIframe">
+								<mat-tab *ngFor="let iframe of listIframe" [label]="iframe.Title">
+									<app-customer-view-iframe-generic [inputObj]="custResultData" [iframeObj]="iframe">
+									</app-customer-view-iframe-generic>
+								</mat-tab>
+							</div>
+							<mat-tab label="Other Info">
+							</mat-tab>
+						</mat-tab-group>
+					</div>
+					<div *ngIf="custType == 'COMPANY'">
+						<app-customer-view-header-company></app-customer-view-header-company>
+						<mat-tab-group (selectedIndexChange)="mencuba($event)" [selectedIndex]="selectedIndex">
+							<mat-tab label="Main Data">
+							</mat-tab>
+							<mat-tab label="Address">
+							</mat-tab>
+							<mat-tab label="Management / Shareholder">
+							</mat-tab>
+							<mat-tab label="Customer / Debitur Group">
+							</mat-tab>
+							<mat-tab label="Contact Information">
+							</mat-tab>
+							<mat-tab label="Financial Data">
+							</mat-tab>
+							<mat-tab label="List of Asset in Operation">
+							</mat-tab>
+							<mat-tab label="Legal Document">
+							</mat-tab>
+							<mat-tab label="Highlight Comment"></mat-tab>
+							<!-- <div *ngIf="SysConfigResultObj?.ConfigValue == '1'"> -->
+							<div *ngIf="IsUseDms">
+								<mat-tab label="Document">
+								</mat-tab>
+							</div>
+							<div *ngIf="IsUseDigitalization">
+								<mat-tab label="Trusting Social">
+								</mat-tab>
+							</div>
+							<div *ngIf="IsUseDigitalization && IsUseAsliRi">
+								<mat-tab label="Asli Ri">
+								</mat-tab>
+							</div>
+							<div *ngIf="IsUseDigitalization && IsUseCbasSlik">
+								<mat-tab label="CBAS SLIK">
+								</mat-tab>
+							</div>
+							<div *ngIf="IsIframe">
+								<mat-tab *ngFor="let iframe of listIframe" [label]="iframe.Title">
+									<app-customer-view-iframe-generic [inputObj]="custResultData" [iframeObj]="iframe">
+									</app-customer-view-iframe-generic>
+								</mat-tab>
+							</div>
+							<mat-tab label="Other Info">
+							</mat-tab>
+						</mat-tab-group>
+					</div>
+					<router-outlet></router-outlet>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

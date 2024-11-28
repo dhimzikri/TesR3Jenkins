@@ -1,0 +1,104 @@
+{
+    "title": "Lookup - Ref Form",
+    "sectionTitle": "Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "RFP.TITLE",
+            "id": "TitleParentId",
+            "value": "",
+            "label": "Parent Form Title",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RF.TITLE",
+            "id": "TitleId",
+            "value": "",
+            "label": "Form Title",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RF.HIERARCHY_NO",
+            "id": "HierarchyNoId",
+            "value": "",
+            "label": "Hierarchy No",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "lookupRefFormParent"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Parent Form Title",
+            "name": "ParentTitle"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Form Title",
+            "name": "TITLE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Hierarchy No",
+            "name": "HierarchyNo"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Is Hidden",
+            "name": "IsHidden"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Select"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "ParentTitle"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Title"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "HierarchyNo"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsHidden"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "path": "RefForm/Detail",
+                    "param": [
+                        {
+                            "type": "RefFormId",
+                            "property": "RefFormId"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "propertyId": "RefFormId",
+    "propertyName": "Title"  
+}

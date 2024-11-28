@@ -1,0 +1,71 @@
+{
+    "title": "Lookup - Username",
+    "sectionTitle": "Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "RU.USERNAME",
+            "id": "UsernameId",
+            "value": "",
+            "label": "Username",
+            "placeholder": "Placeholder"
+        }        
+    ],
+    "querystring": {
+        "name": "lookupUsernameInternalExternal"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "USERNAME",
+            "name": "RU.USERNAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Employee No",
+            "name": "RE.EMP_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Employee Name",
+            "name": "RE.EMP_NAME"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Select"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Username"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "EmployeeNo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "EmployeeName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "Username"
+                }
+            ]
+        }
+    ],
+    "propertyId": "UserId",
+    "propertyName": "Username"  
+}

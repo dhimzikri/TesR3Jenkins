@@ -1,0 +1,139 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title" id="horz-layout-colored-controls" translate>COA Scheme</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="CoaSchemeForm" (ngSubmit)="CoaSchemeForm.valid && Submit()"
+          #enjiForm="ngForm">
+          <div class="form-body">
+
+            <lib-ucSubsection [id]="'CoaSchemeInfoId'" [title]="'COA Scheme Information'" [panel]="'CoaSchemeInfo'">
+            </lib-ucSubsection>
+            <div id='CoaSchemeInfo'>
+
+              <div class="form-group row">
+                <label class="col-md-3  adins-required-label" translate>Scheme Code</label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control adInsInput" formControlName="SchemeCode">
+                  <lib-uc-show-errors [control]="CoaSchemeForm.controls.SchemeCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adins-required-label" translate>Scheme Name</label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control adInsInput" formControlName="SchemeName">
+                  <lib-uc-show-errors [control]="CoaSchemeForm.controls.SchemeName" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adins-label" translate>Is Active</label>
+                <div class="col-md-3">
+                  <input type="checkbox" class="border-primary" formControlName="IsActive">
+                </div>
+              </div>
+
+            </div>
+
+            <lib-ucSubsection [id]="'CoaSchemeDetailInfoId'" [title]="'COA Scheme Detail Information'"
+              [panel]="'CoaSchemeDetailInfo'">
+            </lib-ucSubsection>
+            <div id='CoaSchemeDetailInfo'>
+
+              <div class="form-group row" *ngIf="mode != 'Edit'">
+                <label class="col-md-3" translate>Copy</label>
+                <div class="col-md-3">
+                  <div class="input-group mb-0">
+                    <select class="form-control" #coaSchmSelect>
+                      <option value="">-Select One-</option>
+                      <option *ngFor="let item of ListCopy" [value]="item.Key">
+                        {{item.Value}}
+                      </option>
+                    </select>
+
+                    <div class="input-group-append">
+                      <span class="input-group-btn">
+                        <button class="btn btn-raised btn-primary" type="button" (click)="copy(coaSchmSelect)">
+                          <i class="fa fa-check-square-o"></i>&nbsp;<span translate>Copy</span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" translate>Currency Code</label>
+                <div class="col-md-3">
+                  <div class="input-group mb-0">
+                    <select class="form-control" #currselect>
+                      <option disabled [value]="null">-Select One-</option>
+                      <option *ngFor="let item of ListCurr" [value]="item.Key">
+                        {{item.Value}}
+                      </option>
+                    </select>
+                    <div class="input-group-append">
+                      <span class="input-group-btn">
+                        <button class="btn btn-raised btn-primary" type="button" (click)="Add(currselect)">
+                          <i class="fa fa-check-square-o"></i>&nbsp;<span translate>Add</span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="table-responsive" style="overflow-x: auto;">
+                <table class="table table-responsive-md text-center table-hover">
+                  <thead>
+                    <tr class="table-header">
+                      <th>
+                        <span class="thead-header" translate>No</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>Payment Allocation Name</span>
+                      </th>
+                      <th *ngFor="let item of colHeadTable;">
+                        <span class="thead-header" translate>{{item.newHead}}</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="this.isTableReady">
+                    <tr *ngFor="let item of ListPaymentAlloc; let i = index" formArrayName = "ListCoa">
+                      <ng-container  [formGroupName]="i" *ngIf="this.isTableReady">
+                      <td class="align-center">{{i+1}}</td>
+                      <td class="text-left">{{item.Value}}</td>
+                      <ng-container formArrayName = "DataCOA" *ngIf="this.isTableReady">
+                        <td class="text-center" *ngFor="let currs of ListSelectedCurr; let x = index" [formGroupName]="x">
+                          <input type="text" class="form-control" formControlName="COA"
+                          [ngClass]="{ 'is-invalid': enjiForm.submitted && CoaSchemeForm.controls.ListCoa['controls'][i]['controls'].DataCOA['controls'][x]['controls'].COA.invalid }"
+                          >
+                        </td>
+                      </ng-container>
+                    </ng-container>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions right">
+            <button type="button" [routerLink]="[CancelLink]" class="btn btn-raised btn-warning mr-1">
+              <i class="fa fa-arrow-circle-left"></i>&nbsp;<span translate>Back</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary" translate>
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,45 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "FinDataId",
+        "subSectionTitle": "Financial Data",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Monthly Income Ammount",
+            "property": "MthIncAmt"
+          },
+          {
+            "type": "text",
+            "label": "Source Of Other Income",
+            "property": "SrcOthInc"
+          },
+          {
+            "type": "text",
+            "label": "Monthly Expense Ammount",
+            "property": "MthExpAmt"
+          },
+          {
+            "type": "text",
+            "label": "Spouse Monthly Income Ammount",
+            "property": "SpsMthIncAmt"
+          },
+          {
+            "type": "text",
+            "label": "Monthly Installment Ammount",
+            "property": "MthInsAmt"
+          },
+          {
+            "type": "boolean",
+            "label": "Join Income",
+            "property": "IsJoinInc"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustFinData"
+        }
+      }
+    ]
+  }

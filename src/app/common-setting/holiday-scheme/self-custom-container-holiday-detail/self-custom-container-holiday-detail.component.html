@@ -1,0 +1,21 @@
+<div class="bg-light-blue-card">
+    <lib-ucSubsection [id]="'subsectionExistingHolidaySchemeId'" [title]="title"
+      [panel]="'subsectionExistingHolidayScheme'"></lib-ucSubsection>
+    <div id="subsectionExistingHolidayScheme" class="px-3">
+      <form class="form form-horizontal" [formGroup]="HolidayManagementForm" #HolidayManagement="ngForm">
+        <div class="form-body">
+          <div class="form-group row">
+            <label class="col-md-12 adInsLabel label-field-2">Existing Holiday Scheme </label>
+            <div class="col-md-9">
+              <lib-uclookupgeneric [enjiForm]="HolidayManagement" [lookupInput]="inputPagingObjHolidayScheme"
+                [parentForm]="HolidayManagementForm" [identifier]="'lookupValueHolidayScheme'"
+                (lookup)="getHolidaySchmHId($event)"></lib-uclookupgeneric>
+            </div>
+            <button type="button" class="btn btn-raised btn-primary-2" (click)="Copy()">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Copy</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>

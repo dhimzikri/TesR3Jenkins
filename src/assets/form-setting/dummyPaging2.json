@@ -1,0 +1,32 @@
+{
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Bank Name",
+            "name": "bankName"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "bankName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "refBankId"
+                }
+            ]
+        }
+    ]
+}

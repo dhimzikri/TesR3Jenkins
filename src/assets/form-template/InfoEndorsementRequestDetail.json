@@ -1,0 +1,288 @@
+{
+    "title": "Info Endorsement Request Detail",
+    "hideTitle": false,
+    "id": "InfoEndorsementRequestDetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+      {
+        "view": {
+          "subsection": {
+            "subSectionId": "PolicyInformationId",
+            "subSectionTitle": "Policy Information",
+            "concatDate": false,
+            "setDate": "",
+            "formatDate": "",
+            "environment": "InsuranceR3Url",
+            "apiVersion": "v1",
+            "uri": "",
+            "mainInfoPath": "/Generic/GetDataViewBySQL",
+            "querystring": {
+              "name": "searchPolicyInfoByAssetInsNo"
+            },
+            "reqObj": {},
+            "mainInfo": [
+              {
+                "type": "callback",
+                "label": "Insco Branch Name",
+                "property": "InscoBranchName",
+                "key": "ViewInsco",
+                "position": "left",
+                "isHide": false
+              },
+              {
+                "type": "callback",
+                "label": "Policy Number",
+                "property": "PolicyNo",
+                "key": "ViewPolicy",
+                "position": "left",
+                "isHide": false
+              },
+              {
+                "type": "text",
+                "label": "Cover Period",
+                "property": "CoverPeriod",
+                "position": "left",
+                "isHide": false
+              },
+              {
+                "type": "link",
+                "label": "Asset No",
+                "property": "AssetNo",
+                "environment": "amsR3Web",
+                "path": "/view/viewasset",
+                "target": "_blank",
+                "position": "left",
+                "param": [
+                  {
+                    "type": "AssetNo",
+                    "property": "AssetNo"
+                  }
+                ],
+                "isCurrency": false,
+                "isHide": false
+              },
+              {
+                "type": "link",
+                "label": "Asset Name",
+                "property": "AssetName",
+                "environment": "amsR3Web",
+                "path": "/view/viewasset",
+                "target": "_blank",
+                "position": "left",
+                "param": [
+                  {
+                    "type": "AssetNo",
+                    "property": "AssetNo"
+                  }
+                ],
+                "isCurrency": false,
+                "isHide": false
+              },
+              {
+                "type": "text",
+                "label": "Asset Type Code",
+                "property": "AssetTypeName",
+                "position": "left",
+                "isHide": false
+              },
+              {
+                "type": "text",
+                "label": "Manufacturing Year",
+                "property": "ManufacturingYear",
+                "position": "left",
+                "isHide": false
+              },
+              {
+                "type": "text",
+                "label": "Chassis No",
+                "property": "ChassisNo",
+                "position": "left",
+                "isHide": false
+              },
+              {
+                "type": "text",
+                "label": "Engine No",
+                "property": "EngineNo",
+                "position": "left",
+                "isHide": false
+              },
+              {
+                "type": "text",
+                "label": "License Plate No",
+                "property": "SerialNo3",
+                "position": "left",
+                "isHide": false
+              }
+            ],
+            "whereValue": [],
+            "fromValue": [],
+            "subsectionId": "PolicyInformationId"
+          }
+        },
+        "id": "0726e27a-941d-4b99-b3fd-3b47f2cf5be2"
+      },
+      {
+        "container": {
+          "key": "ViewAgreementInfoDetailComponent",
+          "className": "ViewAgreementInfoDetailComponent",
+          "cssClass": "",
+          "input": {
+            "AssetNo": "AssetNo"
+          }
+        },
+        "id": "90745485-cb11-4355-ac5a-d53be85ea3c4"
+      },
+      {
+        "form": {
+          "subsection": {
+            "title": "Endorsement Data",
+            "isVertical": false,
+            "isSubsection": true,
+            "isModeAdd": true,
+            "formInput": [
+              {
+                "Type": "DATE",
+                "Label": "Endorsement Date",
+                "Variable": "EndrDt",
+                "IsRequired": true,
+                "IsCallback": false,
+                "IsReadonly": false,
+                "IsHide": false,
+                "IsEditable": true,
+                "Min": "BD",
+                "Max": null,
+                "MinDtCode": null,
+                "MinOperator": null,
+                "MinValue": null,
+                "MaxDtCode": null,
+                "MaxOperator": null,
+                "MaxValue": null,
+                "DtRestrictOptMin": "BD",
+                "DtRestrictOptMax": ""
+              },
+              {
+                "Type": "CURRENCY",
+                "Label": "Fee Amount",
+                "Variable": "EndrFeeAmt",
+                "IsRequired": false,
+                "IsCallback": false,
+                "IsReadonly": false,
+                "IsHide": false,
+                "IsEditable": true,
+                "Min": "",
+                "Max": "",
+                "CurrencyMaskConfig": {
+                  "precision": "2"
+                }
+              }
+            ],
+            "onLoad": [
+              {
+                "environment": "InsuranceR3Url",
+                "apiPath": "/v1/AssetInsEndrTrxObj/GetObjectByUniqueNo",
+                "reqObj": [
+                  {
+                    "propName": "TrxNo",
+                    "propValue": "TrxNo",
+                    "isFromDict": false
+                  }
+                ]
+              }
+            ],
+            "criteria": [
+              {
+                "propName": "AssetNo",
+                "propValue": "AssetNo",
+                "isFromDict": false
+              }
+            ],
+            "mapCookie": []
+          }
+        },
+        "id": "0bb0c9bd-2cd6-4c36-8e68-08e13574106e"
+      },
+      {
+        "container": {
+          "key": "EndrReqFormContainerComponent",
+          "className": "EndrReqFormContainerComponent",
+          "cssClass": "",
+          "input": {
+            "PolicyNo": "PolicyNo"
+          }
+        },
+        "id": "c46213d3-b176-404f-9c57-e01b15f91b02"
+      },
+      {
+        "approvalcreate": {
+          "categoryCode": "INS_ENDR_INFO_APV",
+          "refReasonTypeCode": "INFO_ENDR_REQ",
+          "isHideTrxNo": true,
+          "apvTypecodes": [
+            {
+              "TypeCode": "GENERAL_APV_TYPE"
+            }
+          ],
+          "setApprovalObj": {
+            "environment": "InsuranceR3Url",
+            "apiPath": "/v1/Generic/GetApprovalSchemeByApprovalCategoryCode",
+            "reqObj": {
+              "CategoryCode": "INS_ENDR_INFO_APV"
+            }
+          },
+          "onSubmit": {
+            "redirectUrl": "",
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": "",
+            "approvalRequestObj": {}
+          },
+          "fromApi": true,
+          "schmCode": ""
+        },
+        "id": "b679b767-6e89-4ff4-8bf9-68c0b981560a"
+      }
+    ],
+    "serviceUrl": {
+      "add": {
+        "environment": "",
+        "apiPath": "",
+        "apiUrl": ""
+      },
+      "edit": {
+        "environment": "",
+        "apiPath": "",
+        "apiUrl": ""
+      },
+      "createRfa": {
+        "environment": "",
+        "apiPath": "",
+        "apiUrl": ""
+      }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "customToastrMsg": "",
+    "listBtn": [
+      {
+        "displayName": "Save",
+        "id": "saveId",
+        "key": "save",
+        "position": "bottom",
+        "icon": "ft-edit",
+        "cssClass": "btn btn-raised btn-primary-2"
+      },
+      {
+        "displayName": "Submit",
+        "id": "submitId",
+        "key": "submit",
+        "position": "bottom",
+        "icon": "far fa-check-square",
+        "cssClass": "btn btn-raised btn-primary-2"
+      }
+    ]
+  }

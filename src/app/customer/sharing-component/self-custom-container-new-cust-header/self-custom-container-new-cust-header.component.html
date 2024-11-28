@@ -1,0 +1,18 @@
+<br><br>
+<div class="col-md-12">
+    <div class="px-1 form-group row">
+      <label class="col-md-2" translate>Customer Type</label>
+      <div class="col-md-10">
+        <!-- <mat-radio-group [(ngModel)]="CustType" (change)="ChangeType()" [disabled]="CustId!=0">
+          <mat-radio-button class="custom-control custom-radio display-inline-block"
+            *ngFor="let item of listCustType" [value]="item.Key">
+            {{item.Value}}
+          </mat-radio-button>
+        </mat-radio-group> -->
+        <label class="display-inline-block" *ngFor="let item of listCustType">
+            <input type="radio" [value]="item.Key" [(ngModel)]="CustType"
+            (change)="ChangeType()"> {{item.Value}}&nbsp;&nbsp;
+        </label>
+      </div>
+    </div>
+</div>

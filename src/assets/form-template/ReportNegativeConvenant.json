@@ -1,0 +1,144 @@
+{
+    "title": "Report Negative Convenant",
+    "hideTitle": false,
+    "id": "ReportNegativeConvenant",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "report": {
+                "apiReportPath": "/v1/Report/GenerateReportR3",
+                "apiEnvironmentUrl": "FoundationR3Url",
+                "pagingInput": {
+                    "title": "",
+                    "reportName": "Negative Convenant",
+                    "reportTemplateCode": "NEGATIVE_CONVENANT",
+                    "component": [
+                        {
+                            "id": "fundingcompanySearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "FundingCompany",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "one",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "ContractNo"
+                            ],
+                            "filterPropName": "VendorCode",
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "contractnoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract No",
+                            "name": "ContractNo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "one",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "BatchNo"
+                            ],
+                            "filterPropName": "JfContractNo",
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "batchnoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "BatchNo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListKvpJfBatchByJfContractNo",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "typeSearchId",
+                            "type": "dropdown",
+                            "label": "Type",
+                            "name": "Type",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "one",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/RefMaster/GetListKeyValueActiveByCode",
+                            "criteriaPropName": "RefMasterTypeCode",
+                            "criteriaPropValue": "REPORT_TYPE_TMS",
+                            "isQueryIn": false,
+                            "useAutofill": false
+                        }
+                    ]
+                }
+            },
+            "id": "6f5c4079-340e-42e8-9e74-4574c6f735b9"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "overrideSubmitBtnText": ""
+}

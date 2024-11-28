@@ -1,0 +1,121 @@
+<lib-ucSubsection [id]="JobAddr + 'SectionId'" [title]="dictJobAddr[JobAddr].title" [panel]="JobAddr + 'Section'">
+</lib-ucSubsection>
+<div class="form-body" [id]="JobAddr + 'Section'">
+  <lib-ucaddress [addressObj]="dictJobAddr[JobAddr]" [UCAddrForm]="parentForm" [enjiForm]="enjiForm"
+    [identifier]="JobAddr+'UcAddress'">
+  </lib-ucaddress>
+</div>
+
+<lib-ucSubsection [id]="'PrevJobDataSectionId'" [title]="'Previous Job Data'" [panel]="'PrevJobDataSection'">
+</lib-ucSubsection>
+<div class="form-body" [id]="'PrevJobDataSection'">
+  <div class="form-group row">
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-md-4 adInsLabel" translate>Previous Company Name</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control adInsInput" formControlName="PrevCoyName"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.PrevCoyName.invalid}">
+          <lib-uc-show-errors [control]="parentForm.controls.PrevCoyName" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-md-4 adInsLabel" translate>Previous Employement Date</label>
+        <div class="col-md-8">
+          <input type="date" class="form-control adInsInput" formControlName="PrevEmploymentDt"
+            [max]="businessDtMin | date: 'yyyy-MM-dd'"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.PrevEmploymentDt.invalid}">
+          <lib-uc-show-errors [control]="parentForm.controls.PrevEmploymentDt" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<lib-ucSubsection [id]="OthBizAddr + 'SectionId'" [title]="dictJobAddr[OthBizAddr].title"
+  [panel]="OthBizAddr + 'Section'">
+</lib-ucSubsection>
+<div class="form-body" [id]="OthBizAddr + 'Section'">
+  <lib-ucaddress [addressObj]="dictJobAddr[OthBizAddr]" [UCAddrForm]="parentForm" [enjiForm]="enjiForm"
+    [identifier]="OthBizAddr+'UcAddress'">
+  </lib-ucaddress>
+</div>
+
+<lib-ucSubsection [id]="'OtherBusinessSectionId'" [title]="'Other Business'" [panel]="'OtherBusinessSection'">
+</lib-ucSubsection>
+<div class="form-body" [id]="'OtherBusinessSection'">
+  <div class="form-group row">
+    <div class="col-md-6">
+
+      <div class="form-group row">
+        <label class="col-md-4 adInsLabel" translate>Other Business Name</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control adInsInput" formControlName="OthBizName"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.OthBizName.invalid}">
+          <lib-uc-show-errors [control]="parentForm.controls.OthBizName" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-4 adInsLabel" translate>Other Business Industry Type</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control adInsInput" formControlName="OthBizIndustryTypeCode"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.OthBizIndustryTypeCode.invalid}">
+          <lib-uc-show-errors [control]="parentForm.controls.OthBizIndustryTypeCode" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-4 adInsLabel" translate>Establishment Date</label>
+        <div class="col-md-8">
+          <input type="date" class="form-control adInsInput" formControlName="OthBizEstablishmentDt"
+            [max]="businessDtMin | date: 'yyyy-MM-dd'"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.OthBizEstablishmentDt.invalid}">
+          <lib-uc-show-errors [control]="parentForm.controls.OthBizEstablishmentDt" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="form-group row">
+        <label class="col-md-4 adInsLabel" translate>Other Business Type</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control adInsInput" formControlName="OthBizType"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.OthBizType.invalid}">
+          <lib-uc-show-errors [control]="parentForm.controls.OthBizType" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-4 adInsLabel" translate>Other Job Type</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control adInsInput" formControlName="OthBizJobPosition"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.OthBizJobPosition.invalid}">
+          <lib-uc-show-errors [control]="parentForm.controls.OthBizJobPosition" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<lib-ucSubsection [id]="PrevJobAddr + 'SectionId'" [title]="dictJobAddr[PrevJobAddr].title"
+  [panel]="PrevJobAddr + 'Section'">
+</lib-ucSubsection>
+<div class="form-body" [id]="PrevJobAddr + 'Section'">
+  <lib-ucaddress [addressObj]="dictJobAddr[PrevJobAddr]" [UCAddrForm]="parentForm" [enjiForm]="enjiForm"
+    [identifier]="PrevJobAddr+'UcAddress'">
+  </lib-ucaddress>
+</div>

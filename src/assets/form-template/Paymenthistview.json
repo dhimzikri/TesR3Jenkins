@@ -1,0 +1,164 @@
+{
+    "title": "Payment Information",
+    "hideTitle": false,
+    "id": "Paymenthistview",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "Id",
+                    "subSectionTitle": "Payment Information Detail",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "FACILITYPAYOUT",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/JfAgrmntPayoutHistHObj/GetObjectByPrimaryKey",
+                    "querystring": {
+                        "name": ""
+                    },
+                    "reqObj": {
+                        "Id": "PaymentHistHId"
+                    },
+                    "mainInfo": [
+                        {
+                            "type": "date",
+                            "label": "Posting Date",
+                            "property": "PayOutExeDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Transaction Type",
+                            "property": "TrxTypeCode",
+                            "position": "left",
+                            "isHide": false
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "Id",
+                    "resObjName": ""
+                }
+            },
+            "id": "246c4222-a3fb-4a2d-9703-ea138b90fb05"
+        },
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "PayHistD",
+                "resultData": "",
+                "isSubsection": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Detail Seq No",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Inst Seq No",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Allocation Code",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "In Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Out Amount",
+                            "position": "left"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "right",
+                            "property": "DetailSeqNo"
+                        },
+                        {
+                            "type": "text",
+                            "position": "right",
+                            "property": "InstSeqNo"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "AllocationCode"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "InAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "OutAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityPayOutUrl",
+                    "apiPath": "/v1/JfAgrmntPayoutHist/GetJfAgrmntPayoutHistDByJfAgrmntNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "propName": "Id",
+                            "propValue": "PaymentHistHId",
+                            "isFromDict": false
+                        }
+                    ]
+                }
+            },
+            "id": "231fa2b0-2038-4910-9604-438eabfbacdd"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {}
+}

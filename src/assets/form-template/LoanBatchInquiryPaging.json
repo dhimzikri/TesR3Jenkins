@@ -1,0 +1,285 @@
+{
+    "title": "Loan Batch Inquiry Paging",
+    "hideTitle": false,
+    "id": "LoanBatchInquiryPaging",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "facilityMntUrl",
+                "apiVersion": "v2",
+                "service": "",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Loan Batch Inquiry",
+                    "querystring": {
+                        "name": "searchLoanBatchInquiry"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LC.LOAN_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode",
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "lcloanContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract",
+                            "name": "LC.LOAN_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanContract/GetListLoanContractKeyAndValue",
+                            "criteriaPropName": "Key",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LB.LOAN_BATCH_NO"
+                            ],
+                            "filterPropName": "LoanContractNo",
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "lbloanBatchNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "LB.LOAN_BATCH_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanBatch/GetListLoanBatchByContractNoAndStat",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "lbbatchStatSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch Status",
+                            "name": "LB.BATCH_STAT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/RefStatus/GetListKeyValueActiveGrpCodeByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "LB_BATCH_STATUS_TMS",
+                            "isQueryIn": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "loanagrmntnoSearchId",
+                            "type": "textbox",
+                            "label": "Loan Agreement No",
+                            "name": "LoanAgrmntNo",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        },
+                        {
+                            "id": "lmsagrmntnoSearchId",
+                            "type": "textbox",
+                            "label": "LMS Agreement No",
+                            "name": "LmsAgrmntNo",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "VT.VENDOR_CODE",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract No",
+                            "position": "center",
+                            "name": "LC.LOAN_CONTRACT_NO",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "LC.LOAN_CONTRACT_NAME",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "center",
+                            "name": "LB.LOAN_BATCH_NO",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch Status",
+                            "position": "center",
+                            "name": "RSBatch.DESCR",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Loan Agreement No",
+                            "position": "center",
+                            "name": "LA.LOAN_AGRMNT_NO",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "LMS Agreement No",
+                            "position": "center",
+                            "name": "LA.LMS_AGRMNT_NO",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Loan Status",
+                            "position": "center",
+                            "name": "RSAgrmnt.DESCR",
+                            "isSelectAll": false
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "VendorName",
+                            "isFlagColor": false,
+                            "key": "ViewVendor"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "center",
+                            "property": "LoanContractNo",
+                            "isFlagColor": false,
+                            "key": "ViewFundingContract"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "LoanContractName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "callback",
+                            "position": "center",
+                            "property": "LoanBatchNo",
+                            "isFlagColor": false,
+                            "key": "ViewFundingBatch"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "BatchStat",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "LoanAgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "LmsAgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "FundAgrmntStat",
+                            "isFlagColor": false
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false
+            },
+            "id": "60e0cbf2-af3b-4397-ab93-27f318422a43"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "overrideSubmitBtnText": ""
+}

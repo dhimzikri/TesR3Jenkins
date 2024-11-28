@@ -1,0 +1,125 @@
+<div class="card">
+  <div class="card-body bg-light-blue-card">
+          <lib-ucSubsection [id]="'PefindoScoreInfoId'" [title]="'Pefindo Score Info'" [panel]="'PefindoScoreInfo'">
+          </lib-ucSubsection>
+          <div id="PefindoScoreInfo" *ngIf="IsReady">
+              <div class="form-body p-3 border-top border-bottom">
+                <div class="form-group row">
+  
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-12 py-2">
+                    <span>
+                      <div class="col-md-12">
+                        <label class="label-control label-field" translate>Pefindo Score</label>
+                      </div>
+                      <div class="col-md-12 text-right">
+                        <span>
+                          <label class="label-control label-value breakword" translate>{{ PefindoScoreInfo.Score }} </label>
+                        </span>
+                      </div>
+                    </span>
+                  </div>
+  
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-12 py-2">
+                    <span>
+                      <div class="col-md-12">
+                        <label class="label-control label-field" translate>Pefindo Grade</label>
+                      </div>
+                      <div class="col-md-12 text-right">
+                        <span>
+                          <label class="label-control label-value breakword" translate>{{ PefindoScoreInfo.Grade }}</label>
+                        </span>
+                      </div>
+                    </span>
+                  </div>
+  
+                  <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-12 py-2">
+                    <span>
+                      <div class="col-md-12">
+                        <label class="label-control label-field" translate>Probability of Default(%)</label>
+                      </div>
+                      <div class="col-md-12 text-right">
+                        <span>
+                          <label class="label-control label-value breakword" translate>{{ PefindoScoreInfo.ProbOfDefault }}%</label>
+                        </span>
+                      </div>
+                    </span>
+                  </div>
+  
+                </div>
+              </div>
+          </div>
+          
+          <lib-ucSubsection [id]="'ReasonCodesId'" [title]="'Reason Codes'" [panel]="'ReasonCodes'">
+          </lib-ucSubsection>
+          <div id="ReasonCodes" class="px-3" *ngIf="IsReady">
+            <br>
+            <div class="card-body" style="overflow-x: auto">
+              <table class="table table-responsive-md text-center table-hover table-new">
+                <thead>
+                  <tr class="table-header-2">
+                    <th style="text-align: left;">
+                      <span name="Code">Code</span>
+                    </th>
+                    <th style="text-align: left;">
+                      <span name="Description">Description</span>
+                    </th>
+                  </tr>
+                </thead>
+          
+                <tbody>
+                  <tr *ngFor="let item of PefindoScoreInfo.ListRPefindoDReason">
+                    <td style="text-align: left;">{{ item.Code }}</td>
+                    <td style="text-align: left;">{{ item.Desc }}</td>
+                  </tr>
+                </tbody>
+          
+              </table>
+            </div>
+            <br>
+          </div>
+          
+          <lib-ucSubsection [id]="'ScoreHistoryId'" [title]="'Score History'" [panel]="'ScoreHistory'">
+          </lib-ucSubsection>
+          <div id="ScoreHistory" class="px-3" *ngIf="IsReady">
+            <br>
+            <div class="card-body" style="overflow-x: auto">
+              <table class="table table-responsive-md text-center table-hover table-new">
+                <thead>
+                  <tr class="table-header-2">
+                    <th style="text-align: left;">
+                      <span name="Monsth/Year">Month/Year</span>
+                    </th>
+                    <th style="text-align: left;" *ngFor="let item of PefindoScoreHist">
+                      {{item.Date | date:'MM/yy'}}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="text-align: left;">Pefindo Score</td>
+                    <td style="text-align: left;" *ngFor="let item of PefindoScoreHist">
+                      {{item.Score}}
+                    </td>
+                  </tr>
+          
+                  <tr>
+                    <td style="text-align: left;">Probability of Default</td>
+                    <td style="text-align: left;" *ngFor="let item of PefindoScoreHist">
+                      {{item.ProbOfDefault}}%
+                    </td>
+                  </tr>
+          
+                  <tr>
+                    <td style="text-align: left;">Pefindo Grade</td>
+                    <td style="text-align: left;" *ngFor="let item of PefindoScoreHist">
+                      {{item.Grade}}
+                    </td>
+                  </tr>
+          
+                </tbody>
+              </table>
+            </div>
+            <br>
+          </div>
+      </div>
+</div>

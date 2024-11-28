@@ -1,0 +1,128 @@
+{
+	"title": "Additional Attribute Jf Contract",
+	"hideTitle": false,
+	"id": "AdditionalAttributJfContract",
+	"addButton": false,
+	"addLink": "",
+	"pathOption": "",
+	"backButton": false,
+	"component": [
+		{
+			"view": {
+				"subsection": {
+					"subSectionId": "MainInformationId",
+					"subSectionTitle": "Main Information",
+					"concatDate": false,
+					"setDate": "",
+					"formatDate": "",
+					"environment": "facilityMntUrl",
+					"apiVersion": "v1",
+					"uri": "",
+					"mainInfoPath": "/Generic/GetDataViewBySQL",
+					"querystring": {
+						"name": "viewFundingContractMainInfo"
+					},
+					"reqObj": {},
+					"mainInfo": [
+						{
+							"type": "callback",
+							"label": "Funding Company Name",
+							"property": "FundCoyName",
+							"key": "ViewVendor",
+							"position": "left",
+							"isHide": false,
+							"isText": false
+						},
+						{
+							"type": "link",
+							"label": "Funding Contract Name",
+							"property": "FundContractName",
+							"isFullpath": false,
+							"path": "/View/FundingContract/View",
+							"target": "_blank",
+							"position": "left",
+							"param": [
+								{
+									"type": "JfContractNo",
+									"property": "FundContractNo"
+								}
+							],
+							"isCurrency": false,
+							"isHide": false,
+							"customClassLabel": "",
+							"customClassProperty": ""
+						},
+						{
+							"type": "text",
+							"label": "Funding Contract No",
+							"property": "FundContractNo",
+							"position": "left",
+							"isHide": false,
+							"customClassLabel": "",
+							"customClassProperty": ""
+						}
+					],
+					"whereValue": [],
+					"fromValue": [],
+					"subsectionId": "MainInformationId"
+				}
+			},
+			"id": "c1aeac57-7180-42fe-870c-4d301efad05d"
+		},
+		{
+			"container": {
+				"key": "DefaultFeeComponent",
+				"className": "DetailFundingContractAddTabComponent",
+				"cssClass": "",
+				"input": {
+					"JfContractNo": "ContractNo",
+					"mode": "mode"
+				}
+			},
+			"id": "1d765de2-e831-4a7f-b1e3-7ad59040aab0"
+		}
+	],
+	"serviceUrl": {
+		"add": {
+			"environment": "",
+			"apiPath": "",
+			"apiUrl": ""
+		},
+		"edit": {
+			"environment": "",
+			"apiPath": "",
+			"apiUrl": ""
+		},
+		"createRfa": {
+			"environment": "",
+			"apiPath": "",
+			"apiUrl": ""
+		}
+	},
+	"isRedirect": false,
+	"redirectOption": "",
+	"redirectLink": "",
+	"hideSubmitButton": false,
+	"listBtn": [
+		{
+			"displayName": "Back",
+			"id": "backId",
+			"key": "",
+			"position": "top",
+			"icon": "",
+			"cssClass": "",
+			"conditions": [],
+			"action": {
+				"type": "link",
+				"path": "/Setting/FundingContract/Paging",
+				"target": "_self",
+				"params": []
+			}
+		}
+	],
+	"onInit": [],
+	"hideCancelButton": false,
+	"customToastrMsg": "",
+	"isOverrideSubmit": false,
+	"isOverrideCancel": false
+}

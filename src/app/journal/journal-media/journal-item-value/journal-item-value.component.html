@@ -1,0 +1,120 @@
+<div class="row text-left">
+  <div class="col-md-12" *ngIf="IsReady">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate>Journal Media Item Value Setting</h4>
+            </div>
+          </div>
+        </div>
+        <div class="px-3">
+          <div class="form-body" id="JournalMediaEntitySetting" *ngIf="JrMGroupId != null">
+            <div class="form-group row">
+              <label class="col-md-2" translate>Sub System</label>
+              <div class="col-md-4">
+                {{ SubsystemDesc }}
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2" translate>Transaction Type Code</label>
+              <div class="col-md-4">
+                {{ TransactionTypeCode }}
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2" translate>Transaction Description</label>
+              <div class="col-md-4">
+                {{ TransactionDescription }}
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2" translate>Group Name</label>
+              <div class="col-md-4">
+                {{ GroupName }}
+              </div>
+            </div>
+          </div>
+          <form class="form form-horizontal" [formGroup]="ItemValueForm"
+            (ngSubmit)="ItemValueForm.valid && onAdd(enjiForm)" #enjiForm="ngForm">
+            <lib-ucSubsection [id]="'FactListId'" [title]="'Fact List'" [panel]="'FactList'">
+            </lib-ucSubsection>
+            <div class="form-body" id="FactList">
+
+              <div class="form-group row">
+                <label class="col-md-2" translate>Item Value Alias</label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" formControlName="ItemAlias" [IsUpperCase]="false"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && ItemValueForm.controls.ItemAlias.invalid }">
+                  <lib-uc-show-errors [control]="ItemValueForm.controls.ItemAlias" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+                <label class="col-md-2" translate>Item Value Property</label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" formControlName="ItemProperty" [IsUpperCase]="false"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && ItemValueForm.controls.ItemProperty.invalid }">
+                  <lib-uc-show-errors [control]="ItemValueForm.controls.ItemProperty" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-actions right">
+                <button type="submit" class="btn btn-raised btn-primary" translate>
+                  Add
+                </button>
+              </div>
+
+
+              <div class="table-responsive" *ngIf="listItemValue.length > 0">
+                <table class="table text-center table-hover">
+                  <thead>
+                    <tr class="table-header">
+                      <th>
+                        <span class="thead-header" translate>NO</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>ITEM VALUE ALIAS</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>ITEM VALUE PROPERTY</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>ACTION</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of listItemValue;let i = index">
+                      <td>{{ (1 + i) }}</td>
+                      <td class="text-left">{{ item.IvAlias }}</td>
+                      <td class="text-left">{{ item.IvProperty }}</td>
+                      <td>
+                        <a *ngIf="item.JrMItemValueId == undefined" class="danger p-0" (click)="onDelete(i)">
+                          <i class="ft-trash-2 font-medium-3 mr-2"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+
+                </table>
+              </div>
+
+
+            </div>
+
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]"
+                [queryParams]="{JrMHeaderId: JrMHeaderId}" translate>
+                <i class="fa fa-arrow-circle-left"></i> Cancel
+              </button>
+              <button type="button" (click)="onSubmit()" class="btn btn-raised btn-primary" translate>
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

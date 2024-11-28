@@ -1,0 +1,191 @@
+{
+    "title": "JOURNAL MEDIA SETTING",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "JMH.SUB_SYSTEM",
+            "id": "SubSystemId",
+            "value": "",
+            "label": "Sub System",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "JMH.TRX_TYPE_CODE",
+            "id": "TrxTypeCodeId",
+            "value": "",
+            "label": "Transaction Type Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "JMH.TRX_DESC",
+            "id": "TrxDscId",
+            "value": "",
+            "label": "Transaction Description",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "isSeq": false,
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Sub System",
+            "name": "JMH.SUB_SYSTEM"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Transaction Type Code",
+            "name": "JMH.TRX_TYPE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Transaction Description",
+            "name": "JMH.TRX_DESC"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Entity Type"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Header Fact"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Group"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Delete"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SubSystem"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "TrxTypeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "TrxDesc"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "JOURNAL_MEDIA_DETAIL",
+                    "param": [
+                        {
+                            "type": "JrMHeaderId",
+                            "property": "JrMHeaderId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ],
+                    "icon": "ft-edit-2"
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "CountEntity",
+                                    "value": "0",
+                                    "restriction": "GT"
+                                }
+                            ],
+                            "result": {
+                                "type": "url",
+                                "path": "JOURNAL_MEDIA_HEADER_FACT",
+                                "icon": "ft-edit-2",
+                                "param": [
+                                    {
+                                        "type": "JrMHeaderId",
+                                        "property": "JrMHeaderId"
+                                    }
+                                ]
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "JOURNAL_MEDIA_GROUP",
+                    "param": [
+                        {
+                            "type": "JrMHeaderId",
+                            "property": "JrMHeaderId"
+                        }
+                    ],
+                    "icon": "ft-edit-2"
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "CountHeaderFact",
+                                    "value": "0",
+                                    "restriction": "EQ"
+                                },
+                                {
+                                    "property": "CountGroup",
+                                    "value": "0",
+                                    "restriction": "EQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "delete",
+                                "property": "JrMHeaderId"
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "querystring": {
+        "name": "searchJournalMediaPaging"
+    }
+}

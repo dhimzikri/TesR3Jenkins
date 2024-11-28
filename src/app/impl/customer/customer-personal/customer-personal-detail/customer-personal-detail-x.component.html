@@ -1,0 +1,189 @@
+<div class="addEdit">
+    <form class="form form-horizontal" [formGroup]="CustomerDetailForm"
+      (ngSubmit)="CustomerDetailForm.valid && SaveValue()" #enjiForm="ngForm">
+      <div class="form-body">
+        <lib-ucSubsection [id]="'MainInfo'" [title]="'Main Info'" [panel]="'MainInfoId'">
+        </lib-ucSubsection>
+        <div id="MainInfoId">
+  
+          <div class="form-group row">
+            <div class="col-md-6">
+  
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Full Name</label>
+                <div class="col-md-8">
+                  <label>{{this.tempCustObj?.CustName}}</label>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4  adInsLabel" translate>Nick Name</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control adInsInput" formControlName="NickName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerDetailForm.controls.NickName.invalid}">
+                  <lib-uc-show-errors [control]="CustomerDetailForm.controls.NickName" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Num Of Dependents</label>
+                <div class="col-md-8">
+                  <input type="number" class="form-control adInsInput" formControlName="NoOfDependents"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerDetailForm.controls.NoOfDependents.invalid}">
+                  <lib-uc-show-errors [control]="CustomerDetailForm.controls.NoOfDependents"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4" translate>Num Of Residence (Last 3 Years)</label>
+                <div class="col-md-8">
+                  <input type="number" class="form-control adInsInput" formControlName="NoOfResidence"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerDetailForm.controls.NoOfResidence.invalid}">
+                  <lib-uc-show-errors [control]="CustomerDetailForm.controls.NoOfResidence" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel adins-required-label" translate>Family Card Num</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control adInsInput" formControlName="FamilyCardNo"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerDetailForm.controls.FamilyCardNo.invalid}">
+                  <lib-uc-show-errors [control]="CustomerDetailForm.controls.FamilyCardNo" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Rest In Peace</label>
+                <div class="col-md-8">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsRestInPeace" />
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>VIP</label>
+                <div class="col-md-8">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsVip"
+                    (change)="checkState()" />
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Affiliation with Multifinance</label>
+                <div class="col-md-8">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsAffiliateWithMf" />
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4" translate>Customer Group</label>
+                <div class="col-md-8">
+                  <lib-uclookupgeneric [enjiForm]="enjiForm" [lookupInput]="lookupCustGrpObj"
+                    *ngIf="lookupCustGrpObj.isReady" [parentForm]="CustomerDetailForm" [identifier]="'CustomerGrp'"
+                    (lookup)="GetCustGrpData($event)">
+                  </lib-uclookupgeneric>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="col-md-6">
+  
+              <div class="form-group row adins-required">
+                <label class="col-md-4 adInsLabel" translate>Salutation</label>
+                <div class="col-md-8" *ngIf="DictUcDDLObj[RefMasterTypeCodeSalutation]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeSalutation]"
+                    [parentForm]="CustomerDetailForm" [enjiForm]="enjiForm" [identifier]="'MrSalutationCode'"></lib-ucdropdownlist>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Gelar Depan Nama</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control adInsInput" formControlName="CustPrefixName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerDetailForm.controls.CustPrefixName.invalid}">
+                  <lib-uc-show-errors [control]="CustomerDetailForm.controls.CustPrefixName"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Gelar Belakang Nama</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control adInsInput" formControlName="CustSuffixName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerDetailForm.controls.CustSuffixName.invalid}">
+                  <lib-uc-show-errors [control]="CustomerDetailForm.controls.CustSuffixName"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adins-required-label" translate>Nationality</label>
+                <div class="col-md-8" *ngIf="DictUcDDLObj[RefMasterTypeCodeNationality]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeNationality]"
+                    [parentForm]="CustomerDetailForm" [enjiForm]="enjiForm" [identifier]="'MrNationalityCode'" (callback)="onOptionsSelected($event)"></lib-ucdropdownlist>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adins-required-label" translate>Country</label>
+                <div class="col-md-8">
+                  <div *ngIf="flag">
+                    {{this.LocalCountry}}
+                  </div>
+                  <div [hidden]="flag" *ngIf="lookUpObj != undefined">
+                    <lib-uclookupgeneric [lookupInput]="lookUpObj" [parentForm]="CustomerDetailForm" [enjiForm]="enjiForm"
+                      [identifier]="'WnaCountryCode'" (lookup)=getLookUp($event)>
+                    </lib-uclookupgeneric>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adins-required-label" translate>Education</label>
+                <div class="col-md-8" *ngIf="DictUcDDLObj[RefMasterTypeCodeEducation]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeEducation]"
+                    [parentForm]="CustomerDetailForm" [enjiForm]="enjiForm" [identifier]="'MrEducationCode'"></lib-ucdropdownlist>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adins-required-label" translate>Religion</label>
+                <div class="col-md-8" *ngIf="DictUcDDLObj[RefMasterTypeCodeReligion]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeReligion]"
+                    [parentForm]="CustomerDetailForm" [enjiForm]="enjiForm" [identifier]="'MrReligionCode'"></lib-ucdropdownlist>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel"
+                  [ngClass]="{'adins-required-label' : CustomerDetailForm.controls.IsVip.value}" translate>VIP Notes</label>
+                <div class="col-md-8">
+                  <textarea class="form-control adInsInput width-75-per" formControlName="VipNotes"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerDetailForm.controls.VipNotes.invalid }"></textarea>    
+                  <lib-uc-show-errors [control]="CustomerDetailForm.controls.VipNotes" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+      <div class="form-actions right">
+        <!-- <button type="button" class="btn btn-raised btn-warning mr-1" (click)="back()" translate>
+          <i class="far fa-window-close"></i> Cancel
+        </button> -->
+        <button type="submit" class="btn btn-raised btn-primary">
+          <i class="far fa-check-square"></i>&nbsp;<span translate>Save and Continue</span>
+        </button>
+      </div>
+    </form>
+  </div>

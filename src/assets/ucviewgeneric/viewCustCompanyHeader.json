@@ -1,0 +1,64 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "CustCompanyHeaderId",
+        "subSectionTitle": "Main Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+            {
+                "type": "link",
+                "label": "Customer No",
+                "position": "left",
+                "property": "CustNo",
+                "target": "_blank",
+                "path": "VIEW_CUST_COY_DETAIL",
+                "param": [
+                    {
+                        "type": "CustId",
+                        "property": "CustId"
+                    }
+                ]
+            },
+          {
+            "type": "text",
+            "label": "Customer Name",
+            "property": "CustName"
+          },
+          {
+            "type": "text",
+            "label": "Customer Model",
+            "property": "CustModelName"
+          },
+          {
+            "type": "text",
+            "label": "Company Type",
+            "property": "MrCompanyTypeCode"
+          },
+          {
+            "type": "text",
+            "label": "Tax Id No",
+            "property": "TaxIdNo"
+          },
+          {
+            "type": "boolean",
+            "label": "Affiliation With Multifinance",
+            "property": "StatusAffiliate"
+          },
+          {
+            "type": "boolean",
+            "label": "VIP",
+            "property": "StatusIsVip"
+          },
+          {
+            "type": "text",
+            "label": "VIP Notes",
+            "property": "VipNotes"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustCompanyHeader"
+        }
+      }
+    ]
+  }

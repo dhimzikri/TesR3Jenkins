@@ -1,0 +1,116 @@
+{
+    "title": "Branch Office Member Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "RO.OFFICE_CODE",
+            "id": "OfficeCodeId",
+            "value": "",
+            "label": "Office Code",
+            "placeholder": "Office Code"
+        },
+        {
+            "type": "textbox",
+            "name": "RO.OFFICE_NAME",
+            "id": "OfficeNameId",
+            "value": "",
+            "label": "Office Name",
+            "placeholder": "Office Name"
+        },
+        {
+            "type": "textbox",
+            "name": "RO.OFFICE_ADDR",
+            "id": "OfficeAddrId",
+            "value": "",
+            "label": "Office Address",
+            "placeholder": "Office Address"
+        },
+        {
+            "type": "dropdown",
+            "name": "RO.IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "true",
+                    "value": "Yes"
+                },
+                {
+                    "key": "false",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchRefOffice"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Office Code",
+            "name": "RO.OFFICE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Office Name",
+            "name": "RO.OFFICE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Office Address",
+            "name": "RO.OFFICE_ADDR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "ACTIVE STATUS",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OfficeCode"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OfficeName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OfficeAddr"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefOfficeId"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,259 @@
+{
+    "title": "Loan Review Pledged Agreement",
+    "hideTitle": false,
+    "id": "Loanreviewcollpaging",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "facilityMntUrl",
+                "apiVersion": "v2.1",
+                "service": "",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Search",
+                    "querystring": {
+                        "name": "searchLoanReviewCollateral"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LC.LOAN_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "lcloanContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract",
+                            "name": "LC.LOAN_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanContract/GetListLoanContractKeyAndValue",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LB.LOAN_BATCH_NO"
+                            ],
+                            "filterPropName": "LoanContractNo"
+                        },
+                        {
+                            "id": "lbloanBatchNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "LB.LOAN_BATCH_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanBatch/GetListLoanBatchByContractNoAndStat",
+                            "criteriaPropName": "LoanBatchStat",
+                            "criteriaPropValue": "DRW",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "lbdrawdownDtSearchId",
+                            "type": "datepicker",
+                            "label": "Drawdown Date >=",
+                            "name": "LB.DRAWDOWN_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "gte",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "lbdrawdownDtSearchId",
+                            "type": "datepicker",
+                            "label": "Drawdown Date <=",
+                            "name": "LB.DRAWDOWN_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "lte",
+                            "useDefVal": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company",
+                            "position": "left",
+                            "name": "VT.VENDOR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract",
+                            "position": "left",
+                            "name": "LC.LOAN_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "center",
+                            "name": "LB.LOAN_BATCH_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Plan Amount",
+                            "position": "right",
+                            "name": "LB.DRAWDOWN_AMT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Plan Date",
+                            "position": "center",
+                            "name": "LB.DRAWDOWN_DT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "No. Of Agreement",
+                            "position": "center",
+                            "name": "NumOfAgr.num"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Review",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundingCompany",
+                            "isFlagColor": false,
+                            "key": "ViewLoanCoy"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundingContract",
+                            "isFlagColor": false,
+                            "key": "ViewLoanContract"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "center",
+                            "property": "FundingBatchNo",
+                            "isFlagColor": false,
+                            "key": "ViewLoanBatch"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "DrawdownAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "DrawdownDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "NumOfAgr",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "SETTING_FUNDING_LOAN_REVIEW_DETAIL",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "LoanBatchNo",
+                                            "property": "FundingBatchNo"
+                                        },
+                                        {
+                                            "type": "LoanContractNo",
+                                            "property": "FundingContractNo"
+                                        }
+                                    ],
+                                    "property": "Review"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "92f83d16-2765-43d4-ba93-e4359594400a"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

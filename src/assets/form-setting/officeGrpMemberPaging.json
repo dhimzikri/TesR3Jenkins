@@ -1,0 +1,55 @@
+{
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Code",
+            "name": "officeCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Name",
+            "name": "officeName"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Address",
+            "name": "officeAddr"
+        },
+        
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "officeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "oficeName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "officeAddr"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "delete",
+                    "property": "CenterGrpOfficeMbrId"
+                }
+            ]
+        }
+    ]
+}

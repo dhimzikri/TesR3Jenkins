@@ -1,0 +1,67 @@
+{
+    "url": "",
+    "title":"Lookup - Supervisor",
+    "sectionTitle": "Search",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "EMP_NO",
+        "id": "EmployeeNoId",
+        "label": "Employee No",
+        "placeholder": ""
+      },
+      {
+        "type": "textbox",
+        "name": "EMP_NAME",
+        "id": "EmployeeNameId",
+        "label": "Employee Name",
+        "placeholder": ""
+      }
+    ],
+    "querystring": {
+      "name": "lookupSupervisor"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Employee No",
+            "name": "EMP_NO"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Employee Name",
+            "name": "EMP_NAME"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Select"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "EmpNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "EmpName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefEmpId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "RefEmpId",
+    "propertyName": "EmpName"
+}

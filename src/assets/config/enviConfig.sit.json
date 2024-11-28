@@ -1,0 +1,21 @@
+{
+    "LosURL": "https://r3app-server.ad-ins.com:8444/LOS",
+    "NotifEngineURL": "https://r3app-server.ad-ins.com:8444/NOTIFICATION_ENGINE",
+    "FoundationR3Url": "https://r3app-server.ad-ins.com:8444/FOUNDATION",
+    "DMSUrl": "https://sky.ad-ins.com/LITEDMS_POC/Integration/ViewDoc.aspx",
+    "AMSUrl": "https://r3app-server.ad-ins.com/AMS_DEMO",
+    "LMSUrl": "https://r3app-server.ad-ins.com/LMS_DEMO",
+    "lmsWeb": "https://r3impl-websvr.ad-ins.com/LMS",
+    "ApprovalR3Url": "https://r3app-server.ad-ins.com:8444/APPROVAL_R3_BE",
+    "ApprovalURL": "https://r3impl-appsvr.ad-ins.com/APPROVAL_DSF_R3_SIT",
+    "FoundationR3Web": "https://r3web-server.ad-ins.com:8444/FOUNDATION",
+    "losR3Web": "https://r3web-server.ad-ins.com:8444/LOS",
+    "cmsR3Web": "https://r3web-server.ad-ins.com/CMS_DEV",
+    "amsR3Web": "http://r3web-server.ad-ins.com/AMS",
+    "WorkflowR3Url": "https://R3App-Server.ad-ins.com/WORKFLOW_R3",
+    "WebSocketURL": "https://r3app-server.ad-ins.com:8444/FOUNDATION",
+    "DashboardURL": "https://r3app-server.ad-ins.com/Dashboard",
+    "dmsURL": "https://kfx-svr/LITEDMS_POC/LiteDMS/pageconfins.aspx",
+    "WFThingsToDoUrl": "https://r3impl-appsvr.ad-ins.com/WORKFLOW_OPL/",
+    "IseUseNotification": "1"
+}

@@ -1,0 +1,33 @@
+{
+  "title": "User",
+  "exportExcel": true,
+  "component": [
+    {
+      "type": "textbox",
+      "name": "userName",
+      "id": "userNameId",
+      "value": "",
+      "label": "Username",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "textbox",
+      "name": "empNo",
+      "id": "empNoId",
+      "value": "",
+      "label": "Employee No",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "textbox",
+      "name": "empName",
+      "id": "empNameId",
+      "value": "",
+      "label": "Employee Name",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    }
+  ]
+}

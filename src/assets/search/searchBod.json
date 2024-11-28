@@ -1,0 +1,21 @@
+{
+    "title": "Board of Director",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "name",
+            "id": "nameId",
+            "value": "",
+            "label": "Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "jobTitle",
+            "id": "jobTitleId",
+            "value": "",
+            "label": "Job Title",
+            "placeholder": "Placeholder"
+        }
+    ]
+}

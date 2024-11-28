@@ -1,0 +1,108 @@
+<div class="form-body">
+  <lib-ucSubsection [id]="'LegalDocId'" [title]="'Legal Doc'" [panel]="'LegalDocSection'">
+  </lib-ucSubsection>
+  <div class="p-3">
+  <div id="LegalDocSection">
+    <div class="form-group row">
+      <div class="col-md-6 label-field-2">
+        Application Data
+      </div>
+      <div class="col-md-6 label-field-2">
+        Master Customer Data
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-6" style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover table-new">
+          <thead>
+            <tr class="table-header-2">
+              <th style="text-align: left;">
+                <span class="thead-header" name='No' translate>NO.</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='LegalDocType' translate>LEGAL DOC TYPE</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='DocNo' translate>DOCUMENT NO</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='DateIssued' translate>DATE ISSUED</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='ExpiredDate' translate>EXPIRED DATE</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='Action' translate>COPY</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of AppLegalDoc; let i = index">
+              <td style="text-align: left;">{{i+1}}</td>
+              <td style="text-align: left;">{{item.MrLegalDocTypeCode}}</td>
+              <td style="text-align: left;">{{item.DocNo}}</td>
+              <td style="text-align: left;">{{item.DocDt | date: 'yyyy-MM-dd'}}</td>
+              <td style="text-align: left;">{{item.DocExpiredDt | date: 'yyyy-MM-dd'}}</td>
+              <td style="text-align: center; padding-left: 0;">
+                <a (click)="addLegalDocHandler(i)" *ngIf="!item.IsMasterData">
+                  Copy
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6" style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover table-new">
+          <thead>
+            <tr class="table-header-2">
+              <th style="text-align: left;">
+                <span class="thead-header" name='No' translate>NO.</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='LegalDocType' translate>LEGAL DOC TYPE</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='DocNo' translate>DOCUMENT NO</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='DateIssued' translate>DATE ISSUED</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='ExpiredDate' translate>EXPIRED DATE</span>
+              </th>
+              <th style="text-align: left;">
+                <span class="thead-header" name='Action' translate>UNDO</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of MasterLegalDoc; let i = index">
+              <td style="text-align: left;">{{i+1}}</td>
+              <td style="text-align: left;">{{item.MrLegalDocTypeCode}}</td>
+              <td style="text-align: left;">{{item.DocNo}}</td>
+              <td style="text-align: left;">{{item.DocDt | date: 'yyyy-MM-dd'}}</td>
+              <td style="text-align: left;">{{item.DocExpiredDt | date: 'yyyy-MM-dd'}}</td>
+              <td style="text-align: center; padding-left: 0;">
+                <a (click)="cancelLegalDocHandler(i)" *ngIf="!item.IsMasterData">
+                  Undo
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="p-3">
+  <div class="form-actions right" style="text-align: right;">
+    <button type="button" class="btn btn-raised mr-1 btn-outline-2" (click)="back()">
+      <i class="far fa-window-close button-icon"></i>&nbsp;<span class="button-text" translate>Cancel</span>
+    </button>
+    <button type="button" class="btn btn-raised mr-1 btn-primary-2" (click)="SaveValue()">
+      <i class="far fa-check-square button-icon"></i>&nbsp;<span class="button-text" translate>Save</span>
+    </button>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,166 @@
+{
+    "headerList": [
+        {
+            "Label": "Bank Name"
+        },
+        {
+            "Label": "PDC No"
+        },
+        {
+            "Label": "Deposit No"
+        },
+        {
+            "Label": "Deposit To Bank Account"
+        },
+        {
+            "Label": "PDC Due Date"
+        },
+        {
+            "Label": "Next Clearing Date"
+        },
+        {
+            "Label": "PDC Amount"
+        },
+        {
+            "Label": "Clear Status"
+        },
+        {
+            "Label": "Clear Amount"
+        },
+        {
+            "Label": "Clearance Fee"
+        },
+        {
+            "Label": "Bounce Reason"
+        },
+        {
+            "Label": "Clearing Result Date"
+        }
+    ],
+    "bodyList": [
+        {
+            "Type": "LABEL",
+            "Label": "Bank Name",
+            "Variable": "BankName",
+            "Value": ""
+        },
+        {
+            "Type": "LABEL",
+            "Label": "PDC No",
+            "Variable": "PdcNo",
+            "Value": ""
+        },
+        {
+            "Type": "LABEL",
+            "Label": "Deposit No",
+            "Variable": "DepositNo",
+            "Value": ""
+        },
+        {
+            "Type": "LABEL",
+            "Label": "Office Bank Acc Name",
+            "Variable": "OfficeBankAccName",
+            "Value": ""
+        },
+        {
+            "Type": "LABEL",
+            "Label": "PDC Due Date",
+            "Variable": "PdcDueDt",
+            "Value": ""
+        },
+        {
+            "Type": "LABEL",
+            "Label": "Next Clearing Date",
+            "Variable": "NextClearingDt",
+            "Value": ""
+        },
+        {
+            "Type": "LABEL",
+            "Label": "PDC Amount",
+            "Variable": "PdcAmt",
+            "Value": ""
+        },
+        {
+            "Type": "DDL",
+            "Label": "Clear Status",
+            "Variable": "PdcStatCode",
+            "IsRequired": true,
+            "IsCallback": true,
+            "IsReadonly": false,
+            "IsHide": false,
+            "IsEditable": true,
+            "UseDefaultValue": false,
+            "DdlReqObj": {
+                "Environment": "PDC",
+                "Url": "/PdcClearing/GetListKvpClearanceStat",
+                "CustomObjName": "ReturnObject",
+                "ReqObj": {}
+            }
+        },
+        {
+            "Type": "CURRENCY",
+            "Label": "Clear Amount",
+            "Variable": "PdcClearAmt",
+            "IsRequired": false,
+            "IsCallback": true,
+            "IsReadonly": false,
+            "IsHide": false,
+            "IsEditable": true,
+            "CurrencyMaskConfig": {
+                "align": "right",
+                "allowNegative": true,
+                "decimal": ".",
+                "precision": 2,
+                "prefix": "",
+                "suffix": "",
+                "thousands": ",",
+                "nullable": false,
+                "inputMode": "CurrencyMaskInputMode.NATURAL"
+            },
+            "Min": 0,
+            "Max": 999999999,
+            "UseDefaultValue": true
+        },
+        {
+            "Type": "LABEL",
+            "Label": "Clearance Fee",
+            "Variable": "ClearanceAmt",
+            "Value": ""
+        },
+        {
+            "Type": "DDL",
+            "Label": "Bounce Status",
+            "Variable": "ReasonCode",
+            "IsRequired": true,
+            "IsCallback": true,
+            "IsReadonly": false,
+            "IsHide": false,
+            "IsEditable": false,
+            "UseDefaultValue": false,
+            "DdlReqObj": {
+                "Environment": "FOU",
+                "Url": "/RefReason/GetListKeyValueByCode",
+                "CustomObjName": "ReturnObject",
+                "ReqObj": {
+                    "RefReasonTypeCode": "PDC_CLEARING"
+                }
+            }
+        },
+        {
+            "Type": "DATE",
+            "Label": "Clearing Result Date",
+            "Variable": "ClearingDt",
+            "IsRequired": true,
+            "IsCallback": false,
+            "IsReadonly": false,
+            "IsHide": false,
+            "IsEditable": true,
+            "UseDefaultValue": true,
+            "Min": "",
+            "Max": "BD",
+            "Value": "BD"
+        }
+    ],
+    "addBodyList": [],
+    "footerList": []
+}

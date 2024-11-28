@@ -1,0 +1,268 @@
+{
+    "title": "PDC Send To Office",
+    "keyProperty": "PdcNo",
+    "keyPropCriteria": "p.PDC_NO",
+    "component": [
+        {
+            "type": "textbox",
+            "label": "Bank Name",
+            "name": "rbl.BANK_NAME",
+            "id": "BankNameId",
+            "value": "",
+            "placeholder": "",
+            "datatype": "text"
+        },
+        {
+            "type": "dropdown",
+            "label": "Clearance Type",
+            "name": "p.MR_CLEARANCE_TYPE_CODE",
+            "id": "ClearanceTypeCodeId",
+            "value": "",
+            "datatype": "text",
+            "ddlType": "all",
+            "isFromURL": true,
+            "items": [],
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "itemsUrl": [],
+            "environment": "FOU",
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "CLEARANCE_TYPE" 
+        },
+        {
+            "type" : "datepicker",
+            "label" : "PDC Due Date >=",
+            "name" : "p.PDC_DUE_DT",
+            "id" : "PdcDueDtgteId", 
+            "value" : "", 
+            "restriction" : "gte",
+            "datatype" : "date"
+        },
+        {
+            "type" : "datepicker",
+            "label" : "PDC Due Date <=",
+            "name" : "p.PDC_DUE_DT",
+            "id" : "PdcDueDtlteId", 
+            "value" : "", 
+            "restriction" : "lte",
+            "datatype" : "date"
+        }
+    ],
+    "querystring": {
+        "name": "searchPdcSendToOffice"
+    },
+    "headerList": [
+        {
+            "type": "checkbox",
+            "position": "center"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Bank Name",
+            "name": "rbl.BANK_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Bank Branch",
+            "name": "p.BANK_BRANCH"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PDC_NO",
+            "name": "p.PDC_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PDC Issue Name",
+            "name": "p.PDC_ISSUE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PDC Due Date",
+            "name": "p.PDC_DUE_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Next Clearing Date",
+            "name": "p.NEXT_CLEARING_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PDC Amount",
+            "name": "p.PDC_AMT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Clearance Type",
+            "name": "p.MR_CLEARANCE_TYPE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Cumulative",
+            "name": "CASE WHEN p.IS_CUMULATIVE = 1 THEN 'Yes' ELSE 'No' END"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Bounce Count",
+            "name": "p.BOUNCE_COUNT"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "checkbox",
+            "position": "center"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "BankName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "BankBranch"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "PdcNo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "PdcIssueName"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "PdcDueDt"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "NextClearingDt"
+        },
+        {
+            "type": "decimal",
+            "position": "center",
+            "property": "PdcAmt"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "MrClearanceTypeCode"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "IsCumulative"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "BounceCount"
+        }
+    ],
+    "headerListTemp": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Bank Name",
+            "name": "rbl.BANK_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PDC_NO",
+            "name": "p.PDC_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PDC Issue Name",
+            "name": "p.PDC_ISSUE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PDC Due Date",
+            "name": "p.PDC_DUE_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Next Clearing Date",
+            "name": "p.NEXT_CLEARING_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PDC Amount",
+            "name": "p.PDC_AMT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "City",
+            "name": "p.CITY"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Bounce Count",
+            "name": "p.BOUNCE_COUNT"
+        }
+    ],
+    "bodyListTemp": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "BankName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "PdcNo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "PdcIssueName"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "PdcDueDt"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "NextClearingDt"
+        },
+        {
+            "type": "decimal",
+            "position": "center",
+            "property": "PdcAmt"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "City"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "BounceCount"
+        }
+    ]
+}

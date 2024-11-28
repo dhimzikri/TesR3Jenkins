@@ -1,0 +1,108 @@
+{
+    "title": "Profession",
+    "exportExcel": false,
+    "component": [
+      {
+        "type": "textbox",
+        "name": "PROFESSION_CODE",
+        "id": "professionCodeId",
+        "value": "",
+        "label": "Profession Code",
+        "placeholder": "Placeholder",
+        "datatype": "text"
+      },
+      {
+        "type": "dropdown",
+        "datatype": "text",
+        "name": "MR_CUST_MODEL_CODE",
+        "id": "custModelNameId",
+        "value": "",
+        "placeholder": "Placeholder",
+        "isFromURL": true,
+        "ddlType": "all",
+        "url": "",
+        "path": "/RefMaster/GetListKeyValueActiveByCode",
+        "label": "Customer Model Name",
+        "criteriaPropName" : "RefMasterTypeCode",
+        "criteriaPropValue" : "CUST_MODEL",
+        "items": [],
+        "itemsUrl": [],
+        "environment": "FOU"
+      },
+      {
+        "type": "textbox",
+        "name": "PROFESSION_NAME",
+        "id": "professionNameId",
+        "value": "",
+        "label": "Profession Name",
+        "placeholder": "Placeholder",
+        "datatype": "text"
+      }
+    ],
+    "querystring": {
+      "name": "searchProfession"
+    },
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Profession Code",
+        "name": "professionCode"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Profession Name",
+        "name": "professionName"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Customer Model Name",
+        "name": "custModelName"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Action"
+      }
+    ],
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "left",
+        "property": "professionCode"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "professionName"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "custModelName"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "edit",
+            "path": "CS_PROFESSION_DETAIL",
+            "param": [
+              {
+                "type": "refProfessionId",
+                "property": "refProfessionId"
+              },
+              {
+                "type": "mode",
+                "property": "edit"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

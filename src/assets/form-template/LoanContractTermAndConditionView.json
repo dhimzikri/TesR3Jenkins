@@ -1,0 +1,108 @@
+{
+    "title": "Loan Contract Term And Condition View",
+    "hideTitle": true,
+    "id": "LoanContractTermAndConditionView",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "Term And Condition",
+                "resultData": "",
+                "isSubsection": true,
+                "usePagination": true,
+                "includeSubmit": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Term And Condition",
+                            "position": "left",
+                            "name": "TermCondition"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Inclusion",
+                            "position": "left",
+                            "name": "Inclusion"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Exclusion",
+                            "position": "left",
+                            "name": "Exclusion"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TermCondition",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "Inclusion",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "Exclusion",
+                            "isFlagColor": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityMntUrl",
+                    "apiPath": "/v1/LoanContract/GetListLoanContractTC",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "Code",
+                            "propValue": "LoanContractNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "5efe74e6-c1ee-4512-864b-e5194acf0a9f"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

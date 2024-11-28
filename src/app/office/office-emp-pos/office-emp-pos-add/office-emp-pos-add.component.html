@@ -1,0 +1,120 @@
+<div class="col-md-12">
+  <div class="card">
+      <div class="card-body">
+          <div class="px-3">
+              <form class="form form-horizontal" name="EmpPositionForm" #EmpPositionForm="ngForm" novalidate
+                  (ngSubmit)="EmpPositionForm.form.valid && SaveForm(EmpPositionForm)">
+                  <div class="form-body">
+                      <h4 class="form-section card-title" translate><i class="ft-file-text"></i> Employee Position Information</h4>
+                      <div class="form-group row">
+                          <label class="col-md-3  adInsLabel" translate>Employee No </label>
+                          <div class="col-md-9">
+                              <input type="text" class="form-control adInsInput" name="empNo" required readonly
+                                  [(ngModel)]="empNo" #EmpNo="ngModel"
+                                  [ngClass]="{ 'is-invalid': EmpPositionForm.submitted && EmpNo.invalid }">
+                              <div *ngIf="EmpPositionForm.submitted && EmpNo.invalid" class="invalid-feedback">
+                                  <div *ngIf="EmpNo.errors.required" class="adInsReqMsg" translate>This field is required</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-md-3  adInsLabel" translate>Employee Name </label>
+                          <div class="col-md-9">
+                              <input type="text" class="form-control adInsInput" name="empName" required readonly
+                                  [(ngModel)]="empName" #EmpName="ngModel"
+                                  [ngClass]="{ 'is-invalid': EmpPositionForm.submitted && EmpName.invalid }">
+                              <div *ngIf="EmpPositionForm.submitted && EmpName.invalid" class="invalid-feedback">
+                                  <div *ngIf="EmpName.errors.required" class="adInsReqMsg" translate>This field is required</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-md-3  adInsLabel" translate>Office Name </label>
+                          <div class="col-md-9">
+                              <select class="form-control" id="refOfficeId" name="refOfficeId" readonly
+                                  [(ngModel)]="refOfficeId" #RefOfficeId="ngModel"
+                                  [ngClass]="{ 'is-invalid': RefOfficeId.value == 'selectOne'}">
+                                  <option value="selectOne">Select One</option>
+                                  <option *ngFor="let ro of allRefOffice" value="{{ro.refOfficeId}}">{{ro.officeName}}
+                                  </option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-md-3  adInsLabel" translate>Business Unit Name </label>
+                          <div class="col-md-9">
+                              <select class="form-control" id="refBizUnitId" name="refBizUnitId" required
+                                  (change)="onChangeBiz($event.target.value)" #RefBizUnitId="ngModel"
+                                  [(ngModel)]="refBizUnitId"
+                                  [ngClass]="{ 'is-invalid': RefBizUnitId.value == 'selectOne' }">
+                                  <option value="selectOne">Select One</option>
+                                  <option *ngFor="let biz of allBiz" value="{{biz.orgMdlStrucId}}">{{biz.bizUnitName}}
+                                  </option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-md-3  adInsLabel" translate>Job Title </label>
+                          <div class="col-md-9">
+                              <select class="form-control" id="orgJobTitleId" name="orgJobTitleId" required
+                                  #OrgJobTitleId="ngModel" [(ngModel)]="orgJobTitleId"
+                                  [ngClass]="{ 'is-invalid': OrgJobTitleId.value == 'selectOne' }">
+                                  <option value="selectOne">Select One</option>
+                                  <option *ngFor="let ojt of allOrgJobTitle" value="{{ojt.orgJobTitleId}}">
+                                      {{ojt.jobTitleName}}
+                                  </option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-md-3  adInsLabel" translate>Supervisor </label>
+                          <div class="col-md-9">
+                              <select class="form-control" id="superiorRefEmpId" name="superiorRefEmpId"
+                                  [(ngModel)]="superiorRefEmpId" #SuperiorRefEmpId="ngModel">
+                                  <option value=""></option>
+                                  <option *ngFor="let spv of allSupervisor" value="{{spv.refEmpId}}">{{spv.empName}}
+                                  </option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-md-3  adInsLabel" translate>Position Start Date </label>
+                          <div class="col-md-9">
+                              <input type="date" id="positionStartDt" class="form-control adInsInput" name="positionStartDt"
+                                  required [(ngModel)]="positionStartDt" #PositionStartDt="ngModel"
+                                  [ngClass]="{ 'is-invalid': EmpPositionForm.submitted && PositionStartDt.invalid }">
+                              <div *ngIf="EmpPositionForm.submitted && PositionStartDt.invalid"
+                                  class="invalid-feedback">
+                                  <div *ngIf="PositionStartDt.errors.required" class="adInsReqMsg" translate>This field is required</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-md-3  adInsLabel" translate>Position Finish Date </label>
+                          <div class="col-md-9">
+                              <input type="date" id="positionFinishDt" class="form-control adInsInput" name="positionFinishDt"
+                                  [(ngModel)]="positionFinishDt" #PositionFinishDt="ngModel">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-md-3  adInsLabel" translate>Active </label>
+                          <div class="col-md-9">
+                              <input class="border-primary" type="checkbox" [ngModel]="isActive" data-md-icheck
+                                  (change)="toggleActive($event)" name="isActive">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-actions right">
+                      <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange
+                      [queryParams]="{refEmpId:refEmpId}">
+                          <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+                      </button>
+                      <button type="submit" class="btn btn-raised btn-primary">
+                          <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

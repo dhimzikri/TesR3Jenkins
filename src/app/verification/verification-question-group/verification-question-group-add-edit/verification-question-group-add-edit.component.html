@@ -1,0 +1,62 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate> VERIFICATION QUESTION GROUP {{mode}}
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="QuestionGroupForm"
+            (ngSubmit)="QuestionGroupForm.valid && SaveForm()" #enjiForm="ngForm">
+            <lib-ucSubsection [id]="'QuestionGroupId'" [title]="'Verification Question Group'"
+              [panel]="'QuestionGroup'">
+            </lib-ucSubsection>
+            <div class="form-body" id="QuestionGroup">
+
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>Question Group Code </label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control adInsInput width-75-per"
+                    [attr.disabled]="mode == 'edit' ? true : null" formControlName="VerfQuestionGrpCode">
+                  <lib-uc-show-errors [control]="QuestionGroupForm.controls.VerfQuestionGrpCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>Question Group Name </label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control adInsInput width-75-per" formControlName="VerfQuestionGrpName">
+                  <lib-uc-show-errors [control]="QuestionGroupForm.controls.VerfQuestionGrpName" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Active Status </label>
+                <div class="col-md-9">
+                  <input type="checkbox" class="border-primary" formControlName="IsActive">
+                </div>
+              </div>
+
+              <div class="form-actions right">
+                <button type="button" class="btn btn-raised btn-warning mr-1"
+                  [routerLink]="[CancelLink]" skipLocationChange>
+                  <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary">
+                  <i class="fa fa-check"></i>&nbsp;<span translate>Save</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title" id="horz-layout-colored-controls" translate>Payment Allocation Group</h4>
+    </div>
+    <div class="card-body">
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="PaymentAllocGrpForm"
+          (ngSubmit)="PaymentAllocGrpForm.valid && SaveForm()" #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'paymentAllocInfoId'" [title]="this.title" [panel]="'paymentAllocInfo'">
+            </lib-ucSubsection>
+            <div id='paymentAllocInfo'>
+
+              <div class="form-group row">
+                <label class="col-md-3 adins-required-label">Payment Allocation Group</label>
+                <div class="col-md-3">
+                  <select class="form-control" formControlName="MrPayAllocGrpCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && PaymentAllocGrpForm.controls.MrPayAllocGrpCode.invalid}">
+                    <option value="" disabled>-Select One-</option>
+                    <option *ngFor="let item of ListPayAllocGrp" [value]="item.Key">
+                      {{item.Value}}
+                    </option>
+                  </select>
+                  <lib-uc-show-errors [control]="PaymentAllocGrpForm.controls.MrPayAllocGrpCode"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adins-required-label" translate>Payment Allocation Code</label>
+                <div class="col-md-3">
+                  <lib-uclookupgeneric [lookupInput]="inputLookUpPaymentAllocObj" [parentForm]='PaymentAllocGrpForm'
+                    [enjiForm]='enjiForm' [identifier]="'lookUpPaymentAllocObj'"
+                    (lookup)="getLookupPaymentAllocResponse($event)"></lib-uclookupgeneric>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adins-required-label" translate>Payment Allocation Name</label>
+                <div class="col-md-3">
+                  <label class="adins-label">{{this.Name}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3  adins-label" translate>Is Active</label>
+                <div class="col-md-3">
+                  <input type="checkbox" class="border-primary" formControlName="IsActive">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" [routerLink]="[CancelLink]" class="btn btn-raised btn-warning mr-1">
+              <i class="fa fa-arrow-circle-left"></i>&nbsp;<span translate>Back</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary" translate>
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

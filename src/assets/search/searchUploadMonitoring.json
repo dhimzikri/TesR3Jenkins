@@ -1,0 +1,74 @@
+{
+    "title": "Upload Monitoring",
+    "exportExcel": true,
+    "component": [
+        {
+            "type": "dropdown",
+            "datatype": "numeric",
+            "name": "uploadTypeId",
+            "id": "uploadTypeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/UploadType/GetListUploadTypeKeyValue",
+            "label": "Upload Type Name",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "fileName",
+            "id": "fileNameId",
+            "value": "",
+            "label": "File Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "uploadMonitoringNo",
+            "id": "uploadMonitoringNoId",
+            "value": "",
+            "label": "Upload No",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "dropdown",
+            "datatype": "string",
+            "name": "mrUploadStatus",
+            "id": "mrUploadStatusId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefStatus/GetRefStatusKeyValuePairByCriteria",
+            "criteriaPropValue":"UPLOAD_STAT",
+            "criteriaPropName":"TrxTypeCode",
+            "label": "Upload Status",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ]
+}

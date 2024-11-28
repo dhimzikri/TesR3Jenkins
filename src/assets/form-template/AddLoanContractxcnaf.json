@@ -1,0 +1,896 @@
+{
+    "title": "Add Loan Contract",
+    "id": "AddLoanContractxcnaf",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Main Information",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Funding Company Name",
+                            "Variable": "VendorCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "JF_FUNDING_COMPANY"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "CURRENCY",
+                            "Label": "Plafond Amount",
+                            "Variable": "PlafondAmt",
+                            "Value": "",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "1",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Facility Type",
+                            "Variable": "FacilityKindCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_FACILITY_TYPE"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Currency",
+                            "Variable": "CurrCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefCurr/GetListKvpActiveRefCurr",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {}
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Funding Contract No",
+                            "Variable": "LoanContractNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Funding Contract Name",
+                            "Variable": "LoanContractName",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "PERCENT",
+                            "Label": "Penalty Percentage",
+                            "Variable": "PenaltyPercentage",
+                            "Value": "0",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "0",
+                            "Max": "100"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "NUMERIC",
+                            "Label": "Max Date For Drawdown",
+                            "Variable": "MaxDateForDrawdown",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "0",
+                            "Max": "31"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Termination Accrual method",
+                            "Variable": "TerminationAccrualMethod",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_TERMINATION_ACCRUAL_METHOD"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Contract Date",
+                            "Variable": "ContractDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "9999-12-31",
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": "HCD",
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "HCD",
+                            "Value": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Contract Period From",
+                            "Variable": "PeriodFrom",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "9999-12-31",
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "HCD",
+                            "Value": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Contract Period To",
+                            "Variable": "PeriodTo",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "9999-12-31",
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "HCD",
+                            "Value": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "Revolving",
+                            "Variable": "IsRevolving",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "Active Status",
+                            "Variable": "IsActive",
+                            "Value": true,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [],
+                            "isUseApi": true,
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "TrxNo",
+                                    "propValue": "LoanContractNo"
+                                }
+                            ],
+                            "environment": "facilityMntUrl",
+                            "apiPath": "/v1/LoanContractObj/GetObjectByUniqueNo",
+                            "action": []
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": [
+                        {
+                            "type": "showField",
+                            "condition": [
+                                {
+                                    "variable": "GsValue",
+                                    "restriction": "NEQ",
+                                    "value": "1"
+                                }
+                            ],
+                            "listField": [
+                                "LoanContractNo"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "requiredField",
+                            "condition": [
+                                {
+                                    "variable": "GsValue",
+                                    "restriction": "NEQ",
+                                    "value": "1"
+                                }
+                            ],
+                            "listField": [
+                                "LoanContractNo"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "showField",
+                            "condition": [
+                                {
+                                    "variable": "mode",
+                                    "restriction": "Eq",
+                                    "value": "edit"
+                                }
+                            ],
+                            "listField": [
+                                "IsActive"
+                            ],
+                            "isRevertable": true
+                        }
+                    ]
+                }
+            },
+            "id": "30f8dabf-e878-4228-b003-4652dddcd869"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Security Coverage",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DDLMULTI",
+                            "Label": "Security Type",
+                            "Variable": "SecurityTypeCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_SECURITY_TYPE"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Security Scheme",
+                            "Variable": "SecuritySchmCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_SECURITY_SCHEME"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "PERCENT",
+                            "Label": "Security Percentage",
+                            "Variable": "SecurityRate",
+                            "Value": "0",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "0",
+                            "Max": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Collateral Location",
+                            "Variable": "CollateralLocCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_COLLATERAL_LOCATION"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Security Percentage of",
+                            "Variable": "SecurityRateTypeCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_SECURITY_PERCENTAGE_OF"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Collateral Review Period",
+                            "Variable": "CollateralReviewCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_COLLATERAL_REVIEW_PERIOD"
+                                }
+                            }
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [
+                        {
+                            "variableName": "SecurityTypeCode",
+                            "cookieName": "SecurityTypeCode",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "SecuritySchmCode",
+                            "cookieName": "SecuritySchmCode",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "SecurityRate",
+                            "cookieName": "SecurityRate",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "CollateralLocCode",
+                            "cookieName": "CollateralLocCode",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "SecurityRateTypeCode",
+                            "cookieName": "SecurityRateTypeCode",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "CollateralReviewCode",
+                            "cookieName": "CollateralReviewCode",
+                            "isEmptyNotFound": false
+                        }
+                    ],
+                    "initAction": []
+                }
+            },
+            "id": "decaee6b-adfd-4cd5-8f7c-0f4ced4e7d98"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Interest Setting",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Interest Type",
+                            "Variable": "InterestTypeCode",
+                            "IsRequired": true,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_INTEREST_TYPE"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "PERCENT",
+                            "Label": "Interest Rate",
+                            "Variable": "InterestRate",
+                            "Value": "0",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "0",
+                            "Max": "100"
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [
+                        {
+                            "variableName": "InterestTypeCode",
+                            "cookieName": "InterestTypeCode",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "InterestRate",
+                            "cookieName": "InterestRate",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "BottomRate",
+                            "cookieName": "BottomRate",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "BottomRateBasedCode",
+                            "cookieName": "BottomRateBasedCode",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "MarginRate",
+                            "cookieName": "MarginRate",
+                            "isEmptyNotFound": false
+                        }
+                    ],
+                    "initAction": []
+                }
+            },
+            "id": "d75bbae1-07cf-4d83-91dc-f11d98d86cc8"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Bank Information",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Default Bank In",
+                            "Variable": "OfficeBankAccCodeIn",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/OfficeBankAcc/GetListKeyValueActiveOfficeBankAcc",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {}
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Default Bank Out",
+                            "Variable": "OfficeBankAccCodeOut",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/OfficeBankAcc/GetListKeyValueActiveOfficeBankAcc",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {}
+                            }
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [
+                        {
+                            "variableName": "OfficeBankAccCodeIn",
+                            "cookieName": "OfficeBankAccCodeIn",
+                            "isEmptyNotFound": false
+                        },
+                        {
+                            "variableName": "OfficeBankAccCodeOut",
+                            "cookieName": "OfficeBankAccCodeOut",
+                            "isEmptyNotFound": false
+                        }
+                    ],
+                    "initAction": []
+                }
+            },
+            "id": "3f531f64-6286-4af8-aa57-192dd1fc3f5b"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/LoanContractObj/AddEditObj",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/LoanContractObj/AddEditObj",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onCancel": {},
+    "isOverrideSubmit": true,
+    "isOverrideCancel": false,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "environment": "facilityMntUrl",
+                "path": "/v1/LoanContract/AddLoanContract",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "type": "http",
+                "reqObj": [
+                    {
+                        "propName": "VendorCode",
+                        "propValue": "formRaw.VendorCode"
+                    },
+                    {
+                        "propName": "FacilityKindCode",
+                        "propValue": "formRaw.FacilityKindCode"
+                    },
+                    {
+                        "propName": "LoanContractNo",
+                        "propValue": "formRaw.LoanContractNo"
+                    },
+                    {
+                        "propName": "LoanContractName",
+                        "propValue": "formRaw.LoanContractName"
+                    },
+                    {
+                        "propName": "ContractDt",
+                        "propValue": "formRaw.ContractDt"
+                    },
+                    {
+                        "propName": "PeriodFrom",
+                        "propValue": "formRaw.PeriodFrom"
+                    },
+                    {
+                        "propName": "PeriodTo",
+                        "propValue": "formRaw.PeriodTo"
+                    },
+                    {
+                        "propName": "PlafondAmt",
+                        "propValue": "formRaw.PlafondAmt"
+                    },
+                    {
+                        "propName": "IsRevolving",
+                        "propValue": "formRaw.IsRevolving"
+                    },
+                    {
+                        "propName": "IsActive",
+                        "propValue": "formRaw.IsActive"
+                    },
+                    {
+                        "propName": "Notes",
+                        "propValue": "formRaw.Notes"
+                    },
+                    {
+                        "propName": "CurrCode",
+                        "propValue": "formRaw.CurrCode"
+                    },
+                    {
+                        "propName": "OfficeBankAccCodeIn",
+                        "propValue": "formRaw.OfficeBankAccCodeIn"
+                    },
+                    {
+                        "propName": "OfficeBankAccCodeOut",
+                        "propValue": "formRaw.OfficeBankAccCodeOut"
+                    },
+                    {
+                        "propName": "SecurityRate",
+                        "propValue": "formRaw.SecurityRate"
+                    },
+                    {
+                        "propName": "SecurityRateTypeCode",
+                        "propValue": "formRaw.SecurityRateTypeCode"
+                    },
+                    {
+                        "propName": "SecuritySchmCode",
+                        "propValue": "formRaw.SecuritySchmCode"
+                    },
+                    {
+                        "propName": "SecurityTypeCode",
+                        "propValue": "formRaw.SecurityTypeCode"
+                    },
+                    {
+                        "propName": "CollateralLocCode",
+                        "propValue": "formRaw.CollateralLocCode"
+                    },
+                    {
+                        "propName": "CollateralReviewCode",
+                        "propValue": "formRaw.CollateralReviewCode"
+                    },
+                    {
+                        "propName": "InterestTypeCode",
+                        "propValue": "formRaw.InterestTypeCode"
+                    },
+                    {
+                        "propName": "JurisdictionType",
+                        "propValue": "formRaw.JurisdictionType"
+                    },
+                    {
+                        "propName": "InterestRate",
+                        "propValue": "formRaw.InterestRate"
+                    },
+                    {
+                        "propName": "TerminationAccrualMethod",
+                        "propValue": "formRaw.TerminationAccrualMethod"
+                    },
+                    {
+                        "propName": "MaxDateForDrawdown",
+                        "propValue": "formRaw.MaxDateForDrawdown"
+                    },
+                    {
+                        "propName": "PenaltyPercentage",
+                        "propValue": "formRaw.PenaltyPercentage"
+                    },
+                    {
+                        "propName": "mode",
+                        "propValue": "mode"
+                    }
+                ],
+                "excObj": [],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "target": "_self",
+                            "params": [
+                                {
+                                    "propName": "LoanContractNo",
+                                    "propValue": "LoanContractNo"
+                                },
+                                {
+                                    "propName": "Type",
+                                    "propValue": "FEE"
+                                }
+                            ],
+                            "path": "/Setting/LoanContract/Additional"
+                        }
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "SUCCESS"
+                        }
+                    }
+                ],
+                "mapResToDict": []
+            }
+        }
+    ],
+    "hideCancelButton": false,
+    "onInit": [
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/GeneralSetting/GetGSValueByGSCode",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "code",
+                    "propValue": "AUTO_GENERATE_LOAN_CONTRACT"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "GsValue",
+                    "propValue": "GsValue"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

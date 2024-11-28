@@ -1,0 +1,42 @@
+ 
+<div class="header-title">
+  <div class="row ml-1 mb-3">
+        <div class="col-md-8">
+            <h2 class="card-title-2 black lighten-1">Holiday Management</h2>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-raised btn-outline-2 mr-2" [routerLink]="[BackLink]" skipLocationChange>
+              <i class="fa fa-arrow-left mr-1 button-icon"></i>&nbsp;<span class="button-text" translate>Back</span>
+            </button>
+            <button type="button" class="btn btn-raised btn-primary-2" (click)="AddNavigate()">
+              <i class="ft-plus-circle mr-1 button-icon"></i>&nbsp;<span class="button-text" translate>Add</span>
+            </button>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="card bg-primary-2 bg-lighten-6 card-shadow">
+  <div class="card-body">  
+      <lib-ucSubsection [id]="'subsectionExistingHolidaySchemeId'" [title]="title"
+        [panel]="'subsectionExistingHolidayScheme'"></lib-ucSubsection>
+      <div id="subsectionExistingHolidayScheme">
+        <form class="form form-horizontal" [formGroup]="HolidayManagementForm" #HolidayManagement="ngForm">
+          <div class="form-body p-3">
+            <div class="form-group row">
+              <label class="col-md-12 label-field-2">Existing Holiday Scheme </label>
+              <div class="col-md-9">
+                <lib-uclookupgeneric [enjiForm]="HolidayManagement" [lookupInput]="inputPagingObjHolidayScheme"
+                  [parentForm]="HolidayManagementForm" [identifier]="'lookupValueHolidayScheme'"
+                  (lookup)="getHolidaySchmHId($event)"></lib-uclookupgeneric>
+              </div> 
+                <button type="button" class="btn btn-raised btn-primary-2" (click)="Copy()">
+                <i class="far fa-check-square mr-1"></i>&nbsp;<span class="button-text" translate>Copy</span>
+              </button> 
+           </div>
+          </div>
+        </form>
+      </div> 
+    <lib-ucpaging [searchObj]="inputPagingObjHolidayDetail"></lib-ucpaging>
+  </div>
+</div>

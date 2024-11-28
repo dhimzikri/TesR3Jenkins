@@ -1,0 +1,596 @@
+{
+    "id": "VendorHoRegistrationMainInfo_CustomComp",
+    "name": "Vendor Ho Registration Main Info Custom Component",
+    "saveState": false,
+    "customComponent": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Main Info",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Vendor Category",
+                            "Variable": "MrVendorCategoryCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": true,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "VENDOR_CATEGORY",
+                                    "MasterCode": "HO"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "HO Code",
+                            "Variable": "VendorCode",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "HO Name",
+                            "Variable": "VendorName",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "cbCallback",
+                                    "key": "MrVendorTypeCode"
+                                },
+                                {
+                                    "type": "hideField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "C"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "IdNo"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "C"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "RegistrationNo",
+                                        "LicenseNo"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "hideField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "NEQ",
+                                            "value": "C"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "RegistrationNo",
+                                        "LicenseNo"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "NEQ",
+                                            "value": "C"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "IdNo"
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "HO Type",
+                            "Variable": "MrVendorTypeCode",
+                            "IsRequired": true,
+                            "IsCallback": true,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": true,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "VENDOR_TYPE"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Business Line Type",
+                            "Variable": "MrKonvenSyariahCode",
+                            "IsRequired": true,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "KONVEN_SYARIAH"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "cbCallback",
+                                    "key": "MrIdTypeCode"
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "ID Type",
+                            "Variable": "MrIdTypeCode",
+                            "IsRequired": true,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": true,
+                            "isUseAPI": false,
+                            "DdlItemsObj": [],
+                            "DdlReqObj": null
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Registration Number",
+                            "Variable": "RegistrationNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "License Number",
+                            "Variable": "LicenseNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "ID Number",
+                            "Variable": "IdNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Mobile Phone 1",
+                            "Variable": "MobilePhnNo1",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[0-9]+$",
+                                    "invalidMsg": "Number Only"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Mobile Phone 2",
+                            "Variable": "MobilePhnNo2",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[0-9]+$",
+                                    "invalidMsg": "Number Only"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Email",
+                            "Variable": "Email",
+                            "Value": "",
+                            "Pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "NUMERIC",
+                            "Label": "Rating",
+                            "Variable": "VendorRating",
+                            "Value": "0",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": "100"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Establishment Date",
+                            "Variable": "EstablishmentDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "BD",
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "BD"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Partnership Date",
+                            "Variable": "PartnershipDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "BD",
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "BD"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "Active Status",
+                            "Variable": "IsActive",
+                            "Value": true,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "One Affiliate",
+                            "Variable": "IsOneAffiliate",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/Vendor/GetVendorAndVendorTaxAddrByVendorId",
+                            "reqObj": [
+                                {
+                                    "propName": "Id",
+                                    "propValue": "VendorId",
+                                    "isFromDict": false
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "VendorObj.VendorCode",
+                                    "variableName": "VendorCode"
+                                },
+                                {
+                                    "accessorName": "VendorObj.VendorName",
+                                    "variableName": "VendorName"
+                                },
+                                {
+                                    "accessorName": "VendorObj.MrVendorTypeCode",
+                                    "variableName": "MrVendorTypeCode"
+                                },
+                                {
+                                    "accessorName": "VendorObj.MrIdTypeCode",
+                                    "variableName": "MrIdTypeCode"
+                                },
+                                {
+                                    "accessorName": "VendorObj.RegistrationNo",
+                                    "variableName": "RegistrationNo"
+                                },
+                                {
+                                    "accessorName": "VendorObj.LicenseNo",
+                                    "variableName": "LicenseNo"
+                                },
+                                {
+                                    "accessorName": "VendorObj.IdNo",
+                                    "variableName": "IdNo"
+                                },
+                                {
+                                    "accessorName": "VendorObj.MobilePhnNo1",
+                                    "variableName": "MobilePhnNo1"
+                                },
+                                {
+                                    "accessorName": "VendorObj.MobilePhnNo2",
+                                    "variableName": "MobilePhnNo2"
+                                },
+                                {
+                                    "accessorName": "VendorObj.Email",
+                                    "variableName": "Email"
+                                },
+                                {
+                                    "accessorName": "VendorObj.VendorRating",
+                                    "variableName": "VendorRating"
+                                },
+                                {
+                                    "accessorName": "VendorObj.EstablishmentDt",
+                                    "variableName": "EstablishmentDt"
+                                },
+                                {
+                                    "accessorName": "VendorObj.PartnershipDt",
+                                    "variableName": "PartnershipDt"
+                                },
+                                {
+                                    "accessorName": "VendorObj.IsActive",
+                                    "variableName": "IsActive"
+                                },
+                                {
+                                    "accessorName": "VendorObj.IsOneAffiliate",
+                                    "variableName": "IsOneAffiliate"
+                                },
+                                {
+                                    "accessorName": "VendorObj.MrVendorCategoryCode",
+                                    "variableName": "MrVendorCategoryCode"
+                                },
+                                {
+                                    "accessorName": "VendorObj.MrKonvenSyariahCode",
+                                    "variableName": "MrKonvenSyariahCode"
+                                }
+                            ],
+                            "action": [
+                                {
+                                    "type": "cbCallback",
+                                    "key": "MrVendorCategoryCode"
+                                },
+                                {
+                                    "type": "showField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "P"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "IdNo"
+                                    ],
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "hideField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "NEQ",
+                                            "value": "C"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "RegistrationNo",
+                                        "LicenseNo"
+                                    ],
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "unrequiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "P"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "LicenseNo",
+                                        "RegistrationNo"
+                                    ],
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "P"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "IdNo"
+                                    ],
+                                    "isRevertable": false
+                                }
+                            ]
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": [
+                        {
+                            "type": "bindValue",
+                            "condition": {
+                                "variable": "MrVendorCategoryCode",
+                                "restriction": "NEQ",
+                                "value": ""
+                            },
+                            "listBind": [
+                                {
+                                    "variable": "MrVendorCategoryCode",
+                                    "value": "MrVendorCategoryCode"
+                                }
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "hideField",
+                            "condition": [
+                                {
+                                    "variable": "AutoGenerateVendorCode",
+                                    "restriction": "IN",
+                                    "value": "AutoGenerateGensetCode"
+                                },
+                                {
+                                    "variable": "MrVendorCategoryCode",
+                                    "restriction": "Eq",
+                                    "value": "SUPPLIER_HO"
+                                },
+                                {
+                                    "variable": "mode",
+                                    "restriction": "NEQ",
+                                    "value": "edit"
+                                }
+                            ],
+                            "listField": [
+                                "VendorCode"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "bindValue",
+                            "condition": [
+                                {
+                                    "variable": "AutoGenerateVendorCode",
+                                    "restriction": "IN",
+                                    "value": "AutoGenerateGensetCode"
+                                },
+                                {
+                                    "variable": "mode",
+                                    "restriction": "NEQ",
+                                    "value": "edit"
+                                }
+                            ],
+                            "listBind": [
+                                {
+                                    "variable": "VendorCode",
+                                    "value": "-"
+                                }
+                            ],
+                            "isRevertable": false
+                        }
+                    ]
+                }
+            },
+            "id": "6045b2cd-3a47-4477-9a03-23b7666bf73c"
+        }
+    ]
+}

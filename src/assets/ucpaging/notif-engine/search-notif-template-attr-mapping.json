@@ -1,0 +1,113 @@
+{
+    "title": "",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "RNA.NOTIF_ATTR_TEMPLATE_CODE",
+            "id": "NotifAttrTemplateCodeId",
+            "value": "",
+            "label": "Notification Attribute Template Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RNA.NOTIF_ATTR_TEMPLATE_DESCR",
+            "id": "NotifAttrTemplateDescrId",
+            "value": "",
+            "label": "Notification Attribute Template Description",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "RNA.IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "SearchNotifTemplateAttrMapping"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Notification Attribute Template Code",
+            "name": "NotifAttrTemplateCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Notification Attribute Template Description",
+            "name": "NotifAttrTemplateDescr"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "ACTIVE STATUS",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotifAttrTemplateCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotifAttrTemplateDescr"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "IsSystem",
+                                    "value": "0",
+                                    "restriction": "EQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "delete",
+                                "property": "RefNotifAttrSourceContentId"
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

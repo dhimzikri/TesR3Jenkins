@@ -1,0 +1,25 @@
+{
+  "title": "Verification Question Scheme Member",
+  "subsection": [
+    {
+      "subSectionId": "MainInfoId",
+      "subSectionTitle": "Main Info",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Verification Question Scheme Code",
+          "property": "VerfSchmCode"
+        },
+        {
+          "type": "text",
+          "label": "Verification Question Scheme Name",
+          "property": "VerfSchmName"
+        }
+      ],
+      "querystring": {
+          "name": "viewVerifQuestSchmMbr"
+      }
+    }
+  ]
+}

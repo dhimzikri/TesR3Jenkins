@@ -1,0 +1,69 @@
+{
+    "title": "Payment Request View",
+    "hideTitle": false,
+    "id": "PaymentRequestView",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "customComponent": {
+                "componentRef": "${PaymentRequestInfo}"
+            },
+            "id": "17c07a46-4019-48b4-ad74-33da3c72b6b6"
+        },
+        {
+            "viewFileupload": {
+                "code": "ConfinsPaymentReq",
+                "environment": "FinopsUrl",
+                "apiPath": "/v1/DMSIntegration/GetListDocument",
+                "apiPathDownload": "/v1/DMSIntegration/DownloadDocument",
+                "isSubsection": true,
+                "metadata": [
+                    {
+                        "label": "Payment Request No",
+                        "value": "TransactionNo"
+                    }
+                ],
+                "subsectionTitle": "Files Uploaded"
+            },
+            "id": "50f47598-c577-4b2e-b948-71ea40275aa9"
+        },
+        {
+            "customComponent": {
+                "componentRef": "${ReimbursementInfoDetail_AllocationForPayReq}"
+            },
+            "id": "9f8b66db-2bfe-4bc6-b7ff-f5e0bda61bba"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": []
+}

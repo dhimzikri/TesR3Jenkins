@@ -1,0 +1,178 @@
+{
+    "title": "Surveyor",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "S.SURVEYOR_NO",
+            "id": "SurveyorNoId",
+            "value": "",
+            "label": "Surveyor No",
+            "placeholder": ""
+        },
+        {
+            "type": "textbox",
+            "name": "RE.EMP_NAME",
+            "id": "EmployeeNameId",
+            "value": "",
+            "label": "Employee Name",
+            "placeholder": ""
+        },            
+        {
+            "type": "dropdown",
+            "name": "CG.CENTER_GRP_CODE",
+            "id": "CenterGrpCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "isQueryIn" : true,
+            "url": "",
+            "path": "/CenterGrp/GetListKvpActiveCenterGrpForPaging",
+            "label": "Surveyor Group Name",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"        
+        }, 
+        {
+            "type": "dropdown",
+            "name": "RM.MASTER_CODE",
+            "id": "MasterCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Surveyor Type",
+            "items": [],
+            "itemsUrl": [],
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "SURVEYOR_TYPE",
+            "environment":"FOU"
+        },    
+        {
+            "type": "dropdown",
+            "name": "S.IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "true",
+                    "value": "Yes"
+                },
+                {
+                    "key": "false",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "V.VENDOR_NAME",
+            "id": "VendorNameId",
+            "value": "",
+            "label": "Vendor Name",
+            "placeholder": ""
+        }
+    ],
+    "querystring": {
+        "name": "searchSurveyor"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Surveyor No",
+            "name": "S.SURVEYOR_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Surveyor Name",
+            "name": "RE.EMP_NAME"
+        },  
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Surveyor Group Name",
+            "name": "CG.CENTER_GRP_NAME"
+        },  
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Surveyor Type",
+            "name": "RM.DESCR"
+        },  
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Vendor Name",
+            "name": "V.VENDOR_NAME"
+        },       
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "S.IS_ACTIVE"
+        },        
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyorNo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyorName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyorGroupName"
+        }, 
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyorType"      
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "VendorName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },        
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "SURVEYOR_ADD",
+                    "param": [
+                        {
+                            "type": "SurveyorId",
+                            "property": "SurveyorId"
+                        }                        
+                    ]
+                }
+            ]
+        }
+    ]
+}

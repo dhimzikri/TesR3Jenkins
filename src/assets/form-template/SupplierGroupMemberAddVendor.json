@@ -1,0 +1,258 @@
+{
+    "title": "Branch Group Office Member",
+    "id": "SupplierGroupMemberAddVendor",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": true,
+    "component": [
+        {
+            "addtotemp": {
+                "pagingInput": {
+                    "title": "Branch Office Member",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "vendorGrpMbrTempPaging"
+                    },
+                    "component": [
+                        {
+                            "id": "upper(vvendorCode)SearchId",
+                            "type": "textbox",
+                            "label": "Vendor Code",
+                            "name": "UPPER(V.VENDOR_CODE)",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true
+                        },
+                        {
+                            "id": "upper(vvendorName)SearchId",
+                            "type": "textbox",
+                            "label": "Vendor Name",
+                            "name": "UPPER(V.VENDOR_NAME)",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true
+                        },
+                        {
+                            "id": "visActiveSearchId",
+                            "type": "dropdown",
+                            "label": "Active Status",
+                            "name": "V.IS_ACTIVE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Vendor Code",
+                            "position": "center",
+                            "name": "V.VENDOR_CODE",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Vendor Name",
+                            "position": "left",
+                            "name": "V.VENDOR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Active Status",
+                            "position": "center",
+                            "name": "V.IS_ACTIVE"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "VendorCode",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "VendorName"
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsActive"
+                        }
+                    ],
+                    "keyPropCriteria": "V.VENDOR_ID",
+                    "keyProperty": "VendorId"
+                },
+                "criteria": [
+                    {
+                        "isFromDict": true,
+                        "propName": "MR_VENDOR_CATEGORY_CODE",
+                        "restriction": "Eq",
+                        "value": "MrVendorCategoryCode"
+                    },
+                    {
+                        "propName": "MR_VENDOR_CLASS",
+                        "restriction": "Eq",
+                        "value": "BRANCH",
+                        "conditions": [
+                            {
+                                "property": "MrVendorCategoryCode",
+                                "restriction": "IN",
+                                "value": "_BRANCH"
+                            }
+                        ]
+                    },
+                    {
+                        "propName": "MR_VENDOR_CLASS",
+                        "restriction": "Eq",
+                        "value": "HO",
+                        "conditions": [
+                            {
+                                "property": "MrVendorCategoryCode",
+                                "restriction": "IN",
+                                "value": "_HO"
+                            }
+                        ]
+                    },
+                    {
+                        "propName": "MR_VENDOR_CLASS",
+                        "restriction": "Eq",
+                        "value": "HOLDING",
+                        "conditions": [
+                            {
+                                "property": "MrVendorCategoryCode",
+                                "restriction": "IN",
+                                "value": "_HOLDING"
+                            }
+                        ]
+                    }
+                ],
+                "whereValue": [],
+                "fromValue": [
+                    "VendorGrpId"
+                ],
+                "environment": "FoundationR3Url",
+                "apiVersion": "v2.1",
+                "uri": "http://r3app-server.ad-ins.com/FOUNDATION_DEV",
+                "useIntegration": false
+            },
+            "id": "2d049784-c850-4454-8730-51cb6c81811a"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "listBtn": [
+        {
+            "displayName": "Save",
+            "id": "saveId",
+            "key": "",
+            "position": "bottom",
+            "icon": "fa-check-square",
+            "cssClass": "btn-primary-2",
+            "conditions": [
+                {
+                    "property": "listTemp.length",
+                    "restriction": "GTE",
+                    "value": "1"
+                }
+            ],
+            "btnType": "button",
+            "action": {
+                "type": "function",
+                "target": "executor",
+                "alias": "addRangeVendorGrpMbr",
+                "methodName": "addRangeVendorGrpMbr",
+                "params": [
+                    {
+                        "propName": "listTemp",
+                        "propValue": "listTemp"
+                    },
+                    {
+                        "propName": "VendorId",
+                        "propValue": "VendorGrpId"
+                    },
+                    {
+                        "propName": "api",
+                        "propValue": "/v1/VendorGrpMbr/AddRangeVendorGrpMbr"
+                    },
+                    {
+                        "propName": "next",
+                        "propValue": "/Vendor/SelfCustom/Group/View"
+                    },
+                    {
+                        "propName": "MrVendorCategoryCode",
+                        "propValue": "MrVendorCategoryCode"
+                    },
+                    {
+                        "propName": "http",
+                        "propValue": "http"
+                    },
+                    {
+                        "propName": "toastr",
+                        "propValue": "toastr"
+                    },
+                    {
+                        "propName": "router",
+                        "propValue": "router"
+                    }
+                ]
+            }
+        }
+    ],
+    "customToastrMsg": "",
+    "onCancel": {},
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onSubmit": [],
+    "hideCancelButton": false,
+    "onInit": [],
+    "conditionalTitle": [
+        {
+            "title": "Branch Group Office Member",
+            "conditions": []
+        }
+    ],
+    "persistData": false,
+    "persistPropName": ""
+}

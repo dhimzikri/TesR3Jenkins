@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-body">
+    <div class="px-3">
+      <div class="form-body">
+        <lib-ucSubsection [id]="'AssetId'" [title]="'List of Asset in Operation'" [panel]="'AssetIdPanel'">
+        </lib-ucSubsection>
+        <div id="AssetIdPanel" style="overflow-x: auto;">
+          <table class="table table-responsive-md text-center table-hover">
+            <thead>
+              <tr class="table-header">
+                <th style="text-align: center;">
+                  <span class="thead-header" name="AssetType" translate>Asset Type</span>
+                </th>
+                <th style="text-align: center;">
+                  <span class="thead-header" name="AssetDescr" translate>Asset Description</span>
+                </th>
+                <th style="text-align: center;">
+                  <span class="thead-header" name="AssetValue" translate>Asset Value</span>
+                </th>
+                <th style="text-align: center;">
+                  <span class="thead-header" name="AssetQty" translate>Asset Quantity</span>
+                </th>
+                <th style="text-align: center;">
+                  <span class="thead-header" name="Total" translate>Total</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody *ngIf = "ListAsset.length == 0">
+              <tr>
+                <td colspan="100%">No Data Available</td>
+              </tr>
+            </tbody>
+            <tbody *ngIf = "ListAsset.length > 0">
+              <tr *ngFor="let item of ListAsset; let i = index">
+                <td style="text-align: left;">{{item.MrCustAssetTypeDescr}}</td>
+                <td style="text-align: left;">{{item.AssetDescr}}</td>
+                <td style="text-align: right;">{{ item.AssetValue | currency : "USD" : "" }}</td>
+                <td style="text-align: center;">{{item.AssetQty}}</td>
+                <td style="text-align: right;">{{ item.AssetTotalValue | currency : "USD" : "" }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

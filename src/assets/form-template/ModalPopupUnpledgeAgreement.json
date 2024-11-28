@@ -1,0 +1,133 @@
+{
+    "title": "Modal PopUp Unpledge Agreement",
+    "hideTitle": false,
+    "id": "ModalPopupUnpledgeAgreement",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "container": {
+                "key": "ModalUnpledgeAgreementComponent",
+                "className": "ModalUnpledgeAgreementComponent",
+                "cssClass": "",
+                "input": {
+                    "trxNo": "trxNo",
+                    "contractNo": "contractNo",
+                    "batchNo": "batchNo"
+                }
+            },
+            "id": "75cac09a-d8ef-4cc8-80df-2162da4c39c9"
+        },
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "Success Status",
+                "resultData": "",
+                "isSubsection": true,
+                "usePagination": true,
+                "includeSubmit": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Agreement No",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Status",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Reason",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "AgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "Status",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "Notes",
+                            "isFlagColor": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityMntUrl",
+                    "apiPath": "/V1/Pledging/GetStatusPledgeUnpledgeByBatchAndContractAndTrxNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "batchNo",
+                            "propValue": "batchNo"
+                        },
+                        {
+                            "isFromDict": false,
+                            "propName": "contractNo",
+                            "propValue": "contractNo"
+                        },
+                        {
+                            "isFromDict": false,
+                            "propName": "trxNo",
+                            "propValue": "trxNo"
+                        },
+                        {
+                            "isFromDict": false,
+                            "propName": "status",
+                            "propValue": "false"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "db90340a-b842-4028-8449-f8bbd50c5bda"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

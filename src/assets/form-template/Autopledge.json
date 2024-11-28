@@ -1,0 +1,138 @@
+{
+    "title": "AutoPledge",
+    "hideTitle": true,
+    "id": "Autopledge",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Auto Pledge",
+                    "isVertical": true,
+                    "isSubsection": false,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Office Name",
+                            "Variable": "OfficeCode",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FACILITYMNT",
+                                "Url": "/JfContract/GetListKvpRefOfficeInContractBranchPlafondByBatchNo",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "BatchNo": "JfBatchNo"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "CURRENCY",
+                            "Label": "Amount",
+                            "Variable": "Amount",
+                            "Value": "0",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "0",
+                            "Max": "999999999",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [
+                        {
+                            "propName": "BatchNo",
+                            "propValue": "JfBatchNo",
+                            "isFromDict": true,
+                            "setOnEdit": false
+                        }
+                    ],
+                    "mapCookie": []
+                }
+            },
+            "id": "81433c6e-1053-4e3e-8736-3ef0930d42ca"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/Pledging/StartAutoPledging",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/JfBatchObj/GetObjectByUniqueNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "TrxNo",
+                    "propValue": "JfBatchNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "JfBatchNo",
+                    "propValue": "JfBatchNo"
+                }
+            ]
+        },
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/JfContract/GetListJfContractBranchPlafondRefOfficeCodeByJfBatchNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "BatchNo",
+                    "propValue": "JfBatchNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ListOfficeCode",
+                    "propValue": "ReturnObject"
+                }
+            ]
+        }
+    ],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {}
+}

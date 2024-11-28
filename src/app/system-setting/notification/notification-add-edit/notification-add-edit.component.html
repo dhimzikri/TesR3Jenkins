@@ -1,0 +1,114 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="card-title" translate>Notification</h4>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="NotificationForm" #NotificationReqForm="ngForm"
+            (ngSubmit)="NotificationForm.valid && SaveForm()">
+
+            <lib-ucSubsection [id]="'NotificationFormId'" [title]="title" [panel]="'NotificationForm'"></lib-ucSubsection>
+            
+            <div class="form-body" id="NotificationForm">
+
+              <div class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" for="NotificationType" translate>Notification Type </label>
+                <div class="col-md-9">
+                  <select id="NotificationType" formControlName="NotificationType" class="form-control"
+                  [ngClass]="{ 'is-invalid': NotificationReqForm.submitted && NotificationForm.controls.NotificationType.invalid }">
+                  <option *ngFor="let item of tempListNotifType" [value]="item.Key">
+                    {{item.Value}}
+                  </option>
+                </select>
+                  <lib-uc-show-errors [control]="NotificationForm.controls.NotificationType" [submit]="NotificationReqForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" for="NotificationMethod" translate>Notification Method </label>
+                <div class="col-md-9">
+                  <select id="NotificationMethod" formControlName="NotificationMethod" class="form-control"
+                  [ngClass]="{ 'is-invalid': NotificationReqForm.submitted && NotificationForm.controls.NotificationMethod.invalid }">
+                  <option *ngFor="let item of tempListNotifMethod" [value]="item.Key">
+                    {{item.Value}}
+                  </option>
+                </select>
+                  <lib-uc-show-errors [control]="NotificationForm.controls.NotificationMethod" [submit]="NotificationReqForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" for="Title" translate>Title </label>
+                <div class="col-md-9">
+                  <input type="text" id="Title" class="form-control adInsInput name"
+                    formControlName="Title">
+                  <lib-uc-show-errors [control]="NotificationForm.controls.Title" [submit]="NotificationReqForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+              
+              <div class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" for="ShortDescription" translate>Short Description </label>
+                <div class="col-md-9">
+                  <input type="text" id="ShortDescription" class="form-control adInsInput name"
+                    formControlName="ShortDescription">
+                  <lib-uc-show-errors [control]="NotificationForm.controls.ShortDescription" [submit]="NotificationReqForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" for="LongDescription" translate>Long Description </label>
+                <div class="col-md-9">
+                  <textarea id="LongDescription" class="form-control adInsInput name"
+                    formControlName="LongDescription"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" for="PublishDate" translate>Publish Date </label>
+                <div class="col-md-9">
+                  <input type="date" id="PublishDate" class="form-control adInsInput name"
+                    formControlName="PublishDate">
+                    <lib-uc-show-errors [control]="NotificationForm.controls.PublishDate" [submit]="NotificationReqForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" for="TargetOffice" translate>Target Office </label>
+                <div class="col-md-9">
+                  <ng-multiselect-dropdown *ngIf="dropdownListOffice.length != 0" id="TargetOffice" [placeholder]="'Search'" [data]="dropdownListOffice"
+                  [(ngModel)]="selectedItemsOffice" [ngModelOptions]="{standalone: true}" [settings]="dropdownSettings">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" for="TargetRole" translate>Target Role </label>
+                <div class="col-md-9">
+                  <ng-multiselect-dropdown *ngIf="dropdownListRole.length != 0" id="TargetRole" [placeholder]="'Search'" [data]="dropdownListRole"
+                  [(ngModel)]="selectedItemsRole" [ngModelOptions]="{standalone: true}" [settings]="dropdownSettings">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+
+            </div>
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

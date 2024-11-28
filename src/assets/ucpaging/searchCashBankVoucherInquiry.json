@@ -1,0 +1,311 @@
+{
+    "title": "CASH BANK VOUCHER INQUIRY",
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "obal.OFFICE_CODE",
+            "id": "OfficeCode",
+            "value": "",
+            "placeholder": "",
+            "isFromURL": true,
+            "isSelectOne": false,
+            "isQueryIn" : true,
+            "ddlType": "all",
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "label": "Office Name",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "dropdown",
+            "name": "obal.OFFICE_BANK_ACC_CODE",
+            "id": "OfficeBankAccCodeId",
+            "value": "",
+            "placeholder": "",
+            "isFromURL": true,
+            "isSelectOne": false,
+            "isQueryIn" : true,
+            "ddlType": "all",
+            "url": "",
+            "environment": "PAYMENT",
+            "path": "/OfficeBankAccLms/GetListActiveOfficeBankAccLms",
+            "label": "Bank Account",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "datepicker",
+            "label": "Post Date >=",
+            "name": "cbht.POST_DT",
+            "id": "PostDtGteId",
+            "value": "",
+            "restriction": "gte",
+            "datatype": "date"
+        },
+        {
+            "type": "datepicker",
+            "label": "Post Date <=",
+            "name": "cbht.POST_DT",
+            "id": "PostDtLteId",
+            "value": "",
+            "restriction": "lte",
+            "datatype": "date"
+        },
+        {
+            "type": "textbox",
+            "name": "ch.USERNAME",
+            "id": "CashierId",
+            "value": "",
+            "label": "Cashier",
+            "placeholder": "Placeholder",
+            "restriction": "like"
+        },
+        {
+            "type": "textbox",
+            "name": "cbht.VOUCHER_NO",
+            "id": "VoucherNoId",
+            "value": "",
+            "label": "Voucher No",
+            "placeholder": "Placeholder",
+            "restriction": "like"
+        },
+        {
+            "type": "textbox",
+            "name": "cbht.REF_NO",
+            "id": "RefNoId",
+            "value": "",
+            "label": "Reference No",
+            "placeholder": "Placeholder",
+            "restriction": "like"
+        },
+        {
+            "type": "textbox",
+            "name": "cbht.TRX_NO",
+            "id": "TrxNoId",
+            "value": "",
+            "label": "Transaction No",
+            "placeholder": "Placeholder",
+            "restriction": "like"
+        },
+        {
+            "type": "dropdown",
+            "name": "rttl.TRX_TYPE_CODE",
+            "id": "TrxTypeId",
+            "value": "",
+            "placeholder": "",
+            "isFromURL": true,
+            "isSelectOne": false,
+            "isQueryIn" : true,
+            "ddlType": "all",
+            "url": "",
+            "environment": "PAYMENT",
+            "path": "/RefTrxTypeLms/GetListRefTrxTypeLms",
+            "label": "Transaction Type",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "dropdown",
+            "name": "cbht.IS_RECONCILE",
+            "id": "IsReconcile",
+            "label": "Reconciled",
+            "value": "",
+            "placeholder": "Placeholder",
+            "ddlType": "all",
+            "isFromURL": false,
+            "isSelectOne": false,
+            "items": [
+                {
+                    "key": "true",
+                    "value": "Yes"
+                },
+                {
+                    "key": "false",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchCashBankVoucherInquiry"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "VOUCHER NO",
+            "name": "VoucherNo"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "VALUE DATE",
+            "name": "ValueDt"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "POSTING DATE",
+            "name": "PostDt"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "TRANSACTION TYPE",
+            "name": "TrxTypeName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "REFERENCE NO",
+            "name": "RefNo"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "TRANSACTION NO",
+            "name": "TrxNo"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "DEBIT AMOUNT",
+            "name": "DebitAmt"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "CREDIT AMOUNT",
+            "name": "CreditAmt"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "CASHIER",
+            "name": "Cashier"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "IS RECONCILED",
+            "name": "IsReconcile"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "link",
+            "position": "center",
+            "property": "VoucherNo",
+            "target": "_blank",
+            "path": "CASH_BANK_VOUCHER_VIEW",
+            "param": [
+                {
+                    "type": "VoucherNo",
+                    "property": "VoucherNo"
+                }
+            ]
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "ValueDt"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "PostDt"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "TrxTypeName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "RefNo"
+        },
+        {
+            "type": "action",
+            "position":"center",
+            "action": [
+                {
+                    "type" : "switch",
+                    "case" : [
+                        {
+                            "conditions" : [
+                                {
+                                    "property" : "TransactionType",
+                                    "value" : "PAY_RVS",
+                                    "restriction" : "EQ"
+                                }
+                            ],
+                            "result" : {
+                            "type": "link",
+                            "position": "center",
+                            "property": "TrxNo",
+                            "target": "_blank",
+                            "path": "PAY_RVS_VIEW",
+                            "param": [
+                                {
+                                    "type": "PayRvsNo",
+                                    "property": "TrxNo"
+                                }
+                            ]
+                    }
+                },
+                {
+                    "conditions" : [
+                        {
+                            "property" : "TransactionType",
+                            "value" : "PAYRCV",
+                            "restriction" : "EQ"
+                        }
+                    ],
+                    "result" : {
+                        "type": "link",
+                        "position": "center",
+                        "property": "TrxNo",
+                        "target": "_blank",
+                        "path": "PREPAID_ALLOC_VIEW",
+                        "param": [
+                            {
+                                "type": "PrepaidAllocNo",
+                                "property": "TrxNo"
+                            },
+                            {
+                                "type": "AgrmntNo",
+                                "property": "AgrmntNo"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+},
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "DebitAmt"
+        },
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "CreditAmt"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Cashier"
+        },
+        {
+            "type" : "boolean", 
+            "position": "center",
+            "property": "IsReconcile"
+        }
+    ]
+}

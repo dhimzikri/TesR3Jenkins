@@ -1,0 +1,320 @@
+<div class="card bg-light-blue-card">
+    <div class="card-body">
+      <form class="form form-horizontal" [formGroup]="CustomerForm" (ngSubmit)="CustomerForm.valid && SaveForm()"
+        #enjiForm="ngForm">
+        <lib-ucSubsection [id]="'MainInfoPersId'" [title]="CustNameLabel + ' Main Information'" [panel]="'MainInfoPers'">
+        </lib-ucSubsection>
+        <div class="form-body" id="MainInfoPers">
+          <div class="form-group row px-3" *ngIf="CustDataMode == CustDataModeMain && CustId == 0">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-12 adInsLabel label-field-2" translate>Is Supplier
+                  <span class="optional-text">(Optional)</span>
+                </label>
+                <div class="col-md-12">
+                  <ui-switch class="custom-switches" uncheckedLabel="no" checkedLabel="yes" size="small"
+                    [formControlName]="'IsSupplier'">
+                  </ui-switch>
+                  <!-- <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsSupplier" /> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row" [hidden]="!CustomerForm.controls.IsSupplier.value">
+                <label class="col-md-12 label-field-2" for="LinkSupplier" translate>Link Supplier</label>
+                <div class="col-md-12">
+                  <lib-uclookupgeneric *ngIf="inputLookupObj?.isReady" [lookupInput]="inputLookupObj"
+                    [parentForm]='CustomerForm' [enjiForm]='enjiForm' [identifier]="'lookupSupp'" #LookupSupplier
+                    (lookup)="SetSupplier($event)">
+                  </lib-uclookupgeneric>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row px-3" *ngIf="CustDataMode == CustDataModeFamily">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2" translate>Family Relationship</label>
+                <div class="col-md-12" *ngIf="DictUcDDLObj[RefMasterTypeCodeCustPersonalRelationship]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeCustPersonalRelationship]"
+                    [parentForm]="CustomerForm" [enjiForm]="enjiForm" [identifier]="'MrCustRelationship'"
+                    [genericList]="MrCustRelationshipCodeObj" (callback)="RelationshipChange($event.selectedValue)">
+                  </lib-ucdropdownlist>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row px-3">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adins-required-label" translate>{{CustNameLabel}} Name</label>
+                <div class="col-md-12" *ngIf="CustDataMode != CustDataModeMain && existingCustomerLookUpObj.isReady">
+                  <lib-uclookupgeneric [lookupInput]="existingCustomerLookUpObj" [parentForm]="CustomerForm"
+                    [enjiForm]="enjiForm" [identifier]="'ExistingCustName'" (lookup)=getLookUpCustomer($event)
+                    #LookupExistingCust>
+                  </lib-uclookupgeneric>
+                </div>
+                <div class="col-md-12" *ngIf="CustDataMode == CustDataModeMain">
+                  <input type="text" class="form-control adInsInput input-field-2" formControlName="CustName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.CustName.invalid}">
+                  <div class="message-box">
+                    <lib-uc-show-errors [control]="CustomerForm.controls.CustName" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adins-required-label" translate>Birth Place</label>
+                <div class="col-md-12">
+                  <input type="text" class="form-control adInsInput input-field-2" formControlName="BirthPlace"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.BirthPlace.invalid}">
+                  <div class="message-box">
+                    <lib-uc-show-errors [control]="CustomerForm.controls.BirthPlace" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adins-required-label" translate>ID Type</label>
+                <div class="col-md-12" *ngIf="DictUcDDLObj[RefMasterTypeCodeIdType]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeIdType]"
+                    [parentForm]="CustomerForm" [enjiForm]="enjiForm" [identifier]="identifierMrIdTypeCode"
+                    (callback)="onOptionsSelected()"></lib-ucdropdownlist>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adins-required-label" translate>ID Number</label>
+                <div class="col-md-12">
+                  <input type="text" class="form-control adInsInput input-field-2" formControlName="IdNo"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.IdNo.invalid}">
+                  <div class="message-box">
+                    <lib-uc-show-errors [customPattern]="customPattern" [control]="CustomerForm.controls.IdNo"
+                      [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 adInsLabel label-field-2" translate>ID Expired Date
+                  <span class="optional-text" *ngIf="!IsExpDtRequired || IsExpDtReadonly">(Optional)</span>
+                </label>
+                <div class="col-md-12">
+                  <input [readonly]="IsExpDtReadonly" type="date" class="form-control adInsInput input-field-2"
+                    formControlName="IdExpiredDt" [min]="businessDtMax | date: 'yyyy-MM-dd'"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.IdExpiredDt.invalid } ">
+                  <div class="message-box">
+                    <lib-uc-show-errors [control]="CustomerForm.controls.IdExpiredDt" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row" *ngIf="CustDataMode == CustDataModeMain">
+                <label class="col-md-4 adins-required-label" translate>Customer Model</label>
+                <div class="col-md-8" *ngIf="DictUcDDLObj[RefMasterTypeCodeCustModel]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeCustModel]"
+                    [parentForm]="CustomerForm" [enjiForm]="enjiForm" [identifier]="'MrCustModelCode'"
+                    (callback)="changeCustModel()"></lib-ucdropdownlist>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-md-6">
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adins-required-label" translate>Gender</label>
+                <div class="col-md-12" *ngIf="DictUcDDLObj[RefMasterTypeCodeGender]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeGender]"
+                    [parentForm]="CustomerForm" [enjiForm]="enjiForm" [identifier]="'MrGenderCode'">
+                  </lib-ucdropdownlist>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adins-required-label" translate>Birth Date</label>
+                <div class="col-md-12">
+                  <input type="date" class="form-control adInsInput input-field-2" formControlName="BirthDt"
+                    [max]="businessDtMin | date: 'yyyy-MM-dd'"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.BirthDt.invalid}">
+                  <div class="message-box">
+                    <lib-uc-show-errors [control]="CustomerForm.controls.BirthDt" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adInsLabel label-field-2 adins-required-label" translate>Tax Id No
+                  <!-- <span class="optional-text">(Optional)</span> -->
+                </label>
+                <div class="col-md-12">
+                  <input type="text" class="form-control adInsInput input-field-2" formControlName="TaxIdNo"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.TaxIdNo.invalid}">
+                  <div class="message-box">
+                    <lib-uc-show-errors [customPattern]="customPatternTaxIdNo" [control]="CustomerForm.controls.TaxIdNo"
+                      [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adins-required-label" translate>Mother Maiden Name</label>
+                <div class="col-md-12">
+                  <input type="text" class="form-control adInsInput input-field-2" formControlName="MotherMaidenName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.MotherMaidenName.invalid}">
+                  <div class="message-box">
+                    <lib-uc-show-errors [control]="CustomerForm.controls.MotherMaidenName" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adins-required-label" translate>Marital Status
+                  <!-- <span class="optional-text"
+                    *ngIf="pageFrom == CustFromCustShareholder || CustDataMode == CustDataModeShareholder">(Optional)</span> -->
+                </label>
+                <div class="col-md-12" *ngIf="DictUcDDLObj[RefMasterTypeCodeMaritalStat]?.isReady">
+                  <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeMaritalStat]"
+                    [parentForm]="CustomerForm" [enjiForm]="enjiForm" [identifier]="'MrMaritalStatCode'"
+                    (callback)="changeCustMaritalStat()">
+                  </lib-ucdropdownlist>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adins-required-label" translate>Email
+                  <span class="optional-text"
+                    *ngIf="pageFrom == CustFromCustShareholder || CustDataMode == CustDataModeShareholder || pageFrom == CustFromCustFamily || CustDataMode == CustDataModeFamily">(Optional)</span>
+                </label>
+                <div class="col-md-12">
+                  <input type="text" class="form-control adInsInput input-field-2" formControlName="Email1"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.Email1.invalid}">
+                  <div class="message-box">
+                    <lib-uc-show-errors [control]="CustomerForm.controls.Email1" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row px-3">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2 adins-required-label" translate>Mobile Phone 1
+              </label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control adInsInput input-field-2" formControlName="MobilePhnNo1"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.MobilePhnNo1.invalid}">
+                  <div class="message-box">
+                  <lib-uc-show-errors [control]="CustomerForm.controls.MobilePhnNo1" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                  </div>
+                </div>
+  
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2" translate>Mobile Phone 2
+                  <span class="optional-text">(Optional)</span>
+                </label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control adInsInput input-field-2" formControlName="MobilePhnNo2"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.MobilePhnNo2.invalid}">
+                  <div class="message-box">
+                    <lib-uc-show-errors [control]="CustomerForm.controls.MobilePhnNo2" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2" translate>Mobile Phone 3
+                  <span class="optional-text">(Optional)</span>
+                </label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control adInsInput input-field-2" formControlName="MobilePhnNo3"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.MobilePhnNo3.invalid}">
+                  <div class="message-box">
+                    <lib-uc-show-errors [control]="CustomerForm.controls.MobilePhnNo3" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2" translate>Is Wa Mobile Phone 1
+                  <span class="optional-text">(Optional)</span>
+                </label>
+                <div class="col-md-12">
+                  <input class="input-field-2" type="checkbox" data-md-icheck formControlName="IsWaMobilePhnNo1" />
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2" translate>Is Wa Mobile Phone 2
+                  <span class="optional-text">(Optional)</span>
+                </label>
+                <div class="col-md-12">
+                  <input class="input-field-2" type="checkbox" data-md-icheck formControlName="IsWaMobilePhnNo2" />
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-12 label-field-2" translate>Is Wa Mobile Phone 3
+                  <span class="optional-text">(Optional)</span>
+                </label>
+                <div class="col-md-12">
+                  <input class="input-field-2" type="checkbox" data-md-icheck formControlName="IsWaMobilePhnNo3" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <app-shareholder-form *ngIf="CustDataMode == CustDataModeShareholder" [parentForm]="CustomerForm"
+            [enjiForm]="enjiForm" [CustId]="CustId" [CustCompanyMgmntShrholderId]="CustCompanyMgmntShrholderId"
+            [CustType]="CustTypePersonal" (outputExisting)=GetExistingFormObj($event)
+            (outputChange)="outputChangeReceived($event)" #ShareholderForm></app-shareholder-form>
+          <app-family-form *ngIf="CustDataMode == CustDataModeFamily" [parentForm]="CustomerForm" [enjiForm]="enjiForm"
+            [CustId]="CustId" (outputExisting)=GetExistingFormObj($event) (outputChange)="outputChangeReceived($event)"
+            #FamilyForm></app-family-form>
+          <app-self-custom-cust-attr-form *ngIf="CustDataMode != CustDataModeMain" [Label]="CustDataMode"
+            [CustId]="CustId" [AttrGroup]="AttrGroupCustPersonalOther" [AttrCodes]="listAttrCodes"
+            [parentForm]="CustomerForm" [enjiForm]="enjiForm" #CustAttrForm></app-self-custom-cust-attr-form>
+        </div>
+        <lib-ucSubsection [id]="'LegalAddr'" [title]="'Legal Address'" [panel]="'LegalAddrSection'">
+        </lib-ucSubsection>
+        <div class="form-body" id="LegalAddrSection">
+          <div class="form-group row" *ngIf="!IsLockCopyAddrBtn && CustDataMode != CustDataModeMain">
+            <label class="col-md-12 adInsLabel label-field-2" translate>Copy Address From Legal Customer</label>
+            <div class="col-md-12">
+              <button type="button" class="btn btn-raised btn-primary-2" (click)="CopyLegalAddr()">
+                <i class="far"></i>&nbsp;<span translate>Copy</span>
+              </button>
+            </div>
+          </div>
+          <lib-ucaddress [addressObj]="inputAddressObj" [UCAddrForm]="CustomerForm" [enjiForm]="enjiForm"
+            [identifier]="'UcAddress'" *ngIf="isReady">
+          </lib-ucaddress>
+        </div>
+        <div *ngIf="pageFrom == CustFromEditMainData && CustDataMode == CustDataModeMain">
+            <app-third-party-form *ngIf="IsCustLoaded" [parentForm]="CustomerForm" [thirdPartyTrxNo]="thirdPartyTrxNo" [custObj]="custObj" [CustDataMode]="CustDataMode" [MrCustTypeCode]="CustTypePersonal" 
+              (OutputThirdPartyTrxNo)="SetThirdPartyTrxNo($event)" (OutputCustObj)="SetThirdPartyTrxNoAndRowVersion($event)" (OutputUploadFile)="SetCustFileFormObjs($event)">
+            </app-third-party-form>
+        </div>
+        <div class="form-actions right">
+          <div class="px-3">
+            <button type="button" class="btn btn-raised btn-outline-2 mr-1" (click)="Cancel()">
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span> </button>
+            <button type="submit" class="btn btn-raised btn-primary-2" [attr.disabled]="isSubmit? true : null">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span> </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

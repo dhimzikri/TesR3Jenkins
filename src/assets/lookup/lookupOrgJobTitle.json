@@ -1,0 +1,15 @@
+{
+  "url": "http://getOrgJobTitle",
+  "title":"Lookup - Organization Job Title",
+  "sectionTitle": "Search",
+  "component": [
+   {
+      "type": "textbox",
+      "name": "jobTitleName",
+      "id": "jobTitleNamed",
+      "value": "",
+      "label": "Job Title Name",
+      "placeholder": "Job Title Name"
+    }
+  ]
+}

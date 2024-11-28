@@ -1,0 +1,61 @@
+{
+    "component": [
+      {
+        "type": "textbox",
+        "name": "RU.USERNAME",
+        "id": "Username",
+        "value": "",
+        "label": "Username",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "RE.EMP_NAME",
+        "id": "EmpName",
+        "value": "",
+        "label": "Employee Name",
+        "placeholder": "Placeholder"
+      }
+    ],
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Username",
+        "name": "Username"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Employee Name",
+        "name": "EmpName"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Action"
+      }
+    ],
+    "querystring": {
+      "name": "searchNotificationDOnApproval"
+    },
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "center",
+        "property": "Username"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "EmpName"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+        ]
+      }
+    ]
+  }
+  

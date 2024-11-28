@@ -1,0 +1,142 @@
+{
+    "title": "PAYMENT ALLOCATION GROUP",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "RPAG.MR_PAY_ALLOC_GRP_CODE",
+            "datatype": "text",
+            "id": "MrPayAllocGrpCode",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Payment Allocation Group",
+            "items": [],
+            "itemsUrl": [],
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "PAY_ALLOC_GRP",
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "RPA.PAYMENT_ALLOC_CODE",
+            "id": "PaymentAllocCode",
+            "value": "",
+            "label": "Payment Allocation  Code",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "RPA.PAYMENT_ALLOC_NAME",
+            "id": "PaymentAllocName",
+            "value": "",
+            "label": "Payment Allocation Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "dropdown",
+            "name": "RPAG.IS_ACTIVE",
+            "datatype": "text",
+            "id": "IsActive",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "",
+            "label": "Is Active",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PAYMENT ALLOCATION GROUP",
+            "name": "RPAG.MR_PAY_ALLOC_GRP_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PAYMENT ALLOCATION CODE",
+            "name": "RPA.PAYMENT_ALLOC_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PAYMENT ALLOCATION NAME",
+            "name": "RPA.PAYMENT_ALLOC_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "IS ACTIVE",
+            "name": "RPAG.IS_ACTIVE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "ACTION"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Descr"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "PaymentAllocCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "PaymentAllocName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "IsActiveDescr"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "CS_PAYMENT_ALLOC_GRP_DETAIL",
+                    "param": [
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        },
+                        {
+                            "type": "RefPaymentAllocGrpId",
+                            "property": "RefPaymentAllocGrpId"
+                        }
+                    ],
+                    "icon": "ft-edit-2"
+                }
+            ]
+        }
+    ],
+    "querystring": {
+        "name": "searchPaymentAllocGroupPaging"
+    }
+}

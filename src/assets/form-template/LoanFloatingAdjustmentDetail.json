@@ -1,0 +1,785 @@
+{
+    "title": "Loan Floating Adjustment Detail",
+    "hideTitle": false,
+    "id": "LoanFloatingAdjustmentDetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "customComponent": {
+                "componentRef": "${FundingBatchMainInformation_QueryView}"
+            },
+            "id": "a9c0a66f-882f-4b27-8f16-0d68ec30ad25"
+        },
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "Adjustment History",
+                "resultData": "",
+                "isSubsection": true,
+                "usePagination": true,
+                "includeSubmit": false,
+                "tableInput": {
+                    "isSeq": true,
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Adjustment Date",
+                            "position": "center",
+                            "name": ""
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Effective Date",
+                            "position": "center",
+                            "name": ""
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Previous Bottom Rate",
+                            "position": "center",
+                            "name": ""
+                        },
+                        {
+                            "type": "label",
+                            "label": "Adjusted Bottom Rate",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "TrxDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "EffectiveDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "center",
+                            "property": "OldBottomRate",
+                            "isFlagColor": false,
+                            "precision": "0.0",
+                            "IsPrcnt": true
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "center",
+                            "property": "NewBottomRate",
+                            "isFlagColor": false,
+                            "precision": "0.0",
+                            "IsPrcnt": true
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityExecUrl",
+                    "apiPath": "/v1/LoanBatchFloating/GetListLoanBatchFloatingAdjHistByLoanBatchNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "LoanBatchNo",
+                            "propValue": "FundingBatchNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "3086d519-3b4c-4716-b656-9d760ba40847"
+        },
+        {
+            "customComponent": {
+                "componentRef": "${OutstandingLoan_QueryView}"
+            },
+            "id": "db8b95c6-9400-4b7b-9132-cc9ebec80b0d"
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "InterestSettingId",
+                    "subSectionTitle": "Interest Setting",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityExecUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewInterestSetting"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Bottom Rate Based On",
+                            "property": "BottomRateBasedCode",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Margin Rate",
+                            "property": "MarginRate",
+                            "precision": "0.2",
+                            "IsPrcnt": true,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": []
+                }
+            },
+            "id": "8f27a13d-ffa6-478a-8f78-cffca57516a9"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "",
+                    "isVertical": false,
+                    "isSubsection": false,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [
+                                {
+                                    "type": "updateDict",
+                                    "condition": [],
+                                    "key": "BottomRate",
+                                    "propName": "BottomRate"
+                                }
+                            ],
+                            "Type": "NUMERIC",
+                            "Label": "Bottom Rate",
+                            "Variable": "BottomRate",
+                            "Value": "",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": ""
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "updateDict",
+                                    "condition": [],
+                                    "key": "EffectiveDt",
+                                    "propName": "EffectiveDt"
+                                }
+                            ],
+                            "Type": "DATE",
+                            "Label": "Effective Date",
+                            "Variable": "EffectiveDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": ""
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "updateDict",
+                                    "condition": [],
+                                    "key": "RefNo",
+                                    "propName": "RefNo"
+                                }
+                            ],
+                            "Type": "TEXT",
+                            "Label": "Ref No",
+                            "Variable": "RefNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "Optional"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "LABEL",
+                            "Label": "",
+                            "Variable": "",
+                            "LabelType": "TEXT",
+                            "Position": "text-left"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "FILE",
+                            "Label": "SourceFile",
+                            "Variable": "File0",
+                            "MaxSize": "30000000",
+                            "ExtensionList": "xlsx, .xls",
+                            "IsRequired": true
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "callAPI",
+                                    "environment": "FACILITYEXECUTION",
+                                    "apiPath": "/LoanBatchFloating/UploadFileAndValidateLoanBatchInstSchdl",
+                                    "reqObj": [
+                                        {
+                                            "propName": "Base64Data",
+                                            "propValue": "Files.0.Content"
+                                        },
+                                        {
+                                            "propName": "EffectiveDt",
+                                            "propValue": "EffectiveDt"
+                                        },
+                                        {
+                                            "propName": "FileName",
+                                            "propValue": "Files.0.FileName"
+                                        }
+                                    ],
+                                    "bindToVar": [
+                                        {
+                                            "variable": "UploadTypeCode",
+                                            "value": "UPL_FLADJ_TMS"
+                                        }
+                                    ],
+                                    "bindToDict": [],
+                                    "bindToFormArr": [],
+                                    "condition": [
+                                        {
+                                            "variable": "BottomRate",
+                                            "restriction": "NEQ",
+                                            "value": ""
+                                        },
+                                        {
+                                            "variable": "EffectiveDt",
+                                            "restriction": "NEQ",
+                                            "value": ""
+                                        },
+                                        {
+                                            "variable": "File0",
+                                            "restriction": "NEQ",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "cbCallback",
+                                    "key": "OnViewPreview"
+                                }
+                            ],
+                            "Type": "BUTTON",
+                            "Variable": "OnViewPreview",
+                            "IsCallback": true,
+                            "DisplayName": "Process",
+                            "Icon": "",
+                            "Position": "text-left"
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "877b196c-2974-41a9-a550-23bf8f175267",
+            "conditions": [
+                {
+                    "property": "InstSchmCode",
+                    "restriction": "EQ",
+                    "value": "UPLOAD"
+                }
+            ]
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "",
+                    "isVertical": false,
+                    "isSubsection": false,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "NUMERIC",
+                            "Label": "Bottom Rate",
+                            "Variable": "BottomRate",
+                            "Value": "",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Effective Date",
+                            "Variable": "EffectiveDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Ref No",
+                            "Variable": "RefNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "078a9f10-c19b-42f8-8adf-5b556a6610f6",
+            "conditions": [
+                {
+                    "property": "InstSchmCode",
+                    "restriction": "NEQ",
+                    "value": "UPLOAD"
+                }
+            ]
+        },
+        {
+            "container": {
+                "key": "ButtonPreviewScheduleComponent",
+                "className": "ButtonPreviewScheduleComponent",
+                "cssClass": "",
+                "input": {
+                    "PreviewSchedule": "false"
+                }
+            },
+            "id": "164da8d2-a561-46e2-8d20-d10d9a36fd97"
+        },
+        {
+            "container": {
+                "key": "NewPaymentScheduleComponent",
+                "className": "NewPaymentScheduleComponent",
+                "cssClass": "",
+                "input": {}
+            },
+            "id": "394b8e40-4193-4ae5-ac4f-7cc8191548b5",
+            "conditions": []
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "OldPaymentScheduleId",
+                    "subSectionTitle": "Old Payment Schedule",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityExecUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewPaymentSchedule"
+                    },
+                    "reqObj": {},
+                    "resObjName": "",
+                    "mainInfo": [
+                        {
+                            "type": "currency",
+                            "label": "Total Installment Amount",
+                            "property": "TotalInstallmentAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Principal Amount",
+                            "property": "TotalPrincipalAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Interest Amount",
+                            "property": "TotalInterestAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "gridViews": [
+                        {
+                            "title": "Before",
+                            "isSubsection": false,
+                            "isFromApi": false,
+                            "resultData": "ReturnObject",
+                            "getData": {
+                                "environment": "FACILITYEXECUTION",
+                                "apiPath": "/LoanBatchFloating/GetListLoanBatchInstSchdlByLoanBatchNo",
+                                "customObjName": "ReturnObject",
+                                "reqObj": [
+                                    {
+                                        "isFromDict": false,
+                                        "propName": "LoanBatchNo",
+                                        "propValue": "FundingBatchNo"
+                                    }
+                                ],
+                                "conditions": []
+                            },
+                            "tableInput": {
+                                "isSeq": false,
+                                "headerList": [
+                                    {
+                                        "type": "label",
+                                        "label": "Installment Seq No.",
+                                        "position": "center"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Due Date",
+                                        "position": "center"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Installment Amount",
+                                        "position": "center"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Installment Paid Amount",
+                                        "position": "center"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Principal Amount",
+                                        "position": "center"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Interest Amount",
+                                        "position": "center"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Os Principal Amount",
+                                        "position": "center"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Os Interest Amount",
+                                        "position": "center"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Interest Accrued",
+                                        "position": "center"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Last Accrued Date",
+                                        "position": "center"
+                                    }
+                                ],
+                                "bodyList": [
+                                    {
+                                        "type": "decimal",
+                                        "position": "center",
+                                        "property": "InstSeqNo",
+                                        "isFlagColor": false,
+                                        "precision": "0.0",
+                                        "IsPrcnt": false
+                                    },
+                                    {
+                                        "type": "date",
+                                        "position": "center",
+                                        "property": "DueDt",
+                                        "isFlagColor": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "InstAmt",
+                                        "isFlagColor": false,
+                                        "precision": "0.2",
+                                        "IsPrcnt": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "InstPaidAmt",
+                                        "isFlagColor": false,
+                                        "precision": "0.0",
+                                        "IsPrcnt": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "PrincipalAmt",
+                                        "isFlagColor": false,
+                                        "precision": "0.2",
+                                        "IsPrcnt": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "InterestAmt",
+                                        "isFlagColor": false,
+                                        "precision": "0.2",
+                                        "IsPrcnt": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "OsPrincipalAmt",
+                                        "isFlagColor": false,
+                                        "precision": "0.2",
+                                        "IsPrcnt": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "OsInterestAmt",
+                                        "isFlagColor": false,
+                                        "precision": "0.2",
+                                        "IsPrcnt": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "InterestRecogAmt",
+                                        "isFlagColor": false,
+                                        "precision": "0.0",
+                                        "IsPrcnt": false
+                                    },
+                                    {
+                                        "type": "date",
+                                        "position": "center",
+                                        "property": "LastAccrualDt",
+                                        "isFlagColor": false
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "id": "5ef4bc62-e030-4047-b1f5-ae565f7bfc2f",
+            "conditions": [
+                {
+                    "property": "formRaw.PreviewSchedule",
+                    "restriction": "EQ",
+                    "value": "true"
+                }
+            ]
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "facilityExecUrl",
+            "apiPath": "/v1/LoanBatchFloating/GenerateSubmitLoanFloatingAdjustment",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [
+        {
+            "environment": "facilityExecUrl",
+            "apiPath": "/v1/LoanBatchTmsObj/GetObjectByKeyAndValue",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Key",
+                    "propValue": "LoanBatchNo"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "Operand",
+                    "propValue": "EQ"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "Value",
+                    "propValue": "FundingBatchNo"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "IncludeProperties",
+                    "propValue": ""
+                }
+            ],
+            "return": [
+                {
+                    "propName": "InstSchmCode",
+                    "propValue": "InstSchmCode"
+                }
+            ],
+            "conditions": []
+        },
+        {
+            "environment": "facilityExecUrl",
+            "apiPath": "/v1/LoanBatchInstSchdlObj/GetListObjectByKeyAndValue",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Key",
+                    "propValue": "LoanBatchNo"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "Operand",
+                    "propValue": "EQ"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "Value",
+                    "propValue": "FundingBatchNo"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "IncludeProperties",
+                    "propValue": ""
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ReturnObject",
+                    "propValue": ""
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "environment": "facilityExecUrl",
+                "path": "/v1/LoanBatchFloating/GenerateSubmitLoanFloatingAdjustment\t",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "BatchNo",
+                        "propValue": "FundingBatchNo"
+                    },
+                    {
+                        "propName": "BottomRate",
+                        "propValue": "form.BottomRate"
+                    },
+                    {
+                        "propName": "EffectiveDt",
+                        "propValue": "form.EffectiveDt"
+                    },
+                    {
+                        "propName": "RefNo",
+                        "propValue": "form.RefNo"
+                    },
+                    {
+                        "propName": "IsUpload",
+                        "propValue": "form.IsUpload"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "params": [],
+                            "path": "/LoanFloatingAdjustment/Paging",
+                            "target": "_self"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        }
+    ],
+    "isOverrideCancel": true,
+    "onCancel": {
+        "path": "/LoanFloatingAdjustment/Paging",
+        "params": [],
+        "type": "link",
+        "target": "_self"
+    },
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

@@ -1,0 +1,79 @@
+{
+  "title": "Report Funding Coverage",
+  "hideTitle": false,
+  "id": "Reportfundingcoverage",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "report": {
+        "apiReportPath": "/v1/Report/GenerateReportR3",
+        "apiEnvironmentUrl": "FoundationR3Url",
+        "pagingInput": {
+          "title": "",
+          "reportName": "Funding Report Coverage",
+          "reportTemplateCode": "FUNDING_REPORT_COVERAGE",
+          "component": [
+            {
+              "id": "agingdtfromSearchId",
+              "type": "datepicker",
+              "label": "Aging Date From ",
+              "name": "AgingDtFrom",
+              "paramAssignment": "0",
+              "value": "",
+              "placeholder": "",
+              "datatype": "date",
+              "isRequired": false,
+              "restriction": "gte",
+              "useDefVal": false
+            },
+            {
+              "id": "reporttypetmsSearchId",
+              "type": "dropdown",
+              "label": "Type",
+              "name": "ReportTypeTms",
+              "paramAssignment": "0",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isRequired": false,
+              "isFromURL": true,
+              "ddlType": "one",
+              "isEvent": false,
+              "environment": "FOU",
+              "path": "/RefMaster/GetListKeyValueActiveByCode",
+              "criteriaPropName": "RefMasterTypeCode",
+              "criteriaPropValue": "REPORT_TYPE_TMS",
+              "isQueryIn": false,
+              "useAutofill": false
+            }
+          ]
+        }
+      },
+      "id": "565ee4dc-c713-47fb-bed7-baceb8eaeb15"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [],
+  "customToastrMsg": "",
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false,
+  "persistPropName": "",
+  "overrideSubmitBtnText": ""
+}

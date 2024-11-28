@@ -1,0 +1,78 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate> VENDOR SCHEME </h4>
+            </div>
+          </div>
+        </div>
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="VendorSchmForm"
+            (ngSubmit)="VendorSchmForm.valid && SaveForm()" #enjiForm="ngForm">
+            <lib-ucSubsection [id]="'VendorSchmId'" [title]="'Scheme Info'" [panel]="'BusinessUnitInformation'">
+            </lib-ucSubsection>
+
+            <div class="form-body" id="BusinessUnitInformation">
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>Vendor Category </label>
+                <div class="col-md-9">
+                  <select class="form-control adInsInput" style="width: auto" formControlName="MrVendorCategoryCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && VendorSchmForm.controls.MrVendorCategoryCode.invalid }">
+                    <option *ngFor="let it of itemCategoryType" value="{{it.Key}}">
+                      {{it.Value}}</option>
+                  </select>
+                  <lib-uc-show-errors [control]="VendorSchmForm.controls.MrVendorCategoryCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div *ngIf="!isAuto" class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>Scheme Code </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput width-75-per" formControlName="VendorSchmCode">
+                  <lib-uc-show-errors [control]="VendorSchmForm.controls.VendorSchmCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>Scheme Name </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput width-75-per" formControlName="VendorSchmName">
+                  <lib-uc-show-errors [control]="VendorSchmForm.controls.VendorSchmName" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Description</label>
+                <div class="col-md-9">
+                  <textarea class="form-control adInsInput width-75-per" formControlName="VendorSchmDesc"> </textarea>
+                  <lib-uc-show-errors [control]="VendorSchmForm.controls.VendorSchmDesc" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Active Status </label>
+                <div class="col-md-9">
+                  <input type="checkbox" class="border-primary" formControlName="IsActive">
+                </div>
+              </div>
+            </div>
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1"
+               [routerLink]="[CancelLink]" skipLocationChange
+                [queryParams]="{ Type: 'Scheme', MrVendorCategoryCode : this.MrVendorCategoryCode }">
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary"
+              translate>
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

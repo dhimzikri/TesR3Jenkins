@@ -1,0 +1,338 @@
+{
+    "title": "Loan Pledging Agreement View",
+    "hideTitle": false,
+    "id": "LoanPledgingAgreementView",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "customComponent": {
+                "componentRef": "${Loancontractmaininfo}"
+            },
+            "id": "aeab6437-0602-4fb3-ac3c-097f908efbda",
+            "conditions": [
+                {
+                    "property": "SecuritySchmCode",
+                    "restriction": "EQ",
+                    "value": "PLF"
+                }
+            ]
+        },
+        {
+            "customComponent": {
+                "componentRef": "${FundingBatchMainInformation_QueryView}"
+            },
+            "id": "a28b037e-691b-4ca9-a6e3-3caca213b9f8",
+            "conditions": [
+                {
+                    "property": "SecuritySchmCode",
+                    "restriction": "EQ",
+                    "value": "LOAN"
+                }
+            ]
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "PledgingDetailId",
+                    "subSectionTitle": "Pledging Detail",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanPledgingDetail"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "currency",
+                            "label": "Security Percentage",
+                            "property": "SecurityPercentage",
+                            "precision": "0",
+                            "IsPrcnt": true,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Security Percentage Of",
+                            "property": "SecurityPercentageOf",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Security Scheme",
+                            "property": "SecurityScheme",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Total Agreement",
+                            "property": "TotalAgreement",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Security Amount",
+                            "property": "TotalSecurityAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Pledge Amount",
+                            "property": "TotalPledgeAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Remaining Amount",
+                            "property": "RemainingAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "LoanBatchNo"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "266f6748-debf-4381-b2f4-04093ed07ea9",
+            "conditions": [
+                {
+                    "property": "SecuritySchmCode",
+                    "restriction": "EQ",
+                    "value": "LOAN"
+                }
+            ]
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "PledgingDetailId",
+                    "subSectionTitle": "Pledging Detail",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewPledgingDetailLoanPledging"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Security Percentage",
+                            "property": "SecurityPercentage",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Security Percentage Of",
+                            "property": "SecurityPercentageOf",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Security Scheme",
+                            "property": "SecurityScheme",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Total Agreement",
+                            "property": "TotalAgreement",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Security Amount",
+                            "property": "SecurityAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Pledge Amount",
+                            "property": "TotalPledgeAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Remaining Amount",
+                            "property": "RemainingAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "LoanContractNo"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "d76d1418-c1a3-40a2-942c-ef0da1a3565d",
+            "conditions": [
+                {
+                    "property": "SecuritySchmCode",
+                    "restriction": "EQ",
+                    "value": "PLF"
+                }
+            ]
+        },
+        {
+            "tabs": {
+                "tablist": [
+                    {
+                        "label": "Add Agreement Automatic",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "LoanAutoPledge",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "LoanBatchNo",
+                                        "propValue": "LoanBatchNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Add Agreement Manual",
+                        "panel": [
+                            {
+                                "isTemplate": false,
+                                "content": "PledgingManualLoanComponent",
+                                "conditions": [],
+                                "params": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "id": "c2e5448c-1f2d-43f1-bed8-dcd8862297c9"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/LoanContractObj/GetObjectByUniqueNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "TrxNo",
+                    "propValue": "LoanContractNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "LoanContractNo",
+                    "propValue": "LoanContractNo"
+                },
+                {
+                    "propName": "SecuritySchmCode",
+                    "propValue": "SecuritySchmCode"
+                },
+                {
+                    "propName": "LoanBatchNo",
+                    "propValue": "LoanBatchNo"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

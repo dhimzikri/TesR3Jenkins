@@ -1,0 +1,66 @@
+{
+  "title": "",
+  "subsection": [
+    {
+      "subSectionId": "CustMainInfoHeaderId",
+      "subSectionTitle": "Main Info",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Customer No",
+          "property": "CustNo"
+        },
+        {
+          "type": "text",
+          "label": "Tax Id No",
+          "property": "TaxIdNo"
+        },
+        {
+          "type": "text",
+          "label": "Customer Name",
+          "property": "CustName"
+        },
+       
+        {
+          "type": "text",
+          "label": "Customer Model",
+          "property": "CustModel"
+        },
+        {
+          "type": "text",
+          "label": "Id Type",
+          "property": "IdType"
+        },
+                {
+          "type": "text",
+          "label": "Id No",
+          "property": "IdNo"
+        },
+        {
+          "type": "date",
+          "label": "Id Expired Date",
+          "property": "IdExpiredDt"
+        },
+        {
+          "type": "text",
+          "label": "Gender",
+          "property": "MrGenderCode"
+        },
+        {
+          "type": "text",
+          "label": "Birth Place",
+          "property": "BirthPlace"
+        },
+        {
+          "type": "date",
+          "label": "Birth Date",
+          "property": "BirthDt"
+        }
+      ],
+      "querystring": {
+        "name": "viewCustMainInfoHeader"
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Industry Type Registration</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="RefIndustryTypeForm" #enjiForm="ngForm" novalidate
+          (ngSubmit)="enjiForm.form.valid && Save()">
+          <lib-ucSubsection [id]="'IndustryTypeInfoId'" [title]="'Industry Type ' + type" [panel]="'IndustryTypeInfo'"></lib-ucSubsection>
+          <div id="IndustryTypeInfo">
+            <div *ngIf="!isAuto" class="form-group row">
+              <label class="col-md-3 adins-required-label" for="IndustryTypeCode">Industry Type Code</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" formControlName="IndustryTypeCode" 
+                  [ngClass]="{ 'is-invalid': enjiForm.submitted && RefIndustryTypeForm.controls.IndustryTypeCode.invalid }"
+                  [attr.disabled]="type == 'edit' ? true : null">
+                  <lib-uc-show-errors [control]="RefIndustryTypeForm.controls.IndustryTypeCode" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 adins-required-label" for="IndustryTypeName">Industry Type Name</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" formControlName="IndustryTypeName" 
+                  [ngClass]="{ 'is-invalid': enjiForm.submitted && RefIndustryTypeForm.controls.IndustryTypeName.invalid }">
+                  <lib-uc-show-errors [control]="RefIndustryTypeForm.controls.IndustryTypeName" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 adins-required-label" for="RefEconomicSectorId" translate>Industry Type Category Code</label>
+              <div class="col-md-4">
+                <lib-uclookupgeneric [lookupInput]="inputLookupObj" [parentForm]='RefIndustryTypeForm' [enjiForm]='enjiForm' [identifier]="'EconomicSectorCode'"
+                  (lookup)="getLookupResponse($event)"></lib-uclookupgeneric>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3" for="isActive">Active Status</label>
+              <div class="custom-control custom-checkbox m-0">
+                <input type="checkbox" value="1" id="isActive" formControlName="IsActive">
+              </div>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

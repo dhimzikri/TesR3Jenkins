@@ -1,0 +1,200 @@
+{
+    "title": "Surveyor Task Assignment",
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "RO.OFFICE_NAME",
+            "id": "OfficeNameId",
+            "value": "",
+            "placeholder": "",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "label": "Surveyor Group Name",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "SO.MR_SURVEY_INITIAL_CODE",
+            "id": "MrSurveyInitialCodeId",
+            "value": "",
+            "label": "Survey Initial",
+            "placeholder": ""
+        },
+        {
+            "type": "datepicker",
+            "datatype": "date",
+            "name": "SO.REQ_DT",
+            "id": "reqDtGte",
+            "value": "",
+            "restriction": "Gte",
+            "label": "Request Date >=",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "datepicker",
+            "datatype": "date",
+            "name": "SO.REQ_DT",
+            "id": "reqDtLte",
+            "value": "",
+            "restriction": "Lte",
+            "label": "Request Date <=",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "SO.TRX_REF_NO",
+            "id": "TrxRefNoId",
+            "value": "",
+            "label": "Transaction Reference No",
+            "placeholder": ""
+        },
+        {
+            "type": "textbox",
+            "name": "SO.CUST_NAME",
+            "id": "CustNameId",
+            "value": "",
+            "label": "Customer Name",
+            "placeholder": ""
+        },
+        {
+            "type": "textbox",
+            "name": "RU.USERNAME",
+            "id": "UsernameId",
+            "value": "",
+            "label": "Request By",
+            "placeholder": ""
+        }
+    ],
+    "querystring": {
+        "name": "searchSurveyorTaskAssignment"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Office Name",
+            "name": "OfficeName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Survey Initial",
+            "name": "SurveyInitial"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Transaction Reference No",
+            "name": "TransactionRefNo"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Customer Name",
+            "name": "CustName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Request Date",
+            "name": "RequestDate"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Request By",
+            "name": "RequestBy"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Order Information",
+            "name": "OrderInfo"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Credit Score",
+            "name": "CreditScore"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Customer Rating",
+            "name": "CustRating"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OfficeName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyInitial"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "TransactionRefNo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "CustName"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "RequestDate"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "RequestBy"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OrderInfo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "CreditScore"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "CustRating"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "SURVEY_TASK_ASSIGNMENT_DETAIL",
+                    "param": [
+                        {
+                            "type": "SurveyOrderId",
+                            "property": "SurveyOrderId"
+                        }                        
+                    ]
+                }
+            ]
+            
+        }
+        
+    ]
+}

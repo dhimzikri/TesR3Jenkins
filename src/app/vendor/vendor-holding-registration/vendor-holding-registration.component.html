@@ -1,0 +1,42 @@
+<div class="ucSearch-Button-Right">
+  <span class="mr-1">
+    <button type="button" class="btn btn-raised btn-primary mr-1" [routerLink]="[EditLink]" skipLocationChange
+      [queryParams]="{VendorId: this.VendorId, mode:'edit'}">
+      <i class="ft-plus-circle"></i>&nbsp;<span translate>Edit Main Info</span>
+    </button>
+    <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange
+      [queryParams]="{ MrVendorCategoryCode: this.MrVendorCategoryCode  }"> 
+      <i class="fa fa-arrow-left"></i>&nbsp;<span translate>Back</span>
+    </button>
+  </span>
+</div>
+<div class="card">
+  <div class="card-header header-title">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="card-title" id="horz-layout-colored-controls" translate> Holding Registration </h4>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="card-body">
+    <lib-ucviewgeneric [viewGenericObj]="viewGenericObj"> </lib-ucviewgeneric>
+    <aw-wizard #wizard navBarLayout="large-empty-symbols" [awNavigationMode] navigateBackward="allow"
+      navigateForward="allow">
+      <aw-wizard-step [stepTitle]="'Address'" [navigationSymbol]="{ symbol: '1', fontFamily: 'FontAwesome' }">
+        <app-address [objInput]="objPassing"> </app-address>
+      </aw-wizard-step>
+      <aw-wizard-step [stepTitle]="'Contact Person'" [navigationSymbol]="{ symbol: '2', fontFamily: 'FontAwesome' }"
+        (stepEnter)="OnEnter()" (stepExit)="OnExit()">
+        <div *ngIf="HiddenState==true">
+          <app-contact-person-list (objOutput)="outputValue($event)" [objInput]="objPassing" [show]="show">
+          </app-contact-person-list>
+        </div>
+        <div *ngIf="HiddenState==false">
+          <app-contact-person-add-edit (objOutput)="outputValue($event)" [objInput]="objPassingCP">
+          </app-contact-person-add-edit>
+        </div>
+      </aw-wizard-step>
+    </aw-wizard>
+  </div>
+</div>

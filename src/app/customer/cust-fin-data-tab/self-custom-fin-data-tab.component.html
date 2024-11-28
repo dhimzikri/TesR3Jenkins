@@ -1,0 +1,20 @@
+
+<form class="form form-horizontal" [formGroup]="CustAttrListForm" #enjiForm="ngForm"
+(ngSubmit)="enjiForm.form.valid && saveCustAttrContentAndNext()">
+
+<app-cust-attr-list [title]="'Debtor Financial Attribute'" [CustId]="this.CustId"[enjiForm]="enjiForm"
+  [parentForm]="CustAttrListForm" [identifier]="'AttrList'" [attrGroups]="attrGroups">
+</app-cust-attr-list>
+
+<div class="pb-3"></div>
+
+<app-cust-bank-acc-section-findata [CustId]="this.CustId"></app-cust-bank-acc-section-findata>
+
+<div class="form-actions right text-right mt-3">
+  <div class="px-3">
+    <button type="submit" class="btn btn-raised btn-primary-2" translate>
+      <i class="far fa-check-square"></i>&nbsp;<span translate>Save and Continue</span>
+    </button>
+  </div>
+</div>
+</form>

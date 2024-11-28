@@ -1,0 +1,244 @@
+{
+    "title": "OFFICE BANK ACCOUNT",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "officeRoleCodes",
+            "name": "RO.OFFICE_CODE",
+            "id": "OfficeCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "label": "Office Name",
+            "isQueryIn": true,
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "OBA.BANK_ACC_TYPE",
+            "id": "BankAccTypeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Bank Account Type",
+            "items": [],
+            "itemsUrl": [],
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "BANK_ACC_TYPE",
+            "environment": "FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "OBA.MR_BANK_ACC_PURPOSE_CODE",
+            "id": "BankAccPurposeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Bank Account Purpose",
+            "items": [],
+            "itemsUrl": [],
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "BANK_ACC_PURPOSE",
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "OBA.OFFICE_BANK_ACC_CODE",
+            "id": "AccCodeId",
+            "value": "",
+            "label": "Account Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "OBA.OFFICE_BANK_ACC_NAME",
+            "id": "AccNameId",
+            "value": "",
+            "label": "Account Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "OBA.OFFICE_BANK_ACC_NO",
+            "id": "AccNoId",
+            "value": "",
+            "label": "Account No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "OBA.OFFICE_BANK_ACC_BRANCH",
+            "id": "BankBranchId",
+            "value": "",
+            "label": "Bank Branch",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RB.BANK_NAME",
+            "id": "BankNameId",
+            "value": "",
+            "label": "Bank Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Account Code",
+            "name": "OBA.OFFICE_BANK_ACC_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Account No",
+            "name": "OBA.OFFICE_BANK_ACC_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Account Name",
+            "name": "OBA.OFFICE_BANK_ACC_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Bank Acc Type",
+            "name": "OBA.BANK_ACC_TYPE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Bank Branch",
+            "name": "OBA.OFFICE_BANK_ACC_BRANCH"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Bank Name",
+            "name": "RB.BANK_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Bank Acc Purpose",
+            "name": "OBA.MR_BANK_ACC_PURPOSE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Is Active",
+            "name": "OBA.IS_ACTIVE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Account Detail"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "AccCode"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "AccNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AccName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BankAccType"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BankBranch"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BankName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BankAccPurpose"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type" : "edit",
+                    "path" : "/CommonSetting/OfficeBankAcc/AccDetailX",
+                    "param" : [
+                        {
+                            "type" : "OfficeBankAccId",
+                            "property" : "OfficeBankAccId"
+                        }
+                    ],
+                    "icon" : "ft-edit-2"
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type" : "edit",
+                    "path" : "/CommonSetting/OfficeBankAcc/DetailX",
+                    "param" : [
+                        {
+                            "type" : "OfficeBankAccId",
+                            "property" : "OfficeBankAccId"
+                        },
+                        {
+                            "type" : "Mode",
+                            "property" : "Edit"
+                        }
+                    ],
+                    "icon" : "ft-edit-2"
+                },
+                {
+                    "type" : "delete",
+                    "property" : "OfficeBankAccId"
+                }
+            ]
+        }
+    ],
+    "querystring": {
+        "name" : "searchOfficeBankAccX"
+    }
+}

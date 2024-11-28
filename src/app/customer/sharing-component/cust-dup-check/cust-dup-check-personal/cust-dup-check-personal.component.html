@@ -1,0 +1,115 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <lib-ucSubsection [id]="'DupPersMainInfoId'" [title]="CustNameLabel + ' Main Information'"
+        [panel]="'DupPersMainInfo'">
+      </lib-ucSubsection>
+      <form class="form form-horizontal" #enjiForm="ngForm" id="DupPersMainInfo">
+        <div class="form-body">
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Customer Name </label>
+                <div class="col-md-8">
+                  <label>{{CustObj.CustObj.CustName}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Birth Place</label>
+                <div class="col-md-8">
+                  <label>{{CustObj.CustPersonalObj.BirthPlace}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row ">
+                <label class="col-md-4 adInsLabel" translate>ID Type </label>
+                <div class="col-md-8">
+                  <label>{{DictRefMaster[RefMasterTypeCodeIdType][CustObj.CustObj.MrIdTypeCode]}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>ID Number </label>
+                <div class="col-md-8">
+                  <label>{{CustObj.CustObj.IdNo}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>ID Expired Date</label>
+                <div class="col-md-8">
+                  <label *ngIf="CustObj.CustObj.IdExpiredDt">{{CustObj.CustObj.IdExpiredDt | date: 'dd-MMM-yyyy'}}</label>
+                  <label *ngIf="!CustObj.CustObj.IdExpiredDt">-</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Mobile Phone </label>
+                <div class="col-md-8">
+                  <label>{{CustObj.CustPersonalObj.MobilePhnNo1}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Customer Model </label>
+                <div class="col-md-8">
+                  <label>{{DictRefMaster[RefMasterTypeCodeCustModel][CustObj.CustObj.MrCustModelCode]}}</label>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Gender </label>
+                <div class="col-md-8">
+                  <label>{{DictRefMaster[RefMasterTypeCodeGender][CustObj.CustPersonalObj.MrGenderCode]}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Birth Date</label>
+                <div class="col-md-8">
+                  <label>{{CustObj.CustPersonalObj.BirthDt | date: 'dd-MMM-yyyy'}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Tax Id No</label>
+                <div class="col-md-8">
+                  <label *ngIf="CustObj.CustObj.TaxIdNo">{{CustObj.CustObj.TaxIdNo}}</label>
+                  <label *ngIf="!CustObj.CustObj.TaxIdNo"> - </label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Mother Maiden Name </label>
+                <div class="col-md-8">
+                  <label>{{CustObj.CustPersonalObj.MotherMaidenName}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Marital Status </label>
+                <div class="col-md-8">
+                  <label>{{DictRefMaster[RefMasterTypeCodeMaritalStat][CustObj.CustPersonalObj.MrMaritalStatCode]}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Email </label>
+                <div class="col-md-8">
+                  <label>{{CustObj.CustPersonalObj.Email1}}</label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

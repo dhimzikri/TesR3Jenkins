@@ -1,0 +1,159 @@
+{
+    "title": "Undraw Detail Form",
+    "hideTitle": false,
+    "id": "UndrawDetailForm",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "FundingInfoId",
+                    "subSectionTitle": "Funding Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityExecUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewBatchUndraw"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Company Name",
+                            "property": "VendorName",
+                            "key": "ViewVendor",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "callback",
+                            "label": "Funding Batch No",
+                            "property": "JfBatchNo",
+                            "key": "ViewFundingBatch",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "callback",
+                            "label": "Funding Contract Name",
+                            "property": "JfContractName",
+                            "key": "ViewFundingContract",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Batch Status",
+                            "property": "JfBatchStat",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Drawdown Amount",
+                            "property": "DrawdownAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Drawdown Date",
+                            "property": "DrawdownDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "FundingInfoId"
+                }
+            },
+            "id": "ee46f3b5-f0e7-48dd-bdbb-a1e7a88445e6"
+        },
+        {
+            "container": {
+                "key": "JfBatchUndraw",
+                "className": "UndrawDetailListAgrmntComponent",
+                "cssClass": "",
+                "input": {
+                    "ListTempFromTemplate": "ListTemp.length"
+                }
+            },
+            "id": "9f167c7d-15db-4ea3-9336-e4a6b5e1f10d"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "onInit": [
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/JfBatch/GetDataForUndraw",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "BatchNo",
+                    "propValue": "JfBatchNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "TotalPrincipalAmtToFunding",
+                    "propValue": "TotalPrincipalAmtToFunding"
+                },
+                {
+                    "propName": "NumOfAgrmntSelected",
+                    "propValue": "NumOfAgrmntSelected"
+                },
+                {
+                    "propName": "ListDetail",
+                    "propValue": "ListDetail"
+                }
+            ]
+        }
+    ],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {}
+}

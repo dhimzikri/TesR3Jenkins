@@ -1,0 +1,58 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="px-3">
+        <form class="form form-horizontal">
+          <div class="form-body">
+            <lib-ucviewgeneric [viewGenericObj]="viewGenericObj"></lib-ucviewgeneric>
+            <lib-ucSubsection [id]="'SurveyTaskListId'" [title]="'Survey Task'" [panel]="'SurveyTaskList'">
+            </lib-ucSubsection>
+            <div class="form-body" id="SurveyTaskList" style="overflow-x: auto;">
+              <table class="table table-responsive-md text-center table-hover">
+                <thead>
+                  <tr class="table-header">
+                    <th>
+                      <span class="thead-header" translate>Survey Task No</span>
+                    </th>
+                    <th>
+                      <span class="thead-header" translate>Surveyee Subject</span>
+                    </th>
+                    <th>
+                      <span class="thead-header" translate>Surveyee Object</span>
+                    </th>
+                    <th>
+                      <span class="thead-header" translate>Form Scheme</span>
+                    </th>
+                    <th>
+                      <span class="thead-header" translate>Surveyor Name</span>
+                    </th>
+                    <th>
+                      <span class="thead-header" translate>Survey Status</span>
+                    </th>
+                    <th>
+                      <span class="thead-header" translate>Last Date Update</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of TaskList">
+                    <td>
+                      <a target="_blank" [routerLink]="[ViewLink]" skipLocationChange
+                        [queryParams]="{ SrvyTaskId: item.SrvyTaskId }">{{item.SrvyTaskNo}}</a>
+                    </td>
+                    <td>{{item.MrSrvySubjCode}}</td>
+                    <td>{{item.MrSrvyObjCode}}</td>
+                    <td>{{item.SrvyFormSchmName}}</td>
+                    <td>{{item.SurveyorCode}}</td>
+                    <td>{{item.MrSrvyStatCode}}</td>
+                    <td>{{item.AssignDt | date: 'dd-MMM-yyyy'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

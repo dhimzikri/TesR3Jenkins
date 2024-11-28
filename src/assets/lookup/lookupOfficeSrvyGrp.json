@@ -1,0 +1,68 @@
+{
+    "title": "Lookup - Office Center Group",
+    "sectionTitle": "Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "CG.CENTER_GRP_CODE",
+            "id": "CenterGrpCodeId",
+            "value": "",
+            "label": "Center Group Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "CG.CENTER_GRP_NAME",
+            "id": "CenterGrpNameId",
+            "value": "",
+            "label": "Center Group Name",
+            "placeholder": "Placeholder"
+        }         
+    ],
+    "querystring": {
+        "name": "lookupOfficeSrvyGrp"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Center Group Code",
+            "name": "CG.CENTER_GRP_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Center Group Name",
+            "name": "CG.CENTER_GRP_NAME"
+        },        
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Select"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "CenterGrpCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "CenterGrpName"
+        },        
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "CenterGrpCode"
+                }
+            ]
+        }
+    ],
+    "propertyId": "CenterGrpId",
+    "propertyName": "CenterGrpName"
+}

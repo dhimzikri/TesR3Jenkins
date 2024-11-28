@@ -1,0 +1,362 @@
+{
+    "title": "AP INQUIRY",
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "AP.REF_ACC_PAYABLE_TYPE_ID",
+            "id": "AccPayableTypeName",
+            "label": "AP Type Name",
+            "value": "",
+            "ddlType": "all",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "isSelectOne": false,
+            "url": "",
+            "environment": "AP",
+            "path": "/AccPayable/GetAPTypeList",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "AP.ACC_PAYABLE_NO",
+            "id": "AccPayableNo",
+            "value": "",
+            "label": "AP No",
+            "placeholder": ""
+        },
+        {
+            "type": "textbox",
+            "name": "AP.ACC_PAYABLE_DESTINATION",
+            "id": "AccPayableDestination",
+            "value": "",
+            "label": "AP Destination",
+            "placeholder": ""
+        },
+        {
+            "type": "textbox",
+            "name": "AP.ACC_PAYABLE_DESCR",
+            "id": "AccPayableDescr",
+            "value": "",
+            "label": "AP Description",
+            "placeholder": ""
+        },
+        {
+            "type": "textbox",
+            "name": "AP.INVOICE_NO",
+            "id": "InvoiceNo",
+            "value": "",
+            "label": "Invoice No",
+            "placeholder": ""
+        },
+        {
+            "type": "datepicker",
+            "label": "AP Due Date <=",
+            "name": "AP.ACC_PAYABLE_DUE_DT",
+            "id": "AccPayableDueDt",
+            "value": "",
+            "restriction": "lte",
+            "datatype": "date"
+        },
+        {
+            "type": "textbox",
+            "name": "PVH.PAY_VOUCHER_NO",
+            "id": "PayVoucherNo",
+            "value": "",
+            "label": "Payment Voucher No",
+            "placeholder": ""
+        },
+        {
+            "type": "dropdown",
+            "name": "AP.OFFICE_CODE",
+            "id": "OfficeCode",
+            "label": "Office Name",
+            "value": "",
+            "ddlType": "all",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "isSelectOne": false,
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "dropdown",
+            "name": "AP.ACC_PAYABLE_STAT_CODE",
+            "id": "Status",
+            "label": "Status",
+            "value": "",
+            "ddlType": "all",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "isSelectOne": false,
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefStatus/GetListKeyValueActiveGrpCodeByCode",
+            "criteriaPropName": "Code",
+            "criteriaPropValue": "ACC_PAYABLE_STAT",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "dropdown",
+            "name": "AP.ACC_PAYABLE_PAID_LOC_CODE",
+            "id": "OfficeCode",
+            "label": "Paid Location",
+            "value": "",
+            "ddlType": "all",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "isSelectOne": false,
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "datepicker",
+            "label": "Invoice Date",
+            "name": "AP.INVOICE_DT",
+            "id": "InvoiceDt",
+            "value": "",
+            "restriction": "Eq",
+            "datatype": "date"
+        },
+        {
+            "type": "dropdown",
+            "name": "AP.CURR_CODE",
+            "id": "CurrCode",
+            "label": "Currency",
+            "ddlType": "all",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "isSelectOne": false,
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefCurr/GetListKvpActiveRefCurr",
+            "items": [],
+            "itemsUrl": []
+        }
+    ],
+    "isSeq": false,
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP NO",
+            "name": "AP.ACC_PAYABLE_NO "
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP DESTINATION",
+            "name": "AP.ACC_PAYABLE_DESTINATION"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP DESCRIPTION",
+            "name": "AP.ACC_PAYABLE_DESCR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP AMOUNT",
+            "name": "AP.ACC_PAYABLE_AMT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "ACCOUNT PAYABLE AMOUNT IN PROCESS",
+            "name": "AP.ACC_PAYABLE_AMT_IN_PROCESS"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "ACCOUNT PAYABLE PAID AMOUNT",
+            "name": "AP.ACC_PAYABLE_PAID_AMT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP UNPAID AMOUNT",
+            "name": "(AP.ACC_PAYABLE_AMT - AP.ACC_PAYABLE_PAID_AMT)"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "INVOICE NO",
+            "name": "AP.INVOICE_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "INVOICE DATE",
+            "name": "AP.INVOICE_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP DUE DATE",
+            "name": "AP.ACC_PAYABLE_DUE_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PAID LOCATION",
+            "name": "ROF.OFFICE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "STATUS",
+            "name": "RSF.DESCR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "VOUCHER NO",
+            "name": "PVH.PAY_VOUCHER_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PAYMENT VOUCHER AMOUNT",
+            "name": "PVH.PAY_VOUCHER_AMT"
+        }
+    ],
+    "querystring": {
+        "name": "searchAPInquiry"
+    },
+    "bodyList": [
+        {
+            "type": "callback",
+            "key": "ViewAP",
+            "position": "left",
+            "property": "APNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "APDest"
+        },
+        {
+            "type": "callback",
+            "key": "ViewAP",
+            "position": "left",
+            "property": "APDescr"
+        },
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "ApAmt"
+        },
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "APAmtInProces"
+        },
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "APPaidAmt"
+        },
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "UnpaidAmt"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "InvoiceNo",
+            "key": "InvoiceNo"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "InvoiceDt"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "APDueDt"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "ApPaidLocName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "ApStat"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "PayVoucherNo",
+                                    "value": "-",
+                                    "restriction": "EQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "text",
+                                "property": "PayVoucherNo"
+                            },
+                            "isHide": false
+                        }
+                    ]
+                },
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "PayVoucherNo",
+                                    "value": "-",
+                                    "restriction": "NEQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "link",
+                                "position": "left",
+                                "property": "PayVoucherNo",
+                                "target": "_blank",
+                                "path": "PAY_VOUCHER_VIEW",
+                                "param": [
+                                    {
+                                        "type": "PayVoucherNo",
+                                        "property": "PayVoucherNo"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "PayVoucherAmt"
+        }
+    ]
+}

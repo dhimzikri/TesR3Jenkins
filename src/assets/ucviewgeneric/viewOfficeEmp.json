@@ -1,0 +1,25 @@
+{
+    "title": "Office Employee",
+    "subsection": [
+      {
+        "subSectionId": "Office Information",
+        "subSectionTitle": "Office Information",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Office Code",
+            "property": "OfficeCode"
+          },
+          {
+            "type": "text",
+            "label": "Office Name",
+            "property": "OfficeName"
+          }
+        ],
+        "querystring": {
+          "name": "viewOfficeCenterGrpMbr"
+        }
+      }
+    ]
+  }

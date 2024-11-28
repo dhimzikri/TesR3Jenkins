@@ -1,0 +1,37 @@
+{
+  "title": "Office Zip Code Member",
+  "component": [
+    {
+      "type": "textbox",
+      "name": "rz.zipCode",
+      "id": "ZipCode",
+      "value": "",
+      "label": "Zip Code",
+      "placeholder": "Zip Code"
+    },
+    {
+      "type": "textbox",
+      "name": "city",
+      "id": "city",
+      "value": "",
+      "label": "City",
+      "placeholder": "City"
+    },
+    {
+      "type": "textbox",
+      "name": "rz.area_Code_2",
+      "id": "Kelurahan",
+      "value": "",
+      "label": "Kelurahan",
+      "placeholder": "Kelurahan"
+    },
+    {
+      "type": "textbox",
+      "name": "area_Code_1",
+      "id": "kecamatan",
+      "value": "",
+      "label": "Kecamatan",
+      "placeholder": "Kecamatan"
+    }
+  ]
+}

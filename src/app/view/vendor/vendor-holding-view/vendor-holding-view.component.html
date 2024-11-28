@@ -1,0 +1,122 @@
+<lib-ucviewgeneric [viewGenericObj]="viewVendorHoldingObj"></lib-ucviewgeneric>
+<!-- <form>
+  <div class="form-actions right">
+    <span class="mr-1">
+      <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="['/Vendor/Holding/Paging']"
+        translate>
+        Back
+      </button>
+    </span>
+  </div>
+</form> -->
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Main Information">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <br>
+          <div>
+            <ng-container *ngIf="MrVendorTypeCode == 'P'">
+              <lib-ucviewgeneric [viewGenericObj]="viewVendorHoldingMainPObj"></lib-ucviewgeneric>
+            </ng-container>
+
+            <ng-container *ngIf="MrVendorTypeCode == 'C'">
+              <lib-ucviewgeneric [viewGenericObj]="viewVendorHoldingMainCObj"></lib-ucviewgeneric>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Tax">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <lib-ucviewgeneric [viewGenericObj]="viewVendorHoldingTaxObj"></lib-ucviewgeneric>
+            <lib-ucviewgeneric [viewGenericObj]="viewVendorHoldingTaxAddrObj"></lib-ucviewgeneric>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Address">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <lib-ucviewgeneric [viewGenericObj]="viewVendorHoldingAddrObj"></lib-ucviewgeneric>
+            <lib-ucviewgeneric [viewGenericObj]="viewVendorHoldingLtLgObj"></lib-ucviewgeneric>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Contact Person">
+    <ng-template matTabContent>
+      <div style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-left"><span class="thead-header" name='Name' translate>Name</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='MrEmployeePosition' translate>Position</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='Phone1' translate>Phone 1</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='IsOwner' translate>Owner</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='Addr' translate>Address</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody *ngIf = "vendorContactPerson?.length == 0">
+            <tr>
+              <td colspan="100%">No Data Available</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr *ngFor="let item of vendorContactPerson">
+              <td class="text-left">{{item.Name}}</td>
+              <td class="text-left">{{item.MrEmployeePosition}}</td>
+              <td class="text-left">{{item.Phone1}}</td>
+              <td class="text-left" *ngIf="item.IsOwner === true">Yes</td>
+              <td class="text-left" *ngIf="item.IsOwner === false">No</td>
+              <td class="text-left">{{item.Addr}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="HO Info">
+    <ng-template matTabContent>
+      <div style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-left" translate>HO CODE</th>
+              <th class="text-left" translate>HO NAME</th>
+              <th class="text-left" translate>HO ADDRESS</th>
+              <th class="text-left" translate>ACTIVE STATUS</th>
+            </tr>
+          </thead>
+          <tbody *ngIf = "Vendor?.length == 0">
+            <tr>
+              <td colspan="100%">No Data Available</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr *ngFor="let item of Vendor">
+              <td class="text-left">{{item.VendorCode}}</td>
+              <td class="text-left">{{item.VendorName}}</td>
+              <td class="text-left">{{item.Addr}}</td>
+              <td class="text-left" *ngIf="item.IsActive == true">Yes</td>
+              <td class="text-left" *ngIf="item.IsActive == false">No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

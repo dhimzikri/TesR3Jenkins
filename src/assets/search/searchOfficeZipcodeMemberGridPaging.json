@@ -1,0 +1,76 @@
+{
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Kelurahan",
+            "name": "areaCode2"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Kecamatan",
+            "name": "areaCode1"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "City",
+            "name": "city"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Zipcode",
+            "name": "zipcode"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "areaCode2"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "areaCode1"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "city"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "zipcode"
+        },
+        
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "/commonSetting/officeZipcodeMember/Paging",
+                    "param": [
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        },
+                        {
+                            "type": "refOfficeId",
+                            "property": "refOfficeId"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,134 @@
+
+{
+    "title": "verification Question Group",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "verf.VERF_QUESTION_GRP_CODE",
+            "id": "SchemeCodeId",
+            "value": "",
+            "label": "Question Group Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "verf.VERF_QUESTION_GRP_NAME",
+            "id": "SchemeNameId",
+            "value": "",
+            "label": "Question Group Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "verf.IS_ACTIVE",
+            "id": "activeStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchVerificationQuestionGroupForPaging"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Question Group Code",
+            "name": "VerfQuestionGrpCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Question Group Name",
+            "name": "VerfQuestionGrpName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Question Answer"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "VerfQuestionGrpCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VerfQuestionGrpName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VERIF_QA_GRP_MBR_PAGING",
+                    "param": [
+                        {
+                            "type": "VerfQuestionGrpHId",
+                            "property": "VerfQuestionGrpHId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VERIF_QA_GRP_EDIT",
+                    "param": [
+                        {
+                            "type": "VerfQuestionGrpHId",
+                            "property": "VerfQuestionGrpHId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

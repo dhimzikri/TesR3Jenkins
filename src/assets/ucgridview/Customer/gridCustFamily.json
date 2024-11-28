@@ -1,0 +1,140 @@
+{
+    "isSeq": true,
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Debtor No",
+            "name": "CustNo"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Family Name",
+            "name": "CustName"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Relationship",
+            "name": "MrCustRelationshipDesc"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Martial Status",
+            "name": "MrMaritalStatDesc"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Birth Place",
+            "name": "BirthPlace"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Birth Date",
+            "name": "BirthDt"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Delete"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "CustNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "CustName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrCustRelationshipDesc"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrMaritalStatDesc"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BirthPlace"
+        },
+        {
+            "type": "date",
+            "position": "left",
+            "property": "BirthDt"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "MrCustRelationship",
+                                    "value": "",
+                                    "restriction": "NEQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "callback",
+                                "key": "Edit",
+                                "icon": "ft-edit-2",
+                                "property": [
+                                    {
+                                        "type": "CustId",
+                                        "property": "FamilyId"
+                                    }
+                                ]
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "MrCustRelationship",
+                                    "value": "",
+                                    "restriction": "NEQ"
+                                }
+                            ],
+                            "result": {
+                                "type" : "delete",
+                                "property" : "CustPersonalFamilyId"
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

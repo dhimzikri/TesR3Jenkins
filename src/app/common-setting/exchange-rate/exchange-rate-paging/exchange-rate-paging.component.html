@@ -1,0 +1,19 @@
+<br>
+<div class="subsection-title" style="font-size: 16pt;">
+  <h2>Exchange Rate</h2>
+</div>
+<div class="ucSearch-Button-Right" style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
+  <span>
+    <button type="button" class="btn btn-raised btn-primary-1 btn-outline-2 ng-star-inserted" [routerLink]="[CancelLink]" style="margin-right: 10px;">
+      Back
+    </button>
+    <button type="button" class="btn btn-primary-2 btn-outline-1 ng-star-inserted" [routerLink]="[AddLink]" [queryParams]="{RefCurrId: this.RefCurrId}">
+      Add
+    </button>
+  </span>
+</div>
+
+
+<br>
+<lib-ucviewgeneric [viewGenericObj]="viewGenericObj"> </lib-ucviewgeneric>
+<lib-ucpaging [searchObj]="inputPagingObj"></lib-ucpaging>

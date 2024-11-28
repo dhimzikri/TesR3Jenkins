@@ -1,0 +1,64 @@
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Main Information</h4>
+      </div>
+      <div class="card-body">
+        <div class="px-3">
+          <div class="form-body">
+            <div class="form-group row">
+              <label class="col-md-3  adInsLabel">Office Code </label>
+              <label class="col-md-3  adInsLabel">{{officeCode}} </label>
+              <label class="col-md-3  adInsLabel">Office Name </label>
+              <label class="col-md-3  adInsLabel">{{officeName}} </label>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3  adInsLabel">City </label>
+              <label class="col-md-3  adInsLabel">{{city}} </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-header row">
+        <h4 class="card-title col-md-6">Zip Code Member List</h4>
+        <div class="text-right col-md-6">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+          <button type="button" class="btn btn-raised btn-primary" [routerLink]="[AddLink]" 
+          [queryParams]="{refOfficeId:refOfficeId}">
+            <i class="ft-circle-plus"></i>&nbsp;<span translate>Add</span>
+          </button>
+        </div>
+      </div>
+      <div hidden>
+        <lib-UCSearch id="ucSearch" style="width:100%;" [searchInput]='inputObj' (result)="getResult($event)">
+        </lib-UCSearch>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+                <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='officeCode'>Office Code</span></th>
+                <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='officeName'>Office Name</span></th>
+                <th><span translate class="thead-header" (click)="searchSort($event)" name='numOfZipcode'># Of Zipcode Included</span></th>
+              <th translate>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of resultData?.data">
+                <td class="text-left">{{item.officeCode}}</td>
+                <td class="text-left">{{item.officeName}}</td>
+                <td>{{item.numOfZipcode}}</td>
+              <td>
+                <a class="danger p-0" data-original-title="" title="" (click)="delete(item.officeZipcodeMemberId)">
+                  <i class="ft-trash-2 font-medium-3 mr-2"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <lib-ucgridfooter (select)="onSelect($event)"></lib-ucgridfooter>
+    </div>
+  </div>

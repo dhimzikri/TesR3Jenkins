@@ -1,0 +1,133 @@
+{
+    "title": "Notification Template Attribute",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "NOTIF_ATTR_TEMPLATE_CODE",
+            "id": "NotifAttrTemplateCodeId",
+            "value": "",
+            "label": "Template Attribute Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "NOTIF_ATTR_TEMPLATE_DESCR",
+            "id": "NotifAttrTemplateDescrId",
+            "value": "",
+            "label": "Template Attribute Description",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "ATTR_INPUT_TYPE_CODE", 
+            "id": "AttrInputTypeCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Input Type",
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "NOTIF_TEMPL_ATTR_INPUT_TYPE",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "SearchNotifTemplateAttr"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Template Attribute Code",
+            "name": "NotifAttrTemplateCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Template Attribute Description",
+            "name": "NotifAttrTemplateDescr"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Input Type",
+            "name": "AttrInputTypeDescr"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "ACTIVE STATUS",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotifAttrTemplateCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotifAttrTemplateDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AttrInputTypeDescr"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "NOTIF_ENGINE_TEMPLATE_ATTR_ADD_EDIT",
+                    "param": [
+                        {
+                            "type": "RefNotifAttrTemplateId",
+                            "property": "RefNotifAttrTemplateId"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

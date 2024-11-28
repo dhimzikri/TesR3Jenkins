@@ -1,0 +1,302 @@
+{
+  "title": "Asset Master",
+  "exportExcel": true,
+  "component": [
+    {
+      "type": "dropdown",
+      "datatype": "text",
+      "name": "ATH.ASSET_TYPE_CODE",
+      "id": "assetTypeNameId",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": true,
+      "ddlType": "all",
+      "url": "",
+      "path": "/AssetType/GetListKeyValueActiveByCode",
+      "label": "Asset Type Name",
+      "items": [],
+      "isEvent" : "true",
+      "affectedFilter" : ["AC.ASSET_CATEGORY_ID"],
+      "itemsUrl": [],
+      "environment": "FOU"
+    },
+    {
+      "type": "dropdown",
+      "datatype": "text",
+      "name": "AC.ASSET_CATEGORY_ID",
+      "id": "assetCategoryNameId",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": true,
+      "ddlType": "all",
+      "url": "",
+      "path": "/AssetCategory/GetListAssetCategoryByIdWithCriteriaObj",
+      "label": "Asset Category Name",
+      "items": [],
+      "itemsUrl": [],
+      "environment":"FOU"
+    },
+    {
+      "type": "textbox",
+      "name": "A.FULL_ASSET_CODE",
+      "id": "fullAssetCodeId",
+      "value": "",
+      "label": "Full Asset Code",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "textbox",
+      "name": "A.FULL_ASSET_NAME",
+      "id": "fullAssetNameId",
+      "value": "",
+      "label": "Full Asset Name",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "numeric",
+      "name": "A.HIERARCHY_LVL",
+      "id": "hierarchyLvlId",
+      "label": "Hierarchy Level",
+      "placeholder": "Placeholder",
+      "restriction" : "",
+      "datatype": "numeric"
+    },
+    {
+      "type": "dropdown",
+      "name": "A.IS_FINAL",
+      "id": "isFinalId",
+      "label": "Final Status",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "items": [
+          {
+              "key": "1",
+              "value": "Yes"
+          },
+          {
+              "key": "0",
+              "value": "No"
+          }
+      ],
+      "itemsUrl": []
+    },
+    {
+      "type": "dropdown",
+      "name": "A.IS_ACTIVE",
+      "id": "isActiveId",
+      "label": "Active Status",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "items": [
+          {
+              "key": "1",
+              "value": "Yes"
+          },
+          {
+              "key": "0",
+              "value": "No"
+          }
+      ],
+      "itemsUrl": []
+    }
+  ],
+  "querystring": {
+    "name": "searchAssetMaster"
+  },
+  "headerList": [
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Asset Type Code",
+      "name": "ATH.ASSET_TYPE_CODE"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Asset Type Name",
+      "name": "ATH.ASSET_TYPE_NAME"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Full Asset Code",
+      "name": "A.FULL_ASSET_CODE"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Full Asset Name",
+      "name": "A.FULL_ASSET_NAME"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Asset Category Name",
+      "name": "AC.ASSET_CATEGORY_NAME"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "Hierarchy Level",
+      "name": "A.HIERARCHY_LVL"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "Active Status",
+      "name": "A.IS_ACTIVE"
+    },
+    {
+      "type": "label",
+      "position": "center",
+      "label": "Add Hierarchy Child"
+    },
+    {
+      "type": "label",
+      "position": "center",
+      "label": "Action"
+    }
+  ],
+  "bodyList": [
+    {
+      "type": "text",
+      "position": "left",
+      "property": "AssetTypeCode"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "AssetTypeName"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "FullAssetCode"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "FullAssetName"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "AssetCategoryName"
+    },
+    {
+      "type": "text",
+      "position": "center",
+      "property": "HierarchyLvl"
+    },
+    {
+      "type": "boolean",
+      "position": "center",
+      "property": "IsActive"
+    },
+    {
+      "type": "action",
+      "position": "center",
+      "action": [
+        {
+          "type" : "switch", 
+          "case" : [ 
+            {
+              "conditions" : [ 
+                {
+                  "property" : "IsFinal", 
+                  "value" : "0",
+                  "restriction": "EQ"
+                }
+              ],
+                "result" : 
+                {
+                  "type": "url",
+                  "path": "ASSET_MASTER_CHILD",
+                  "icon": "ft-edit-2",
+                  "param": [
+                    {
+                      "type": "AssetMasterId",
+                      "property": "AssetMasterId"
+                    },
+                    {
+                      "type": "param",
+                      "property": "add"
+                    }
+                  ]
+                }
+              }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "action",
+      "position": "center",
+      "action": [
+        {
+          "type" : "switch", 
+          "case" : [ 
+            {
+              "conditions" : [ 
+                {
+                  "property" : "HierarchyLvl", 
+                  "value" : "1",
+                  "restriction": "EQ"
+                }
+              ],
+                "result" : 
+                {
+                  "type": "url",
+                  "path" : "ASSET_MASTER_DETAIL",
+                  "param" : [
+                    {
+                      "type": "AssetMasterId",
+                      "property": "AssetMasterId"
+                    },
+                    {
+                      "type": "param",
+                      "property": "edit"
+                    }
+                  ]
+                }
+            },
+            {
+              "conditions" : [ 
+                {
+                  "property" : "HierarchyLvl", 
+                  "value" : "2",
+                  "restriction": "GTE"
+                },
+                {
+                  "property" : "HierarchyLvl", 
+                  "value" : "5",
+                  "restriction": "LTE"
+                }
+              ],
+                "result" : {
+                "type": "url",
+                "path" : "ASSET_MASTER_CHILD",
+                "param" : [
+                  {
+                    "type": "AssetMasterId",
+                    "property": "AssetMasterId"
+                  },
+                  {
+                    "type": "param",
+                    "property": "edit"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="ucSearch-Button-Right">
+    <span class="mr-1">
+      <button type="button" class="backButton" [routerLink]="[CancelLink]" [queryParams]="{RefRoleId: this.RefRoleId}" skipLocationChange>
+        <i class="fa fa-arrow-left"> </i>&nbsp;<span translate>Back</span>
+      </button>
+    </span>
+  </div>
+  <div class="card-body">
+    <lib-ucviewgeneric [viewGenericObj]="viewGenericObj"> </lib-ucviewgeneric>
+    <lib-ucaddtotemp *ngIf="tempPagingObj.isReady" [tempPagingObj]="tempPagingObj" (callback)="getListTemp($event)">
+    </lib-ucaddtotemp>
+    <div class="card-header" *ngIf="listSelectedId.length > 0">
+      <div class="text-right">
+        <!-- <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" [queryParams]="{RefRoleId: this.RefRoleId}" skipLocationChange translate>
+          <i class="far fa-window-close"></i> Cancel
+        </button> -->
+        <button type="submit" (click)="SaveListAuthForm()" class="btn btn-raised btn-primary">
+          <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

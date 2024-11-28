@@ -1,0 +1,209 @@
+{
+    "title": "Execute Upload Termination",
+    "hideTitle": false,
+    "id": "UploadTerminationExecuteXcnaf",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Termination Summary",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Execution Date",
+                            "Variable": "ExecutionDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Bank Account",
+                            "Variable": "OfficeBankAccCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/OfficeBankAcc/GetListActiveOfficeBankAccByMrBankAccPurposeCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "FUND"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reference No",
+                            "Variable": "RefNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "feabced4-8729-4e30-8c99-54042f6a7f45"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "environment": "PayoutUrl",
+                "path": "/v1/TerminationX/ExecuteUploadTerminationX",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "TrxNo",
+                        "propValue": "TrxNo"
+                    },
+                    {
+                        "propName": "Type",
+                        "propValue": "Type"
+                    },
+                    {
+                        "propName": "ExecutionDt",
+                        "propValue": "formRaw.ExecutionDt"
+                    },
+                    {
+                        "propName": "OfficeBankAccCode",
+                        "propValue": "formRaw.OfficeBankAccCode"
+                    },
+                    {
+                        "propName": "RefNo",
+                        "propValue": "formRaw.RefNo"
+                    },
+                    {
+                        "propName": "Notes",
+                        "propValue": "formRaw.Notes"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success!"
+                        }
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "params": [
+                                {
+                                    "propName": "Type",
+                                    "propValue": "Type"
+                                }
+                            ],
+                            "path": "/Termination/UploadTermination/PagingX",
+                            "target": "_self"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        }
+    ],
+    "isOverrideCancel": true,
+    "onCancel": {
+        "type": "link",
+        "path": "/Termination/UploadTermination/PagingX",
+        "params": [
+            {
+                "propName": "Type",
+                "propValue": "Type"
+            }
+        ],
+        "target": "_self"
+    },
+    "conditionalTitle": [],
+    "persistData": false,
+    "customToastrMsg": "",
+    "persistPropName": ""
+}

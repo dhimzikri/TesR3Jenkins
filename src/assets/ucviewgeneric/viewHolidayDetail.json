@@ -1,0 +1,25 @@
+{
+  "title" : "",
+    "subsection": [
+      {
+        "subSectionId": "HolidayManagementId",
+        "subSectionTitle": "Holiday Scheme Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Holiday Scheme Code",
+            "property": "HolidaySchmCode"
+          },
+          {
+            "type": "text",
+            "label": "Holiday Scheme Name",
+            "property":"HolidaySchmName"
+          }
+        ],
+        "querystring": {
+            "name": "viewHolidayDetail"
+        }
+      }
+    ]
+  }

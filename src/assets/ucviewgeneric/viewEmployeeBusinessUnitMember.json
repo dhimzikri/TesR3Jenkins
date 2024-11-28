@@ -1,0 +1,30 @@
+{
+  "title": "Employee Business Unit",
+  "subsection": [
+    {
+      "subSectionId": "EmployeeInfo",
+      "subSectionTitle": "Employee Info",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Username",
+          "property": "Username"
+        },
+        {
+          "type": "text",
+          "label": "Employee Name",
+          "property": "EmployeeName"
+        },
+        {
+          "type": "text",
+          "label": "Employee No",
+          "property": "EmpNo"
+        }
+      ],
+      "querystring": {
+        "name": "viewEmployeeBusinessUnitMember"
+      }
+    }
+  ]
+}

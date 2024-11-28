@@ -1,0 +1,188 @@
+{
+    "id": "VendorGroupPaging",
+    "name": "Vendor Group Paging",
+    "saveState": false,
+    "customComponent": [
+        {
+            "paging": {
+                "environment": "FoundationR3Url",
+                "apiVersion": "v2",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchVendorGroup"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vgvendorGrpCodeSearchId",
+                            "type": "textbox",
+                            "label": "Group Code",
+                            "name": "VG.VENDOR_GRP_CODE",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "vgvendorGrpNameSearchId",
+                            "type": "textbox",
+                            "label": "Group Name",
+                            "name": "VG.VENDOR_GRP_NAME",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "vgisActiveSearchId",
+                            "type": "dropdown",
+                            "label": "Active Status",
+                            "name": "VG.IS_ACTIVE",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Group Code",
+                            "position": "center",
+                            "name": "VG.VENDOR_GRP_CODE",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Group Name",
+                            "position": "left",
+                            "name": "VG.VENDOR_GRP_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Active Status",
+                            "position": "center",
+                            "name": "VG.IS_ACTIVE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "# OF MEMBER",
+                            "position": "center",
+                            "name": "NumOfMbr"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Member",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "VendorGrpCode",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "VendorGrpName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsActive",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "NumOfMbr",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "VendorGrpId",
+                                            "property": "VendorGrpId"
+                                        },
+                                        {
+                                            "type": "MrVendorCategoryCode",
+                                            "property": "MrVendorCategoryCode"
+                                        }
+                                    ],
+                                    "path": "/Vendor/SelfCustom/Group/View",
+                                    "icon": "ft-edit-2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "VendorGrpId",
+                                            "property": "VendorGrpId"
+                                        },
+                                        {
+                                            "type": "mode",
+                                            "property": "edit"
+                                        }
+                                    ],
+                                    "path": "/Vendor/SelfCustom/Group/Add",
+                                    "icon": "ft-edit-2"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [
+                    {
+                        "isFromDict": true,
+                        "propName": "VG.MR_VENDOR_CATEGORY_CODE",
+                        "restriction": "Eq",
+                        "value": "MrVendorCategoryCode"
+                    }
+                ],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "ca40ea1d-8271-4232-8bf8-754472b3be44"
+        }
+    ]
+}

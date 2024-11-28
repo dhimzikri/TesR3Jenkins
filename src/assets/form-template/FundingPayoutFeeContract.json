@@ -1,0 +1,177 @@
+{
+    "title": "Funding Payout Fee Contract",
+    "hideTitle": false,
+    "id": "FundingPayoutFeeContract",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "facilityMntUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Payment Out Fee Contract",
+                    "querystring": {
+                        "name": "searchFundingPayoutFeeContract"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorNameSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company",
+                            "name": "VT.VENDOR_NAME",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "JFC.JF_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "jfcjfContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract",
+                            "name": "JFC.JF_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "JFB.JF_BATCH_NO"
+                            ],
+                            "filterPropName": "JfContractNo"
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "VT.VENDOR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "JFC.JF_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract No",
+                            "position": "left",
+                            "name": "JFC.JF_CONTRACT_NO"
+                        },
+                        {
+                            "type": "label",
+                            "label": "action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundCoyName",
+                            "isFlagColor": false,
+                            "key": "VIewFundCoy"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundContractName",
+                            "isFlagColor": false,
+                            "key": "ViewFundContract"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "JfContractNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/PaymentOut/PaymentOutFee/Detail",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "JfContractNo",
+                                            "property": "JfContractNo"
+                                        },
+                                        {
+                                            "type": "Level",
+                                            "property": "CONTRACT"
+                                        }
+                                    ],
+                                    "property": "Pay Fee"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "db3ee8ac-49ed-4978-8e38-c96a3e648d97"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": []
+}

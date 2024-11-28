@@ -1,0 +1,154 @@
+{
+    "title": "LoanReviewCollForm",
+    "hideTitle": true,
+    "id": "Loanreviewcollform",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "customComponent": {
+                "componentRef": "${ViewFundingBatchMainInformation}"
+            },
+            "id": "f6646e3d-a148-4d72-847b-8c2a4fd83d74"
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "PledgingDetailId",
+                    "subSectionTitle": "Pledging Detail",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanPledgingDetail"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Security Percentage",
+                            "property": "SecurityPercentage",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Security Percentage Of",
+                            "property": "SecurityPercentageOf",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Security Scheme",
+                            "property": "SecurityScheme",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Total Agreement",
+                            "property": "TotalAgreement",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Security Amount",
+                            "property": "TotalSecurityAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Pledged Amount",
+                            "property": "TotalPledgeAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Remaining Amount",
+                            "property": "RemainingAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": []
+                }
+            },
+            "id": "f1bde5bd-a5d9-4159-aa70-6ecb33a28c93"
+        },
+        {
+            "container": {
+                "key": "LoanReviewCollateralCustomComponentComponent",
+                "className": "LoanReviewCollateralCustomComponentComponent",
+                "cssClass": "",
+                "input": {
+                    "FundingBatchNo": "FundingBatchNo"
+                }
+            },
+            "id": "8710f051-28d0-4bc4-9787-1773f1f37d49"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "hideCancelButton": true,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

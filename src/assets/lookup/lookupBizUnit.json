@@ -1,0 +1,23 @@
+{
+  "url": "http://getBizUnit",
+  "title":"Lookup - Business Unit",
+  "sectionTitle": "Search",
+  "component": [
+    {
+      "type": "textbox",
+      "name": "bizUnitCode",
+      "id": "bizUnitCodeId",
+      "value": "",
+      "label": "Business Unit Code",
+      "placeholder": "Business Unit Code"
+    },
+    {
+      "type": "textbox",
+      "name": "bizUnitName",
+      "id": "bizUnitNameId",
+      "value": "",
+      "label": "Business Unit Name",
+      "placeholder": "Business Unit Name"
+    }
+  ]
+}

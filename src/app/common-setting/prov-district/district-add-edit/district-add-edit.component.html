@@ -1,0 +1,78 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>District Registration</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="DistrictForm" (ngSubmit)="DistrictForm.valid && SaveForm()"
+          #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'DistrictInfoId'" [title]="'District '+ pageType" [panel]="'DistrictInfo'">
+            </lib-ucSubsection>
+            <div id="DistrictInfo">
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>Province Name </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput" formControlName="ProvinceName">
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>District Code </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput" formControlName="ProvDistrictCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && DistrictForm.controls.ProvDistrictCode.invalid }">
+                  <lib-uc-show-errors [control]="DistrictForm.controls.ProvDistrictCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" translate>District Name </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput adins-required" formControlName="ProvDistrictName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && DistrictForm.controls.ProvDistrictName.invalid }">
+                  <lib-uc-show-errors [control]="DistrictForm.controls.ProvDistrictName" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Phone Area Number </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput width-20-per" formControlName="PhnArea"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && DistrictForm.controls.PhnArea.invalid }">
+                  <lib-uc-show-errors [control]="DistrictForm.controls.PhnArea" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>District BI Code </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput" formControlName="DistrictRegRptCode">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Active </label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1"
+              [routerLink]="[CancelLink]" [queryParams]="{refProvDistrictId:parentId}" skipLocationChange>
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

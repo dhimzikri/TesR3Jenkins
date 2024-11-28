@@ -1,0 +1,190 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate> Form </h4>
+            </div>
+          </div>
+        </div>
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="RefForm" (ngSubmit)="RefForm.valid && SaveForm()"
+            #enjiForm="ngForm">
+            <lib-ucSubsection [id]="'FormAddId'" [title]="'Form'" [panel]="'FormAdd'">
+            </lib-ucSubsection>
+            <div class="form-body" id="FormAdd">
+              <div class="form-group row">
+                <label class="col-md-3  adins-required-label" translate>Module</label>
+                <div class="col-md-9">
+                  <select class="form-control adInsInput" style="width: auto" formControlName="RefModuleId" (change)="setLookup(false)"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefForm.controls.RefModuleId.invalid }">
+                    <option *ngFor="let it of itemModuleType" value="{{it.Key}}">
+                      {{it.Value}}</option>
+                  </select>
+                  <lib-uc-show-errors [control]="RefForm.controls.RefModuleId" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" translate>Class</label>
+                <div class="col-md-9">
+                  <select class="form-control adInsInput" style="width: auto" (click)="CheckClass()"
+                    formControlName="Class"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefForm.controls.Class.invalid }">
+                    <option *ngFor="let it of itemClassType" value="{{it.Key}}">
+                      {{it.Value}}</option>
+                  </select>
+                  <lib-uc-show-errors [control]="RefForm.controls.Class" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row" *ngIf="inputLookupParentObj!=null">
+                <label class="col-md-3" [ngClass]="{'adins-required-label': refFormObj.IsHaveChild}">Parent Form</label>
+                <div class="col-md-3">
+                  <lib-uclookupgeneric *ngIf="inputLookupParentObj.isReady" [lookupInput]="inputLookupParentObj" [parentForm]="RefForm" [enjiForm]="enjiForm"
+                    [identifier]="'lookupParent'" (lookup)="getLookupParent($event)" #LookupExistingParent>
+                  </lib-uclookupgeneric>
+                </div>
+              </div>
+              <div *ngIf="!isAuto" class="form-group row">
+                <label class="col-md-3  adins-required-label code" translate>Form Code</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput width-50-per" formControlName="FormCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefForm.controls.FormCode.invalid }">
+                  <lib-uc-show-errors [control]="RefForm.controls.FormCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adins-required-label" translate>Title</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput name" formControlName="Title"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefForm.controls.Title.invalid }">
+                  <lib-uc-show-errors [control]="RefForm.controls.Title" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" [ngClass]="{'adins-required-label' : checkClass}" translate>Path</label>
+                <div class="col-md-9">
+                  <input type="text" [IsUpperCase]="false" class="form-control adInsInput name" formControlName="Path"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefForm.controls.Path.invalid }">
+                  <lib-uc-show-errors [control]="RefForm.controls.Path" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" translate>Icon</label>
+                <div class="col-md-9">
+                  <div style="display: flex; flex-direction: row; justify-content: left; align-items: center;">                    
+                    <!-- <input *ngIf="IsTextMode" type="text" class="form-control adInsInput number" formControlName="Icon"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && RefForm.controls.Icon.invalid }">                      
+                      
+                      <mat-slide-toggle style="float: right;" [(checked)]="IsTextMode" (change)="changeTextMode($event)"> Text Mode 
+                      </mat-slide-toggle> -->
+                      
+                    <lib-ucdropdownlist [dropdownListObj]="ddlTemplateIcon" [parentForm]="RefForm"
+                    [enjiForm]="enjiForm" [identifier]="'Icon'"></lib-ucdropdownlist>
+                    <label style="margin-left: 10px;" translate>Contoh Icon: <i style="color: blue; font-size: 20px; cursor: pointer;" [ngClass]="[RefForm.controls.Icon.value]"></i></label>
+                  </div>
+                  <lib-uc-show-errors [control]="RefForm.controls.Icon" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adins-required-label" translate>Order No</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput number" formControlName="OrderNo"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefForm.controls.OrderNo.invalid }">
+                  <lib-uc-show-errors [control]="RefForm.controls.OrderNo" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" translate>Hierarchy No</label>
+                <label class="col-md-9 adInsLabel" translate>{{RefForm.controls.HierarchyNo.value}}</label>
+                <!-- <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput number" formControlName="HierarchyNo"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefForm.controls.HierarchyNo.invalid }">
+                  <lib-uc-show-errors [control]="RefForm.controls.HierarchyNo" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div> -->
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Is Hidden</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsHidden"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefForm.controls.IsHidden.invalid }" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Is External Link</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsExternalLink"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefForm.controls.IsExternalLink.invalid }" />
+                </div>
+              </div>
+              <form class="form form-horizontal" [formGroup]="ParamForm" (ngSubmit)="ParamForm.valid && AddParam()"
+              #enjiForm2="ngForm">
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Parameter Attribute</label>
+                <div class="col-md-9">
+                  <input type="text"  [IsUpperCase]="false" class="form-control adInsInput width-50-per" formControlName="ParameterAttribute"
+                    [ngClass]="{ 'is-invalid': enjiForm2.submitted && ParamForm.controls.ParameterAttribute.invalid }">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Parameter Value</label>
+                <div class="col-md-9">
+                  <input type="text"  [IsUpperCase]="false" class="form-control adInsInput width-50-per" formControlName="ParameterValue"
+                    [ngClass]="{ 'is-invalid': enjiForm2.submitted && ParamForm.controls.ParameterValue.invalid }">
+                    
+                  <button type="submit" class="btn btn-raised btn-primary">
+                    <i class="far"></i>&nbsp;<span translate>Add Parameter</span>
+                  </button>
+                </div>
+              </div>
+              </form>
+              <div *ngIf="parameterObj.length != 0" style="overflow-x: auto;">
+                <table class="table table-responsive-md text-center table-hover">
+                  <thead>
+                    <tr class="table-header">
+                      <th><span translate class="thead-header" name='SeqNo'>No</span></th>
+                      <th class="text-left"><span translate class="thead-header" name='ParameterAttribute'>Parameter Attribute</span></th>
+                      <th class="text-left"><span translate class="thead-header" name='ParameterValue'>Parameter Value</span></th>
+                      <th class="text-left"><span translate class="thead-header" name='Action'>Action</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of parameterObj; let i = index;">
+                      <td>{{i+1}}</td>
+                      <td class="text-left">{{item.Attr}}</td>
+                      <td class="text-left">{{item.Value}}</td>
+                      <td class="text-left">
+                        <a class="danger p-0" (click)="DeleteParam(i)">
+                          <i class="ft-trash-2 font-medium-3 mr-2"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1"
+                [routerLink]="[CancelLink]" skipLocationChange>
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

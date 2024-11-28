@@ -1,0 +1,171 @@
+{
+    "component": [
+        {
+            "type": "textbox",
+            "name": "bu.BIZ_UNIT_NAME",
+            "id": "BusinessUnitNameId",
+            "value": "",
+            "label": "Business Unit",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "ofc.OFFICE_NAME",
+            "id": "OfficeNameId",
+            "value": "",
+            "label": "Office",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "jt.JOB_TITLE_NAME",
+            "id": "JobTitleNameId",
+            "value": "",
+            "label": "Job Title",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "rl.ROLE_NAME",
+            "id": "RoleNameId",
+            "value": "",
+            "label": "Role",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "re.EMP_NAME",
+            "id": "UsernameId",
+            "value": "",
+            "label": "Supervisors",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "ur.IS_ACTIVE",
+            "id": "IsActiveId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": true,
+                    "value": "Yes"
+                },
+                {
+                    "key": false,
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchEmployeeBusinessUnit"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "BUSINESS UNIT",
+            "name": "bu.BIZ_UNIT_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "JOB TITLE",
+            "name": "jt.JOB_TITLE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "SUPERVISOR",
+            "name": "re.EMP_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "OFFICE",
+            "name": "ofc.OFFICE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ROLE",
+            "name": "rl.ROLE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "ACTIVE",
+            "name": "ur.IS_ACTIVE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BusinessUnitName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "JobTitleName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "SupervisorName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "RoleName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "EMP_BZ_UNIT_ADD",
+                    "param": [
+                        {
+                            "type": "RefUserId",
+                            "property": "RefUserId"
+                        },
+                        {
+                            "type": "RefUserRoleId",
+                            "property": "RefUserRoleId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                },
+                {
+                    "type": "delete",
+                    "property": "RefUserRoleId"
+                }
+            ]
+        }
+    ]
+}

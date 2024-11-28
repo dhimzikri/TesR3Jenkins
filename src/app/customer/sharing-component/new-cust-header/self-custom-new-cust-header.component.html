@@ -1,0 +1,52 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card bg-light-blue-card">
+      <div class="card-body" [hidden]="PageType != CustPageTypeHeader">
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate>{{TitleLabel}} </h4>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="col-md-6">
+          <div class="px-1 form-group row" *ngIf="CustDataMode != CustDataModeFamily">
+            <label class="col-md-12" translate>{{subjectTitle}} Type
+              <span class="optional-text">(Optional)</span>
+            </label>
+            <div class="col-md-12">
+              <mat-radio-group [(ngModel)]="CustType" (change)="ChangeType()" [disabled]="CustId!=0">
+                <mat-radio-button class="custom-control custom-radio display-inline-block"
+                  *ngFor="let item of listCustType" [value]="item.Key">
+                  {{item.Value}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+        <app-new-cust-personal-main-data *ngIf="CustType == CustTypePersonal" [hidden]="PageType != CustPageTypeHeader"
+          [CustId]="CustId" [ParentCustId]="ParentCustId" [listCustNoToExclude]="listCustNoToExclude"
+          [tempTotalSharePrct]="tempTotalSharePrct" [CustCompanyMgmntShrholderId]="CustCompanyMgmntShrholderId"
+          [CustDataMode]="CustDataMode" (outputCancel)="Cancel()" (outputAfterSave)="ClickSavePersonal($event)"
+          [isMarried]="isMarried" [CustPersonalFamilyId]="CustPersonalFamilyId" [isSubmit]="isSubmit" (outputIsSubmit)="ClickSubmit($event)"></app-new-cust-personal-main-data>
+        <app-new-cust-company-main-data *ngIf="CustType == CustTypeCoy" [hidden]="PageType != CustPageTypeHeader"
+          [CustId]="CustId" [ParentCustId]="ParentCustId" [listCustNoToExclude]="listCustNoToExclude"
+          [tempTotalSharePrct]="tempTotalSharePrct" [CustCompanyMgmntShrholderId]="CustCompanyMgmntShrholderId"
+          [CustDataMode]="CustDataMode" (outputCancel)="Cancel()" (outputAfterSave)="ClickSaveCoy($event)"
+          [isSubmit]="isSubmit" (outputIsSubmit)="ClickSubmit($event)">
+        </app-new-cust-company-main-data>
+        <app-new-cust-public *ngIf="CustType == CustTypePublic" [CustId]="ParentCustId"
+          [tempTotalSharePrct]="tempTotalSharePrct" [CustCompanyMgmntShrholderId]="CustCompanyMgmntShrholderId"
+          (outputCancel)="Cancel()" [isSubmit]="isSubmit"></app-new-cust-public>
+      </div>
+      <div class="card-body" *ngIf="PageType == CustPageTypeDupCheck">
+        <app-cust-dup-check-header [CustPersonalObj]="DupCheckPersonalObj" [CustCoyObj]="DupCheckCoyObj"
+          [ResultDuplicate]="ResultDuplicate" [ResultDuplicateNegative]="ResultDuplicateNegative"
+          [DuplicateStatus]="DuplicateStatus" [CustType]="CustType" [CustDataMode]="CustDataMode"
+          (outputCancel)="CancelDupCheck()" (outputSave)="SaveAfterDupcek($event)"></app-cust-dup-check-header>
+      </div>
+    </div>
+  </div>
+</div>

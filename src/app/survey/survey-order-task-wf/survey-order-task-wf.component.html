@@ -1,0 +1,140 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="px-3">
+        <lib-ucviewgeneric *ngIf="isDataAlreadyLoaded == true" [viewGenericObj]="viewGenericObj"></lib-ucviewgeneric>
+        <form class="form form-horizontal" (ngSubmit)="SendSrvyOrder()">
+          <lib-ucSubsection [id]="'SurveyOrderTaskFormId'" [title]="'Survey Task'" [panel]="'SurveyOrderTaskForm'">
+          </lib-ucSubsection>
+          <div class="form-body" id="SurveyOrderTaskForm">
+            <div class="form-actions right">
+              <button type="button" class="addButton" (click)="AddModal(SurveyTaskContent)">
+                <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+              </button>
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="table table-responsive-md text-center table-hover">
+                <thead>
+                  <tr class="table-header">
+                    <th><span translate class="thead-header">Survey Task No</span></th>
+                    <th><span translate class="thead-header">Surveyee Subject</span></th>
+                    <th><span translate class="thead-header">Surveyee Object</span></th>
+                    <th><span translate class="thead-header">Form Scheme</span></th>
+                    <th><span translate class="thead-header">Surveyor Name</span></th>
+                    <th><span translate class="thead-header">Survey Status</span></th>
+                    <th><span translate class="thead-header">Last Date Update</span></th>
+                    <th><span translate class="thead-header">Action</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of SurveyTaskList?.ReturnObject">
+                    <td>
+                      <a target="_blank" [routerLink]="[ViewLink]" skipLocationChange
+                        [queryParams]="{ SrvyTaskId: item.SrvyTaskId }">{{item.SrvyTaskNo}}</a>
+                    </td>
+                    <td>{{item.MrSrvySubjCode}}</td>
+                    <td>{{item.MrSrvyObjCode}}</td>
+                    <td>{{item.SrvyFormSchmName}}</td>
+                    <td>{{item.SurveyorCode}}</td>
+                    <td>{{item.MrSrvyStatCode}}</td>
+                    <td>{{item.UpdateDt | date: 'dd-MMM-yyyy'}}</td>
+                    <td>
+                      <a class="success p-0" (click)="editData(SurveyTaskContent,item.SrvyTaskId)">
+                        <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                      </a>
+                      <a class="danger p-0" (click)="deleteData(item.SrvyTaskId)">
+                        <i class="ft-trash-2 font-medium-3 mr-2"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <ng-template #SurveyTaskContent let-c="close" let-d="dismiss">
+              <div class="modal-header">
+                <h4 class="modal-title">{{title}}</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="px-3">
+                  <form class="form form-horizontal" #enjiForm="ngForm" [formGroup]="SurveyTaskForm"
+                    (ngSubmit)="SurveyTaskForm.valid && SaveForm()">
+                    <lib-ucSubsection [id]="'SurveyTaskId'" [title]="'Task'" [panel]="'SurveyTask'">
+                    </lib-ucSubsection>
+                    <div id="SurveyTask">
+                      <div class="form-group row">
+                        <label class="col-md-2 label-control" translate>Survey Task No</label>
+                        <div class="col-md-4">
+                          <input type="text" class="form-control" readonly formControlName="SrvyTaskNo"
+                            [ngClass]="{ 'is-invalid': enjiForm.submitted && SurveyTaskForm.controls.SrvyTaskNo.invalid }">
+                          <lib-uc-show-errors [control]="SurveyTaskForm.controls.SrvyTaskNo"
+                            [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-md-2 label-control adins-required-label" translate>Surveyee Subject</label>
+                        <div class="col-md-4">
+                          <select class="form-control" formControlName="MrSrvySubjCode" 
+                            [ngClass]="{ 'is-invalid': enjiForm.submitted && SurveyTaskForm.controls.MrSrvySubjCode.invalid }"
+                            (change)="onChange($event.target.value)">
+                            <option *ngFor="let item of SrvySubjList" [value]="item">{{item}}</option>
+                          </select>
+                          <lib-uc-show-errors [control]="SurveyTaskForm.controls.MrSrvySubjCode" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-md-2 label-control adins-required-label" translate>Surveyee Object</label>
+                        <div class="col-md-4">
+                          <select class="form-control" style="width: 100%;" formControlName="MrSrvyObjCode"
+                            [ngClass]="{ 'is-invalid': enjiForm.submitted && SurveyTaskForm.controls.MrSrvyObjCode.invalid }">
+                            <option *ngFor="let item of SrvyObjList" [value]="item.Key">
+                              {{item.Key + ' - ' + item.Value}}
+                            </option>
+                          </select>
+                          <lib-uc-show-errors [control]="SurveyTaskForm.controls.MrSrvyObjCode" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-md-2 label-control adins-required-label" translate>Form Scheme</label>
+                        <div class="col-md-4">
+                          <select class="form-control" formControlName="SrvyFormSchmId" 
+                            [ngClass]="{ 'is-invalid': enjiForm.submitted && SurveyTaskForm.controls.SrvyFormSchmId.invalid }">
+                            <option *ngFor="let item of FormSchmList" [value]="item.SrvyFormSchmId">{{item.SrvyFormSchmName}}</option>
+                          </select>
+                          <lib-uc-show-errors [control]="SurveyTaskForm.controls.SrvyFormSchmId" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-md-2 label-control adins-required-label" translate>Surveyor Name</label>
+                        <label class="col-md-4 label-control" translate>{{VendorObj.VendorName}}</label>
+                      </div>
+                    </div>
+                    <div class="form-actions right">
+                      <button type="button" class="btn btn-raised btn-warning mr-1" (click)="Back()">
+                        <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+                      </button>
+                      <button type="submit" class="btn btn-raised btn-primary">
+                        <i class="far fa-check-square"></i>&nbsp;<span translate>Send</span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Send</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

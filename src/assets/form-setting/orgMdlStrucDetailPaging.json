@@ -1,0 +1,65 @@
+{
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Business Unit Name",
+            "name": "bizUnitName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Parent Name",
+            "name": "parentName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Level",
+            "name": "orgMdlLvl"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "isActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "bizUnitName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "parentName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "orgMdlLvl"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "isActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "parentName"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,119 @@
+{
+    "title": "Asset Document Master",
+    "exportExcel": false,
+    "component": [
+      {
+        "type": "textbox",
+        "name": "ASSET_DOC_CODE",
+        "id": "assetDocCode",
+        "value": "",
+        "label": "Asset Document Code",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "textbox",
+        "name": "ASSET_DOC_NAME",
+        "id": "assetDocumentName",
+        "value": "",
+        "label": "Asset Document Name",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "dropdown",
+        "name": "IS_ACTIVE",
+        "id": "isActive",
+        "value": "",
+        "placeholder": "Placeholder",
+        "isFromURL": false,
+        "ddlType": "all",
+        "url": "https://api.myjson.com/bins/ld6e8",
+        "label": "Active Status",
+        "items": [
+          {
+            "key": "1",
+            "value": "Yes"
+          },
+          {
+            "key": "0",
+            "value": "No"
+          }
+        ],
+        "itemsUrl": []
+      } 
+    ],
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Asset Document Code",
+        "name": "ASSET_DOC_CODE"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Asset Document Name",
+        "name": "ASSET_DOC_NAME"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Active Status",
+        "name": "IS_ACTIVE"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "ACTION"
+      }
+    ],
+    "querystring": { 
+      "name": "searchAssetDocumentMaster"
+    },
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "left",
+        "property": "AssetDocumentCode"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "AssetDocumentName"
+      },
+      {
+        "type": "boolean",
+        "position": "center",
+        "property": "IsActive"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "edit",
+            "path": "ASSET_DOC_MASTER_DETAIL",
+            "param": [
+             
+              {
+                "type": "mode",
+                "property": "edit"
+              } ,
+              {
+                "type": "RefAssetDocId",
+                "property": "RefAssetDocId"
+              } 
+            
+            ]
+          }
+        ]
+      } 
+
+    
+       
+
+
+
+
+
+    ]
+  }

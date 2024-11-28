@@ -1,0 +1,251 @@
+{
+    "title": "Payment Allocation Group",
+    "hideTitle": false,
+    "id": "PaymentAllocationGroup",
+    "addButton": true,
+    "addLink": "/CommonSetting/PaymentAllocGrpH/Detail",
+    "pathOption": "selfCustom",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "FoundationR3Url",
+                "apiVersion": "v2",
+                "pagingInput": {
+                    "title": "Payment Allocation Group",
+                    "sectionTitle": "Payment Allocation Group",
+                    "querystring": {
+                        "name": "searchRefPaymentAllocGrpH"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "rpaghpayAllocGrpCodeSearchId",
+                            "type": "textbox",
+                            "label": "Payment Alloc Group Code",
+                            "name": "rpagh.PAY_ALLOC_GRP_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "rpaghpayAllocGrpNameSearchId",
+                            "type": "textbox",
+                            "label": "Payment Alloc Group Name",
+                            "name": "rpagh.PAY_ALLOC_GRP_NAME",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "rpaghisActiveSearchId",
+                            "type": "dropdown",
+                            "label": "Is Active",
+                            "name": "rpagh.IS_ACTIVE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "rpaghisSystemSearchId",
+                            "type": "dropdown",
+                            "label": "Is System",
+                            "name": "rpagh.IS_SYSTEM",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "rpaghmrPayAllocGrpPurposeSearchId",
+                            "type": "dropdown",
+                            "label": "Purpose",
+                            "name": "rpagh.MR_PAY_ALLOC_GRP_PURPOSE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/v1/RefMaster/GetListKeyValueActiveByCode",
+                            "criteriaPropName": "RefMasterTypeCode",
+                            "criteriaPropValue": "PAY_ALLOC_GRP_PURPOSE",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Payment Alloc Group Code",
+                            "position": "center",
+                            "name": "rpagh.PAY_ALLOC_GRP_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Payment Alloc Group Name",
+                            "position": "center",
+                            "name": "rpagh.PAY_ALLOC_GRP_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Purpose",
+                            "position": "center",
+                            "name": "rm.DESCR"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Is Active",
+                            "position": "center",
+                            "name": "rpagh.IS_ACTIVE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Is System",
+                            "position": "",
+                            "name": "rpagh.IS_SYSTEM"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Payment Alloc",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "PayAllocGrpCode"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "PayAllocGrpName"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "PayAllocGrpPurpose"
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsActive"
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsSystem"
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/CommonSetting/PaymentAllocGrpD/Paging",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "PayAllocGrpCode",
+                                            "property": "PayAllocGrpCode"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/CommonSetting/PaymentAllocGrpH/Detail",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "PayAllocGrpCode",
+                                            "property": "PayAllocGrpCode"
+                                        },
+                                        {
+                                            "type": "mode",
+                                            "property": "edit"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1
+            },
+            "id": "0c4ddb46-c948-4155-b214-bc14974012d3"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {}
+}

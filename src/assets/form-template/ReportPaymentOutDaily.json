@@ -1,0 +1,82 @@
+{
+    "title": "Report Payment Out Daily",
+    "hideTitle": false,
+    "id": "ReportPaymentOutDaily",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "report": {
+                "apiReportPath": "/v1/Report/GenerateReportR3",
+                "apiEnvironmentUrl": "FoundationR3Url",
+                "pagingInput": {
+                    "title": "",
+                    "reportName": "Payment Out Daily",
+                    "reportTemplateCode": "PAYMENT_OUT_DAILY",
+                    "component": [
+                        {
+                            "id": "preparedtfromSearchId",
+                            "type": "datepicker",
+                            "label": "Prepare Date From",
+                            "name": "PrepareDtFrom",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": true,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "preparedttoSearchId",
+                            "type": "datepicker",
+                            "label": "Prepare Date To",
+                            "name": "PrepareDtTo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": true,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        }
+                    ]
+                }
+            },
+            "id": "348e6c37-e3f1-4787-8bee-25b04d5aa1d9"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "overrideSubmitBtnText": ""
+}

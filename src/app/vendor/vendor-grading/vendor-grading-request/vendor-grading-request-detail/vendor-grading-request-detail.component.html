@@ -1,0 +1,99 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate>
+                {{ title }}
+              </h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="VendorForm" (ngSubmit)="VendorForm.valid && SaveForm()"
+            #enjiForm="ngForm">
+            <lib-ucSubsection [id]="'VendorInfoId'" [title]="'Main Info'" [panel]="'VendorInformation'">
+            </lib-ucSubsection>
+            <div class="form-body" id="VendorInformation">
+              <div [hidden]="mode === 'add'" class="form-group row">
+                <label class="col-md-3 adInsLabel">Vendor Code</label>
+                <div class="col-md-9">
+                  <label class="adInsLabel" translate>{{vendorCode}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel">Vendor Name</label>
+                <div [hidden]="mode === 'edit'" class="col-md-3" *ngIf="inputLookupParentObj.isReady">
+                  <lib-uclookupgeneric [lookupInput]="inputLookupParentObj" [parentForm]="VendorForm"
+                    [enjiForm]="enjiForm" [identifier]="'lookupVendor'" (lookup)="getLookupParent($event)">
+                  </lib-uclookupgeneric>
+                </div>
+                <div [hidden]="mode === 'add'" class="col-md-9">
+                  <label class="adInsLabel" translate>{{vendorName}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" translate>Rating</label>
+                <div class="col-md-9">
+                  <input type="" currencyMask class="form-control adInsInput width-50-per"
+                    formControlName="VendorRating" (focusout)="onVendorRatingChange($event.target.value)" [ngClass]="{
+                      'is-invalid':
+                        enjiForm.submitted &&
+                        VendorForm.controls.VendorRating.invalid
+                    }" />
+                  <lib-uc-show-errors [control]="VendorForm.controls.VendorRating" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                  <!-- <lib-uc-show-errors
+                    [control]="VendorForm.controls.VendorRating"
+                    [submit]="enjiForm.submitted"
+                  > -->
+                  <!-- </lib-uc-show-errors> -->
+                </div>
+                <!-- <div [hidden]="mode === 'add'" class="col-md-9">
+                  <label class="adInsLabel" translate>{{VendorRating}}</label>
+                </div> -->
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" translate>Grade</label>
+                <!-- <div class="col-md-9" [hidden]="mode === 'edit'" >
+                  <input
+                    type="text"
+                    readonly
+                    class="form-control adInsInput width-50-per"
+                    formControlName="VendorGrade"
+                  />
+                  <lib-uc-show-errors
+                    [control]="VendorForm.controls.VendorGrade"
+                    [submit]="enjiForm.submitted"
+                  >
+                  </lib-uc-show-errors>
+                </div> -->
+                <div [hidden]="mode === 'add'" class="col-md-9">
+                  <label class="adInsLabel" translate>{{gradeCode}}</label>
+                </div>
+              </div>
+            </div>
+
+            <lib-ucapprovalcreate [InputObj]="InputObj" [parentForm]="VendorForm" *ngIf="IsReady" [enjiForm]="enjiForm" #ApprovalComponent></lib-ucapprovalcreate>
+
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1"
+                [routerLink]="['/Vendor/VendorGrading/Request/Paging']">
+                <i class="ft-x"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="fa fa-check"></i>&nbsp;<span translate>Submit</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

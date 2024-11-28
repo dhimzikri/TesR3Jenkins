@@ -1,0 +1,36 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "AssetSchmId",
+        "subSectionTitle": "Asset Scheme",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Asset Scheme Code",
+            "property": "AssetSchmCode"
+          },
+          {
+            "type": "text",
+            "label": "Asset Scheme Name",
+            "property": "AssetSchmName"
+          },
+          {
+            "type": "text",
+            "label": "Asset Type Name",
+            "property": "AssetTypeName"
+          },
+          {
+            "type": "boolean",
+            "label": "Active Status",
+            "property": "IsActive"
+          }
+         
+        ],
+        "querystring": {
+          "name": "viewAssetSchemeMember"
+        }
+      }
+    ]
+  }

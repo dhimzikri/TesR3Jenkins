@@ -1,0 +1,40 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "CustMainInfoHeaderId",
+        "subSectionTitle": "Main Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Customer No",
+            "property": "CustNo"
+          },
+          {
+            "type": "text",
+            "label": "Tax Id No",
+            "property": "TaxIdNo"
+          },
+          {
+            "type": "text",
+            "label": "Customer Name",
+            "property": "CustName"
+          },
+          {
+            "type": "text",
+            "label": "Company Type",
+            "property": "CoyType"
+          },
+          {
+            "type": "text",
+            "label": "Customer Model",
+            "property": "CustModel"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustCoyMainInfoHeader"
+        }
+      }
+    ]
+  }

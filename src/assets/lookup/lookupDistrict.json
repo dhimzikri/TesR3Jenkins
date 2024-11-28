@@ -1,0 +1,73 @@
+{
+  "title": "Lookup - District",
+  "sectionTitle": "Search",
+  "component": [
+    {
+      "type": "textbox",
+      "name": "PROV_DISTRICT_NAME",
+      "id": "provDistrictNameId",
+      "value": "",
+      "label": "District Name",
+      "placeholder": "District Name"
+    },
+    {
+      "type": "textbox",
+      "name": "DISTRICT_REG_RPT_CODE",
+      "id": "districtRegRptCodeId",
+      "value": "",
+      "label": "District Sandi BI",
+      "placeholder": "District Sandi BI"
+    }
+  ],
+  "headerList": [
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "District Name",
+      "name": "PROV_DISTRICT_NAME"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "District Sandi BI",
+      "name": "DISTRICT_REG_RPT_CODE"
+    },
+    {
+      "type": "label",
+      "position": "center",
+      "label": "Action"
+    }
+  ],
+
+  "querystring": {
+    "name": "lookupDistrict"
+  },
+
+  "bodyList": [
+    {
+      "type": "text",
+      "position": "center",
+      "property": "DistrictName"
+    },
+    {
+      "type": "text",
+      "position": "center",
+      "property": "DistrictRegRptCodeId"
+    },
+    {
+      "type": "action",
+      "position": "center",
+      "action": [
+        {
+          "type": "select",
+          "property": "RefProvDistrictId"
+        }
+      ]
+    }
+  ],
+
+  "propertyId": "RefProvDistrictId",
+  "propertyName": "DistrictName"
+
+
+}

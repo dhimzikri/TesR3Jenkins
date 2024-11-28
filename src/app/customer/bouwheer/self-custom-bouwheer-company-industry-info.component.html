@@ -1,0 +1,132 @@
+<div id="BouwheerIndustryInfo" *ngIf="dicts.formRaw.MrCustTypeCode=='COMPANY'">
+  <div class="row col-md-12">
+    <div class="ml-auto">
+      <button type="button" class="btn-primary-2" translate
+        (click)="showModalIndustryInfo(ListBouwheerIndustryInfo.length)"><i class="ft-plus-circle"></i> Add</button>
+    </div>
+  </div>
+
+  <lib-ucSubsection [id]="'BouwheerCompanyIndustryInfo'" [title]="'Industry List'"
+    [panel]="'BouwheerIndustryInfo'"></lib-ucSubsection>
+  <div id="BouwheerIndustryInfo">
+    <div id="ListBouwheerIndustryInfo" class="col-md-12" style="overflow-x: auto;">
+      <table class="table table-responsive-md text-center table-hover table-new">
+        <thead>
+          <tr class="table-header-2">
+            <th class="text-center" translate>No</th>
+            <th class="text-center" translate>KBLI</th>
+            <th class="text-left" translate>Industry Type</th>
+            <th class="text-center" translate>Main Industry</th>
+            <th class="text-center" translate>Industry Start Date</th>
+            <th class="text-center" translate>Action</th>
+            <th class="text-center" *ngIf="showDownload" translate>Download Document</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ListBouwheerIndustryInfo; let i = index">
+            <td class="text-center">{{i+1}}</td>
+            <td class="text-center">{{item.RefIndustryTypeCode}}</td>
+            <td class="text-left">{{item.RefIndustryTypeName}}</td>
+            <td class="text-center">{{ item.IsMain ? 'YES' : 'NO' }}</td>
+            <td class="text-center">{{item.BusinessStartDate | date: 'dd-MMM-yyyy'}}</td>
+            <td class="text-center">
+              <a href="javascript:;" (click)="showModalIndustryInfo(i)"><i class="ft-edit-2 font-medium-3 mr-1"></i></a>
+              <a href="javascript:;" (click)="deleteModalIndustryInfo(i)" class="danger p-0"><i
+                  class="ft-trash-2 font-medium-3 ml-1"></i></a>
+            </td>
+            <td class="text-center" *ngIf="showDownload">
+              <a href="javascript:;" (click)="DownloadFileIndustryInfo(i)" class="danger p-0"><i
+                  class="ft-edit-2 font-medium-3 mr-1"></i></a>
+            </td>
+          </tr>
+
+          <tr *ngIf="(ListBouwheerIndustryInfo.length <= 0)">
+            <td class="text-center" colspan="6" translate>No Data Available</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ng-template #ModalIndustryList let-modal>
+      <form class="form form-horizontal" [formGroup]="IndustryInfoForm"
+        (ngSubmit)="IndustryInfoForm.valid && SaveIndustryInfo()" #enjiForm="ngForm">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">
+            Industry Info
+          </h4>
+          <button type="button" class="close" aria-label="Close" (click)="closeModal()"><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <label class="col-md-12 adInsLabel label-field-2" translate>Industry Type </label>
+            <div class="col-md-12">
+              <lib-uclookupgeneric [lookupInput]="lookUpObj" [parentForm]="IndustryInfoForm" [enjiForm]="enjiForm"
+                [identifier]="'lookupIndustryType'" (lookup)=getLookUp($event)>
+              </lib-uclookupgeneric>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-12 adInsLabel label-field-2" translate>Industry Start Date</label>
+            <div class="col-md-12">
+              <input type="date" max="{{ MaxDate | date:'yyyy-MM-dd' }}" class="form-control adInsInput input-field-2"
+                formControlName="BusinessStartDate"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && IndustryInfoForm.controls.BusinessStartDate.invalid}">
+              <div class="message-box">
+                <lib-uc-show-errors [control]="IndustryInfoForm.controls.BusinessStartDate"
+                  [submit]="enjiForm.submitted">
+                </lib-uc-show-errors>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-12 adInsLabel label-field-2" for="Notes" translate>Industry Notes</label>
+            <div class="col-md-12">
+              <textarea class="form-control adInsInput textarea-field-2" formControlName="Notes"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && IndustryInfoForm.controls.Notes.invalid }"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-12 adInsLabel label-field-2" for="myfile" translate>Industry File Upload <span
+                class="optional-text">(Optional)</span></label>
+            <div class="col-md-12">
+              <label [for]="'doc'" class="btn btn-primary-2 btn-sm afu-select-btn label-field-2" >Choose File</label>
+              <input class="input-field-2" type="file" [id]="'doc'" style="display: none" (change)="onFileChange($event.target.files)"
+                [accept]="ExtStr" />
+                <div [hidden]="!file" style="padding-left: 15px" class="row afu-valid-file">
+                  <p class="col-xs-3 textOverflow"><span class="text-primary">{{file?.name}}</span></p>
+                  <p class="col-xs-3 padMarg sizeC">
+                    <strong>({{ConvertSize(file?.size)}})</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </p>
+                </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-12 label-field-2" for="IsMain" translate>Is Main Industry</label>
+            <div class="col-md-12">
+              <ui-switch uncheckedLabel="no" checkedLabel="yes" size="small" formControlName="IsMain"
+                class="custom-switches">
+              </ui-switch>
+              <!-- <input type="checkbox" class="border-primary" formControlName="IsMain"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && IndustryInfoForm.controls.IsMain.invalid }" /> -->
+              <div class="message-box">
+                <lib-uc-show-errors [control]="IndustryInfoForm.controls.IsMain" [submit]="enjiForm.submitted">
+                </lib-uc-show-errors>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-raised btn-outline-2 mr-1" (click)="modal.dismiss()"> <i
+              class="ft-x"></i>&nbsp;<span translate>Cancel</span></button>
+          <button type="submit" class="btn btn-raised btn-primary-2">
+            <i class=" fa fa-arrow-circle-right"></i>&nbsp;<span translate>Save</span>
+          </button>
+        </div>
+      </form>
+    </ng-template>
+  </div>
+</div>

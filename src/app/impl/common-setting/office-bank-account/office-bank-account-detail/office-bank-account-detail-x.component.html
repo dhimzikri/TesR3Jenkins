@@ -1,0 +1,205 @@
+<div class="container-fluid">
+    <div class="row text-left">
+      <div class="col-md-12">
+        <div class="card">
+  
+          <div class="card-head">
+  
+            <div class="card-header header-title">
+              <div class="row">
+                <div class="col-md-8">
+                  <h4 class="font-weight-bold" id="horz-layout-colored-controls" translate>Office Bank Account Registration</h4>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="card-body">
+  
+            <br>
+  
+            <div class="px-3">
+  
+              <form class="form form-horizontal" [formGroup]="OfficeBankAccForm" #enjiForm="ngForm"
+                (ngSubmit)="OfficeBankAccForm.valid && SaveForm()">
+  
+                <lib-ucSubsection [id]="'DetailId'" [title]="'Office Bank Account Registration'" [panel]="'Detail'">
+                </lib-ucSubsection>
+                <div id="Detail" class="form-body">
+                  <div class="form-group row">
+                    <label class="col-md-3 adins-required-label">Account Code</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" formControlName="AccCode"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && OfficeBankAccForm.controls.AccCode.invalid }">
+                      <lib-uc-show-errors [control]="OfficeBankAccForm.controls.AccCode" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3 adins-required-label">Account Name</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" formControlName="AccName"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && OfficeBankAccForm.controls.AccName.invalid }">
+                      <lib-uc-show-errors [control]="OfficeBankAccForm.controls.AccName" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3 adins-required-label">Bank Branch</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" formControlName="BankBranch"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && OfficeBankAccForm.controls.BankBranch.invalid }">
+                      <lib-uc-show-errors [control]="OfficeBankAccForm.controls.BankBranch" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3 adins-label">Bank Branch BI Code</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" formControlName="BankBranchBiCode"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && OfficeBankAccForm.controls.BankBranchBiCode.invalid }">
+                      <lib-uc-show-errors [control]="OfficeBankAccForm.controls.BankBranchBiCode"
+                        [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3 adins-required-label">Account No</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" formControlName="AccNo"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && OfficeBankAccForm.controls.AccNo.invalid }">
+                      <lib-uc-show-errors [control]="OfficeBankAccForm.controls.AccNo" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row" *ngIf="Mode === 'Add'">
+                    <label class="col-md-3 adins-required-label">Original Office</label>
+                    <div class="col-md-4">
+                      <select class="form-control" style="width: 100%;" formControlName="OfficeName"
+                        (change)="onChangedDdlOfficeName($event)"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && OfficeBankAccForm.controls.OfficeName.invalid }">
+                        <option value="" disabled>--Select--</option>
+                        <option *ngFor="let item of OfficeNameList" [value]="item.Key">
+                          {{item.Value}}
+                        </option>
+                      </select>
+                      <lib-uc-show-errors [control]="OfficeBankAccForm.controls.OfficeName" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row" *ngIf="Mode === 'Edit'">
+                    <label class="col-md-3 adins-label">Original Office</label>
+                    <label class="col-md-3 adins-label">{{this.RefOfficeObj.OfficeName}}</label>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3 adins-required-label">Bank Name</label>
+                    <div class="col-md-4">
+                      <select class="form-control" style="width: 100%;" formControlName="BankName"
+                        (change)="onChangedDdlBankName($event)"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && OfficeBankAccForm.controls.BankName.invalid }">
+                        <option value="" disabled>--Select--</option>
+                        <option *ngFor="let item of BankNameList" [value]="item.Key">
+                          {{item.Value}}
+                        </option>
+                      </select>
+                      <lib-uc-show-errors [control]="OfficeBankAccForm.controls.BankName" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3 adins-required-label">Bank Account Type</label>
+                    <div class="col-md-4">
+                      <select class="form-control" style="width: 100%;" formControlName="BankAccType"
+                        (change)="onChangedDdlBankAccType($event)"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && OfficeBankAccForm.controls.BankAccType.invalid }">
+                        <option value="" disabled>--Select--</option>
+                        <option *ngFor="let item of BankAccTypeList" [value]="item.Key">
+                          {{item.Value}}
+                        </option>
+                      </select>
+                      <lib-uc-show-errors [control]="OfficeBankAccForm.controls.BankAccType"
+                        [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3 adins-required-label">Currency</label>
+                    <div class="col-md-4">
+                      <select class="form-control" style="width: 100%;" formControlName="CurrCode"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && OfficeBankAccForm.controls.CurrCode.invalid }">
+                        <option value="" disabled>--Select--</option>
+                        <option *ngFor="let item of CurrNameList" [value]="item.Key">
+                          {{item.Value}}
+                        </option>
+                      </select>
+                      <lib-uc-show-errors [control]="OfficeBankAccForm.controls.CurrCode" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3">Use Legal Doc</label>
+                    <div class="col-md-4" style="padding-left: 0px;">
+                      <label class="col-md-12">
+                        <input class="border-primary" type="checkbox" formControlName="LegalDoc"
+                          [(ngModel)]="IsCbLegalDocChecked">
+                      </label>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3 adins-required-label">Bank Account Purpose</label>
+                    <div class="col-md-4">
+                      <select class="form-control" style="width: 100%;" formControlName="BankAccPurpose"
+                        (change)="onChangedDdlBankAccPurpose($event)"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && OfficeBankAccForm.controls.BankAccPurpose.invalid }">
+                        <option value="" disabled>--Select--</option>
+                        <option *ngFor="let item of BankAccPurposeList" [value]="item.Key">
+                          {{item.Value}}
+                        </option>
+                      </select>
+                      <lib-uc-show-errors [control]="OfficeBankAccForm.controls.BankAccPurpose"
+                        [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3">Is Syariah</label>
+                    <div class="col-md-4" style="padding-left: 0px;">
+                        <label class="col-md-12">
+                        <input class="border-primary" type="checkbox" formControlName="IsSyariah">
+                        </label>
+                    </div>
+                </div>
+  
+                <div class="text-right">
+                  <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]">
+                    <i class="fa fa-arrow-circle-left"></i>&nbsp;<span translate>Back</span>
+                  </button>
+                  <button type="submit" class="btn btn-raised btn-primary">
+                    <i class="far"></i>&nbsp;<span translate>Submit</span>
+                  </button>
+                </div>
+  
+              </form>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>

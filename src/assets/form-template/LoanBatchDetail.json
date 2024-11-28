@@ -1,0 +1,408 @@
+{
+    "title": "Loan Batch Detail",
+    "hideTitle": false,
+    "id": "LoanBatchDetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "FundingBatchMainInformationId",
+                    "subSectionTitle": "Funding Batch Main Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanBatchViewDetail"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Company",
+                            "property": "FundingCompany",
+                            "key": "ViewVendor",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "callback",
+                            "label": "Funding Contract No",
+                            "property": "FundingContractNo",
+                            "key": "ViewContract",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Funding Contract Name",
+                            "property": "FundingContractName",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Funding Batch No.",
+                            "property": "FundingBatchNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Currency",
+                            "property": "Currency",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Batch Status",
+                            "property": "BatchStatus",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Drawdown Date",
+                            "property": "DrawdownDate",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Drawdown Amount ",
+                            "property": "DrawdownAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Scheme",
+                            "property": "PaymentScheme",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Installment Period",
+                            "property": "InstallmentPeriod",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Installment Scheme",
+                            "property": "InstallmentScheme",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Collateral Location",
+                            "property": "CollateralLocation",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Tenor",
+                            "property": "Tenor",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "FundingBatchNo"
+                    ],
+                    "fromValue": [],
+                    "resObjName": ""
+                }
+            },
+            "id": "30a823a3-9c5c-46a2-96c0-330a7e09c79b"
+        },
+        {
+            "tabs": {
+                "tablist": [
+                    {
+                        "label": "Interest",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Interestloanbatch",
+                                "conditions": [],
+                                "params": []
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Fee",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Feeloanbatch",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "LoanContractNo",
+                                        "propValue": "LoanContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "List Of Agreement",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Listofaggrementloanbatch",
+                                "conditions": [],
+                                "params": []
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Payment Schedule",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "PaymentScheduleLoanBatch",
+                                "conditions": [],
+                                "params": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "id": "fee24bb3-bf3d-49ed-b334-0c0651e21779"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [
+        {
+            "displayName": "Upload Schedule",
+            "id": "uploadId",
+            "key": "",
+            "position": "top",
+            "icon": "",
+            "cssClass": "",
+            "conditions": [
+                {
+                    "property": "InstSchmCode",
+                    "restriction": "EQ",
+                    "value": "UPLOAD"
+                }
+            ],
+            "btnType": "button",
+            "action": {
+                "type": "link",
+                "path": "/Setting/LoanBatch/Detail/Upload",
+                "params": [
+                    {
+                        "propName": "FundingBatchNo",
+                        "propValue": "FundingBatchNo"
+                    }
+                ],
+                "target": "_self"
+            }
+        },
+        {
+            "displayName": "Execute",
+            "id": "executeId",
+            "key": "",
+            "position": "top",
+            "icon": "ft-play",
+            "cssClass": "",
+            "conditions": [
+                {
+                    "property": "isButton",
+                    "restriction": "EQ",
+                    "value": "true"
+                },
+                {
+                    "property": "InstSchmCode",
+                    "restriction": "NEQ",
+                    "value": "UPLOAD"
+                }
+            ],
+            "btnType": "button",
+            "action": {
+                "environment": "facilityExecUrl",
+                "path": "/v1/LoanBatchInstSchdlX/GenerateBatchInstSchdlX",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "batchNo",
+                        "propValue": "FundingBatchNo"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success!"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        },
+        {
+            "displayName": "Download TextFile",
+            "id": "download textfileId",
+            "key": "",
+            "position": "top",
+            "icon": "ft-download",
+            "cssClass": "",
+            "conditions": [
+                {
+                    "property": "isButton",
+                    "restriction": "EQ",
+                    "value": "true"
+                }
+            ],
+            "btnType": "button"
+        },
+        {
+            "displayName": "Cancel Batch",
+            "id": "cancel batchId",
+            "key": "",
+            "position": "top",
+            "icon": "ft-slash",
+            "cssClass": "",
+            "conditions": [
+                {
+                    "property": "isButton",
+                    "restriction": "EQ",
+                    "value": "true"
+                }
+            ],
+            "action": {
+                "environment": "facilityMntUrl",
+                "path": "/v1/LoanBatch/CancelLoanBatch",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "BatchNo",
+                        "propValue": "FundingBatchNo"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "params": [],
+                            "path": "/Setting/loanContract/Paging",
+                            "target": "_self"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        }
+    ],
+    "onInit": [
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/LoanBatchObj/GetObjectByKeyAndValue",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Key",
+                    "propValue": "LoanBatchNo"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "Operator",
+                    "propValue": "EQ"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "Value",
+                    "propValue": "FundingBatchNo"
+                }
+            ],
+            "return": [],
+            "conditions": []
+        }
+    ],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

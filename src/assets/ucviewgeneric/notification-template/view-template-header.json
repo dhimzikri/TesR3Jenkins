@@ -1,0 +1,30 @@
+{
+  "title": "Notification Template View",
+  "subsection": [
+    {
+      "subSectionId": "MainDataId",
+      "subSectionTitle": "Main Data",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Template Code",
+          "property": "TemplateCode"
+        },
+        {
+          "type": "text",
+          "label": "Template Description",
+          "property": "TemplateDescr"
+        },
+        {
+          "type": "text",
+          "label": "Template Version",
+          "property": "TemplateVersion"
+        }
+      ],
+      "querystring": {
+          "name": "viewNotifTemplateHeader"
+      }
+    }
+  ]
+}

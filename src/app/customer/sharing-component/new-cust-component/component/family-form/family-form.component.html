@@ -1,0 +1,77 @@
+<div class="form-group row px-3">
+
+  <div class="col-md-6">
+
+    <div class="form-group row">      
+      <label class="col-md-12 adInsLabel label-field-2" translate>Nationality
+      </label>
+      <div class="col-md-12" *ngIf="DictUcDDLObj[RefMasterTypeCodeNationality]?.isReady">
+        <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeNationality]"
+          [parentForm]="parentForm" [enjiForm]="enjiForm" [identifier]="'MrNationalityCode'" (callback)="onOptionsSelected($event)"></lib-ucdropdownlist>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-12 adInsLabel label-field-2" translate>Country
+      </label>
+      <div class="col-md-12" [hidden]="!IsLocal" translate>
+        <input type="text" class="form-control adInsInput input-field-2" value="{{CountryName}}" readonly>
+        <!-- <label class="col-md-12 adInsLabel label-field-2" translate>{{CountryName}}</label> -->
+        <div class="message-box"></div>
+      </div>
+      <div class="col-md-12" *ngIf="lookUpObjCountry?.isReady" [hidden]="IsLocal">
+        <lib-uclookupgeneric [lookupInput]="lookUpObjCountry" [parentForm]="parentForm"
+          [enjiForm]="enjiForm" [identifier]="'Country'" (lookup)=getLookUpCountry($event)>
+        </lib-uclookupgeneric>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-12 adInsLabel label-field-2" translate>Job Position
+      </label>
+      <div class="col-md-12" *ngIf="jobPositionLookupObj?.isReady">
+        <lib-uclookupgeneric [lookupInput]="jobPositionLookupObj" [parentForm]="parentForm"
+          [enjiForm]="enjiForm" [identifier]="'JobPosition'" (lookup)=getLookUpJobPosition($event)>
+        </lib-uclookupgeneric>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-6">
+
+    <div class="form-group row">
+      <label class="col-md-12 adins-required-label" translate>Debtor Model </label>
+      <div class="col-md-12" *ngIf="DictUcDDLObj[RefMasterTypeCodeCustModel]?.isReady">
+        <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodeCustModel]"
+          [parentForm]="parentForm" [enjiForm]="enjiForm" [identifier]="'MrCustModelCode'" (callback)="changeCustModel()"></lib-ucdropdownlist>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-12 adInsLabel label-field-2" translate> Profession Name
+      </label>
+      <div class="col-md-12">
+        <lib-uclookupgeneric [lookupInput]="professionLookUpObj" [parentForm]="parentForm"
+          [enjiForm]="enjiForm" [identifier]="'JobProfession'" (lookup)=getLookUpProfession($event) #LookupProfession>
+        </lib-uclookupgeneric>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-12 adInsLabel label-field-2" translate>Employee Establishment Date
+      </label>
+      <div class="col-md-12">
+        <input type="date" class="form-control adInsInput input-field-2" formControlName="EmploymentEstablishmentDt"
+          [max]="businessDtMin | date: 'yyyy-MM-dd'"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && parentForm.controls.EmploymentEstablishmentDt.invalid}">
+        <div class="message-box">
+          <lib-uc-show-errors [control]="parentForm.controls.EmploymentEstablishmentDt" [submit]="enjiForm.submitted">
+          </lib-uc-show-errors>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

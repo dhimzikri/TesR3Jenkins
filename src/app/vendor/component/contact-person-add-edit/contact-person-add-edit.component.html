@@ -1,0 +1,153 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="ContactPersonForm" #enjiForm="ngForm"
+            (ngSubmit)="ContactPersonForm.valid && SaveForm()" >
+            <lib-ucSubsection [id]="'ContactPersonFormId'" [title]="'Contact Person Main Info'"
+              [panel]="'ContactPersonForm'">
+            </lib-ucSubsection>
+            <div class="form-body" id="ContactPersonForm">
+              <div class="form-group row">
+                <label class="col-md-3 adins-required-label" for="Name" translate>Name</label>
+                <div class="col-md-4">
+                  <input type="Name" id="Name" class="form-control"
+                    formControlName="Name" [ngClass]="{ 'is-invalid': enjiForm.submitted && ContactPersonForm.controls.Name.invalid }">
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.Name" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row ">
+                <label class="col-md-3 adins-required-label" for="JobPosition" translate>Job Position</label>
+                <div class="col-md-4">
+                  <select class="form-control adInsInput" style="width: auto" formControlName="JobPosition"
+                  [ngClass]="{ 'is-invalid': enjiForm.submitted && ContactPersonForm.controls.JobPosition.invalid }">
+                    <option *ngFor="let it of itemJobPosition" value="{{it.Key}}">
+                      {{it.Value}}</option>
+                  </select>
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.JobPosition"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 adins-required-label" for="Phn1" translate>Phone 1</label>
+                <div class="col-md-4">
+                  <input type="text" id="Phn1" class="form-control" formControlName="Phn1" [ngClass]="{ 'is-invalid': enjiForm.submitted && ContactPersonForm.controls.Phn1.invalid }">
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.Phn1" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" for="Phn2" translate>Phone 2</label>
+                <div class="col-md-4">
+                  <input type="text" id="Phn2" class="form-control" formControlName="Phn2" [ngClass]="{ 'is-invalid': ContactPersonForm.controls.Phn2.invalid }">
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.Phn2" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adins-required-label" for="Email" translate>E-mail</label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" id="Email" formControlName="Email" [ngClass]="{ 'is-invalid': enjiForm.submitted && ContactPersonForm.controls.Email.invalid }">
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.Email" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adins-required-label" for="JoinDt" translate>Join Date</label>
+                <div class="col-md-4">
+                  <input type="date" (focusout)="validateDate()" id="JoinDt" class="form-control" max="{{businessDt | date: 'yyyy-MM-dd'}}"
+                    formControlName="JoinDt" [ngClass]="{ 'is-invalid': enjiForm.submitted && ContactPersonForm.controls.JoinDt.invalid }">
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.JoinDt"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" for="IsOwner" translate>Owner</label>
+                <div class="col-md-4">
+                  <input type="checkbox" id="IsOwner" class=""
+                    formControlName="IsOwner">
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.IsOwner" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+            </div>
+            <lib-ucSubsection [id]="'ContactPersonAddressInfoId'" [title]="'Contact Person Address Info'"
+              [panel]="'ContactPersonAddressInfo'">
+            </lib-ucSubsection>
+            <div class="form-body" id="ContactPersonAddressInfo">
+              <div class="form-group row">
+                <label class="col-md-3" for="Addr" translate>Address</label>
+                <div class="col-md-4">
+                  <textarea id="Addr" class="form-control" formControlName="Addr"></textarea>
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.Addr" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row" *ngIf="inputZipcodeLookupObj.isReady">
+                <label class="col-md-3" for="Zipcode" translate>Zip Code</label>
+                <div class="col-md-4">
+                  <lib-uclookupgeneric [lookupInput]="inputZipcodeLookupObj" [identifier]="'RefZipcodeId'"
+                    [enjiForm]="enjiForm" [parentForm]="ContactPersonForm"
+                    (lookup)="getZipcodeData($event)" (inputtedValue)="getZipcode($event)">
+                  </lib-uclookupgeneric>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" for="AreaCode2" translate>Kelurahan</label>
+                <div class="col-md-4">
+                  <input type="text" id="AreaCode2" class="form-control"
+                    formControlName="AreaCode2">
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.AreaCode2"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" translate>Kecamatan</label>
+                <div class="col-md-4">
+                  <input type="text" id="AreaCode1" class="form-control"
+                    formControlName="AreaCode1">
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.AreaCode1"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" translate>City</label>
+                <div class="col-md-4">
+                  <input type="text" id="City" class="form-control" formControlName="City">
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.City" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" translate>Province</label>
+                <div class="col-md-4">
+                  <input type="text" id="ProvDistrictName" class="form-control"
+                    formControlName="ProvDistrictName">
+                  <lib-uc-show-errors [control]="ContactPersonForm.controls.ProvDistrictName"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-actions right">
+                <button type="button" class="btn btn-raised btn-warning mr-1" (click)="HiddenCheck()">
+                  <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+                </button>
+        
+                <button type="submit" class="btn btn-raised btn-primary mr-1">
+                  <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

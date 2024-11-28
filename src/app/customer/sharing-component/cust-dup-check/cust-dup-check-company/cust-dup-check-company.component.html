@@ -1,0 +1,44 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <lib-ucSubsection [id]="'DupCoyMainInfoId'" [title]="CustNameLabel + ' Main Information'"
+        [panel]="'DupCoyMainInfo'">
+      </lib-ucSubsection>
+      <form class="form form-horizontal" #enjiForm="ngForm" id="DupCoyMainInfo">
+        <div class="form-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Customer Name </label>
+                <div class="col-md-8">
+                  <label>{{CustObj.CustObj.CustName}}</label>
+                </div>
+              </div>
+              <div class="form-group row ">
+                <label class="col-md-4 adInsLabel" translate>Tax Id No</label>
+                <div class="col-md-8">
+                  <label>{{CustObj.CustObj.TaxIdNo}}</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group row ">
+                <label class="col-md-4 adInsLabel" translate>Company Type</label>
+                <div class="col-md-8">
+                  <label>{{DictRefMaster[RefMasterTypeCodeCompanyType][CustObj.CustCompanyObj.MrCompanyTypeCode]}}</label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 adInsLabel" translate>Customer Model </label>
+                <div class="col-md-8">
+                  <label>{{DictRefMaster[RefMasterTypeCodeCustModel][CustObj.CustObj.MrCustModelCode]}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

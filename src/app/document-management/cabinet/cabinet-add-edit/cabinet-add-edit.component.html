@@ -1,0 +1,65 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate> {{title}} </h4>
+            </div>
+          </div>
+        </div>
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="CabinetForm" (ngSubmit)="CabinetForm.valid && SaveForm()"
+            #enjiForm="ngForm">
+            <lib-ucSubsection [id]="'CabinetId'" [title]="'Cabinet'" [panel]="'Cabinet'">
+            </lib-ucSubsection>
+            <div class="form-body" id="Cabinet">
+              <div class="form-group row">
+                <label class="col-md-3 adins-required-label" translate>Cabinet Code </label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control adInsInput width-75-per" formControlName="CabinetCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CabinetForm.controls.CabinetCode.invalid }">
+                  <lib-uc-show-errors [control]="CabinetForm.controls.CabinetCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adins-required-label" translate>Cabinet Name </label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control adInsInput width-75-per" formControlName="CabinetName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && CabinetForm.controls.CabinetName.invalid }">
+                  <lib-uc-show-errors [control]="CabinetForm.controls.CabinetName" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" translate>Cabinet Information </label>
+                <div class="col-md-3">
+                  <textarea cols="30" rows="3" class="form-control" formControlName="CabinetInfo"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" translate>Active </label>
+                <div class="col-md-3">
+                  <input class="border-primary" type="checkbox" formControlName="IsActive">
+                </div>
+              </div>
+            </div>
+            <div class="form-actions right">
+              <span style="display: block; float:right;">
+                <button type="button" class="btn btn-raised btn-warning mr-1"
+                  [routerLink]="[CancelLink]">
+                  <i class="fa fa-arrow-circle-left"></i>&nbsp;<span translate>Cancel</span>
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary mr-1">
+                  <i class="far"></i>&nbsp;<span translate>Submit</span>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

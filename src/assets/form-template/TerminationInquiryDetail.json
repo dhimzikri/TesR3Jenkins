@@ -1,0 +1,364 @@
+{
+    "title": "Termination Inquiry Detail",
+    "hideTitle": false,
+    "id": "TerminationInquiryDetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "TerminationBatchMainInformationId",
+                    "subSectionTitle": "Termination Batch Main Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "PayoutUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewTerminationInquiry"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Company Name",
+                            "property": "FundingCompanyName",
+                            "key": "ViewVendor",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "callback",
+                            "label": "Funding Contract Name",
+                            "property": "FundingContractName",
+                            "key": "ViewFundingContract",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Batch Type",
+                            "property": "BatchType",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Termination Batch No",
+                            "property": "TerminationBatchNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Termination Batch Status",
+                            "property": "TerminationBatchStatus",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Batch Prepare Date",
+                            "property": "BatchPrepareDate",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Num of Termination Data",
+                            "property": "NumOfTerminationData",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Principal Paid To Funding",
+                            "property": "TotalPrincipalPaidToFunding",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Interest Paid To Funding",
+                            "property": "TotalInterestPaidToFunding",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Penalty Paid To Funding",
+                            "property": "TotalPenaltyPaidToFunding",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total LC Paid To Funding",
+                            "property": "TotalLcPaidToFunding",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "TerminationBatchNo"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "09f5bcb7-c332-48df-a1dc-4258ceaaa804"
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "PaymentSummaryId",
+                    "subSectionTitle": "Payment Summary",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "PayoutUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewTerminationInquiryDetail"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "date",
+                            "label": "Execution Date",
+                            "property": "ExecutionDate",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Bank Account",
+                            "property": "VendorName",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Reference No",
+                            "property": "RefereceNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Notes",
+                            "property": "Notes",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "TerminationBatchNo"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "8901e8d2-b0cd-4444-bd72-9b8e8dc5dda0"
+        },
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "List Of Termination Data",
+                "resultData": "",
+                "isSubsection": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "center",
+                            "name": "FundBatchNo"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "LMS Agreement No",
+                            "position": "center",
+                            "name": "LmsAgrmntNo"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "JF Agreement No",
+                            "position": "center",
+                            "name": "JfAgrmntNo"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Principal Paid To Funding",
+                            "position": "center",
+                            "name": "PrincipalPaidToFunding"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Interest Paid To Funding",
+                            "position": "center",
+                            "name": "InterestPaidToFunding"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Penalty Paid To Funding",
+                            "position": "center",
+                            "name": "PenaltyPaidToFunding"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "LC Paid To Funding",
+                            "position": "center",
+                            "name": "LcToMfPaidAmt"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "center",
+                            "property": "FundBatchNo",
+                            "isFlagColor": false,
+                            "key": "ViewFundingBatch"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "LmsAgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "callback",
+                            "position": "center",
+                            "property": "JfAgrmntNo",
+                            "isFlagColor": false,
+                            "key": "viewJfAgrmnt"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "PrincipalPaidToFunding",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "InterestPaidToFunding",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "PenaltyPaidToFunding",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "LcToMfPaidAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "PayoutUrl",
+                    "apiPath": "/v1/Termination/GetListAddedTerminationDataByTerminationNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "TrxNo",
+                            "propValue": "TerminationBatchNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "b4a68e34-c03f-4c06-b1e4-852d00882910"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": []
+}

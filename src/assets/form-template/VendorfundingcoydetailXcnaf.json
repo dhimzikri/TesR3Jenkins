@@ -1,0 +1,386 @@
+{
+    "title": "Funding Company Registration",
+    "id": "VendorfundingcoydetailXcnaf",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "ADD Funding Company",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Company Code",
+                            "Variable": "vendorCode",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Max": "10",
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Company Name",
+                            "Variable": "vendorName",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Vendor Category",
+                            "Variable": "MrVendorCategoryCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": false,
+                            "DdlItemsObj": [
+                                {
+                                    "Key": "JF_FUNDING_COMPANY",
+                                    "Value": "Joint Finance"
+                                },
+                                {
+                                    "Key": "TL_FUNDING_COMPANY",
+                                    "Value": "Term Loan"
+                                }
+                            ],
+                            "DdlReqObj": null
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Address",
+                            "Variable": "address",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "Active",
+                            "Variable": "isActive",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "Syariah",
+                            "Variable": "IsSyariah",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "addrRowVersion",
+                            "Variable": "addrRowVersion",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "otherRowVersion",
+                            "Variable": "otherRowVersion",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/VendorAddr/GetVendorAddrByVendorCodeAndMrAddrTypeCodeAndVendorCategory",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "vendorCode",
+                                    "propValue": "FundCoyCode"
+                                },
+                                {
+                                    "isFromDict": false,
+                                    "propName": "mrAddrTypeCode",
+                                    "propValue": "LEGAL"
+                                },
+                                {
+                                    "isFromDict": false,
+                                    "propName": "mrVendorCategoryCode",
+                                    "propValue": "VendorCategory"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "Addr",
+                                    "variableName": "address"
+                                },
+                                {
+                                    "accessorName": "RowVersion",
+                                    "variableName": "addrRowVersion"
+                                },
+                                {
+                                    "accessorName": "VendorAddrId",
+                                    "variableName": "VendorAddrId"
+                                }
+                            ],
+                            "isUseApi": true
+                        },
+                        {
+                            "conditions": [],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/Vendor/GetVendorByVendorCodeAndVendorCategory",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "vendorCode",
+                                    "propValue": "FundCoyCode"
+                                },
+                                {
+                                    "isFromDict": false,
+                                    "propName": "mrVendorCategory",
+                                    "propValue": "VendorCategory"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "VendorCode",
+                                    "variableName": "vendorCode"
+                                },
+                                {
+                                    "accessorName": "VendorName",
+                                    "variableName": "vendorName"
+                                },
+                                {
+                                    "accessorName": "IsActive",
+                                    "variableName": "isActive"
+                                },
+                                {
+                                    "accessorName": "RowVersion",
+                                    "variableName": "otherRowVersion"
+                                }
+                            ],
+                            "isUseApi": true
+                        },
+                        {
+                            "conditions": [],
+                            "isUseApi": true,
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "Id",
+                                    "propValue": "VendorId"
+                                }
+                            ],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/VendorX/GetVendorX",
+                            "mapRes": [
+                                {
+                                    "accessorName": "ReturnObject.IsSyariah",
+                                    "variableName": "IsSyariah"
+                                }
+                            ]
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "b77a1442-6222-4622-98bc-3d92ed726555"
+        },
+        {
+            "container": {
+                "key": "SupplierAttr",
+                "className": "CustomFundingCompanyAddEditXComponent",
+                "cssClass": "",
+                "input": {
+                    "MrVendorCategoryCode": "JF_FUNDING_COMPANY",
+                    "VendorId": "VendorId"
+                }
+            },
+            "id": "f1ca1d8a-6e12-4903-8d86-159c2593f1e0"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "Success",
+    "onCancel": {
+        "path": "/Vendor/FundingCompanyX/PagingX",
+        "type": "link",
+        "target": "_self",
+        "params": []
+    },
+    "isOverrideSubmit": true,
+    "isOverrideCancel": true,
+    "onSubmit": [
+        {
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "add"
+                }
+            ],
+            "result": {
+                "alias": "addEditFundingCoyX",
+                "methodName": "addEditFundingCoyX",
+                "type": "function",
+                "target": "executor",
+                "params": [
+                    {
+                        "propName": "dicts",
+                        "propValue": "dicts"
+                    },
+                    {
+                        "propName": "api",
+                        "propValue": "/v1/Vendor/AddFundingCompany"
+                    },
+                    {
+                        "propName": "http",
+                        "propValue": "http"
+                    },
+                    {
+                        "propName": "toastr",
+                        "propValue": "toastr"
+                    },
+                    {
+                        "propName": "router",
+                        "propValue": "router"
+                    },
+                    {
+                        "propName": "vendorId",
+                        "propValue": "0"
+                    }
+                ]
+            }
+        },
+        {
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "edit"
+                }
+            ],
+            "result": {
+                "alias": "addEditFundingCoyX",
+                "methodName": "addEditFundingCoyX",
+                "type": "function",
+                "target": "executor",
+                "params": [
+                    {
+                        "propName": "dicts",
+                        "propValue": "dicts"
+                    },
+                    {
+                        "propName": "api",
+                        "propValue": "/v1/Vendor/EditFundingCompany"
+                    },
+                    {
+                        "propName": "http",
+                        "propValue": "http"
+                    },
+                    {
+                        "propName": "toastr",
+                        "propValue": "toastr"
+                    },
+                    {
+                        "propName": "router",
+                        "propValue": "router"
+                    },
+                    {
+                        "propName": "vendorId",
+                        "propValue": "VendorId"
+                    }
+                ]
+            }
+        }
+    ],
+    "hideCancelButton": false,
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": "",
+    "overrideSubmitBtnText": "",
+    "isUpdated": false,
+    "metadata": {
+        "version": 6,
+        "createdAt": "20240730184235",
+        "updatedAt": "20240805105231",
+        "rowVersion": "20240805104802",
+        "updatedBy": "Joshua Steven"
+    }
+}

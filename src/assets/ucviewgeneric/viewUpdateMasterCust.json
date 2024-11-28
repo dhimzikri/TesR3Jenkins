@@ -1,0 +1,30 @@
+{
+    "title": "Update Data Customer",
+    "subsection": [
+      {
+        "subSectionId": "UpdateMasterCustId",
+        "subSectionTitle": "Main Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "App No.",
+            "property": "AppNo"
+          },
+          {
+            "type": "text",
+            "label": "Office",
+            "property": "OfficeName"
+          },
+          {
+            "type": "text",
+            "label": "Customer Name",
+            "property": "CustName"
+          }
+        ],
+        "querystring": {
+          "name": "viewUpdateMasterCust"
+        }
+    }
+  ]
+}

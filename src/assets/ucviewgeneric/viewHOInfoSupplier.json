@@ -1,0 +1,34 @@
+{
+    "subsection": [
+      {
+        "subSectionId": "HOInfoId",
+        "subSectionTitle": "HO Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "link",
+            "label": "Supplier Holding:",
+            "property": "Parent",
+            "name": "LinkSupplierHolding",
+            "environment": "FOU_WEB",
+            "target": "_blank",
+            "path": "VIEW_VENDOR_HOLDING",
+            "param": [
+              {
+                "type": "VendorId",
+                "property": "VendorParentId"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "label": "Supplier Bad Status:",
+            "property": "SupplierBadStatus"
+          }
+        ],
+        "querystring": {
+            "name": "viewHOInfoSupplier"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,92 @@
+<div class="mt-3">
+	<div class="card">
+		<div class="card-body">
+			<div class="pl-3">
+				<div class="form-body mt-1">
+          
+          <lib-ucSubsection [id]="'FinancialStatemetnsId'" [title]="'Financial Statements'" [panel]="'FinancialStatemetns'">
+          </lib-ucSubsection>
+          <div class="row" id="FinancialStatemetns">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>Audited Seq No.</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> {{ ResViewFinancialStatementsObj.AuditedSeqNo }} </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>Subscriber</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> {{ ResViewFinancialStatementsObj.Subscriber }} </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate></label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate></label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>Total Assets</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> IDR {{ ResViewFinancialStatementsObj.TtlAsset | number: '.2':'en-US' }} </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>Reported Date</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> {{ ResViewFinancialStatementsObj.ReportedDt | date: 'dd-MM-yyyy' }} </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate></label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate></label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate></label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate></label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>Total Liabilities</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> IDR {{ ResViewFinancialStatementsObj.TtlLiabilities | number: '.2':'en-US' }} </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>Equity</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> IDR {{ ResViewFinancialStatementsObj.TtlEquity | number: '.2':'en-US' }} </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

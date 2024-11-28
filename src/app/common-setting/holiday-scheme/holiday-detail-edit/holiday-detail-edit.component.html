@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-header header-title">
+      <div class="row">
+        <div class="col-md-8">
+          <h4 class="form-section card-title" translate>Holiday Scheme</h4>
+        </div>
+      </div>
+    </div>
+    <lib-ucviewgeneric [viewGenericObj]="viewGenericObj"> </lib-ucviewgeneric>
+    <div class="px-3">
+      <form class="form form-horizontal" [formGroup]="HolidayListForm" #HolidayListReqForm="ngForm"
+        (ngSubmit)="HolidayListForm.valid && SaveForm()">
+        <lib-ucSubsection [id]="'HolidayListFormId'" [title]="title" [panel]="'HolidayListForm'">
+        </lib-ucSubsection>
+        <div class="form-body" id="HolidayListForm">
+          <div class="form-group row adins-required">
+            <label class="col-md-3 adInsLabel" for="IsPublicHoliday" translate>Public Holiday</label>
+            <div class="col-md-9">
+              <input type="checkbox" id="IsPublicHoliday" formControlName="IsPublicHoliday">
+              <lib-uc-show-errors [control]="HolidayListForm.controls.IsPublicHoliday"
+                [submit]="HolidayListReqForm.submitted">
+              </lib-uc-show-errors>
+            </div>
+          </div>
+          <div class="form-group row adins-required">
+            <label class="col-md-3 adInsLabel" for="Date" translate>Date</label>
+            <div class="col-md-9">
+              <input type="date" id="Date" class="form-control adInsInput width-25-per" formControlName="Date">
+              <lib-uc-show-errors [control]="HolidayListForm.controls.Date" [submit]="HolidayListReqForm.submitted">
+              </lib-uc-show-errors>
+            </div>
+          </div>
+          <div class="form-group row adins-required">
+            <label class="col-md-3 adInsLabel" for="Descr" translate>Description</label>
+            <div class="col-md-9">
+              <input type="text" id="Descr" class="form-control adInsInput width-25-per" formControlName="Descr">
+              <lib-uc-show-errors [control]="HolidayListForm.controls.Descr" [submit]="HolidayListReqForm.submitted">
+              </lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+        <div class="form-actions right">
+          <span class="mr-1 ">
+            <button type="button" class="btn btn-raised btn-warning mr-1" (click)="BackNavigate()">
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

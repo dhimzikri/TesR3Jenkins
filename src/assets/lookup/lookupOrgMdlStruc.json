@@ -1,0 +1,25 @@
+{
+  "url": "http://getOrgMdlStruc",
+  "title":"Lookup - Organization Model Structure",
+  "sectionTitle": "Search",
+  "component": [
+    {
+      "type": "numeric",
+      "name": "orgMdlLvl",
+      "id": "orgMdlLvlId",
+      "value": "1",
+      "label": "Level <=",
+      "restriction": "lte",
+      "placeholder": "Level <=",
+      "datatype": "numeric"
+  },
+    {
+      "type": "textbox",
+      "name": "bizUnitName",
+      "id": "bizUnitNameId",
+      "value": "",
+      "label": "Business Unit Name",
+      "placeholder": "Business Unit Name"
+    }
+  ]
+}

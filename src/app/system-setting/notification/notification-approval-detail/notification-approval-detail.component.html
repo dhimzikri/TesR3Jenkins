@@ -1,0 +1,18 @@
+<lib-ucviewgeneric [viewGenericObj]="viewGenericObj"></lib-ucviewgeneric>
+<lib-ucpaging [searchObj]="inputPagingObj"></lib-ucpaging>
+<div class="ucSearch-Button-Right">
+  <span class="mr-1">
+    <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+      <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+    </button>
+    <button id="btnReturn" (click)="SaveForm($event)" class="btn btn-raised btn-primary mr-1">
+      <i class="fa fa-reply"></i>&nbsp;<span translate>Return</span>
+    </button>
+    <button id="btnReject" (click)="SaveForm($event)" class="btn btn-raised btn-danger mr-1">
+      <i class="ft-x"></i>&nbsp;<span translate>Reject</span>
+    </button>
+    <button id="btnApprove" (click)="SaveForm($event)" class="btn btn-raised btn-primary">
+      <i class="far fa-check-square"></i>&nbsp;<span translate>Approve</span>
+    </button>
+  </span>
+</div>

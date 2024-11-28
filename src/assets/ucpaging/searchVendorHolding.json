@@ -1,0 +1,115 @@
+{
+    "title": "Vendor Holding",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "V.VENDOR_CODE",
+            "id": "HoldingCodeId",
+            "value": "",
+            "label": "Holding Code",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "V.VENDOR_NAME",
+            "id": "HoldingNameId",
+            "value": "",
+            "label": "Holding Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "dropdown",
+            "name": "V.IS_ACTIVE",
+            "id": "IsActiveId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "",
+            "label": "Active Status",
+            "items": [
+                {
+                    "key": true,
+                    "value": "Yes"
+                },
+                {
+                    "key": false,
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchVendorHolding"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Holding Code",
+            "name": "V.VENDOR_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Holding Name",
+            "name": "V.VENDOR_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "V.IS_ACTIVE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VendorCode"
+        },
+        {
+            "type" : "link",
+            "position": "left",
+            "property" : "VendorName",
+            "path" : "VIEW_VENDOR_HOLDING",
+            "target": "_blank",
+            "param" :
+            [
+                {
+                    "type" : "VendorId",
+                    "property" : "VendorId"
+                }
+            ]
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VENDOR_HOLDING_REG",
+                    "param": [
+                        {
+                            "type": "VendorId",
+                            "property": "VendorId"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

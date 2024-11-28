@@ -1,0 +1,287 @@
+{
+    "title": "View Vendor Branch",
+    "hideTitle": false,
+    "id": "ViewVendorBranch",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "MainInfoId",
+                    "subSectionTitle": "Main Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "FoundationR3Url",
+                    "apiVersion": "v1",
+                    "uri": "http://r3app-server.ad-ins.com/FOUNDATION_DEV",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewVendorBranch"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Vendor Category",
+                            "property": "VendorCategory",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "Active Status",
+                            "property": "ActiveStatus",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Vendor Code",
+                            "property": "BranchCode",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Tax Number",
+                            "property": "TaxNumber",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Vendor Name",
+                            "property": "BranchName",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Branch Type",
+                            "property": "BranchType",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Business Line Type",
+                            "property": "MrKonvenSyariahCode",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "MainInfoId"
+                }
+            },
+            "id": "a8fad87f-eece-4baf-a78a-761249e6aa32"
+        },
+        {
+            "tabs": {
+                "tablist": [
+                    {
+                        "label": "Main Information",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "ViewVendorBranchMainInfo",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "VendorId",
+                                        "propValue": "VendorId"
+                                    },
+                                    {
+                                        "propName": "MrVendorTypeCode",
+                                        "propValue": "MrVendorTypeCode"
+                                    },
+                                    {
+                                        "propName": "MrVendorCategoryCode",
+                                        "propValue": "MrVendorCategoryCode"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Tax",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "ViewVendorBranchTax",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "VendorId",
+                                        "propValue": "VendorId"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Address",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "ViewVendorBranchAddress",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "VendorId",
+                                        "propValue": "VendorId"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Bank Info",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "ViewVendorBranchBankInfo",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "VendorId",
+                                        "propValue": "VendorId"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Employee",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "ViewVendorBranchEmp",
+                                "conditions": [
+                                    {
+                                        "property": "MrVendorTypeCode",
+                                        "restriction": "EQ",
+                                        "value": "C"
+                                    }
+                                ],
+                                "params": [
+                                    {
+                                        "propName": "VendorId",
+                                        "propValue": "VendorId"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Group Info",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "ViewVendorBranchGrpInfo",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "VendorId",
+                                        "propValue": "VendorId"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Office Info",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "ViewVendorBranchOfficeInfo",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "VendorId",
+                                        "propValue": "VendorId"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "id": "0de86672-0747-4f06-b326-e91d3228660a"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [
+        {
+            "environment": "FoundationR3Url",
+            "apiPath": "/v1/Vendor/GetVendorByVendorId",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Id",
+                    "propValue": "VendorId"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "MrVendorCategoryCode",
+                    "propValue": "MrVendorCategoryCode"
+                },
+                {
+                    "propName": "MrVendorTypeCode",
+                    "propValue": "MrVendorTypeCode"
+                },
+                {
+                    "propName": "ListVendorForAttrView",
+                    "propValue": "SUPPLIER;ASSET_INSCO_BRANCH"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {}
+}

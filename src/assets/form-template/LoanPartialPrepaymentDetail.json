@@ -1,0 +1,546 @@
+{
+    "title": "Loan Partial Prepayment Detail",
+    "hideTitle": false,
+    "id": "LoanPartialPrepaymentDetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "customComponent": {
+                "componentRef": "${ViewFundingBatchMainInformation}"
+            },
+            "id": "b59abcd2-19cc-4fc5-b09e-fe1633034b89"
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "LoanInformationId",
+                    "subSectionTitle": "Loan Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityExecUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanPaymentOutInformation"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Installment Due No",
+                            "property": "InstallmentDueNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Installment Due Date",
+                            "property": "NextInstDueDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Next Installment To Be Paid No",
+                            "property": "NextInstToBePaidNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Next Installment To Be Paid Date",
+                            "property": "NextInstToBePaidDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "gridViews": [
+                        {
+                            "title": "LoanInformationTable",
+                            "isSubsection": false,
+                            "isFromApi": false,
+                            "usePagination": true,
+                            "resultData": "ListAllocNameDueAmtAndOsAmt",
+                            "getData": {
+                                "environment": "PAYOUT",
+                                "apiPath": "/LoanBatchInstSchdl/GetListAllocNameDueAmountAndOutstandingAmount",
+                                "customObjName": "ReturnObject",
+                                "reqObj": [
+                                    {
+                                        "isFromDict": false,
+                                        "propName": "LoanBatchNo",
+                                        "propValue": "FundingBatchNo"
+                                    }
+                                ],
+                                "conditions": []
+                            },
+                            "tableInput": {
+                                "isSeq": false,
+                                "headerList": [
+                                    {
+                                        "type": "label",
+                                        "label": "Allocation Name",
+                                        "position": "left",
+                                        "isSelectAll": false
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Due Amount",
+                                        "position": "left",
+                                        "isSelectAll": false
+                                    },
+                                    {
+                                        "type": "label",
+                                        "label": "Outstanding Amount",
+                                        "position": "left",
+                                        "isSelectAll": false
+                                    }
+                                ],
+                                "bodyList": [
+                                    {
+                                        "type": "text",
+                                        "position": "left",
+                                        "property": "AllocName",
+                                        "isFlagColor": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "DueAmount",
+                                        "isFlagColor": false,
+                                        "precision": "0.2",
+                                        "IsPrcnt": false
+                                    },
+                                    {
+                                        "type": "decimal",
+                                        "position": "right",
+                                        "property": "OutstandingAmount",
+                                        "isFlagColor": false,
+                                        "precision": "0.2",
+                                        "IsPrcnt": false
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "id": "5ab3be2b-dd95-4029-b52f-560c352b88d1"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Partial Prepayment Info",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Value Date",
+                            "Variable": "ValueDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "",
+                            "Value": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Office Bank Account",
+                            "Variable": "OfficeBankAcc",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/OfficeBankAcc/GetListActiveOfficeBankAccByMrBankAccPurposeCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "FUND"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reference No",
+                            "Variable": "RefNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "CURRENCY",
+                            "Label": "Exchange Rate",
+                            "Variable": "ExchangeRate",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": [
+                        {
+                            "type": "bindValue",
+                            "condition": [
+                                {
+                                    "variable": "IsDraft",
+                                    "restriction": "Eq",
+                                    "value": "true"
+                                }
+                            ],
+                            "listBind": [
+                                {
+                                    "variable": "ValueDt",
+                                    "value": "ValueDt"
+                                },
+                                {
+                                    "variable": "OfficeBankAcc",
+                                    "value": "OfficeBankAcc"
+                                },
+                                {
+                                    "variable": "RefNo",
+                                    "value": "RefNo"
+                                },
+                                {
+                                    "variable": "Notes",
+                                    "value": "Notes"
+                                }
+                            ],
+                            "isRevertable": false
+                        }
+                    ]
+                }
+            },
+            "id": "b5868b28-6445-4491-9f99-1acac41dc480"
+        },
+        {
+            "formarray": {
+                "title": "Form Array To Be Paid",
+                "isSubsection": false,
+                "isModeAdd": false,
+                "formGroupName": "ToBePaid",
+                "canAdd": false,
+                "isFromApi": true,
+                "resultData": "ListToBePaidAlloc",
+                "customObjName": "ReturnObject",
+                "formInput": {
+                    "headerList": [
+                        {
+                            "Label": "To Be Paid",
+                            "IsHide": false,
+                            "Position": "text-left"
+                        },
+                        {
+                            "Label": "",
+                            "IsHide": false,
+                            "Position": "text-right"
+                        },
+                        {
+                            "Label": "Detail Seq No",
+                            "IsHide": true
+                        },
+                        {
+                            "Label": "Amount",
+                            "IsHide": false
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "Type": "LABEL",
+                            "Label": "To Be Paid",
+                            "Variable": "RefPaymentAllocCode",
+                            "LabelType": "TEXT",
+                            "Position": "text-left"
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "",
+                            "Variable": "Percentage",
+                            "LabelType": "TEXT",
+                            "Position": "text-right"
+                        },
+                        {
+                            "Type": "NUMERIC",
+                            "Label": "Detail Seq No",
+                            "Variable": "DetailSeqNo",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": ""
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "Amount",
+                            "Variable": "Amount",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        }
+                    ],
+                    "addBodyList": [],
+                    "footerList": [
+                        {
+                            "Type": "BLANK"
+                        },
+                        {
+                            "Type": "BLANK"
+                        },
+                        {
+                            "Type": "LABEL",
+                            "IsCurr": true,
+                            "IsAggregate": true,
+                            "Label": "Total",
+                            "Variable": "TotalAmount",
+                            "Mode": "SUM",
+                            "Component": "Amount"
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "PayoutUrl",
+                    "apiPath": "/v1/LoanTermination/GetRefPaymentAllocCodeLoan",
+                    "reqObj": {
+                        "LoanBatchNo": "FundingBatchNo"
+                    },
+                    "action": []
+                }
+            },
+            "id": "52aa0ff1-6fcf-40e8-b348-d815f222d5e7"
+        },
+        {
+            "container": {
+                "key": "LoanPartialPrepaymentInfo",
+                "className": "LoanPartialPrepaymentInfoComponent",
+                "cssClass": "",
+                "input": {}
+            },
+            "id": "66d6b5eb-ebf0-4a5d-b926-b94988de6371"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "hideCancelButton": true,
+    "listBtn": [],
+    "onInit": [
+        {
+            "environment": "facilityExecUrl",
+            "apiPath": "/v1/LoanBatchFloating/GetListLoanBatchInstSchdlByLoanBatchNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "LoanBatchNo",
+                    "propValue": "FundingBatchNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ListInstSchdlOld",
+                    "propValue": "ReturnObject"
+                }
+            ],
+            "conditions": []
+        },
+        {
+            "environment": "PayoutUrl",
+            "apiPath": "/v1/LoanBatchInstSchdl/GetListAllocNameDueAmountAndOutstandingAmount",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "LoanBatchNo",
+                    "propValue": "FundingBatchNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ListAllocNameDueAmtAndOsAmt",
+                    "propValue": "ReturnObject"
+                }
+            ],
+            "conditions": []
+        },
+        {
+            "environment": "PayoutUrl",
+            "apiPath": "/v1/LoanBatchPartTerminationHObj/GetObjectByKeyAndValue",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Key",
+                    "propValue": "TrxNo"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "Operand",
+                    "propValue": "EQ"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "Value",
+                    "propValue": "TransactionNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ValueDt",
+                    "propValue": "TrxDt"
+                },
+                {
+                    "propName": "OfficeBankAcc",
+                    "propValue": "OfficeBankAccCode"
+                },
+                {
+                    "propName": "RefNo",
+                    "propValue": "RefNo"
+                },
+                {
+                    "propName": "Notes",
+                    "propValue": "Notes"
+                }
+            ],
+            "conditions": [
+                {
+                    "property": "IsDraft",
+                    "restriction": "EQ",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "environment": "PayoutUrl",
+            "apiPath": "/v1/LoanTermination/GetRefPaymentAllocCodeLoanPartialPrepaymentDraft",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Code",
+                    "propValue": "TransactionNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ListToBePaidAlloc",
+                    "propValue": "ReturnObject"
+                }
+            ],
+            "conditions": [
+                {
+                    "property": "IsDraft",
+                    "restriction": "EQ",
+                    "value": "true"
+                }
+            ]
+        }
+    ],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": true,
+    "onCancel": {
+        "path": "/LoanPartialPrepayment/Paging",
+        "type": "link",
+        "target": "_self",
+        "params": []
+    },
+    "conditionalTitle": [],
+    "persistData": false,
+    "overrideSubmitBtnText": "",
+    "customToastrMsg": "",
+    "persistPropName": ""
+}

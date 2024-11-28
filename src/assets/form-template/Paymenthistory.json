@@ -1,0 +1,152 @@
+{
+    "title": "PaymentHistory",
+    "hideTitle": true,
+    "id": "Paymenthistory",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "PayoutHistory",
+                "resultData": "",
+                "isSubsection": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Hist Seq No",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Posting Date",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Transaction Type",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Transaction Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Is Reversed",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Ref Trx No",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "View",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "right",
+                            "property": "HistSeqNo"
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "PostingDt"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TransactionType"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "TransactionAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsReversed"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "RefTrxNo"
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "VIEW_JF_AGRMNT_INQUIRY_PAYMENT_HISTORY",
+                                    "target": "_blank",
+                                    "param": [
+                                        {
+                                            "type": "PaymentHistHId",
+                                            "property": "PaymentHistHId"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityPayOutUrl",
+                    "apiPath": "/v1/JfAgrmntPayoutHist/GetJfAgrmntPayoutHistHByJfAgrmntNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "propName": "AgrmntNo",
+                            "propValue": "JfAgrmntNo",
+                            "isFromDict": false
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "87566214-4d0d-458a-af8f-05943e8f5688"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {}
+}

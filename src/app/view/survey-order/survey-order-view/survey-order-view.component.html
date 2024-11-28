@@ -1,0 +1,72 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="px-3">
+        <form class="form form-horizontal">
+          <div class="form-body">
+            <lib-ucviewgeneric [viewGenericObj]="viewGenericObj"></lib-ucviewgeneric>
+            <div class="px-3">
+              <lib-ucSubsection [id]="'SurveyTaskListId'" [title]="'Survey Task'" [panel]="'SurveyTaskList'">
+              </lib-ucSubsection>
+              <div class="form-body" id="SurveyTaskList" style="overflow-x: auto;">
+                <table class="table table-responsive-md text-center table-hover">
+                  <thead>
+                    <tr class="table-header">
+                      <th>
+                        <span class="thead-header" translate>NO</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>SURVEY TASK NO</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>SURVEYEE NAME</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>ADDRESS</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>SURVEY TYPE</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>SURVEYOR NAME</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>SURVEY TASK STATUS</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>RESULT DATE</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>REVIEW BY</span>
+                      </th>
+                      <th>
+                        <span class="thead-header" translate>REVIEW NOTES</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of TaskList; let i = index">
+                      <td>{{i+1}}</td>
+                      <td>
+                        <a target="_blank" [routerLink]="[ViewLink]" skipLocationChange
+                          [queryParams]="{ SrvyTaskId: item.SrvyTaskId }">{{item.SrvyTaskNo}}</a>
+                      </td>
+                      <td>{{item.CustName}}</td>
+                      <td>{{item.CustAddr}}</td>
+                      <td>{{item.MrSurveyTypeCode}}</td>
+                      <td>{{item.SurveyorName}}</td>
+                      <td>{{item.MrSurveyTaskStatCode}}</td>
+                      <td>{{item.ResultDt | date: 'dd-MMM-yyyy'}}</td>
+                      <td>{{item.ReviewBy}}</td>
+                      <td>{{item.ReviewNotes}}</td>  
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>            
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="row text-left">
+      <div class="col-md-12">
+        <div class="card">
+    
+          <div class="card-head">
+    
+            <div class="card-header header-title">
+              <div class="row">
+                <div class="col-md-8">
+                  <h4 class="card-title" id="horz-layout-colored-controls" translate> {{ title }} </h4>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+    
+          <div class="card-body">
+    
+            <br>
+    
+            <div class="px-3">
+  
+              <form class="form form-horizontal" [formGroup]="AccDetailForm" #enjiForm="ngForm"
+              (ngSubmit)="AccDetailForm.valid && SaveForm()">
+  
+                <lib-ucSubsection [id]="'DetailId'" [title]="'OFFICE BANK ACCOUNT DETAIL'" [panel]="'Detail'">
+                </lib-ucSubsection>
+                <div id="Detail" class="form-body">
+                  <div class="form-group row">
+                    <label class="col-md-2 adins-required-label">Contact Person Job Title</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" formControlName="ContactPersonJobTitle"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && AccDetailForm.controls.ContactPersonJobTitle.invalid }">
+                      <lib-uc-show-errors [control]="AccDetailForm.controls.ContactPersonJobTitle" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-2 adins-required-label">Contact Person</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" formControlName="ContactPerson"
+                        [ngClass]="{ 'border-danger': enjiForm.submitted && AccDetailForm.controls.ContactPerson.invalid }">
+                      <lib-uc-show-errors [control]="AccDetailForm.controls.ContactPerson" [submit]="enjiForm.submitted">
+                      </lib-uc-show-errors>
+                    </div>
+                  </div>
+  
+                  <lib-ucaddress [addressObj]="inputAddressObj" [enjiForm]="enjiForm" [identifier]="'UcAddress'" [UCAddrForm]="AccDetailForm">
+                  </lib-ucaddress>
+                </div>
+  
+                <div class="text-right">
+                  <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]">
+                    <i class="fa fa-arrow-circle-left"></i>&nbsp;<span translate>Back</span>
+                  </button>
+                  <button type="submit" class="btn btn-raised btn-primary">
+                    <i class="fa fa-check-square-o"></i>&nbsp;<span translate>Submit</span>
+                  </button>
+                </div>
+  
+              </form>
+    
+            </div>
+  
+          </div>
+    
+        </div>
+      </div>
+    </div>
+  </div>
+  

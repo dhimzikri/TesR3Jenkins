@@ -1,0 +1,130 @@
+
+{
+    "title": "Verification Question Scheme",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "VERF_SCHEME_CODE",
+            "id": "SchemeCodeId",
+            "value": "",
+            "label": "Scheme Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "VERF_SCHEME_NAME",
+            "id": "SchemeNameId",
+            "value": "",
+            "label": "Scheme Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "IS_ACTIVE",
+            "id": "activeStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchVerificationQuestionScheme"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Scheme Code",
+            "name": "VerfSchemeCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Scheme Name",
+            "name": "VerfSchemeName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Question Group"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "VerfSchemeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VerfSchemeName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VERIF_QA_SCHM_MBR_PAGING",
+                    "param": [
+                        {
+                            "type": "VerfSchemeHId",
+                            "property": "VerfSchemeHId"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VERIF_QA_SCHM_EDIT",
+                    "param": [
+                        {
+                            "type": "VerfSchemeHId",
+                            "property": "VerfSchemeHId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

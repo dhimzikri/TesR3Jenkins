@@ -1,0 +1,257 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Negative Customer</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <div class="form-body">
+          <div class="form-group row">
+            <label class="col-md-3 adInsLabel" for="MrCustTypeCode" translate>Customer Type</label>
+            <div class="col-md-9">
+              {{response.MrCustTypeCode.toUpperCase() == 'PERSONAL' ? 'Personal' : 'Company'}}
+            </div>
+          </div>
+          <lib-ucSubsection [id]="'MainInformationId'" [title]="'Main Information'" [panel]="'MainInformationPersonal'">
+          </lib-ucSubsection>
+          <div id="MainInformationPersonal">
+            <div class="form-group row">
+              <label class="col-md-3 adInsLabel" for="CustLookup" translate>Find From Existing Customer</label>
+              <div class="col-md-9">
+                {{response.CustNo}}
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 adInsLabel" for="CustName" translate>Customer Name</label>
+              <div class="col-md-9">
+                {{response.CustName}}
+              </div>
+            </div>
+            <div class="form-group row" *ngIf="custType == 'PERSONAL'">
+              <label class="col-md-3 adInsLabel" for="MrIdTypeCode" translate>ID Type</label>
+              <div class="col-md-9">
+                {{response.MrIdTypeCode}}
+              </div>
+            </div>
+            <div class="form-group row" *ngIf="custType == 'PERSONAL'">
+              <label class="col-md-3 adInsLabel" for="IdNo" translate>ID Number</label>
+              <div class="col-md-9">
+                {{response.IdNo}}
+              </div>
+            </div>
+            <div class="form-group row" *ngIf="custType == 'PERSONAL'">
+              <label class="col-md-3 adInsLabel" for="IdExpiredDt" translate>ID Expired Date</label>
+              <div class="col-md-9">
+                {{expiredDt}}
+              </div>
+            </div>
+            <div class="form-group row" *ngIf="custType == 'PERSONAL'">
+              <label class="col-md-3 adInsLabel" for="gender" translate>Gender</label>
+              <div class="col-md-9">
+                {{response.MrGenderCode == 'M' ? 'Male' : 'Female'}}
+              </div>
+            </div>
+            <div class="form-group row" *ngIf="custType == 'PERSONAL'">
+              <label class="col-md-3 adInsLabel" for="BirthPlaceDate" translate>Birth Place / Date</label>
+              <div class="col-md-3">
+                {{response.BirthPlace}}
+              </div>
+              <div class="col-md-1">
+                /
+              </div>
+              <div class="col-md-2">
+                {{birthDt}}
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 adInsLabel" for="TaxIdNo" translate>Tax Id No</label>
+              <div class="col-md-9">
+                {{response.TaxIdNo}}
+              </div>
+            </div>
+            <div class="form-group row " *ngIf="custType == 'PERSONAL'">
+              <label class="col-md-3 adInsLabel" for="MotherMaidenName" translate>Mother Maiden Name</label>
+              <div class="col-md-9">
+                {{response.MotherMaidenName}}
+              </div>
+            </div>
+            <div class="form-group row" *ngIf="custType == 'PERSONAL'">
+              <label class="col-md-3 adInsLabel" for="MobilePhn" translate>Mobile Phone</label>
+              <div class="col-md-9">
+                {{response.MobilePhn}}
+              </div>
+            </div>
+          </div>
+          <lib-ucSubsection [id]="'LegalAddressSectionId'" [title]="'Legal Address'" [panel]="'LegalAddressSection'">
+          </lib-ucSubsection>
+          <div id="LegalAddressSection">
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="LegalAddr" translate>Legal Address</label>
+              <div class="col-md-9">
+                {{response.LegalAddr}}
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="RT/RW" translate>RT/RW</label>
+              <div class="col-md-2">
+                {{response.AreaCode4}}
+              </div>
+              <div class="col-md-1">
+                /
+              </div>
+              <div class="col-md-2">
+                {{response.AreaCode3}}
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="Zipcode" translate>Zipcode</label>
+              <div class="col-md-9">
+                {{response.Zipcode}}
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="AreaCode2" translate>Kelurahan</label>
+              <div class="col-md-9">
+                {{response.AreaCode2}}
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="AreaCode1" translate>Kecamatan</label>
+              <div class="col-md-9">
+                {{response.AreaCode1}}
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="City" translate>City</label>
+              <div class="col-md-9">
+                {{response.City}}
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="Phn1" translate>Phone No (Fix Line) 1</label>
+              <div class="col-md-1">
+                {{response.PhnArea1}}
+              </div>
+              <div class="col-md-1">-</div>
+              <div class="col-md-2">
+                {{response.Phn1}}
+              </div>
+              <div class="col-md-1">-</div>
+              <div class="col-md-1">
+                {{response.PhnExt1}}
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="Phn2" translate>Phone No (Fix Line) 2</label>
+              <div class="col-md-1">
+                {{response.PhnArea2}}
+              </div>
+              <div class="col-md-1">-</div>
+              <div class="col-md-2">
+                {{response.Phn2}}
+              </div>
+              <div class="col-md-1">-</div>
+              <div class="col-md-1">
+                {{response.PhnExt2}}
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="Phn3" translate>Phone No (Fix Line) 3</label>
+              <div class="col-md-1">
+                {{response.PhnArea3}}
+              </div>
+              <div class="col-md-1">-</div>
+              <div class="col-md-2">
+                {{response.Phn3}}
+              </div>
+              <div class="col-md-1">-</div>
+              <div class="col-md-1">
+                {{response.PhnExt3}}
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 adInsLabel" for="Fax" translate>Fax</label>
+              <div class="col-md-1">
+                {{response.FaxArea}}
+              </div>
+              <div class="col-md-1">-</div>
+              <div class="col-md-2">
+                {{response.Fax}}
+              </div>
+            </div>
+          </div>
+          <lib-ucSubsection [id]="'NegativeDataSectionId'" [title]="'Negative Data'" [panel]="'NegativeDataSection'">
+          </lib-ucSubsection>
+          <div id="NegativeDataSection">
+            <div class="form-group row">
+              <label class="col-md-3 adInsLabel" for="IsActive" translate>Active</label>
+              <div class="col-md-2">
+                {{response.IsActive == '1' ? 'Yes' : 'No'}}
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="MrNegCustTypeCode" translate>Negative Type</label>
+              <div class="col-md-9">
+                {{response.MrNegCustTypeCode}}
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label class="col-md-3 adInsLabel" for="MrNegCustSourceCode" translate>Negative Customer Source</label>
+              <div class="col-md-9">
+                {{response.MrNegCustSourceCode}}
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 adInsLabel" for="Notes" translate>Notes</label>
+              <div class="col-md-9">
+                {{response.Notes}}
+              </div>
+            </div>
+          </div>
+          <lib-ucSubsection [id]="'NegativeDataHistorySectionId'" [title]="'Negative Data History'"
+            [panel]="'NegativeDataHistorySection'"></lib-ucSubsection>
+          <div id="NegativeDataHistorySection" style="overflow-x: auto;">
+            <table class="table table-responsive-md text-center table-hover">
+              <thead>
+                <tr class="table-header">
+                  <th style="text-align: left;">
+                    <span class="thead-header" name='transactionNo' translate>TRANSACTION NO.</span>
+                  </th>
+                  <th style="text-align: left;">
+                    <span class="thead-header" name='negativeCustomerSource' translate>NEGATIVE CUSTOMER SOURCE</span>
+                  </th>
+                  <th style="text-align: left;">
+                    <span class="thead-header" name='negativeType' translate>NEGATIVE TYPE</span>
+                  </th>
+                  <th style="text-align: left;">
+                    <span class="thead-header" name='notes' translate>NOTES</span>
+                  </th>
+                  <th style="text-align: left;">
+                    <span class="thead-header" name='status' translate>STATUS</span>
+                  </th>
+                  <th style="text-align: left;">
+                    <span class="thead-header" name='changeDate' translate>CHANGE DATE</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of responseTrx">
+                  <td style="text-align: left;">{{item.TrxNo}}</td>
+                  <td style="text-align: left;">{{item.MrNegCustSourceCode}}</td>
+                  <td style="text-align: left;">{{item.MrNegCustTypeCode}}</td>
+                  <td style="text-align: left;">{{item.Notes}}</td>
+                  <td style="text-align: left;">{{item.MrTrxStatCode}}</td>
+                  <td style="text-align: left;">{{item.ExeDt | date:'yyyy-MM-dd'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,452 @@
+<div class="bg-light-blue-card">
+  <div class="modal-header">
+    <h4 class="modal-title" translate>View CBAS SLIK Checking</h4>
+    <button *ngIf="ActiveModal" type="button" class="close" aria-label="Close" (click)="ActiveModal.dismiss('')" translate>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+  <div class="modal-body" *ngIf="!IsResultReady && !ResultErrorMsg">
+    <div class="col-md-12 text-center">
+      <h3 class="text-center"><i class="fa fa-spinner fa-spin"></i></h3>
+       <label class="adInsLabel" translate>Please wait for a moment</label>
+    </div> 
+  </div>
+  
+  <div class="modal-body" *ngIf="ResultErrorMsg">
+    <h3 class="text-center"><i class="fa fa-exclamation-triangle"></i></h3>
+    <div class="text-center"><label class="adInsLabel">{{ResultErrorMsg}}</label></div>
+    <div class="text-center"><label class="adInsLabel" *ngIf="ResultCbasSlikObj && ResultCbasSlikObj.ResultErrorMessage">{{ResultCbasSlikObj.ResultErrorMessage}}</label></div>
+    <div class="text-center"><label class="adInsLabel" *ngIf="ResultCbasSlikObj && ResultCbasSlikObj.ResultObj && ResultCbasSlikObj.ResultObj.ErrorMsg">{{ResultCbasSlikObj.ResultObj.ErrorMsg}}</label></div>
+  </div>
+  
+  <div class="modal-body result-individu" *ngIf="IsResultReady && ResIndvd && !IsCoy">
+  
+      <div *ngIf="ResultCbasSlikObj && !ResultErrorMsg">
+       <div id="mainInformation" class="px-3">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Nama Debitur</label> <!--namaDebitur-->
+              <label class="col-md-8 adinslabel">{{ResIndvdPokok['namaDebitur']}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Jenis Kelamin</label> <!--jenisKelaminKet-->
+              <label class="col-md-8 adinslabel">{{ResIndvdPokok['jenisKelaminKet']}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">No Identitas</label> <!--noIdentitas-->
+              <label class="col-md-8 adinslabel">{{ResIndvdPokok['noIdentitas']}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">NPWP</label> <!--npwp-->
+              <label class="col-md-8 adinslabel">{{ResIndvdPokok['npwp']}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Tempat / Tanggal Lahir</label> <!--tempatLahir & tanggalLahir-->
+              <label class="col-md-8 adinslabel">
+                {{ResIndvdPokok['tempatLahir']}} / 
+                {{DateFormat(ResIndvdPokok['tanggalLahir'])}}
+              </label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Nomor Laporan</label> <!--nomorLaporan-->
+              <label class="col-md-8 adinslabel">{{ResIndvd['individual']['nomorLaporan']}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Posisi Data Terakhir</label> <!--posisiDataTerakhir-->
+              <label class="col-md-8 adinslabel">{{DateFormat(ResIndvd['individual']['posisiDataTerakhir'])}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Tanggal Permintaan</label> <!--tanggalPermintaan-->
+              <label class="col-md-8 adinslabel">{{DateFormat(ResIndvd['individual']['tanggalPermintaan'])}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <lib-ucSubsection [id]="'DataPokokDebitorId'" [title]="'Data Pokok Debitur'" [panel]="'DataPokokDebitor'">
+      </lib-ucSubsection>
+      <div id="DataPokokDebitor" class="px-3">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Pekerjaan</label> <!--pekerjaanKet-->
+              <label class="col-md-8 adinslabel">{{ResIndvdPokok['pekerjaanKet']}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Tempat Bekerja</label> <!--tempatBekerja-->
+              <label class="col-md-8 adinslabel">{{ResIndvdPokok['tempatBekerja']}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Bidang Usaha</label> <!--bidangUsahaKet-->
+              <label class="col-md-8 adinslabel">{{ResIndvdPokok['bidangUsahaKet']}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Alamat</label> <!--alamat, kelurahan, kecamatan, kabKotaKet, kodePos-->
+              <label class="col-md-8 adinslabel">{{ResIndvdPokok['alamat']}}, {{ResIndvdPokok['kelurahan']}}, {{ResIndvdPokok['kecamatan']}}, {{ResIndvdPokok['kabKotaKet']}}, {{ResIndvdPokok['kodePos']}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <label class="col-md-4 adInsLabel">pelapor</label> <!--pelaporKet-->
+              <label class="col-md-8 adinslabel">{{ResIndvdPokok['pelaporKet']}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Tanggal Dibentuk</label> <!--tanggalDibentuk-->
+              <label class="col-md-8 adinslabel">{{DateFormat(ResIndvdPokok['tanggalDibentuk'])}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Tanggal Update</label> <!--tanggalUpdate-->
+              <label class="col-md-8 adinslabel">{{DateFormat(ResIndvdPokok['tanggalUpdate'])}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <lib-ucSubsection [id]="'RingkasanFasilitasId'" [title]="'Ringkasan Fasilitas'" [panel]="'RingkasanFasilitas'">
+      </lib-ucSubsection>
+      <div id="RingkasanFasilitas" class="px-3">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Plafon Efektif Kredit Pembiayaan</label> <!--plafonEfektifKreditPembiayaan-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['plafonEfektifKreditPembiayaan']  | number:'.2':'en-US'}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">Plafon Efekti fLc</label> <!--plafonEfektifLc-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['plafonEfektifLc']  | number:'.2':'en-US'}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">plafon Efektif Gyd</label> <!--plafonEfektifGyd-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['plafonEfektifGyd']  | number:'.2':'en-US'}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">plafon Efektif Sec</label> <!--plafonEfektifSec-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['plafonEfektifSec']  | number:'.2':'en-US'}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">plafon Efektif Lain</label> <!--plafonEfektifLain-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['plafonEfektifLain']  | number:'.2':'en-US'}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel"><b>plafon Efektif Total</b></label> <!--plafonEfektifTotal-->
+              <label class="col-md-8 adinslabel"><b>{{ResRingkasanFasilitas['plafonEfektifTotal']  | number:'.2':'en-US'}}</b></label>
+            </div>
+  
+  
+            <div class="row mt-3">
+              <label class="col-md-4 adInsLabel">kreditur Bank Umum</label> <!--krediturBankUmum-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['krediturBankUmum'] }}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">kreditur BPR/S</label> <!--krediturBPR/S-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['krediturBPR/S'] }}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">kreditur Lp</label> <!--krediturLp-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['krediturLp'] }}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">kreditur Lainnya</label> <!--krediturLainnya-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['krediturLainnya'] }}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">kualitas Terburuk</label> <!--kualitasTerburuk-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['kualitasTerburuk'] }}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">kualitas Bulan Data Terburuk</label> <!--kualitasBulanDataTerburuk-->
+              <label class="col-md-8 adinslabel">{{DateFormat(ResRingkasanFasilitas['kualitasBulanDataTerburuk'])}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <label class="col-md-4 adInsLabel">baki Debet Kredit Pembiayaan</label> <!--bakiDebetKreditPembiayaan-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['bakiDebetKreditPembiayaan']  | number:'.2':'en-US'}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">baki Debet Lc</label> <!--bakiDebetLc-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['bakiDebetLc']  | number:'.2':'en-US'}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">baki Debet Gyd</label> <!--bakiDebetGyd-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['bakiDebetGyd']  | number:'.2':'en-US'}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">baki Debet Sec</label> <!--bakiDebetSec-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['bakiDebetSec']  | number:'.2':'en-US'}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel">baki Debet Lain</label> <!--bakiDebetLain-->
+              <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['bakiDebetLain']  | number:'.2':'en-US'}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4 adInsLabel"><b>baki Debet Total</b></label> <!--bakiDebetTotal-->
+              <label class="col-md-8 adinslabel"><b>{{ResRingkasanFasilitas['bakiDebetTotal']  | number:'.2':'en-US'}}</b></label>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <lib-ucSubsection [id]="'FasilitasKreditPembiayanId'" [title]="'Fasilitas Kredit Pembiayan'" [panel]="'FasilitasKreditPembiayan'">
+      </lib-ucSubsection>
+      <div id="FasilitasKreditPembiayan" class="px-3">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-left" width="50"><span class="thead-header">NO</span></th>
+              <th class="text-left"><span class="thead-header">ljk</span></th> <!-- ljkKet -->
+              <th class="text-center" width="120"><span class="thead-header">tanggal Dibentuk</span></th><!-- tanggalDibentuk -->
+              <th class="text-left" width="150"><span class="thead-header">jenis Penggunaan</span></th><!-- jenisPenggunaanKet -->
+              <th class="text-right" width="120"><span class="thead-header">plafon Awal</span></th><!-- plafonAwal -->
+              <th class="text-left" width="130"><span class="thead-header">kualitas</span></th><!-- kualitasKet -->
+              <th class="text-center" width="100"><span class="thead-header">frekuensi Tunggakan</span></th><!-- frekuensiTunggakan -->
+              <th class="text-center" width="120"><span class="thead-header">jumlah Hari Tunggakan</span></th><!-- jumlahHariTunggakan -->
+              <th class="text-left" width="150"><span class="thead-header">kondisi</span></th><!-- kondisiKet -->
+            </tr>
+          </thead>
+          <tbody class="ng-star-inserted" *ngIf="!ResFasilitasKreditPembiayan || ResFasilitasKreditPembiayan.length <= 0">
+            <tr><td translate colspan="100%">No Data Available</td></tr>
+          </tbody>
+          <tbody class="ng-star-inserted" *ngIf="ResFasilitasKreditPembiayan && ResFasilitasKreditPembiayan.length > 0">
+            <tr *ngFor="let item of ResFasilitasKreditPembiayan; let i = index">
+              <td class="text-left">{{i + 1}}.</td>
+              <td class="text-left">{{item['ljkKet']}}</td> <!-- ljkKet -->
+              <td class="text-center">{{DateFormat(item['tanggalDibentuk'])}}</td><!-- tanggalDibentuk -->
+              <td class="text-left">{{item['jenisPenggunaanKet']}}</td><!-- jenisPenggunaanKet -->
+              <td class="text-right">{{item['plafonAwal'] | number:'.2':'en-US'}}</td><!-- plafonAwal -->
+              <td class="text-left">{{item['kualitasKet']}}</td><!-- kualitasKet -->
+              <td class="text-center">{{item['frekuensiTunggakan']}}</td><!-- frekuensiTunggakan -->
+              <td class="text-center">{{item['jumlahHariTunggakan']}}</td><!-- jumlahHariTunggakan -->
+              <td class="text-left">{{item['kondisiKet']}}</td><!-- kondisiKet -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="modal-body result-perusahaan" *ngIf="IsResultReady && ResCoy && IsCoy">
+  
+    <div *ngIf="ResultCbasSlikObj && !ResultErrorMsg">
+     <div id="mainInformation" class="px-3">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Nama Debitur</label> <!--namaDebitur-->
+            <label class="col-md-8 adinslabel">{{ResCoyPokok['namaDebitur']}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Bentuk Badan Usaha</label> <!--bentukBuKet-->
+            <label class="col-md-8 adinslabel">{{ResCoyPokok['bentukBuKet']}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">No Akta Pendirian</label> <!--noAktaPendirian-->
+            <label class="col-md-8 adinslabel">{{ResCoyPokok['noAktaPendirian']}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">NPWP</label> <!--npwp-->
+            <label class="col-md-8 adinslabel">{{ResCoyPokok['npwp']}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Tempat / Tanggal Pendirian</label> <!--tempatPendirian & tglAktaPendirian-->
+            <label class="col-md-8 adinslabel">
+              {{ResCoyPokok['tempatPendirian']}} / 
+              {{DateFormat(ResCoyPokok['tglAktaPendirian'])}}
+            </label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Nomor Laporan</label> <!--nomorLaporan-->
+            <label class="col-md-8 adinslabel">{{ResCoy['perusahaan']['nomorLaporan']}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Posisi Data Terakhir</label> <!--posisiDataTerakhir-->
+            <label class="col-md-8 adinslabel">{{DateFormat(ResCoy['perusahaan']['posisiDataTerakhir'])}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Tanggal Permintaan</label> <!--tanggalPermintaan-->
+            <label class="col-md-8 adinslabel">{{DateFormat(ResCoy['perusahaan']['tanggalPermintaan'])}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <lib-ucSubsection [id]="'DataPokokDebitorId'" [title]="'Data Pokok Debitur'" [panel]="'DataPokokDebitor'">
+    </lib-ucSubsection>
+    <div id="DataPokokDebitor" class="px-3">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Sektor Ekonomi</label> <!--sektorEkonomiKet-->
+            <label class="col-md-8 adinslabel">{{ResCoyPokok['sektorEkonomi']}} - {{ResCoyPokok['sektorEkonomiKet']}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">No Akta Terakhir</label> <!--noAktaTerakhir-->
+            <label class="col-md-8 adinslabel">{{ResCoyPokok['noAktaTerakhir']}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Tgl Akta Terakhir</label> <!--tglAktaTerakhir-->
+            <label class="col-md-8 adinslabel">{{DateFormat(ResCoyPokok['tglAktaTerakhir'])}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Alamat</label> <!--alamat, kelurahan, kecamatan, kabKotaKet, kodePos-->
+            <label class="col-md-8 adinslabel">{{ResCoyPokok['alamat']}}, {{ResCoyPokok['kelurahan']}}, {{ResCoyPokok['kecamatan']}}, {{ResCoyPokok['kabKotaKet']}}, {{ResCoyPokok['kodePos']}}</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Pelapor</label> <!--pelaporKet-->
+            <label class="col-md-8 adinslabel">{{ResCoyPokok['pelaporKet']}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Tanggal Dibentuk</label> <!--tanggalDibentuk-->
+            <label class="col-md-8 adinslabel">{{DateFormat(ResCoyPokok['tanggalDibentuk'])}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Tanggal Update</label> <!--tanggalUpdate-->
+            <label class="col-md-8 adinslabel">{{DateFormat(ResCoyPokok['tanggalUpdate'])}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <lib-ucSubsection [id]="'RingkasanFasilitasId'" [title]="'Ringkasan Fasilitas'" [panel]="'RingkasanFasilitas'">
+    </lib-ucSubsection>
+    <div id="RingkasanFasilitas" class="px-3">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Plafon Efektif Kredit Pembiayaan</label> <!--plafonEfektifKreditPembiayaan-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['plafonEfektifKreditPembiayaan']  | number:'.2':'en-US'}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">Plafon Efekti fLc</label> <!--plafonEfektifLc-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['plafonEfektifLc']  | number:'.2':'en-US'}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">plafon Efektif Gyd</label> <!--plafonEfektifGyd-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['plafonEfektifGyd']  | number:'.2':'en-US'}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">plafon Efektif Sec</label> <!--plafonEfektifSec-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['plafonEfektifSec']  | number:'.2':'en-US'}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">plafon Efektif Lain</label> <!--plafonEfektifLain-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['plafonEfektifLain']  | number:'.2':'en-US'}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel"><b>plafon Efektif Total</b></label> <!--plafonEfektifTotal-->
+            <label class="col-md-8 adinslabel"><b>{{ResRingkasanFasilitas['plafonEfektifTotal']  | number:'.2':'en-US'}}</b></label>
+          </div>
+  
+  
+          <div class="row mt-3">
+            <label class="col-md-4 adInsLabel">kreditur Bank Umum</label> <!--krediturBankUmum-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['krediturBankUmum'] }}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">kreditur BPR/S</label> <!--krediturBPR/S-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['krediturBPR/S'] }}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">kreditur Lp</label> <!--krediturLp-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['krediturLp'] }}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">kreditur Lainnya</label> <!--krediturLainnya-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['krediturLainnya'] }}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">kualitas Terburuk</label> <!--kualitasTerburuk-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['kualitasTerburuk'] }}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">kualitas Bulan Data Terburuk</label> <!--kualitasBulanDataTerburuk-->
+            <label class="col-md-8 adinslabel">{{DateFormat(ResRingkasanFasilitas['kualitasBulanDataTerburuk'])}}</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <label class="col-md-4 adInsLabel">baki Debet Kredit Pembiayaan</label> <!--bakiDebetKreditPembiayaan-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['bakiDebetKreditPembiayaan']  | number:'.2':'en-US'}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">baki Debet Lc</label> <!--bakiDebetLc-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['bakiDebetLc']  | number:'.2':'en-US'}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">baki Debet Gyd</label> <!--bakiDebetGyd-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['bakiDebetGyd']  | number:'.2':'en-US'}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">baki Debet Sec</label> <!--bakiDebetSec-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['bakiDebetSec']  | number:'.2':'en-US'}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel">baki Debet Lain</label> <!--bakiDebetLain-->
+            <label class="col-md-8 adinslabel">{{ResRingkasanFasilitas['bakiDebetLain']  | number:'.2':'en-US'}}</label>
+          </div>
+          <div class="row">
+            <label class="col-md-4 adInsLabel"><b>baki Debet Total</b></label> <!--bakiDebetTotal-->
+            <label class="col-md-8 adinslabel"><b>{{ResRingkasanFasilitas['bakiDebetTotal']  | number:'.2':'en-US'}}</b></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <lib-ucSubsection [id]="'FasilitasKreditPembiayanId'" [title]="'Fasilitas Kredit Pembiayan'" [panel]="'FasilitasKreditPembiayan'">
+    </lib-ucSubsection>
+    <div id="FasilitasKreditPembiayan" class="px-3">
+      <table class="table table-responsive-md text-center table-hover">
+        <thead>
+          <tr class="table-header">
+            <th class="text-left" width="50"><span class="thead-header">NO</span></th>
+            <th class="text-left"><span class="thead-header">ljk</span></th> <!-- ljkKet -->
+            <th class="text-center" width="120"><span class="thead-header">tanggal Dibentuk</span></th><!-- tanggalDibentuk -->
+            <th class="text-left" width="150"><span class="thead-header">jenis Penggunaan</span></th><!-- jenisPenggunaanKet -->
+            <th class="text-right" width="120"><span class="thead-header">plafon Awal</span></th><!-- plafonAwal -->
+            <th class="text-left" width="130"><span class="thead-header">kualitas</span></th><!-- kualitasKet -->
+            <th class="text-center" width="100"><span class="thead-header">frekuensi Tunggakan</span></th><!-- frekuensiTunggakan -->
+            <th class="text-center" width="120"><span class="thead-header">jumlah Hari Tunggakan</span></th><!-- jumlahHariTunggakan -->
+            <th class="text-left" width="150"><span class="thead-header">kondisi</span></th><!-- kondisiKet -->
+          </tr>
+        </thead>
+        <tbody class="ng-star-inserted" *ngIf="!ResFasilitasKreditPembiayan || ResFasilitasKreditPembiayan.length <= 0">
+          <tr><td translate colspan="100%">No Data Available</td></tr>
+        </tbody>
+        <tbody class="ng-star-inserted" *ngIf="ResFasilitasKreditPembiayan && ResFasilitasKreditPembiayan.length > 0">
+          <tr *ngFor="let item of ResFasilitasKreditPembiayan; let i = index">
+            <td class="text-left">{{i + 1}}.</td>
+            <td class="text-left">{{item['ljkKet']}}</td> <!-- ljkKet -->
+            <td class="text-center">{{DateFormat(item['tanggalDibentuk'])}}</td><!-- tanggalDibentuk -->
+            <td class="text-left">{{item['jenisPenggunaanKet']}}</td><!-- jenisPenggunaanKet -->
+            <td class="text-right">{{item['plafonAwal'] | number:'.2':'en-US'}}</td><!-- plafonAwal -->
+            <td class="text-left">{{item['kualitasKet']}}</td><!-- kualitasKet -->
+            <td class="text-center">{{item['frekuensiTunggakan']}}</td><!-- frekuensiTunggakan -->
+            <td class="text-center">{{item['jumlahHariTunggakan']}}</td><!-- jumlahHariTunggakan -->
+            <td class="text-left">{{item['kondisiKet']}}</td><!-- kondisiKet -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+  </div>
+  
+  <div class="modal-footer">
+    <div class="button-right">
+      <span class="mr-1">
+          <button *ngIf="ActiveModal" type="button" class="btn btn-outline-2 btn-raised mr-1" (click)="ActiveModal.dismiss('')">
+              <i class="far fa-window-close"></i>&nbsp;<span translate>close</span>
+          </button>
+      </span>
+    </div>
+  </div>
+</div>

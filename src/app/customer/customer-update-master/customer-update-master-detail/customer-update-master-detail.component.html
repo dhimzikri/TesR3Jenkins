@@ -1,0 +1,164 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="px-3">
+        <div class="addEdit">
+          <form class="form form-horizontal">
+            <div class="form-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <!-- <h4 class="card-title" id="horz-layout-colored-controls" translate>Update Data Customer</h4> -->
+                </div>
+              </div>
+            </div>
+          </form>
+          <lib-ucviewgeneric [viewGenericObj]="ViewGenericObj" (callback)="GetCallback($event)"></lib-ucviewgeneric>
+        </div>
+        <div id="PersonalWizard" class="bs-stepper">
+          <div class="bs-stepper-header" role="tablist" style="overflow-x: auto;">
+            <div class="step" data-target="#customer-detail-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="customer-detail-tab"
+                id="customer-detail-tab-trigger" (click)="EnterTab('CUST')">
+                <span class="bs-stepper-circle">1</span>
+                <span class="bs-stepper-label">Customer Detail</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#address-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="address-tab" 
+                id="address-tab-trigger" (click)="EnterTab('ADDR')">
+                <span class="bs-stepper-circle">2</span>
+                <span class="bs-stepper-label">Address Data</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#family-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="family-tab"
+                id="family-tab-trigger" (click)="EnterTab('FAMILY')">
+                <span class="bs-stepper-circle">3</span>
+                <span class="bs-stepper-label">Family</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#emergency-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="emergency-tab" 
+                id="emergency-tab-trigger" (click)="EnterTab('EMERGENCY')">
+                <span class="bs-stepper-circle">4</span>
+                <span class="bs-stepper-label">Emergency</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#job-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="job-tab"
+                id="job-tab-trigger" (click)="EnterTab('JOB')">
+                <span class="bs-stepper-circle">5</span>
+                <span class="bs-stepper-label">Job Data</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#fin-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="fin-tab" 
+                id="fin-tab-trigger" (click)="EnterTab('FIN')">
+                <span class="bs-stepper-circle">6</span>
+                <span class="bs-stepper-label">Financial Data</span>
+              </button>
+            </div>
+          </div>
+          <br><br>
+          <div class="bs-stepper-content">
+            <div id="customer-detail-tab" class="content" role="tabpanel" aria-labelledby="customer-detail-tab-trigger">
+              <app-update-customer-personal-detail *ngIf="StepIdx == 1 && MrCustTypeCode == PersonalConstant" [CustDataTrxId]="CustDataTrxId" (ResponseTab)="StepperHandler($event)"></app-update-customer-personal-detail>
+            </div>
+            <div id="address-tab" class="content" role="tabpanel" aria-labelledby="address-tab-trigger">
+              <app-update-customer-address *ngIf="StepIdx == 2 && MrCustTypeCode == PersonalConstant" [CustDataTrxId]="CustDataTrxId" [SubjectType]="SubjectType" (ResponseTab)="StepperHandler($event)"></app-update-customer-address>
+            </div>
+            <div id="family-tab" class="content" role="tabpanel" aria-labelledby="family-tab-trigger">
+              <app-update-customer-family *ngIf="StepIdx == 3 && MrCustTypeCode == PersonalConstant" [CustDataTrxId]="CustDataTrxId" [isMarried]="isMarried" (ResponseTab)="StepperHandler($event)"></app-update-customer-family>
+            </div>
+            <div id="emergency-tab" class="content" role="tabpanel" aria-labelledby="emergency-tab-trigger">
+              <app-update-customer-emergency-detail *ngIf="StepIdx == 4 && MrCustTypeCode == PersonalConstant" [CustDataTrxId]="CustDataTrxId" (ResponseTab)="StepperHandler($event)"></app-update-customer-emergency-detail>
+            </div>
+            <div id="job-tab" class="content" role="tabpanel" aria-labelledby="job-tab-trigger">
+              <app-update-customer-job-data *ngIf="StepIdx == 5 && MrCustTypeCode == PersonalConstant" [CustDataTrxId]="CustDataTrxId" (ResponseTab)="StepperHandler($event)"></app-update-customer-job-data>
+            </div>
+            <div id="fin-tab" class="content" role="tabpanel" aria-labelledby="fin-tab-trigger">
+              <app-update-customer-fin-data *ngIf="StepIdx == 6 && MrCustTypeCode == PersonalConstant" [CustDataTrxId]="CustDataTrxId" [WfTaskListId]="WfTaskListId" (ResponseTab)="StepperHandler($event)"></app-update-customer-fin-data>
+            </div>
+          </div>
+        </div>
+        <div id="CompanyWizard" class="bs-stepper">
+          <div class="bs-stepper-header" role="tablist" style="overflow-x: auto;">
+            <div class="step" data-target="#customer-detail-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="customer-detail-tab"
+                id="customer-detail-tab-trigger" (click)="EnterTab('CUST')">
+                <span class="bs-stepper-circle">1</span>
+                <span class="bs-stepper-label">Customer Detail</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#address-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="address-tab" 
+                id="address-tab-trigger" (click)="EnterTab('ADDR')">
+                <span class="bs-stepper-circle">2</span>
+                <span class="bs-stepper-label">Address Data</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#shareholder-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="shareholder-tab"
+                id="shareholder-tab-trigger" (click)="EnterTab('SHAREHOLDER')">
+                <span class="bs-stepper-circle">3</span>
+                <span class="bs-stepper-label">Management / Shareholder</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#contact-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="contact-tab" 
+                id="contact-tab-trigger" (click)="EnterTab('CONTACT')">
+                <span class="bs-stepper-circle">4</span>
+                <span class="bs-stepper-label">Contact Information</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#financial-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="financial-tab"
+                id="financial-tab-trigger" (click)="EnterTab('FIN')">
+                <span class="bs-stepper-circle">5</span>
+                <span class="bs-stepper-label">Financial Data</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#legal-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="legal-tab" 
+                id="legal-tab-trigger" (click)="EnterTab('LEGAL')">
+                <span class="bs-stepper-circle">6</span>
+                <span class="bs-stepper-label">Legal Document</span>
+              </button>
+            </div>
+          </div>
+          <br><br>
+          <div class="bs-stepper-content">
+            <div id="customer-detail-tab" class="content" role="tabpanel" aria-labelledby="customer-detail-tab-trigger">
+              <app-update-customer-company-detail *ngIf="StepIdx == 1 && MrCustTypeCode == CompanyConstant" [CustDataTrxId]="CustDataTrxId" (ResponseTab)="StepperHandler($event)"></app-update-customer-company-detail>
+            </div>
+            <div id="address-tab" class="content" role="tabpanel" aria-labelledby="address-tab-trigger">
+              <app-update-customer-address *ngIf="StepIdx == 2 && MrCustTypeCode == CompanyConstant" [CustDataTrxId]="CustDataTrxId" [SubjectType]="SubjectType" (ResponseTab)="StepperHandler($event)"></app-update-customer-address>
+            </div>
+            <div id="shareholder-tab" class="content" role="tabpanel" aria-labelledby="shareholder-tab-trigger">
+              <app-update-customer-mgmnt-shareholder *ngIf="StepIdx == 3 && MrCustTypeCode == CompanyConstant" [CustDataTrxId]="CustDataTrxId" (ResponseTab)="StepperHandler($event)"></app-update-customer-mgmnt-shareholder>
+            </div>
+            <div id="contact-tab" class="content" role="tabpanel" aria-labelledby="contact-tab-trigger">
+              <app-update-customer-contact-info *ngIf="StepIdx == 4 && MrCustTypeCode == CompanyConstant" [CustDataTrxId]="CustDataTrxId" (ResponseTab)="StepperHandler($event)"></app-update-customer-contact-info>
+            </div>
+            <div id="financial-tab" class="content" role="tabpanel" aria-labelledby="financial-tab-trigger">
+              <app-update-customer-company-fin-data *ngIf="StepIdx == 5 && MrCustTypeCode == CompanyConstant" [CustDataTrxId]="CustDataTrxId" (ResponseTab)="StepperHandler($event)"></app-update-customer-company-fin-data>
+            </div>
+            <div id="legal-tab" class="content" role="tabpanel" aria-labelledby="legal-tab-trigger">
+              <app-update-customer-company-legal-doc *ngIf="StepIdx == 6 && MrCustTypeCode == CompanyConstant" [CustDataTrxId]="CustDataTrxId" [WfTaskListId]="WfTaskListId" (ResponseTab)="StepperHandler($event)"></app-update-customer-company-legal-doc>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

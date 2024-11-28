@@ -1,0 +1,36 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="px-3">
+          <lib-ucSubsection [id]="'branchListId'" [title]="'Branch List'" [panel]="'branchListId'"></lib-ucSubsection>
+          <div id="branchList">
+            <div id="gridBankAcc" [hidden]="ListData?.length < 1" style="overflow-x: auto;">
+              <table class="table table-responsive-md text-center table-hover">
+                <thead>
+                  <tr class="table-header">
+                    <th><span translate class="thead-header" name='VendorCode'>Branch Code</span></th>
+                    <th><span translate class="thead-header" name='VendorName'>Branch Name</span></th>
+                    <th><span translate class="thead-header" name='Addr'>Address</span></th>
+                    <th><span translate class="thead-header" name='VendorRating'>Vendor Rating</span></th>
+                    <th><span translate class="thead-header" name='IsActive'>Active Status</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of ListData; let i = index">
+                    <td>{{item.VendorCode}}</td>
+                    <td>{{item.VendorName}}</td>
+                    <td>{{item.Addr}}</td>
+                    <td>{{item.VendorRating}}</td>
+                    <td *ngIf="item.IsActive === true">Yes</td>
+                    <td *ngIf="item.IsActive === false">No</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

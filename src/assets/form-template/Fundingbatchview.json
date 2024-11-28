@@ -1,0 +1,225 @@
+{
+    "title": "View Funding Batch",
+    "hideTitle": false,
+    "id": "Fundingbatchview",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "container": {
+                "key": "ViewBatchGenerateButton",
+                "className": "DetailViewFundingBatchGenerateComponent",
+                "cssClass": "",
+                "input": {}
+            },
+            "id": "8cc15ef0-6d0c-4237-9c04-fa0b0457079d"
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "FundingContractMainInfoId",
+                    "subSectionTitle": "Funding Contract Main Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "fundingBatchFundingContractMainInfo"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Funding Batch No",
+                            "property": "BatchNo",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Batch Status",
+                            "property": "BatchName",
+                            "position": "",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Drawdown Plan Date",
+                            "property": "DrawdownPlanDate",
+                            "dateFormat": "dd/MM/YYYY",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Drawdown Plan Amount",
+                            "property": "DrawdownPlanAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Principal Amount to Funding",
+                            "property": "PrincipalAmtToFunding",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Num Of Agreement",
+                            "property": "NumOfAgrmnt",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Due Date Type",
+                            "property": "DueDateTypeName",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "date",
+                            "label": "Drawdown Date",
+                            "property": "DrawdownDate",
+                            "dateFormat": "dd/MM/YYYY",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Drawdown Amount",
+                            "property": "DrawdownAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "BatchNo"
+                    ],
+                    "fromValue": [],
+                    "subsectionId": "FundingContractMainInfoId"
+                }
+            },
+            "id": "5abff7cd-57ec-47b1-b395-ac9b281316d3"
+        },
+        {
+            "tabs": {
+                "tablist": [
+                    {
+                        "label": "List Agreement",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "ListAgrement",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "BatchNo",
+                                        "propValue": "BatchNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Default Fee",
+                        "panel": [
+                            {
+                                "isTemplate": false,
+                                "content": "ViewFundingBatchFeeComponent",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "BatchNo",
+                                        "propValue": "BatchNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Interest Rate",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Interestratebatchtab",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "BatchNo",
+                                        "propValue": "BatchNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Payment History Fee Tab",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Payoutfeehistbatchtab",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "BatchNo",
+                                        "propValue": "BatchNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "id": "3fe252b5-4993-4c80-a567-4df0aaa0960f"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false
+}

@@ -1,0 +1,31 @@
+{
+    "title":"",
+    "subsection": [
+      {
+        "subSectionId": "BranchInformationLifeId",
+        "subSectionTitle": "Life Insco Branch Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "link",
+            "label": "Life Insurance HO:",
+            "property": "LifeHo",
+            "name": "LinkLifeHO",
+            "target": "_blank",
+            "path": "VIEW_VENDOR_HO",
+            "environment": "FOU_WEB",
+            "param": [
+              {
+                "type": "VendorId",
+                "property": "VendorParentId"
+              }
+            ]
+          }
+        ],
+        "querystring": {
+           "name":"viewBranchInfoLife"
+        }
+      }
+    ]
+  }
+  

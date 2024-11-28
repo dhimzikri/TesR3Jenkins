@@ -1,0 +1,358 @@
+{
+    "title": "Reimburse Approval Paging",
+    "hideTitle": false,
+    "id": "ReimburseApprovalPaging",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "FinopsUrl",
+                "apiVersion": "v2",
+                "uri": "http://r3app-server.ad-ins.com/finops",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchReimbursementApprovalPaging"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "rreimburseNoSearchId",
+                            "type": "textbox",
+                            "label": "Reimburse No",
+                            "name": "R.REIMBURSE_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "refempNoSearchId",
+                            "type": "textbox",
+                            "label": "Employee No",
+                            "name": "REF.EMP_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "rreimburseDtSearchId",
+                            "type": "datepicker",
+                            "label": "Reimburse Date >=",
+                            "name": "R.REIMBURSE_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "gte",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "rreimburseDtSearchId",
+                            "type": "datepicker",
+                            "label": "Reimburse Date <=",
+                            "name": "R.REIMBURSE_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "lte",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "rreqBySearchId",
+                            "type": "textbox",
+                            "label": "Request By",
+                            "name": "R.REQ_BY",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Transaction No",
+                            "position": "center",
+                            "name": "R.REIMBURSE_NO"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Amount",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Employee",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "REQUEST BY",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Request Date",
+                            "position": "center",
+                            "name": "R.REIMBURSE_DT"
+                        },
+                        {
+                            "type": "label",
+                            "label": "TASK OWNER",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "CURRENT USER",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "IS HOLD",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "process",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Hold",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Take Back",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "ReimburseNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "ReqAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "EmpName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "ReqBy",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "ReqDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "MainUser",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "CurrentUser",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "IsHold",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "switch",
+                                    "case": [
+                                        {
+                                            "isHide": false,
+                                            "conditions": [
+                                                {
+                                                    "property": "IsApproved",
+                                                    "restriction": "EQ",
+                                                    "value": 1,
+                                                    "isUser": false
+                                                }
+                                            ],
+                                            "result": {
+                                                "type": "callback",
+                                                "key": "Action",
+                                                "isText": false,
+                                                "icon": ""
+                                            }
+                                        },
+                                        {
+                                            "isHide": false,
+                                            "conditions": [
+                                                {
+                                                    "property": "IsApproved",
+                                                    "restriction": "NEQ",
+                                                    "value": 1,
+                                                    "isUser": false
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "switch",
+                                    "case": [
+                                        {
+                                            "isHide": false,
+                                            "conditions": [
+                                                {
+                                                    "property": "IsApproved",
+                                                    "restriction": "EQ",
+                                                    "value": 1,
+                                                    "isUser": false
+                                                }
+                                            ],
+                                            "result": {
+                                                "key": "HoldTask",
+                                                "isText": false,
+                                                "icon": "",
+                                                "type": "callback"
+                                            }
+                                        },
+                                        {
+                                            "isHide": false,
+                                            "conditions": [
+                                                {
+                                                    "property": "IsApproved",
+                                                    "restriction": "NEQ",
+                                                    "value": 1,
+                                                    "isUser": false
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "switch",
+                                    "case": [
+                                        {
+                                            "isHide": false,
+                                            "conditions": [
+                                                {
+                                                    "property": "IsApproved",
+                                                    "restriction": "EQ",
+                                                    "value": 1,
+                                                    "isUser": false
+                                                }
+                                            ],
+                                            "result": {
+                                                "key": "TakeBack",
+                                                "isText": false,
+                                                "icon": "",
+                                                "type": "callback"
+                                            }
+                                        },
+                                        {
+                                            "isHide": false,
+                                            "conditions": [
+                                                {
+                                                    "property": "IsRoleAssignment",
+                                                    "restriction": "NEQ",
+                                                    "value": 1,
+                                                    "isUser": false
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": true,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": "",
+                "integrationObj": {
+                    "baseUrl": "",
+                    "apiPath": "GetListOSApvTaskByCategoryCodeAndCurrentUserIdOrMainUserIdAndRoleCode",
+                    "requestObj": {
+                        "CategoryCode": "REIMB",
+                        "Username": "UserName",
+                        "RoleCode": "RoleCode"
+                    },
+                    "leftColumnToJoin": "ReimburseNo",
+                    "rightColumnToJoin": "TransactionNo",
+                    "joinType": "INNER",
+                    "integrationType": "apv",
+                    "useOffice": false
+                }
+            },
+            "id": "d886b652-1abf-4a80-a5ee-1945d7a66c4a"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": []
+}

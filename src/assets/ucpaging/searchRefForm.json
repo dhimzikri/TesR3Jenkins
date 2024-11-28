@@ -1,0 +1,230 @@
+{
+    "title": "Form",
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "RF.REF_MODULE_ID",
+            "id": "ModuleNameId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "isQueryIn": true,
+            "url": "",
+            "path": "/RefModule/GetListRefModuleKeyValue",
+            "label": "Module",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "RFF.TITLE",
+            "id": "ParentId",
+            "value": "",
+            "label": "Parent",
+            "placeholder": "Parent"
+        },
+        {
+            "type": "textbox",
+            "name": "RF.TITLE",
+            "id": "TitleId",
+            "value": "",
+            "label": "Title",
+            "placeholder": "Title"
+        },
+        {
+            "type": "textbox",
+            "name": "RF.PATH",
+            "id": "PathId",
+            "value": "",
+            "label": "Path",
+            "placeholder": "Path"
+        },
+        {
+            "type": "dropdown",
+            "name": "RF.CLASS", 
+            "id": "ClassId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Class",
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "FORM_CLASS",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "RF.IS_HIDDEN",
+            "id": "IsHiddenId",
+            "label": "Is Hidden",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "true",
+                    "value": "Yes"
+                },
+                {
+                    "key": "false",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchRefForm"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Module",
+            "name": "RM.MODULE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Parent",
+            "name": "RFF.TITLE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Title",
+            "name": "RF.TITLE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Path",
+            "name": "RF.PATH"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Order No",
+            "name": "RF.ORDER_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Hierarchy No",
+            "name": "RF.HIERARCHY_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Class",
+            "name": "RF.CLASS"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Is Hidden",
+            "name": "RF.IS_HIDDEN"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Role"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "ModuleName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Parent"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Title"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Path"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OrderNo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "HierarchyNo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Class"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsHidden"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "SYSTEM_SETTING_REF_FORM_ROLE_MAP",
+                    "param": [
+                        {
+                            "type": "RefFormId",
+                            "property": "RefFormId"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "SYSTEM_SETTING_REF_FORM_DETAIL",
+                    "param": [
+                        {
+                            "type": "RefFormId",
+                            "property": "RefFormId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                },
+                {
+                    "type": "delete",
+                    "property": "RefFormId"
+                }
+            ]
+        }
+    ]
+}

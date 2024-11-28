@@ -1,0 +1,224 @@
+{
+    "title": "DISBURSEMENT APPROVAL",
+    "keyProperty": "PayVoucherHId",
+    "keyPropCriteria": "PH.PAY_VOUCHER_H_ID",
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "PH.REF_ACC_PAYABLE_TYPE_ID",
+            "id": "RefAccPayableTypeId",
+            "label": "AP Type Name",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "one",
+            "url": "",
+            "environment": "AP",
+            "path": "/AccPayable/GetAPTypeList",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "Dest.ACC_PAYABLE_DESTINATION",
+            "id": "AccPayableDestination",
+            "value": "",
+            "label": "AP Destination",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "Dest.BANK_ACC_DEST_NAME",
+            "id": "BankAccountName",
+            "value": "",
+            "label": "AP Bank Account Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "Dest.BANK_ACC_DEST_NO",
+            "id": "BankAccountNo",
+            "value": "",
+            "label": "AP Bank Account No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "PH.CURR_CODE",
+            "id": "CurrCode",
+            "label": "Currency",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "one",
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefCurr/GetListKvpActiveRefCurr",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "datepicker",
+            "label": "Payment Voucher Date <=",
+            "name": "PH.PAY_VOUCHER_DT",
+            "id": "PayVoucherDt",
+            "value": "",
+            "restriction": "lte",
+            "datatype": "date"
+        },
+        {
+            "type": "dropdown",
+            "name": "Dest.BANK_CODE",
+            "id": "APDestBankCode",
+            "label": "Bank Name",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "environment": "FOU",
+            "path": "/RefBank/GetListKeyValueActiveByCode",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "Assignee",
+            "id": "ClaimById",
+            "value": "",
+            "label": "Claim By",
+            "placeholder": "Placeholder",
+            "isCriteriaDataTable" : true
+        }
+    ],
+    "querystring": {
+        "name": "searchDisbursementApproval"
+    },
+    "orderby": {
+        "key": "PH.PAY_VOUCHER_H_ID",
+        "value": "false"
+    },
+    "headerList": [
+        {
+            "type": "label",
+            "position": "center",
+            "label": "SLA",
+            "name": "IndicatorSLA"
+        },
+        {
+          "type": "label",
+          "position": "left",
+          "label": "Claim By",
+          "name": "Assignee"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PAYMENT VOUCHER NO",
+            "name": "PH.PAY_VOUCHER_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP DESTINATION",
+            "name": "Dest.ACC_PAYABLE_DESTINATION"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP DESCRIPTION",
+            "name": "Dest.ACC_PAYABLE_DESCR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP BANK ACC NAME",
+            "name": "Dest.BANK_ACC_DEST_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "AP BANK ACC NO",
+            "name": "Dest.BANK_ACC_DEST_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "CURRENCY CODE",
+            "name": "PH.CURR_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PV AMOUNT",
+            "name": "PH.PAY_VOUCHER_AMT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "PV DATE",
+            "name": "PH.PAY_VOUCHER_DT"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "sla",
+            "position": "center",
+            "property": "IndicatorSLA"
+        },
+        {
+          "type": "text",
+          "position": "left",
+          "property": "Assignee"
+        },
+        {
+            "type": "link",
+            "position": "center",
+            "property": "PayVoucherNo",
+            "target": "_blank",
+            "path": "PAY_VOUCHER_VIEW",
+            "param": [
+                {
+                    "type": "PayVoucherNo",
+                    "property": "PayVoucherNo"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AccPayableDestination"
+        },
+        {
+            "type": "callback",
+            "key": "ViewAP",
+            "position": "left",
+            "property": "AccPayableDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BankAccountName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "BankAccountNo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "CurrCode"
+        },
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "PayVoucherAmt"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "PayVoucherDt"
+        }
+    ]
+}

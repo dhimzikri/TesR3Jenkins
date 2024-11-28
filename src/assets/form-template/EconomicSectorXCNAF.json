@@ -1,0 +1,225 @@
+{
+    "title": "Economic Sector Paging",
+    "id": "EconomicSectorXCNAF",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "FoundationR3Url",
+                "apiVersion": "v2",
+                "pagingInput": {
+                    "title": "Economic Sector",
+                    "sectionTitle": "Paging",
+                    "querystring": {
+                        "name": "searchEconomicSector"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "economicSectorCodeSearchId",
+                            "type": "textbox",
+                            "label": "Economic Sector Code",
+                            "name": "ECONOMIC_SECTOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "regRptCodeSearchId",
+                            "type": "textbox",
+                            "label": "BI Code",
+                            "name": "REG_RPT_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true
+                        },
+                        {
+                            "id": "economicSectorNameSearchId",
+                            "type": "textbox",
+                            "label": "Economic Sector Name",
+                            "name": "ECONOMIC_SECTOR_NAME",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "isActiveSearchId",
+                            "type": "dropdown",
+                            "label": "Active Status",
+                            "name": "IS_ACTIVE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Economic Sector Code",
+                            "position": "center",
+                            "name": "ECONOMIC_SECTOR_CODE",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Economic Sector Name",
+                            "position": "center",
+                            "name": "ECONOMIC_SECTOR_NAME",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "BI Code",
+                            "position": "center",
+                            "name": "REG_RPT_CODE",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Active Status",
+                            "position": "center",
+                            "name": "IS_ACTIVE"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "EconomicSectorCode",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "EconomicSectorName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "RegRptCode",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsActive",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "RefEconomicSectorId",
+                                            "property": "RefEconomicSectorId"
+                                        },
+                                        {
+                                            "type": "mode",
+                                            "property": "edit"
+                                        }
+                                    ],
+                                    "path": "/CommonSetting/SelfCustom/EconomicSector/DetailX",
+                                    "icon": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1
+            },
+            "id": "e5fae7dc-01b6-4aa4-8c7e-5d2146c31f47"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [
+        {
+            "displayName": "Add",
+            "id": "addId",
+            "key": "",
+            "position": "top",
+            "icon": "",
+            "cssClass": "",
+            "conditions": [],
+            "btnType": "button",
+            "action": {
+                "path": "/CommonSetting/SelfCustom/EconomicSector/DetailX",
+                "type": "link",
+                "params": [
+                    {
+                        "propName": "RefEconomicSectorId",
+                        "propValue": "0"
+                    },
+                    {
+                        "propName": "mode",
+                        "propValue": "add"
+                    }
+                ],
+                "target": "_self"
+            }
+        }
+    ],
+    "customToastrMsg": "",
+    "onCancel": {},
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onSubmit": [],
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

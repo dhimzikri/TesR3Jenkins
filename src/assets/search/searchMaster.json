@@ -1,0 +1,187 @@
+{
+  "title": "Master",
+  "exportExcel": false,
+  "component": [
+    {
+      "type": "dropdown",
+      "name": "ref_Master_Type_Code",
+      "id": "refMasterTypeCodeId",
+      "value": "",
+      "placeholder": "Placeholder",
+      "datatype": "text",
+      "isFromURL": true,
+      "ddlType": "one",
+      "url": "",
+      "path": "/RefMasterType/GetListKeyValueActiveByCode",
+      "label": "Master Type",
+      "items": [],
+      "itemsUrl": [],
+      "environment": "FOU"
+    },
+    {
+      "type": "textbox",
+      "name": "master_Code",
+      "id": "MasterCodeId",
+      "value": "",
+      "label": "Master Code",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "textbox",
+      "name": "Descr",
+      "id": "DescrId",
+      "value": "",
+      "label": "Description",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "dropdown",
+      "name": "is_Active",
+      "datatype": "text",
+      "id": "IsActiveId",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "url": "",
+      "label": "Active Status",
+      "items": [
+        {
+          "key": "1",
+          "value": "Yes"
+        },
+        {
+          "key": "0",
+          "value": "No"
+        }
+      ],
+      "itemsUrl": []
+    },
+    {
+      "type": "dropdown",
+      "name": "is_System",
+      "datatype": "text",
+      "id": "IsSystemId",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "url": "",
+      "label": "System",
+      "items": [
+        {
+          "key": "1",
+          "value": "Yes"
+        },
+        {
+          "key": "0",
+          "value": "No"
+        }
+      ],
+      "itemsUrl": []
+    }
+  ],
+  "querystring": {
+    "name": "searchMaster"
+  },
+  "headerList": [
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Master Code",
+      "name": "MASTER_CODE"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Description",
+      "name": "DESCR"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Sequence No",
+      "name": "SEQ_NO"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "Active",
+      "name": "IS_ACTIVE"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "System",
+      "name": "IS_SYSTEM"
+    },
+    {
+      "type": "label",
+      "position": "center",
+      "label": "Action"
+    }
+  ],
+  "bodyList": [
+    {
+      "type": "text",
+      "position": "left",
+      "property": "MasterCode"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "Descr"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "SeqNo"
+    },
+    {
+      "type": "boolean",
+      "position": "center",
+      "property": "IsActive"
+    },
+    {
+      "type": "boolean",
+      "position": "center",
+      "property": "IsSystem"
+    },
+    {
+      "type": "action",
+      "position": "center",
+      "action": [
+        {
+          "type": "switch",
+          "case": [
+            {
+              "conditions": [
+                {
+                  "property": "IsSystem",
+                  "value": "0",
+                  "restriction": "EQ"
+                }
+              ],
+              "result": {
+                "type": "url",
+                "path": "/CommonSetting/Master/Detail",
+                "param": [
+                  {
+                    "type": "RefMasterId",
+                    "property": "RefMasterId"
+                  },
+                  {
+                    "type": "mode",
+                    "property": "edit"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

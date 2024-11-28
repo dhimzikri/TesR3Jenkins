@@ -1,0 +1,158 @@
+{
+    "title": "Vendor Scheme",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "VS.VENDOR_SCHM_CODE",
+            "id": "VendorSchemeCodeId",
+            "value": "",
+            "label": "Scheme Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "VS.VENDOR_SCHM_NAME",
+            "id": "VendorSchemeNameId",
+            "value": "",
+            "label": "Scheme Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "VS.IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchVendorScheme"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Scheme Code",
+            "name": "VS.VENDOR_SCHM_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Scheme Name",
+            "name": "VS.VENDOR_SCHM_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "VS.IS_ACTIVE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "# of Member",
+            "name": "COUNT(VSM.VENDOR_SCHM_MBR_ID)"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Member"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VendorSchmCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VendorSchmName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "NumOfMbr"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VENDOR_SCHM_MBR",
+                    "param": [
+                        {
+                            "type": "VendorSchmId",
+                            "property": "VendorSchmId"
+                        },
+                        {
+                            "type": "MrVendorCategoryCode",
+                            "property": "MrVendorCategoryCode"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type" : "switch", 
+                    "case" : [ 
+                      {
+                        "conditions" : [ 
+                          {
+                            "property" : "VendorSchmCode", 
+                            "value" : "ALL",
+                            "restriction": "NEQ"
+                          }
+                        ],
+                        "result" : 
+                        {
+                          "type": "url",
+                          "path": "VENDOR_SCHM_DETAIL",
+                          "param": [
+                            {
+                              "type": "VendorSchmId",
+                              "property": "VendorSchmId"
+                            },
+                            {
+                              "type": "mode",
+                              "property": "edit"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                }
+            ]
+        }
+    ]
+}

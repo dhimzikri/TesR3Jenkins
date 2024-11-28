@@ -1,0 +1,66 @@
+{
+  "title": "Survey Task View",
+  "subsection": [
+    {
+      "subSectionId": "SurveyTaskId",
+      "subSectionTitle": "Main Info",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Survey Task No",
+          "property": "SrvyTaskNo"
+        },
+        {
+          "type": "text",
+          "label": "Surveyor",
+          "property": "SurveyorName"
+        },
+        {
+          "type": "text",
+          "label": "Reference No",
+          "property": "ReferenceNo"
+        },
+        {
+          "type": "text",
+          "label": "Reviewer",
+          "property": "ReviewedBy"
+        },
+        {
+          "type": "text",
+          "label": "Survey Initial",
+          "property": "SurveyInitial"
+        },
+        {
+          "type": "date",
+          "label": "Assignment Date",
+          "property": "AssignDate"
+        },
+        {
+          "type": "text",
+          "label": "Survey Type",
+          "property": "SrvyTypeCode"
+        },
+        {
+          "type": "date",
+          "label": "Result Date",
+          "property": "ResultDate"
+        },
+        {
+          "type": "text",
+          "label": "Status",
+          "property": "Status"
+        },
+        {
+          "type": "date",
+          "label": "Review Date",
+          "property": "ReviewDate"
+        }
+        
+      ],
+      "querystring": {
+        "name": "viewSurveyTask"
+      }
+    }
+  ]
+}

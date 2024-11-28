@@ -1,0 +1,35 @@
+{
+    "title": "Vendor Scheme Member",
+    "subsection": [
+      {
+        "subSectionId": "VendorSchemeGroupInfoId",
+        "subSectionTitle": "Vendor Scheme Group Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Vendor Category",
+            "property": "VendorCategory"
+          },
+          {
+            "type": "boolean",
+            "label": "Active Status",
+            "property": "IsActive"
+          },
+          {
+            "type": "text",
+            "label": "Scheme Code",
+            "property": "VendorSchmCode"
+          },
+          {
+            "type": "text",
+            "label": "Scheme Name",
+            "property": "VendorSchmName"
+          }
+        ],
+        "querystring": {
+            "name": "viewVendorSchemeMember"
+        }
+      }
+    ]
+  }

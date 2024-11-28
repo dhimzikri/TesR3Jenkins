@@ -1,0 +1,208 @@
+{
+    "title": "",
+    "hideTitle": true,
+    "id": "LoanContractNegativeCovenant",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "formarray": {
+                "title": "Negative Covenant",
+                "isSubsection": true,
+                "isModeAdd": false,
+                "formGroupName": "ListNegativeCov",
+                "canAdd": false,
+                "isFromApi": true,
+                "resultData": "",
+                "customObjName": "ReturnObject",
+                "formInput": {
+                    "headerList": [
+                        {
+                            "Label": "Negative Covenant Name",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "N1",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "N2",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "RefCovCode",
+                            "IsHide": true
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "Type": "LABEL",
+                            "Label": "Negative Covenant Name",
+                            "Variable": "RefCovName",
+                            "LabelType": "TEXT",
+                            "Position": "text-left"
+                        },
+                        {
+                            "Type": "NUMERIC",
+                            "Label": "N1",
+                            "Variable": "N1",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "1",
+                            "Max": "100"
+                        },
+                        {
+                            "Type": "NUMERIC",
+                            "Label": "N2",
+                            "Variable": "N2",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "1",
+                            "Max": "100"
+                        },
+                        {
+                            "Type": "TEXT",
+                            "Label": "RefCovCode",
+                            "Variable": "RefCovCode",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "addBodyList": [],
+                    "footerList": []
+                },
+                "getData": {
+                    "environment": "facilityMntUrl",
+                    "apiPath": "/v1/LoanContract/GetListNegativeCovenantByLoanContractNo",
+                    "reqObj": {
+                        "Code": "LoanContractNo"
+                    }
+                }
+            },
+            "id": "66129d1a-1256-44a1-980d-39392c40a5de"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "LoanContractNegCov",
+                    "isVertical": true,
+                    "isSubsection": false,
+                    "isModeAdd": true,
+                    "formInput": [],
+                    "onLoad": [],
+                    "criteria": [
+                        {
+                            "propName": "LoanContractNo",
+                            "propValue": "LoanContractNo",
+                            "isFromDict": true,
+                            "setOnEdit": false
+                        }
+                    ],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "6122babf-177a-42c7-8bd3-073ea011c1b9"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/LoanContract/AddRangeLoanContractNegativeCov",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/LoanContractObj/GetObjectByUniqueNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "TrxNo",
+                    "propValue": "LoanContractNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "LoanContractNo",
+                    "propValue": "LoanContractNo"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "type": "http",
+                "environment": "facilityMntUrl",
+                "path": "/v1/LoanContract/AddRangeLoanContractNegativeCov",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "reqObj": [
+                    {
+                        "propName": "ListNegativeCov",
+                        "propValue": "form.ListNegativeCov"
+                    },
+                    {
+                        "propName": "LoanContractNo",
+                        "propValue": "form.LoanContractNo"
+                    }
+                ],
+                "excObj": [],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success"
+                        }
+                    }
+                ],
+                "mapResToDict": []
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

@@ -1,0 +1,231 @@
+{
+    "title": "Drawdown Agreement Paging",
+    "id": "DrawdownagrmntpagingXCNAF",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "facilityExecUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "Paging Search",
+                    "querystring": {
+                        "name": "searchBatchDrawdown"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "V.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "JC.JF_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "jcjfContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract Name",
+                            "name": "JC.JF_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "VendorCode",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "JB.JF_BATCH_NO"
+                            ],
+                            "filterPropName": "JfContractNo"
+                        },
+                        {
+                            "id": "jbjfBatchNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "JB.JF_BATCH_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListKvpJfBatchByJfContractNoAndStat",
+                            "criteriaPropName": "JfBatchStat",
+                            "criteriaPropValue": "RTD",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "V.VENDOR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "JC.JF_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract No",
+                            "position": "left",
+                            "name": "JC.JF_CONTRACT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "left",
+                            "name": "JB.JF_BATCH_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Plan Date",
+                            "position": "left",
+                            "name": "JB.DRAWDOWN_PLAN_DT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Plan Amount",
+                            "position": "left",
+                            "name": "JB.DRAWDOWN_PLAN_AMT"
+                        },
+                        {
+                            "type": "label",
+                            "label": "action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "VendorName",
+                            "key": "ViewVendor"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "JfContractName"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "JfContractNo",
+                            "key": "ViewFundingContract"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "JfBatchNo",
+                            "key": "ViewFundingBatch"
+                        },
+                        {
+                            "type": "date",
+                            "position": "left",
+                            "property": "DrawdownPlanDt"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "left",
+                            "property": "DrawdownPlanAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "batchNo",
+                                            "property": "JfBatchNo"
+                                        },
+                                        {
+                                            "type": "mode",
+                                            "property": "edit"
+                                        }
+                                    ],
+                                    "path": "/Drawdown/DetailX",
+                                    "icon": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "sectionTitle": ""
+                },
+                "criteria": [
+                    {
+                        "isFromDict": false,
+                        "propName": "JB.JF_BATCH_STAT",
+                        "restriction": "Eq",
+                        "value": "RTD"
+                    }
+                ],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1
+            },
+            "id": "86be8234-8579-43e4-ba3b-dc3724e18289"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": true,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

@@ -1,0 +1,67 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header header-title">
+            <div class="row">
+              <div class="col-md-8">
+                <h4 class="form-section card-title" translate>Feature</h4>
+              </div>
+            </div>
+          </div>
+        <div class="px-3">
+            <form class="form form-horizontal" [formGroup]="" #enjiForm="ngForm" (ngSubmit)="SaveForm()">
+                <div>
+                  <lib-ucSubsection [id]="'RoleId'" [title]="'Form Information'" [panel]="'RolePanel'"></lib-ucSubsection>
+                  <div class="form-group row">
+                      <label class="col-md-3" translate>Role Code </label>
+                      <div class="col-md-9" *ngIf="this.pageType == 'edit'">
+                        <label>{{username}} CODE123</label>              
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-md-3" translate>Role Name </label>
+                      <div class="col-md-9" *ngIf="this.pageType == 'edit'">
+                        <label>{{username}} ROLE_FOR_TEST</label>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-md-3" translate>Form Code </label>
+                      <div class="col-md-9" *ngIf="this.pageType == 'edit'">
+                        <label>{{username}} FRM123</label>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-md-3" translate>Title </label>
+                      <div class="col-md-9" *ngIf="this.pageType == 'edit'">
+                        <label>{{username}} TEST</label>
+                      </div>
+                  </div>
+                </div>                  
+
+                <div>
+                  <lib-ucSubsection [id]="'FeatureListId'" [title]="'Feature List'" [panel]="'FeaturePanel'"></lib-ucSubsection>
+                  <div class="col-md-6">
+                    <input type="checkbox" formControlName="">
+                    <label class="col-md-3" translate>Add </label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="checkbox" formControlName="">
+                    <label class="col-md-3" translate>Edit </label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="checkbox" formControlName="">
+                    <label class="col-md-3" translate>Delete </label>
+                  </div>
+                </div>
+
+                <div class="form-actions right">
+                    <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" [queryParams]="{RefRoleId}">
+                      <i class="ft-arrow-left"></i>&nbsp;<span translate>Cancel</span>
+                    </button>
+                    <button type="submit" class="btn btn-raised btn-primary" [routerLink]="[CancelLink]" [queryParams]="{RefRoleId}">
+                      <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+                    </button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>

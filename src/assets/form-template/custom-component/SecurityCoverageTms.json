@@ -1,0 +1,103 @@
+{
+    "id": "SecurityCoverageTms",
+    "name": "Security Coverage TMS",
+    "saveState": false,
+    "customComponent": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "SecurityCoverageId",
+                    "subSectionTitle": "Security Coverage",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanBatchListofAgreement"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Security Percentage",
+                            "property": "SecurityPercentage",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Security Percentage of",
+                            "property": "SecurityPercentageOf",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Security Scheme",
+                            "property": "SecurityScheme",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Total Agreement",
+                            "property": "TotalAgreement",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Security Amount",
+                            "property": "TotalSecurityAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Pledge Amount",
+                            "property": "TotalPledgeAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Remaining Amount",
+                            "property": "RemainingAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "LoanBatchNo"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "50523b77-cb1b-440e-99c1-03331b26b98d"
+        }
+    ]
+}

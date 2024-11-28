@@ -1,0 +1,112 @@
+<div class="card">
+  <div class="card-body">
+    <div class="px-3">
+      <app-customer-view-coy-financial-section></app-customer-view-coy-financial-section>
+      <div *ngIf="IsAttrExist">
+        <lib-ucSubsection [id]="'FinAttrInfo'" [title]="'Financial Attribute Information'" [panel]="'FinAttrInfoId'">
+        </lib-ucSubsection>
+        <div id="FinAttrInfoId" class="form-body">
+          <div class="form-group row" *ngFor="let item of responseCustAttr">
+            <label class="col-md-4 adInsLabel" translate>{{item.AttrName}}</label>
+            <label class="col-md-4 adInsLabel" *ngIf="item.AttrInputType !== 'N' && item.AttrInputType !== 'P'">
+              {{item.AttrValue}}
+            </label>
+            <label class="col-md-4 adInsLabel" *ngIf="item.AttrInputType === 'N'">
+              {{item.AttrValue | number:'.2':'en-US'}}
+            </label>
+            <label class="col-md-4 adInsLabel" *ngIf="item.AttrInputType === 'P'">
+              {{item.AttrValue | number:'.6':'en-US'}}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <lib-ucSubsection [id]="'BankId'" [title]="'Customer / Debitur Bank Account'" [panel]="'CustBankAccId'">
+      </lib-ucSubsection>
+      <div id="CustBankAccId">
+        <div style="overflow-x: auto;">
+          <br>
+          <table class="table table-responsive-md text-center table-hover">
+            <thead>
+              <tr class="table-header">
+                <th class="text-left"><span class="thead-header" name='bankName' translate>BANK NAME</span> </th>
+                <th class="text-left"><span class="thead-header" name='bankBranch' translate>BANK BRANCH</span> </th>
+                <th class="text-left"><span class="thead-header" name='bankBranchCode' translate>BANK BRANCH BI CODE</span> </th>
+                <th class="text-left"><span class="thead-header" name='accName' translate>ACCOUNT NAME</span> </th>
+                <th class="text-left"><span class="thead-header" name='accNo' translate>ACCOUNT NO</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let item of responseCBAObj">
+                <tr>
+                  <td class="text-left">{{item.BankName}}</td>
+                  <td class="text-left">{{item.BankBranch}}</td>
+                  <td class="text-left">{{item.BankBranchRegRptCode}}</td>
+                  <td class="text-left">{{item.BankAccName}}</td>
+                  <td class="text-left">{{item.BankAccNo}}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+        <br>
+
+        <div *ngFor="let item of responseCBAObj" style="overflow-x: auto;">
+          <br>
+          <table class="table table-responsive-md text-center table-hover" *ngIf="item.BankStmntList.length > 0">
+            <thead>
+              <tr class="table-header">
+                <th class="text-left"><span class="thead-header" name='fullAssetCode' translate>BANK NAME</span> </th>
+                <th class="text-left"><span class="thead-header" name='fullAssetBranchName' translate>BANK BRANCH</span> </th>
+                <th class="text-left"><span class="thead-header" name='fullAssetName' translate>ACCOUNT NAME</span>
+                </th>
+                <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>ACCOUNT NO</span>
+                </th>
+                <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>MONTH</span> </th>
+                <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>YEAR</span> </th>
+                <th class="text-center"><span class="thead-header" name='debitTrxCount' translate>DEBIT TRANSACTION COUNT</span>
+                </th>
+                <th class="text-right"><span class="thead-header" name='assetCategoryName' translate>DEBIT (-)</span>
+                </th>
+                <th class="text-center"><span class="thead-header" name='creditTrxCount' translate>CREDIT TRANSACTION COUNT</span>
+                </th>
+                <th class="text-right"><span class="thead-header" name='assetCategoryName' translate>CREDIT (+)</span>
+                </th>
+                <th class="text-right"><span class="thead-header" name='assetCategoryName' translate>BALANCE</span> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;"></td>
+                <td style="text-align: left;"></td>
+                <td style="text-align: left;"></td>
+                <td style="text-align: center;">Beginning Balance</td>
+                <td style="text-align: left;"></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: left;"></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: left;"></td>
+                <td style="text-align: right;">{{item.BegBalanceAmt | number:'.2':'en-US'}}</td>
+              </tr>
+              <ng-container *ngFor="let temp of item.BankStmntList">
+                <tr>
+                  <td class="text-left">{{item.BankName}}</td>
+                  <td class="text-left">{{item.BankBranch}}</td>
+                  <td class="text-left">{{item.BankAccName}}</td>
+                  <td class="text-left">{{item.BankAccNo}}</td>
+                  <td class="text-left">{{temp.Month}}</td>
+                  <td class="text-left">{{temp.Year}}</td>
+                  <td class="text-center">{{temp.DebitTrxCount}}</td>
+                  <td class="text-left">{{temp.DebitAmt | number:'.2':'en-US'}}</td>
+                  <td class="text-center">{{temp.CreditTrxCount}}</td>
+                  <td class="text-left">{{temp.CreditAmt | number:'.2':'en-US'}}</td>
+                  <td class="text-left">{{temp.BalanceAmt | number:'.2':'en-US'}}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

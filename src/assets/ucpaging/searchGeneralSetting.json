@@ -1,0 +1,135 @@
+{
+  "title": "General Setting",
+  "exportExcel": false,
+  "component": [
+    {
+      "type": "textbox",
+      "name": "GS_CODE",
+      "id": "gsCodeId",
+      "value": "",
+      "label": "General Setting Code",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "textbox",
+      "name": "GS_NAME",
+      "id": "gsNameId",
+      "value": "",
+      "label": "General Setting Name",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "textbox",
+      "name": "GS_VALUE",
+      "id": "gsValueId",
+      "value": "",
+      "label": "General Setting Value",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "dropdown",
+      "datatype": "text",
+      "name": "MODULE_CODE",
+      "id": "moduleCodeId",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": true,
+      "ddlType": "one",
+      "url": "",
+      "path": "/RefModule/GetListKeyValueByCode",
+      "label": "Module Code",
+      "items": [],
+      "itemsUrl": [],
+      "environment": "FOU"
+    }
+  ],
+  "headerList": [
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "General Setting Code",
+      "name": "gsCode"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "General Setting Name",
+      "name": "gsName"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "General Setting Description",
+      "name": "gsDescr"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "General Setting Value",
+      "name": "gsValue"
+    },
+    {
+      "type": "label",
+      "position": "center",
+      "label": "Action"
+    }
+  ],
+  "querystring": {
+    "name": "searchGeneralSetting"
+  },
+  "bodyList": [
+    {
+      "type": "text",
+      "position": "left",
+      "property": "gsCode"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "gsName"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "gsDescr"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "gsValue"
+    },
+    {
+      "type": "action",
+      "position": "center",
+      "action": [
+        {
+          "type": "switch",
+          "case": [
+            {
+              "conditions": [
+                {
+                  "property": "isUpdatable",
+                  "value": "1",
+                  "restriction": "EQ"
+                }
+              ],
+              "result": {
+                "type": "url",
+                "path": "CS_GEN_SETTING_DETAIL",
+                "param": [
+                  {
+                    "type": "generalSettingId",
+                    "property": "generalSettingId"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

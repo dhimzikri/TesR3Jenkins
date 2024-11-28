@@ -1,0 +1,93 @@
+{
+  "title": "SUPPLIER HO INFO VIEW",
+  "subsection": [
+    {
+      "subSectionId": "title",
+      "subSectionTitle": "Main Information",
+      "mainInfoUrl": "http://r3app-server/prototypes/vendor/Vendor/GetVendorAndVendorAddrByVendorIdAndAddressType",
+      "mainInfo": [
+        {
+          "type": "link",
+          "label": "Surveyor HO Code",
+          "property": "vendorCode",
+          "position": "right",
+          "path": "/test/Paging-v2",
+          "param": [
+            {
+              "property": "vendorId"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "label": "Surveyor HO Name",
+          "property": "vendorName",
+          "position": "left"
+        },
+        {
+          "type": "text",
+          "label": "Tax Number",
+          "property": "taxpayerNo",
+          "position": "center"
+        },
+        {
+          "type": "textarea",
+          "label": "Surveyor HO Type",
+          "property": "mrVendorType"
+        },
+        {
+          "type": "currency",
+          "label": "ID No",
+          "property": "idNo"
+        },
+        {
+          "type": "date",
+          "label": "Establishment Date",
+          "property": "establishmentDt"
+        },
+        {
+          "type": "boolean",
+          "label": "is Active",
+          "property": "isActive"
+        }
+      ]
+    },
+    {
+      "subSectionId": "test",
+      "subSectionTitle": "Bank Info",
+      "mainInfoUrl": "http://r3app.ad-ins.com/foundation/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Bank Code",
+          "property": "assetTypeCode"
+        },
+        {
+          "type": "text",
+          "label": "Bank Name",
+          "property": "assetTypeName"
+        },
+        {
+          "type": "text",
+          "label": "BI Code",
+          "property": "assetHierarchyLevel"
+        },
+        {
+          "type": "link",
+          "label": "Surveyor HO Code",
+          "property": "isMndtrySerialNo2",
+          "position": "right",
+          "path": "/test/Paging-v2",
+          "param": [
+            {
+              "property": "isMndtrySerialNo2"
+            }
+          ]
+        }
+      ],
+      "querystring": {
+        "name": "dummyView"
+      }
+    }
+  ]
+}

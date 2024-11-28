@@ -1,0 +1,79 @@
+<section id="horizontal-form-layouts">
+  <div class="row text-left">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="px-3">
+            <form class="form form-horizontal" name="UserRoleForm" #UserRoleForm="ngForm">
+              <div class="form-body">
+                <h4 class="form-section card-title" translate><i class="ft-file-text"></i>Role Listing</h4>
+
+                <div class="form-group row">
+                  <label class="col-md-3  adInsLabel">Username</label>
+                  <div class="col-md-9">
+                    <label>{{refUserObj.Username}}</label></div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3  adInsLabel">Employee No</label>
+                  <div class="col-md-9">
+                    <label>{{refEmpObj.EmpNo}}</label></div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3  adInsLabel">Employee Name</label>
+                  <div class="col-md-9">
+                    <label>{{refEmpObj.EmpName}}</label></div>
+                </div>
+
+                <div style="overflow-x: auto;">
+                  <table class="table table-responsive-md text-center table-hover">
+                    <thead>
+                      <tr class="table-header">
+                        <th class="text-left pointer"><span class="thead-header" name='officeCode'>Office Code</span></th>
+                        <th class="text-left pointer"><span class="thead-header" name='officeName'>Office Name</span></th>
+                        <th class="text-left pointer"><span class="thead-header" name='busUnitName'>Business Unit Name</span></th>
+                        <th class="text-left pointer"><span class="thead-header" name='jobTitleName'>Job Title Name</span>
+                        </th>
+                        <th><span class="thead-header" name='roleName'>Role Name</span>
+                        </th>
+                        <th><span class="thead-header" name='isActive'>Active</span>
+                        </th>
+                        <!-- <th>Roles</th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of resultData">
+                        <td>{{item.officeCode}}</td>
+                        <td class="text-left">{{item.officeName}}</td>
+                        <td class="text-left">{{item.bizUnitName}}</td>
+                        <td class="text-left">{{item.jobTitleName}}</td>
+                        <td>{{item.roleName}}</td>
+                        <td>
+                          <span *ngIf="item.isActive == '1'">Yes</span>
+                          <span *ngIf="item.isActive == '0'">No</span>
+                        </td>
+                        <!-- <td>
+                          <a class="success p-0" data-original-title="" title=""
+                            [routerLink]="['/systemSetting/userRole/Detail']"
+                            [queryParams]="{officeCode:item.officeCode, officeName:item.officeName, bizUnitName:item.bizUnitName, jobTitleName:item.jobTitleName, userName:refUserObj.username, empPositionId: item.empPositionId}">
+                            <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                          </a>
+                        </td> -->
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+              <div class="form-actions">
+                <button type="button" (click)="Back()" class="btn btn-raised btn-warning mr-1">
+                  <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

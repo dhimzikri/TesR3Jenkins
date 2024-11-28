@@ -1,0 +1,45 @@
+{
+    "title": "",
+    "subsection": [
+        {
+            "subSectionId": "CollCompanyInfoId",
+            "subSectionTitle": "Main Info",
+            "mainInfoPath": "/Generic/GetDataViewBySQL",
+            "mainInfo": [
+                {
+                    "type": "text",
+                    "label": "Vendor Category :",
+                    "property": "VendorCategory"
+                },
+                {
+                    "type": "boolean",
+                    "label": "Active Status :",
+                    "property": "ActiveStatus"
+                },
+                {
+                    "type": "text",
+                    "label": "Collection Company Code :",
+                    "property": "BranchCode"
+                },
+                {
+                    "type": "text",
+                    "label": "Tax Number :",
+                    "property": "TaxNumber"
+                },
+                {
+                    "type": "text",
+                    "label": "Collection Company Name :",
+                    "property": "BranchName"
+                },
+                {
+                    "type": "text",
+                    "label": "Collection Company Type :",
+                    "property": "BranchType"
+                }
+            ],
+            "querystring": {
+                "name": "viewVendorCollCompany"
+            }
+        }
+    ]
+}

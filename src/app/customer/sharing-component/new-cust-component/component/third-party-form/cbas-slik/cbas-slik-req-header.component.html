@@ -1,0 +1,66 @@
+<div class="bg-light-blue-card">
+  <div class="modal-header">
+    <h4 class="modal-title" translate>Request CBAS SLIK Checking</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')" translate>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+  <form class="form form-horizontal" [formGroup]="CbasSlikReqForm" (ngSubmit)="CbasSlikReqForm.valid && Submit()" #enjiForm="ngForm">
+  <div class="modal-body">
+    <div class="text-center mb-3"><label>Are you sure want to get customer information from CBAS SLIK with following data ?</label></div>
+    <table style="margin-left:auto;margin-right:auto" cellpadding="4">
+      <tbody>
+        <tr><td translate>Customer Name</td><td> : </td><td>{{ReqObj.Name}}</td></tr>
+        <tr><td translate>NPWP</td><td> : </td><td>{{ReqObj.Npwp}}</td></tr>
+  
+        <ng-container *ngIf="MrCustTypeCode == 'PERSONAL'">
+          <tr><td translate>KTP No</td><td> : </td><td>{{ReqObj.KtpNo}}</td></tr>
+          <tr><td translate>Birth Place</td><td> : </td><td>{{ReqObj.BirthPlace}}</td></tr>
+          <tr><td translate>Birth Date</td><td> : </td><td>{{ReqObj.BirthDate}}</td></tr>
+          <tr><td translate>Gender</td><td> : </td><td>{{ParentForm.get('MrGenderCode').value}}</td></tr>
+          <tr><td translate>Mother Name</td><td> : </td><td>{{ReqObj.MotherName}}</td></tr>
+          <tr><td translate>Address</td><td> : </td><td>{{ReqObj.Address}}</td></tr>
+  
+        </ng-container>
+  
+        <ng-container *ngIf="MrCustTypeCode == 'COMPANY'">
+          <tr><td translate>Address</td><td> : </td><td>{{ReqObj.Address}}</td></tr>
+          <tr>
+            <td><label class="adins-required-label" translate>Akta No</label></td><td> : </td>
+            <td>
+              <input type="text" class="form-control adInsInput" formControlName="AktaNo" [ngClass]="{ 'is-invalid': enjiForm.submitted && CbasSlikReqForm.controls.AktaNo.invalid }" />
+              <lib-uc-show-errors [control]="CbasSlikReqForm.controls.AktaNo" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </td>
+          </tr>
+          <tr>
+            <td><label class="adins-required-label" translate>Estabislhment Date</label></td><td> : </td>
+            <td>
+              <input type="date" class="form-control adInsInput" formControlName="BirthDate" [ngClass]="{ 'is-invalid': enjiForm.submitted && CbasSlikReqForm.controls.BirthDate.invalid }" />
+              <lib-uc-show-errors [control]="CbasSlikReqForm.controls.BirthDate" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </td>
+          </tr>
+        </ng-container>
+  
+        <tr><td><label class="adins-required-label" translate>Purpose</label></td><td> : </td><td>
+          <lib-ucdropdownlist [dropdownListObj]="DdlCbasSlikPurposeObj" [parentForm]="CbasSlikReqForm" [enjiForm]="enjiForm" [identifier]="'PurposeCode'">
+          </lib-ucdropdownlist>
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="modal-footer">
+    <div class="button-right">
+      <span class="mr-1">
+        <button type="button" class="btn btn-outline-2 btn-raised mr-1" (click)="activeModal.dismiss('Cross click')">
+            <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+        </button>
+        <button type="submit" class="btn btn-primary-2 btn-raised mr-1">
+          <i class="far fa-check-square"></i>&nbsp;<span translate>Yes</span>
+        </button>
+      </span>
+    </div>
+  </div>
+  </form>
+</div>

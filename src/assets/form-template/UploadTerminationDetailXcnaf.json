@@ -1,0 +1,52 @@
+{
+    "title": "Upload Termination Detail",
+    "hideTitle": false,
+    "id": "UploadTerminationDetailXcnaf",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "container": {
+                "key": "UploadTerminationContainer",
+                "className": "UploadTerminationContainerXComponent",
+                "cssClass": "",
+                "input": {}
+            },
+            "id": "5377cc0e-c81e-4a69-89da-fbcf79cfca89"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "hideCancelButton": true,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

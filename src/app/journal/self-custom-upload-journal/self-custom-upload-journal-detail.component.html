@@ -1,0 +1,218 @@
+<div class="row text-left">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-head">
+                <div class="card-header header-title">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4 class="card-title" id="horz-layout-colored-controls" translate>JOURNAL - EXCEL FILES
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="px-3">
+                <form class="form form-horizontal" [formGroup]="UploadJournalFileForm"
+                    (ngSubmit)="UploadJournalFileForm.valid && uploadFiles()" #enjiForm="ngForm">
+                    <lib-ucSubsection [id]="'UploadJournalId'" [title]="'Upload Journal Files'"
+                        [panel]="'UploadJournal'">
+                    </lib-ucSubsection>
+                    <div id='UploadJournal' class="form-body">
+                        <div class="form-group row">
+                            <label class="col-md-3 adInsLabel" translate>File Code</label>
+                            <div class="col-md-9">
+                                <label class="adInsLabel" translate>{{this.FileCode}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3">Select File</label>
+                            <div class="col-md-6">
+                                <label for="sel{{id}}" class="btn btn-primary btn-sm afu-select-btn"
+                                    style="color: #fff !important;"
+                                    *ngIf="!hideSelectBtn">{{replaceTexts?.selectFileBtn}}</label>
+                                <input type="file" id="sel{{id}}" style="display: none" *ngIf="!hideSelectBtn"
+                                    (change)="onChange($event)" title="Select file" name="files[]"
+                                    [accept]=formatsAllowed [attr.multiple]="multiple ? '' : null" />
+                                &nbsp;
+                                &nbsp;
+                                <label *ngIf="!hideSize"
+                                    class="constraints-info afu-constraints-info">({{formatsAllowed}}) Size
+                                    limit-
+                                    {{(convertSize(maxSize *1024000))}}</label>
+                                <br *ngIf="!hideSelectBtn">
+                                <!--Selected file list-->
+                                <div style="padding-left: 15px" class="row afu-valid-file"
+                                    *ngFor="let sf of selectedFiles;let i=index">
+                                    <p class="col-xs-3 textOverflow"><span class="text-primary">{{sf.name}}</span></p>
+                                    <p class="col-xs-3 padMarg sizeC">
+                                        <strong>({{convertSize(sf.size)}})</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                    <!--  <input class="col-xs-3 progress caption" type="text"  placeholder="Caption.."  [(ngModel)]="Caption[i]"  *ngIf="uploadClick"/> -->
+                                    <div class="progress col-xs-3 padMarg afu-progress-bar"
+                                        *ngIf="singleFile && progressBarShow && !hideProgressBar">
+                                        <span class="progress-bar progress-bar-success" role="progressbar"
+                                            [ngStyle]="{'width':percentComplete+'%'}">{{percentComplete}}%</span>
+                                    </div>
+                                    <a class="col-xs-1" role="button" (click)="removeFile(i,'sf')"
+                                        *ngIf="uploadClick"><em class="fa fa-times"></em></a>
+                                </div>
+                                <!--Invalid file list-->
+                                <div style="padding-left: 15px" class="row text-danger afu-invalid-file"
+                                    *ngFor="let na of notAllowedList;let j=index">
+                                    <p class="col-xs-3 textOverflow"><span>{{na['fileName']}}</span></p>
+                                    <p class="col-xs-3 padMarg sizeC"><strong>({{na['fileSize']}})</strong></p>
+                                    <p class="col-xs-3 ">{{na['errorMsg']}}</p>
+                                    <a class="col-xs-1 delFileIcon" role="button" (click)="removeFile(j,'na')"
+                                        *ngIf="uploadClick">&nbsp;<em class="fa fa-times"></em></a>
+                                </div>
+                            </div>
+
+
+                            <p *ngIf="uploadMsg" class="{{uploadMsgClass}} + afu-upload-status">{{uploadMsgText}}
+                            <p>
+                            <div *ngIf="!singleFile && progressBarShow && !hideProgressBar">
+                                <div class="progress col-xs-4 padMarg afu-progress-bar">
+                                    <span class="progress-bar progress-bar-success" role="progressbar"
+                                        [ngStyle]="{'width':percentComplete+'%'}">{{percentComplete}}%</span>
+                                </div>
+                            </div>
+                            <button *ngIf="isDownloadTmplt == undefined || isDownloadTmplt"
+                                class="btn btn-info btn-sm resetBtn afu-reset-btn" (click)="downloadTemplate()">Download
+                                Template</button>
+                            &nbsp;
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 adInsLabel" translate>Effect Immediately</label>
+                            <div class="col-md-9">
+                                <input type="checkbox" formControlName="IsImmediately"
+                                    (change)="isEffectImmediately($event.target.checked)" id="IsImmediately">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3  adins-required-label" translate>Start Date</label>
+                            <div class="col-md-9">
+                                <input type="date" id="Date" class="form-control adInsInput width-25-per"
+                                    formControlName="Date" [min]="this.businessDt">
+                                <lib-uc-show-errors [control]="UploadJournalFileForm.controls.Date"
+                                    [submit]="enjiForm.submitted">
+                                </lib-uc-show-errors>
+                            </div>
+                        </div>
+
+                        <div class="form-actions button-right">
+                            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]"
+                                [disabled]=!cancelBtn translate>
+                                <em class="fa fa-arrow-circle-left"></em> Cancel
+                            </button>
+                            <button class="btn btn-raised btn-primary" type="submit" (click)="uploadFiles()"
+                                [disabled]=!uploadBtn>{{replaceTexts?.uploadBtn}}</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row text-left" *ngIf="isUpload">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <br>
+                                    <div class="px-3">
+                                        <div *ngIf="ListSuccessResultInfo.length > 0">
+                                            <lib-ucSubsection [id]="'SuccessResultInfoId'"
+                                                [title]="'Success Result Info'" [panel]="'SuccessResultInfo'">
+                                            </lib-ucSubsection>
+                                            <div class="form-body table-responsive" id="SuccessResultInfo">
+                                                <table class="table table-responsive-md text-center table-hover">
+                                                    <caption></caption>
+                                                    <thead>
+                                                        <tr class="table-header">
+                                                            <th id="temppaychannelrcvno">
+                                                                <span class="thead-header" translate>Temp Pay Channel
+                                                                    Receive No</span>
+                                                            </th>
+                                                            <th id="virtualaccno">
+                                                                <span class="thead-header" translate>Virtual Acc
+                                                                    No</span>
+                                                            </th>
+                                                            <th id="billgrpno">
+                                                                <span class="thead-header" translate>Billing Group
+                                                                    No</span>
+                                                            </th>
+                                                            <th id="trxno">
+                                                                <span class="thead-header" translate>Trx No</span>
+                                                            </th>
+                                                            <th id="rcvdt">
+                                                                <span class="thead-header" translate>Receive Date</span>
+                                                            </th>
+                                                            <th id="valuedt">
+                                                                <span class="thead-header" translate>Value Date</span>
+                                                            </th>
+                                                            <th id="rcvamt">
+                                                                <span class="thead-header" translate>Receive
+                                                                    Amount</span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <tr *ngFor="let item of ListSuccessResultInfo; let i = index">
+                                                            <td>{{item.TempPayChannelRcvNo}}</td>
+                                                            <td>{{item.VirtualAccNo}}</td>
+                                                            <td class="align-centre"><a
+                                                                    [routerLink]="'/accmntview/billinggroup/view'"
+                                                                    target="_blank">{{item.BillGrpNo}}</a></td>
+                                                            <td>{{item.TrxNo}}</td>
+                                                            <td>{{item.RcvDt | date}}</td>
+                                                            <td>{{item.ValueDt | date}}</td>
+                                                            <td class="text-right">{{item.RcvAmt | number: '.2':
+                                                                'en-US'}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="ListFailedResultInfo.length > 0">
+                                            <lib-ucSubsection [id]="'FailedResultInfoId'" [title]="'Failed Result Info'"
+                                                [panel]="'FailedResultInfo'">
+                                            </lib-ucSubsection>
+                                            <div class="form-body" id="FailedResultInfo">
+                                                <table class="table table-responsive-md text-center table-hover">
+                                                    <caption></caption>
+                                                    <thead>
+                                                        <tr class="table-header">
+                                                            <th id="virtualaccno">
+                                                                <span class="thead-header" translate>Virtual Acc
+                                                                    No</span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <tr *ngFor="let item of ListFailedResultInfo; let i = index">
+                                                            <td>{{item.VirtualAccNo}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions button-right" *ngIf="ListSuccessResultInfo.length > 0">
+                                            <button type="button" class="btn btn-raised btn-warning mr-1"
+                                                (click)="cancel()" translate>
+                                                <em class="fa fa-arrow-circle-left"></em> Cancel
+                                            </button>
+                                            <button type="submit" class="btn btn-raised btn-primary mr-1"
+                                                (click)="approve()" translate>
+                                                <em class="ft-check"></em> Approve
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

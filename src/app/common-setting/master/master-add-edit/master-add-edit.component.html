@@ -1,0 +1,85 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Master Registration</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" name="enjiForm" [formGroup]="RefMasterForm" #enjiForm="ngForm" novalidate
+          (ngSubmit)="enjiForm.form.valid && Save()">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'MasterInfoId'" [title]="'Master Information '+ type" [panel]="'MasterInfo'">
+            </lib-ucSubsection>
+            <div id="MasterInfo">
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required-label" for="refMasterTypeCodeModule">Master
+                  Type</label>
+                <div class="col-md-9">
+                  <lib-ucdropdownlist [dropdownListObj]="dropdownListObj" [parentForm]="RefMasterForm"
+                    [enjiForm]="enjiForm" [identifier]="'RefMasterTypeCode'" [isDisabled]="type == 'edit'? true : false"></lib-ucdropdownlist>
+                  <!-- <select id="refMasterTypeCodeModule" formControlName="RefMasterTypeCode" class="form-control"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefMasterForm.controls.RefMasterTypeCode.invalid }">
+                    <option *ngFor="let item of refMasterTypeObj?.ReturnObject" [value]="item.Key">
+                      {{item.Value}}
+                    </option>
+                  </select>
+                  <lib-uc-show-errors [control]="RefMasterForm.controls.RefMasterTypeCode"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required-label" for="masterCodeModel">Master Code</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput code" formControlName="MasterCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefMasterForm.controls.MasterCode.invalid }"
+                    [attr.disabled]="type == 'edit' ? true : null">
+                  <lib-uc-show-errors [control]="RefMasterForm.controls.MasterCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required adins-required-label"
+                  for="descrModel">Description</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput adins-required-label" formControlName="Descr"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefMasterForm.controls.Descr.invalid }">
+                  <lib-uc-show-errors [control]="RefMasterForm.controls.Descr" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required adins-required-label" for="seqNo" translate>Seq No </label>
+                <div class="col-md-9">
+                  <input type="number" pattern="^[0-9]+$" class="form-control adInsInput adins-required-label"
+                    formControlName="SeqNo"
+                    [ngClass]="{ 'is-invalid':(enjiForm.submitted || RefMasterForm.controls.SeqNo.touched || RefMasterForm.controls.SeqNo.dirty) && RefMasterForm.controls.SeqNo.invalid }">
+                  <lib-uc-show-errors [control]="RefMasterForm.controls.SeqNo" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required-label" for="isActive">Active Status</label>
+                <div class="custom-control custom-checkbox m-0">
+                  <input type="checkbox" value="1" id="isActive" formControlName="IsActive">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

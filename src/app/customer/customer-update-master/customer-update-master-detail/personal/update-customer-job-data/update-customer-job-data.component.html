@@ -1,0 +1,315 @@
+
+<form class="form form-horizontal" [formGroup]="CustomerJobForm"
+  (ngSubmit)="CustomerJobForm.valid && SaveValue()" #enjiForm="ngForm">
+<div class="form-body">
+  <div class="form-group row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">Application Data</div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-raised btn-primary" (click)="CopyAllHandler()">Copy All</button>
+    </div>
+    <div class="col-md-4">Master Customer Data</div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel adins-required-label" translate>Customer Model</label>
+    <div class="col-md-4">
+      <label>{{appCustModel}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerJobForm.controls.CustModel.value != AppJobData.CustModel" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('CustModel')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <select class="form-control adInsInput" formControlName="CustModel"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.CustModel.invalid}">
+        <option *ngFor="let item of CustModelList" [value]="item.Key">{{item.Value}}</option>
+      </select>
+      <lib-uc-show-errors [control]="CustomerJobForm.controls.CustModel" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel adins-required-label" translate>Profession</label>
+    <div class="col-md-4">
+      <label>{{AppJobData.ProfessionName}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerJobForm.controls.ProfessionId.value != AppJobData.ProfessionId" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('ProfessionId')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <lib-uclookupgeneric [lookupInput]="lookupProfessionObj" [parentForm]="CustomerJobForm" [enjiForm]="enjiForm"
+          [identifier]="'ProfessionLookup'" (lookup)="getProfessionData($event)">
+      </lib-uclookupgeneric>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2" translate>Internal Employee</label>
+    <div class="col-md-4">
+      <label>{{AppJobData.InternalEmployee ? 'Yes' : 'No'}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerJobForm.controls.InternalEmployee.value != AppJobData.InternalEmployee" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('InternalEmployee')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="checkbox" formControlName="InternalEmployee" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2" translate>Job Position</label>
+    <div class="col-md-4">
+      {{appJobPosition}}
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerJobForm.controls.JobPosition.value != AppJobData.JobPosition" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('JobPosition')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <select class="form-control adInsInput" formControlName="JobPosition"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.JobPosition.invalid}">
+        <option *ngFor="let item of JobPositionList" [value]="item.Key">{{item.Value}}</option>
+      </select>
+      <lib-uc-show-errors [control]="CustomerJobForm.controls.JobPosition" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2" translate>Job Title Name</label>
+    <div class="col-md-4">
+      {{AppJobData.JobTitleName}}
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerJobForm.controls.JobTitleName.value != AppJobData.JobTitleName" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('JobTitleName')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control adInsInput" formControlName="JobTitleName"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.JobTitleName.invalid}">
+      <lib-uc-show-errors [control]="CustomerJobForm.controls.JobTitleName" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2" translate>Job Status</label>
+    <div class="col-md-4">
+      {{appJobStatus}}
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerJobForm.controls.JobStatus.value != AppJobData.JobStatus" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('JobStatus')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <select class="form-control adInsInput" formControlName="JobStatus"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.JobStatus.invalid}">
+        <option *ngFor="let item of JobStatusList" [value]="item.Key">{{item.Value}}</option>
+      </select>
+      <lib-uc-show-errors [control]="CustomerJobForm.controls.JobStatus" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-md-2 adInsLabel" translate>Establishment Date</label>
+    <div class="col-md-4">
+      <label>{{AppJobData.EstablishmentDate}}</label>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="CustomerJobForm.controls.EstablishmentDate.value != AppJobData.EstablishmentDate" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('EstablishmentDate')">Copy</button>
+    </div>
+    <div class="col-md-4">
+      <input type="date" class="form-control adInsInput" formControlName="EstablishmentDate"
+        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.EstablishmentDate.invalid}">
+      <lib-uc-show-errors [control]="CustomerJobForm.controls.EstablishmentDate" [submit]="enjiForm.submitted">
+      </lib-uc-show-errors>
+    </div>
+  </div>
+  <lib-ucSubsection [id]="'CompanyId'" [title]="'Company'" [panel]="'CompanySection'">
+  </lib-ucSubsection>
+  <div id="CompanySection">
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel" translate>Company Name</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.CompanyName}}</label>
+      </div>
+      <div class="col-md-2">
+        <button *ngIf="CustomerJobForm.controls.CompanyName.value != AppJobData.CompanyName" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('CompanyName')">Copy</button>
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control adInsInput" formControlName="CompanyName"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.CompanyName.invalid}">
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.CompanyName" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel adins-required-label" translate>Industry Type</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.IndustryTypeName}}</label>
+      </div>
+      <div class="col-md-2">
+        <button *ngIf="CustomerJobForm.controls.IndustryTypeId.value != AppJobData.IndustryTypeId" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('IndustryTypeId')">Copy</button>
+      </div>
+      <div class="col-md-4">
+        <lib-uclookupgeneric [lookupInput]="lookupIndustryTypeObj" [parentForm]="CustomerJobForm" [enjiForm]="enjiForm"
+          [identifier]="'IndustryTypeLookup'" (lookup)="getIndustryType($event)">
+        </lib-uclookupgeneric>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel" translate>Company Scale</label>
+      <div class="col-md-4">
+        <label>{{appCompanyScale}}</label>
+      </div>
+      <div class="col-md-2">
+        <button *ngIf="CustomerJobForm.controls.CompanyScale.value != AppJobData.CompanyScale" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('CompanyScale')">Copy</button>
+      </div>
+      <div class="col-md-4">
+        <select class="form-control adInsInput" formControlName="CompanyScale"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.CompanyScale.invalid}">
+          <option *ngFor="let item of CompanyScaleList" [value]="item.Key">{{item.Value}}</option>
+        </select>
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.CompanyScale" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+  </div>
+  <lib-ucSubsection [id]="'JobAddressId'" [title]="'Job Address'" [panel]="'JobAddressSection'">
+  </lib-ucSubsection>
+  <div id="JobAddressSection">
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel adins-required-label" translate>Address</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.Address}}</label>
+      </div>
+      <div class="col-md-2">
+        <button *ngIf="IsAddrDifferent" type="button" class="btn btn-raised btn-primary" (click)="CopyHandler('Address')">Copy</button>
+      </div>
+      <div class="col-md-4">
+        <textarea class="form-control adInsInput" formControlName="Address" (blur)="AddressCopyButtonHandler()"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.Address.invalid}"></textarea>
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.Address" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel adins-required-label" translate>RT / RW</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.AreaCode4}} / {{AppJobData.AreaCode3}}</label>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+        <input type="text" class="form-control adInsInput" formControlName="AreaCode4" (blur)="AddressCopyButtonHandler()"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.AreaCode4.invalid}">
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.AreaCode4" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+      <div class="col-md-2">
+        <input type="text" class="form-control adInsInput" formControlName="AreaCode3" (blur)="AddressCopyButtonHandler()"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.AreaCode3.invalid}">
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.AreaCode3" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel adins-required-label" translate>Zipcode</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.Zipcode}}</label>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4">
+        <lib-uclookupgeneric [lookupInput]="lookupZipcodeObj" [parentForm]="CustomerJobForm" [enjiForm]="enjiForm"
+          [identifier]="'ZipcodeLookup'" (lookup)="getZipcodeData($event)">
+        </lib-uclookupgeneric>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel adins-required-label" translate>Kelurahan</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.AreaCode2}}</label>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control adInsInput" formControlName="AreaCode2" [readonly]="true"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.AreaCode2.invalid}">
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.AreaCode2" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel adins-required-label" translate>Kecamatan</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.AreaCode1}}</label>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control adInsInput" formControlName="AreaCode1" [readonly]="true"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.AreaCode1.invalid}">
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.AreaCode1" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel adins-required-label" translate>City</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.City}}</label>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control adInsInput" formControlName="City" [readonly]="true"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.City.invalid}">
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.City" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+    <div class="form-group row"> 
+      <label class="col-md-2" translate>Phone 1</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.Phn1}}</label>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control adInsInput" formControlName="Phn1" (blur)="AddressCopyButtonHandler()"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.Phn1.invalid}">
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.Phn1" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel" translate>Phone 2</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.Phn2}}</label>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control adInsInput" formControlName="Phn2" (blur)="AddressCopyButtonHandler()"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.Phn2.invalid}">
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.Phn2" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel" translate>Fax</label>
+      <div class="col-md-4">
+        <label>{{AppJobData.Fax}}</label>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control adInsInput" formControlName="Fax" (blur)="AddressCopyButtonHandler()"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerJobForm.controls.Fax.invalid}">
+        <lib-uc-show-errors [control]="CustomerJobForm.controls.Fax" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions right">
+    <button type="button" class="btn btn-raised btn-warning mr-1" (click)="back()">
+      <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+    </button>
+    <button type="submit" class="btn btn-raised btn-primary">
+      <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+    </button>
+  </div>
+</div>
+</form>

@@ -1,0 +1,208 @@
+{
+    "title": "Coa Scheme Detail",
+    "hideTitle": false,
+    "id": "Coaschemedetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "COA SCHEME INFORMATION",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "SCHEME CODE",
+                            "Variable": "SchmCode",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "SCHEME NAME",
+                            "Variable": "SchmName",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "Active Status",
+                            "Variable": "IsActive",
+                            "Value": true,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [
+                        {
+                            "variableName": "SchmCode",
+                            "cookieName": "SchmCode",
+                            "isEmptyNotFound": true
+                        },
+                        {
+                            "variableName": "SchmName",
+                            "cookieName": "SchmName",
+                            "isEmptyNotFound": true
+                        },
+                        {
+                            "variableName": "IsActive",
+                            "cookieName": "IsActive",
+                            "isEmptyNotFound": true
+                        }
+                    ],
+                    "initAction": []
+                }
+            },
+            "id": "6359b97f-fd08-4490-87f9-0340b3aaf295"
+        },
+        {
+            "container": {
+                "key": "CustomCoaSchemeDetailComponent",
+                "className": "CustomCoaSchemeDetailComponent",
+                "cssClass": "",
+                "input": {
+                    "mode": "mode",
+                    "CoaSchmId": "CoaSchmId"
+                }
+            },
+            "id": "bf2bc69a-d03d-4be6-8ffe-4af017c5ab16"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "FoundationR3Url",
+            "apiPath": "/v1/Coa/SubmitCoa",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [
+        {
+            "environment": "FoundationR3Url",
+            "apiPath": "/v1/CoaSchm/GetCoaSchmByCoaSchmId",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Id",
+                    "propValue": "CoaSchmId"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "SchmName",
+                    "propValue": "SchmName"
+                },
+                {
+                    "propName": "SchmCode",
+                    "propValue": "SchmCode"
+                },
+                {
+                    "propName": "IsActive",
+                    "propValue": "IsActive"
+                }
+            ],
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "edit"
+                }
+            ]
+        }
+    ],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "type": "function",
+                "target": "executor",
+                "alias": "submitCoa",
+                "methodName": "submitCoa",
+                "params": [
+                    {
+                        "propName": "formData",
+                        "propValue": "formRaw"
+                    },
+                    {
+                        "propName": "coaSchmId",
+                        "propValue": "coaSchmId"
+                    },
+                    {
+                        "propName": "listPayment",
+                        "propValue": "ListPaymentAlloc"
+                    },
+                    {
+                        "propName": "listSelectedCurr",
+                        "propValue": "ListSelectedCurr"
+                    },
+                    {
+                        "propName": "Form",
+                        "propValue": "Form"
+                    },
+                    {
+                        "propName": "api",
+                        "propValue": "/v1/CoaSchm/SubmitCoaSchm"
+                    },
+                    {
+                        "propName": "http",
+                        "propValue": "http"
+                    },
+                    {
+                        "propName": "toastr",
+                        "propValue": "toastr"
+                    },
+                    {
+                        "propName": "router",
+                        "propValue": "router"
+                    }
+                ]
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "customToastrMsg": ""
+}

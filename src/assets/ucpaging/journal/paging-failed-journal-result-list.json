@@ -1,0 +1,222 @@
+{
+    "title": "FAILED JOURNAL RESULT LIST",
+    "exportExcel": false,
+    "keyProperty": "JrMsgHId",
+    "keyPropCriteria": "JMH.JR_MSG_H_ID",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "JMH.TXN_CODE",
+            "id": "TransactionCodeId",
+            "value": "",
+            "label": "Transaction Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "JMH.Office_Code",
+            "id": "OfficeCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "isSelectOne": false,
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "label": "Office Code",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "JMH.Jr_No",
+            "id": "JournalNoId",
+            "value": "",
+            "label": "Journal No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "JMH.REF_NO",
+            "id": "TrxNoId",
+            "value": "",
+            "label": "Transaction No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "JMH.POSTING_DATE",
+            "id": "PostDtGteId",
+            "value": "",
+            "label": "Posting Date >=",
+            "placeholder": "Placeholder",
+            "restriction": "gte",
+            "datatype": "date"
+        },
+        {
+            "type": "textbox",
+            "name": "JMH.POSTING_DATE",
+            "id": "PostDtLteId",
+            "value": "",
+            "label": "Posting Date <=",
+            "placeholder": "Placeholder",
+            "restriction": "lte",
+            "datatype": "date"
+        },
+        {
+            "type": "textbox",
+            "name": "JMH.EXECUTING_DATE",
+            "id": "ExeDtGteId",
+            "value": "",
+            "label": "Executing Date >=",
+            "placeholder": "Placeholder",
+            "restriction": "gte",
+            "datatype": "date"
+        },
+        {
+            "type": "textbox",
+            "name": "JMH.EXECUTING_DATE",
+            "id": "ExeDtLteId",
+            "value": "",
+            "label": "Executing Date <=",
+            "placeholder": "Placeholder",
+            "restriction": "lte",
+            "datatype": "date"
+        },
+        {
+            "type": "dropdown",
+            "name": "JMH.STATUS",
+            "id": "StatusId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": false,
+            "isSelectOne": false,
+            "label": "Status",
+            "items": [
+                {
+                    "key": "ERR",
+                    "value": "ERROR"
+                },
+                {
+                    "key": "NBL",
+                    "value": "NOT BALANCE"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "isSeq": false,
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Transaction Code",
+            "name": "JMH.TXN_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Office Code",
+            "name": "JMH.Office_Code"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Journal No",
+            "name": "JMH.Jr_No"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Transaction No",
+            "name": "JMH.REF_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Posting Date",
+            "name": "JMH.POSTING_DATE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Executing Date",
+            "name": "JMH.EXECUTING_DATE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Status",
+            "name": "JMH.STATUS"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Has Been Rerun"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Detail"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "TxnCode"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OfficeCode"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "JrNo"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "TrxNo"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "PostingDate"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "ExecutingDate"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Status"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "HasBeenRerun"
+        },
+        {
+            "type": "link",
+            "position": "center",
+            "property": "Detail",
+            "target": "_blank",
+            "path": "/journalview/journalresult",
+            "param": [
+                {
+                    "type": "JrMsgHId",
+                    "property": "JrMsgHId"
+                }
+            ]
+        }
+    ],
+    "querystring": {
+        "name": "searchFailedJournalResultPaging"
+    }
+}

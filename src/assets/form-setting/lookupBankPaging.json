@@ -1,0 +1,43 @@
+{
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Bank Code",
+            "name": "bank_code"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Bank Name",
+            "name": "bank_name"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "bankCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "bankName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "bankName"
+                }
+            ]
+        }
+    ]
+}

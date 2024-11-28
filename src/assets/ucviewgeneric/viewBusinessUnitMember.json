@@ -1,0 +1,25 @@
+{
+  "title": "Business Unit Member",
+    "subsection": [
+      {
+        "subSectionId": "Business Unit Info",
+        "subSectionTitle": "Business Unit Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Business Unit Code",
+            "property": "BizUnitCode"
+          },
+          {
+            "type": "text",
+            "label": "Business Unit Name",
+            "property": "BizUnitName"
+          } 
+        ],
+        "querystring": {
+            "name": "viewBusinessUnitMember"
+        }
+      }
+    ]
+  }

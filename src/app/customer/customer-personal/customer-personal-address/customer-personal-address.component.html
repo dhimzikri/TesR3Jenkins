@@ -1,0 +1,11 @@
+<app-customer-personal-address-check *ngIf="mode == 'check'" (outputValue)="terimaValue($event)"> </app-customer-personal-address-check>
+<app-customer-personal-address-add *ngIf="mode == 'add' || mode =='edit'" [mode] = "this.mode"  [AddrId] = "this.AddrId" (outputValue)="terimaValue($event)"> </app-customer-personal-address-add>
+
+<div *ngIf="mode == 'check'"class="form-actions right" style="text-align: right;">
+    <!-- <button type="button" class="btn btn-raised btn-warning mr-1" (click)="back()" translate>
+      <i class="far fa-window-close"></i> Cancel
+    </button> -->
+    <button type="submit" class="btn btn-raised btn-primary" (click)="next()">
+      <i class="far fa-check-square"></i>&nbsp;<span translate>Save and Continue</span>
+    </button>
+  </div>

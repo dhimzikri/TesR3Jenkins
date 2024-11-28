@@ -1,0 +1,269 @@
+<div class="card-body px-3 mt-3">
+  <form
+    class="form form-horizontal"
+    [formGroup]="parentForm"
+    (ngSubmit)="addVendor()"
+    #enjiForm="ngForm"
+  >
+    <!-- <div class="ucSearch-Button-Right">
+          <span class="mr-1">
+            <button type="submit" class="btn btn-primary btn-raised mt-3 mr-1">
+              <i class="ft-save"></i>&nbsp;<span translate>Save</span>
+            </button>
+            <button type="button" class="btn btn-warning btn-raised mt-3" (click)="back()">
+              <i class="ft-x-square mr-1"></i><span translate>Cancel</span>
+            </button>
+          </span>
+        </div> -->
+
+    <div id="section1">
+      <div *ngIf="MrVendorCategoryCode == 'JF_FUNDING_COMPANY'">
+        <div
+          class="form-body"
+          formGroupName="VendorAttrList"
+          *ngIf="isFormReady"
+        >
+          <ng-container *ngFor="let attr of VendorAttrList">
+            <!-- DAYS_PER_YEAR  -->
+            <div
+              class="form-group row"
+              *ngIf="attr.AttrInputType == 'N' && attr.AttrCode == 'DAYS_PER_YEAR'"
+              [formGroupName]="attr.AttrCode"
+            >
+              <label class="col-md-3 col-form-label adins-required-label">{{
+                attr.AttrName
+              }}</label>
+              <div class="col-md-9">
+                <input
+                  type="number"
+                  class="form-control adInsInput width-50-per"
+                  formControlName="VendorAttrValue"
+                  [ngClass]="{
+                    'is-invalid':
+                      enjiForm.submitted &&
+                      parentForm.controls['VendorAttrList']['controls'][
+                        attr['AttrCode']
+                      ].controls.VendorAttrValue.invalid
+                  }"
+                />
+                <lib-uc-show-errors
+                  [control]="
+                    parentForm.controls['VendorAttrList']['controls'][
+                      attr['AttrCode']
+                    ].controls.VendorAttrValue
+                  "
+                  [submit]="enjiForm.submitted"
+                ></lib-uc-show-errors>
+              </div>
+            </div>
+            <!-- BANK NAME  -->
+            <div
+              class="form-group row"
+              *ngIf="attr.AttrInputType == 'LU' && attr.AttrCode == 'BANK_CODE'"
+              [formGroupName]="attr.AttrCode"
+            >
+              <label class="col-md-3 col-form-label adins-required-label">{{
+                attr.AttrName
+              }}</label>
+              <div class="col-md-4">
+                <lib-uclookupgeneric
+                  [lookupInput]="ListInputLookUpObj[0][attr['AttrCode']]"
+                  [parentForm]="parentForm"
+                  [enjiForm]="enjiForm"
+                  [identifier]="'lookup' + attr.AttrCode"
+                  (lookup)="getLookUpAttrBank($event, attr.AttrCode)"
+                  [ngClass]="{
+                    'is-invalid':
+                      enjiForm.submitted &&
+                      parentForm.controls['VendorAttrList']['controls'][
+                        attr['AttrCode']
+                      ].controls.VendorAttrValue.invalid
+                  }"
+                >
+                </lib-uclookupgeneric>
+              </div>
+            </div>
+            <!-- AFFILIATE WITH MF  -->
+            <div
+              class="form-group row"
+              *ngIf="attr.AttrInputType == 'C'"
+              [formGroupName]="attr.AttrCode"
+            >
+              <label class="col-md-3 col-form-label">{{ attr.AttrName }}</label>
+              <div class="col-md-3 col-form-label">
+                <input
+                  type="checkbox"
+                  formControlName="VendorAttrValue"
+                  id="flexCheckDefault"
+                />
+              </div>
+            </div>
+            <!-- COUNTERPART CATEGORY -->
+            <div
+              class="form-group row"
+              *ngIf="
+                attr.AttrInputType == 'LU' &&
+                attr.AttrCode == 'MR_COUNTERPART_CATEGORY'
+              "
+              [formGroupName]="attr.AttrCode"
+            >
+              <label class="col-md-3 col-form-label adins-required-label">{{
+                attr.AttrName
+              }}</label>
+              <div class="col-md-4">
+                <lib-uclookupgeneric
+                  [lookupInput]="ListInputLookUpObj[0][attr['AttrCode']]"
+                  [parentForm]="parentForm"
+                  [enjiForm]="enjiForm"
+                  [identifier]="'lookup' + attr.AttrCode"
+                  (lookup)="getLookUpAttrCategory($event, attr.AttrCode)"
+                  [ngClass]="{
+                    'is-invalid':
+                      enjiForm.submitted &&
+                      parentForm.controls['VendorAttrList']['controls'][
+                        attr['AttrCode']
+                      ].controls.VendorAttrValue.invalid
+                  }"
+                >
+                </lib-uclookupgeneric>
+              </div>
+            </div>
+            <!-- WITHHOLDING TAX -->
+            <div
+              class="form-group row"
+              *ngIf="attr.AttrInputType == 'R'"
+              [formGroupName]="attr.AttrCode"
+            >
+              <label class="col-md-3 col-form-label">{{ attr.AttrName }}</label>
+              <div class="col-md-9">
+                <mat-radio-group formControlName="VendorAttrValue">
+                  <mat-radio-button
+                    class="custom-control custom-radio display-inline-block col-form-label"
+                    *ngFor="
+                      let valueItem of RadioButtonVendorAttr[attr.AttrCode]
+                    "
+                    [value]="valueItem"
+                  >
+                    {{ valueItem }}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+            <!-- Tax Treaty Rate -->
+            <div
+              class="form-group row"
+              *ngIf="attr.AttrInputType == 'P'"
+              [formGroupName]="attr.AttrCode"
+            >
+              <label class="col-md-3 col-form-label">{{ attr.AttrName }}</label>
+              <div class="col-md-9">
+                <input
+                  type="text"
+                  currencyMask
+                  class="form-control adInsInput width-50-per"
+                  formControlName="VendorAttrValue"
+                  [options]="{
+                    thousands: ',',
+                    decimal: '.',
+                    align: 'right',
+                    allowNegative: true,
+                    allowZero: true,
+                    precision: 6,
+                    nullable: false
+                  }"
+                  [ngClass]="{
+                    'is-invalid':
+                      enjiForm.submitted &&
+                      parentForm.controls['VendorAttrList']['controls'][
+                        attr['AttrCode']
+                      ].controls.VendorAttrValue.invalid
+                  }"
+                />
+
+                <lib-uc-show-errors
+                  [control]="
+                    parentForm.controls['VendorAttrList']['controls'][
+                      attr['AttrCode']
+                    ].controls.VendorAttrValue
+                  "
+                  [submit]="enjiForm.submitted"
+                ></lib-uc-show-errors>
+              </div>
+            </div>
+            <!-- ZIPCODE  -->
+            <div
+              class="form-group row"
+              *ngIf="attr.AttrInputType == 'LU' && attr.AttrCode == 'ZIPCODE'"
+              [formGroupName]="attr.AttrCode"
+            >
+              <label class="col-md-3 col-form-label adins-required-label">{{
+                attr.AttrName
+              }}</label>
+              <div class="col-md-4">
+                <lib-uclookupgeneric
+                  [lookupInput]="ListInputLookUpObj[0][attr['AttrCode']]"
+                  [parentForm]="parentForm"
+                  [enjiForm]="enjiForm"
+                  [identifier]="'lookup' + attr.AttrCode"
+                  (lookup)="getLookUpZipcode($event, attr.AttrCode)"
+                  [ngClass]="{
+                    'is-invalid':
+                      enjiForm.submitted &&
+                      parentForm.controls['VendorAttrList']['controls'][
+                        attr['AttrCode']
+                      ].controls.VendorAttrValue.invalid
+                  }"
+                >
+                </lib-uclookupgeneric>
+              </div>
+            </div>
+            <!-- BANK ACCOUNT NO  -->
+            <div
+              class="form-group row"
+              *ngIf="attr.AttrInputType == 'N' && attr.AttrCode == 'BANK_ACCOUNT_NO'"
+              [formGroupName]="attr.AttrCode"
+            >
+              <label class="col-md-3 col-form-label adins-required-label">{{
+                attr.AttrName
+              }}</label>
+              <div class="col-md-9">
+                <input
+                  type="number"
+                  class="form-control adInsInput width-50-per"
+                  formControlName="VendorAttrValue"
+                  [ngClass]="{
+                    'is-invalid':
+                      enjiForm.submitted &&
+                      parentForm.controls['VendorAttrList']['controls'][
+                        attr['AttrCode']
+                      ].controls.VendorAttrValue.invalid
+                  }"
+                />
+                <lib-uc-show-errors
+                  [control]="
+                    parentForm.controls['VendorAttrList']['controls'][
+                      attr['AttrCode']
+                    ].controls.VendorAttrValue
+                  "
+                  [submit]="enjiForm.submitted"
+                ></lib-uc-show-errors>
+              </div>
+            </div>
+          </ng-container>
+          <!-- <div class="form-group row">
+            <label class="col-md-3 col-form-label">Jurisdiction</label>
+            <div class="col-md-9 col-form-label">
+              {{ this.jurisdictionValue }}
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- <app-funding-company-contact-person (outputValue)="addCPValues($event)" ></app-funding-company-contact-person> -->
+  <app-funding-company-contact-person
+    [VendorId]="VendorId"
+    (addContactPerson)="addVendorContactPerson($event)"
+    [mode]="mode"
+  ></app-funding-company-contact-person>
+</div>

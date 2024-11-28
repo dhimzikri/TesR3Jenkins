@@ -1,0 +1,122 @@
+{
+    "title": "payoutfeehistbatchtab",
+    "hideTitle": true,
+    "id": "Payoutfeehistbatchtab",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "Payment Out Fee History",
+                "resultData": "",
+                "isSubsection": true,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Posting Date",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Transaction No",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Reference No",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Payment Out Amount",
+                            "position": "left"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "date",
+                            "position": "left",
+                            "property": "StartRequestDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TrxNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "callback",
+                                    "key": "ViewFundPayoutFeeBatch",
+                                    "isText": true,
+                                    "property": "PayoutFeeRefNo",
+                                    "icon": ""
+                                }
+                            ]
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "TotalPaidAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityPayOutUrl",
+                    "apiPath": "/v1/PayoutFee/GetListPayoutFeeHistByPayoutRefNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "TrxNo",
+                            "propValue": "BatchNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "70f3c246-dcd7-419e-8ea8-1832a409be49"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "hideCancelButton": true,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": []
+}

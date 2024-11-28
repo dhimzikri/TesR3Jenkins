@@ -1,0 +1,59 @@
+{
+  "title": "Prospect Verification",
+  "component": [
+    {
+      "type": "textbox",
+      "name": "CustName",
+      "id": "CustName",
+      "value": "%",
+      "label": "Supplier Code",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "dropdown",
+      "name": "CustModel",
+      "id": "CustModel",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL":false,
+      "url":"https://api.myjson.com/bins/ld6e8",
+      "label": "Customer Model",
+      "items": [
+        {
+          "key": "Professional",
+          "value": "Professional"
+        },
+        {
+          "key": "Employee",
+          "value": "Employee"
+        },
+        {
+          "key": "SME",
+          "value": "Small Medium Enterprise"
+        },
+        {
+          "key": "NonProf",
+          "value": "Non Professional"
+        }
+      ],
+      "itemsUrl":[
+      ]
+    },
+    {
+      "type": "textbox",
+      "name": "KtpNo",
+      "id": "KtpNo",
+      "value": "%",
+      "label": "KTP No",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "textbox",
+      "name": "NpwpNo",
+      "id": "NpwpNo",
+      "value": "%",
+      "label": "NPWP No",
+      "placeholder": "Placeholder"
+    }
+  ]
+}

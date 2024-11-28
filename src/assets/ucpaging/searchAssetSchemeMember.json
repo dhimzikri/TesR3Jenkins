@@ -1,0 +1,133 @@
+{
+  "component": [
+    {
+      "type": "textbox",
+      "name": "AM.FULL_ASSET_CODE",
+      "id": "FullAssetCode",
+      "value": "",
+      "label": "Asset Full Code",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "textbox",
+      "name": "AM.FULL_ASSET_NAME",
+      "id": "FullAssetName",
+      "value": "",
+      "label": "Asset Full Name",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "textbox",
+      "name": "AC.ASSET_CATEGORY_NAME",
+      "id": "AssetCategoryName",
+      "value": "",
+      "label": "Asset Category Name",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "dropdown",
+      "name": "AM.IS_ACTIVE",
+      "id": "IsActive",
+      "label": "Active Status",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "items": [
+          {
+              "key": "1",
+              "value": "Yes"
+          },
+          {
+              "key": "0",
+              "value": "No"
+          }
+      ],
+      "itemsUrl": []
+    }
+  ],
+  "headerList": [
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Full Asset Code",
+      "name": "FullAssetCode"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Full Asset Name",
+      "name": "FullAssetName"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Asset Category Name",
+      "name": "AssetCategoryName"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "Active Status",
+      "name": "IsActive"
+    },
+    {
+      "type": "label",
+      "position": "center",
+      "label": "Action"
+    }
+  ],
+  "querystring": {
+    "name": "searchAssetSchemeMember"
+  },
+  "bodyList": [
+    {
+      "type": "text",
+      "position": "left",
+      "property": "FullAssetCode"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "FullAssetName"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "AssetCategoryName"
+    },
+    {
+      "type": "boolean",
+      "position": "center",
+      "property": "IsActive"
+    },
+    {
+      "type": "action",
+      "position": "center",
+      "action": [
+        {
+          "type" : "switch", 
+          "case" : [
+            {
+              "conditions" : [ 
+                {
+                  "property" : "IsSystem", 
+                  "value" : "0",
+                  "restriction": "EQ"
+                }
+              ],
+              "result" : 
+              {
+                "type": "delete",
+                "property": "AssetSchmDId"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

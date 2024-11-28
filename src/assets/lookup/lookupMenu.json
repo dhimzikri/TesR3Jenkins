@@ -1,0 +1,23 @@
+{
+    "title": "Lookup - Holiday Scheme",
+    "sectionTitle": "Search",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "form_code",
+        "id": "FormCode",
+        "value": "",
+        "label": "Form Code",
+        "placeholder": "Form Code"
+      },
+      {
+        "type": "textbox",
+        "name": "title",
+        "id": "FormName",
+        "value": "",
+        "label": "Form Title",
+        "placeholder": "Form Title"
+      }
+    ]
+  }
+  

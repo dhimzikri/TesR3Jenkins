@@ -1,0 +1,83 @@
+{
+    "keyProperty": "RefRoleId",
+    "keyPropCriteria": "RF.REF_ROLE_ID",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "RF.ROLE_CODE",
+            "id": "RoleCodeId",
+            "value": "",
+            "label": "Role Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RF.ROLE_NAME",
+            "id": "RoleNameId",
+            "value": "",
+            "label": "Role Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "RF.IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "refFormRoleTempPaging"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Role Code",
+            "name": "RF.ROLE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Role Name",
+            "name": "RF.ROLE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "RF.IS_ACTIVE"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "RoleCode"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "RoleName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        }
+    ]
+}

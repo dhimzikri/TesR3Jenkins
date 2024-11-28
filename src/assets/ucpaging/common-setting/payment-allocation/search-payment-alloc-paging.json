@@ -1,0 +1,160 @@
+{
+    "title": "PAYMENT ALLOCATION",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "PAYMENT_ALLOC_CODE",
+            "id": "PaymentAllocCodeId",
+            "value": "",
+            "label": "Payment Allocation Code",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "PAYMENT_ALLOC_NAME",
+            "id": "PaymentAllocNameId",
+            "value": "",
+            "label": "Payment Allocation Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "dropdown",
+            "name": "IS_SYSTEM",
+            "id": "IsSystemId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "https://api.myjson.com/bins/ld6e8",
+            "label": "Is System",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "dropdown",
+            "name": "IS_ACTIVE",
+            "id": "IsActive",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "https://api.myjson.com/bins/ld6e8",
+            "label": "Is Active",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Payment Allocation Code",
+            "name": "PaymentAllocCode"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Payment Allocation Name",
+            "name": "PaymentAllocName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Is System",
+            "name": "IsSystem"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Is Active",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "querystring": {
+        "name": "searchPaymentAllocPaging"
+    },
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "PaymentAllocCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "PaymentAllocName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsSystem"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "IsSystem",
+                                    "value": "1",
+                                    "restriction": "NEQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "url",
+                                "icon": "ft-edit-2",
+                                "path": "CS_PAYMENT_ALLOC_DETAIL",
+                                "param": [
+                                    {
+                                        "type": "RefPaymentAllocId",
+                                        "property": "RefPaymentAllocId"
+                                    },
+                                    {
+                                        "type": "mode",
+                                        "property": "edit"
+                                    }
+                                ]
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

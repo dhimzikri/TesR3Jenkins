@@ -1,0 +1,411 @@
+{
+  "title": "Loan Batch",
+  "hideTitle": false,
+  "id": "LoanBatchPaging",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+      {
+          "customComponent": {
+              "componentRef": "${Loancontractmaininfo}"
+          },
+          "id": "ee0cb77a-96d9-4c42-aedb-b793071d8aef"
+      },
+      {
+          "paging": {
+              "environment": "facilityMntUrl",
+              "apiVersion": "v2.1",
+              "service": "",
+              "pagingInput": {
+                  "title": "",
+                  "sectionTitle": "Funding Batch",
+                  "querystring": {
+                      "name": "searchLoanBatch"
+                  },
+                  "exportExcel": false,
+                  "component": [
+                      {
+                          "id": "lbloanBatchNoSearchId",
+                          "type": "dropdown",
+                          "label": "Funding Batch No.",
+                          "name": "LB.LOAN_BATCH_NO",
+                          "value": "",
+                          "placeholder": "",
+                          "datatype": "text",
+                          "isFromURL": true,
+                          "ddlType": "all",
+                          "isEvent": false,
+                          "environment": "FACILITYMNT",
+                          "path": "/LoanBatch/GetListLoanBatchByContractNo",
+                          "criteriaPropName": "LoanContractNo",
+                          "criteriaPropValue": "LoanContractNo",
+                          "isQueryIn": false
+                      },
+                      {
+                          "id": "lbbatchDtSearchId",
+                          "type": "datepicker",
+                          "label": "Batch Date From",
+                          "name": "LB.BATCH_DT",
+                          "value": "",
+                          "placeholder": "",
+                          "datatype": "date",
+                          "restriction": "lte",
+                          "useDefVal": false
+                      },
+                      {
+                          "id": "lbbatchDtSearchId",
+                          "type": "datepicker",
+                          "label": "Batch Date To",
+                          "name": "LB.BATCH_DT",
+                          "value": "",
+                          "placeholder": "",
+                          "datatype": "date",
+                          "restriction": "gte",
+                          "useDefVal": false
+                      },
+                      {
+                          "id": "lbbatchStatSearchId",
+                          "type": "dropdown",
+                          "label": "Batch Status",
+                          "name": "LB.BATCH_STAT",
+                          "value": "",
+                          "placeholder": "",
+                          "datatype": "text",
+                          "isFromURL": true,
+                          "ddlType": "all",
+                          "isEvent": false,
+                          "environment": "FOU",
+                          "path": "/RefStatus/GetListKeyValueActiveGrpCodeByCode",
+                          "criteriaPropName": "Code",
+                          "criteriaPropValue": "LB_BATCH_STATUS_TMS",
+                          "isQueryIn": false
+                      }
+                  ],
+                  "headerList": [
+                      {
+                          "type": "sort",
+                          "label": "Funding Batch No.",
+                          "position": "left",
+                          "name": "LB.LOAN_BATCH_NO"
+                      },
+                      {
+                          "type": "sort",
+                          "label": "Interest Type",
+                          "position": "left",
+                          "name": "LC.INTEREST_TYPE_CODE"
+                      },
+                      {
+                          "type": "sort",
+                          "label": "Tenor",
+                          "position": "center",
+                          "name": "LB.TENOR"
+                      },
+                      {
+                          "type": "sort",
+                          "label": "Batch Date",
+                          "position": "center",
+                          "name": "LB.BATCH_DT"
+                      },
+                      {
+                          "type": "sort",
+                          "label": "Drawdown Amount",
+                          "position": "right",
+                          "name": "LB.DRAWDOWN_AMT"
+                      },
+                      {
+                          "type": "label",
+                          "label": "OS Principal Amount",
+                          "position": "right"
+                      },
+                      {
+                          "type": "label",
+                          "label": "OS Interest Amount",
+                          "position": "right"
+                      },
+                      {
+                          "type": "sort",
+                          "label": "Status",
+                          "position": "left",
+                          "name": "LB.BATCH_STAT"
+                      },
+                      {
+                          "type": "label",
+                          "label": "Action",
+                          "position": "left"
+                      },
+                      {
+                          "type": "label",
+                          "label": "Edit",
+                          "position": "center"
+                      },
+                      {
+                          "type": "label",
+                          "label": "Pledge",
+                          "position": "center"
+                      }
+                  ],
+                  "bodyList": [
+                      {
+                          "type": "link",
+                          "position": "left",
+                          "property": "FundingBatchNo",
+                          "isFlagColor": false,
+                          "target": "_blank",
+                          "path": "/View/LoanBatch/View",
+                          "param": [
+                              {
+                                  "type": "FundingBatchNo",
+                                  "property": "FundingBatchNo"
+                              }
+                          ]
+                      },
+                      {
+                          "type": "text",
+                          "position": "left",
+                          "property": "InterestType",
+                          "isFlagColor": false
+                      },
+                      {
+                          "type": "text",
+                          "position": "center",
+                          "property": "Tenor",
+                          "isFlagColor": false
+                      },
+                      {
+                          "type": "date",
+                          "position": "center",
+                          "property": "BatchDate",
+                          "isFlagColor": false
+                      },
+                      {
+                          "type": "decimal",
+                          "position": "right",
+                          "property": "DrawdownAmount",
+                          "isFlagColor": false,
+                          "precision": "0.2",
+                          "IsPrcnt": false
+                      },
+                      {
+                          "type": "decimal",
+                          "position": "right",
+                          "property": "OsPrincipalAmt",
+                          "isFlagColor": false,
+                          "precision": "0.2",
+                          "IsPrcnt": false
+                      },
+                      {
+                          "type": "decimal",
+                          "position": "right",
+                          "property": "OsInterestAmt",
+                          "isFlagColor": false,
+                          "precision": "0.2",
+                          "IsPrcnt": false
+                      },
+                      {
+                          "type": "text",
+                          "position": "left",
+                          "property": "Status",
+                          "isFlagColor": false
+                      },
+                      {
+                          "type": "action",
+                          "position": "left",
+                          "action": [
+                              {
+                                  "type": "switch",
+                                  "case": [
+                                      {
+                                          "result": {
+                                              "type": "url",
+                                              "path": "/Setting/LoanBatch/View",
+                                              "icon": "ft-edit-2",
+                                              "param": [
+                                                  {
+                                                      "type": "isButton",
+                                                      "property": "true"
+                                                  },
+                                                  {
+                                                      "type": "FundingBatchNo",
+                                                      "property": "FundingBatchNo"
+                                                  }
+                                              ]
+                                          },
+                                          "conditions": [
+                                              {
+                                                  "isUser": false,
+                                                  "property": "BatchStat",
+                                                  "restriction": "NEQ",
+                                                  "value": "Drawdown"
+                                              },
+                                              {
+                                                  "isUser": false,
+                                                  "property": "BatchStat",
+                                                  "restriction": "NEQ",
+                                                  "value": "Cancel"
+                                              },
+                                              {
+                                                  "isUser": false,
+                                                  "property": "BatchStat",
+                                                  "restriction": "NEQ",
+                                                  "value": "Expired"
+                                              }
+                                          ],
+                                          "isHide": false
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      {
+                          "type": "action",
+                          "position": "center",
+                          "action": [
+                              {
+                                  "type": "switch",
+                                  "case": [
+                                      {
+                                          "result": {
+                                              "type": "url",
+                                              "path": "/Setting/LoanBatch/Detail",
+                                              "icon": "ft-edit-2",
+                                              "param": [
+                                                  {
+                                                      "type": "LoanContractNo",
+                                                      "property": "LoanContractNo"
+                                                  },
+                                                  {
+                                                      "type": "mode",
+                                                      "property": "edit"
+                                                  },
+                                                  {
+                                                      "type": "FundingBatchNo",
+                                                      "property": "FundingBatchNo"
+                                                  }
+                                              ]
+                                          },
+                                          "conditions": [
+                                              {
+                                                  "isUser": false,
+                                                  "property": "BatchStat",
+                                                  "restriction": "NEQ",
+                                                  "value": "Drawdown"
+                                              },
+                                              {
+                                                  "isUser": false,
+                                                  "property": "BatchStat",
+                                                  "restriction": "NEQ",
+                                                  "value": "Cancel"
+                                              },
+                                              {
+                                                  "isUser": false,
+                                                  "property": "BatchStat",
+                                                  "restriction": "NEQ",
+                                                  "value": "Expired"
+                                              }
+                                          ],
+                                          "isHide": false
+                                      }
+                                  ]
+                              }
+                          ]
+                      },
+                      {
+                          "type": "action",
+                          "position": "center",
+                          "action": [
+                              {
+                                  "type": "link",
+                                  "path": "/pledging/LoanContract/pledging/View",
+                                  "target": "_self",
+                                  "param": [
+                                      {
+                                          "type": "LoanBatchNo",
+                                          "property": "FundingBatchNo"
+                                      },
+                                      {
+                                          "type": "LoanContractNo",
+                                          "property": "LoanContractNo"
+                                      }
+                                  ],
+                                  "property": "LoanBatchNo"
+                              }
+                          ]
+                      }
+                  ]
+              },
+              "criteria": [],
+              "whereValue": [
+                  "LoanContractNo"
+              ],
+              "fromValue": [],
+              "useIntegration": false,
+              "isHideSearch": false,
+              "isSearched": false,
+              "delay": 1,
+              "isUseCustomApi": false,
+              "customApiQryPaging": ""
+          },
+          "id": "4c599165-7bae-444a-9882-607e2b3f8f7e"
+      }
+  ],
+  "serviceUrl": {
+      "add": {
+          "environment": "",
+          "apiPath": "",
+          "apiUrl": ""
+      },
+      "edit": {
+          "environment": "",
+          "apiPath": "",
+          "apiUrl": ""
+      },
+      "createRfa": {
+          "environment": "",
+          "apiPath": "",
+          "apiUrl": ""
+      }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [
+      {
+          "displayName": "Add Loan Batch",
+          "id": "add loan batchId",
+          "key": "",
+          "position": "top",
+          "icon": "ft-plus",
+          "cssClass": "",
+          "conditions": [],
+          "btnType": "button",
+          "action": {
+              "path": "/Setting/LoanBatch/Detail",
+              "type": "link",
+              "params": [
+                  {
+                      "propName": "LoanContractNo",
+                      "propValue": "LoanContractNo"
+                  },
+                  {
+                      "propName": "mode",
+                      "propValue": "add"
+                  }
+              ],
+              "target": "_self"
+          }
+      }
+  ],
+  "customToastrMsg": "",
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false,
+  "persistPropName": ""
+}

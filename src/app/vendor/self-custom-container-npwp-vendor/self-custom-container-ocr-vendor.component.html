@@ -1,0 +1,19 @@
+<div id="documentId" *ngIf="dicts.formRaw.IsNpwpExist && dicts.mode != 'edit' && dicts.MrVendorCategoryCode !='AUCTION_COMPANY'">
+  <lib-ucSubsection [id]="'OcrNpwpId'" [title]="'OCR FOR NPWP'" [panel]="'OcrNpwp'"> </lib-ucSubsection>
+  <div class="px-3"  id="OcrNpwp" *ngIf="dicts.formRaw.IsNpwpExist && dicts.mode != 'edit'">
+    <div class="form-group row">
+      <label class="col-md-2 label-field-2" translate>NPWP UPLOAD</label>
+      <div class="col-md-4">
+        <label [for]="'doc'" class="btn btn-primary-2 btn-sm afu-select-btn label-field-2">Choose File</label>
+        <input type="file" [id]="'doc'" style="display: none" (input)="HandleFileInput($event.target.files)"
+          [accept]="ExtStr" [disabled]="isDisableButton"/>
+          <div [hidden]="!reqOcrNpwpObj.img" style="padding-left: 15px" class="row afu-valid-file">
+            <p class="col-xs-3 textOverflow"><span class="text-primary">{{reqOcrNpwpObj?.img?.name}}</span></p>
+            <p class="col-xs-3 padMarg sizeC">
+              <strong>({{ConvertSize(reqOcrNpwpObj?.img?.size)}})</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>

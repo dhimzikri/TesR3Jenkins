@@ -1,0 +1,203 @@
+{
+  "title": "Payment History Detail",
+  "hideTitle": false,
+  "id": "PaymentHistoryDetail",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "view": {
+        "subsection": {
+          "subSectionId": "PaymentInformationId",
+          "subSectionTitle": "Payment Information",
+          "concatDate": false,
+          "setDate": "",
+          "formatDate": "",
+          "environment": "facilityPayOutUrl",
+          "apiVersion": "v1",
+          "uri": "",
+          "mainInfoPath": "/Generic/GetDataViewBySQL",
+          "service": "",
+          "querystring": { "name": "viewPaymentInformationDetail" },
+          "reqObj": {},
+          "mainInfo": [
+            {
+              "type": "text",
+              "label": "Transaction No.",
+              "property": "TransactionNo",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "date",
+              "label": "Payment Out Date",
+              "property": "PaymentOutDate",
+              "dateFormat": "dd/MM/yyyy",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "currency",
+              "label": "Total Amount",
+              "property": "TotalAmount",
+              "precision": "0.2",
+              "IsPrcnt": false,
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Currency",
+              "property": "Currency",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+                "type": "currency",
+                "label": "Exchange Rate",
+                "property": "ExchangeRate",
+                "precision": "0.2",
+                "IsPrcnt": false,
+                "position": "left",
+                "isHide": false,
+                "customClassLabel": "",
+                "customClassProperty": ""
+              },
+            {
+              "type": "text",
+              "label": "Bank Account",
+              "property": "BankAcc",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "date",
+              "label": "Value Date",
+              "property": "ValueDate",
+              "dateFormat": "dd/MM/yyyy",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            },
+            {
+              "type": "text",
+              "label": "Reference No.",
+              "property": "ReferencNo",
+              "position": "left",
+              "isHide": false,
+              "customClassLabel": "",
+              "customClassProperty": ""
+            }
+          ],
+          "whereValue": ["PaymentHistHId"],
+          "fromValue": [],
+          "gridViews": [],
+          "resObjName": ""
+        }
+      },
+      "id": "3910963a-6a24-42eb-90dc-901cbf6ff1c7"
+    },
+    {
+      "table": {
+        "isFromApi": true,
+        "title": "Detail Infomation",
+        "resultData": "",
+        "isSubsection": false,
+        "usePagination": true,
+        "includeSubmit": false,
+        "tableInput": {
+          "isSeq": false,
+          "headerList": [
+            {
+              "type": "label",
+              "label": "Payment Allocation",
+              "position": "left"
+            },
+            {
+              "type": "label",
+              "label": "Installment No.",
+              "position": "center"
+            },
+            { "type": "label", "label": "In Amount", "position": "right" },
+            { "type": "label", "label": "Out Amount", "position": "right" }
+          ],
+          "bodyList": [
+            {
+              "type": "text",
+              "position": "left",
+              "property": "RefPaymentAllocCode",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "InstSeqNo",
+              "isFlagColor": false
+            },
+            {
+              "type": "decimal",
+              "position": "right",
+              "property": "InAmt",
+              "isFlagColor": false,
+              "precision": "0.2",
+              "IsPrcnt": false
+            },
+            {
+              "type": "decimal",
+              "position": "right",
+              "property": "OutAmt",
+              "isFlagColor": false,
+              "precision": "0.2",
+              "IsPrcnt": false
+            }
+          ]
+        },
+        "getData": {
+          "environment": "facilityPayOutUrl",
+          "apiPath": "/v1/LoanBatchPayoutHist/GetLoanBatchPayoutHistDByLoanBatchHistHId",
+          "customObjName": "ReturnObject",
+          "reqObj": [
+            {
+              "isFromDict": false,
+              "propName": "Id",
+              "propValue": "PaymentHistHId"
+            }
+          ],
+          "conditions": []
+        }
+      },
+      "id": "1d2b9406-a370-491f-a0e1-4424a208245a"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [],
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false
+}

@@ -1,0 +1,119 @@
+<div class="col-md-12">
+  <div class="card bg-light-blue-card">
+    <div class="card-body">
+      <div class="px-3">
+        <div class="addEdit">
+          <form class="form form-horizontal" [formGroup]="CustomerForm" (ngSubmit)="CustomerForm.valid && SaveForm()"
+            #enjiForm="ngForm" *ngIf="IsReady">
+            <lib-ucSubsection [id]="'MainInfoPubId'" [title]="'Shareholder Main Info'" [panel]="'MainInfoPub'">
+            </lib-ucSubsection>
+            <div class="form-body" id="MainInfoPub">
+              <div class="form-group row">
+                <div class="col-md-6">
+
+                  <div class="form-group row">
+                    <label class="col-md-12 label-field-2 adins-required-label" translate>Public Type </label>
+                    <div class="col-md-12" *ngIf="DictUcDDLObj[RefMasterTypeCodePublicType]?.isReady">
+                      <lib-ucdropdownlist [dropdownListObj]="DictUcDDLObj[RefMasterTypeCodePublicType]"
+                        [parentForm]="CustomerForm" [enjiForm]="enjiForm" [identifier]="'MrPublicTypeCode'"
+                        (callback)="onOptionsSelected($event)"></lib-ucdropdownlist>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-md-12 label-field-2 adins-required-label" translate>Identity No </label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control input-field-2" formControlName="PublicIdentityNo"
+                        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.PublicIdentityNo.invalid}">
+                      <div class="message-box">
+                        <lib-uc-show-errors [customPattern]="customPattern"
+                          [control]="CustomerForm.controls.PublicIdentityNo" [submit]="enjiForm.submitted">
+                        </lib-uc-show-errors>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-md-12 adInsLabel label-field-2" translate> Share(%)</label>
+                    <div class="col-md-12">
+                      <input type="" currencyMask min="0" max="100" class="form-control" formControlName="SharePrcnt"
+                        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.SharePrcnt.invalid}"
+                        [options]="CurrencyMaskPrct">
+                      <div class="message-box">
+                        <lib-uc-show-errors [control]="CustomerForm.controls.SharePrcnt" [submit]="enjiForm.submitted">
+                        </lib-uc-show-errors>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                  <div class="form-group row">
+                    <label class="col-md-12 label-field-2 adins-required-label" translate>Name</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control input-field-2" formControlName="PublicName"
+                        [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerForm.controls.PublicName.invalid}">
+                      <div class="message-box">
+                        <lib-uc-show-errors [control]="CustomerForm.controls.PublicName" [submit]="enjiForm.submitted">
+                        </lib-uc-show-errors>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-md-12 label-field-2 adins-required-label" translate> Position SLIK </label>
+                    <div class="col-md-12">
+                      <lib-uclookupgeneric [lookupInput]="positionSlikLookUpObj" [parentForm]="CustomerForm"
+                        [enjiForm]="enjiForm" [identifier]="'PositionSlikCode'" (lookup)=getLookUpSlik($event)>
+                      </lib-uclookupgeneric>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-md-12 adInsLabel label-field-2" translate>Is Active</label>
+                    <div class="col-md-12">
+                      <ui-switch class="custom-switches" uncheckedLabel="no" checkedLabel="yes" size="small"
+                        [formControlName]="'IsActive'">
+                      </ui-switch>
+                      <!-- <input class="border-primary input-field-2" type="checkbox" data-md-icheck
+                        formControlName="IsActive" /> -->
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <lib-ucSubsection *ngIf="!isHideAddress" [id]="'LegalAddr'" [title]="'Legal Address'"
+              [panel]="'LegalAddrSection'">
+            </lib-ucSubsection>
+            <div *ngIf="!isHideAddress" class="form-body" id="LegalAddrSection">
+              <div class="form-group row" *ngIf="!IsLockCopyAddrBtn">
+                <label class="col-md-2 adInsLabel label-field-2" translate>Copy Address From Legal Debtor</label>
+                <div class="col-md-4">
+                  <button type="button" class="btn btn-raised btn-primary-2" (click)="CopyLegalAddr()">
+                    <i class="far"></i>&nbsp;<span translate>Copy</span>
+                  </button>
+                </div>
+              </div>
+              <lib-ucaddress [addressObj]="inputAddressObj" [UCAddrForm]="CustomerForm" [enjiForm]="enjiForm"
+                [identifier]="'UcAddress'">
+              </lib-ucaddress>
+            </div>
+
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-outline-2 mr-1" (click)="Cancel()">
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary-2" [attr.disabled]="isSubmit? true : null">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

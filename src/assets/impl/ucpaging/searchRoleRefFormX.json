@@ -1,0 +1,147 @@
+{
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "RF.REF_MODULE_ID",
+            "id": "ModuleNameId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "isQueryIn": true,
+            "url": "",
+            "path": "/RefModule/GetListRefModuleKeyValue",
+            "label": "Module",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "RFF.TITLE",
+            "id": "ParentId",
+            "value": "",
+            "label": "Parent",
+            "placeholder": "Parent"
+        },
+        {
+            "type": "textbox",
+            "name": "RF.TITLE",
+            "id": "TitleId",
+            "value": "",
+            "label": "Title",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RF.FORM_CODE",
+            "id": "FormCodeId",
+            "value": "",
+            "label": "Form Code",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "searchRoleRefForm"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Form Code",
+            "name": "RF.FORM_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Module",
+            "name": "RM.MODULE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Parent",
+            "name": "RFF.TITLE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Title",
+            "name": "RF.TITLE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Hierarchy No",
+            "name": "RF.HIERARCHY_NO"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Feature"
+        },
+        {
+          "type": "label",
+          "position": "center",
+          "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "FormCode"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "ModuleName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Parent"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Title"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "HierarchyNo"
+        },
+        {          
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                "type": "edit",
+                "path": "ROLE_FORM_FEATURE_X",
+                "param": [
+                    {
+                    "type": "RefRoleId",
+                    "property": "RefRoleId"
+                    },
+                    {
+                    "type": "mode",
+                    "property": "edit"
+                    }
+                ]
+                }
+            ]      
+        },
+        {
+          "type": "action",
+          "position": "center",
+          "action": [
+            {
+                "type": "delete",
+                "property": "AuthFormId"
+            }
+          ]
+        }
+    ]
+}

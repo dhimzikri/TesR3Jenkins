@@ -1,0 +1,236 @@
+{
+    "title": "Payment Out Fee Inquiry",
+    "hideTitle": false,
+    "id": "PaymentFeeInquiry",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Search",
+                    "querystring": {
+                        "name": "PaymentOutFeeInquiry"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "case when jfbatchvendorCode is null then jfcontractvendorCode else jfbatchvendorCode endSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "case when JFBATCH.VENDOR_CODE IS NULL THEN JFCONTRACT.VENDOR_CODE ELSE JFBATCH.VENDOR_CODE END",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "case when JFBATCH.JF_CONTRACT_NO IS NULL THEN JFCONTRACT.JF_CONTRACT_NO ELSE JFBATCH.JF_CONTRACT_NO END "
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "case when jfbatchpayoutFeeRefNo is null then jfcontractpayoutFeeRefNo else jfbatchpayoutFeeRefNo endSearchId",
+                            "type": "textbox",
+                            "label": "Reference No",
+                            "name": "case when JFBATCH.PAYOUT_FEE_REF_NO IS NULL THEN JFCONTRACT.PAYOUT_FEE_REF_NO ELSE JFBATCH.PAYOUT_FEE_REF_NO END",
+                            "value": "",
+                            "placeholder": "Input Reference No",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "case when jfbatchjfContractNo is null then jfcontractjfContractNo else jfbatchjfContractNo end SearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract Name",
+                            "name": "case when JFBATCH.JF_CONTRACT_NO IS NULL THEN JFCONTRACT.JF_CONTRACT_NO ELSE JFBATCH.JF_CONTRACT_NO END ",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "case when JFBATCH.PAYOUT_FEE_REF_NO IS NOT NULL THEN JFBATCH.PAYOUT_FEE_REF_NO  ELSE '-' END"
+                            ],
+                            "filterPropName": "JfContractNo"
+                        },
+                        {
+                            "id": "case when jfbatchpayoutFeeRefNo is not null then jfbatchpayoutFeeRefNo  else '-' endSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "case when JFBATCH.PAYOUT_FEE_REF_NO IS NOT NULL THEN JFBATCH.PAYOUT_FEE_REF_NO  ELSE '-' END",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListKvpJfBatchByJfContractNo",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "case when JFBATCH.VENDOR_NAME IS NULL THEN JFCONTRACT.VENDOR_NAME ELSE JFBATCH.VENDOR_NAME END"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "case when JFBATCH.JF_CONTRACT_NAME IS NULL THEN JFCONTRACT.JF_CONTRACT_NAME ELSE JFBATCH.JF_CONTRACT_NAME END"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "left",
+                            "name": "case when JFBATCH.PAYOUT_FEE_REF_NO IS NOT NULL THEN JFBATCH.PAYOUT_FEE_REF_NO  ELSE '-' END"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Transaction No",
+                            "position": "left",
+                            "name": "FPFH.TRX_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Reference No",
+                            "position": "left",
+                            "name": "case when JFBATCH.PAYOUT_FEE_REF_NO IS NULL THEN JFCONTRACT.PAYOUT_FEE_REF_NO ELSE JFBATCH.PAYOUT_FEE_REF_NO END"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Posting Date",
+                            "position": "center",
+                            "name": "FPFH.START_REQUEST_DT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Payout Amount",
+                            "position": "center",
+                            "name": "FPFH.TOTAL_PAID_AMT"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "VendorName",
+                            "isFlagColor": false,
+                            "key": "ViewFundCoy"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "JfContractName",
+                            "isFlagColor": false,
+                            "key": "ViewFundContract"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundingBatchNo",
+                            "isFlagColor": false,
+                            "key": "ViewFundBatch"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TrxNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "link",
+                            "position": "left",
+                            "property": "RefNo",
+                            "isFlagColor": false,
+                            "target": "_blank",
+                            "path": "/ViewPaymentOut/PaymentOutFee/Inquiry/Detail",
+                            "param": [
+                                {
+                                    "type": "TrxNo",
+                                    "property": "TrxNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "PostingDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "PayoutAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "a9ac803d-c9f2-4d2b-8840-749a73ae4ddd"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "customToastrMsg": ""
+}

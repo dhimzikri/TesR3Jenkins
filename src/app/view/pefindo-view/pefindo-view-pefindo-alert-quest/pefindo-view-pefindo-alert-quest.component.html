@@ -1,0 +1,90 @@
+<div class="mt-3">
+	<div class="card">
+		<div class="card-body">
+			<div class="pl-3">
+				<div class="form-body mt-1">
+          
+          <lib-ucSubsection [id]="'PefindoAlertQuestId'" [title]="'PEFINDO Alert Quest (PAQ)'" [panel]="'PefindoAlertQuest'">
+          </lib-ucSubsection>
+          <div class="row" id="PefindoAlertQuest">
+          
+            <!-- PEFINDO Quest Summary -->
+            <div class="col-md-12 px-4">
+              <lib-ucSubsection [id]="'PefindoQuestSummaryId'" [title]="'PEFINDO Quest Summary'" [panel]="'PefindoQuestSummary'">
+              </lib-ucSubsection>
+              <div class="row" id="PefindoQuestSummary">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="label-control" translate> No. of CIQ Fraud Alerts </label>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="label-control" translate> {{ ResViewPefindoAlertQuestObj.FraudAlrtNum == null ? '-' : ResViewPefindoAlertQuestObj.FraudAlrtNum }} </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="label-control" translate> No. of CIQ Fraud Alerts - Third Party </label>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="label-control" translate> {{ ResViewPefindoAlertQuestObj.FraudAlrt3rdPrtyNum == null ? '-' : ResViewPefindoAlertQuestObj.FraudAlrt3rdPrtyNum }} </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="label-control" translate> Last Fraud Registration Date </label>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="label-control" translate> {{ ResViewPefindoAlertQuestObj.LastFraudReqDt == null ? '-' : ResViewPefindoAlertQuestObj.LastFraudReqDt | date: 'dd-MM-yyyy' }} </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="label-control" translate> Last Fraud Registration Date -Third Party </label>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="label-control" translate> {{ ResViewPefindoAlertQuestObj.LastFraudReqDt3rdPrty == null ? '-' : ResViewPefindoAlertQuestObj.LastFraudReqDt3rdPrty | date: 'dd-MM-yyyy' }} </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!--PEFINDO Alert Quest Details-->
+            <div class="col-md-12 px-3 mt-3">
+              <h5 class="font-weight-bold"> PEFINDO alert Quest Details </h5>
+            </div>
+            <div class="col-md-12 px-4">
+              <lib-ucSubsection [id]="'firstPersonFraudId'" [title]="'1st Person Fraud Alerts'" [panel]="'firstPersonFraud'">
+              </lib-ucSubsection>
+              <div class="row" id="firstPersonFraud">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="label-control" translate> No. of Inquiries From Different Subscribers During Last 48 hours:  </label>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="label-control" translate> {{ ResViewPefindoAlertQuestObj.SubsInqLast2Days == null ? '-' : ResViewPefindoAlertQuestObj.SubsInqLast2Days }} </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="label-control" translate> No. of Inquiries From Different Subscribers During Last 14 Days: </label>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="label-control" translate> {{ ResViewPefindoAlertQuestObj.SubsInqLast14Days == null ? '-' : ResViewPefindoAlertQuestObj.SubsInqLast14Days }} </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

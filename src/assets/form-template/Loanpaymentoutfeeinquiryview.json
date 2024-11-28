@@ -1,0 +1,296 @@
+{
+    "title": "View Loan Payment Out Fee",
+    "hideTitle": false,
+    "id": "Loanpaymentoutfeeinquiryview",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "LoanPaymentOutFeeId",
+                    "subSectionTitle": "Loan Payment Out Fee",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "PayoutUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanPayoutFeeInquiry"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Company Name",
+                            "property": "VendorName",
+                            "key": "ViewFundCoy",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Out Levels",
+                            "property": "PaymentOutLevel",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "callback",
+                            "label": "Funding Contract Name",
+                            "property": "LoanContractName",
+                            "key": "ViewFundContract",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Posting Date",
+                            "property": "PostingDt",
+                            "dateFormat": "dd/MM/YYYY",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "callback",
+                            "label": "Funding Batch No",
+                            "property": "FundingBatchNo",
+                            "key": "ViewFundBatch",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "switch",
+                            "case": [
+                                {
+                                    "result": {
+                                        "type": "decimal",
+                                        "IsPrcnt": false,
+                                        "isHide": false,
+                                        "label": "Plafond Amount",
+                                        "property": "PlafondAmt",
+                                        "position": "left",
+                                        "customClassLabel": "",
+                                        "customClassProperty": "",
+                                        "precision": "0.2"
+                                    },
+                                    "conditions": [
+                                        {
+                                            "property": "PaymentOutLevel",
+                                            "value": "CONTRACT",
+                                            "restriction": "EQ"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "result": {
+                                        "type": "decimal",
+                                        "IsPrcnt": false,
+                                        "isHide": false,
+                                        "label": "Drawdown Amount",
+                                        "property": "DrawdownAmt",
+                                        "position": "left",
+                                        "customClassLabel": "",
+                                        "customClassProperty": "",
+                                        "precision": "0.2"
+                                    },
+                                    "conditions": [
+                                        {
+                                            "property": "PaymentOutLevel",
+                                            "value": "BATCH",
+                                            "restriction": "EQ"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "label": "Reference No",
+                            "property": "PayoutFeeRefNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "switch",
+                            "case": [
+                                {
+                                    "result": {
+                                        "type": "decimal",
+                                        "IsPrcnt": false,
+                                        "isHide": false,
+                                        "label": "OS Plafond Amount",
+                                        "property": "OsPlafondAmt",
+                                        "position": "left",
+                                        "customClassLabel": "",
+                                        "customClassProperty": "",
+                                        "precision": "0.2"
+                                    },
+                                    "conditions": [
+                                        {
+                                            "property": "PaymentOutLevel",
+                                            "value": "CONTRACT",
+                                            "restriction": "EQ"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "result": {
+                                        "type": "text",
+                                        "isHide": false,
+                                        "label": "Drawdown Date",
+                                        "property": "DrawdownDt",
+                                        "position": "left",
+                                        "customClassLabel": "",
+                                        "customClassProperty": ""
+                                    },
+                                    "conditions": [
+                                        {
+                                            "property": "PaymentOutLevel",
+                                            "value": "BATCH",
+                                            "restriction": "EQ"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Payment Out Amount",
+                            "property": "PayoutAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": []
+                }
+            },
+            "id": "c404901f-fb77-4e79-a72c-213b5a05764a"
+        },
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "Fee Detail",
+                "resultData": "",
+                "isSubsection": false,
+                "usePagination": true,
+                "includeSubmit": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Type Of Fee",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Percentage",
+                            "position": "right"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Amount",
+                            "position": "right"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TypeName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "ValuePercent",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "Value",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "PayoutUrl",
+                    "apiPath": "/v1/LoanBatchPayoutHist/GetListLoanPayoutFeeDByPayoutRefNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "TrxNo",
+                            "propValue": "TrxNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "3de45085-3aa1-4972-9357-50446724b540"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

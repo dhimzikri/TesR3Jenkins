@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="ucSearch-Button-Right">
+    <span class="mr-1">
+      <button type="button" class="backButton" [routerLink]="[CancelLink]" [queryParams]="{VerfSchemeHId:VerfSchemeHId}" skipLocationChange>
+        <i class="fa fa-arrow-left"> </i>&nbsp;<span translate>Back</span>
+      </button>
+    </span>
+  </div>
+  <div class="card-body">
+    <lib-ucviewgeneric [viewGenericObj]="viewGenericObj"> </lib-ucviewgeneric>
+    <lib-ucaddtotemp *ngIf="tempPagingObj.isReady" [tempPagingObj]="tempPagingObj" (callback)="getListTemp($event)">
+    </lib-ucaddtotemp>
+    <div class="card-header">
+      <div class="text-right"  *ngIf="listSelectedId.length > 0">
+        <!-- <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange
+        [queryParams]="{VerfSchemeHId:VerfSchemeHId}" translate>
+          <i class="far fa-window-close"></i> Cancel
+        </button> -->
+        <button type="button" (click)="SaveQuestionSchemeMember()" class="btn btn-raised btn-primary">
+          <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

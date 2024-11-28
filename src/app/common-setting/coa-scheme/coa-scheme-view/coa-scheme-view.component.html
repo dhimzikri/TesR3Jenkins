@@ -1,0 +1,49 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title" id="horz-layout-colored-controls" translate>COA Scheme</h4>
+    </div>
+
+    <div class="card-body">
+
+      <lib-ucviewgeneric [viewGenericObj]="viewGenericObj"> </lib-ucviewgeneric>
+
+      <div class="px-3">
+        <div class="form-body">
+
+          <lib-ucSubsection [id]="'ProductDetailInfoId'" [title]="'Product Detail Information'"
+            [panel]="'ProductDetailInfo'">
+          </lib-ucSubsection>
+          <div id='ProductDetailInfo'>
+
+            <div class="table-responsive" style="overflow-x: auto;">
+              <table class="table table-responsive-md text-center table-hover">
+                <thead>
+                  <tr class="table-header">
+                    <th>
+                      <span class="thead-header" translate>Product Code</span>
+                    </th>
+                    <th>
+                      <span class="thead-header" translate>Product Name</span>
+                    </th>
+                    <th>
+                      <span class="thead-header" translate>Start Active Date</span>
+                    </th>
+                    <th>
+                      <span class="thead-header" translate>Expired Date</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of ListProd; let i = index">
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

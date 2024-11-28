@@ -1,0 +1,428 @@
+{
+    "title": "Funding Batch Paging",
+    "id": "Fundingbatchpaging",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "FundingContractMainInfoId",
+                    "subSectionTitle": "Funding Contract Main Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "fundingBatchContractMainInfo"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Company Name",
+                            "property": "FundingCompanyName",
+                            "key": "ViewVendor",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "Mirroring Status",
+                            "property": "MirroringStatus",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "link",
+                            "label": "Funding Contract Name",
+                            "property": "ContractName",
+                            "environment": "facilityMNTWeb",
+                            "path": "/View/FundingContract/View",
+                            "target": "_blank",
+                            "position": "left",
+                            "param": [
+                                {
+                                    "type": "JfContractNo",
+                                    "property": "ContractNo"
+                                }
+                            ],
+                            "isCurrency": false,
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Funding Contract No",
+                            "property": "ContractNo",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "date",
+                            "label": "Contract Period From",
+                            "property": "ContractPeriodFrom",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "date",
+                            "label": "Contract Period To",
+                            "property": "ContractPeriodTo",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Plafond Amount",
+                            "property": "PlafondAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "OS Plafond Amount",
+                            "property": "OsPlafondAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "",
+                            "isHide": false
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "FundingContractMainInfoId"
+                }
+            },
+            "id": "941aa89e-9db6-446f-b499-5c23b168ef0e"
+        },
+        {
+            "paging": {
+                "environment": "facilityMntUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "Param Search",
+                    "querystring": {
+                        "name": "searchFundingBatchList"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "jfBatchNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "JF_BATCH_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfBatch/GetListKeyAndValueJfBatchNoByContractNo",
+                            "criteriaPropName": "JfContractNo",
+                            "criteriaPropValue": "ContractNo",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "jfBatchStatSearchId",
+                            "type": "dropdown",
+                            "label": "Batch Status",
+                            "name": "JF_BATCH_STAT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefStatusTms/GetListKeyValueActiveGrpCodeByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_BATCH_STATUS_TMS",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "drawdownPlanDtSearchId",
+                            "type": "datepicker",
+                            "label": "Drawdown Plan Date From",
+                            "name": "DRAWDOWN_PLAN_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "gte",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "drawdownPlanDtSearchId",
+                            "type": "datepicker",
+                            "label": "Drawdown Plan Date To",
+                            "name": "DRAWDOWN_PLAN_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "lte",
+                            "useDefVal": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Funding Batch No",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Drawdown Plan Date",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Drawdown Date",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Drawdown Plan Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Principal Amount To Funding",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Number of Agreement",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Status",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Action",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Edit",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Pledge",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "link",
+                            "position": "left",
+                            "property": "BatchNo",
+                            "isFlagColor": false,
+                            "target": "_blank",
+                            "path": "/View/fundingBatch/ViewX",
+                            "param": [
+                                {
+                                    "type": "BatchNo",
+                                    "property": "BatchNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "position": "left",
+                            "property": "DrawdownPlanDt"
+                        },
+                        {
+                            "type": "date",
+                            "position": "left",
+                            "property": "DrawdownDt"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "left",
+                            "property": "DrawdownPlanAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "left",
+                            "property": "PrincipalAmtToFunding",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "NumOfAgrmnt"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "StatusName"
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/Setting/fundingBatch/View",
+                                    "target": "_blank",
+                                    "param": [
+                                        {
+                                            "type": "BatchNo",
+                                            "property": "BatchNo"
+                                        },
+                                        {
+                                            "type": "showButton",
+                                            "property": "true"
+                                        }
+                                    ],
+                                    "property": "BatchNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "callback",
+                                    "key": "Edit",
+                                    "property": "",
+                                    "icon": "ft-edit"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "JfBatchNo",
+                                            "property": "BatchNo"
+                                        }
+                                    ],
+                                    "path": "SETTING_FUNDING_CONTRACT_PLEDGING_VIEW",
+                                    "icon": "ft-edit"
+                                }
+                            ]
+                        }
+                    ],
+                    "sectionTitle": ""
+                },
+                "criteria": [
+                    {
+                        "isFromDict": true,
+                        "propName": "JC.JF_CONTRACT_NO",
+                        "restriction": "Eq",
+                        "value": "ContractNo"
+                    },
+                    {
+                        "isFromDict": false,
+                        "propName": "RMTBS.STATUS_GRP_CODE",
+                        "restriction": "Eq",
+                        "value": "JF_BATCH_STATUS_TMS",
+                        "conditions": []
+                    }
+                ],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1
+            },
+            "id": "87c77fe7-88b8-49e0-934c-c8332598eacc"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [
+        {
+            "displayName": "Cancel",
+            "id": "cancelId",
+            "key": "",
+            "position": "top",
+            "icon": "",
+            "cssClass": "btn-outline-2",
+            "conditions": [],
+            "action": {
+                "type": "link",
+                "path": "Setting/FundingContract/PagingX",
+                "target": "_self",
+                "params": []
+            }
+        },
+        {
+            "displayName": "ADD",
+            "id": "addId",
+            "key": "",
+            "position": "top",
+            "icon": "",
+            "cssClass": "",
+            "conditions": [],
+            "action": {
+                "type": "link",
+                "path": "Setting/funding-batch-detailX",
+                "target": "_self",
+                "params": [
+                    {
+                        "propName": "ContractNo",
+                        "propValue": "ContractNo"
+                    }
+                ]
+            }
+        }
+    ],
+    "customToastrMsg": "",
+    "child": [
+        "FundingBatchDetail"
+    ],
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

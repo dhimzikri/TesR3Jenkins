@@ -1,0 +1,1 @@
+<app-dms-iframe *ngIf="isDmsReady && SysConfigResultObj?.ConfigValue == '1'" [dmsObj]="dmsObj" [showButton]="false" (outputTab)="getValue($event)" (outputCancel)="getValue($event)"></app-dms-iframe>

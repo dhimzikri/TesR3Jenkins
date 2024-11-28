@@ -1,0 +1,239 @@
+{
+  "title": "Pledging Upload Monitoring",
+  "id": "PledginguploadmonitoringXCNAF",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "paging": {
+        "environment": "facilityMntUrl",
+        "apiVersion": "v2.1",
+        "service": "",
+        "pagingInput": {
+          "title": "",
+          "sectionTitle": "",
+          "querystring": { "name": "searchUploadPledgeMonitoringJF" },
+          "exportExcel": false,
+          "component": [
+            {
+              "id": "vtvendorCodeSearchId",
+              "type": "dropdown",
+              "label": "Funding Company",
+              "name": "VT.VENDOR_CODE",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": true,
+              "environment": "FOU",
+              "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+              "criteriaPropName": "Code",
+              "criteriaPropValue": "JF_FUNDING_COMPANY",
+              "isQueryIn": false,
+              "affectedFilter": ["LC.LOAN_CONTRACT_NO"],
+              "filterPropName": "VendorCode"
+            },
+            {
+              "id": "lcloanContractNoSearchId",
+              "type": "dropdown",
+              "label": "Funding Contract",
+              "name": "LC.LOAN_CONTRACT_NO",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": true,
+              "environment": "FACILITYMNT",
+              "path": "/LoanContract/GetListLoanContractKeyAndValue",
+              "criteriaPropName": "Key",
+              "criteriaPropValue": "JF_FUNDING_COMPANY",
+              "isQueryIn": false,
+              "affectedFilter": ["LC.LOAN_CONTRACT_NO"],
+              "filterPropName": "VendorCode"
+            },
+            {
+              "id": "lbloanBatchNoSearchId",
+              "type": "dropdown",
+              "label": "Funding Batch No",
+              "name": "LB.LOAN_BATCH_NO",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": false,
+              "environment": "FACILITYMNT",
+              "path": "/LoanBatch/GetListLoanBatchByLoanContractNo",
+              "criteriaPropName": "key",
+              "criteriaPropValue": "LB.LOAN_BATCH_NO",
+              "isQueryIn": false
+            },
+            {
+              "id": "uhuploadDtSearchId",
+              "type": "datepicker",
+              "label": "Upload Date",
+              "name": "UH.UPLOAD_DT",
+              "value": "",
+              "placeholder": "",
+              "datatype": "date",
+              "restriction": "eq",
+              "useDefVal": false
+            },
+            {
+              "id": "uhfileNameSearchId",
+              "type": "textbox",
+              "label": "Textfile Name",
+              "name": "UH.FILE_NAME",
+              "value": "",
+              "placeholder": "Input textfile name",
+              "datatype": "text",
+              "isReadonly": false,
+              "useAutofill": false,
+              "isUppercase": false,
+              "isCriteriaDataTable": false
+            }
+          ],
+          "headerList": [
+            {
+              "type": "sort",
+              "label": "Funding Company Name",
+              "position": "left",
+              "name": "VT.VENDOR_CODE"
+            },
+            {
+              "type": "sort",
+              "label": "Funding Contract Name",
+              "position": "left",
+              "name": "LC.LOAN_CONTRACT_NO"
+            },
+            {
+              "type": "sort",
+              "label": "Funding Batch No",
+              "position": "center",
+              "name": "LB.LOAN_BATCH_NO"
+            },
+            { "type": "label", "label": "Upload Date", "position": "center" },
+            { "type": "label", "label": "Status", "position": "center" },
+            { "type": "label", "label": "Textfile Name", "position": "left" },
+            {
+              "type": "label",
+              "label": "Agreement Uploaded",
+              "position": "center"
+            },
+            {
+              "type": "label",
+              "label": "Agreement Pledged",
+              "position": "center"
+            },
+            {
+              "type": "label",
+              "label": "Failed to Pledge",
+              "position": "center"
+            },
+            { "type": "label", "label": "On Process", "position": "center" }
+          ],
+          "bodyList": [
+            {
+              "type": "callback",
+              "position": "left",
+              "property": "VendorName",
+              "isFlagColor": false,
+              "key": "ViewVendor"
+            },
+            {
+              "type": "callback",
+              "position": "left",
+              "property": "ContractName",
+              "isFlagColor": false,
+              "key": "ViewContract"
+            },
+            {
+              "type": "callback",
+              "position": "center",
+              "property": "BatchNo",
+              "isFlagColor": false,
+              "key": "ViewFundingBatch"
+            },
+            {
+              "type": "date",
+              "position": "center",
+              "property": "UploadDt",
+              "isFlagColor": false
+            },
+            {
+              "type": "callback",
+              "position": "center",
+              "property": "Status",
+              "isFlagColor": false,
+              "key": "ViewStatus"
+            },
+            {
+              "type": "text",
+              "position": "left",
+              "property": "FileName",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "AgrmntUpload",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "AgrmntPledged",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "FailedPledge",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "OnProcess",
+              "isFlagColor": false
+            }
+          ]
+        },
+        "criteria": [],
+        "whereValue": [],
+        "fromValue": [],
+        "useIntegration": false,
+        "isHideSearch": false,
+        "isSearched": false,
+        "delay": 1,
+        "isUseCustomApi": false,
+        "customApiQryPaging": ""
+      },
+      "id": "d28dcfbd-e1c8-41bd-b809-002b96921f96"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "hideTitle": false,
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "listBtn": [],
+  "onCancel": {},
+  "isOverrideSubmit": false,
+  "isOverrideCancel": false,
+  "onSubmit": [],
+  "hideCancelButton": false,
+  "onInit": [],
+  "conditionalTitle": [],
+  "persistData": false,
+  "persistPropName": ""
+}

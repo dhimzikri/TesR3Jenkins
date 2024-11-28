@@ -1,0 +1,67 @@
+<form class="form form-horizontal" [formGroup]="VendorAtpmForm" #enjiForm="ngForm" novalidate
+  (ngSubmit)="enjiForm.form.valid && Save(enjiForm)">
+  <div class="bg-light-blue-card">
+    <div class="modal-header">
+        <h4 class="modal-title">Add Vendor ATPM</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('0')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <div class="">
+            <div class="">
+              <div class="px-3">
+                <div class="form-body">
+                  <div id="AtpmSection">
+                    <div class="form-group row">
+                      <label class="col-md-12 adInsLabel label-field-2" translate>Vendor ATPM</label>
+                      <div class="col-md-12">
+                        <!-- <lib-uclookupgeneric [lookupInput]="inputLookupBank" [parentForm]='VendorAtpmForm' [enjiForm]='enjiForm' [identifier]="'RefBankLookup'"
+                          (lookup)="getLookupRefBankResponse($event)"></lib-uclookupgeneric> -->
+                          <lib-uclookupgeneric [lookupInput]="inputLookupATPMObj" [parentForm]="VendorAtpmForm"
+                          [enjiForm]="enjiForm" [identifier]="'lookupATPM'" (lookup)="getLookupATPM($event)">
+                        </lib-uclookupgeneric>
+                      </div>
+                      <!-- <div class="col-md-9">
+                        {{atpmName}}
+                      </div> -->
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-12 adInsLabel label-field-2" for="VendorAtpmCode" translate>Vendor Code</label>
+                      <div class="col-md-12">
+                        <input type="text" class="form-control adInsInput input-field-2" formControlName="VendorAtpmCode" 
+                          [ngClass]="{ 'is-invalid': enjiForm.submitted && VendorAtpmForm.controls.VendorAtpmCode.invalid }"
+                          [attr.disabled]="true" />
+                        <div class="message-box">
+                            <lib-uc-show-errors [control]="VendorAtpmForm.controls.VendorAtpmCode" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                        </div>
+                      </div>
+                    </div>
+                    <lib-ucaddress [addressObj]="inputAddressObj" [enjiForm]="enjiForm" [identifier]="'UcAddress'" [UCAddrForm]="VendorAtpmForm">
+                    </lib-ucaddress>
+                    <!-- <div class="form-group row">
+                      <label class="col-md-3 adInsLabel" for="VendorLegalAddr" translate>Vendor Address</label>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control adInsInput" formControlName="VendorLegalAddr" 
+                          [ngClass]="{ 'is-invalid': enjiForm.submitted && VendorAtpmForm.controls.VendorLegalAddr.invalid }"
+                          [attr.disabled]="true" />
+                        <lib-uc-show-errors [control]="VendorAtpmForm.controls.VendorLegalAddr" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"> 
+        <button type="button" class="btn btn-raised btn-outline-2" (click)="activeModal.dismiss('0')"><i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span></button>
+        <button type="submit" class="btn btn-raised btn-primary-2">
+          <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+        </button>
+      </div>
+  </div>
+</form>
+

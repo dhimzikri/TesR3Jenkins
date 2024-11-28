@@ -1,0 +1,91 @@
+<section id="horizontal-form-layouts">
+  <div class="row text-left">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="px-3">
+            <form class="form form-horizontal" name="RoleUserFoem" #RoleUserForm="ngForm"
+              (ngSubmit)="Save(RoleUserForm)">
+              <div class="form-body">
+                <h4 class="form-section card-title" translate><i class="ft-file-text"></i>Assign User to Role</h4>
+                <button type="button" style="top:-3px;right:50px;position:fixed;" class="backButton" (click)="Back()">
+                  <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+                </button>
+                <div class="form-group row">
+                  <label class="col-md-3  adInsLabel">Role Code</label>
+                  <div class="col-md-9">
+                    <label>{{refRoleObj.RoleCode}}</label></div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3  adInsLabel">Role Name</label>
+                  <div class="col-md-9">
+                    <label>{{refRoleObj.RoleName}}</label></div>
+                </div>
+
+                <lib-UCSearch id="ucSearch" style="width:100%;" [searchInput]='inputObj' (result)="getResult($event)"></lib-UCSearch>
+
+                <div [hidden]="resultData?.data == null">
+                  <div style="overflow-x: auto;">
+                    <table class="table table-responsive-md text-center table-hover">
+                      <thead>
+                        <tr class="table-header">
+                          <th>Action</th>
+                          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='officeCode'>OfficeCode </span></th>
+                          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='officeName'>Office Name </span></th>
+                          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='bizUnitName'>Business Unit Name</span></th>
+                          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='jobTitleName'>Job Title Name</span></th>
+                          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='employeeNo'>Employee No</span></th>
+                          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='employeeName'>Employee Name</span></th>
+                          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='username'>User Name</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of resultData?.data;  let i = index">
+                          <td>
+                            <div *ngIf="refRoleObj.refRoleId == item.refRoleId && item.isActive == '1'">
+                              <input type="checkbox" id="checkSame" name="itemSame"
+                                (change)="Checked(item.empPositionId,  $event.target.checked)" [checked]=true>
+                            </div>
+                            <div *ngIf="refRoleObj.refRoleId == item.refRoleId && item.isActive == '0'">
+                              <input type="checkbox" id="checkActive" name="itemActive"
+                                (change)="Checked(item.empPositionId,  $event.target.checked)" [checked]=false>
+                            </div>
+                            <div *ngIf="refRoleObj.refRoleId != item.refRoleId">
+                                <input type="checkbox" id="checkSame" name="itemSame"
+                                (change)="Checked(item.empPositionId,  $event.target.checked)">
+                            </div>
+                            
+                            <div *ngIf="item.refRoleId == 0">
+                              <input type="checkbox" id="checkDiff" name="itemDiff"
+                                (change)="Checked(item.empPositionId,  $event.target.checked)" [checked]=false>
+                            </div>
+                          </td>
+                          <td class="text-left">{{item.officeCode}}</td>
+                          <td class="text-left">{{item.officeName}}</td>
+                          <td class="text-left">{{item.bizUnitName}}</td>
+                          <td class="text-left">{{item.jobTitleName}}</td>
+                          <td class="text-left">{{item.employeeNo}}</td>
+                          <td class="text-left">{{item.employeeName}}</td>
+                          <td class="text-left">{{item.username}}</td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <lib-ucgridfooter (select)="onSelect($event)"></lib-ucgridfooter>
+                </div>
+              </div>
+              <div class="form-actions right">
+
+                <button type="submit" class="btn btn-raised btn-primary">
+                  <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

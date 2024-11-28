@@ -1,0 +1,162 @@
+{
+    "title": "list agrement",
+    "hideTitle": true,
+    "id": "ListAgrement",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "facilityMntUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchFundingBatchListAgrmnt"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "jajfAgrmntNoSearchId",
+                            "type": "textbox",
+                            "label": "Agreement No",
+                            "name": "JA.JF_AGRMNT_NO",
+                            "value": "",
+                            "placeholder": "Input Agreement No",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "facustNameSearchId",
+                            "type": "textbox",
+                            "label": "Customer Name",
+                            "name": "FA.CUST_NAME",
+                            "value": "",
+                            "placeholder": "Input Customer Name",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Agreement No",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Customer Name",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Os Principal Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Os Interest Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Principal Amount To Funding",
+                            "position": "left"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "AgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "CustName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "left",
+                            "property": "OsPrincipalAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "left",
+                            "property": "OsInterestAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "left",
+                            "property": "PrincipalAmtToFunding",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "criteria": [
+                    {
+                        "propName": "JB.JF_BATCH_NO",
+                        "restriction": "Eq",
+                        "value": "BatchNo",
+                        "conditions": []
+                    }
+                ],
+                "whereValue": [
+                    "BatchNo"
+                ],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "0e4e6cb5-a01c-4d31-87da-ae562a0d7dd7"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": []
+}

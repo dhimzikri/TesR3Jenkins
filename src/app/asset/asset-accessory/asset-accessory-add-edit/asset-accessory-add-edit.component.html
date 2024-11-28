@@ -1,0 +1,64 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Asset Accesory Registration</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="AssetAccessoryForm"
+            (ngSubmit)="AssetAccessoryForm.valid && SaveForm()" #enjiForm="ngForm">
+            <div class="form-body">
+              <lib-ucSubsection [id]="'AssetAccesoryId'" [title]="'Asset Accesory '+ pageType" [panel]="'AssetAccesory'"></lib-ucSubsection>
+              <div id="AssetAccesory">
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" translate>Asset Type Name</label>
+                <div class="col-md-9">
+                  <label class="adInsLabel" translate>{{this.assetTypeName}}</label>
+                </div>
+              </div>
+              <div *ngIf="!isAuto" class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required-label" translate>Asset Accessory Code</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput" formControlName="AssetAccessoryCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && AssetAccessoryForm.controls.AssetAccessoryCode.invalid}">
+                  <lib-uc-show-errors [control]="AssetAccessoryForm.controls.AssetAccessoryCode"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required-label" translate>Asset Accessory Name</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput" formControlName="AssetAccessoryName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && AssetAccessoryForm.controls.AssetAccessoryName.invalid}">
+                  <lib-uc-show-errors [control]="AssetAccessoryForm.controls.AssetAccessoryName"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" translate>Active Status</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" />
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]"
+                [queryParams]="{ AssetTypeId: this.AssetTypeId }" skipLocationChange translate>
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary" translate>
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

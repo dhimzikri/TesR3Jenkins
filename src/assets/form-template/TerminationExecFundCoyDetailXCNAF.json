@@ -1,0 +1,595 @@
+{
+    "title": "Execute Termination",
+    "id": "TerminationExecFundCoyDetailXCNAF",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "FundingInformationId",
+                    "subSectionTitle": "Funding Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "PayoutUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewMainInfoTerminationFundCoyExecX"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Funding Company Name",
+                            "property": "FundCoyName",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Termination Type",
+                            "property": "TerminationTypeName",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Num of Termination Data",
+                            "property": "NumOfTerminationData",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Batch Prepare Date",
+                            "property": "TrxDt",
+                            "dateFormat": "",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Principal Paid To Bank",
+                            "property": "TotalPrincipalPaidAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Interest Paid To Bank",
+                            "property": "TotalInterestPaidAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Penalty Paid To Bank",
+                            "property": "TotalPenaltyPaidAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total LC Paid To Bank",
+                            "property": "TotalLcToMfPaidAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "FundingCompany",
+                        "PrepareDt",
+                        "Type"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "1ffee2f2-505e-4c58-a214-3b4a961bf7a5"
+        },
+        {
+            "formarray": {
+                "title": "List Of Termination Data",
+                "isSubsection": true,
+                "isModeAdd": false,
+                "formGroupName": "ListBatchTerminationTrxForExecuteFundCoyObj",
+                "canAdd": false,
+                "isFromApi": true,
+                "resultData": "",
+                "customObjName": "ListPaymentDataForExecFundCoy",
+                "formInput": {
+                    "headerList": [
+                        {
+                            "Label": "Funding Contract Name",
+                            "IsHide": false,
+                            "Position": "text-center"
+                        },
+                        {
+                            "Label": "Termination Batch No",
+                            "IsHide": false,
+                            "Position": "text-center"
+                        },
+                        {
+                            "Label": "Funding Batch No",
+                            "IsHide": false,
+                            "Position": "text-center"
+                        },
+                        {
+                            "Label": "LMS Agreement No",
+                            "IsHide": false,
+                            "Position": "text-center"
+                        },
+                        {
+                            "Label": "JF Agreement No",
+                            "IsHide": false,
+                            "Position": "text-center"
+                        },
+                        {
+                            "Label": "Principal Paid To Funding",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "Interest Paid To Funding",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "Penalty Paid To Funding",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "LC Paid From Cust",
+                            "IsHide": false,
+                            "Position": "text-center"
+                        },
+                        {
+                            "Label": "LC paid to funding",
+                            "IsHide": false
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "Type": "LABEL",
+                            "Label": "Funding Contract Name",
+                            "Variable": "FundContractName",
+                            "LabelType": "TEXT",
+                            "Position": "text-center"
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "Termination Batch No",
+                            "Variable": "TerminationBatchNo",
+                            "LabelType": "TEXT",
+                            "Position": "text-center"
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "Funding Batch No",
+                            "Variable": "FundBatchNo",
+                            "LabelType": "TEXT",
+                            "Position": "text-center"
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "LMS Agreement No",
+                            "Variable": "LmsAgrmntNo",
+                            "LabelType": "TEXT",
+                            "Position": "text-center"
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "JF Agreement No",
+                            "Variable": "JfAgrmntNo",
+                            "LabelType": "TEXT",
+                            "Position": "text-center"
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "Principal Paid To Funding",
+                            "Variable": "PrincipalPaidAmt",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "Interest Paid To Funding",
+                            "Variable": "InterestPaidAmt",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "Penalty Paid To Funding",
+                            "Variable": "PenaltyPaidAmt",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "LC Paid From Cust",
+                            "Variable": "LcPaidFromCust",
+                            "LabelType": "DECIMAL",
+                            "Position": "text-right",
+                            "Precision": "0.2",
+                            "IsPrcnt": false,
+                            "Action": []
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "LC paid to funding",
+                            "Variable": "LcToMfPaidAmt",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        }
+                    ],
+                    "addBodyList": [],
+                    "footerList": []
+                },
+                "getData": {
+                    "environment": "PayoutUrl",
+                    "apiPath": "/v1/TerminationX/GetListPaymentDataForExecFundCoyForViewX",
+                    "reqObj": {
+                        "FundingCompanyCode": "FundingCompany",
+                        "Type": "Type",
+                        "PrepareDt": "PrepareDt"
+                    }
+                }
+            },
+            "id": "0f33dbd7-1845-461f-9a99-1536d8e28844"
+        },
+        {
+            "container": {
+                "key": "ListPaymentDataNotFound",
+                "className": "TerminationExecutionFundCoyInfoXComponent",
+                "cssClass": "",
+                "input": {}
+            },
+            "id": "cfcf9556-fa4e-4ea8-95db-847ba2e9ab78"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Upload Data",
+                    "isVertical": false,
+                    "isSubsection": false,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "FILE",
+                            "Label": "Upload Data Reject From Bank",
+                            "Variable": "File0",
+                            "MaxSize": "30000000",
+                            "ExtensionList": "xlsx, .xls",
+                            "IsRequired": false
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "callAPI",
+                                    "environment": "PAYOUT",
+                                    "apiPath": "/TerminationX/ValidateAndUpdateTerminationExecFundCoyFromUploadX",
+                                    "reqObj": [
+                                        {
+                                            "propName": "Base64Data",
+                                            "propValue": "Files.0.Content"
+                                        },
+                                        {
+                                            "propName": "FileName",
+                                            "propValue": "Files.0.FileName"
+                                        },
+                                        {
+                                            "propName": "FundingCompanyCode",
+                                            "propValue": "FundingCompany"
+                                        },
+                                        {
+                                            "propName": "PrepareDt",
+                                            "propValue": "PrepareDt"
+                                        },
+                                        {
+                                            "propName": "Type",
+                                            "propValue": "Type"
+                                        }
+                                    ],
+                                    "bindToVar": [],
+                                    "bindToDict": [
+                                        {
+                                            "variable": "ListPaymentDataNotFoundExecFundCoy",
+                                            "value": "ListPaymentDataNotFoundExecFundCoy"
+                                        }
+                                    ],
+                                    "bindToFormArr": [
+                                        {
+                                            "variable": "ListBatchTerminationTrxForExecuteFundCoyObj",
+                                            "value": "ListPaymentDataForExecFundCoy"
+                                        }
+                                    ],
+                                    "condition": [
+                                        {
+                                            "variable": "File0",
+                                            "restriction": "NEQ",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "cbCallback",
+                                    "key": "OnViewPreview"
+                                }
+                            ],
+                            "Type": "BUTTON",
+                            "Variable": "OnViewPreview",
+                            "IsCallback": true,
+                            "DisplayName": "Process",
+                            "Icon": "",
+                            "Position": "text-left"
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "aa8d43e7-4b10-4b43-a7a3-27f2b0e94916"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Termination Summary",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Execution Date",
+                            "Variable": "ExecutionDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Bank Account",
+                            "Variable": "OfficeBankAccCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/OfficeBankAcc/GetListActiveOfficeBankAccByMrBankAccPurposeCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "FUND"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reference No",
+                            "Variable": "RefNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "738a2509-e882-45a9-aee1-3b393f39e984"
+        },
+        {
+            "container": {
+                "key": "ButtonContainer",
+                "className": "ButtonContainerXComponent",
+                "cssClass": "",
+                "input": {}
+            },
+            "id": "7a56e2d0-13eb-4d88-9092-97ffe24e4d9d"
+        }
+    ],
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "customToastrMsg": "",
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "hideCancelButton": true,
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": "",
+    "onCancel": {
+        "path": "/Termination/TerminationExecution/FundingCompany/PagingX",
+        "params": [
+            {
+                "propName": "Type",
+                "propValue": "ET"
+            }
+        ],
+        "type": "link",
+        "target": "_self"
+    },
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "environment": "PayoutUrl",
+                "path": "/v1/TerminationX/ExecuteTerminationFundCoyX",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "ExecutionDt",
+                        "propValue": "formRaw.ExecutionDt"
+                    },
+                    {
+                        "propName": "OfficeBankAccCode",
+                        "propValue": "formRaw.OfficeBankAccCode"
+                    },
+                    {
+                        "propName": "RefNo",
+                        "propValue": "formRaw.RefNo"
+                    },
+                    {
+                        "propName": "Notes",
+                        "propValue": "formRaw.Notes"
+                    },
+                    {
+                        "propName": "ListBatchTerminationTrxForExecuteFundCoyObj",
+                        "propValue": "formRaw.ListBatchTerminationTrxForExecuteFundCoyObj"
+                    },
+                    {
+                        "propName": "FundingCompanyCode",
+                        "propValue": "FundingCompany"
+                    },
+                    {
+                        "propName": "PrepareDt",
+                        "propValue": "PrepareDt"
+                    },
+                    {
+                        "propName": "Type",
+                        "propValue": "Type"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success!"
+                        }
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "params": [
+                                {
+                                    "propName": "Type",
+                                    "propValue": "Type"
+                                }
+                            ],
+                            "path": "/Termination/TerminationExecution/FundingCompany/PagingX",
+                            "target": "_self"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        }
+    ],
+    "overrideSubmitBtnText": ""
+}

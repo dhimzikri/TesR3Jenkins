@@ -1,0 +1,70 @@
+{
+    "title": "Lookup - Tax Office",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "TAX_OFFICE_CODE",
+            "id": "TaxOfficeCodeId",
+            "value": "",
+            "label": "Tax Office Code",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "TAX_OFFICE_NAME",
+            "id": "TaxOfficeNameId",
+            "value": "",
+            "label": "Tax Office Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        }
+    ],
+    "querystring": {
+        "name": "lookupTaxOffice"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Tax Office Code",
+            "name": "TaxOfficeCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Tax Office Name",
+            "name": "TaxOfficeName"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "TaxOfficeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "TaxOfficeName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefTaxOfficeId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "RefTaxOfficeId",
+    "propertyName": "TaxOfficeName"  
+}

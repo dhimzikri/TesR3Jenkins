@@ -1,0 +1,115 @@
+{
+    "title": "Vendor ATPM",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "V.VENDOR_CODE",
+            "id": "ATPMCodeId",
+            "value": "",
+            "label": "ATPM Code",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "V.VENDOR_NAME",
+            "id": "ATPMNameId",
+            "value": "",
+            "label": "ATPM Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "dropdown",
+            "name": "V.IS_ACTIVE",
+            "id": "IsActiveId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "",
+            "label": "Active Status",
+            "items": [
+                {
+                    "key": true,
+                    "value": "Yes"
+                },
+                {
+                    "key": false,
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchSupplierATPM"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ATPM Code",
+            "name": "V.VENDOR_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "ATPM Name",
+            "name": "V.VENDOR_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "V.IS_ACTIVE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VendorCode"
+        },
+        {
+            "type" : "text",
+            "position": "left",
+            "property" : "VendorName",
+            "path" : "/Vendor/ATPM/View",
+            "target": "_blank",
+            "param" :
+            [
+                {
+                    "type" : "VendorId",
+                    "property" : "VendorId"
+                }
+            ]
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "VENDOR_ATPM_REG",
+                    "param": [
+                        {
+                            "type": "VendorId",
+                            "property": "VendorId"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

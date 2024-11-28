@@ -1,0 +1,98 @@
+{
+  "title":"Lookup - Zip Code",
+  "sectionTitle": "Search",
+  "component": [
+    {
+      "type": "textbox",
+      "name": "RZ.ZIPCODE",
+      "id": "ZipCode",
+      "value": "",
+      "label": "Zip Code",
+      "placeholder": "Zip Code"
+    },
+    {
+      "type": "textbox",
+      "name": "RZ.AREA_CODE_2",
+      "id": "Kelurahan",
+      "value": "",
+      "label": "Kelurahan",
+      "placeholder": "Kelurahan"
+    },
+    {
+      "type": "textbox",
+      "name": "RZ.AREA_CODE_1",
+      "id": "kecamatan",
+      "value": "",
+      "label": "Kecamatan",
+      "placeholder": "Kecamatan"
+    }
+  ],
+  "querystring": {
+    "name": "lookupZipcode"
+  },
+  "headerList": [
+      {
+          "type": "sort",
+          "position": "left",
+          "label": "City",
+          "name": "RZ.CITY"
+      },
+      {
+          "type": "sort",
+          "position": "left",
+          "label": "Kelurahan",
+          "name": "RZ.AREA_CODE_2"
+      },
+      {
+          "type": "sort",
+          "position": "left",
+          "label": "Kecamatan",
+          "name": "RZ.AREA_CODE_1"
+      },
+      {
+          "type": "sort",
+          "position": "left",
+          "label": "Zipcode",
+          "name": "RZ.ZIPCODE"
+      },
+      {
+          "type": "label",
+          "position": "center",
+          "label": "Action"
+      }
+  ],
+  "bodyList": [
+      {
+          "type": "text",
+          "position": "left",
+          "property": "City"
+      },
+      {
+          "type": "text",
+          "position": "left",
+          "property": "AreaCode2"
+      },
+      {
+          "type": "text",
+          "position": "left",
+          "property": "AreaCode1"
+      },
+      {
+          "type": "text",
+          "position": "left",
+          "property": "Zipcode"
+      },
+      {
+          "type": "action",
+          "position": "center",
+          "action": [
+              {
+                  "type": "select",
+                  "property": "Zipcode"
+              }
+          ]
+      }
+  ],
+  "propertyId": "Zipcode",
+  "propertyName": "Zipcode"
+}

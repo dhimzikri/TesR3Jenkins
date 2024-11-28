@@ -1,0 +1,83 @@
+{
+    "component": [
+        {
+            "type": "textbox",
+            "name": "B.OFFICE_CODE",
+            "id": "OfficeCodeId",
+            "value": "",
+            "label": "Office Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "B.OFFICE_NAME",
+            "id": "OfficeNameId",
+            "value": "",
+            "label": "Office Name",
+            "placeholder": "Placeholder"
+        },
+        {
+          "type": "textbox",
+          "name": "B.OFFICE_ADDR",
+          "id": "OfficeAddrId",
+          "value": "",
+          "label": "Office Address",
+          "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "searchOfficeAreaMember"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Office Code",
+            "name": "B.OFFICE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Name",
+            "name": "B.OFFICE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Address",
+            "name": "B.OFFICE_ADDR"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OfficeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeAddr"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "delete",
+                    "property": "RefOfficeId"
+                }
+            ]
+        }
+    ]
+}

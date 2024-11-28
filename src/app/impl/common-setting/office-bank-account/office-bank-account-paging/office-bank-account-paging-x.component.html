@@ -1,0 +1,9 @@
+<div class="header-title" style="font-size: 16pt; margin-bottom: 5px;">
+  <h2>Office Bank Account</h2>
+</div>
+<div class="ucSearch-Button-Right">
+    <button type="button" class="addButton" [routerLink]="['../DetailX']" [queryParams]="{ Mode: 'Add' }">
+      <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+    </button>
+  </div>
+  <lib-ucpaging *ngIf="isReady" [searchObj]="inputPagingObj" (callback)="terimaCallBack($event)"></lib-ucpaging>

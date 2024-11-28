@@ -1,0 +1,28 @@
+<fieldset [ngModelGroup]="identifier">
+  <div class="input-group">
+      <input type="text" class="form-control" #inputValid="ngModel" name="value" [required]="isRequired"
+          [(ngModel)]="lookupInput.nameSelect" readonly
+          [ngClass]="{ 'is-invalid':(parentForm.submitted || inputValid.touched || inputValid.dirty) && inputValid.invalid }">
+      <div class="input-group-append">
+          <span class="input-group-btn">
+              <button class="btn btn-raised btn-primary" type="button" (click)="open(content)"><i
+                      class="ft-search"></i></button>
+          </span>
+      </div>
+      <div *ngIf="(parentForm.submitted || inputValid.touched || inputValid.dirty) && inputValid.invalid"
+          class="invalid-feedback">
+          <div *ngIf="inputValid.errors.required" class="adInsReqMsg" translate>This field is required</div>
+      </div>
+  </div>
+  <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+          <h4 class="modal-title">{{title}}</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+          <lib-ucpaging [searchObj]="inputObj" (select)="getSelect($event)"></lib-ucpaging>
+      </div>
+  </ng-template>
+</fieldset>

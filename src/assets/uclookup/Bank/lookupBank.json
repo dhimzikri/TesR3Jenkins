@@ -1,0 +1,68 @@
+{
+    "title": "Lookup - Bank",
+    "sectionTitle": "Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "BANK_CODE",
+            "id": "BankCodeId",
+            "value": "",
+            "label": "Bank Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "bank_Name",
+            "id": "BankName",
+            "value": "",
+            "label": "Bank Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "lookupBank"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Bank Code",
+            "name": "BANK_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Bank Name",
+            "name": "BANK_NAME"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Select"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BankCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "BankName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefBankId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "BankName",
+    "propertyName": "BankName"
+}

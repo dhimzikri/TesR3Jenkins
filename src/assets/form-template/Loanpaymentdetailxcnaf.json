@@ -1,0 +1,206 @@
+{
+    "title": "Loan Payment Detail",
+    "id": "Loanpaymentdetailxcnaf",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "customComponent": {
+                "componentRef": "${ViewFundingBatchMainInformation}"
+            },
+            "id": "a7095ab2-87ae-4958-94de-f89c7ac69c38"
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "LoanInformationId",
+                    "subSectionTitle": "Loan Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityExecUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanPaymentOutInformation"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Installment Due No",
+                            "property": "InstallmentDueNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Installment Due Date",
+                            "property": "NextInstDueDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Next Inst To Be Paid No",
+                            "property": "NextInstToBePaidNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Next Inst To Be Paid Date",
+                            "property": "NextInstToBePaidDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Due Installment Amount",
+                            "property": "InstDueAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Principal Due Amount",
+                            "property": "PrincipalDueAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Interest Due Amount",
+                            "property": "InterestDueAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": []
+                }
+            },
+            "id": "d5280581-c86e-4d56-ade5-8c3f476fd62e",
+            "conditions": [
+                {
+                    "property": "FacilityKindCode",
+                    "restriction": "EQ",
+                    "value": "TL"
+                }
+            ]
+        },
+        {
+            "customComponent": {
+                "componentRef": "${Addpaymentinformation}"
+            },
+            "id": "325c2b7d-32d9-4689-9958-db47c3c15783"
+        },
+        {
+            "container": {
+                "key": "TermLoanPaymentOutDetailContainerXComponent",
+                "className": "TermLoanPaymentOutDetailContainerXComponent",
+                "cssClass": "",
+                "input": {
+                    "LoanBatchNo": "LoanBatchNo"
+                }
+            },
+            "id": "f567c0cb-19f7-4a78-b1b9-118469ba7bee"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onCancel": {},
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onSubmit": [],
+    "hideCancelButton": true,
+    "onInit": [
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/LoanBatchObj/GetObjectByUniqueNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "TrxNo",
+                    "propValue": "LoanBatchNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "LoanContractId",
+                    "propValue": "LoanContractId"
+                }
+            ],
+            "conditions": []
+        },
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/LoanContractObj/GetObjectByPrimaryKey",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Id",
+                    "propValue": "LoanContractId"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "FacilityKindCode",
+                    "propValue": "FacilityKindCode"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

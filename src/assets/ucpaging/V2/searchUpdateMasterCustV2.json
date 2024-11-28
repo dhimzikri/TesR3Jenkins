@@ -1,0 +1,125 @@
+{
+    "title": "Review Update Data Customer",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "T.REF_NO",
+            "id": "AppNoId",
+            "value": "",
+            "label": "App No.",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "O.OFFICE_NAME",
+            "id": "OfficeNameId",
+            "value": "",
+            "label": "Office",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "C.CUST_NAME",
+            "id": "CustNameId",
+            "value": "",
+            "label": "Customer Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "headerList": [
+        {
+            "type": "label",
+            "position": "left",
+            "label": "CLAIM BY",
+            "name": "Assignee"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "APP NO",
+            "name": "T.REF_NO"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "CUSTOMER NAME",
+            "name": "C.CUST_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "SUBJECT TYPE",
+            "name": "T.MR_SUBJECT_TYPE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "OFFICE",
+            "name": "O.OFFICE_NAME"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "ACTION"
+        }
+    ],
+    "querystring": {
+        "name": "searchUpdateMasterCustV2"
+    },
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Assignee"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AppNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "CustName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "SubjectTypeDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "CUST_UPDATE_DATA_DETAIL",
+                    "param": [
+                        {
+                            "type": "CustDataTrxId",
+                            "property": "CustDataTrxId"
+                        },
+                        {
+                            "type": "CustNo",
+                            "property": "CustNo"
+                        },
+                        {
+                            "type": "SubjectTypeDescr",
+                            "property": "SubjectTypeDescr"
+                        },
+                        {
+                            "type": "WfTaskListId",
+                            "property": "Id"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title" id="horz-layout-colored-controls" translate> {{ viewList.title }} </h4>
+    </div>
+    <div class="card-body" *ngFor="let ss of viewList?.subsection;let i = index;">
+      <div class="px-3">
+        <lib-ucSubsection *ngIf="ss.subsection != ''" [id]="ss.subSectionId + 'id'" [title]="ss.subSectionTitle" [panel]="ss.subSectionId">
+        </lib-ucSubsection>
+        <div class="form-body" [id]='ss.subSectionId'>
+          <div class="form-group row">
+            <div class="col-md-6" *ngFor="let mi of ss?.mainInfo">
+              <div class="row">
+                  <div class="col-md-6">
+                    <label class="label-control" translate> {{ mi.label }} </label>
+                  </div>
+                  <div class="col-md-6" [ngClass]="{ 'text-left': mi.position == 'left',
+                  'text-right': mi.position == 'right', 'text-center': mi.position == 'center' }">
+                      <label *ngIf="mi.type == 'text'" class="label-control" translate> {{ viewInfoObjList[i][mi.property] }} </label>
+                      <label *ngIf="mi.type == 'currency'" class="label-control" translate> {{ viewInfoObjList[i][mi.property] | number}} </label>
+                      <label *ngIf="mi.type == 'date'" class="label-control" translate> {{ viewInfoObjList[i][mi.property] | date: 'dd-MMM-yyyy'}} </label>
+                      <label *ngIf="mi.type == 'link'" class="label-control" translate><a [routerLink]="[mi.path]" skipLocationChange [queryParams]="genAction(viewInfoObjList[i], mi.param)"> {{ viewInfoObjList[i][mi.property] }} </a></label>
+                      <textarea *ngIf="mi.type == 'textarea'" class="form-control" readonly translate> {{ viewInfoObjList[i][mi.property] }} </textarea>
+                      <span *ngIf="mi.type == 'boolean'">
+                        <label *ngIf="viewInfoObjList[i][mi.property] == '1'">Yes</label>
+                        <label *ngIf="viewInfoObjList[i][mi.property] == '0'">No</label>
+                        <label *ngIf="viewInfoObjList[i][mi.property] == '' || viewInfoObjList[i][mi.property] == null">-</label>
+                      </span>
+                  </div>
+                </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

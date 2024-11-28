@@ -1,0 +1,13 @@
+{
+    "modules": [
+        {
+            "id": "FOU",
+            "title": "FOU",
+            "imgSrc": "",
+            "imgSrcUrl": "./assets/img/svg/icon-fou-module.svg",
+            "desc": "Foundation System",
+            "module": "FOU_WEB",
+            "baseColor": "#4247cb"
+        } 
+    ]
+}

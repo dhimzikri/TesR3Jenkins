@@ -1,0 +1,53 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="px-3">
+        <div class="addEdit">
+          <form class="form form-horizontal">
+            <div class="form-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <h4 class="card-title" id="horz-layout-colored-controls" translate> Survey Task Result</h4>
+                </div>
+                <div class="col-md-4" style="text-align-last: right">
+                  <button type="button" class="btn btn-raised btn-warning mr-1" (click)="back()">
+                    <i class="fa fa-arrow-left"></i>&nbsp;<span translate>Back</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div id="stepperSrvy" class="bs-stepper">
+          <div class="bs-stepper-header" role="tablist" style="overflow-x: auto;">
+            <div class="step" data-target="#srvy-task-result-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="srvy-task-result-tab"
+                id="srvy-task-result-tab-trigger" (click)="EnterTab('Detail')">
+                <span class="bs-stepper-circle">1</span>
+                <span class="bs-stepper-label">Survey Task Result</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#upload-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="upload-tab"
+                id="upload-tab-trigger" (click)="EnterTab('Upload')">
+                <span class="bs-stepper-circle">2</span>
+                <span class="bs-stepper-label">Upload Document</span>
+              </button>
+            </div>
+          </div>
+          <br><br>
+          <div class="bs-stepper-content">
+            <div id="srvy-task-result-tab" class="content" role="tabpanel" aria-labelledby="srvy-task-result-tab-trigger">
+              <app-survey-task-result-detail  *ngIf="CustStepIndex == 1" (outputTab)="getValue($event)" [SrvyTaskId]="SrvyTaskId" [SrvyOrderId]="SrvyOrderId" [SurveyorName]="SurveyorName" [Type]="Type">
+              </app-survey-task-result-detail>
+            </div>
+            <div id="upload-tab" class="content" role="tabpanel" aria-labelledby="upload-tab-trigger">
+              <app-dms-iframe *ngIf="CustStepIndex == 2 && isDmsReady && SysConfigResultObj?.ConfigValue == '1'" [dmsObj]="dmsObj" [showButton]="true" (outputTab)="endStepper($event)" (outputCancel)="getValue($event)"></app-dms-iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

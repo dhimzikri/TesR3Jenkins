@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title" translate>Branch Office Member</h4>
+  </div>
+  <div class="ucSearch-Button-Right">
+    <span class="mr-1">
+      <button type="button" class="backButton" [routerLink]="[CancelLink]" skipLocationChange
+        [queryParams]="{VendorGrpId: VendorGrpId,MrVendorCategoryCode:MrVendorCategoryCode}">
+        <i class="fa fa-arrow-left"> </i>&nbsp;<span translate>Back</span>
+      </button>
+    </span>
+  </div>
+  <div class="card-body">
+    <lib-ucaddtotemp *ngIf="tempPagingObj.isReady" [tempPagingObj]="tempPagingObj" (callback)="getListTemp($event)">
+    </lib-ucaddtotemp>
+    <div class="card-header" *ngIf="listSelectedId.length > 0">
+      <div class="text-right">
+        <button type="submit" (click)="SaveVendorGroupMember()" class="btn btn-raised btn-primary">
+          <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+{
+    "title": "Bounce Follow Up Detail",
+    "hideTitle": false,
+    "id": "Pdcbouncefollowupdetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "PdcInfoId",
+                    "subSectionTitle": "PDC Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "PDC",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/v1/PdcBounce/GetPdcInfoForBounceByPdcNoAndBankCode",
+                    "querystring": {
+                        "name": ""
+                    },
+                    "reqObj": {
+                        "PdcNo": "PdcNo",
+                        "BankCode": "BankCode"
+                    },
+                    "mainInfo": [
+                        {
+                            "type": "link",
+                            "label": "PDC No",
+                            "property": "PdcNo",
+                            "environment": "",
+                            "path": "/pdcview/view",
+                            "target": "_blank",
+                            "position": "left",
+                            "param": [
+                                {
+                                    "type": "PdcNo",
+                                    "property": "PdcNo"
+                                },
+                                {
+                                    "type": "BankCode",
+                                    "property": "BankCode"
+                                }
+                            ],
+                            "isCurrency": false,
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Bank Name",
+                            "property": "BankName",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "date",
+                            "label": "PDC Due Date",
+                            "property": "PdcDueDt",
+                            "dateFormat": "",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Account Name",
+                            "property": "OfficeBankAccCode",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "PDC Issue Name",
+                            "property": "PdcIssueName",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Bank Branch",
+                            "property": "BankBranch",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "PDC Amount",
+                            "property": "PdcAmt",
+                            "precision": "",
+                            "IsPrcnt": false,
+                            "position": "right",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Clearance Type",
+                            "property": "MrClearanceTypeCode",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "PDC Type",
+                            "property": "MrPdcTypeCode",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "Cumulative",
+                            "property": "IsCumulative",
+                            "position": "left",
+                            "isHide": false
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "PdcInfoId"
+                }
+            },
+            "id": "adf796fb-f490-4ffd-bfbd-2e88f4d4e1b4"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": ""
+}

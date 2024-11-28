@@ -1,0 +1,492 @@
+{
+    "title": "Termination Execution Detail",
+    "hideTitle": false,
+    "id": "TerminationExecutionDetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "TerminationBatchMainInfoId",
+                    "subSectionTitle": "Termination Batch Main Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "PayoutUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewMainInfoTerminationExec"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Company Name",
+                            "property": "FundCoyName",
+                            "key": "ViewVendor",
+                            "position": "",
+                            "isHide": false,
+                            "isText": false
+                        },
+                        {
+                            "type": "link",
+                            "label": "Termination Batch No",
+                            "property": "TrxNo",
+                            "isFullpath": false,
+                            "path": "/ViewTermination/Inquiry/View",
+                            "target": "_blank",
+                            "position": "",
+                            "param": [
+                                {
+                                    "type": "TerminationBatchNo",
+                                    "property": "TrxNo"
+                                }
+                            ],
+                            "isCurrency": false,
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Termination Batch Status",
+                            "property": "TrxStat",
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Num of Termination Data",
+                            "property": "NumOfTerminationData",
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "date",
+                            "label": "Batch Prepare Date",
+                            "property": "BatchPrepareDate",
+                            "dateFormat": "",
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Batch Type",
+                            "property": "TerminationType",
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Principal Paid To Bank",
+                            "property": "TotalPrincipalPaidAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Interest Paid To Bank",
+                            "property": "TotalInterestPaidAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Penalty Paid To Bank",
+                            "property": "TotalPenaltyPaidAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total LC Paid To Bank",
+                            "property": "TotalLcToMfPaidAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "",
+                            "isHide": false
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "TerminationBatchMainInfoId"
+                }
+            },
+            "id": "e8efcb39-0445-4342-9bd2-9a12ceeea7be"
+        },
+        {
+            "formarray": {
+                "title": "List Of Termination Data",
+                "isSubsection": true,
+                "isModeAdd": false,
+                "formGroupName": "listBatchTerminationTrxDForExecute",
+                "canAdd": false,
+                "customObjName": "ReturnObject",
+                "formInput": {
+                    "headerList": [
+                        {
+                            "Label": "Funding Contract Name"
+                        },
+                        {
+                            "Label": "Funding Batch No"
+                        },
+                        {
+                            "Label": "LMS Agreement No"
+                        },
+                        {
+                            "Label": "Jf Agreement No"
+                        },
+                        {
+                            "Label": "Principal Paid To Funding",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "Interest Paid To Funding",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "Penalty Paid To Funding",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "LC Paid From Cust"
+                        },
+                        {
+                            "Label": "LC paid to funding",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "Batch Termination Trx D Id",
+                            "IsHide": true
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "Type": "LABEL",
+                            "Label": "Funding Contract Name",
+                            "Variable": "JfContractName",
+                            "LabelType": "TEXT",
+                            "Position": "text-left"
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "Funding Batch No",
+                            "Variable": "JfBatchNo",
+                            "IsDecimal": false,
+                            "IsPrcnt": false,
+                            "Position": "text-left"
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "LMS Agreement No",
+                            "Variable": "LmsAgrmntNo",
+                            "LabelType": "TEXT",
+                            "Position": "text-left"
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "Jf Agreement No",
+                            "Variable": "JfAgrmntNo",
+                            "IsDecimal": false,
+                            "IsPrcnt": false,
+                            "Position": "text-left"
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "Principal Paid To Funding",
+                            "Variable": "PrincipalPaidAmt",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "Interest Paid To Funding",
+                            "Variable": "InterestPaidAmt",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "Penalty Paid To Funding",
+                            "Variable": "PenaltyPaidAmt",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Type": "LABEL",
+                            "Label": "LC Paid From Cust",
+                            "Variable": "LcPaidFromLmsAmt",
+                            "LabelType": "DECIMAL",
+                            "Position": "text-left",
+                            "Precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "LC paid to funding",
+                            "Variable": "LcToMfPaidAmt",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Type": "TEXT",
+                            "Label": "Batch Termination Trx D Id",
+                            "Variable": "BatchTerminationTrxDId",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "addBodyList": [],
+                    "footerList": []
+                },
+                "getData": {
+                    "environment": "PayoutUrl",
+                    "apiPath": "/v1/Termination/GetListBatchTerminationTrxDByTrxNoForExecute",
+                    "reqObj": {
+                        "TrxNo": "TransactionNo"
+                    }
+                },
+                "isFromApi": true,
+                "resultData": ""
+            },
+            "id": "e5b9ef17-0c6a-490d-a28b-e90369ad348d"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Termination Summary",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": false,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Execution Date",
+                            "Variable": "ExecutionDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Bank Account",
+                            "Variable": "OfficeBankAccCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/OfficeBankAcc/GetListActiveOfficeBankAccByMrBankAccPurposeCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "FUND"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reference No",
+                            "Variable": "RefNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Trx No",
+                            "Variable": "TrxNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "environment": "PayoutUrl",
+                            "apiPath": "/v1/BatchTerminationTrxHObj/GetObjectByKeyAndValue",
+                            "reqObj": [
+                                {
+                                    "propName": "Key",
+                                    "propValue": "TrxNo",
+                                    "isFromDict": false
+                                },
+                                {
+                                    "propName": "Operator",
+                                    "propValue": "EQ",
+                                    "isFromDict": false
+                                },
+                                {
+                                    "propName": "Value",
+                                    "propValue": "TransactionNo",
+                                    "isFromDict": false
+                                }
+                            ],
+                            "action": []
+                        },
+                        {
+                            "conditions": [],
+                            "environment": "PayoutUrl",
+                            "apiPath": "/v1/Termination/GetJfContractByTerminationTrxNo",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "TrxNo",
+                                    "propValue": "TransactionNo"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "OfficeBankAccCodeOut",
+                                    "variableName": "OfficeBankAccCode"
+                                }
+                            ]
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [
+                        {
+                            "variableName": "TrxNo",
+                            "cookieName": "TransactionNo",
+                            "isFromCookie": false
+                        },
+                        {
+                            "variableName": "ExecutionDt",
+                            "cookieName": "useraccess.BusinessDt",
+                            "isFromCookie": false
+                        }
+                    ]
+                }
+            },
+            "id": "ac946363-0d44-4052-9962-f47ab7fcd58f"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "PayoutUrl",
+            "apiPath": "/v1/Termination/ExecuteTerminationTrx",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "hideCancelButton": false,
+    "customToastrMsg": "",
+    "persistData": false,
+    "persistPropName": ""
+}

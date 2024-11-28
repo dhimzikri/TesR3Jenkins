@@ -1,0 +1,131 @@
+{
+    "title": "Role",
+    "exportExcel": false,
+    "component": [
+      {
+        "type": "textbox",
+        "name": "Role_Code",
+        "id": "RoleCode",
+        "value": "",
+        "label": "Role Code",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "dropdown",
+        "name": "Is_Active",
+        "id": "IsActive",
+        "value": "",
+        "placeholder": "Placeholder",
+        "isFromURL": false,
+        "ddlType": "all",
+        "url": "https://api.myjson.com/bins/ld6e8",
+        "label": "Active Status",
+        "items": [
+          {
+            "key": true,
+            "value": "Yes"
+          },
+          {
+            "key": false,
+            "value": "No"
+          }
+        ],
+        "itemsUrl": []
+      },
+      {
+        "type": "textbox",
+        "name": "Role_Name",
+        "id": "RoleName",
+        "value": "",
+        "label": "Role Name",
+        "placeholder": "Placeholder"
+      }
+    ],
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Role Code",
+        "name": "RoleCode"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Role Name",
+        "name": "RoleName"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Active Status",
+        "name": "IsActive"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Forms"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Action"
+      }
+    ],
+    "querystring": {
+      "name": "searchRefRole"
+    },
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "left",
+        "property": "RoleCode"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "RoleName"
+      },
+      {
+        "type": "boolean",
+        "position": "center",
+        "property": "IsActive"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "edit",
+            "path": "SYSTEM_SETTING_ROLE_FORM_X",
+            "param": [
+              {
+                "type": "RefRoleId",
+                "property": "RefRoleId"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "edit",
+            "path": "SYSTEM_SETTING_ROLE_DETAIL",
+            "param": [
+              {
+                "type": "RefRoleId",
+                "property": "RefRoleId"
+              },
+              {
+                "type": "mode",
+                "property": "edit"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

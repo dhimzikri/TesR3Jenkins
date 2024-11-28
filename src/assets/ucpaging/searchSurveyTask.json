@@ -1,0 +1,356 @@
+{
+    "title": "Survey Task Inquiry",
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "RO.OFFICE_CODE",
+            "id": "OfficeNameId",
+            "value": "Office Name",
+            "placeholder": "",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+            "label": "Office Name",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "SO.MR_SURVEY_INITIAL_CODE",
+            "id": "MasterCodeId",
+            "value": "",
+            "placeholder": "",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Survey Initial",
+            "items": [],
+            "itemsUrl": [],
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "SRVY_SOURCE_CODE",
+            "environment": "FOU"
+        },
+        {
+            "type": "datepicker",
+            "datatype": "date",
+            "name": "SO.REQ_DT",
+            "id": "reqDtGte",
+            "value": "",
+            "restriction": "Gte",
+            "label": "Request Date >=",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "datepicker",
+            "datatype": "date",
+            "name": "SO.REQ_DT",
+            "id": "reqDtLte",
+            "value": "",
+            "restriction": "Lte",
+            "label": "Request Date <=",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "datepicker",
+            "datatype": "date",
+            "name": "ST.RESULT_DT",
+            "id": "resultDtGte",
+            "value": "",
+            "restriction": "Gte",
+            "label": "Result Date >=",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "datepicker",
+            "datatype": "date",
+            "name": "ST.RESULT_DT",
+            "id": "resultDtLte",
+            "value": "",
+            "restriction": "Lte",
+            "label": "Result Date <=",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "ST.REF_NO",
+            "id": "TrxRefNoId",
+            "value": "",
+            "label": "Reference No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "CASE WHEN ST.PREV_SURVEY_TASK_NO = '' THEN 'NO' WHEN ST.PREV_SURVEY_TASK_NO IS NULL THEN 'NO' ELSE 'YES' END",
+            "id": "ResurveyId",
+            "label": "Resurvey",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "YES",
+                    "value": "Yes"
+                },
+                {
+                    "key": "NO",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "dropdown",
+            "name": "ST.MR_SURVEY_TASK_STAT_CODE",
+            "id": "RefStatusCodeId",
+            "value": "",
+            "label": "Status",
+            "placeholder": "Placeholder",
+            "isFromURL": true,
+            "ddlType": "all",
+            "path": "/RefStatus/GetRefStatusByTrxTypeCode",
+            "items": [],
+            "itemsUrl": [],
+            "criteriaPropName": "Code",
+            "criteriaPropValue": "FOU_SURVEY_TASK",
+            "environment":"FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "ST.MR_SRVY_OBJ_TYPE_CODE",
+            "id": "SrvyObjTypeCodeId",
+            "value": "",
+            "placeholder": "",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Survey Object",
+            "items": [],
+            "itemsUrl": [],
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "SURVEY_OBJECT",
+            "environment":"FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "ST.SRVY_TASK_NO",
+            "id": "SrvyTaskNoId",
+            "value": "",
+            "label": "Survey Task No",
+            "placeholder": "Placeholder"
+        }
+        
+        
+    ],
+    "querystring": {
+        "name": "searchSurveyTask"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "Center",
+            "label": "Office Name",
+            "name": "RO.OFFICE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Survey Initial",
+            "name": "SO.MR_SURVEY_INITIAL_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Reference No",
+            "name": "ST.REF_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Survey Task No",
+            "name": "ST.SRVY_TASK_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Resurvey Ref",
+            "name": "ST.PREV_SURVEY_TASK_NO"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Surveyee Model",
+            "name": "C.MR_CUST_MODEL_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Surveyee Object",
+            "name": "ST.MR_SRVY_OBJ_TYPE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Surveyee Name",
+            "name": "ST.CUST_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Address",
+            "name": "ST.CUST_ADDR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Survey Type",
+            "name": "ST.MR_SURVEY_TYPE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Surveyor Name",
+            "name": "RE.EMP_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Survey Task Status",
+            "name": "ST.MR_SURVEY_TASK_STAT_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Reason Description",
+            "name": "RR.REASON_DESCR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Request Date",
+            "name": "SO.REQ_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Result Date",
+            "name": "ST.RESULT_DT"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "View Result"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OfficeName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyInitial"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "TrxRefNo"
+        },
+        {
+            "type": "link",
+            "position": "center",
+            "property": "SrvyTaskNo",
+            "path": "VIEW_SRVY_TASK",
+            "target": "_blank",
+            "param": [
+                {
+                    "type": "SrvyTaskId",
+                    "property": "SrvyTaskId"
+                }
+            ]
+        },        
+        {
+            "type": "text",
+            "position": "center",
+            "property": "ResurveyRef"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyeeModel"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyeeObj"
+        },
+        {
+            "type": "link",
+            "position": "center",
+            "property": "CustName",
+            "path": "VIEW_CUST_PERSONAL_DETAIL",
+            "target": "_blank",
+            "param": [
+                {
+                    "type": "CustId",
+                    "property": "CustId"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "CustAddr"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyType"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SurveyorName"
+        },
+        
+        {
+            "type": "text",
+            "position": "center",
+            "property": "SrvyTaskStatus"
+        },
+        
+        {
+            "type": "text",
+            "position": "center",
+            "property": "ReasonDescr"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "ReqDate"
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "ResultDate"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "callback",
+                    "position": "center",                    
+                    "property": "SrvyTaskId"
+                }
+            ]
+        }
+        
+    ]
+}

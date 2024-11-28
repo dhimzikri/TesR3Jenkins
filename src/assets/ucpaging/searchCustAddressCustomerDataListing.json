@@ -1,0 +1,79 @@
+{
+    "title": "Asset Type",
+    "exportExcel": false,
+    "headerList": [
+        {
+          "type": "sort",
+          "position": "left",
+          "label": "ADDRESS TYPE NAME",
+          "name": "AddressTypeName"
+        },
+        {
+          "type": "sort",
+          "position": "left",
+          "label": "ADDRESS",
+          "name": "Address"
+        },
+        {
+          "type": "sort",
+          "position": "left",
+          "label": "BUILDING OWNERSHIP",
+          "name": "BuildingOwnership"
+        },
+        {
+          "type": "sort",
+          "position": "left",
+          "label": "PHONE (FIX LINE) 1",
+          "name": "Phone1"
+        },
+        {
+          "type": "sort",
+          "position": "left",
+          "label": "PHONE (FIX LINE) 2",
+          "name": "Phone2"
+        },
+        {
+          "type": "sort",
+          "position": "left",
+          "label": "NOTES",
+          "name": "Notes"
+        }
+        
+      ],
+    "querystring": {
+      "name": "searchCustAddressCustomerDataListing"
+    },
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "left",
+        "property": "AddressTypeName"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "Address"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "BuildingOwnership"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "Phone1"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "Phone2"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "Notes"
+      }
+    ]
+  }
+  

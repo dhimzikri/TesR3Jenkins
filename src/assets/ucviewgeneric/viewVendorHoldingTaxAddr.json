@@ -1,0 +1,36 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "TaxAddrInfoId",
+        "subSectionTitle": "Tax Address Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Tax Address:",
+            "property": "TaxAddress"
+          },
+          {
+            "type": "text",
+            "label": "Zip Code:",
+            "property": "ZipCode"
+          },
+          {
+            "type": "text",
+            "label": "Kelurahan",
+            "property": "Kelurahan"
+          },
+          {
+            "type": "text",
+            "label": "Kecamatan",
+            "property": "Kecamatan"
+          }
+        ],
+        "querystring": {
+         "name": "viewVendorHoldingTaxAddr"
+        }
+      }
+    ]
+  }
+  

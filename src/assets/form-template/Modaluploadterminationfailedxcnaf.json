@@ -1,0 +1,132 @@
+{
+    "title": "Agreement No",
+    "hideTitle": false,
+    "id": "Modaluploadterminationfailedxcnaf",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "container": {
+                "key": "UploadTerminationModalContainer",
+                "className": "ModalUploadTerminationContainerXComponent",
+                "cssClass": "ModalUploadTerminationContainerXComponent",
+                "input": {}
+            },
+            "id": "b8982e5e-928e-4486-aca9-0db60c795d07"
+        },
+        {
+            "table": {
+                "isFromApi": false,
+                "title": "Success Status",
+                "resultData": "ListUploadStatScsObj",
+                "isSubsection": true,
+                "usePagination": false,
+                "includeSubmit": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Agreement No",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Status",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Reason",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "LmsAgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "Status",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "Reason",
+                            "isFlagColor": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "",
+                    "apiPath": "",
+                    "customObjName": "ReturnObject",
+                    "reqObj": []
+                }
+            },
+            "id": "a4bb0ced-ec19-48ac-a3b5-c8610fbb1a46"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [
+        {
+            "environment": "PayoutUrl",
+            "apiPath": "/v1/TerminationX/GetListResultUploadTerminationByUploadMonitoringNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Code",
+                    "propValue": "UploadMonitoringNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ListUploadStatFldObj",
+                    "propValue": "ListUploadStatFldObj"
+                },
+                {
+                    "propName": "ListUploadStatScsObj",
+                    "propValue": "ListUploadStatScsObj"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

@@ -1,0 +1,5 @@
+<app-asli-ri-req *ngIf="!isConfirmation" [parentForm]="parentForm" [MrCustTypeCode]="MrCustTypeCode"
+[custObj]="custObj" [custDocFileFormObj]="custDocFileFormObj" [height]="height" [width]="width" [url]="url"
+(nextConfirm)="nextConfirm($event)" (reqAddTrxSrcDataForAsliRIObjOutput)="outputForm($event)"></app-asli-ri-req>
+<app-asli-ri-req-confirmation *ngIf="isConfirmation" (nextConfirm)="nextConfirm($event)"
+[reqAddTrxSrcDataForAsliRIObjInput]="reqAddTrxSrcDataForAsliRIObj" [custDocFileFormObj]="custDocFileFormObj"></app-asli-ri-req-confirmation>

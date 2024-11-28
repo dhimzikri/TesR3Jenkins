@@ -1,0 +1,176 @@
+{
+  "title": "COA",
+  "exportExcel": false,
+  "component": [
+      {
+          "type": "dropdown",
+          "name": "RC.MR_ENTITY_TYPE",
+          "datatype": "text",
+          "id": "Descr",
+          "value": "",
+          "placeholder": "Placeholder",
+          "isFromURL": true,
+          "ddlType": "all",
+          "url": "",
+          "path": "/RefMaster/GetListKeyValueActiveByCode",
+          "isEvent" : "true",
+          "affectedFilter" : ["rc.PAYMENT_ALLOC_CODE","rc.MR_ENTITY_CODE"],
+          "filterPropName" : "ENTITY_TYPE",
+          "label": "Entity Type",
+          "items": [],
+          "itemsUrl": [],
+          "environment": "FOU",
+          "criteriaPropName" : "RefMasterTypeCode",
+          "criteriaPropValue" : "ENTITY_TYPE"
+      },
+      {
+          "type": "dropdown",
+          "name": "rc.MR_ENTITY_CODE",
+          "datatype": "text",
+          "id": "EntityCode",
+          "value": "",
+          "placeholder": "Placeholder",
+          "isFromURL": true,
+          "ddlType": "all",
+          "url": "",
+          "path": "/Coa/GetListKVEntityCodeByEntityType",
+          "label": "Entity Code",
+          "criteriaPropName" : "",
+          "criteriaPropValue" : "",
+          "items": [],
+          "itemsUrl": [],
+          "environment": "FOU"
+      },
+      {
+          "type": "dropdown",
+          "name": "rc.PAYMENT_ALLOC_CODE",
+          "datatype": "text",
+          "id": "PaymentAllocCode",
+          "value": "",
+          "placeholder": "Placeholder",
+          "isFromURL": true,
+          "ddlType": "all",
+          "url": "",
+          "path": "/Coa/GetListKVPayAllocCodeByEntityType",
+          "label": "Payment Alloc Code",
+          "criteriaPropName" : "",
+          "criteriaPropValue" : "",
+          "items": [],
+          "itemsUrl": [],
+          "environment": "FOU"
+      },
+      {
+          "type": "textbox",
+          "name": "rc.CURR_CODE",
+          "id": "CurrCode",
+          "value": "",
+          "label": "Currency Code",
+          "placeholder": "Placeholder",
+          "datatype": "text"
+      },
+      {
+          "type": "textbox",
+          "name": "rc.COA",
+          "id": "Coa",
+          "value": "",
+          "label": "COA",
+          "placeholder": "Placeholder",
+          "datatype": "text"
+      }
+  ],
+  "headerList": [
+      {
+          "type": "sort",
+          "position": "center",
+          "label": "ENTITY TYPE",
+          "name": "EntityTypeDescr"
+      },
+      {
+          "type": "sort",
+          "position": "center",
+          "label": "COA SCHEME",
+          "name": "IIF(cs.SCHM_NAME = '','-',ISNULL(cs.SCHM_NAME,'-'))"
+      },
+      {
+          "type": "sort",
+          "position": "center",
+          "label": "PAYMENT ALLOCATION CODE",
+          "name": "rc.PAYMENT_ALLOC_CODE"
+      },
+      {
+          "type": "sort",
+          "position": "center",
+          "label": "ENTITY CODE",
+          "name": "rc.MR_ENTITY_CODE"
+      },
+      {
+          "type": "sort",
+          "position": "center",
+          "label": "CURRENCY CODE",
+          "name": "rc.CURR_CODE"
+      },
+      {
+          "type": "sort",
+          "position": "center",
+          "label": "COA",
+          "name": "rc.COA"
+      },
+      {
+          "type": "label",
+          "position": "center",
+          "label": "ACTION"
+      }
+  ],
+  "bodyList": [
+      {
+          "type": "text",
+          "position": "center",
+          "property": "EntityTypeDescr"
+      },
+      {
+          "type": "text",
+          "position": "left",
+          "property": "CoaScheme"
+      },
+      {
+          "type": "text",
+          "position": "center",
+          "property": "PaymentAllocCode"
+      },
+      {
+          "type": "text",
+          "position": "center",
+          "property": "EntityCode"
+      },
+      {
+          "type": "text",
+          "position": "center",
+          "property": "CurrCode"
+      },
+      {
+          "type": "text",
+          "position": "left",
+          "property": "Coa"
+      },
+      {
+          "type": "action",
+          "position": "center",
+          "action": [
+              {
+                  "type": "edit",
+                  "path": "CS_COA_DETAIL_EDIT",
+                  "param": [
+                      {
+                          "type": "RefCoaId",
+                          "property": "RefCoaId"
+                      }
+                  ],
+                  "icon": "ft-edit-2"
+              }
+          ]
+      }
+  ],
+  "querystring": {
+      "name": "searchCoa"
+  }
+}

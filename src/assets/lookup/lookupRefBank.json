@@ -1,0 +1,24 @@
+{
+    "url": "http://getRefBank",
+    "title":"Lookup - Bank",
+    "sectionTitle": "Search",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "bank_code",
+        "id": "BankCode",
+        "value": "",
+        "label": "Bank Code",
+        "placeholder": "Bank Code"
+      },
+      {
+        "type": "textbox",
+        "name": "bank_Name",
+        "id": "BankName",
+        "value": "",
+        "label": "Bank Name",
+        "placeholder": "Bank Name"
+      }
+      
+    ]
+  }

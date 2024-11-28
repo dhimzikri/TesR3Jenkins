@@ -1,0 +1,112 @@
+<lib-ucSubsection [id]="'sectionId'" [title]="'Contact Information'" [panel]="'section2'"></lib-ucSubsection>
+        <div id="section2">
+          <div class="p-3">
+<div *ngIf="modeCP == 'check'" (outputValue)="getValue($event)">
+    <form>
+        <div class="form-actions right">
+          <span class="">
+            <button type="button" class="btn btn-primary-2 btn-raised" (click)="addCP()">
+              <i class="ft-plus-circle button-icon mr-1"></i>&nbsp;<span class="button-text" translate>Add</span>
+            </button>
+          </span>
+        </div>
+      </form>
+      <div class="addEdit" style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover table-new">
+          <thead>
+            <tr class="table-header-2">
+              <th style="text-align: left;"><span class="thead-header" name='assetTypeName' translate>CONTACT PERSON NAME</span>
+              </th>
+              <th style="text-align: center;"><span class="thead-header" name='fullAddress' translate>CONTACT PERSON NUMBER</span>
+              </th>
+              <th style="text-align: left;"><span class="thead-header" name='buildingOwnership' translate>CONTACT PERSON EMAIL</span>
+              </th>
+              <th style="text-align: center;"><span class="thead-header" translate>EDIT</span>
+                <th style="text-align: center;"><span class="thead-header" translate>DELETE</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listVendorCP">
+              <td style="text-align: left;" hidden>{{item.VendorContactPersonId}}</td>
+              <td style="text-align: left;">{{item.Name}}</td>
+              <td style="text-align: center;">{{item.Phone1}}</td>
+              <td style="text-align: left;">{{item.Email}}</td>
+              <td style="text-align: center;">
+                <a class="primary-2 p-0" data-original-title="" title="" (click)="editItem(item)">
+                  <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                </a>
+              </td>
+              <td style="text-align: center;">
+                <a class="danger p-0" data-original-title="" title=""  (click)="deleteVendorCP(item)">
+                  <i class="ft-trash-2 font-medium-3 mr-2"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <br>
+      <br>
+
+</div>
+<!-- <app-funding-company-contact-person-check *ngIf="mode == 'check'" (outputValue)="terimaValue($event)"> </app-funding-company-contact-person-check> -->
+<div *ngIf="modeCP == 'add' || modeCP == 'edit'" (outputValue)="getValue($event)">
+    <div *ngIf="modeCP == 'add'" class="card-header header-title mb-3">
+        <h4 class="card-title">Add Contact Person</h4>
+    </div>
+    <div *ngIf="modeCP == 'edit'" class="card-header header-title mb-3">
+        <h4 class="card-title">Edit Contact Person</h4>
+    </div>
+<form class="form form-horizontal"  [formGroup]="vendorContactPersonForm" 
+(ngSubmit)="SaveForm()" #enjiForm="ngForm">
+
+  <div class="form-group row">
+    <div class="col-md-6">
+        <div class="row">
+          <label class="col-md-12 label-field-2 adins-required-label">Name</label>
+          <div class="col-md-12">
+              <input type="text" id="WorkingHourSchmCode" class="form-control input-field-2" formControlName="Name"
+              [ngClass]="{ 'is-invalid': enjiForm.submitted && vendorContactPersonForm['controls']['Name'].invalid }">
+              <div class="message-box">
+                <lib-uc-show-errors [control]="vendorContactPersonForm['controls']['Name']" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+              </div>
+          </div>
+        </div>
+        <div class="row" style="display: flex;">
+          <label class="col-md-12 label-field-2 adins-required-label">Email</label>
+          <div class="col-md-12">
+              <input type="email" id="InputDaysPerYear" class="form-control input-field-2" formControlName="Email"
+              [ngClass]="{ 'is-invalid': enjiForm.submitted && vendorContactPersonForm['controls']['Email'].invalid }">
+              <div class="message-box">
+                <lib-uc-show-errors [control]="vendorContactPersonForm['controls']['Email']" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+              </div>
+          </div>
+        </div>
+        <div class="row" style="display: flex;">
+          <label class="col-md-12 label-field-2 adins-required-label">Phone</label>
+          <div class="col-md-12">
+            <input type="text" id="InputDaysPerYear" class="form-control input-field-2" formControlName="Phone1"
+            [ngClass]="{ 'is-invalid': enjiForm.submitted && vendorContactPersonForm['controls']['Phone1'].invalid }">
+            <div class="message-box">
+              <lib-uc-show-errors [control]="vendorContactPersonForm['controls']['Phone1']" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+        <div class="form-actions left">
+          <span class="mr-1">
+            <button (click)="back()" class="btn btn-raised btn-outline-2 mr-2" translate>
+              <i class="ft ft-log-out button-icon mr-1"></i> <span class="button-text" translate>Back</span> 
+             </button>
+            <button type="submit" class="btn btn-raised btn-primary-2 mr-2" translate>
+            <i class="fa fa-check-square button-icon mr-1"></i><span class="button-text" translate>Save & Continue</span> 
+          </button>
+          </span>
+        </div>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+</div>

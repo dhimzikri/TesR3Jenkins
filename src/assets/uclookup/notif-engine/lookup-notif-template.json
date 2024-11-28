@@ -1,0 +1,166 @@
+{
+    "title": "Notification Template",
+    "sectionTitle": "Select Notification Template",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "NOTIFICATION_TEMPLATE_CODE",
+            "id": "NotificationTemplateCodeId",
+            "value": "",
+            "label": "Template Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "NOTIFICATION_TEMPLATE_DESCR",
+            "id": "NotificationTemplateDescrId",
+            "value": "",
+            "label": "Template Description",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "MR_NOTIFICATION_LEVEL_CODE", 
+            "id": "MrNotifLevelCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Level",
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "NOTIFICATION_LEVEL",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "MR_NOTIFICATION_SOURCE_CODE", 
+            "id": "MrNotifSourceCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Source",
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "NOTIFICATION_SOURCE",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "MR_NOTIFICATION_TYPE_CODE", 
+            "id": "MrNotifTypeCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Type",
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "NOTIFICATION_TYPES",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        }
+    ],
+    "querystring": {
+        "name": "LookupNotifTemplate"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Template Code",
+            "name": "NotificationTemplateCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Template Description",
+            "name": "NotificationTemplateDescr"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Level",
+            "name": "NotificationLevelDescr"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Source",
+            "name": "MrNotificationSourceDescr"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Type",
+            "name": "MrNotificationTypeDescr"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Version",
+            "name": "Version"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotificationTemplateCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotificationTemplateDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotificationLevelDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrNotificationSourceDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrNotificationTypeDescr"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Version"
+        },
+        {
+          "type": "action",
+          "position": "center",
+          "action": [
+            {
+              "type": "select",
+              "property": "NotificationTemplateCode"
+            }
+          ]
+        }
+    ],
+    "propertyId": "NotificationTemplateId",
+    "propertyName": "NotificationTemplateDescr"
+}

@@ -1,0 +1,68 @@
+<div class="mt-3">
+	<div class="card">
+		<div class="card-body">
+			<div class="pl-3">
+				<div class="form-body mt-1">
+          
+          <lib-ucSubsection [id]="'DisputesId'" [title]="'Disputes Detail'" [panel]="'Disputes'">
+          </lib-ucSubsection>
+          <div class="row" id="Disputes">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>Active Disputes - Contracts</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> {{ ResViewDisputesObj.ActvDsptsCntrctNum }} </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>Active Disputes - Personal</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> {{ ResViewDisputesObj.ActvDsptsSbjctNum }} </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="label-control" translate>Active Disputes - In Courts</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label-control" translate> {{ ResViewDisputesObj.ActvDsptsInCourtNum }} </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-8">
+                  <label class="label-control" translate>Closed Disputes In The Past - Contracts</label>
+                </div>
+                <div class="col-md-4">
+                  <label class="label-control" translate> {{ ResViewDisputesObj.ClsdDsptsCntrctNum }} </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <label class="label-control" translate>Closed Disputes In The Past - Personal</label>
+                </div>
+                <div class="col-md-4">
+                  <label class="label-control" translate> {{ ResViewDisputesObj.ClsdDsptsSbjctNum }} </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <label class="label-control" translate>Sum of False Disputes in the Past</label>
+                </div>
+                <div class="col-md-4">
+                  <label class="label-control" translate> {{ ResViewDisputesObj.FalseDsptsNum }} </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

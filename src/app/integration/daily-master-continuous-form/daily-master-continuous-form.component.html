@@ -1,0 +1,51 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate> Send Daily Master Data</h4>
+              <br>
+            </div>
+          </div>
+        </div>
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="DateForm" #DateReqForm="ngForm"
+            (ngSubmit)="DateForm.valid && ReqForm()">
+            <lib-ucSubsection [id]="'DateFormId'" [title]="" [panel]="'Dateform'"></lib-ucSubsection>
+            <div class="form-body" id="Dateform">
+              <div [hidden]="Type!=TypeSingle" class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" for="RequestDt" translate>Request Date </label>
+                <div class="col-md-3">
+                  <input type="date" class="form-control adInsInput width-75-per" formControlName="RequestDt">
+                  <lib-uc-show-errors [control]="DateForm.controls.RequestDt" [submit]="DateReqForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div [hidden]="Type!=TypeRange" class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" for="StartDt" translate>Start Date </label>
+                <div class="col-md-3">
+                  <input type="date" class="form-control adInsInput width-75-per" formControlName="StartDt">
+                  <lib-uc-show-errors [control]="DateForm.controls.StartDt" [submit]="DateReqForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+                <label class="col-md-3 adInsLabel" for="EndDt" translate>End Date </label>
+                <div class="col-md-3">
+                  <input type="date" class="form-control adInsInput width-75-per" formControlName="EndDt">
+                  <lib-uc-show-errors [control]="DateForm.controls.EndDt" [submit]="DateReqForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions right">
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Send Data</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

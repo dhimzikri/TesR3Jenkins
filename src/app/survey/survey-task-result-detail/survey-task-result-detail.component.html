@@ -1,0 +1,139 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="SrvyTaskForm" #formDirective="ngForm" (ngSubmit)="SrvyTaskForm.valid && Save()"
+          #enjiForm="ngForm">
+          <div class="form-body">  
+            <lib-ucSubsection [id]="'custInfoId'" [title]="'Survey Information'" [panel]="'surveyeeInfo'">
+            </lib-ucSubsection>
+            <div id="surveyeeInfo" *ngIf="IsDataReady">
+              <div class="form-group row">
+                <label class="col-md-2 adInsLabel"  translate>Survey Order No</label>
+                <label class="col-md-4" translate>{{SrvyOrderNo}}</label>
+                <label class="col-md-2 adInsLabel"  translate>Survey Task No</label>
+                <label class="col-md-4" translate>{{ResSrvyTaskObj.SrvyTaskNo}}</label>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-2 adInsLabel"  translate>Reference No</label>
+                <label class="col-md-4" translate>{{TrxRefNo}}</label>
+                <label class="col-md-2 adInsLabel"  translate>Surveyee Name</label>
+                <label class="col-md-4" translate>{{ResSrvyTaskObj.CustName}}</label>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-2 adInsLabel"  translate>Customer Name</label>
+                <label class="col-md-4" translate>{{CustName}}</label>
+                <label class="col-md-2 adInsLabel" translate>Address</label> 
+                <label class="col-md-4" translate>{{ResSrvyTaskObj.CustAddr}}</label>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-2 adInsLabel"  translate>Surveyor</label>
+                <label class="col-md-4" translate>{{SurveyorName}}</label>
+                <label class="col-md-2 adInsLabel" translate>Phone No</label> 
+                <label class="col-md-4" translate>{{ResSrvyTaskObj.CustPhone}}</label>
+              </div>
+            </div>
+            <div class="form-body">
+              <lib-ucSubsection [id]="'srvyResultId'" [title]="'Survey Result Information'" [panel]="'srvyResultInfo'">
+              </lib-ucSubsection>
+              <div id="srvyResultInfo">
+                <div class="form-group row">
+                  <label class="col-md-2  adins-required-label" translate>Result</label>
+                  <div class="col-md-4">
+                    <select *ngIf="ResultObj" class="form-control" id="subjectResultId" (change)="ChangeResult()"
+                      formControlName="MrVerfResultHStatCode"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && SrvyTaskForm.controls.MrVerfResultHStatCode.invalid }">
+                      <option *ngFor="let item of ResultObj" [value]="item.Key">
+                        {{item.Value}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-2 adins-required-label" translate>Notes</label>
+                  <div class="col-md-4">
+                    <textarea type="text" class="form-control adInsInput" formControlName="Notes"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && SrvyTaskForm.controls.Notes.invalid }"></textarea>
+                    <lib-uc-show-errors [control]="SrvyTaskForm.controls.Notes" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div formArrayName="QuestionObjs" *ngIf="SrvyTaskForm.controls.MrVerfResultHStatCode.value == 'SCS'">
+              <div class="form-body" [formGroupName]="i"
+                *ngFor="let QuestionGrpList of SrvyTaskForm.controls.QuestionObjs.controls; let i = index">
+                <lib-ucSubsection [id]="'grpName'+i+'id'" [title]="QuestionGrpList.value.VerfQuestionGrpName"
+                  [panel]="'grpName'+i">
+                </lib-ucSubsection>
+                <div id="grpName{{i}}">
+                  <span formArrayName="VerfQuestionAnswerList">
+                    <div class= "row">
+                      <label class="col-md-3" translate><h4 class="modal-title">Question</h4></label>
+                      <label class="col-md-4" translate><h4 class="modal-title">Answer</h4></label>
+                      <label class="col-md-5" translate><h4 class="modal-title">Notes</h4></label>
+                    </div>
+                    <div class="form-group row" [formGroupName]="j"
+                      *ngFor="let QRList of QuestionGrpList.controls.VerfQuestionAnswerList.controls; let j = index">
+                      <label class="col-md-3 adins-required-label" *ngIf="SrvyTaskForm.controls.MrVerfResultHStatCode.value == 'SCS'"
+                        translate>{{QRList.value.QuestionGrp.VerfQuestionText}} </label>
+                      <label class="col-md-3 adInsLabel" *ngIf="SrvyTaskForm.controls.MrVerfResultHStatCode.value != 'SCS'"
+                        translate>{{QRList.value.QuestionGrp.VerfQuestionText}} </label>
+                      <div class="col-md-4" formGroupName="ResultGrp">
+                        <span *ngIf="QRList.value.QuestionGrp.VerfAnswerTypeCode == 'DDL' || QRList.value.QuestionGrp.VerfAnswerTypeCode == 'RBL'">
+                          <select class="form-control" formControlName="Answer"
+                            [ngClass]="{ 'is-invalid': enjiForm.submitted && QRList.controls.ResultGrp.controls.Answer.invalid }">
+                            <lib-uc-show-errors [control]="QRList.controls.ResultGrp.controls.Answer"
+                              [submit]="enjiForm.submitted">
+                            </lib-uc-show-errors>
+                            <option *ngFor="let item of ListVerfAnswer[i][j]" value="{{item}}">
+                              {{item}}
+                            </option>
+                          </select>
+
+                        </span>
+                        <span *ngIf="QRList.value.QuestionGrp.VerfAnswerTypeCode == 'TXT'">
+                          <input type="text" class="form-control" formControlName="Answer"
+                            [ngClass]="{ 'is-invalid': enjiForm.submitted && QRList.controls.ResultGrp.controls.Answer.invalid }">
+                          <lib-uc-show-errors [control]="QRList.controls.ResultGrp.controls.Answer"
+                            [submit]="enjiForm.submitted">
+                          </lib-uc-show-errors>
+                        </span>
+                        <span *ngIf="QRList.value.QuestionGrp.VerfAnswerTypeCode == 'DT_PICKER'">
+                          <input type="date" class="form-control" formControlName="Answer"
+                            [ngClass]="{ 'is-invalid': enjiForm.submitted && QRList.controls.ResultGrp.controls.Answer.invalid }">
+                          <lib-uc-show-errors [control]="QRList.controls.ResultGrp.controls.Answer"
+                            [submit]="enjiForm.submitted">
+                          </lib-uc-show-errors>
+                        </span>
+                        <span *ngIf="QRList.value.QuestionGrp.VerfAnswerTypeCode == 'UC_INPUT_NUMBER'">
+                          <input type="" currencyMask id="AnswerId" class="form-control" formControlName="Answer"
+                            [ngClass]="{ 'is-invalid': enjiForm.submitted && QRList.controls.ResultGrp.controls.Answer.invalid }">
+                          <lib-uc-show-errors [control]="QRList.controls.ResultGrp.controls.Answer"
+                            [submit]="enjiForm.submitted">
+                          </lib-uc-show-errors>
+                        </span>
+                      </div>
+                      <div class="col-md-5" formGroupName="ResultGrp">
+                        <textarea class="form-control" formControlName="Notes"></textarea>
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1 margin-r-5" (click)="Cancel()">
+                <i class="ft-x"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

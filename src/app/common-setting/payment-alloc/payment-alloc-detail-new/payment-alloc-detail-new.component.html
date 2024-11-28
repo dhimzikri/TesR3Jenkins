@@ -1,0 +1,138 @@
+<div class="col-md-12">
+  <div>
+    <div class="header-title bg-transparent pl-2 mb-2">
+      <h4 class="card-title" id="horz-layout-colored-controls" translate>Payment Allocation</h4>
+    </div>
+    <div class="card bg-light-blue-card pt-0" style="padding-top: 0px !important;">
+      <div class="card-body">
+        <form class="form form-horizontal" [formGroup]="PaymentAllocForm"
+          (ngSubmit)="PaymentAllocForm.valid && SaveForm()" #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'paymentAllocInfoId'" [title]="this.title" [panel]="'paymentAllocInfo'">
+            </lib-ucSubsection>
+            <div id='paymentAllocInfo' class="form-body p-3 border-top border-bottom">
+
+              <div class="form-group">
+                <div>
+                  <div class="form-group row">
+                    <label class="label-input col-md-12">Payment Allocation Code</label>
+                    <div class="col-md-12">
+                      <input type="text" id="PaymentAllocCode" class="form-control"
+                        formControlName="PaymentAllocCode"
+                        [ngClass]="{ 'is-invalid': enjiForm.submitted && PaymentAllocForm.controls.PaymentAllocCode.invalid}">
+                        <div class="message-box">
+                          <lib-uc-show-errors [control]="PaymentAllocForm.controls.PaymentAllocCode"
+                            [submit]="enjiForm.submitted">
+                          </lib-uc-show-errors>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div>
+                  <div class="form-group row">
+                    <label class="label-input col-md-12">Payment Allocation Name</label>
+                    <div class="col-md-12">
+                      <input type="text" id="PaymentAllocName" class="form-control"
+                        formControlName="PaymentAllocName"
+                        [ngClass]="{ 'is-invalid': enjiForm.submitted && PaymentAllocForm.controls.PaymentAllocName.invalid}">
+                      <div class="message-box">
+                        <lib-uc-show-errors [control]="PaymentAllocForm.controls.PaymentAllocName"
+                          [submit]="enjiForm.submitted">
+                        </lib-uc-show-errors>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row"><label class="label-input col-md-12">Is Active</label>
+                <div class="col-md-12">
+                  <span class="ng-star-inserted">
+                    <ui-switch uncheckedlabel="Off" checkedlabel="On" size="small" formControlName="IsActive"
+                      class="custom-switches">
+                    </ui-switch>
+                  </span>
+                  <div class="message-box">
+                    <lib-uc-show-errors [control]="PaymentAllocForm.controls.IsActive"
+                      [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <lib-ucSubsection [id]="'AttributeListId'" [title]="'Attributes'"
+            [panel]="'AttributeList'"></lib-ucSubsection>
+          <div id="AttributeList">
+            <div class="table-responsive">
+              <div class="text-right mt-2"><button class="btn-primary-2 btn btn-raised mb-0" type="button"
+                  (click)="open()">Add Attribute
+                </button></div>
+              <div class="result-text">Total : 1 - 1 of Result</div>
+              <table class="table table-striped text-center table-hover table-layout-fixed">
+                <thead>
+                  <tr class="table-header">
+                    <th><span class="thead-header" name="InputDt">Attribute Code</span></th>
+                    <th><span class="thead-header" name="Activity">Attribute Name</span></th>
+                    <th><span class="thead-header" name="SubActivity">Input Type</span></th>
+                    <th><span>Edit</span></th>
+                    <th><span>Delete</span></th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="getPaymentAllocAttr.controls.length == 0">
+                  <tr>
+                    <td colspan="100%">No Data</td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr *ngFor="let item of getPaymentAllocAttr.controls; index as i;">
+                    <td>{{ item.value.PaymentAllocAttrCode }}</td>
+                    <td>{{ item.value.PaymentAllocAttrName }}</td>
+                    <td>{{ item.value.attributeTypeName }}</td>
+                    <td>
+                      <span>
+                        <span class="m-1 ">
+                          <a class="success">
+                            <i class="font-medium-3 ft-edit-2" (click)="open(i)"></i>
+                          </a>
+                        </span>
+                      </span>
+                    </td>
+                    <td>
+                      <span>
+                        <span class="m-1 ">
+                          <a class="success">
+                            <i class="font-medium-3 ft-edit-2" (click)="delete(i)"></i>
+                          </a>
+                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div class="form-actions right mx-2">
+            <button type="button" [routerLink]="[BackLink]"
+                class="btn btn-raised btn-outline-2">
+                <em class="far fa-window-close button-icon mr-2"></em>
+                Cancel
+            </button>
+            <button type="submit"
+                class="btn btn-raised btn-primary-2 ml-2">
+                <em class="far fa-check-square button-icon"></em>
+                Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

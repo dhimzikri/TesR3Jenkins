@@ -1,0 +1,218 @@
+{
+    "title": "FundingScheduleTMS",
+    "hideTitle": true,
+    "id": "Fundingscheduletms",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "FundingScheduleTMS",
+                "resultData": "",
+                "isSubsection": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Inst Seq No",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "LMS Seq No",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Due Date",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Inst Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Inst Paid Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Inst Paid Date",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Principal Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Interest Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "OS Principal Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "OS Interest Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "LC Days",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "LC Inst Amount",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "LC Inst Paid Amount",
+                            "position": "left"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "right",
+                            "property": "InstSeqNo"
+                        },
+                        {
+                            "type": "text",
+                            "position": "right",
+                            "property": "LmsInstSeqNo"
+                        },
+                        {
+                            "type": "date",
+                            "position": "left",
+                            "property": "DueDt"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "InstAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "InstPaidAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "right",
+                            "property": "InstPaidDt"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "PrincipalAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "right",
+                            "property": "InterestAmt"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "OsPrincipalAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "OsInterestAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "right",
+                            "property": "LcInstDays"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "LcInstAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "LcInstPaidAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityExecUrl",
+                    "apiPath": "/v1/JfAgrmntInstSchdl/GetListInstallmentScheduleByJfAgrmntNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "TrxNo",
+                            "propValue": "JfAgrmntNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "fb445a3c-6146-491c-b6a3-c4b283347bc8"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [
+        {
+            "title": "Funding Schedule",
+            "conditions": []
+        }
+    ]
+}

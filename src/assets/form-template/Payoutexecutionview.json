@@ -1,0 +1,454 @@
+{
+    "title": "Payout Execution View",
+    "hideTitle": false,
+    "id": "Payoutexecutionview",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "PaymentBatchMainInfoId",
+                    "subSectionTitle": "Payment Batch Main Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "PayoutUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "ViewPaymentOutExecution"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Company Name",
+                            "property": "VendorName",
+                            "key": "ViewVendor",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false
+                        },
+                        {
+                            "type": "link",
+                            "label": "Batch Payment No",
+                            "property": "TrxNo",
+                            "isFullpath": false,
+                            "path": "/ViewPaymentOut/View",
+                            "target": "_blank",
+                            "position": "left",
+                            "param": [
+                                {
+                                    "type": "PaymentBatchNo",
+                                    "property": "TrxNo"
+                                }
+                            ],
+                            "isCurrency": false,
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Batch Prepare Date",
+                            "property": "TrxDt",
+                            "dateFormat": "dd/MM/yyyy",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Batch Stat",
+                            "property": "TrxStat",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Paid From Cust",
+                            "property": "TotalPaidFromCust",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Out Type",
+                            "property": "PayoutTypeName",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Total Paid To Bank",
+                            "property": "TotalPaidToBank",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Num of Payment Data",
+                            "property": "NumOfPaymentData",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Batch Type",
+                            "property": "BatchTypeName",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "Mirroring Status",
+                            "property": "IsMirroring",
+                            "position": "left",
+                            "isHide": false
+                        }
+                    ],
+                    "whereValue": [
+                        "BatchPaymentNo"
+                    ],
+                    "fromValue": [],
+                    "subsectionId": "PaymentBatchMainInfoId",
+                    "gridViews": []
+                }
+            },
+            "id": "6146a383-8431-46a9-bf21-e7d08bca020d"
+        },
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "List Payment Data",
+                "resultData": "",
+                "isSubsection": true,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "FundContractName"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch Name",
+                            "position": "left",
+                            "name": "FundBatchName"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Inst Seq No",
+                            "position": "center",
+                            "name": "FundingInstSeqNo"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "LMS agreement No",
+                            "position": "center",
+                            "name": "LmsAgrmntNo"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "JF agreement No",
+                            "position": "center",
+                            "name": "JfAgrmntNo"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Installment Rcv ",
+                            "position": "right",
+                            "name": "InstallmentRcv"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Installment Paid to Bank",
+                            "position": "right",
+                            "name": "InstallmentPaidToBank"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "LC rcv",
+                            "position": "right",
+                            "name": "LcRcv"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "LC Paid to Bank",
+                            "position": "right",
+                            "name": "LcPaidToBank"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundContractName",
+                            "key": "ViewFundingContract"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundBatchName",
+                            "key": "ViewFundingBatch"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "FundingInstSeqNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "LmsAgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "JfAgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "InstallmentRcv",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "InstallmentPaidToBank",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "LcRcv",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "LcPaidToBank",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "PayoutUrl",
+                    "apiPath": "/v1/BatchPayout/GetListBatchPayoutTrxDByBatchPayoutTrxHNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "propName": "trxNo",
+                            "propValue": "BatchPaymentNo",
+                            "isFromDict": false
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "6d795d4b-ac6d-4fd0-a8dc-7b339d9ef2b1"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Payment Summary",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": false,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Execution Date",
+                            "Variable": "EndExecutionDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "BD",
+                            "MinDtCode": "",
+                            "MinOperator": "",
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "BD"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Office Bank Account",
+                            "Variable": "OfficeBankAccCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/OfficeBankAcc/GetListActiveOfficeBankAccByMrBankAccPurposeCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "FUND"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reference No",
+                            "Variable": "RefNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "TrxNo",
+                            "Variable": "TrxNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "environment": "PayoutUrl",
+                            "apiPath": "/v1/BatchPayoutTrxHObj/GetObjectByUniqueNo",
+                            "reqObj": [
+                                {
+                                    "propName": "trxNo",
+                                    "propValue": "BatchPaymentNo",
+                                    "isFromDict": false
+                                }
+                            ],
+                            "conditions": []
+                        },
+                        {
+                            "conditions": [],
+                            "environment": "PayoutUrl",
+                            "apiPath": "/v1/BatchPayout/GetJfContractByPayoutTrxNo",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "trxNo",
+                                    "propValue": "BatchPaymentNo"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "OfficeBankAccCodeOut",
+                                    "variableName": "OfficeBankAccCode"
+                                }
+                            ],
+                            "isUseApi": true
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [
+                        {
+                            "variableName": "EndExecutionDt",
+                            "cookieName": "useraccess.BusinessDt",
+                            "isFromCookie": false
+                        }
+                    ]
+                }
+            },
+            "id": "2887eda6-4f13-40c3-b2f0-a97f43dd14a9"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "PayoutUrl",
+            "apiPath": "/v1/BatchPayout/ExecutePayoutTrx",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "Success",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": true,
+    "onCancel": {
+        "type": "link",
+        "path": "/PaymentOut/PaymentOutExecution/Paging",
+        "target": "_self",
+        "params": []
+    },
+    "hideCancelButton": false
+}

@@ -1,0 +1,140 @@
+{
+    "exportExcel": false,
+    "component": [
+      {
+        "type": "datepicker",
+        "datatype": "date",
+        "name": "ER.POSTING_DT",
+        "id": "postingDtGte",
+        "value": "",
+        "restriction": "Gte",
+        "label": "Posting Date >=",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "datepicker",
+        "datatype": "date",
+        "name": "ER.POSTING_DT",
+        "id": "postingDtLte",
+        "value": "",
+        "restriction": "Lte",
+        "label": "Posting Date <=",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "datepicker",
+        "datatype": "date",
+        "name": "ER.VALUE_DT",
+        "id": "valueDtGte",
+        "value": "",
+        "restriction": "Gte",
+        "label": "Value Date >=",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "datepicker",
+        "datatype": "date",
+        "name": "ER.VALUE_DT",
+        "id": "valueDtLte",
+        "value": "",
+        "restriction": "Lte",
+        "label": "Value Date <=",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "datepicker",
+        "datatype": "date",
+        "name": "ER.CURR_DT",
+        "id": "currDtGte",
+        "value": "",
+        "restriction": "Gte",
+        "label": "Currency Date >=",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "datepicker",
+        "datatype": "date",
+        "name": "ER.CURR_DT",
+        "id": "currDtLte",
+        "value": "",
+        "restriction": "Lte",
+        "label": "Currency Date <=",
+        "placeholder": "Placeholder"
+      },
+      {
+        "type": "currency",
+        "name": "ER.EXCHANGE_RATE_AMT",
+        "id": "ExchangeRateAmtId",
+        "value": 0,
+        "label": "Exchange Rate >=",
+        "restriction": "gte",
+        "datatype": "numeric",
+        "placeholder": "Placeholder"
+    },
+    {
+        "type": "currency",
+        "name": "ER.EXCHANGE_RATE_AMT",
+        "id": "ExchangeRateAmtId",
+        "value": 999999999999,
+        "label": "Exchange Rate <=",
+        "restriction": "lte",
+        "datatype": "numeric",
+        "placeholder": "Placeholder"
+    }
+    ],
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Posting Date",
+        "name": "ER.POSTING_DT"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Value Date",
+        "name": "ER.VALUE_DT"
+      },
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Currency Date",
+        "name": "ER.CURR_DT"
+      },
+      {
+        "type": "sort",
+        "position": "right",
+        "label": "Exchange Rate",
+        "name": "ER.EXCHANGE_RATE_AMT"
+      }
+    ],
+    "querystring": {
+      "name": "searchExchangeRate"
+    },
+    "bodyList": [
+      {
+        "type": "date",
+        "position": "center",
+        "property": "PostingDt",
+        "dateFormat": "d-MMM-y"
+      },
+      {
+        "type": "date",
+        "position": "center",
+        "property": "ValueDt",
+        "dateFormat": "d-MMM-y h:mm a"
+      },
+      {
+        "type": "date",
+        "position": "center",
+        "property": "CurrDt",
+        "dateFormat": "d-MMM-y h:mm a"
+      },
+      {
+        "type": "decimal",
+        "position": "right",
+        "property": "ExchangeRateAmt"
+      }
+    ]
+  }
+  

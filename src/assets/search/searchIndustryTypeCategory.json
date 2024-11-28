@@ -1,0 +1,132 @@
+{
+    "title": "Industry Type Category",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "REF_INDUSTRY_TYPE_CATEGORY_CODE",
+            "id": "RefIndustryTypeCategoryCode",
+            "value": "",
+            "label": "Industry Type Category Code",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "REC.ECONOMIC_SECTOR_NAME",
+            "id": "RefEconomicSectorName",
+            "value": "",
+            "label": "Economic Sector",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "REF_INDUSTRY_TYPE_CATEGORY_NAME",
+            "id": "RefIndustryTypeCategoryName",
+            "value": "",
+            "label": "Industry Type Category Name",
+            "placeholder": "Placeholder",
+            "datatype": "text"
+        },
+        {
+            "type": "dropdown",
+            "name": "ITC.IS_ACTIVE",
+            "datatype": "text",
+            "id": "IsActive",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "isSelectOne": false,
+            "url": "",
+            "label": "Active Status",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchIndustryTypeCategory"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Industry Type Category Code",
+            "name": "RefIndustryTypeCategoryCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Industry Type Category Name",
+            "name": "RefIndustryTypeCategoryName"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Economic Sector",
+            "name": "EconomicSectorName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "RefIndustryTypeCategoryCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "RefIndustryTypeCategoryName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "EconomicSectorName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "/CommonSetting/IndustryTypeCategory/Detail",
+                    "param": [
+                        {
+                            "type": "IndustryTypeCategoryId",
+                            "property": "RefIndustryTypeCategoryId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

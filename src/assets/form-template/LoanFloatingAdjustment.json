@@ -1,0 +1,245 @@
+{
+  "title": "Loan Floating Adjustment",
+  "hideTitle": false,
+  "id": "LoanFloatingAdjustment",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "paging": {
+        "environment": "facilityExecUrl",
+        "apiVersion": "v2.1",
+        "service": "",
+        "pagingInput": {
+          "title": "",
+          "sectionTitle": "",
+          "querystring": { "name": "searchLoanFloatingAdjustment" },
+          "exportExcel": false,
+          "component": [
+            {
+              "id": "vtvendorCodeSearchId",
+              "type": "dropdown",
+              "label": "Funding Company",
+              "name": "VT.VENDOR_CODE",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": true,
+              "environment": "FOU",
+              "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+              "criteriaPropName": "Code",
+              "criteriaPropValue": "JF_FUNDING_COMPANY",
+              "isQueryIn": false,
+              "affectedFilter": ["LC.LOAN_CONTRACT_NO"],
+              "filterPropName": "VendorCode"
+            },
+            {
+              "id": "lcloanContractNoSearchId",
+              "type": "dropdown",
+              "label": "Funding Contract",
+              "name": "LC.LOAN_CONTRACT_NO",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": true,
+              "environment": "FACILITYMNT",
+              "path": "/LoanContract/GetListLoanContractKeyAndValue",
+              "criteriaPropName": "Key",
+              "criteriaPropValue": "JF_FUNDING_COMPANY",
+              "isQueryIn": false,
+              "affectedFilter": ["LB.LOAN_BATCH_NO"],
+              "filterPropName": "LoanContractNo"
+            },
+            {
+              "id": "lbloanBatchNoSearchId",
+              "type": "dropdown",
+              "label": "Funding Batch No",
+              "name": "LB.LOAN_BATCH_NO",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": false,
+              "environment": "FACILITYMNT",
+              "path": "/LoanBatch/GetListLoanBatchByLoanContractNo",
+              "criteriaPropName": "key",
+              "criteriaPropValue": "LB.LOAN_BATCH_NO",
+              "isQueryIn": false
+            },
+            {
+              "id": "lbdrawdownDtSearchId",
+              "type": "datepicker",
+              "label": "Drawdown Date Start",
+              "name": "LB.DRAWDOWN_DT",
+              "value": "",
+              "placeholder": "",
+              "datatype": "date",
+              "restriction": "gt",
+              "useDefVal": false
+            },
+            {
+              "id": "lbdrawdownDtSearchId",
+              "type": "datepicker",
+              "label": "Drawdown Date End",
+              "name": "LB.DRAWDOWN_DT",
+              "value": "",
+              "placeholder": "",
+              "datatype": "date",
+              "restriction": "lt",
+              "useDefVal": false
+            }
+          ],
+          "headerList": [
+            {
+              "type": "sort",
+              "label": "Funding Company",
+              "position": "left",
+              "name": "VT.VENDOR_NAME"
+            },
+            {
+              "type": "sort",
+              "label": "Funding Contract",
+              "position": "left",
+              "name": "LC.LOAN_CONTRACT_NO"
+            },
+            {
+              "type": "label",
+              "label": "Funding Batch No.",
+              "position": "center"
+            },
+            { "type": "label", "label": "Currency", "position": "left" },
+            { "type": "label", "label": "Facility Type", "position": "left" },
+            {
+              "type": "label",
+              "label": "Drawdown Plan Amount",
+              "position": "right"
+            },
+            {
+              "type": "label",
+              "label": "Drawdown Plan Date",
+              "position": "center"
+            },
+            { "type": "label", "label": "Interest Rate", "position": "center" },
+            {
+              "type": "label",
+              "label": "Last Adjustment Date",
+              "position": "center"
+            },
+            { "type": "label", "label": "Action", "position": "center" }
+          ],
+          "bodyList": [
+            {
+              "type": "callback",
+              "position": "left",
+              "property": "FundingCompany",
+              "isFlagColor": false,
+              "key": "ViewVendor"
+            },
+            {
+              "type": "callback",
+              "position": "left",
+              "property": "FundingContract",
+              "isFlagColor": false,
+              "key": "ViewLoanContract"
+            },
+            {
+              "type": "callback",
+              "position": "center",
+              "property": "FundingBatchNo",
+              "isFlagColor": false,
+              "key": "ViewLoanBatch"
+            },
+            {
+              "type": "text",
+              "position": "left",
+              "property": "Currency",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "left",
+              "property": "FacilityType",
+              "isFlagColor": false
+            },
+            {
+              "type": "decimal",
+              "position": "right",
+              "property": "DrawdownPlanAmount",
+              "isFlagColor": false,
+              "precision": "0.2",
+              "IsPrcnt": false
+            },
+            {
+              "type": "date",
+              "position": "center",
+              "property": "DrawdownPlanDate",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "InterestRate",
+              "isFlagColor": false
+            },
+            {
+              "type": "date",
+              "position": "center",
+              "property": "LastAdjustmentDate",
+              "isFlagColor": false
+            },
+            {
+              "type": "action",
+              "position": "center",
+              "action": [
+                {
+                  "type": "link",
+                  "path": "/LoanFloatingAdjustment/Detail",
+                  "target": "_self",
+                  "param": [
+                    { "type": "FundingBatchNo", "property": "FundingBatchNo" }
+                  ],
+                  "property": ""
+                }
+              ]
+            }
+          ]
+        },
+        "criteria": [],
+        "whereValue": [],
+        "fromValue": [],
+        "useIntegration": false,
+        "isHideSearch": false,
+        "isSearched": false,
+        "delay": 1,
+        "isUseCustomApi": false,
+        "customApiQryPaging": ""
+      },
+      "id": "cd411b97-6b20-40dc-a908-43fd3b7649b7"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [],
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false
+}

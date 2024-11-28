@@ -1,0 +1,206 @@
+{
+    "title": "Verification Question Answer",
+    "hideTitle": false,
+    "id": "VerificationQuestionAnswer",
+    "addButton": true,
+    "addLink": "/Verification/SelfCustom/QuestionAnswer/Add",
+    "pathOption": "selfCustom",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "FoundationR3Url",
+                "apiVersion": "v2",
+                "uri": "http://r3app-server.ad-ins.com/FOUNDATION_DEV",
+                "pagingInput": {
+                    "title": "Verification Question Answer",
+                    "sectionTitle": "Paging",
+                    "querystring": {
+                        "name": "searchVerificationQuestionAnswer"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vqaverfQuestionCodeSearchId",
+                            "type": "textbox",
+                            "label": "Question Code",
+                            "name": "VQA.VERF_QUESTION_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "upper(vqaverfQuestionText)SearchId",
+                            "type": "textbox",
+                            "label": "Question Text",
+                            "name": "UPPER(VQA.VERF_QUESTION_TEXT)",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true
+                        },
+                        {
+                            "id": "vqarefVerfAnswerTypeIdSearchId",
+                            "type": "dropdown",
+                            "label": "Answer Type",
+                            "name": "VQA.REF_VERF_ANSWER_TYPE_ID",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/v1/RefVerfAnswerType/GetListKeyValueActiveByCode",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "vqaisActiveSearchId",
+                            "type": "dropdown",
+                            "label": "Active Status",
+                            "name": "VQA.IS_ACTIVE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "true",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "false",
+                                    "value": "No"
+                                }
+                            ]
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Question Code",
+                            "position": "center",
+                            "name": "VQA.VERF_QUESTION_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Question Text",
+                            "position": "center",
+                            "name": "VQA.VERF_QUESTION_TEXT",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Answer Type",
+                            "position": "center",
+                            "name": "VQA.REF_VERF_ANSWER_TYPE_ID",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Active Status",
+                            "position": "center",
+                            "name": "VQA.IS_ACTIVE",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "label",
+                            "label": "Edit",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "VerfQuestionCode",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "VerfQuestionText",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "VerfAnswerTypeDescr",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsActive",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "VerfQuestionAnswerId",
+                                            "property": "VerfQuestionAnswerId"
+                                        },
+                                        {
+                                            "type": "mode",
+                                            "property": "edit"
+                                        }
+                                    ],
+                                    "path": "/Verification/SelfCustom/QuestionAnswer/Edit",
+                                    "icon": "ft-edit-2"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1
+            },
+            "id": "67fd4929-17d7-4a13-8a58-7b7967d10e61"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "customToastrMsg": ""
+}

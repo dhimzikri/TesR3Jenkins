@@ -1,0 +1,262 @@
+{
+    "title": "Transaction Type",
+    "hideTitle": false,
+    "id": "RefTrxTypePaging",
+    "addButton": true,
+    "addLink": "/CommonSetting/RefTrxType/Detail",
+    "pathOption": "selfCustom",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "FoundationR3Url",
+                "apiVersion": "v2",
+                "pagingInput": {
+                    "title": "Transaction Type",
+                    "querystring": {
+                        "name": "searchRefTrxTypeAndConfig"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "rtttrxTypeCodeSearchId",
+                            "type": "textbox",
+                            "label": "Transaction Type Code",
+                            "name": "RTT.TRX_TYPE_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        },
+                        {
+                            "id": "rtttrxTypeNameSearchId",
+                            "type": "textbox",
+                            "label": "Transaction  Type Name",
+                            "name": "RTT.TRX_TYPE_NAME",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        },
+                        {
+                            "id": "rttisActiveSearchId",
+                            "type": "dropdown",
+                            "label": "Is Active",
+                            "name": "RTT.IS_ACTIVE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ttcisHumanApprovalSearchId",
+                            "type": "dropdown",
+                            "label": "Is Human Approval",
+                            "name": "TTC.IS_HUMAN_APPROVAL",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ttcisHumanExecutionSearchId",
+                            "type": "dropdown",
+                            "label": "Is Human Execution",
+                            "name": "TTC.IS_HUMAN_EXECUTION",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "1",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "0",
+                                    "value": "No"
+                                }
+                            ]
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Transaction Type Code",
+                            "position": "center",
+                            "name": "RTT.TRX_TYPE_CODE",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Transaction Type Name",
+                            "position": "center",
+                            "name": "RTT.TRX_TYPE_NAME",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "View Link URL",
+                            "position": "center",
+                            "name": "TTC.VIEW_LINK_URL"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Is Active",
+                            "position": "center",
+                            "name": "RTT.IS_ACTIVE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Is Human Approval",
+                            "position": "center",
+                            "name": "TTC.IS_HUMAN_APPROVAL"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Is Human Execution",
+                            "position": "center",
+                            "name": "TTC.IS_HUMAN_EXECUTION"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "TrxTypeCode",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TrxTypeName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "ViewLinkUrl"
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsActive"
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsHumanApv"
+                        },
+                        {
+                            "type": "boolean",
+                            "position": "center",
+                            "property": "IsHumanExec"
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "TrxTypeCode",
+                                            "property": "TrxTypeCode"
+                                        },
+                                        {
+                                            "type": "RefTrxTypeId",
+                                            "property": "RefTrxTypeId"
+                                        },
+                                        {
+                                            "type": "mode",
+                                            "property": "edit"
+                                        }
+                                    ],
+                                    "path": "/CommonSetting/RefTrxType/Detail",
+                                    "icon": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1
+            },
+            "id": "ff22d065-d8d2-4d31-80b0-050bc7637ef4"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "onSubmit": [],
+    "hideCancelButton": false,
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "persistData": false,
+    "persistPropName": ""
+}

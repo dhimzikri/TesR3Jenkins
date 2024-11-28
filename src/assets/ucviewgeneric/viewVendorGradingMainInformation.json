@@ -1,0 +1,37 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "VendorGradingInfo",
+        "subSectionTitle": "Main Information",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Supplier Code",
+            "property": "VendorCode"
+          },
+          {
+            "type": "text",
+            "label": "Supplier Name",
+            "property": "VendorName"
+          },
+          {
+            "type": "text",
+            "label": "Rating",
+            "property": "Rating"
+          },
+          {
+            "type": "text",
+            "label": "Grade",
+            "property": "Grade"
+          }
+  
+        ],
+        "querystring": {
+          "name":"viewVendorGradingMainInfo"
+      }
+      }
+    ]
+  }
+  

@@ -1,0 +1,104 @@
+{
+    "title": "InterestRateBatchTab",
+    "hideTitle": true,
+    "id": "Interestratebatchtab",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "Interest Rate",
+                "resultData": "",
+                "isSubsection": true,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Tenor From",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Tenor To",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Interest Rate",
+                            "position": "left"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TenorFrom",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "TenorTo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "left",
+                            "property": "InterestRate",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": true
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityMntUrl",
+                    "apiPath": "/v1/JfBatchInterestRate/GetListJfBatchInterestRateByJfBatchNo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "trxNo",
+                            "propValue": "BatchNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "e240169d-b7cd-4c85-9206-06204822e6c5"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "hideCancelButton": true,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": []
+}

@@ -1,0 +1,70 @@
+{
+    "keyProperty": "AssetMasterId",
+    "keyPropCriteria": "AM.ASSET_MASTER_ID",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "AM.FULL_ASSET_CODE",
+            "id": "AssetFullCode",
+            "value": "",
+            "label": "Asset Full Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "AM.FULL_ASSET_NAME",
+            "id": "AssetFullName",
+            "value": "",
+            "label": "Asset Full Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "AC.ASSET_CATEGORY_NAME",
+            "id": "AssetCategoryName",
+            "value": "",
+            "label": "Asset Category Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "assetSchmMbrTempPaging"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Full Asset Code",
+            "name": "AM.FULL_ASSET_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Full Asset Name",
+            "name": "AM.FULL_ASSET_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Asset Category Name",
+            "name": "AC.ASSET_CATEGORY_NAME"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "FullAssetCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "FullAssetName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "AssetCategoryName"
+        }
+    ]
+}

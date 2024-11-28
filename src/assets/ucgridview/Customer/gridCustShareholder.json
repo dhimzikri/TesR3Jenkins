@@ -1,0 +1,164 @@
+{
+    "isSeq": true,
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Shareholder No",
+            "name": "CustNo"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Shareholder Name",
+            "name": "ShareholderName"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Share Type",
+            "name": "ShareholderTypeDesc"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Job Position",
+            "name": "JobPositionDesc"
+        },
+        {
+            "type": "sort",
+            "position": "right",
+            "label": "Share(%)",
+            "name": "SharePrcnt"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Is Signer",
+            "name": "IsSigner"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Is Owner",
+            "name": "IsOwner"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Is Active",
+            "name": "IsActive"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Spouse",
+            "name": "IsNeedInputSpouseShareholderData"
+        },
+        {
+          "type": "sort",
+          "position": "center",
+          "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "CustNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "ShareholderName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "ShareholderTypeDesc"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "JobPositionDesc"
+        },
+        {
+            "type": "decimal",
+            "position": "right",
+            "property": "SharePrcnt",
+            "precision": "0.6",
+            "IsPrcnt": true
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsSigner"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsOwner"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "switch",
+                    "case": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "IsNeedInputSpouseShareholderData",
+                                    "value": false,
+                                    "restriction": "NEQ"
+                                }
+                            ],
+                            "result": {
+                                "type": "callback",
+                                "key": "addspouse",
+                                "icon": "ft-edit-2",
+                                "property": [
+                                    {
+                                        "type": "CustId",
+                                        "property": "ShareholderId"
+                                    },
+                                    {
+                                        "type": "CustCompanyMgmntShrholderId",
+                                        "property": "CustCompanyMgmntShrholderId"
+                                    }
+                                ]
+                            },
+                            "isHide": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+              {
+                "type": "callback",
+                "key": "edit",
+                "property": [
+                    {
+                        "type": "CustId",
+                        "property": "ShareholderId"
+                    },
+                    {
+                        "type": "CustCompanyMgmntShrholderId",
+                        "property": "CustCompanyMgmntShrholderId"
+                    }
+                ]
+              }
+            ]
+        }
+    ]
+}

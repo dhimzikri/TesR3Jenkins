@@ -1,0 +1,178 @@
+{
+    "title": "Termination Execution Paging",
+    "id": "TerminationExecFundCoyPagingXCNAF",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "service": "",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchTerminationExecFundCoyPagingX"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorNameSearchId",
+                            "type": "textbox",
+                            "label": "Funding Company",
+                            "name": "VT.VENDOR_NAME",
+                            "value": "",
+                            "placeholder": "Input Funding Company",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company",
+                            "position": "left",
+                            "name": "VT.VENDOR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Num Of Unexecuted Payment Batch",
+                            "position": "center",
+                            "name": "COUNT(DISTINCT H.BATCH_TERMINATION_TRX_H_ID)"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch Prepare Date",
+                            "position": "center",
+                            "name": "H.TRX_DT"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Execute",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "FundCoyName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "NumOfUnexecTermination",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "TrxDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "FundingCompany",
+                                            "property": "FundCoyCode"
+                                        },
+                                        {
+                                            "type": "PrepareDt",
+                                            "property": "TrxDt"
+                                        },
+                                        {
+                                            "type": "Type",
+                                            "property": "Type"
+                                        }
+                                    ],
+                                    "path": "TERMINATION_EXEC_FUND_COY_DETAIL_X",
+                                    "icon": "ft-play"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [
+                    {
+                        "propName": "H.TERMINATION_TYPE",
+                        "restriction": "Eq",
+                        "value": "ET",
+                        "conditions": [
+                            {
+                                "property": "Type",
+                                "restriction": "EQ",
+                                "value": "ET"
+                            }
+                        ]
+                    },
+                    {
+                        "propName": "H.TERMINATION_TYPE",
+                        "restriction": "Eq",
+                        "value": "BB",
+                        "conditions": [
+                            {
+                                "property": "Type",
+                                "restriction": "EQ",
+                                "value": "BB"
+                            }
+                        ]
+                    }
+                ],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "c43add25-2ec4-412e-a8d4-9305b486bb93"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onCancel": {},
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onSubmit": [],
+    "hideCancelButton": false,
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

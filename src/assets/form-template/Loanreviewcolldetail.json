@@ -1,0 +1,100 @@
+{
+    "title": "Loan Review Pledged Agreement Detail",
+    "hideTitle": false,
+    "id": "Loanreviewcolldetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "stepper": {
+                "linear": true,
+                "animation": false,
+                "tablist": [
+                    {
+                        "step": {
+                            "code": "UPLDG",
+                            "index": 1
+                        },
+                        "label": "Unpledge",
+                        "panel": [
+                            {
+                                "conditions": [],
+                                "output": [],
+                                "params": [
+                                    {
+                                        "propName": "FundingBatchNo",
+                                        "propValue": "FundingBatchNo"
+                                    }
+                                ],
+                                "isTemplate": true,
+                                "content": "Loanreviewcollform"
+                            }
+                        ]
+                    },
+                    {
+                        "step": {
+                            "code": "PLDG",
+                            "index": 2
+                        },
+                        "label": "Re-Pledge",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "LoanBatchNo",
+                                        "propValue": "LoanBatchNo"
+                                    },
+                                    {
+                                        "propName": "LoanContractNo",
+                                        "propValue": "LoanContractNo"
+                                    }
+                                ],
+                                "output": [],
+                                "content": "LoanPledgingAgreementView"
+                            }
+                        ]
+                    }
+                ],
+                "onNext": [],
+                "onChange": []
+            },
+            "id": "2a281041-3dcb-4708-994f-17bb616c8d37"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": true,
+    "hideCancelButton": true,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

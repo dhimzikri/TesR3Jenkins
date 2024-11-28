@@ -1,0 +1,55 @@
+{
+  "title": "",
+  "subsection": [
+    {
+      "subSectionId": "MainInformationPId",
+      "subSectionTitle": "Main Branch Info",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Id Type :",
+          "property": "IdType"
+        },
+        {
+          "type": "text",
+          "label": "Rating :",
+          "property": "VendorRating"
+        },
+        {
+          "type": "text",
+          "label": "Id Number :",
+          "property": "IdNo"
+        },
+        {
+          "type": "text",
+          "label": "Email :",
+          "property": "Email"
+        },
+        {
+          "type": "text",
+          "label": "Mobile Phone 1 :",
+          "property": "Mp1"
+        },
+        {
+          "type": "date",
+          "label": "Start Date :",
+          "property": "PartnershipDt"
+        },
+        {
+          "type": "text",
+          "label": "Mobile Phone 2 :",
+          "property": "Mp2"
+        },
+        {
+          "type": "boolean",
+          "label": "Is One Affiliate :",
+          "property": "IsOneAffiliate"
+        }
+      ],
+      "querystring": {
+        "name": "viewVendorBranchMainP"
+      }
+    }
+  ]
+}

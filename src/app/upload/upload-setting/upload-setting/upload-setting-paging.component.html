@@ -1,0 +1,30 @@
+<lib-UCSearch id="ucSearch" style="width:100%;" [searchInput]='inputObj' (result)="getResult($event)"></lib-UCSearch>
+
+<div [hidden]="resultData?.data == null|| resultData?.data.length == 0">
+    <table class="table table-responsive-md text-center table-hover">
+      <thead>
+        <tr class="table-header">
+          <th><span class="thead-header" (click)="searchSort($event)" name='UploadTypeCode' translate>Upload Type Code</span>
+          </th>
+          <th><span class="thead-header" (click)="searchSort($event)" name='UploadTypeName' translate>Upload Type Name</span>
+          </th>       
+          <th><span class="thead-header" (click)="searchSort($event)" name='IsActive' translate>Active Status</span></th>        
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of resultData?.data">
+            <td>{{item.uploadTypeCode}}</td>
+            <td>{{item.uploadTypeName}}</td>
+            <td *ngIf="item.isActive == '1'">Yes</td>
+            <td *ngIf="item.isActive == '0'">No</td>
+            <td>
+                <a class="success p-0" data-original-title="" title="Upload Setting Edit" [routerLink]="[CancelLink]"
+                    [queryParams]="{param:'edit',uploadTypeId:item.uploadTypeId}" skipLocationChange>
+                    <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  <app-ucgrid-footer (select)="onSelect($event)"></app-ucgrid-footer>

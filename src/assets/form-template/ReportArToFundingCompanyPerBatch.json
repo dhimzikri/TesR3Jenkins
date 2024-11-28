@@ -1,0 +1,176 @@
+{
+    "title": "Report AR To Funding Company Per Batch",
+    "hideTitle": false,
+    "id": "ReportArToFundingCompanyPerBatch",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "report": {
+                "apiReportPath": "/v1/Report/GenerateReportR3",
+                "apiEnvironmentUrl": "FoundationR3Url",
+                "pagingInput": {
+                    "title": "",
+                    "reportName": "AR To Funding Company Per Batch",
+                    "reportTemplateCode": "AR_TO_FUND_COY_PER_BATCH",
+                    "component": [
+                        {
+                            "id": "fundingcompanySearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "FundingCompany",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "ContractNo"
+                            ],
+                            "filterPropName": "VendorCode",
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "contractnoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract No",
+                            "name": "ContractNo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "BatchNo"
+                            ],
+                            "filterPropName": "JfContractNo",
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "batchnoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "BatchNo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListKvpJfBatchByJfContractNo",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "batchdtfromSearchId",
+                            "type": "datepicker",
+                            "label": "Batch Date From",
+                            "name": "BatchDtFrom",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": false,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "batchdttoSearchId",
+                            "type": "datepicker",
+                            "label": "Batch Date To",
+                            "name": "BatchDtTo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": false,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "agingdtfromSearchId",
+                            "type": "datepicker",
+                            "label": "Aging Date From",
+                            "name": "AgingDtFrom",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": true,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "agingdttoSearchId",
+                            "type": "datepicker",
+                            "label": "Aging Date To",
+                            "name": "AgingDtTo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": true,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        }
+                    ]
+                }
+            },
+            "id": "65accf29-11b0-4148-b09c-1ed310f8bf00"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "overrideSubmitBtnText": ""
+}

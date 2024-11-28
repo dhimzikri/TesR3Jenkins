@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xl-4 col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-block">
+          <h4 class="card-title">THINGS TO DO</h4>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item text-left" *ngFor="let item of ListThingsToDo">
+            <a (click)="click(item.ThingsToDoUrl)" translate><span class="badge bg-primary float-right">{{item.TotalData}}</span> {{item.ThingsToDoName}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

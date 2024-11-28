@@ -1,0 +1,28 @@
+<div *ngIf="PageType == CustPageTypePaging">
+  <form class="form form-horizontal">
+    <span class="mr-1 pull-right">
+      <button type="button" class="addButton btn-primary-2" (click)="addCustFamily()">
+        <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+      </button>
+    </span>
+  </form>
+  <lib-ucSubsection [id]="'FamilyListingId'" [title]="'Family Listing'" [panel]="'FamilyListing'">
+  </lib-ucSubsection>
+  <div id="FamilyListing">
+    <lib-ucgridview [gridInput]="inputGridObj" (callback)="event($event)" (isRefresh)="GetListPaging()"></lib-ucgridview>
+   
+    <div class="form-actions right" style="text-align: right;">
+      <div class="px-3">
+        <button type="submit" class="btn btn-raised btn-primary-2 mr-1" (click)="SaveAndSync()">
+          <i class="far fa-check-square"></i>&nbsp;<span translate>Save and Sync</span>
+        </button>
+        <button type="submit" class="btn btn-raised btn-primary-2" (click)="next()">
+          <i class="far fa-check-square"></i>&nbsp;<span translate>Save and Continue</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-new-cust-header *ngIf="PageType == CustPageTypeHeader" [CustId]="selectedCustId" [CustType]="CustTypePersonal" [ParentCustId]="CustId" [CustDataMode]="CustDataModeFamily" (outputCancel)="ReloadPaging()" [isMarried]="isMarried" [CustPersonalFamilyId]="selectedCustPersonalFamilyId"></app-new-cust-header>
+
+ 

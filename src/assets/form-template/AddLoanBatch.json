@@ -1,0 +1,1058 @@
+{
+    "title": "Add Loan Batch",
+    "hideTitle": false,
+    "id": "AddLoanBatch",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "customComponent": {
+                "componentRef": "${Loancontractmaininfo}"
+            },
+            "id": "5eaa2c86-2cfe-4caf-b423-f54b05b22912"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Batch Information",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Funding Batch No.",
+                            "Variable": "LoanBatchNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "Input Funding Batch No"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Tenor",
+                            "Variable": "Tenor",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "Input tenor"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reference No.",
+                            "Variable": "ReferenceNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "Input reference no"
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "PaySchmCode",
+                                            "restriction": "Eq",
+                                            "value": "DUEDATE"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "DueDate"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "enabledField",
+                                    "condition": [
+                                        {
+                                            "variable": "PaySchmCode",
+                                            "restriction": "Eq",
+                                            "value": "DUEDATE"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "DueDate"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "showField",
+                                    "condition": [
+                                        {
+                                            "variable": "PaySchmCode",
+                                            "restriction": "Eq",
+                                            "value": "DUEDATE"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "DueDate"
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "Payment Scheme",
+                            "Variable": "PaySchmCode",
+                            "IsRequired": true,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "LOAN_PAY_SCHM"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Drawdown Plan Date",
+                            "Variable": "DrawdownPlanDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Due Date",
+                            "Variable": "DueDate",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Installment Scheme",
+                            "Variable": "InstSchmCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "LOAN_INST_SCHM"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "CURRENCY",
+                            "Label": "Drawdown Plan Amount",
+                            "Variable": "DrawdownPlanAmt",
+                            "Value": "",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Installment Period",
+                            "Variable": "InstPeriod",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefPayFreq/GetListActiveRefPayFreq",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "PayFreqCode",
+                                "CustomValueName": "Descr",
+                                "ReqObj": {}
+                            }
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "showField",
+                                    "condition": [
+                                        {
+                                            "variable": "GracePeriodTypeCode",
+                                            "restriction": "NEQ",
+                                            "value": ""
+                                        }
+                                    ],
+                                    "listField": [
+                                        "GracePeriodInstallment"
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "Grace Period Type",
+                            "Variable": "GracePeriodTypeCode",
+                            "IsRequired": false,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "GRACE_PERIOD_TYPE"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Collateral Location",
+                            "Variable": "CollDocLoc",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_COLLATERAL_LOCATION"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "NUMERIC",
+                            "Label": "Grace Period Installment",
+                            "Variable": "GracePeriodInst",
+                            "Value": "0",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": ""
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [],
+                            "isUseApi": true,
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "TrxNo",
+                                    "propValue": "FundingBatchNo"
+                                }
+                            ],
+                            "environment": "facilityMntUrl",
+                            "apiPath": "/v1/LoanBatchObj/GetObjectByUniqueNo"
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": [
+                        {
+                            "type": "hideField",
+                            "condition": [
+                                {
+                                    "variable": "GsValue",
+                                    "restriction": "Eq",
+                                    "value": "1"
+                                }
+                            ],
+                            "listField": [
+                                "LoanBatchNo"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "requiredField",
+                            "condition": [
+                                {
+                                    "variable": "GsValue",
+                                    "restriction": "Eq",
+                                    "value": "0"
+                                }
+                            ],
+                            "listField": [
+                                "LoanBatchNo"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "showField",
+                            "condition": [
+                                {
+                                    "variable": "GracePeriodTypeCode",
+                                    "restriction": "NEQ",
+                                    "value": ""
+                                }
+                            ],
+                            "listField": [
+                                "GracePeriodInst"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "hideField",
+                            "condition": [
+                                {
+                                    "variable": "PaySchmCode",
+                                    "restriction": "NEQ",
+                                    "value": "DUEDATE"
+                                }
+                            ],
+                            "listField": [
+                                "DueDate"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "disabledField",
+                            "condition": [
+                                {
+                                    "variable": "BatchStat",
+                                    "restriction": "Eq",
+                                    "value": "DRW"
+                                }
+                            ],
+                            "listField": [
+                                "LoanBatchNo",
+                                "Tenor",
+                                "ReferenceNo",
+                                "PaySchmCode",
+                                "DrawdownPlanDt",
+                                "DueDate",
+                                "InstSchmCode",
+                                "DrawdownPlanAmt",
+                                "InstSchmCode",
+                                "GracePeriodTypeCode",
+                                "InstPeriod",
+                                "CollDocLoc",
+                                "GracePeriodInst"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "disabledField",
+                            "condition": [
+                                {
+                                    "variable": "GracePeriodTypeCode",
+                                    "restriction": "Eq",
+                                    "value": ""
+                                }
+                            ],
+                            "listField": [
+                                "GracePeriodInst"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "bindValue",
+                            "condition": [
+                                {
+                                    "variable": "FacilityKindCode",
+                                    "restriction": "Eq",
+                                    "value": "STL"
+                                }
+                            ],
+                            "listBind": [
+                                {
+                                    "variable": "InstSchmCode",
+                                    "value": "SI"
+                                }
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "disabledField",
+                            "condition": [
+                                {
+                                    "variable": "FacilityKindCode",
+                                    "restriction": "Eq",
+                                    "value": "STL"
+                                }
+                            ],
+                            "listField": [
+                                "InstSchmCode"
+                            ],
+                            "isRevertable": true
+                        }
+                    ]
+                }
+            },
+            "id": "e4ce5f7a-65bd-4b8b-9e39-e1792a19c1f1"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Interest Setting",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": false,
+                    "formInput": [
+                        {
+                            "Action": [
+                                {
+                                    "type": "hideField",
+                                    "condition": [
+                                        {
+                                            "variable": "InterestTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "FIXED"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "BottomRate",
+                                        "BottomRateBasedOnCode",
+                                        "MarginRate"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "hideField",
+                                    "condition": [
+                                        {
+                                            "variable": "InterestTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "FLOATING"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "InterestRate"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "InterestTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "FIXED"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "BottomRate",
+                                        "BottomRateBasedOnCode",
+                                        "MarginRate"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "InterestTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "FLOATING"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "InterestRate"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "InterestTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "FIXEDBATCH"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "BottomRate",
+                                        "BottomRateBasedOnCode",
+                                        "MarginRate",
+                                        "InterestRate"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "InterestTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "FIXED"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "InterestRate"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "InterestTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "FLOATING"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "BottomRate",
+                                        "BottomRateBasedOnCode",
+                                        "MarginRate"
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "Interest Type",
+                            "Variable": "InterestTypeCode",
+                            "IsRequired": true,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_INTEREST_TYPE"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "PERCENT",
+                            "Label": "Bottom Rate",
+                            "Variable": "BottomRate",
+                            "Value": "0",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Bottom Rate Based On",
+                            "Variable": "BottomRateBasedOnCode",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TMS_BOTTOM_RATE_BASED_ON"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "PERCENT",
+                            "Label": "Margin Rate",
+                            "Variable": "MarginRate",
+                            "Value": "0",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "PERCENT",
+                            "Label": "Interest Rate",
+                            "Variable": "InterestRate",
+                            "Value": "0",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": ""
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [],
+                            "isUseApi": true,
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "TrxNo",
+                                    "propValue": "FundingBatchNo"
+                                }
+                            ],
+                            "environment": "facilityMntUrl",
+                            "apiPath": "/v1/LoanBatchObj/GetObjectByUniqueNo"
+                        },
+                        {
+                            "conditions": [],
+                            "isUseApi": true,
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "TrxNo",
+                                    "propValue": "LoanContractNo"
+                                }
+                            ],
+                            "environment": "facilityMntUrl",
+                            "apiPath": "/v1/LoanContractObj/GetObjectByUniqueNo"
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [
+                        {
+                            "variableName": "InterestTypeCode",
+                            "cookieName": "",
+                            "isEmptyNotFound": false
+                        }
+                    ],
+                    "initAction": [
+                        {
+                            "type": "disabledField",
+                            "condition": [
+                                {
+                                    "variable": "BatchStat",
+                                    "restriction": "Eq",
+                                    "value": "DRW"
+                                }
+                            ],
+                            "listField": [
+                                "InterestTypeCode",
+                                "BottomRate",
+                                "BottomRateBasedOnCode",
+                                "MarginRate",
+                                "InterestRate"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "bindValue",
+                            "condition": [
+                                {
+                                    "variable": "InterestTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "FIXED"
+                                }
+                            ],
+                            "listBind": [
+                                {
+                                    "variable": "InterestRate",
+                                    "value": "InterestRate"
+                                }
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "bindValue",
+                            "condition": [
+                                {
+                                    "variable": "InterestTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "FIXEDBATCH"
+                                }
+                            ],
+                            "listBind": [
+                                {
+                                    "variable": "InterestRate",
+                                    "value": "InterestRate"
+                                }
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "disabledField",
+                            "condition": [
+                                {
+                                    "variable": "InterestTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "FIXED"
+                                }
+                            ],
+                            "listField": [
+                                "InterestRate",
+                                "InterestTypeCode"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "bindValue",
+                            "condition": [
+                                {
+                                    "variable": "InterestTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "FLOATING"
+                                }
+                            ],
+                            "listBind": [
+                                {
+                                    "variable": "BottomRate",
+                                    "value": "BottomRate"
+                                },
+                                {
+                                    "variable": "BottomRateBasedOnCode",
+                                    "value": "BottomRateBasedOnCode"
+                                },
+                                {
+                                    "variable": "MarginRate",
+                                    "value": "MarginRate"
+                                },
+                                {
+                                    "variable": "InterestRate",
+                                    "value": "InterestRate"
+                                }
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "hideField",
+                            "condition": [
+                                {
+                                    "variable": "InterestTypeCode",
+                                    "restriction": "NEQ",
+                                    "value": "FLOATING"
+                                }
+                            ],
+                            "listField": [
+                                "BottomRate",
+                                "BottomRateBasedOnCode",
+                                "MarginRate"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "hideField",
+                            "condition": [
+                                {
+                                    "variable": "InterestTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "FLOATING"
+                                }
+                            ],
+                            "listField": [
+                                "InterestRate"
+                            ],
+                            "isRevertable": true
+                        }
+                    ]
+                }
+            },
+            "id": "02561426-9561-4dbb-8a8a-f11314615bbd"
+        },
+        {
+            "container": {
+                "key": "LoanBatchDetailBatchFeeComponent",
+                "className": "LoanBatchDetailBatchFeeComponent",
+                "cssClass": "",
+                "input": {}
+            },
+            "id": "867b6465-14d6-4964-a074-2402be140996"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/GeneralSetting/GetGSValueByGSCode",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "code",
+                    "propValue": "AUTO_GENERATE_LOAN_BATCH"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "GsValue",
+                    "propValue": "GsValue"
+                }
+            ],
+            "conditions": []
+        },
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/LoanContractObj/GetObjectByUniqueNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "TrxNo",
+                    "propValue": "LoanContractNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "InterestTypeCode",
+                    "propValue": "InterestTypeCode"
+                },
+                {
+                    "propName": "InterestRate",
+                    "propValue": "InterestRate"
+                },
+                {
+                    "propName": "BottomRate",
+                    "propValue": "BottomRate"
+                },
+                {
+                    "propName": "BottomRateBasedOn",
+                    "propValue": "BottomRateBasedOn"
+                },
+                {
+                    "propName": "MarginRate",
+                    "propValue": "MarginRate"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "environment": "facilityMntUrl",
+                "path": "/v1/LoanBatch/AddLoanBatch",
+                "onError": {
+                    "type": "toaster",
+                    "message": "Error"
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "LoanBatchNo",
+                        "propValue": "formRaw.LoanBatchNo"
+                    },
+                    {
+                        "propName": "Tenor",
+                        "propValue": "formRaw.Tenor"
+                    },
+                    {
+                        "propName": "ReferenceNo",
+                        "propValue": "formRaw.ReferenceNo"
+                    },
+                    {
+                        "propName": "PaySchmCode",
+                        "propValue": "formRaw.PaySchmCode"
+                    },
+                    {
+                        "propName": "DrawdownPlanDt",
+                        "propValue": "formRaw.DrawdownPlanDt"
+                    },
+                    {
+                        "propName": "InstSchmCode",
+                        "propValue": "formRaw.InstSchmCode"
+                    },
+                    {
+                        "propName": "DrawdownPlanAmt",
+                        "propValue": "formRaw.DrawdownPlanAmt"
+                    },
+                    {
+                        "propName": "InstPeriod",
+                        "propValue": "formRaw.InstPeriod"
+                    },
+                    {
+                        "propName": "GracePeriodTypeCode",
+                        "propValue": "formRaw.GracePeriodTypeCode"
+                    },
+                    {
+                        "propName": "CollDocLoc",
+                        "propValue": "formRaw.CollDocLoc"
+                    },
+                    {
+                        "propName": "GracePeriodInst",
+                        "propValue": "formRaw.GracePeriodInst"
+                    },
+                    {
+                        "propName": "InterestTypeCode",
+                        "propValue": "formRaw.InterestTypeCode"
+                    },
+                    {
+                        "propName": "BottomRate",
+                        "propValue": "formRaw.BottomRate"
+                    },
+                    {
+                        "propName": "BottomRateBasedCode",
+                        "propValue": "formRaw.BottomRateBasedOnCode"
+                    },
+                    {
+                        "propName": "MarginRate",
+                        "propValue": "formRaw.MarginRate"
+                    },
+                    {
+                        "propName": "BatchFees",
+                        "propValue": "formRaw.BatchFees"
+                    },
+                    {
+                        "propName": "Mode",
+                        "propValue": "mode"
+                    },
+                    {
+                        "propName": "LoanContractNo",
+                        "propValue": "LoanContractNo"
+                    },
+                    {
+                        "propName": "DueDate",
+                        "propValue": "formRaw.DueDate"
+                    },
+                    {
+                        "propName": "InterestRate",
+                        "propValue": "formRaw.InterestRate"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success Submit"
+                        }
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "params": [
+                                {
+                                    "propName": "LoanContractNo",
+                                    "propValue": "LoanContractNo"
+                                }
+                            ],
+                            "path": "/Setting/LoanBatch/Paging",
+                            "target": "_self"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "customToastrMsg": "",
+    "persistPropName": ""
+}

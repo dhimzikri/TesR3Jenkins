@@ -1,0 +1,55 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "JobDataId",
+        "subSectionTitle": "Job Data",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Customer Model",
+            "property": "MrCustModelCode"
+          },
+          {
+            "type": "text",
+            "label": "Profession Name",
+            "property": "ProfessionName"
+          },
+          {
+            "type": "text",
+            "label": "Professional No.",
+            "property": "ProfessionalNo"
+          },
+          {
+            "type": "text",
+            "label": "Job Title Name",
+            "property": "JobTitleName"
+          },
+          {
+            "type": "text",
+            "label": "Nama Perusahaan / Usaha",
+            "property": "CoyName"
+          },
+          {
+            "type": "text",
+            "label": "Industry Type Name",
+            "property": "IndustryTypeName"
+          },
+          {
+            "type": "date",
+            "label": "Establishment Date",
+            "property": "EmploymentEstablishmentDt"
+          },
+          {
+            "type": "text",
+            "label": "Number Of Employee",
+            "property": "NoOfEmp"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustJobData"
+        }
+      }
+    ]
+  }

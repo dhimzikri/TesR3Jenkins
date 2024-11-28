@@ -1,0 +1,74 @@
+
+<form class="form form-horizontal" [formGroup]="CustomerDetailForm"
+(ngSubmit)="CustomerDetailForm.valid && SaveValue()" #enjiForm="ngForm">
+<div class="p-3">
+<div class="form-body">
+  <div id="CustDetailSection">
+    <div class="form-group row">
+      <div class="col-md-2"></div>
+      <div class="col-md-4 label-field-2">Application Data</div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-raised btn-primary-2" (click)="CopyAllHandler()">Copy All</button>
+      </div>
+      <div class="col-md-4 label-field-2">Master Customer Data</div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel label-field-2" translate>Industry Type Name
+        <!-- <span class="optional-text">(Optional)</span> -->
+      </label>
+      <div class="col-md-4">
+        <label>{{AppIndustryName}}</label>
+      </div>
+      <div class="col-md-2">
+        <button *ngIf="CustomerDetailForm.controls.RefIndustryTypeId.value != AppCustCompanyDetail.RefIndustryTypeId" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('RefIndustryTypeId')">Copy</button>
+      </div>
+      <div class="col-md-4">
+        <lib-uclookupgeneric [lookupInput]="IndustryLookupObj" [parentForm]="CustomerDetailForm" [enjiForm]="enjiForm"
+            [identifier]="'IndustryLookup'" (lookup)="getIndustry($event)">
+        </lib-uclookupgeneric>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 adInsLabel label-field-2" translate>Number Of Employee
+        <!-- <span class="optional-text">(Optional)</span> -->
+      </label>
+      <div class="col-md-4">
+        <label>{{AppCustCompanyDetail.NumOfEmp}}</label>
+      </div>
+      <div class="col-md-2">
+        <button *ngIf="CustomerDetailForm.controls.NumOfEmp.value != AppCustCompanyDetail.NumOfEmp" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('NumOfEmp')">Copy</button>
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control input-field-2" formControlName="NumOfEmp"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerDetailForm.controls.NumOfEmp.invalid}">
+        <lib-uc-show-errors [control]="CustomerDetailForm.controls.NumOfEmp" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-2 label-field-2" translate>Establishment Date</label>
+      <div class="col-md-4">
+        <label>{{AppCustCompanyDetail.EstablishmentDt}}</label>
+      </div>
+      <div class="col-md-2">
+        <button *ngIf="CustomerDetailForm.controls.EstablishmentDt.value != AppCustCompanyDetail.EstablishmentDt" type="button" class="btn btn-raised btn-primary-2" (click)="CopyHandler('EstablishmentDt')">Copy</button>
+      </div>
+      <div class="col-md-4">
+        <input type="date" class="form-control input-field-2" formControlName="EstablishmentDt" [max]="businessDtMax"
+          [ngClass]="{ 'is-invalid': enjiForm.submitted && CustomerDetailForm.controls.EstablishmentDt.invalid}">
+        <lib-uc-show-errors [control]="CustomerDetailForm.controls.EstablishmentDt" [submit]="enjiForm.submitted">
+        </lib-uc-show-errors>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-actions right">
+  <button type="button" class="btn btn-raised mr-1 btn-outline-2" (click)="back()">
+    <i class="far fa-window-close button-icon"></i>&nbsp;<span class="button-text" translate>Cancel</span>
+  </button>
+  <button type="submit" class="btn btn-raised btn-primary-2">
+    <i class="far fa-check-square button-icon"></i>&nbsp;<span class="button-text" translate>Save</span>
+  </button>
+</div>
+</div>
+</form>

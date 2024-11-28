@@ -1,0 +1,30 @@
+{
+    "title": "Exchange Rate - Detail",
+    "subsection": [
+      {
+        "subSectionId": "Ref Curr Main Info",
+        "subSectionTitle": "Main Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Currency Code",
+            "property": "currCode"
+          },
+          {
+            "type": "text",
+            "label": "Currency",
+            "property": "currName"
+          },
+          {
+            "type": "boolean",
+            "label": "Active Status",
+            "property": "isActive"
+          }
+        ],
+        "querystring": {
+          "name": "viewCurrency"
+        }
+      }
+    ]
+  }

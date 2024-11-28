@@ -1,0 +1,60 @@
+{
+    "title":"",
+    "subsection": [
+      {
+        "subSectionId": "BranchInformationSuppId",
+        "subSectionTitle": "Supplier Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "link",
+            "label": "Supplier HO :",
+            "property": "SupplierHo",
+            "name": "LinkSupplierHO",
+            "target": "_blank",
+            "path": "VIEW_VENDOR_HO",
+            "environment": "FOU_WEB",
+            "param": [
+              {
+                "type": "VendorId",
+                "property": "VendorParentId"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "label": "Supplier Upping Calcuation Method :",
+            "property": "SuppCalc"
+          },
+          {
+            "type": "text",
+            "label": "Supplier Class :",
+            "property": "SupplierClass"
+          },
+          {
+            "type": "text",
+            "label": "BPKB Aging :",
+            "property": "BpkbAging"
+          },
+          {
+            "type": "text",
+            "label": "Max Refund Type :",
+            "property": "MaxRefundType"
+          },
+          {
+            "type": "text",
+            "label": "Max Refund Value :",
+            "property": "MaxRefundValue"
+          },
+          {
+            "type": "text",
+            "label": "Grade Status :",
+            "property": "Grade"
+          }
+        ],
+        "querystring": {
+           "name":"viewVendorBranchInfoSupp"
+          }
+        }
+    ]
+}

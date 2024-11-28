@@ -1,0 +1,56 @@
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="form-section card-title" translate>Insurance Claim Document</h4>
+            </div>
+          </div>
+        </div>
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="RefInsClaimDocForm"
+            (ngSubmit)="RefInsClaimDocForm.valid && SaveForm()" #enjiForm="ngForm">
+            <div class="form-body">
+              <lib-ucSubsection [id]="'InsClaimDocMasterInfoId'" [title]="pageType + ' Insurance Claim Document'"
+                [panel]="'InsClaimDocMasterInfo'"></lib-ucSubsection>
+              <div id="InsClaimDocMasterInfo">
+                <div class="form-group row adins-required">
+                  <label class="col-md-3 adInsLabel" translate>Insurance Claim Document Code </label>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control adInsInput" formControlName="RefInsClaimDocCode"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && RefInsClaimDocForm.controls.RefInsClaimDocCode.invalid}">
+                    <lib-uc-show-errors [control]="RefInsClaimDocForm.controls.RefInsClaimDocCode" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+                <div class="form-group row adins-required">
+                  <label class="col-md-3 adInsLabel" translate>Insurance Claim Document Name </label>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control adInsInput" formControlName="RefInsClaimDocName"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && RefInsClaimDocForm.controls.RefInsClaimDocName.invalid}">
+                    <lib-uc-show-errors [control]="RefInsClaimDocForm.controls.RefInsClaimDocName" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3  adInsLabel" translate>Active Status</label>
+                  <div class="col-md-9">
+                    <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

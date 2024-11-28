@@ -1,0 +1,19 @@
+<div class="col-md-12 m-0 p-0">
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngIf="MrVendorCategoryCode == 'VENDOR_CATEGORY_GENERAL'" class="subsection-title mt-1" style="font-size: 16pt;">
+        Vendor
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="ucSearch-Button-Right mr-0">
+        <span>
+          <button type="button" class="addButton" (click)="navigate()">
+            <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<lib-ucpaging [searchObj]="inputPagingObj" *ngIf="isReady"></lib-ucpaging>

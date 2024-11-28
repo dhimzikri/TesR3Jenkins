@@ -1,0 +1,176 @@
+{
+    "title": "",
+    "subsection": [
+        {
+            "subSectionId": "EmergencyContact",
+            "subSectionTitle": "Emergency Contact Main Info",
+            "mainInfoPath": "/Generic/GetDataViewBySQL",
+            "mainInfo": [
+                {
+                    "type": "text",
+                    "label": "Contact Person Name",
+                    "property": "ContactPersonName"
+                },
+                {
+                    "type": "text",
+                    "label": "Mother Maiden Name",
+                    "property": "MotherMaidenName"
+                },
+                {
+                    "type": "text",
+                    "label": "Id Type",
+                    "property": "IdType"
+                },
+                {
+                    "type": "text",
+                    "label": "Nationality",
+                    "property": "Nationality"
+                },
+                {
+                    "type": "text",
+                    "label": "Id Number",
+                    "property": "IdNo"
+                },
+                {
+                    "type": "text",
+                    "label": "Country",
+                    "property": "Country"
+                },
+                {
+                    "type": "date",
+                    "label": "Id Expired Date",
+                    "property": "IdExpiredDt"
+                },
+                {
+                    "type": "text",
+                    "label": "Education",
+                    "property": "Education"
+                },
+                {
+                    "type": "text",
+                    "label": "Gender",
+                    "property": "Gender"
+                },
+                {
+                    "type": "text",
+                    "label": "Religion",
+                    "property": "Religion"
+                },
+                {
+                    "type": "text",
+                    "label": "Birth Place",
+                    "property": "BirthPlace"
+                },
+                {
+                    "type": "text",
+                    "label": "Marital Status",
+                    "property": "MaritalStat"
+                },
+                {
+                    "type": "date",
+                    "label": "Birth Date",
+                    "property": "BirthDt"
+                },
+                {
+                    "type": "text",
+                    "label": "Profession",
+                    "property": "Profession"
+                },
+                {
+                    "type": "text",
+                    "label": "Tax Id No",
+                    "property": "TaxIdNo"
+                },
+                {
+                    "type": "text",
+                    "label": "Customer Relationship",
+                    "property": "CustRelationship"
+                }
+            ],
+            "querystring": {
+                "name": "viewCustPersonalEmergencyContact"
+            }
+        },
+        {
+            "subSectionId": "ContactAddress",
+            "subSectionTitle": "Emergency Contact Information",
+            "mainInfoPath": "/Generic/GetDataViewBySQL",
+            "mainInfo": [
+                {
+                    "type": "text",
+                    "label": "Mobile Phone 1",
+                    "property": "MobilePhoneNo1"
+                },
+                {
+                    "type": "text",
+                    "label": "Address",
+                    "property": "Addr"
+                },
+                {
+                    "type": "text",
+                    "label": "Mobile Phone 2",
+                    "property": "MobilePhoneNo2"
+                },
+                {
+                    "type": "concat",
+                    "label": "RT / RW",
+                    "propertyList": [
+                        {
+                            "property": "RT",
+                            "prefix": "",
+                            "suffix": " / "
+                        },
+                        {
+                            "property": "RW",
+                            "prefix": "",
+                            "suffix": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "label": "Email",
+                    "property": "Email"
+                },
+                {
+                    "type": "text",
+                    "label": "Zip Code",
+                    "property": "Zipcode"
+                },
+                {
+                    "type": "text",
+                    "label": "Phone No (Fix Line) 1",
+                    "property": "PhoneNoFixLine1"
+                },
+                {
+                    "type": "text",
+                    "label": "Kelurahan",
+                    "property": "Kelurahan"
+                },
+                {
+                    "type": "text",
+                    "label": "Phone No (Fix Line) 2",
+                    "property":"PhoneNoFixLine2"
+                },
+                {
+                    "type": "text",
+                    "label": "Kecamatan",
+                    "property": "Kecamatan"
+                },
+                {
+                    "type": "text",
+                    "label": "Phone No (Fix Line) 3",
+                    "property": "PhoneNoFixLine3"
+                },
+                {
+                    "type": "text",
+                    "label": "City",
+                    "property": "City"
+                }
+            ],
+            "querystring": {
+                "name": "viewCustPersonalEmergencyContact"
+            }
+        }
+    ]
+}

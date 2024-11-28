@@ -1,0 +1,103 @@
+{
+  "title": "Agreement No.",
+  "hideTitle": false,
+  "id": "Modalpopuppledgeagreementxcnaf",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "container": {
+        "key": "PledgingAgreementXComponent",
+        "className": "PledgingAgreementXComponent",
+        "cssClass": "",
+        "input": {
+            "trxNo": "trxNo",
+            "contractNo": "contractNo",
+            "batchNo": "batchNo"
+        }
+      },
+      "id": "abaa495f-e0d8-4b98-a42e-043b051bc360"
+    },
+    {
+      "table": {
+        "isFromApi": true,
+        "title": "Success Status",
+        "resultData": "",
+        "isSubsection": true,
+        "usePagination": true,
+        "includeSubmit": false,
+        "tableInput": {
+          "isSeq": false,
+          "headerList": [
+            { "type": "label", "label": "Agreement No", "position": "center" },
+            { "type": "label", "label": "Status", "position": "center" },
+            { "type": "label", "label": "Reason", "position": "center" }
+          ],
+          "bodyList": [
+            {
+              "type": "text",
+              "position": "center",
+              "property": "AgrmntNo",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "Status",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "Notes",
+              "isFlagColor": false
+            }
+          ]
+        },
+        "getData": {
+          "environment": "facilityMntUrl",
+          "apiPath": "/v1/PledgingX/GetStatusPledgeUnpledgeByBatchAndContractAndTrxNoX",
+          "customObjName": "ReturnObject",
+          "reqObj": [
+            {
+              "isFromDict": false,
+              "propName": "batchNo",
+              "propValue": "batchNo"
+            },
+            {
+              "isFromDict": false,
+              "propName": "contractNo",
+              "propValue": "contractNo"
+            },
+            { "isFromDict": false, "propName": "trxNo", "propValue": "trxNo" },
+            { "isFromDict": false, "propName": "status", "propValue": "false" }
+          ],
+          "conditions": []
+        }
+      },
+      "id": "2b6f581b-2cee-49fe-aca7-8f7bd0f787ba"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [],
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false,
+  "customToastrMsg": "",
+  "persistPropName": ""
+}

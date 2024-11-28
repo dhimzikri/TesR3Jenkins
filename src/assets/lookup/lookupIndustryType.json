@@ -1,0 +1,71 @@
+{
+    "title": "Lookup - Industry Type",
+    "sectionTitle": "Search",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "INDUSTRY_TYPE_CODE",
+        "id": "industryTypeCodeId",
+        "value": "",
+        "label": "Industry Code",
+        "placeholder": "Industry Codes"
+      },
+      {
+        "type": "textbox",
+        "name": "INDUSTRY_TYPE_NAME",
+        "id": "industryTypeNameId",
+        "value": "",
+        "label": "Industry Name",
+        "placeholder": "Industry Names"
+      }
+    ],
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Industry Code",
+        "name": "INDUSTRY_TYPE_CODE"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Industry Name",
+        "name": "INDUSTRY_TYPE_NAME"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Action"
+      }
+    ],
+  
+    "querystring": {
+      "name": "lookupIndustryType"
+    },
+  
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "center",
+        "property": "IndustryTypeCode"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "IndustryTypeName"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "select",
+            "property": "RefIndustryTypeId"
+          }
+        ]
+      }
+    ],
+    "propertyId": "IndustryTypeName",
+    "propertyName": "IndustryTypeName"
+  }
+  

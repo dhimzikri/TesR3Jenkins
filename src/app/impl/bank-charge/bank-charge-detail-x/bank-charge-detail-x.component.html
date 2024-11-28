@@ -1,0 +1,122 @@
+<div class="card">
+    <div class="card-header header-title">
+      <div class="row">
+        <div class="col-md-8">
+          <h4 class="card-title" id="horz-layout-colored-controls" translate> Edit Bank Charge</h4>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="card-body px-4">
+      <lib-ucSubsection [id]="'BankMainInformationId'" [title]="'Bank Info'" [panel]="'BankMainInformation'"></lib-ucSubsection>
+      <div class="form-body p-3 border-top border-bottom" id="BankMainInformation">
+        <div class="form-group row">
+          <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-12 py-2 ng-star-inserted">
+            <span class="ng-star-inserted">
+              <div class="row">
+                <div class="col-md-12 ng-star-inserted">
+                  <label class="label-control label-field">Bank Code</label>
+                </div>
+                <div class="col-md-12 ng-star-inserted">
+                  <label class="label-control breakword ng-star-inserted">BCA</label>
+                </div>
+              </div>
+            </span>
+          </div>
+          <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-12 py-2 ng-star-inserted">
+            <span class="ng-star-inserted">
+              <div class="row">
+                <div class="col-md-12 ng-star-inserted">
+                  <label class="label-control label-field">BI Code</label>
+                </div>
+                <div class="col-md-12 ng-star-inserted">
+                  <label class="label-control breakword ng-star-inserted"> </label>
+                </div>
+              </div>
+            </span>
+          </div>
+          <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-12 py-2 ng-star-inserted">
+            <span class="ng-star-inserted">
+              <div class="row">
+                <div class="col-md-12 ng-star-inserted">
+                  <label class="label-control label-field">Bank Name</label>
+                </div>
+                <div class="col-md-12 ng-star-inserted">
+                  <label class="label-control breakword ng-star-inserted">Bank Central Asia</label>
+                </div>
+              </div>
+            </span>
+          </div>
+          <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-xs-12 py-2 ng-star-inserted">
+            <span class="ng-star-inserted">
+              <div class="row">
+                <div class="col-md-12 ng-star-inserted">
+                  <label class="label-control label-field">Is Active</label>
+                </div>
+                <div class="col-md-12 ng-star-inserted">
+                  <label class="label-control breakword ng-star-inserted">Yes</label>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <form class="form form-horizontal" [formGroup]="BankChargeEditForm" #BankAddReqForm="ngForm"
+        (ngSubmit)="BankChargeEditForm.valid && SaveForm()">
+        <lib-ucSubsection [id]="'RTGSId'" [title]="'RTGS'" [panel]="'RTGS'"></lib-ucSubsection>
+        <div class="form-body" id="RTGS">
+          <div class="form-group row adins-required">
+            <label class="col-md-3 adInsLabel" for="bankCode" translate>RTGS Bank Charge</label>
+            <div class="col-md-9">
+              <input type="" currencyMask id="RtgsIncome" class="form-control adInsInput width-30-per"
+                formControlName="RtgsIncome">
+                <lib-uc-show-errors [control]="BankChargeEditForm.controls.RtgsBankCharge" [submit]="BankAddReqForm.submitted">
+                </lib-uc-show-errors>
+            </div>
+          </div>
+          <div class="form-group row adins-required">
+            <label class="col-md-3 adInsLabel" for="bankCode" translate>RTGS Income</label>
+            <div class="col-md-9">
+              <input type="" currencyMask id="RtgsIncome" class="form-control adInsInput width-30-per"
+                formControlName="RtgsIncome">
+                <lib-uc-show-errors [control]="BankChargeEditForm.controls.RtgsIncome" [submit]="BankAddReqForm.submitted">
+                </lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+
+        <lib-ucSubsection [id]="'SKNId'" [title]="'SKN'" [panel]="'SKN'"></lib-ucSubsection>
+        <div class="form-body" id="SKN">
+          <div class="form-group row adins-required">
+            <label class="col-md-3 adInsLabel" for="bankCode" translate>SKN Bank Charge</label>
+            <div class="col-md-9">
+              <input type="" currencyMask id="SknBankCharge" class="form-control adInsInput width-30-per"
+                formControlName="SknBankCharge">
+                <lib-uc-show-errors [control]="BankChargeEditForm.controls.SknBankCharge" [submit]="BankAddReqForm.submitted">
+                </lib-uc-show-errors>
+            </div>
+          </div>
+          <div class="form-group row adins-required">
+            <label class="col-md-3 adInsLabel" for="bankCode" translate>SKN Income</label>
+            <div class="col-md-9">
+              <input type="" currencyMask id="SknIncome" class="form-control adInsInput width-30-per"
+                formControlName="SknIncome">
+                <lib-uc-show-errors [control]="BankChargeEditForm.controls.SknIncome" [submit]="BankAddReqForm.submitted">
+                </lib-uc-show-errors>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions right">
+          <button type="button"  class="btn btn-raised btn-warning mr-1"
+            [routerLink]="[CancelLink]" skipLocationChange>
+            <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+          </button>
+          <button type="submit" class="btn btn-raised btn-primary">
+            <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

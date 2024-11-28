@@ -1,0 +1,90 @@
+{
+  "title": "Report Mirroring Payment Check Unpaid",
+  "hideTitle": false,
+  "id": "ReportMirroringPaymentCheckUnpaid",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "report": {
+        "apiReportPath": "/v1/Report/GenerateReportR3",
+        "apiEnvironmentUrl": "FoundationR3Url",
+        "pagingInput": {
+          "title": "",
+          "reportName": "ReportMirroringPaymentCheckUnpaid",
+          "reportTemplateCode": "REPORT_MIRRORING_PAYMENT_CHECK_UNPAID",
+          "component": [
+            {
+              "id": "vendorcodeSearchId",
+              "type": "dropdown",
+              "label": "Funding company name",
+              "name": "VendorCode",
+              "paramAssignment": "0",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isRequired": false,
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": false,
+              "environment": "FOU",
+              "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+              "criteriaPropName": "Code",
+              "criteriaPropValue": "JF_FUNDING_COMPANY",
+              "isQueryIn": false,
+              "useAutofill": false
+            },
+            {
+              "id": "duedatefromSearchId",
+              "type": "datepicker",
+              "label": "Due Date From",
+              "name": "DueDateFrom",
+              "paramAssignment": "0",
+              "value": "BD-1",
+              "placeholder": "",
+              "datatype": "date",
+              "isRequired": true,
+              "restriction": "gte",
+              "useDefVal": true
+            },
+            {
+              "id": "duedatetoSearchId",
+              "type": "datepicker",
+              "label": "Due Date To",
+              "name": "DueDateTo",
+              "paramAssignment": "0",
+              "value": "BD+1",
+              "placeholder": "",
+              "datatype": "date",
+              "isRequired": true,
+              "restriction": "lte",
+              "useDefVal": true
+            }
+          ]
+        }
+      },
+      "id": "53ee9629-018c-4bfa-86c0-e0d04c85c0c7"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [],
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false,
+  "overrideSubmitBtnText": ""
+}

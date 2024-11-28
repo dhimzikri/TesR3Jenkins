@@ -1,0 +1,159 @@
+{
+    "title": "Report BuyBack",
+    "hideTitle": false,
+    "id": "ReportBuyBack",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "report": {
+                "apiReportPath": "/v1/Report/GenerateReportR3",
+                "apiEnvironmentUrl": "FoundationR3Url",
+                "pagingInput": {
+                    "title": "",
+                    "reportName": "BuyBack",
+                    "reportTemplateCode": "BUYBACK",
+                    "component": [
+                        {
+                            "id": "fundingcompanySearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company",
+                            "name": "FundingCompany",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "ContractNo"
+                            ],
+                            "filterPropName": "VendorCode",
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "contractnoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract No",
+                            "name": "ContractNo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "BatchNo"
+                            ],
+                            "filterPropName": "JfContractNo",
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "batchnoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "BatchNo",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListKvpJfBatchByJfContractNo",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "buybackdtfromSearchId",
+                            "type": "datepicker",
+                            "label": "BuyBack Date >=",
+                            "name": "BuyBackDtFrom",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "isRequired": true,
+                            "restriction": "eq",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "typeSearchId",
+                            "type": "dropdown",
+                            "label": "Type",
+                            "name": "Type",
+                            "paramAssignment": "0",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "isFromURL": true,
+                            "ddlType": "one",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/RefMaster/GetListKeyValueActiveByCode",
+                            "criteriaPropName": "RefMasterTypeCode",
+                            "criteriaPropValue": "REPORT_TYPE_TMS",
+                            "isQueryIn": false,
+                            "useAutofill": false
+                        }
+                    ]
+                }
+            },
+            "id": "1d230127-85a4-4324-b5a5-b96c523bfd61"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": "",
+    "overrideSubmitBtnText": ""
+}

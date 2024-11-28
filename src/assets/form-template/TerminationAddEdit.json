@@ -1,0 +1,369 @@
+{
+    "title": "Termination Add Edit",
+    "hideTitle": true,
+    "id": "TerminationAddEdit",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Termination Batch Info",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Funding Company Name",
+                            "Variable": "FundCoyCode",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": true,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "JF_FUNDING_COMPANY"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reference No",
+                            "Variable": "RefNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": []
+                }
+            },
+            "id": "47a1437f-ae84-4eff-ad71-7004db5b6076"
+        },
+        {
+            "addtotemp": {
+                "pagingInput": {
+                    "title": "Add To Temp Termination",
+                    "sectionTitle": "Param Search",
+                    "querystring": {
+                        "name": "AddToTempBuyBack"
+                    },
+                    "component": [
+                        {
+                            "id": "jctjfContractNameSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract Name",
+                            "name": "JCT.JF_CONTRACT_NAME",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListKvpJfContract",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "JBT.JF_BATCH_NO"
+                            ],
+                            "filterPropName": "ContractNo"
+                        },
+                        {
+                            "id": "stlhtrxTypeCodeSearchId",                    
+                            "type": "dropdown",                    
+                            "label": "Amendment Status",                    
+                            "name": "STLH.TRX_TYPE_CODE",                    
+                            "value": "",                    
+                            "placeholder": "",                    
+                            "datatype": "text",                    
+                            "isFromURL": true,                    
+                            "ddlType": "all",                    
+                            "isEvent": false,                    
+                            "environment": "FACILITYMNT",                    
+                            "path": "/RefStatusTms/GetListKeyValueActiveGrpCodeByCode",                    
+                            "criteriaPropName": "Code",                    
+                            "criteriaPropValue": "AMENDMENT_STATUS",
+                            "isQueryIn": false                    
+                          },
+                        {
+                            "id": "jbtjfBatchNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch No",
+                            "name": "JBT.JF_BATCH_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListKvpJfBatchByJfContractNo",
+                            "criteriaPropName": "JfContractNo",
+                            "criteriaPropValue": "ContractNo",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "SearchId",
+                            "type": "blank",
+                            "label": "",
+                            "name": "",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "blank"
+                        },
+                        {
+                            "id": "jatjfAgrmntNoSearchId",
+                            "type": "textbox",
+                            "label": "Agreement No",
+                            "name": "JAT.JF_AGRMNT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "jatlmsAgrmntNoSearchId",
+                            "type": "textbox",
+                            "label": "LMS Agreement No",
+                            "name": "JAT.LMS_AGRMNT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "JCT.JF_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "left",
+                            "name": "JBT.JF_BATCH_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "LMS Agreement No",
+                            "position": "left",
+                            "name": "JAT.LMS_AGRMNT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Jf Agreement No",
+                            "position": "left",
+                            "name": "JAT.JF_AGRMNT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "OS Principal Amount",
+                            "position": "left",
+                            "name": "JAT.OS_JF_PRINCIPAL_AMT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "OS Interest Amount",
+                            "position": "left",
+                            "name": "JAT.OS_JF_INTEREST_AMT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Amendment Status",
+                            "position": "left",
+                            "name": "STLH.TRX_TYPE_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Overdue Days",
+                            "position": "left",
+                            "name": "JAT.MF_OVERDUE_DAYS"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "FundingContractName"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "BatchNo"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "LmsAgrmntNo"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "JfAgrmntNo"
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "OsPrincipalAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "OsInterestAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "AmendmentStatus"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "OverdueDays"
+                        }
+                    ],
+                    "keyPropCriteria": "STLH.LMS_TRX_NO",
+                    "keyProperty": "TrxNo"
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "environment": "PayoutUrl",
+                "apiVersion": "v1",
+                "useIntegration": false
+            },
+            "id": "4f026e7a-a84a-4463-a157-07fbc5b9cd28"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [
+                {
+                    "restriction": "GT",
+                    "value": "0",
+                    "property": "listTemp.length"
+                }
+            ],
+            "result": {
+                "type": "http",
+                "environment": "PayoutUrl",
+                "path": "/v1/Termination/ManualBatchBuyback",
+                "reqObj": [
+                    {
+                        "propName": "FundCoyCode",
+                        "propValue": "form.FundCoyCode"
+                    },
+                    {
+                        "propName": "TerminationBatchNo",
+                        "propValue": "form.TerminationBatchNo"
+                    },
+                    {
+                        "propName": "RefNo",
+                        "propValue": "form.RefNo"
+                    },
+                    {
+                        "propName": "Notes",
+                        "propValue": "form.Notes"
+                    },
+                    {
+                        "propName": "ListAgrmntNo",
+                        "propValue": "listTemp"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success"
+                        },
+                        "conditions": []
+                    },
+                    {
+                        "result": {
+                            "type": "link",
+                            "path": "/BREAD/TerminationPaging",
+                            "target": "_self",
+                            "params": []
+                        },
+                        "conditions": []
+                    }
+                ],
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                }
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {}
+}

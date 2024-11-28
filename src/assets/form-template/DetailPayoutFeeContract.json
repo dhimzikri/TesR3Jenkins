@@ -1,0 +1,327 @@
+{
+    "title": "Detail Payout Fee Contract",
+    "hideTitle": false,
+    "id": "DetailPayoutFeeContract",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "customComponent": {
+                "componentRef": "${Loancontractmaininfo}"
+            },
+            "id": "0a316975-70f4-4487-a44d-e41efe0313f2"
+        },
+        {
+            "formarray": {
+                "title": "Fee Allocation",
+                "isSubsection": true,
+                "isModeAdd": false,
+                "formGroupName": "ListPayoutFee",
+                "canAdd": false,
+                "isFromApi": true,
+                "resultData": "",
+                "customObjName": "ReturnObject",
+                "formInput": {
+                    "headerList": [
+                        {
+                            "Label": "Fees",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "Payment",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "RefFundFeeTypeCode",
+                            "IsHide": true
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "Type": "LABEL",
+                            "Label": "Fees",
+                            "Variable": "RefFundContractFeeName",
+                            "LabelType": "TEXT",
+                            "Position": "text-left"
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "Payment",
+                            "Variable": "Value",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Type": "TEXT",
+                            "Label": "RefFundFeeTypeCode",
+                            "Variable": "RefFundFeeTypeCode",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "addBodyList": [],
+                    "footerList": [
+                        {
+                            "Type": "LABEL",
+                            "IsCurr": false,
+                            "IsAggregate": false,
+                            "Label": "Total",
+                            "Variable": "Total",
+                            "Mode": null,
+                            "Component": null
+                        },
+                        {
+                            "Type": "LABEL",
+                            "IsCurr": true,
+                            "IsAggregate": true,
+                            "Label": "",
+                            "Variable": "",
+                            "Mode": "SUM",
+                            "Component": "Value"
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityMntUrl",
+                    "apiPath": "/v1/Payout/GetListRefFundContractFee",
+                    "reqObj": {
+                        "Code": "LOAN"
+                    }
+                }
+            },
+            "id": "758e4249-f237-4eaf-a1e5-c892a9efa853"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Payment Information",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Value Date",
+                            "Variable": "ValueDate",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": "Input notes"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reference No",
+                            "Variable": "ReferenceNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": "Input reference no"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BLANK"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "CURRENCY",
+                            "Label": "Exchange Rate",
+                            "Variable": "ExchangeRate",
+                            "Value": "0",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BLANK"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Bank Account",
+                            "Variable": "BankAccount",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/OfficeBankAcc/GetListActiveOfficeBankAccByMrBankAccPurposeCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "FUND"
+                                }
+                            }
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "46d99cd7-b674-4394-8cc8-3d12bc4e8f9f"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": true,
+    "redirectOption": "customPath",
+    "redirectLink": "LOAN_PAYMENT_OUT_FEE_CONTRACT",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "environment": "PayoutUrl",
+                "path": "/v1/LoanBatchPayoutHist/SubmitLoanPayoutFee",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "ValueDate",
+                        "propValue": "formRaw.ValueDate"
+                    },
+                    {
+                        "propName": "PayoutLevel",
+                        "propValue": "Level"
+                    },
+                    {
+                        "propName": "Notes",
+                        "propValue": "formRaw.Notes"
+                    },
+                    {
+                        "propName": "RefNo",
+                        "propValue": "formRaw.ReferenceNo"
+                    },
+                    {
+                        "propName": "ExchangeRate",
+                        "propValue": "formRaw.ExchangeRate"
+                    },
+                    {
+                        "propName": "BankAcc",
+                        "propValue": "formRaw.BankAccount"
+                    },
+                    {
+                        "propName": "ListPayoutFee",
+                        "propValue": "formRaw.ListPayoutFee"
+                    },
+                    {
+                        "propName": "PayoutRefNo",
+                        "propValue": "FundingContractNo"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success Submit"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        },
+        {
+            "conditions": [],
+            "result": {
+                "type": "link",
+                "path": "/PaymentOut/LoanPayout/PayoutFeeContract/Paging",
+                "params": [],
+                "target": "_self"
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

@@ -1,0 +1,48 @@
+<div class="card-header header-title">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="px-3">
+            <form>
+              <h4 class="card-title" translate>Contact Person List</h4>
+              <hr>
+              <div style="overflow-x: auto;">
+                <table class="table table-responsive-md text-center table-hover">
+                  <thead>
+                    <tr class="table-header">
+                      <th class="text-left"><span class="thead-header" name='Name' translate>Contact Person Name</span>
+                      </th>
+                      <th class="text-left"><span class="thead-header" name='Position' translate>Position</span>
+                      </th>
+                      <th class="text-left"><span class="thead-header" name='Phone 1' translate>Phone 1</span>
+                      </th>
+                      <th class="text-left"><span class="thead-header" name='Owner' translate>Owner</span>
+                      </th>
+                      <th class="text-left"><span class="thead-header" name='Addr' translate>Address</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf = "resultData?.length == 0">
+                    <tr>
+                      <td colspan="100%">No Data Available</td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <tr *ngFor="let item of resultData">
+                      <td class="text-left">{{item.Name}}</td>
+                      <td class="text-left">{{item.PositionName}}</td>
+                      <td class="text-left">{{item.Phone1}}</td>
+                      <td class="text-left" *ngIf="item.IsOwner === true">Yes</td>
+                      <td class="text-left" *ngIf="item.IsOwner === false">No</td>
+                      <td class="text-left">{{item.Addr}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

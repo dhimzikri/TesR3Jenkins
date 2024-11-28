@@ -1,0 +1,25 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "PrevJobDataEmpId",
+        "subSectionTitle": "Previous Job Data",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Previous Company Name",
+            "property": "PrevCoyName"
+          },
+          {
+            "type": "date",
+            "label": "Previous Employment Date",
+            "property": "PrevEmploymentDt"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustPreviousJobDataEmp"
+        }
+      }
+    ]
+  }

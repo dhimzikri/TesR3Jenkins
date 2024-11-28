@@ -1,0 +1,94 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "CustPersonalHeaderId",
+        "subSectionTitle": "Main Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+            {
+                "type": "link",
+                "label": "Customer No",
+                "position": "left",
+                "property": "CustNo",
+                "target": "_blank",
+                "path": "VIEW_CUST_PERSONAL_DETAIL",
+                "param": [
+                    {
+                        "type": "CustId",
+                        "property": "CustId"
+                    }
+                ]
+            },
+          {
+            "type": "text",
+            "label": "Customer Name",
+            "property": "CustName"
+          },
+          {
+            "type": "text",
+            "label": "Gender",
+            "property": "MrGenderCode"
+          },
+          {
+            "type": "text",
+            "label": "Customer Model",
+            "property": "MrCustModelCode"
+          },
+          {
+            "type": "text",
+            "label": "Birth Place",
+            "property": "BirthPlace"
+          },
+          {
+            "type": "text",
+            "label": "Id Type",
+            "property": "IdType"
+          },
+          {
+            "type": "date",
+            "label": "Birth Date",
+            "property": "BirthDate"
+          },
+          {
+            "type": "text",
+            "label": "Id Number",
+            "property": "IdNo"
+          },
+          {
+            "type": "text",
+            "label": "Tax Id No",
+            "property": "TaxIdNo"
+          },
+          {
+            "type": "date",
+            "label": "Id Expired Date",
+            "property": "IdExpiredDt"
+          },
+          {
+            "type": "text",
+            "label": "Mother Maiden Name",
+            "property": "MotherMaidenName"
+          },
+          {
+            "type": "boolean",
+            "label": "Affiliation With Multifinance",
+            "property": "StatusAffiliate"
+          },
+          {
+            "type": "boolean",
+            "label": "VIP",
+            "property": "StatusIsVip"
+          },
+          {
+            "type": "text",
+            "label": "VIP Notes",
+            "property": "VipNotes"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustPersonalHeader"
+        }
+      }
+    ]
+  }

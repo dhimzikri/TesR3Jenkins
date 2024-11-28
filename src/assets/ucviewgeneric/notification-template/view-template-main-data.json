@@ -1,0 +1,131 @@
+{
+    "subsection": [
+      {
+        "subSectionId": "TemplateDataId",
+        "subSectionTitle": "Notification Template Data",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Notification Type",
+            "property": "NotificationType"
+          },
+          {
+            "type": "text",
+            "label": "Notification Source",
+            "property": "NotificationSource"
+          },
+          {
+            "type": "text",
+            "label": "Notification Level",
+            "property": "NotificationLevel"
+          },
+          {
+            "type": "switch",
+            "case": [
+              {
+                "conditions": [
+                  {
+                    "property": "NotificationType",
+                    "value": "Push Notification",
+                    "restriction": "EQ"
+                  }
+                ],
+                "result":{
+                  "type": "text",
+                  "label": "Title",
+                  "property": "Subject"
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "property": "NotificationType",
+                    "value": "Push Notification",
+                    "restriction": "NEQ"
+                  }
+                ],
+                "result":{
+                  "type": "text",
+                  "label": "Subject",
+                  "property": "Subject"
+                }
+              }
+            ]
+          },
+          {
+            "type": "date",
+            "dateFormat": "medium",
+            "label": "Start Date",
+            "property": "StartDt"
+          },
+          {
+            "type": "date",
+            "dateFormat": "medium",
+            "label": "End Date",
+            "property": "EndDt"
+          },
+          {
+            "type": "switch",
+            "case": [
+              {
+                "conditions": [
+                  {
+                    "property": "NotificationType",
+                    "value": "Email",
+                    "restriction": "NEQ"
+                  }
+                ],
+                "result":{
+                  "type": "text",
+                  "label": "Body",
+                  "property": "Body"
+                }
+              }
+            ]
+          },
+          {
+            "type": "switch",
+            "case": [
+              {
+                "conditions": [
+                  {
+                    "property": "NotificationType",
+                    "value": "Push Notification",
+                    "restriction": "EQ"
+                  }
+                ],
+                "result": {
+                    "type": "text",
+                    "label": "Base Url",
+                    "property": "BaseUrl"
+                }
+              }
+            ]
+          },
+          {
+            "type": "switch",
+            "case": [
+              {
+                "conditions": [
+                  {
+                    "property": "NotificationType",
+                    "value": "Push Notification",
+                    "restriction": "EQ"
+                  }
+                ],
+                "result": {
+                    "type": "text",
+                    "label": "Path",
+                    "property": "Path"
+                }
+              }
+            ]
+          }
+        ],
+        "querystring": {
+            "name": "viewNotifTemplateMainData"
+        }
+      }
+    ]
+}

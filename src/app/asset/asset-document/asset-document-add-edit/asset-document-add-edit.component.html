@@ -1,0 +1,108 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Asset Document Registration</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="AssetDocumentForm"
+          (ngSubmit)="AssetDocumentForm.valid && SaveForm()" #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'AssetDocumentId'" [title]="'Asset Document '+ pageType" [panel]="'AssetDocument'">
+            </lib-ucSubsection>
+            <div id="AssetDocument">
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Asset Type Name</label>
+                <div class="col-md-9">
+                  <label class="adInsLabel" translate>{{this.assetTypeName}}</label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Asset Document Name </label>
+                <div class="col-md-9">
+                  <div *ngIf="this.pageType == 'add' else emptyList">
+                    <div>
+                      <select class="form-control adInsInput" style="width: auto" formControlName="AssetDocName"
+                        [ngClass]="{ 'is-invalid': enjiForm.submitted && AssetDocumentForm.controls.AssetDocName.invalid }">
+                        <option *ngFor="let it of tempAssetName" value="{{it.RefAssetDocId}}">
+                          {{it.AssetDocName}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <ng-template #emptyList>
+                    <div>
+                      <label>{{this.assetDocName}} </label>
+                    </div>
+                  </ng-template>
+                  <lib-uc-show-errors [control]="AssetDocumentForm.controls.AssetDocName" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Main Doc</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsMainDoc" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Value Needed</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsValueNeeded" />
+                </div>
+              </div>
+              <div *ngIf="isShowCbxPledge == true" class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Pledge</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsPledge" />
+                </div>
+              </div>
+              <div *ngIf="isShowCbxBorrow == true" class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Borrow</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsBorrow" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Mandatory New</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsMandatoryNew" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Mandatory Used</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsMandatoryUsed" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" translate>Expired Date Mandatory</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsExpDtMandatory" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Active Status</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]"
+              [queryParams]="{ AssetTypeId: this.AssetTypeId }" skipLocationChange>
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

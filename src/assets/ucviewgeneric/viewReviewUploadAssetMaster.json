@@ -1,0 +1,45 @@
+{
+  "title": "",
+  "subsection": [
+    {
+      "subSectionId": "ReviewUploadId",
+      "subSectionTitle": "REVIEW UPLOAD ASSET MASTER",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Upload No.",
+          "property": "UploadNo"
+        },
+        {
+          "type": "text",
+          "label": "Office Name",
+          "property": "OfficeName"
+        },
+        {
+          "type": "text",
+          "label": "File Name",
+          "property": "FileName"
+        },
+        {
+          "type": "date",
+          "label": "Upload Date",
+          "property": "UploadDt"
+        },
+        {
+          "type": "text",
+          "label": "Total Record",
+          "property": "TotalRecord"
+        },
+        {
+          "type": "text",
+          "label": "Total Record Processed",
+          "property": "TotalRecordProcessed"
+        }
+      ],
+      "querystring": {
+        "name": "viewReviewUploadAssetMaster"
+      }
+    }
+  ]
+}

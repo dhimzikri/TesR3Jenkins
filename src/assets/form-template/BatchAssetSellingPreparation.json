@@ -1,0 +1,262 @@
+{
+    "title": "Asset Selling Prepare",
+    "hideTitle": false,
+    "id": "BatchAssetSellingPreparation",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "uri": "http://r3app-server/PAYMENT",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Search",
+                    "querystring": {
+                        "name": "searchBatchAsset"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "GROUPDATA.JF_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "groupdatajfContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract",
+                            "name": "GROUPDATA.JF_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "VendorCode",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "groupdatatrxNoSearchId",
+                            "type": "textbox",
+                            "label": "Asset Selling Batch No",
+                            "name": "GROUPDATA.TRX_NO",
+                            "value": "",
+                            "placeholder": "Input Asset Selling Batch No",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "groupdatatrxDtSearchId",
+                            "type": "datepicker",
+                            "label": "Batch Prepare Start Date",
+                            "name": "GROUPDATA.TRX_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "gte",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "groupdatatrxDtSearchId",
+                            "type": "datepicker",
+                            "label": "Batch Prepare End Date",
+                            "name": "GROUPDATA.TRX_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "lte",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "rstrefStatusCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Status",
+                            "name": "RST.REF_STATUS_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "NEW",
+                                    "value": "New"
+                                },
+                                {
+                                    "key": "RDY",
+                                    "value": "Ready"
+                                },
+                                {
+                                    "key": "GNR",
+                                    "value": "Generated"
+                                }
+                            ]
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "VT.VENDOR_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "GROUPDATA.JF_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Asset Selling Batch No",
+                            "position": "center",
+                            "name": "GROUPDATA.TRX_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch Prepare Date",
+                            "position": "center",
+                            "name": "GROUPDATA.TRX_DT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Status",
+                            "position": "center",
+                            "name": "RST.DESCR"
+                        },
+                        {
+                            "type": "label",
+                            "label": "action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundingCompanyName",
+                            "isFlagColor": false,
+                            "key": "ViewFundCoy"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundingContractName",
+                            "isFlagColor": false,
+                            "key": "ViewFundContract"
+                        },
+                        {
+                            "type": "link",
+                            "position": "center",
+                            "property": "AssetSellingBatchNo",
+                            "isFlagColor": false,
+                            "target": "_blank",
+                            "path": "/ViewAssetSelling/Inquiry/View",
+                            "param": [
+                                {
+                                    "type": "AssetSellingBatchNo",
+                                    "property": "AssetSellingBatchNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "BatchPrepareDate",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "Status",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/AssetSelling/AssetSellingPrepare/View",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "AssetSellingBatchNo",
+                                            "property": "AssetSellingBatchNo"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "701f60ce-1179-4c07-bab4-9b2b34c4e294"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

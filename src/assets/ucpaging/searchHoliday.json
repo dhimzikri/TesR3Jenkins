@@ -1,0 +1,130 @@
+{
+    "title": "Holiday",
+    "exportExcel": false, 
+    "component": [
+        {
+            "type": "textbox",
+            "name": "HOLIDAY_SCHM_CODE",
+            "id": "HolidaySchmCode",
+            "value": "",
+            "label": "Holiday Scheme Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "is_Active",
+            "id": "activeStatusId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "label": "Active Status",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "HOLIDAY_SCHM_NAME",
+            "id": "holidaySchmName",
+            "value": "",
+            "label": "Holiday Scheme Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring" : {
+        "name" : "searchHoliday"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Holiday Scheme Code",
+            "name": "HolidaySchmCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Holiday Scheme Name",
+            "name": "holidaySchmName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "isActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Detail"
+        }
+        ,
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "HolidaySchmCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "holidaySchmName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "isActive"
+        },
+        {
+            "type" : "action",
+            "position" : "center",
+            "action" : [
+                {
+                    "type" : "edit",
+                    "path" : "CS_HOLIDAY_DETAIL",
+                    "param" : [
+                        {
+                            "type" : "HolidaySchmHId",
+                            "property" : "HolidaySchmHId"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+              {
+                  "type" : "edit",
+                  "path" : "CS_HOLIDAY_DETAIL_EDIT",
+                  "param": [
+                      {
+                          "type":"HolidaySchmHId",
+                          "property":"HolidaySchmHId"
+                      },
+                      {
+                          "type" : "mode",
+                          "property" : "edit"
+                      }
+                  ]
+              }
+            ]
+        }
+    ]  
+}

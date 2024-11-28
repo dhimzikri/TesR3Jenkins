@@ -1,0 +1,526 @@
+{
+    "title": "Asset Insurance Edit Policy Number Paging",
+    "id": "AssetInsuranceEditPolicyNumberPagingXCNAF",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "InsuranceR3Url",
+                "apiVersion": "v1",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Edit Policy Number",
+                    "querystring": {
+                        "name": "SearchAssetInsEditPolicyNumberX"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "xinventoryofficecodeSearchId",
+                            "type": "dropdown",
+                            "label": "Office Name",
+                            "name": "X.InventoryOfficeCode",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/RefOffice/GetListKvpActiveRefOfficeForPaging",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "aiinscoBranchCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Insco Branch Name",
+                            "name": "AI.INSCO_BRANCH_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "InsuranceR3Url",
+                            "path": "/VendorAms/GetListVendorActiveByVendorCategoryCodeForPaging",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "ASSET_INSCO_BRANCH",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "xmounoSearchId",
+                            "type": "textbox",
+                            "label": "Cwr No",
+                            "name": "X.MouNo",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "xagrmntnoSearchId",
+                            "type": "textbox",
+                            "label": "Agreement No",
+                            "name": "X.AgrmntNo",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "xcustnameSearchId",
+                            "type": "textbox",
+                            "label": "Debtor Name",
+                            "name": "X.CustName",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isReadonly": false,
+                            "useAutofill": false
+                        },
+                        {
+                            "id": "aipolicyNoSearchId",
+                            "type": "textbox",
+                            "label": "Policy No",
+                            "name": "AI.POLICY_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "aipolicyEndDtSearchId",
+                            "type": "datepicker",
+                            "label": "Policy End Date >=",
+                            "name": "AI.POLICY_END_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "gte",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "aipolicyEndDtSearchId",
+                            "type": "datepicker",
+                            "label": "Policy End Date <=",
+                            "name": "AI.POLICY_END_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "lte",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "aixmrInsTypeSearchId",
+                            "type": "dropdown",
+                            "label": "Insurance Type",
+                            "name": "AIX.MR_INS_TYPE",
+                            "value": "MAIN",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/RefMaster/GetListKeyValueActiveByCode",
+                            "criteriaPropName": "RefMasterTypeCode",
+                            "criteriaPropValue": "INS_TYPE",
+                            "isQueryIn": false,
+                            "affectedFilter": [],
+                            "filterPropName": "MAIN ASSET"
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Insco Branch Name",
+                            "position": "center",
+                            "name": "AI.INSCO_BRANCH_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "CWR NO",
+                            "position": "center",
+                            "name": "X.MouNo"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Agreement No",
+                            "position": "center",
+                            "name": "X.AgrmntNo"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Debtor Name",
+                            "position": "center",
+                            "name": "X.CustName"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "SPPA NO",
+                            "position": "center",
+                            "name": "AI.SPPA_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Policy No",
+                            "position": "center",
+                            "name": "AI.POLICY_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Policy End Date",
+                            "position": "center",
+                            "name": "AI.POLICY_END_DT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Asset Name",
+                            "position": "center",
+                            "name": "X.AssetName"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Insurance Type",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Edit",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "InscoBranchName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "switch",
+                                    "case": [
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "property": "MouNo",
+                                                    "value": "-",
+                                                    "isUser": false,
+                                                    "restriction": "EQ"
+                                                }
+                                            ],
+                                            "isHide": false,
+                                            "result": {
+                                                "property": "MouNo",
+                                                "type": "text"
+                                            }
+                                        },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "property": "MouNo",
+                                                    "value": "MULTI CWR",
+                                                    "isUser": false,
+                                                    "restriction": "EQ"
+                                                }
+                                            ],
+                                            "isHide": false,
+                                            "result": {
+                                                "property": "MouNo",
+                                                "type": "text"
+                                            }
+                                        },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "property": "MouNo",
+                                                    "value": "-",
+                                                    "isUser": false,
+                                                    "restriction": "NEQ"
+                                                },
+                                                {
+                                                    "property": "MouNo",
+                                                    "value": "MULTI CWR",
+                                                    "isUser": false,
+                                                    "restriction": "NEQ"
+                                                }
+                                            ],
+                                            "isHide": false,
+                                            "result": {
+                                                "key": "ViewMou",
+                                                "type": "callback",
+                                                "isText": true,
+                                                "property": "MouNo"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "switch",
+                                    "case": [
+                                        {
+                                            "result": {
+                                                "type": "text",
+                                                "property": "AgrmntNo"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "isUser": false,
+                                                    "property": "AgrmntNo",
+                                                    "restriction": "EQ",
+                                                    "value": "MULTI AGREEMENT"
+                                                }
+                                            ],
+                                            "isHide": false
+                                        },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "isUser": false,
+                                                    "property": "AgrmntNo",
+                                                    "restriction": "EQ",
+                                                    "value": "-"
+                                                }
+                                            ],
+                                            "isHide": false,
+                                            "result": {
+                                                "property": "AgrmntNo",
+                                                "type": "text"
+                                            }
+                                        },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "isUser": false,
+                                                    "property": "AgrmntNo",
+                                                    "restriction": "NEQ",
+                                                    "value": "MULTI AGREEMENT"
+                                                },
+                                                {
+                                                    "isUser": false,
+                                                    "property": "AgrmntNo",
+                                                    "restriction": "NEQ",
+                                                    "value": "-"
+                                                }
+                                            ],
+                                            "isHide": false,
+                                            "result": {
+                                                "key": "ViewAgrmnt",
+                                                "type": "callback",
+                                                "isText": true,
+                                                "property": "AgrmntNo"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "switch",
+                                    "case": [
+                                        {
+                                            "result": {
+                                                "type": "text",
+                                                "property": "CustName"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "isUser": false,
+                                                    "property": "CustName",
+                                                    "restriction": "EQ",
+                                                    "value": "MULTI DEBTOR"
+                                                }
+                                            ],
+                                            "isHide": false
+                                        },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "isUser": false,
+                                                    "property": "CustName",
+                                                    "restriction": "EQ",
+                                                    "value": "-"
+                                                }
+                                            ],
+                                            "isHide": false,
+                                            "result": {
+                                                "property": "CustName",
+                                                "type": "text"
+                                            }
+                                        },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "isUser": false,
+                                                    "property": "CustName",
+                                                    "restriction": "NEQ",
+                                                    "value": "MULTI DEBTOR"
+                                                },
+                                                {
+                                                    "isUser": false,
+                                                    "property": "CustName",
+                                                    "restriction": "NEQ",
+                                                    "value": "-"
+                                                }
+                                            ],
+                                            "isHide": false,
+                                            "result": {
+                                                "key": "ViewCustomer",
+                                                "type": "callback",
+                                                "isText": true,
+                                                "property": "CustName"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "switch",
+                                    "case": [
+                                        {
+                                            "result": {
+                                                "type": "text",
+                                                "property": "SPPANo"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "isUser": false,
+                                                    "property": "SPPANo",
+                                                    "restriction": "EQ",
+                                                    "value": "-"
+                                                }
+                                            ],
+                                            "isHide": false
+                                        },
+                                        {
+                                            "result": {
+                                                "type": "callback",
+                                                "isText": true,
+                                                "key": "ViewSppa",
+                                                "property": "SPPANo"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "isUser": false,
+                                                    "property": "SPPANo",
+                                                    "restriction": "NEQ",
+                                                    "value": "-"
+                                                }
+                                            ],
+                                            "isHide": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "callback",
+                            "position": "center",
+                            "property": "PolicyNo",
+                            "isFlagColor": false,
+                            "key": "ViewPolicy"
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "PolicyEndDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "AssetName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "InsurType",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "callback",
+                                    "key": "detail",
+                                    "property": "",
+                                    "icon": "ft-edit"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": "",
+                "service": ""
+            },
+            "id": "b07e7458-1740-43d7-b795-36a0c6a4871c"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "onCancel": {},
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onSubmit": [],
+    "hideCancelButton": false,
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

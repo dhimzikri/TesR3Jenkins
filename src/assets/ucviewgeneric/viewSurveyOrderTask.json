@@ -1,0 +1,60 @@
+{
+  "title": "Survey Order Task",
+  "subsection": [
+    {
+      "subSectionId": "SurveyOrderTaskId",
+      "subSectionTitle": "Main Information",
+      "mainInfoPath": "/Generic/GetDataViewBySQL",
+      "mainInfo": [
+        {
+          "type": "text",
+          "label": "Office Name",
+          "property": "OfficeName"
+        },
+        {
+          "type": "text",
+          "label": "Transaction Number",
+          "property": "TrxRefNo"
+        },
+        {
+          "type": "text",
+          "label": "Survey Order No",
+          "property": "SrvyOrderNo"
+        },
+        {
+          "type": "text",
+          "label": "Survey Order Status",
+          "property": "AssetTypeName"
+        },
+        {
+          "type": "text",
+          "label": "Survey Type",
+          "property": "MrSrvySourceCode"
+        },
+        {
+          "type": "text",
+          "label": "Survey Company",
+          "property": "VendorName"
+        },
+        {
+          "type": "date",
+          "label": "Request Date",
+          "property": "ReqDt"
+        },
+        {
+          "type": "text",
+          "label": "Request By",
+          "property": "ReqByUser"
+        },
+        {
+          "type": "text",
+          "label": "Notes",
+          "property": "Notes"
+        }
+      ],
+      "querystring": {
+        "name": "viewSurveyOrderTask"
+      }
+    }
+  ]
+}

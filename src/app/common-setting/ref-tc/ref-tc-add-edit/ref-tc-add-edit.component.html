@@ -1,0 +1,77 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Term & Conditions Detail</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="RefTcForm" (ngSubmit)="RefTcForm.valid && SaveForm()"
+              #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'TCInfoId'" [title]="'TC '+ pageType" [panel]="'TCInfo'"></lib-ucSubsection>
+            <div id="TCInfo">
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel adins-required adins-required-label" translate>TC Code </label>
+                <div class="col-md-6">
+                  <input type="text" class="form-control adInsInput" formControlName="TcCode"
+                          [ngClass]="{ 'is-invalid': enjiForm.submitted && RefTcForm.controls.TcCode.invalid }">
+                  <lib-uc-show-errors [control]="RefTcForm.controls.TcCode" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel adins-required-label" translate>TC Name </label>
+                <div class="col-md-6">
+                  <input type="text" class="form-control adInsInput" formControlName="TcName"
+                          [ngClass]="{ 'is-invalid': enjiForm.submitted && RefTcForm.controls.TcName.invalid }">
+                  <lib-uc-show-errors [control]="RefTcForm.controls.TcName" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel adins-required-label" translate>TC Type</label>
+                <div class="col-md-6">
+                  <div class="input-group mb-0">
+                    <select class="form-control" formControlName="TcType"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefTcForm.controls.TcType.invalid }">
+                      <option value="">-Select One-</option>
+                      <option value="ALL">All</option>
+                      <option value="P">Personal</option>
+                      <option value="C">Company</option>
+                      <!-- <option *ngFor="let item of entityTypeList" [value]="item.Key">
+                        {{item.Value}}
+                      </option> -->
+                    </select>
+                  </div>
+                  <lib-uc-show-errors [control]="RefTcForm.controls.TcType" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" translate>Is Mandatory</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsMandatory" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" translate>Active Status</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" />
+                </div>
+              </div>
+           </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]">
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary" translate>
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>  

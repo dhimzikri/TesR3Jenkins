@@ -1,0 +1,19 @@
+{
+    "title": "Employee Position",
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "refOfficeId",
+            "id": "refOfficeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "numeric",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefOffice/GetRefOfficeActiveAndNonVirtualKeyValue",
+            "label": "Office Name",
+            "itemsUrl": []
+        }
+    ]
+}

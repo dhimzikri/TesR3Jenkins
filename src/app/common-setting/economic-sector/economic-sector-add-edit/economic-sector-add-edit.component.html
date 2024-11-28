@@ -1,0 +1,69 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Economic Sector Registration</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="RefEconomicSectorForm"
+          (ngSubmit)="RefEconomicSectorForm.valid && SaveForm()" #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'EconomicSectorId'" [title]="title" [panel]="'EconomicSector'">
+            </lib-ucSubsection>
+            <div id="EconomicSector">
+              <div *ngIf="!isAuto" class="form-group row">
+                <label class="col-md-3  adins-required-label" translate>Economic Sector Code</label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" formControlName="EconomicSectorCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefEconomicSectorForm.controls.EconomicSectorCode.invalid }">
+                  <lib-uc-show-errors [control]="RefEconomicSectorForm.controls.EconomicSectorCode"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adins-required-label" translate>Economic Sector Name</label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" formControlName="EconomicSectorName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefEconomicSectorForm.controls.EconomicSectorName.invalid }">
+                  <lib-uc-show-errors [control]="RefEconomicSectorForm.controls.EconomicSectorName"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" translate>BI Code</label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" formControlName="RegRptCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && RefEconomicSectorForm.controls.RegRptCode.invalid }">
+                  <lib-uc-show-errors [control]="RefEconomicSectorForm.controls.RegRptCode"
+                    [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" translate>Active Status</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1"
+              [routerLink]="[CancelLink]" skipLocationChange> 
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

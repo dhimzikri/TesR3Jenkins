@@ -1,0 +1,255 @@
+{
+    "title": "Termination Paging",
+    "hideTitle": false,
+    "id": "TerminationPaging",
+    "addButton": true,
+    "addLink": "/Termination/TerminationPrepare/AddEdit",
+    "pathOption": "selfCustom",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "TerminationPaging",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchTerminationPaging"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "bthtrxStatSearchId",
+                            "type": "dropdown",
+                            "label": "Termination Batch Status",
+                            "name": "BTH.TRX_STAT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefStatusTms/GetListKeyValueActiveGrpCodeByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "TERMINATION_PREPARE_STATUS_TMS",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "bthtrxNoSearchId",
+                            "type": "textbox",
+                            "label": "Termination Batch No",
+                            "name": "BTH.TRX_NO",
+                            "value": "",
+                            "placeholder": "Input Termination Batch No",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "bthterminationTypeSearchId",
+                            "type": "dropdown",
+                            "label": "Batch Type",
+                            "name": "BTH.TERMINATION_TYPE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefStatusTms/GetListKeyValueActiveGrpCodeByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "TERMINATION_PREPARE_TYPE_STATUS_TMS",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "bthtrxDtSearchId",
+                            "type": "datepicker",
+                            "label": "Batch Prepare Date >=",
+                            "name": "BTH.TRX_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "gt",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "bthtrxDtSearchId",
+                            "type": "datepicker",
+                            "label": "Batch Prepare Date <=",
+                            "name": "BTH.TRX_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "lte",
+                            "useDefVal": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "VT.VENDOR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "JCT.JF_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch Prepare Date",
+                            "position": "center",
+                            "name": "MAX(BTH.TRX_DT)"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Termination Batch Status",
+                            "position": "center",
+                            "name": "RST.DESCR"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch Type",
+                            "position": "center",
+                            "name": "RMT.DESCR"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Termination Batch No",
+                            "position": "center",
+                            "name": "BTH.TRX_NO"
+                        },
+                        {
+                            "type": "label",
+                            "label": "action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundCoyName",
+                            "key": "ViewVendor"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "ContractName",
+                            "key": "ViewFundingContract"
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "BatchPrepareDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "TerminationStatus",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "BatchType",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "link",
+                            "position": "center",
+                            "property": "PaymentBatchNo",
+                            "isFlagColor": false,
+                            "target": "_blank",
+                            "path": "/ViewTermination/Inquiry/View",
+                            "param": [
+                                {
+                                    "type": "TerminationBatchNo",
+                                    "property": "PaymentBatchNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/Termination/TerminationPrepare/View",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "TerminationNo",
+                                            "property": "PaymentBatchNo"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1
+            },
+            "id": "5ed74203-b1ca-4e6f-9ed0-d65f846a38ed"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "child": [
+        "TerminationAddEdit"
+    ]
+}

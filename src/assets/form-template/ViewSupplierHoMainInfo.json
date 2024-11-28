@@ -1,0 +1,408 @@
+{
+    "title": "View Supplier HO Main Info",
+    "hideTitle": true,
+    "id": "ViewSupplierHoMainInfo",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "MainInfoId",
+                    "subSectionTitle": "Main Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "FoundationR3Url",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewHOInfoCompany"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Id Type",
+                            "property": "IdType",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Registration Number",
+                            "property": "RegistrationNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Rating",
+                            "property": "VendorRating",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "License Number",
+                            "property": "LicenseNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "E-mail",
+                            "property": "Email",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Establishment Date",
+                            "property": "EstablishmentDt",
+                            "dateFormat": "",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Mobile Phone 1",
+                            "property": "MobilePhnNo1",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },                        {
+                            "type": "date",
+                            "label": "Start Date",
+                            "property": "PartnershipDt",
+                            "dateFormat": "",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Mobile Phone 2",
+                            "property": "MobilePhnNo2",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "Is One Affiliate",
+                            "property": "IsOneAffiliate",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "VendorId"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "b4e42630-96fa-41d5-8199-52a1c5bf0830",
+            "conditions": [
+                {
+                    "property": "MrVendorTypeCode",
+                    "restriction": "EQ",
+                    "value": "C"
+                }
+            ]
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "MainInfoId",
+                    "subSectionTitle": "Main Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "FoundationR3Url",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewHOInfoPersonal"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "ID Type",
+                            "property": "IdType",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Rating",
+                            "property": "VendorRating",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "ID Number",
+                            "property": "IdNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "E-mail",
+                            "property": "Email",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Establishment Date",
+                            "property": "EstablishmentDt",
+                            "dateFormat": "",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Mobile Phone 1",
+                            "property": "MobilePhnNo1",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Start Date",
+                            "property": "PartnershipDt",
+                            "dateFormat": "",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Mobile Phone 2",
+                            "property": "MobilePhnNo1",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "Is One Affiliate",
+                            "property": "IsOneAffiliate",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "VendorId"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "a4236c25-99b1-4537-a03f-ca5cb83ed773",
+            "conditions": [
+                {
+                    "property": "MrVendorTypeCode",
+                    "restriction": "EQ",
+                    "value": "P"
+                }
+            ]
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "Id",
+                    "subSectionTitle": "HO Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "FoundationR3Url",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewHOInfoSupplier"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "link",
+                            "label": "Supplier Holding",
+                            "property": "Parent",
+                            "environment": "FoundationR3Url",
+                            "path": "/View/Vendor/SelfCustom/VendorHolding",
+                            "target": "_blank",
+                            "position": "left",
+                            "param": [
+                                {
+                                    "type": "VendorId",
+                                    "property": "VendorParentId"
+                                }
+                            ],
+                            "isCurrency": false,
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Supplier Bad Status",
+                            "property": "SupplierBadStatus",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "VendorId"
+                    ],
+                    "fromValue": [],
+                    "subsectionId": "HoInfoId"
+                }
+            },
+            "id": "b36b5e8e-d60f-47cd-b5b7-3085994eccf6",
+            "conditions": [
+                {
+                    "property": "MrVendorCategoryCode",
+                    "restriction": "EQ",
+                    "value": "SUPPLIER_HO"
+                }
+            ]
+        },
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "ATPM Info",
+                "resultData": "",
+                "isSubsection": true,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Vendor Code",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Vendor Name",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Vendor Legal Address",
+                            "position": "left"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "VendorAtpmCode"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "VendorAtpmName"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "VendorAtpmLegalAddr"
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "FoundationR3Url",
+                    "apiPath": "/v1/Vendor/GetListVendorAtpmMappingByVendorId",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "Id",
+                            "propValue": "VendorId"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "516ec27d-b547-4e90-aad0-84458ae4e2c5",
+            "conditions": [
+                {
+                    "property": "MrVendorCategoryCode",
+                    "restriction": "EQ",
+                    "value": "SUPPLIER_HO"
+                }
+            ]
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "customToastrMsg": ""
+}

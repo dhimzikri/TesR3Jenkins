@@ -1,0 +1,81 @@
+    <div class="card">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="card-title" id="horz-layout-colored-controls" translate> Bank Registration</h4>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="card-body px-4">
+          <form class="form form-horizontal" [formGroup]="BankAddForm" #BankAddReqForm="ngForm"
+            (ngSubmit)="BankAddForm.valid && SaveForm()">
+            <lib-ucSubsection [id]="'BankInformationId'" [title]="title" [panel]="'BankInformation'"></lib-ucSubsection>
+            <div class="form-body" id="BankInformation">
+              <div *ngIf="!isAuto" class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" for="bankCode" translate>Bank Code </label>
+                <div class="col-md-9">
+                  <input type="text" id="bankCode" class="form-control adInsInput width-30-per"
+                    formControlName="BankCode">
+                  <lib-uc-show-errors [control]="BankAddForm.controls.BankCode" [submit]="BankAddReqForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="row mb-2 adins-required">
+                <label class="col-md-3 adInsLabel" for="bankName" translate>Bank Name</label>
+                <div class="col-md-9">
+                  <input type="text" id="bankName" class="form-control adInsInput width-30-per"
+                    formControlName="BankName">
+                  <lib-uc-show-errors [control]="BankAddForm.controls.BankName" [submit]="BankAddReqForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="row mb-2 adins-required">
+                <label class="col-md-3 adInsLabel" for="regRptCode" translate>BI Code</label>
+                <div class="col-md-9">
+                  <input type="text" id="regRptCode" class="form-control adInsInput width-30-per"
+                    formControlName="RegRptCode">
+                  <lib-uc-show-errors [control]="BankAddForm.controls.RegRptCode" [submit]="BankAddReqForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <label class="col-md-3 adInsLabel" for="RtgsCode" translate>RTGS Code </label>
+                <div class="col-md-9">
+                  <input type="text" id="RtgsCode" class="form-control adInsInput width-30-per"
+                    formControlName="RtgsCode">
+                  <lib-uc-show-errors [control]="BankAddForm.controls.RtgsCode" [submit]="BankAddReqForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <label class="col-md-3 adInsLabel" translate>Country</label>
+                <div class="col-md-3">
+                    <lib-uclookupgeneric [lookupInput]="lookUpObj" [parentForm]="BankAddForm"
+                    [enjiForm]="BankAddReqForm" [identifier]="'lookUpObj'" (lookup)=getLookup($event)>
+                  </lib-uclookupgeneric>
+                 
+                </div>
+              </div>
+           
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" translate>Active Status</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" formControlName="IsActive">
+                </div>
+              </div>
+            </div>
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1"
+                [routerLink]="[CancelLink]" skipLocationChange>
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </form>
+      </div>
+    </div>

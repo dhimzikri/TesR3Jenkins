@@ -1,0 +1,60 @@
+{
+    "id": "Viewfundagrmntinfo",
+    "name": "ViewFundAgrmntInfo",
+    "saveState": false,
+    "customComponent": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "FundingInfoId",
+                    "subSectionTitle": "Funding Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "viewFundingInfoByAgrmnt"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Funding Company Name",
+                            "property": "FundCoyName",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Funding Batch No",
+                            "property": "FundBatchName",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Funding Contract Name",
+                            "property": "FundContractName",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Batch Status",
+                            "property": "BatchStatus",
+                            "position": "left",
+                            "isHide": false
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "FundingInfoId"
+                }
+            },
+            "id": "3050e44d-bed0-4c31-93f6-bbc0aaac817c"
+        }
+    ]
+}

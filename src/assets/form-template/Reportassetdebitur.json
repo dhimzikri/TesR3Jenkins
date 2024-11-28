@@ -1,0 +1,108 @@
+{
+  "title": "Report Asset Debitur",
+  "hideTitle": false,
+  "id": "Reportassetdebitur",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "report": {
+        "apiReportPath": "/v1/Report/GenerateReportR3",
+        "apiEnvironmentUrl": "FoundationR3Url",
+        "pagingInput": {
+          "title": "",
+          "reportName": "Report Asset Debitur",
+          "reportTemplateCode": "REPORT_ASSET_DEBITUR",
+          "component": [
+            {
+              "id": "vendorcodeSearchId",
+              "type": "dropdown",
+              "label": "Funding company name",
+              "name": "VendorCode",
+              "paramAssignment": "0",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isRequired": true,
+              "isFromURL": true,
+              "ddlType": "one",
+              "isEvent": true,
+              "environment": "FOU",
+              "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+              "criteriaPropName": "Code",
+              "criteriaPropValue": "JF_FUNDING_COMPANY",
+              "isQueryIn": false,
+              "affectedFilter": ["FundingContractNo"],
+              "filterPropName": "VendorCode",
+              "useAutofill": false
+            },
+            {
+              "id": "fundingcontractnoSearchId",
+              "type": "dropdown",
+              "label": "Funding Contract No",
+              "name": "FundingContractNo",
+              "paramAssignment": "0",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isRequired": false,
+              "isFromURL": true,
+              "ddlType": "one",
+              "isEvent": true,
+              "environment": "FACILITYMNT",
+              "path": "/JfContract/GetListFundingContractNameDDL",
+              "criteriaPropName": "",
+              "criteriaPropValue": "",
+              "isQueryIn": false,
+              "affectedFilter": ["FundingBatchNo"],
+              "filterPropName": "JfContractNo",
+              "useAutofill": false
+            },
+            {
+              "id": "fundingbatchnoSearchId",
+              "type": "dropdown",
+              "label": "Funding Batch No",
+              "name": "FundingBatchNo",
+              "paramAssignment": "0",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isRequired": true,
+              "isFromURL": true,
+              "ddlType": "one",
+              "isEvent": false,
+              "environment": "FACILITYMNT",
+              "path": "/JfContract/GetListKvpJfBatchByJfContractNo",
+              "criteriaPropName": "",
+              "criteriaPropValue": "",
+              "isQueryIn": false,
+              "useAutofill": false
+            }
+          ]
+        }
+      },
+      "id": "e6e4bdd3-9421-4d89-aa29-6387122460de"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [],
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false,
+  "overrideSubmitBtnText": ""
+}

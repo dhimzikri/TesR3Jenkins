@@ -1,0 +1,74 @@
+{
+    "title": "Lookup - Credit Insurance HO",
+    "sectionTitle": "Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "VENDOR_CODE",
+            "id": "VendorCodeId",
+            "value": "",
+            "label": "CREDIT INSURANCE HO CODE",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "VENDOR_NAME",
+            "id": "VendorNameId",
+            "value": "",
+            "label": "CREDIT INSURANCE HO NAME",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "lookupVendorParent"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "CREDIT INSURANCE HO CODE",
+            "name": "VENDOR_CODE "
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "CREDIT INSURANCE HO NAME",
+            "name": "VENDOR_NAME"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VendorCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VendorName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "path": "Vendor/HO/Detail",
+                    "param": [
+                        {
+                            "type": "VendorId",
+                            "property": "VendorId"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "propertyId": "VendorId",
+    "propertyName": "VendorName"  
+}

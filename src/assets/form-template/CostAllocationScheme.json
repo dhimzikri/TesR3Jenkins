@@ -1,0 +1,221 @@
+{
+    "title": "Cost Allocation Scheme",
+    "hideTitle": false,
+    "id": "CostAllocationScheme",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "FMSUrl",
+                "apiVersion": "v1",
+                "uri": "http://r3app-server.ad-ins.com/finops",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchCostAllocSchm"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "rcmdlv1refCostMasterDIdSearchId",
+                            "type": "dropdown",
+                            "label": "Business Role",
+                            "name": "RCMDLv1.REF_COST_MASTER_D_ID",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FINOPS",
+                            "path": "/v1/RefCostMaster/GetListRefCostMasterDByLvlNo",
+                            "criteriaPropName": "Lvl",
+                            "criteriaPropValue": "1",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "rcmdlv2refCostMasterDIdSearchId",
+                            "type": "dropdown",
+                            "label": "Business Activity",
+                            "name": "RCMDLv2.REF_COST_MASTER_D_ID",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FINOPS",
+                            "path": "/v1/RefCostMaster/GetListRefCostMasterDByLvlNo",
+                            "criteriaPropName": "Lvl",
+                            "criteriaPropValue": "2",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "rcmdlv3refCostMasterDIdSearchId",
+                            "type": "dropdown",
+                            "label": "Activity",
+                            "name": "RCMDLv3.REF_COST_MASTER_D_ID",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FINOPS",
+                            "path": "/v1/RefCostMaster/GetListRefCostMasterDByLvlNo",
+                            "criteriaPropName": "Lvl",
+                            "criteriaPropValue": "3",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "rcmdlv4refCostMasterDIdSearchId",
+                            "type": "dropdown",
+                            "label": "Sub Activity",
+                            "name": "RCMDLv4.REF_COST_MASTER_D_ID",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FINOPS",
+                            "path": "/v1/RefCostMaster/GetListRefCostMasterDByLvlNo",
+                            "criteriaPropName": "Lvl",
+                            "criteriaPropValue": "4",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Business Role",
+                            "position": "center",
+                            "name": "RCMDLv1.COST_MASTER_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Business Activity",
+                            "position": "center",
+                            "name": "RCMDLv1.COST_MASTER_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Activity",
+                            "position": "center",
+                            "name": "RCMDLv1.COST_MASTER_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Sub Activity",
+                            "position": "center",
+                            "name": "RCMDLv1.COST_MASTER_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Payment Allocation",
+                            "position": "center",
+                            "name": "rf.PAYMENT_ALLOC_NAME"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "BusinessRole",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "BusinessActivity",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "ActivityName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "SubActivityName",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "PaymentAllocName",
+                            "isFlagColor": false
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "ea9440a1-fd25-48a3-81a4-bed902a51077"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [
+        {
+            "displayName": "Add Scheme",
+            "id": "add schemeId",
+            "key": "AddScheme",
+            "position": "top",
+            "icon": "",
+            "cssClass": "",
+            "conditions": [],
+            "btnType": "button",
+            "action": {
+                "type": "link",
+                "path": "/costallocationscheme/businessrole",
+                "target": "_self",
+                "params": [
+                    {
+                        "propName": "Level",
+                        "propValue": "1"
+                    }
+                ]
+            }
+        }
+    ],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": []
+}

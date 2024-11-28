@@ -1,0 +1,238 @@
+{
+    "title": "Office",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "A.OFFICE_CODE",
+            "id": "OfficeCodeId",
+            "value": "",
+            "label": "Office Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "B.OFFICE_NAME",
+            "id": "OfficeParentId",
+            "value": "",
+            "label": "Office Parent",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "A.OFFICE_NAME",
+            "id": "OfficeNameId",
+            "value": "",
+            "label": "Office Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "A.IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "A.OFFICE_ADDR",
+            "id": "OfficeAddrId",
+            "value": "",
+            "label": "Office Address",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "A.MR_OFFICE_TYPE_CODE", 
+            "id": "OfficeCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Office Type",
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "OFFICE_TYPE",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+          }
+    ],
+    "querystring": {
+        "name": "searchOffice"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Code",
+            "name": "OfficeCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Name",
+            "name": "OfficeName"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Address",
+            "name": "OfficeAddr"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Parent",
+            "name": "OfficeParent"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "IsActive"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Type",
+            "name": "Descr"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Office Member"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Employee"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeName"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeAddr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeParent"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Descr"
+        },
+        {
+            "type" : "action", 
+            "position" : "center",
+            "action" : [ 
+                {
+                    "type" : "switch",
+                    "case" : [
+                        {
+                            "conditions" : [
+                                {
+                                    "property" : "MrOfficeTypeCode",
+                                    "value" : "CG",
+                                    "restriction" : "EQ"
+                                }
+                            ],
+                            "result" : {
+                                "type": "url",
+                                "path" : "OFFICE_GROUP_MEMBER",
+                                "icon" : "ft-users",
+                                "param" : [
+                                    {
+                                        "type" : "RefOfficeId",
+                                        "property" : "RefOfficeId"
+                                    },
+                                    {
+                                        "type" : "CenterGrpId",
+                                        "property" : "CenterGrpId"
+                                    }
+                                ]
+                            },
+                            "isHide" : false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "OFFICE_EMP_VIEW",
+                    "icon" : "ft-users",
+                    "param": [
+                        {
+                            "type": "RefOfficeId",
+                            "property": "RefOfficeId"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "OFFICE_ADD",
+                    "param": [
+                        {
+                            "type": "RefOfficeId",
+                            "property": "RefOfficeId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+<div class="ucSearch-Button-Right">
+    <span class="mr-1">
+      <button type="button" class="btn btn-raised btn-primary mr-1" [routerLink]="[EditLink]" skipLocationChange
+        [queryParams]="{VendorId: this.VendorId, mode:'edit', MrVendorCategoryCode: this.MrVendorCategoryCode }">
+        <i class="ft-plus-circle"></i>&nbsp;<span translate>Edit Main Info</span>
+      </button>
+      <button *ngIf="this.MrVendorCategoryCode != 'CONSULTANT' && this.MrVendorCategoryCode != 'LOGISTIC' && this.MrVendorCategoryCode != 'GENERAL'
+      && this.MrVendorCategoryCode != 'COURIER' && this.MrVendorCategoryCode != 'IT_INFRA_SOLUTION' && this.MrVendorCategoryCode != 'CRD_INSCO_BRANCH'" type="button" class="btn btn-raised btn-warning mr-1" (click)="backTo()"skipLocationChange
+        [queryParams]="{ MrVendorCategoryCode: this.MrVendorCategoryCode  }" translate> <i class="fa fa-arrow-left"></i>&nbsp;<span translate>Back</span>
+      </button>
+      <button *ngIf="this.MrVendorCategoryCode === 'CONSULTANT' || this.MrVendorCategoryCode === 'LOGISTIC' || this.MrVendorCategoryCode === 'GENERAL'
+      || this.MrVendorCategoryCode === 'COURIER' || this.MrVendorCategoryCode === 'IT_INFRA_SOLUTION' || this.MrVendorCategoryCode ==='CRD_INSCO_BRANCH'" type="button" class="btn btn-raised btn-warning mr-1" (click)="back()" skipLocationChange
+         translate> <i class="fa fa-arrow-left"></i>&nbsp;<span translate>Back</span>
+      </button>
+    </span>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="card-title" id="horz-layout-colored-controls" translate> {{Registration}} </h4>
+          </div>
+        </div>
+      </div>
+      <br>
+      <app-main-info-x-view></app-main-info-x-view>
+      <aw-wizard #wizard navBarLayout="large-empty-symbols" [awNavigationMode] navigateBackward="allow"
+        navigateForward="allow">
+        <aw-wizard-step [stepTitle]="'Address'" [navigationSymbol]="{ symbol: '&#xf007;', fontFamily: 'FontAwesome' }">
+          <app-address [objInput]="objPassing"> </app-address>
+        </aw-wizard-step>
+        <aw-wizard-step [stepTitle]="'Bank Info'" [navigationSymbol]="{ symbol: '&#xf007;', fontFamily: 'FontAwesome' }">
+          <app-bank-info [objInput]="objPassing"> </app-bank-info>
+        </aw-wizard-step>
+      </aw-wizard>
+    </div>
+  </div>

@@ -1,0 +1,88 @@
+{
+    "title": "Lookup - Asset Master Attribute",
+    "sectionTitle": "Search",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "A.ATTR_CODE",
+        "id": "AttrCode",
+        "value": "",
+        "label": "Asset Attribute Code",
+        "placeholder": "Asset Attr Code"
+      },
+      {
+        "type": "textbox",
+        "name": "A.ATTR_NAME",
+        "id": "AttrName",
+        "value": "",
+        "label": "Attribute Name",
+        "placeholder": "Attribute Name"
+      },
+      {
+        "type": "textbox",
+        "name": "A.ATTR_TYPE_CODE",
+        "id": "AttrTypeCode",
+        "value": "",
+        "label": "Attribute Type Code",
+        "placeholder": "Attribute Type Code"
+      }
+    ],
+    "querystring": {
+      "name": "lookupAssetAttribute"
+    },
+    "headerList": [
+        {
+          "type": "sort",
+          "position": "left",
+          "label": "Asset Attribute Code",
+          "name": "AttrCode"
+        },
+        {
+          "type": "sort",
+          "position": "left",
+          "label": "Asset Attribute Name",
+          "name": "AttrName"
+        },
+        {
+          "type": "sort",
+          "position": "center",
+          "label": "Attribute Type Code",
+          "name": "AttrTypeCode"
+        },
+        {
+          "type": "label",
+          "position": "center",
+          "label": "Action"
+        }
+    ],
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "left",
+        "property": "AttrCode"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "AttrName"
+      },
+      {
+        "type": "text",
+        "position": "center",
+        "property": "AttrTypeCode"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "select",
+            "property": "RefAttrId"
+          }
+        ]
+      }
+    ],
+    "propertyId": "AttrName",
+    "propertyName": "AttrName"
+  }
+  

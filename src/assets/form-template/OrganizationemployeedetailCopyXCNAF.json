@@ -1,0 +1,1132 @@
+{
+    "title": "Employee Detail",
+    "id": "OrganizationemployeedetailCopyXCNAF",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Employee Detail",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [
+                                {
+                                    "type": "bindValue",
+                                    "condition": {
+                                        "variable": "Username",
+                                        "restriction": "NEQ",
+                                        "value": ""
+                                    },
+                                    "listBind": [
+                                        {
+                                            "variable": "IsLockedOut",
+                                            "value": "false"
+                                        }
+                                    ],
+                                    "isRevertable": false
+                                }
+                            ],
+                            "Type": "TEXT",
+                            "Label": "Username",
+                            "Variable": "Username",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "LOCKED",
+                            "Variable": "IsLockedOut",
+                            "Value": true,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "",
+                            "Variable": "LoggedInMethod",
+                            "Value": "DB",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "",
+                            "Variable": "Password",
+                            "Value": "-",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "",
+                            "Variable": "EmpBankAccObjRowVersion",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "",
+                            "Variable": "RefEmployeeObjRowVersion",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "",
+                            "Variable": "RefUserObjRowVersion",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "mode",
+                                    "restriction": "EQ",
+                                    "value": "edit"
+                                }
+                            ],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/RefEmp/GetRefEmpForUpdateByRefEmpId",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "Id",
+                                    "propValue": "RefEmpId"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "RefUserObj.Username",
+                                    "variableName": "Username"
+                                },
+                                {
+                                    "accessorName": "RefUserObj.IsLockedOut",
+                                    "variableName": "IsLockedOut"
+                                },
+                                {
+                                    "accessorName": "EmpBankAccObj.RowVersion",
+                                    "variableName": "EmpBankAccObjRowVersion"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.RowVersion",
+                                    "variableName": "RefEmployeeObjRowVersion"
+                                },
+                                {
+                                    "accessorName": "RefUserObj.RowVersion",
+                                    "variableName": "RefUserObjRowVersion"
+                                }
+                            ]
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": [
+                        {
+                            "type": "showField",
+                            "condition": {
+                                "variable": "mode",
+                                "restriction": "Eq",
+                                "value": "edit"
+                            },
+                            "listField": [
+                                "IsLockedOut"
+                            ],
+                            "isRevertable": false
+                        }
+                    ],
+                    "isCollapsed": false
+                }
+            },
+            "id": "f7411861-0811-452b-b008-ffee410a0bd6"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "EMPLOYEE - DETAIL",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "EMPLOYEE NO",
+                            "Variable": "EmpNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "EMPLOYEE NAME",
+                            "Variable": "EmpName",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "JOIN DATE",
+                            "Variable": "JoinDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "BD",
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "BD"
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "setRestriction",
+                                    "condition": {
+                                        "variable": "IdType",
+                                        "restriction": "Eq",
+                                        "value": "EKTP"
+                                    },
+                                    "listField": [
+                                        "IdNum"
+                                    ],
+                                    "restriction": {
+                                        "restrictionType": "pattern",
+                                        "value": "^[0-9]{16}$",
+                                        "invalidMsg": "MUST BE NUMERIC AND 16 CHARACTERS"
+                                    },
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "setRestriction",
+                                    "condition": {
+                                        "variable": "IdType",
+                                        "restriction": "Eq",
+                                        "value": "NPWP"
+                                    },
+                                    "listField": [
+                                        "IdNum"
+                                    ],
+                                    "restriction": {
+                                        "restrictionType": "pattern",
+                                        "value": "^[0-9]{15}$",
+                                        "invalidMsg": "MUST BE NUMERIC AND 15 CHARACTERS"
+                                    },
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "setRestriction",
+                                    "condition": {
+                                        "variable": "IdType",
+                                        "restriction": "Eq",
+                                        "value": "SIM"
+                                    },
+                                    "listField": [
+                                        "IdNum"
+                                    ],
+                                    "restriction": {
+                                        "restrictionType": "pattern",
+                                        "value": "^[0-9]+$",
+                                        "invalidMsg": "NUMBER ONLY"
+                                    },
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "ID TYPE",
+                            "Variable": "IdType",
+                            "IsRequired": true,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": true,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "ID_TYPE_EMP"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "ID NO",
+                            "Variable": "IdNum",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[0-9]{16}$",
+                                    "invalidMsg": "MUST BE NUMERIC AND 16 CHARACTERS"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "TAX ID NO",
+                            "Variable": "TaxIdNo",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[0-9]{15,16}$",
+                                    "invalidMsg": "MUST BE NUMERIC, MIN 15 CHARACTERS, AND MAX 16 CHARACTERS"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "EXTERNAL EMPLOYEE",
+                            "Variable": "ExternalEmp",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "ACTIVE STATUS",
+                            "Variable": "ActiveStatus",
+                            "Value": true,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "LABEL",
+                            "Label": "LEAVE STATUS",
+                            "Variable": "LeaveStatus",
+                            "LabelType": "BOOLEAN",
+                            "Position": "text-left"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "NUMERIC",
+                            "Label": "",
+                            "Variable": "RefUserId",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Employee Grade Level",
+                            "Variable": "MrEmpGradeLvlTypeCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "EMP_GRADE_LVL"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Expected End Date",
+                            "Variable": "ExpectedEndDt",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "BD",
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "BD",
+                            "DtRestrictOptMax": ""
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "callAPI",
+                                    "environment": "FOU",
+                                    "apiPath": "\t/v1/EmployeeXCNAF/GetRuleMedicalCoverage",
+                                    "reqObj": [
+                                        {
+                                            "propName": "EmployeeStatus",
+                                            "propValue": "EmployeeStatus"
+                                        }
+                                    ],
+                                    "bindToVar": [
+                                        {
+                                            "variable": "MedicalCoverage",
+                                            "value": "MedicalCoverage"
+                                        }
+                                    ],
+                                    "bindToDict": [
+                                        {
+                                            "variable": "MedicalCoverage",
+                                            "value": "MedicalCoverage"
+                                        }
+                                    ],
+                                    "bindToFormArr": [],
+                                    "condition": [],
+                                    "onSuccess": [],
+                                    "onError": {
+                                        "type": "toaster",
+                                        "message": ""
+                                    }
+                                },
+                                {
+                                    "type": "updateDict",
+                                    "condition": [],
+                                    "key": "EmployeeStatus",
+                                    "propName": "EmployeeStatus"
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "EMPLOYEE STATUS",
+                            "Variable": "EmployeeStatus",
+                            "IsRequired": false,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": false,
+                            "DdlItemsObj": [
+                                {
+                                    "Key": "KONTRAK",
+                                    "Value": "KONTRAK"
+                                },
+                                {
+                                    "Key": "TETAP",
+                                    "Value": "TETAP"
+                                }
+                            ],
+                            "DdlReqObj": null
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "updateDict",
+                                    "condition": [],
+                                    "key": "MedicalCoverage",
+                                    "propName": "MedicalCoverage"
+                                }
+                            ],
+                            "Type": "TEXT",
+                            "Label": "MEDICAL COVERAGE",
+                            "Variable": "MedicalCoverage",
+                            "Value": "0",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "mode",
+                                    "restriction": "EQ",
+                                    "value": "edit"
+                                }
+                            ],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v2/RefEmp/GetRefEmpForUpdateByRefEmpId",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "Id",
+                                    "propValue": "RefEmpId"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "RefEmpV2Obj.EmpNo",
+                                    "variableName": "EmpNo"
+                                },
+                                {
+                                    "accessorName": "RefEmpV2Obj.EmpName",
+                                    "variableName": "EmpName"
+                                },
+                                {
+                                    "accessorName": "RefEmpV2Obj.JoinDt",
+                                    "variableName": "JoinDt"
+                                },
+                                {
+                                    "accessorName": "RefEmpV2Obj.MrIdTypeCode",
+                                    "variableName": "IdType"
+                                },
+                                {
+                                    "accessorName": "RefEmpV2Obj.IdNo",
+                                    "variableName": "IdNum"
+                                },
+                                {
+                                    "accessorName": "RefEmpV2Obj.TaxIdNo",
+                                    "variableName": "TaxIdNo"
+                                },
+                                {
+                                    "accessorName": "RefEmpV2Obj.IsExt",
+                                    "variableName": "ExternalEmp"
+                                },
+                                {
+                                    "accessorName": "RefEmpV2Obj.IsActive",
+                                    "variableName": "ActiveStatus"
+                                },
+                                {
+                                    "accessorName": "RefEmpV2Obj.IsLeave",
+                                    "variableName": "LeaveStatus"
+                                },
+                                {
+                                    "accessorName": "RefUserObj.RefUserId",
+                                    "variableName": "RefUserId"
+                                },
+                                {
+                                    "accessorName": "RefEmpV2Obj.MrEmpGradeLvlTypeCode",
+                                    "variableName": "MrEmpGradeLvlTypeCode"
+                                },
+                                {
+                                    "accessorName": "RefEmpV2Obj.ExpectedEndDt",
+                                    "variableName": "ExpectedEndDt"
+                                }
+                            ],
+                            "action": [
+                                {
+                                    "type": "removeRestriction",
+                                    "condition": {
+                                        "variable": "IdType",
+                                        "restriction": "Eq",
+                                        "value": "KTM"
+                                    },
+                                    "listField": [
+                                        "IdNum"
+                                    ],
+                                    "restriction": {
+                                        "restrictionType": "pattern",
+                                        "value": "^[0-9]{16}$",
+                                        "invalidMsg": "MUST BE NUMERIC AND 16 CHARACTERS"
+                                    },
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "removeRestriction",
+                                    "condition": {
+                                        "variable": "IdType",
+                                        "restriction": "Eq",
+                                        "value": "AKTA"
+                                    },
+                                    "listField": [
+                                        "IdNum"
+                                    ],
+                                    "restriction": {
+                                        "restrictionType": "pattern",
+                                        "value": "^[0-9]{16}$",
+                                        "invalidMsg": "MUST BE NUMERIC AND 16 CHARACTERS"
+                                    },
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "removeRestriction",
+                                    "condition": {
+                                        "variable": "IdType",
+                                        "restriction": "Eq",
+                                        "value": "KITAS"
+                                    },
+                                    "listField": [
+                                        "IdNum"
+                                    ],
+                                    "restriction": {
+                                        "restrictionType": "pattern",
+                                        "value": "^[0-9]{16}$",
+                                        "invalidMsg": "MUST BE NUMERIC AND 16 CHARACTERS"
+                                    },
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "setRestriction",
+                                    "condition": {
+                                        "variable": "IdType",
+                                        "restriction": "Eq",
+                                        "value": "NPWP"
+                                    },
+                                    "listField": [
+                                        "IdNum"
+                                    ],
+                                    "restriction": {
+                                        "restrictionType": "pattern",
+                                        "value": "^[0-9]{15}$",
+                                        "invalidMsg": "MUST BE NUMERIC AND 15 CHARACTERS"
+                                    },
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "setRestriction",
+                                    "condition": {
+                                        "variable": "IdType",
+                                        "restriction": "Eq",
+                                        "value": "SIM"
+                                    },
+                                    "listField": [
+                                        "IdNum"
+                                    ],
+                                    "restriction": {
+                                        "restrictionType": "pattern",
+                                        "value": "^[0-9]+$",
+                                        "invalidMsg": "NUMBER ONLY"
+                                    },
+                                    "isRevertable": false
+                                }
+                            ]
+                        },
+                        {
+                            "conditions": [
+                                {
+                                    "property": "useraccess.EmpNo",
+                                    "restriction": "NEQ",
+                                    "value": ""
+                                }
+                            ],
+                            "isUseApi": true,
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "EmployeeStatus",
+                                    "propValue": "EmployeeStatus"
+                                }
+                            ],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/EmployeeXCNAF/GetRuleMedicalCoverage"
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "6b0636b1-84e4-4a7b-a874-52eb563d863d"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "ADDRESS INFORMATION",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "ADDRESS",
+                            "Variable": "EmpAddr",
+                            "IsRequired": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseFourColl": false,
+                            "ShowPhn1": true,
+                            "ShowPhn2": true,
+                            "ShowPhn3": true,
+                            "RequiredPhn1": false,
+                            "RequiredPhn2": false,
+                            "RequiredPhn3": false,
+                            "RequiredPhnExt1": false,
+                            "RequiredPhnExt2": false,
+                            "RequiredPhnExt3": false,
+                            "ShowFax": true,
+                            "ShowOwnership": false,
+                            "RequiredOwnership": false,
+                            "ShowStayLength": false,
+                            "UseStaySince": false,
+                            "ReadonlyPhn1": false,
+                            "ReadonlyPhn2": false,
+                            "ReadonlyPhn3": false,
+                            "ReadonlyPhnExt1": false,
+                            "ReadonlyPhnExt2": false,
+                            "ReadonlyPhnExt3": false,
+                            "ReadonlyFax": false
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "mode",
+                                    "restriction": "EQ",
+                                    "value": "edit"
+                                }
+                            ],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/RefEmp/GetRefEmpForUpdateByRefEmpId",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "Id",
+                                    "propValue": "RefEmpId"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "RefEmpObj.Addr",
+                                    "variableName": "EmpAddr.Addr"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.AreaCode1",
+                                    "variableName": "EmpAddr.AreaCode1"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.AreaCode2",
+                                    "variableName": "EmpAddr.AreaCode2"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.AreaCode3",
+                                    "variableName": "EmpAddr.AreaCode3"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.AreaCode4",
+                                    "variableName": "EmpAddr.AreaCode4"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.Zipcode",
+                                    "variableName": "EmpAddr.Zipcode"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.City",
+                                    "variableName": "EmpAddr.City"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.PhnArea1",
+                                    "variableName": "EmpAddr.PhnArea1"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.Phn1",
+                                    "variableName": "EmpAddr.Phn1"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.PhnExt1",
+                                    "variableName": "EmpAddr.PhnExt1"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.PhnArea2",
+                                    "variableName": "EmpAddr.PhnArea2"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.Phn2",
+                                    "variableName": "EmpAddr.Phn2"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.PhnExt2",
+                                    "variableName": "EmpAddr.PhnExt2"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.PhnArea3",
+                                    "variableName": "EmpAddr.PhnArea3"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.Phn3",
+                                    "variableName": "EmpAddr.Phn3"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.PhnExt3",
+                                    "variableName": "EmpAddr.PhnExt3"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.Fax",
+                                    "variableName": "EmpAddr.Fax"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.FaxArea",
+                                    "variableName": "EmpAddr.FaxArea"
+                                }
+                            ]
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "b31d510c-06a3-4a42-b732-205a79d5094c"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "CONTACT INFORMATION",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "MOBILE PHONE 1",
+                            "Variable": "MobilePhn1",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[0-9]+$",
+                                    "invalidMsg": "NUMBER ONLY"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "MOBILE PHONE 2",
+                            "Variable": "MobilePhn2",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[0-9]+$",
+                                    "invalidMsg": "NUMBER ONLY"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "EMAIL 1",
+                            "Variable": "Email1",
+                            "Value": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$",
+                                    "invalidMsg": "Please enter a Valid Email "
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "EMAIL 2",
+                            "Variable": "Email2",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$",
+                                    "invalidMsg": "Please enter a Valid Email "
+                                }
+                            ]
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "mode",
+                                    "restriction": "EQ",
+                                    "value": "edit"
+                                }
+                            ],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/RefEmp/GetRefEmpForUpdateByRefEmpId",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "Id",
+                                    "propValue": "RefEmpId"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "RefEmpObj.MobilePhnNo1",
+                                    "variableName": "MobilePhn1"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.MobilePhnNo2",
+                                    "variableName": "MobilePhn2"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.Email1",
+                                    "variableName": "Email1"
+                                },
+                                {
+                                    "accessorName": "RefEmpObj.Email2",
+                                    "variableName": "Email2"
+                                }
+                            ]
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "618e09c4-defd-4ad0-8335-a23e31c73c20"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onCancel": {},
+    "isOverrideSubmit": true,
+    "isOverrideCancel": false,
+    "onSubmit": [
+        {
+            "conditions": [
+                {
+                    "restriction": "NEQ",
+                    "value": "edit",
+                    "property": "mode"
+                }
+            ],
+            "result": {
+                "alias": "addEditEmployeeX",
+                "methodName": "addEditEmployeeX",
+                "type": "function",
+                "target": "executor",
+                "params": [
+                    {
+                        "propName": "dicts",
+                        "propValue": "dicts"
+                    },
+                    {
+                        "propName": "api",
+                        "propValue": "/v1/EmployeeXCNAF/AddEmployeeX"
+                    },
+                    {
+                        "propName": "next",
+                        "propValue": "/Employee/EmployeePagingX"
+                    },
+                    {
+                        "propName": "http",
+                        "propValue": "http"
+                    },
+                    {
+                        "propName": "toastr",
+                        "propValue": "toastr"
+                    },
+                    {
+                        "propName": "router",
+                        "propValue": "router"
+                    }
+                ]
+            }
+        },
+        {
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "edit"
+                }
+            ],
+            "result": {
+                "alias": "addEditEmployeeX",
+                "methodName": "addEditEmployeeX",
+                "type": "function",
+                "target": "executor",
+                "params": [
+                    {
+                        "propName": "dicts",
+                        "propValue": "dicts"
+                    },
+                    {
+                        "propName": "api",
+                        "propValue": "/v2/RefEmp/EditRefEmp"
+                    },
+                    {
+                        "propName": "next",
+                        "propValue": "/Employee/EmployeePagingX"
+                    },
+                    {
+                        "propName": "http",
+                        "propValue": "http"
+                    },
+                    {
+                        "propName": "toastr",
+                        "propValue": "toastr"
+                    },
+                    {
+                        "propName": "router",
+                        "propValue": "router"
+                    }
+                ]
+            }
+        }
+    ],
+    "hideCancelButton": false,
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": "",
+    "overrideSubmitBtnText": "",
+    "isUpdated": false,
+    "metadata": {
+        "version": 9,
+        "createdAt": "20240807200335",
+        "updatedAt": "20240903113457",
+        "rowVersion": "20240903113050",
+        "updatedBy": "nkenzie"
+    }
+}

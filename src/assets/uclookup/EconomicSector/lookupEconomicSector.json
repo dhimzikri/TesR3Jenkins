@@ -1,0 +1,88 @@
+{
+    "url": "",
+    "title":"Lookup - Economic Sector",
+    "sectionTitle": "Search",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "ECONOMIC_SECTOR_CODE",
+        "id": "EconomicSectorCodeId",
+        "value": "",
+        "label": "Economic Sector Code",
+        "placeholder": ""
+      },
+      {
+        "type": "textbox",
+        "name": "ECONOMIC_SECTOR_NAME",
+        "id": "EconomicSectorNameId",
+        "value": "",
+        "label": "Economic Sector Name",
+        "placeholder": ""
+      },
+      {
+        "type": "textbox",
+        "name": "REG_RPT_CODE",
+        "id": "RegRptCodeId",
+        "value": "",
+        "label": "BI Code",
+        "placeholder": ""
+      }
+    ],
+    "querystring": {
+        "name": "lookupEconomicSector"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Economic Sector Code",
+            "name": "REF_ECONOMIC_SECTOR_ID"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Economic Sector Name",
+            "name": "ECONOMIC_SECTOR_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "BI Code",
+            "name": "REG_RPT_CODE"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Select"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "EconomicSectorCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "EconomicSectorName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "RegRptCode"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefEconomicSectorId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "RefEconomicSectorId",
+    "propertyName": "EconomicSectorName"
+}

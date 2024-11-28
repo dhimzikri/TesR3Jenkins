@@ -1,0 +1,153 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="px-3">
+        <div class="addEdit">
+          <form class="form form-horizontal">
+            <div class="form-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <h4 class="card-title" id="horz-layout-colored-controls" translate> Customer Company</h4>
+                </div>
+                <div class="col-md-4" style="text-align-last: right">
+                  <button type="button" class="btn btn-raised btn-warning mr-1" (click)="back()">
+                    <i class="fa fa-arrow-left"></i>&nbsp;<span translate>Back</span>
+                  </button>
+                  <button type="button" class="btn btn-raised btn-primary" (click)="SendToR2()">
+                    <i class="far fa-check-square"></i>&nbsp;<span translate>Save And Sync</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <app-customer-view-header-company #viewCustCoy> </app-customer-view-header-company>
+        </div>
+        <div id="stepper1" class="bs-stepper">
+          <div class="bs-stepper-header" role="tablist" style="overflow-x: auto;">
+            <div class="step" data-target="#customer-detail-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="customer-detail-tab"
+                id="customer-detail-tab-trigger" (click)="EnterTab('Detail')">
+                <span class="bs-stepper-circle">1</span>
+                <span class="bs-stepper-label">Customer Detail</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#address-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="address-tab" id="address-tab-trigger"
+                (click)="EnterTab('Address')">
+                <span class="bs-stepper-circle">2</span>
+                <span class="bs-stepper-label">Address Information</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#shareholder-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="shareholder-tab"
+                id="shareholder-tab-trigger" (click)="EnterTab('Management')">
+                <span class="bs-stepper-circle">3</span>
+                <span class="bs-stepper-label">Management / Shareholder</span>
+              </button>
+            </div>
+            <!-- <div class="line"></div>
+            <div class="step" data-target="#group-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="group-tab" id="group-tab-trigger"
+                (click)="EnterTab('Group')">
+                <span class="bs-stepper-circle">4</span>
+                <span class="bs-stepper-label">Customer Group</span>
+              </button>
+            </div> -->
+            <div class="line"></div>
+            <div class="step" data-target="#contact-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="contact-tab" id="contact-tab-trigger"
+                (click)="EnterTab('Contact')">
+                <span class="bs-stepper-circle">4</span>
+                <span class="bs-stepper-label">Contact Information</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#financial-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="financial-tab"
+                id="financial-tab-trigger" (click)="EnterTab('Financial')">
+                <span class="bs-stepper-circle">5</span>
+                <span class="bs-stepper-label">Financial Data</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#CustAsset-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="CustAsset-tab"
+                id="CustAsset-tab-trigger" (click)="EnterTab('CustAsset')">
+                <span class="bs-stepper-circle">6</span>
+                <span class="bs-stepper-label">List of Asset in Operation</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#legal-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="legal-tab" id="legal-tab-trigger"
+                (click)="EnterTab('Legal')">
+                <span class="bs-stepper-circle">7</span>
+                <span class="bs-stepper-label">Legal Document</span>
+              </button>
+            </div>
+            <div class="line" *ngIf="SysConfigResultObj?.ConfigValue == '1'"></div>
+            <div class="step" data-target="#upload-tab" *ngIf="SysConfigResultObj?.ConfigValue == '1'">
+              <button type="button" class="step-trigger" role="tab" aria-controls="upload-tab" id="upload-tab-trigger"
+                (click)="EnterTab('UploadData')">
+                <span class="bs-stepper-circle">8</span>
+                <span class="bs-stepper-label">Upload Document</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#cust-attr-tab">
+              <button type="button" class="step-trigger" role="tab" aria-controls="cust-attr-tab"
+                id="cust-attr-tab-trigger" (click)="EnterTab('CustAttr')">
+                <span class="bs-stepper-circle">{{SysConfigResultObj?.ConfigValue == '1' ? 9 : 8}}</span>
+                <span class="bs-stepper-label">Other Info</span>
+              </button>
+            </div>
+          </div>
+          <br><br>
+          <div class="bs-stepper-content">
+            <div id="customer-detail-tab" class="content" role="tabpanel" aria-labelledby="customer-detail-tab-trigger">
+              <app-customer-company-detail #CustCoyDetail *ngIf="CustStepIndex == 1" (outputTab)="getValue($event)">
+              </app-customer-company-detail>
+            </div>
+            <div id="address-tab" class="content" role="tabpanel" aria-labelledby="address-tab-trigger">
+              <app-customer-company-address *ngIf="CustStepIndex == 2" (outputTab)="getValue($event)">
+              </app-customer-company-address>
+            </div>
+          </div>
+          <div id="shareholder-tab" class="content" role="tabpanel" aria-labelledby="shareholder-tab-trigger">
+            <app-shareholder-listing *ngIf="CustStepIndex == 3" [CustId]="IdCust" (outputTab)="getValue($event)"></app-shareholder-listing>
+          </div>
+          <div id="contact-tab" class="content" role="tabpanel" aria-labelledby="contact-tab-trigger">
+            <app-customer-company-contact-information #CustCoyContact *ngIf="CustStepIndex == 4" [custCompanyId]="this.CustCompanyId"
+              (outputTab)="getValue($event)">
+            </app-customer-company-contact-information>
+          </div>
+          <div id="financial-tab" class="content" role="tabpanel" aria-labelledby="financial-tab-trigger">
+            <app-cust-fin-data-tab #CustFinData *ngIf="CustStepIndex == 5" [CustId]="IdCust" [MrCustTypeCode]="'COMPANY'"
+              (outputTab)="getValue($event)">
+            </app-cust-fin-data-tab>
+          </div>
+          <div id="CustAsset-tab" class="content" role="tabpanel" aria-labelledby="CustAsset-tab-trigger">
+            <app-cust-asset *ngIf="CustStepIndex == 6" [CustId]="IdCust" (ResponseCustAsset)="getValue($event)">
+            </app-cust-asset>
+          </div>
+          <div id="legal-tab" class="content" role="tabpanel" aria-labelledby="legal-tab-trigger">
+            <app-cust-legal-doc *ngIf="CustStepIndex == 7" (outputTab)="getValue($event)">
+            </app-cust-legal-doc>
+          </div>
+          <div id="upload-tab" class="content" role="tabpanel" aria-labelledby="upload-tab-trigger">
+            <app-dms-iframe *ngIf="CustStepIndex == 8 && SysConfigResultObj?.ConfigValue == '1'" [dmsObj]="dmsObj"
+              [showButton]="true" (outputTab)="getValue($event)" (outputCancel)="getValue($event)"></app-dms-iframe>
+            <!-- <app-dms-iframe *ngIf="CustStepIndex == 9" [dmsObj]="dmsObj" [showButton]="true"
+              (outputTab)="getValue($event)" (outputCancel)="getValue($event)"></app-dms-iframe> -->
+          </div>
+          <div id="cust-attr-tab" class="content" role="tabpanel" aria-labelledby="cust-attr-tab-trigger">
+            <app-cust-attr-section #CustAttrData *ngIf="CustStepIndex == 9" [CustId]="IdCust" [MrCustTypeCode]="'COMPANY'">
+            </app-cust-attr-section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

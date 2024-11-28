@@ -1,0 +1,80 @@
+<span class="mr-1 pull-right">
+  <button type="button" class="addButton" (click)="openCustLegalDocDetail()">
+    <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+  </button>
+</span>
+<lib-ucSubsection [id]="'CustLegalDocSectionId'" [title]="'Legal Doc Listing'" [panel]="'CustLegalDocSection'">
+</lib-ucSubsection>
+<div id="CustLegalDocSection">
+  <div class="col-md-12" style="padding: 0; text-align: right; overflow-x: auto;">
+    <table class="table table-responsive-md text-center table-hover">
+      <thead>
+        <tr class="table-header">
+          <th style="text-align: center;">
+            <span class="thead-header" name='no' translate>NO.</span>
+          </th>
+          <th style="text-align: left;">
+            <span class="thead-header" name='legalDocType' translate>LEGAL DOC TYPE</span>
+          </th>
+          <th style="text-align: left;">
+            <span class="thead-header" name='documentNo' translate>DOCUMENT NO.</span>
+          </th>
+          <th style="text-align: left;">
+            <span class="thead-header" name='dateIssued' translate>DATE ISSUED</span>
+          </th>
+          <th style="text-align: left;">
+            <span class="thead-header" name='expiredDate' translate>EXPIRED DATE</span>
+          </th>
+          <th style="text-align: left;">
+            <span class="thead-header" name='notes' translate>NOTES</span>
+          </th>
+          <th style="text-align: left;">
+            <span class="thead-header" name='notaryName' translate>NOTARY NAME</span>
+          </th>
+          <th style="text-align: left;">
+            <span class="thead-header" name='notaryLocation' translate>NOTARY LOCATION</span>
+          </th>
+          <th style="text-align: center;">
+            <span class="thead-header" name='action' translate>ACTION</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngIf="custLegalDocs?.length == 0">
+        <tr>
+          <td colspan="100%">No Data Available</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr *ngFor="let item of custLegalDocs; let i = index">
+          <td style="text-align: center;">{{i+1}}</td>
+          <td style="text-align: left;">{{item.MrLegalDocTypeDescr}}</td>
+          <td style="text-align: left;">{{item.DocNo}}</td>
+          <td style="text-align: left;">{{item.DocDt | date:'yyyy-MM-dd'}}</td>
+          <td style="text-align: left;">{{item.DocExpiredDt | date:'yyyy-MM-dd'}}</td>
+          <td style="text-align: left;">{{item.DocNotes}}</td>
+          <td style="text-align: left;">{{item.NotaryName}}</td>
+          <td style="text-align: left;">{{item.NotaryLocation}}</td>
+          <td style="text-align: center;">
+            <a class="success p-0" (click)="editCustLegalDocDetail(item.CustCompanyLegalDocId)">
+              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+            </a>
+            <a class="warning p-0" (click)="deleteCustLegalDoc(item.CustCompanyLegalDocId, i)">
+              <i class="ft-trash-2 font-medium-3 mr-2"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<div class="form-actions right" style="text-align: right;">
+  <!-- <button type="button" class="btn btn-raised btn-warning mr-1" (click)="back()" translate>
+    <i class="far fa-window-close"></i> Cancel
+  </button> -->
+  <button type="button" class="btn btn-raised btn-primary" (click)="next()">
+    <i class="far fa-check-square"></i>&nbsp;<span translate>Save and Continue</span>
+  </button>
+</div>

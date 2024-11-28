@@ -1,0 +1,51 @@
+<div class="addEdit">
+  <form>
+    <div class="form-actions right">
+      <span class="mr-1">
+        <button type="button" class="addButton btn-primary-2" (click)="addAddr()">
+          <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+        </button>
+      </span>
+    </div>
+  </form>
+  <div style="overflow-x: auto;">
+    <table class="table table-responsive-md text-center table-hover table-new">
+      <thead>
+        <tr class="table-header-2">
+          <th style="text-align: left;"><span class="thead-header" name='assetTypeName' translate>ADDRESS TYPE NAME</span>
+          </th>
+          <th style="text-align: left;"><span class="thead-header" name='fullAddress' translate>ADDRESS</span>
+          </th>
+          <th style="text-align: left;"><span class="thead-header" name='buildingOwnership' translate>BUILDING OWNERSHIP</span>
+          </th>
+          <th style="text-align: left;"><span class="thead-header" name='phone1' translate>PHONE (FIX LINE) 1</span>
+          </th>
+          <th style="text-align: left;"><span class="thead-header" name='phone2' translate>PHONE (FIX LINE) 2</span>
+          </th>
+          <th style="text-align: left;"><span class="thead-header" name='notes' translate>NOTES</span>
+          </th>
+          <th style="text-align: center;"><span class="thead-header" translate>EDIT</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listCustAddr">
+          <td style="text-align: left;" hidden>{{item.CustAddrId}}</td>
+          <td style="text-align: left;">{{item.MrCustAddrTypeCode}}</td>
+          <td style="text-align: left;">{{item.Addr}} RT/RW {{item.AreaCode4}}/{{item.AreaCode3}} Kelurahan {{item.AreaCode2}} Kecamatan {{item.AreaCode1}} - {{item.City}} {{item.Zipcode}}</td>
+          <td style="text-align: left;">{{item.MrBuildingOwnershipCode}}</td>
+          <td style="text-align: left;">{{item.PhnArea1 ? item.PhnArea1+"-" : ""}}{{item.Phn1}}{{item.PhnExt1 ? "-"+item.PhnExt1 : ""}}</td>
+          <td style="text-align: left;">{{item.PhnArea2 ? item.PhnArea2+"-" : ""}}{{item.Phn2}}{{item.PhnExt2 ? "-"+item.PhnExt2 : ""}}</td>
+          <td style="text-align: left;">{{item.Notes}}</td>
+          <td style="text-align: center;">
+            <span [hidden]="CheckListToBeEdit(item.MrCustAddrTypeCode)" (click)="editItem(item)" style="cursor: pointer"
+              class="fa fa-edit"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<br>
+<br>

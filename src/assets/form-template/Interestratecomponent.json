@@ -1,0 +1,161 @@
+{
+    "title": "InterestRateComponent",
+    "hideTitle": true,
+    "id": "Interestratecomponent",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "formarray": {
+                "title": "Interest Rate",
+                "isSubsection": true,
+                "isModeAdd": false,
+                "formGroupName": "ListInterestRate",
+                "canAdd": true,
+                "customObjName": "ReturnObject",
+                "formInput": {
+                    "headerList": [
+                        {
+                            "Label": "Tenor From",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "Tenor To",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "Interest Rate",
+                            "IsHide": false
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "Type": "NUMERIC",
+                            "Label": "Tenor From",
+                            "Variable": "TenorFrom",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "1",
+                            "Max": "999"
+                        },
+                        {
+                            "Type": "NUMERIC",
+                            "Label": "Tenor To",
+                            "Variable": "TenorTo",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "0",
+                            "Max": "999"
+                        },
+                        {
+                            "Type": "PERCENT",
+                            "Label": "Interest Rate",
+                            "Variable": "InterestRate",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "0",
+                            "Max": "100"
+                        }
+                    ],
+                    "addBodyList": [],
+                    "footerList": []
+                },
+                "getData": {
+                    "environment": "facilityMntUrl",
+                    "apiPath": "/v1/JfContract/GetListJfContractInterestRateByJfContractNo",
+                    "reqObj": {
+                        "JfContractNo": "ContractNo"
+                    }
+                },
+                "isFromApi": true,
+                "resultData": ""
+            },
+            "id": "3bf43d95-0a48-43af-9902-bb306820bf20"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Form",
+                    "isVertical": false,
+                    "isSubsection": false,
+                    "isModeAdd": true,
+                    "formInput": [],
+                    "onLoad": [],
+                    "criteria": [
+                        {
+                            "propName": "JfContractNo",
+                            "propValue": "JfContractNo",
+                            "isFromDict": true,
+                            "setOnEdit": false
+                        }
+                    ],
+                    "mapCookie": []
+                }
+            },
+            "id": "e2af3f4e-6ff6-4d42-90a4-df796f29ea38"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/JfContract/AddRangeJfContractInterestRate",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "onInit": [
+        {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/JfContractObj/GetObjectByUniqueNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "TrxNo",
+                    "propValue": "ContractNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "JfContractNo",
+                    "propValue": "JfContractNo"
+                }
+            ]
+        }
+    ],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": true,
+    "onCancel": {
+        "type": "link",
+        "path": "/Setting/FundingContract/Paging",
+        "target": "_self",
+        "params": []
+    },
+    "customToastrMsg": "Success ",
+    "hideCancelButton": false
+}

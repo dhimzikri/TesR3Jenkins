@@ -1,0 +1,45 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "ATPMViewInformationId",
+        "subSectionTitle": "Main Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Vendor Category:",
+            "property": "VendorCategory"
+          },
+          {
+            "type": "boolean",
+            "label": "Active Status:",
+            "property": "AciveStatus"
+          },
+          {
+            "type": "text",
+            "label": "ATPM Code:",
+            "property": "ATPMCode"
+          },
+          {
+            "type": "text",
+            "label": "Tax Number:",
+            "property": "TaxNumber"
+          },
+          {
+            "type": "text",
+            "label": "ATPM Name:",
+            "property": "ATPMName"
+          },
+          {
+            "type": "text",
+            "label": "ATPM Type:",
+            "property": "ATPMType"
+          }
+        ],
+        "querystring": {
+          "name": "viewVendorATPM"
+        }
+      }
+    ]
+  }

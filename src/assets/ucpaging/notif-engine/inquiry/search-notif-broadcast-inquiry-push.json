@@ -1,0 +1,270 @@
+{
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "NHH.REF_NO",
+            "id": "RefNo",
+            "value": "",
+            "label": "Ref No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "NHH.NOTIFICATION_JOB_ID",
+            "id": "NotificationJobId",
+            "value": "",
+            "label": "Job Id",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "NHH.MR_NOTIFICATION_SOURCE_CODE", 
+            "id": "MrNotifSourceCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Source",
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "NOTIFICATION_SOURCE",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "dropdown",
+            "name": "NHH.MR_NOTIFICATION_LEVEL_CODE", 
+            "id": "MrNotifLevelCodeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Level",
+            "criteriaPropName" : "RefMasterTypeCode",
+            "criteriaPropValue" : "NOTIFICATION_LEVEL",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "NTT.NOTIFICATION_TEMPLATE_CODE",
+            "id": "NotificationTemplateCodeId",
+            "value": "",
+            "label": "Template Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "NTT.NOTIFICATION_TEMPLATE_DESCR",
+            "id": "NotificationTemplateDescrId",
+            "value": "",
+            "label": "Template Descr",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "datepicker",
+            "name": "NHH.SEND_DT",
+            "id": "SendDt",
+            "datatype": "date",
+            "value": "",
+            "restriction": "gte",
+            "label": "Send Date >=",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "datepicker",
+            "name": "NHH.SEND_DT",
+            "id": "SendDt",
+            "datatype": "date",
+            "value": "",
+            "restriction": "lte",
+            "label": "Send Date <=",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "PNH.SEND_TO",
+            "id": "SendToId",
+            "value": "",
+            "label": "To",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "PNH.TITLE",
+            "id": "PushNotifTitleId",
+            "value": "",
+            "label": "Title",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "IS_READ",
+            "id": "ReadStatusId",
+            "label": "Read Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "SearchNotifPush"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Ref No",
+            "name": "RefNo"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Job Id",
+            "name": "NotificationJobId"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Source",
+            "name": "MrNotificationSourceDescr"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Level",
+            "name": "MrNotificationLevelDescr"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Template Code",
+            "name": "NotificationTemplateCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Template Description",
+            "name": "NotificationTemplateDescr"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Template Version",
+            "name": "Version"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Send Date",
+            "name": "SendDt"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "To",
+            "name": "SendTo"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Title",
+            "name": "Subject"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "READ STATUS",
+            "name": "IsRead"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "RefNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotificationJobId"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrNotificationSourceDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "MrNotificationLevelDescr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotificationTemplateCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotificationTemplateDescr"
+        },
+        {
+            "type": "link",
+            "position": "center",
+            "property": "Version",
+            "path": "VIEW_NOTIF_TEMPLATE",
+            "target": "_blank",
+            "param":[
+                {
+                    "type": "TemplateCode",
+                    "property": "NotificationTemplateCode"
+                },
+                {
+                    "type": "TemplateVersion",
+                    "property": "Version"
+                }
+            ]
+        },
+        {
+            "type": "date",
+            "position": "center",
+            "property": "SendDt"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "SendTo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Subject"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsRead"
+        }     
+    ]
+}

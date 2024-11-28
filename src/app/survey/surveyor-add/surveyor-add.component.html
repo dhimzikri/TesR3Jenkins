@@ -1,0 +1,96 @@
+<div class="card">
+  <div class="card-header header-title">
+    <div class="row">
+      <div class="col-md-8">
+        <h4 class="form-section card-title" translate>Surveyor</h4>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="px-3">
+      <form class="form form-horizontal" [formGroup]="SurveyorForm" (ngSubmit)="SurveyorForm.valid && SaveForm()"
+        #enjiForm="ngForm">
+        <lib-ucSubsection [id]="'SurveyorDetailId'" [title]="'Surveyor-' + this.pageType" [panel]="'SurveyorDetail'">
+        </lib-ucSubsection>
+        <div id="SurveyorDetail">
+          <div class="form-group row adins-required">
+            <label class="col-md-2 adins-required-label" translate>Surveyor Type</label>
+            <div class="col-md-4">
+              <select class="form-control adInsInput" (change)="onSurveyorTypeSelect($event)" style="width: auto"
+                formControlName="SurveyorType"
+                [ngClass]="{ 'is-invalid': enjiForm.submitted && SurveyorForm.controls.SurveyorType.invalid }">
+                <option *ngFor="let surveyType of dropdownSurveyType " [value]="surveyType.Key">
+                  {{surveyType.Value}}</option>
+              </select>
+              <lib-uc-show-errors [control]="SurveyorForm.controls.SurveyorType" [submit]="enjiForm.submitted">
+              </lib-uc-show-errors>
+            </div>            
+          </div>
+          <div class="form-group row adins-required">
+            <label class="col-md-2 adins-required-label" translate>Username</label>
+            <div class="col-md-4">
+              <lib-uclookupgeneric [lookupInput]="lookupUsernameObj" [parentForm]='SurveyorForm' [enjiForm]='enjiForm'
+                [identifier]="'Username'" (lookup)="getLookupUsername($event)" #lookupUsername></lib-uclookupgeneric>
+            </div>
+          </div>
+          <div class="form-group row adins-required">
+            <label class="col-md-2 adins-required-label" translate>Surveyor Group</label>
+            <div class="col-md-4">
+              <lib-uclookupgeneric [lookupInput]="lookupSurveyorGrpObj" [parentForm]='SurveyorForm' [enjiForm]='enjiForm'
+                [identifier]="'SurveyorGroup'" (lookup)="getLookupSurveyorGroup($event)"></lib-uclookupgeneric>
+            </div>
+          </div>
+          <div class="form-group row adins-required" *ngIf="isExternal">
+            <label class="col-md-2 adins-required-label" translate>Vendor Group</label>
+            <div class="col-md-4">
+              <lib-uclookupgeneric [lookupInput]="lookupVendorObj" [parentForm]='SurveyorForm' [enjiForm]='enjiForm'
+                (lookup)="getLookupVendorGroup($event)"></lib-uclookupgeneric>
+            </div>
+          </div>
+          <div class="form-group row adins-required">
+            <label class="col-md-2  adInsLabel" translate>Surveyor No</label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" formControlName="SurveyorNo">
+              <lib-uc-show-errors [control]="SurveyorForm.controls.SurveyorNo" [submit]="enjiForm.submitted">
+              </lib-uc-show-errors>
+            </div>
+          </div>
+          <div class="form-group row adins-required">
+            <label class="col-md-2  adInsLabel" translate>Workload</label>
+            <div class="col-md-4">
+              <input type="number" class="form-control" formControlName="Workload">
+              <lib-uc-show-errors [control]="SurveyorForm.controls.Workload" [submit]="enjiForm.submitted">
+              </lib-uc-show-errors>
+            </div>
+          </div>
+          <div class="form-group row adins-required">
+            <label class="col-md-2  adInsLabel" translate>Current Workload Amount</label>
+            <div class="col-md-4">
+              <input type="number" class="form-control" formControlName="CurrWorkloadAmt">
+              <lib-uc-show-errors [control]="SurveyorForm.controls.CurrWorkloadAmt" [submit]="enjiForm.submitted">
+              </lib-uc-show-errors>
+            </div>
+          </div>                
+          <div class="form-group row">
+            <label class="col-md-2 adInsLabel">Active Status</label>
+            <div class="col-md-4">
+              <input type="checkbox" class="border-primary" formControlName="IsActive">
+            </div>
+          </div>
+
+        </div>
+        <div class="form-actions right">
+          <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange>
+            <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+          </button>                     
+          <button type="submit" class="btn btn-raised btn-primary">
+            <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

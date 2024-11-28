@@ -1,0 +1,68 @@
+{
+    "title": "Lookup - Customer",
+    "sectionTitle": "Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "CUST_NO",
+            "id": "CustNo",
+            "value": "",
+            "label": "Customer No",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "CUST_NAME",
+            "id": "CustName",
+            "value": "",
+            "label": "Customer Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "lookupCust_NegCust_Personal"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Customer No",
+            "name": "custNo"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Customer Name",
+            "name": "custName"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "custNo"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "custName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "custId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "custId",
+    "propertyName": "custNo"
+}

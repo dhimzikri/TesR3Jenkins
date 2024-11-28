@@ -1,0 +1,294 @@
+{
+    "title": "Loan Pledging Agreement",
+    "hideTitle": false,
+    "id": "LoanPledgingAgreement",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "facilityMntUrl",
+                "apiVersion": "v2.1",
+                "service": "",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Search",
+                    "querystring": {
+                        "name": "searchLoanPledgingAgreement"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LC.LOAN_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "lcloanContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract",
+                            "name": "LC.LOAN_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanContract/GetListLoanContractKeyAndValue",
+                            "criteriaPropName": "Key",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LB.LOAN_BATCH_NO"
+                            ],
+                            "filterPropName": "LoanContractNo"
+                        },
+                        {
+                            "id": "lbloanBatchNoSearchId",
+                            "type": "dropdown",
+                            "label": "Loan Batch No",
+                            "name": "LB.LOAN_BATCH_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanBatch/GetListLoanBatchByContractNoAndStat",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "rstdescrSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Batch Status",
+                            "name": "LB.BATCH_STAT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/RefStatus/GetListKeyValueActiveGrpCodeByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "LB_BATCH_STATUS_TMS",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company",
+                            "position": "left",
+                            "name": "VT.VENDOR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract",
+                            "position": "left",
+                            "name": "LC.LOAN_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Loan Batch No",
+                            "position": "center",
+                            "name": "LB.LOAN_BATCH_NO"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Drawdown Plan Amount",
+                            "position": "right"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Funding Pledge Amount",
+                            "position": "right"
+                        },
+                        {
+                            "type": "label",
+                            "label": "No Of Agreement",
+                            "position": "center"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch Status",
+                            "position": "center",
+                            "name": "BatchStatus"
+                        },
+                        {
+                            "type": "label",
+                            "label": "PLEDGE",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "UNPLEDGE",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "VendorName",
+                            "isFlagColor": false,
+                            "key": "ViewVendor"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "LoanContractName",
+                            "isFlagColor": false,
+                            "key": "ViewLoanContract"
+                        },
+                        {
+                            "type": "link",
+                            "position": "center",
+                            "property": "LoanBatchNo",
+                            "isFlagColor": false,
+                            "target": "_blank",
+                            "path": "/View/LoanBatch/View",
+                            "param": [
+                                {
+                                    "type": "FundingBatchNo",
+                                    "property": "LoanBatchNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "DrawdownAmount",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "FundingPledgeAmount",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "NoOfAgrmnt",
+                            "isFlagColor": false,
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "BatchStatus",
+                            "isFlagColor": false,
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/pledging/LoanContract/pledging/View",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "LoanBatchNo",
+                                            "property": "LoanBatchNo"
+                                        },
+                                        {
+                                            "type": "LoanContractNo",
+                                            "property": "LoanContractNo"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/pledging/LoanContract/unpledge/View",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "LoanBatchNo",
+                                            "property": "LoanBatchNo"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false
+            },
+            "id": "bbc9d131-2427-4edd-8b1b-8e8e67852439"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

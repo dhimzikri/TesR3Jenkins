@@ -1,0 +1,489 @@
+{
+    "title": "Execute Payment Out",
+    "hideTitle": false,
+    "id": "Payoutexecutionuploaddetailxcnaf",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "customComponent": {
+                "componentRef": "${Fundingmaininformationxcnaf}"
+            },
+            "id": "7872c1f7-0d2a-4f1d-9214-68603570131c"
+        },
+        {
+            "table": {
+                "isFromApi": false,
+                "title": "List Payment Data",
+                "resultData": "ListOfPaymentData",
+                "isSubsection": true,
+                "usePagination": true,
+                "includeSubmit": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Funding Contract Name",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Payment Batch No",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Batch Prepare Date",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Funding Batch No",
+                            "position": "left"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Funding Inst Seq No",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "LMS Agreement No",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Jf Agreement No",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Paid From Customer",
+                            "position": "right"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Paid To Funding",
+                            "position": "right"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundingContractName",
+                            "isFlagColor": false,
+                            "key": "ViewFundContract"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "PaymentBatchNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "BatchPrepareDate",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundingBatchNo",
+                            "isFlagColor": false,
+                            "key": "ViewFundBatch"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "FundingInstSeqNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "LmsAgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "JfAgrmntNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "PaidFromCustomer",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "PaidToFunding",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "",
+                    "apiPath": "",
+                    "customObjName": "ReturnObject",
+                    "reqObj": []
+                }
+            },
+            "id": "d1302255-8314-4de2-bd7c-ebfb09eddf00"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Upload Data",
+                    "isVertical": false,
+                    "isSubsection": false,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "FILE",
+                            "Label": "Upload Data Reject From Bank",
+                            "Variable": "File0",
+                            "MaxSize": "30000000",
+                            "ExtensionList": "xlsx, .xls",
+                            "IsRequired": false
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "callAPI",
+                                    "environment": "PAYOUT",
+                                    "apiPath": "/PaymentOutX/ValidateUploadAgreementPaymentOutX",
+                                    "reqObj": [
+                                        {
+                                            "propName": "Base64Data",
+                                            "propValue": "Files.0.Content"
+                                        },
+                                        {
+                                            "propName": "FileName",
+                                            "propValue": "Files.0.FileName"
+                                        },
+                                        {
+                                            "propName": "VendorCode",
+                                            "propValue": "VendorCode"
+                                        },
+                                        {
+                                            "propName": "TrxDt",
+                                            "propValue": "TrxDt"
+                                        }
+                                    ],
+                                    "bindToVar": [
+                                        {
+                                            "variable": "",
+                                            "value": ""
+                                        }
+                                    ],
+                                    "bindToDict": [
+                                        {
+                                            "variable": "ListPaymentDataRejected",
+                                            "value": "ListPaymentDataRejected"
+                                        },
+                                        {
+                                            "variable": "ListOfPaymentData",
+                                            "value": "ListOfPaymentData"
+                                        }
+                                    ],
+                                    "bindToFormArr": [],
+                                    "condition": [
+                                        {
+                                            "variable": "File0",
+                                            "restriction": "NEQ",
+                                            "value": ""
+                                        }
+                                    ],
+                                    "onSuccess": [
+                                        {
+                                            "conditions": [],
+                                            "result": {
+                                                "type": "toaster",
+                                                "mode": "success",
+                                                "message": "Success Upload"
+                                            }
+                                        }
+                                    ],
+                                    "onError": {
+                                        "type": "toaster",
+                                        "message": ""
+                                    }
+                                },
+                                {
+                                    "type": "cbCallback",
+                                    "key": "OnViewPreview"
+                                }
+                            ],
+                            "Type": "BUTTON",
+                            "Variable": "OnViewPreview",
+                            "IsCallback": true,
+                            "DisplayName": "Process",
+                            "Icon": "",
+                            "Position": "text-left"
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "cbCallback",
+                                    "key": "DownloadTemplate"
+                                }
+                            ],
+                            "Type": "BUTTON",
+                            "Variable": "DownloadTemplate",
+                            "IsCallback": true,
+                            "DisplayName": "Download Template",
+                            "Icon": "",
+                            "Position": "text-left"
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "ea9b7502-f2fe-426c-b74d-dccf55692067"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Payment Summary",
+                    "isVertical": false,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Execution Date",
+                            "Variable": "ExecutionDate",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Max": "BD",
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "BD"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Notes",
+                            "Variable": "Notes",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Bank Account",
+                            "Variable": "BankAccCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/OfficeBankAcc/GetListActiveOfficeBankAccByMrBankAccPurposeCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "Code": "Fund"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BLANK"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reference No",
+                            "Variable": "RefNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "0f7928f3-e762-4780-8903-7b5bb0297c62"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [
+        {
+            "environment": "PayoutUrl",
+            "apiPath": "/v1/PaymentOutX/GetListPaymentOutDataByVendorCodeAndTrxDt",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Code",
+                    "propValue": "VendorCode"
+                },
+                {
+                    "isFromDict": false,
+                    "propName": "TrxDt",
+                    "propValue": "TrxDt"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ListOfPaymentData",
+                    "propValue": "ListOfPaymentData"
+                },
+                {
+                    "propName": "ListPaymentDataRejected",
+                    "propValue": "ListPaymentDataRejected"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "environment": "PayoutUrl",
+                "path": "/v1/PaymentOutX/ExecuteTerminationFundCoyX",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "excObj": [],
+                "mapResToDict": [],
+                "reqObj": [
+                    {
+                        "propName": "VendorCode",
+                        "propValue": "VendorCode"
+                    },
+                    {
+                        "propName": "TrxDt",
+                        "propValue": "TrxDt"
+                    },
+                    {
+                        "propName": "ExecutionDt",
+                        "propValue": "formRaw.ExecutionDate"
+                    },
+                    {
+                        "propName": "OfficeBankAccCode",
+                        "propValue": "formRaw.BankAccCode"
+                    },
+                    {
+                        "propName": "RefNo",
+                        "propValue": "formRaw.RefNo"
+                    },
+                    {
+                        "propName": "Notes",
+                        "propValue": "formRaw.Notes"
+                    },
+                    {
+                        "propName": "ListPaymentData",
+                        "propValue": "ListOfPaymentData"
+                    },
+                    {
+                        "propName": "ListPaymentDataRejected",
+                        "propValue": "ListPaymentDataRejected"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success Payment Out"
+                        }
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "params": [],
+                            "path": "/PaymentOut/FundingCompany/PagingX",
+                            "target": "_self"
+                        }
+                    }
+                ],
+                "type": "http"
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {
+        "path": "/PaymentOut/FundingCompany/PagingX",
+        "params": [],
+        "type": "link",
+        "target": "_self"
+    },
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

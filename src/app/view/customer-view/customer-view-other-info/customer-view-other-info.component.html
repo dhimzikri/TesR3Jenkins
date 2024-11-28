@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row text-left">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+
+          <div class="px-3" *ngIf="IsReady">
+            <lib-ucSubsection [id]="'OthInfoId'" [title]="'Other Information'" [panel]="'OthInfo'">
+            </lib-ucSubsection>
+            <div class="form-body" id="OthInfo">
+              <div class="form-group row">
+                <label class="col-md-3 adins-label">Customer / Debitur Group</label>
+                <label class="col-md-9 adins-label">{{CustOtherInfoObj.LbppmsDebtGrpDescr}}</label>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 adins-label">Customer / Debitur Business Scale</label>
+                <label class="col-md-9 adins-label">{{CustOtherInfoObj.LbppmsBizSclDescr}}</label>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 adins-label">Counterpart Category</label>
+                <label class="col-md-9 adins-label">{{CustOtherInfoObj.LbppmsCntrprtDescr}}</label>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 adins-label">Sustainable Financial Business</label>
+                <label class="col-md-9 adins-label">{{CustOtherInfoObj.LbppmsBizSustainDescr}}</label>
+              </div>
+            </div>
+
+            <lib-ucSubsection [id]="'AttrListId'" [title]="'Attribute List'" [panel]="'AttrList'">
+            </lib-ucSubsection>
+            <div class="form-body" id="AttrList">
+              <div class="form-group row" *ngFor="let item of CustAttrContentObj">
+                <label class="col-md-3 adins-label">{{item.AttrName}}</label>
+                <label class="col-md-9 adins-label" [ngSwitch]="item.AttrInputType" >
+                  <span *ngSwitchCase="AttrInputTypeDate">{{item.AttrValue | date: 'dd-MM-yyyy'}}</span>
+                  <span *ngSwitchCase="AttrInputTypeNum">{{item.AttrValue | number:'.2':'en-US'}}</span>
+                  <span *ngSwitchCase="AttrInputTypeNumPerc">{{item.AttrValue | number:'.6':'en-US'}}</span>
+                  <span *ngSwitchDefault>{{item.AttrValue}}</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

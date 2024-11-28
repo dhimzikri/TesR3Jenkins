@@ -1,0 +1,235 @@
+{
+    "title": "Payment Out Prepare Paging",
+    "id": "PaymentOutPreparePagingXCNAF",
+    "addButton": true,
+    "addLink": "/PaymentOut/PaymentOutPrepare/AddX",
+    "pathOption": "selfCustom",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchPayoutPrepare"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "groupedbatchvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "GROUPEDBATCH.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "GROUPEDBATCH.JF_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "groupedbatchjfContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract Name",
+                            "name": "GROUPEDBATCH.JF_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/JfContract/GetListFundingContractNameDDL",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "groupedbatchpayoutTypeSearchId",
+                            "type": "dropdown",
+                            "label": "Payment Out Type",
+                            "name": "GROUPEDBATCH.PAYOUT_TYPE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefMasterTms/GetListKeyValueByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "PAYOUT_TYPE",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "groupedbatchbatchTypeSearchId",
+                            "type": "dropdown",
+                            "label": "Batch Type",
+                            "name": "GROUPEDBATCH.BATCH_TYPE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefMasterTms/GetListKeyValueByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "BATCH_TYPE",
+                            "isQueryIn": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "GROUPEDBATCH.VENDOR_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Funding Contract Name",
+                            "position": "left",
+                            "name": "GROUPEDBATCH.JF_CONTRACT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Payment Out Type",
+                            "position": "center",
+                            "name": "GROUPEDBATCH.PAYOUT_TYPE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch Type",
+                            "position": "center",
+                            "name": "GROUPEDBATCH.BATCH_TYPE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Num of Unexecuted Batch",
+                            "position": "center",
+                            "name": "COUNT(*)"
+                        },
+                        {
+                            "type": "label",
+                            "label": "action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundCoyName",
+                            "isFlagColor": false,
+                            "key": "ViewVendor"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "JfContractName",
+                            "isFlagColor": false,
+                            "key": "ViewFundingContract"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "PayoutTypeName"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "BatchTypeName"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "TotalBatch"
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "JfContractNo",
+                                            "property": "JfContractNo"
+                                        },
+                                        {
+                                            "type": "PayoutType",
+                                            "property": "PayoutType"
+                                        },
+                                        {
+                                            "type": "BatchType",
+                                            "property": "BatchType"
+                                        }
+                                    ],
+                                    "path": "/PaymentOut/PaymentOutPrepare/Detail",
+                                    "icon": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "service": "",
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "7de337aa-9a7e-41ae-8080-6ea628fa59c6"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onCancel": {},
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onSubmit": [],
+    "hideCancelButton": false,
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

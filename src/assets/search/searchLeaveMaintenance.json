@@ -1,0 +1,198 @@
+{
+  "title": "Employee Leave Management",
+  "exportExcel": false,
+  "component": [
+    {
+      "type": "textbox",
+      "name": "B.EMP_NO",
+      "id": "empNoId",
+      "value": "",
+      "label": "Employee No",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "dropdown",
+      "name": "A.IS_PASSED",
+      "id": "isPassedId",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "url": "https://api.myjson.com/bins/ld6e8",
+      "label": "Passed",
+      "items": [
+        {
+          "key": "1",
+          "value": "Yes"
+        },
+        {
+          "key": "0",
+          "value": "No"
+        }
+      ],
+      "itemsUrl": []
+    },
+    {
+      "type": "textbox",
+      "name": "B.EMP_NAME",
+      "id": "empNameId",
+      "value": "",
+      "label": "Employee Name",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "datepicker",
+      "datatype": "date",
+      "name": "A.END_DT",
+      "id": "endDtGte",
+      "value": "",
+      "restriction": "Gte",
+      "label": "End Date >=",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "datepicker",
+      "datatype": "date",
+      "name": "A.START_DT",
+      "id": "startDtGte",
+      "value": "",
+      "restriction": "Gte",
+      "label": "Start Date >=",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "datepicker",
+      "datatype": "date",
+      "name": "A.END_DT",
+      "id": "endDtLte",
+      "value": "",
+      "restriction": "Lte",
+      "label": "End Date <=",
+      "placeholder": "Placeholder"
+    },
+    {
+      "type": "datepicker",
+      "datatype": "date",
+      "name": "A.START_DT",
+      "id": "startDtLte",
+      "value": "",
+      "restriction": "Lte",
+      "label": "Start Date <=",
+      "placeholder": "Placeholder"
+    }
+  ],
+  "headerList": [
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Employee No",
+      "name": "B.EMP_NO"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Employee Name",
+      "name": "B.EMP_NAME"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "Start Date",
+      "name": "A.START_DT"
+    },
+    {
+      "type": "sort",
+      "position": "left",
+      "label": "End Date",
+      "name": "A.END_DT"
+    },
+    {
+      "type": "sort",
+      "position": "center",
+      "label": "Passed",
+      "name": "A.IS_PASSED"
+    },
+    {
+      "type": "label",
+      "position": "center",
+      "label": "Action"
+    }
+  ],
+  "querystring": {
+    "name": "searchLeaveMaintenance"
+  },
+  "bodyList": [
+    {
+      "type": "text",
+      "position": "left",
+      "property": "empNo"
+    },
+    {
+      "type": "text",
+      "position": "left",
+      "property": "empName"
+    },
+    {
+      "type": "date",
+      "position": "left",
+      "property": "startDt"
+    },
+    {
+      "type": "date",
+      "position": "left",
+      "property": "endDt"
+    },
+    {
+      "type": "boolean",
+      "position": "center",
+      "property": "isPassed"
+    },
+    {
+      "type": "action",
+      "position": "center",
+      "action": [
+        {
+          "type": "switch",
+          "case": [
+            {
+              "conditions": [
+                {
+                  "property": "isPassed",
+                  "value": false,
+                  "restriction": "EQ"
+                }
+              ],
+              "result": {
+                "type": "url",
+                "path": "/Employee/Leave/Add",
+                "param": [
+                  {
+                    "type": "refEmpLeaveMngmntId",
+                    "property": "refEmpLeaveMngmntId"
+                  },
+                  {
+                    "type": "param",
+                    "property": "edit"
+                  }
+                ]
+              }
+            },
+            {
+              "conditions": [
+                {
+                  "property": "isPassed",
+                  "value": false,
+                  "restriction": "EQ"
+                }
+              ],
+              "result": {
+                "type": "delete",
+                "property": "refEmpLeaveMngmntId"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

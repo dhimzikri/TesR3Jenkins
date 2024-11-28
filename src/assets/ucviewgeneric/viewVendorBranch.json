@@ -1,0 +1,45 @@
+{
+    "title": "",
+    "subsection": [
+        {
+            "subSectionId": "BranchViewInformationId",
+            "subSectionTitle": "Main Info",
+            "mainInfoPath": "/Generic/GetDataViewBySQL",
+            "mainInfo": [
+                {
+                    "type": "text",
+                    "label": "Vendor Categoy :",
+                    "property": "VendorCategory"
+                },
+                {
+                    "type": "boolean",
+                    "label": "Active Status :",
+                    "property": "ActiveStatus"
+                },
+                {
+                    "type": "text",
+                    "label": "Supplier Code :",
+                    "property": "BranchCode"
+                },
+                {
+                    "type": "text",
+                    "label": "Tax Number :",
+                    "property": "TaxNumber"
+                },
+                {
+                    "type": "text",
+                    "label": "Supplier Name :",
+                    "property": "BranchName"
+                },
+                {
+                    "type": "text",
+                    "label": "Branch Type :",
+                    "property": "BranchType"
+                }
+            ],
+            "querystring": {
+                "name": "viewVendorBranch"
+            }
+        }
+    ]
+}

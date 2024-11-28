@@ -1,0 +1,91 @@
+
+{
+    "keyProperty": "VerfQuestionAnswerId",
+    "keyPropCriteria": "VQA.VERF_QUESTION_ANSWER_ID",
+    "title": "Verification Question Answer",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "VQA.VERF_QUESTION_CODE",
+            "id": "QuestionCodeId",
+            "value": "",
+            "label": "Question Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "VQA.VERF_QUESTION_TEXT",
+            "id": "QuestionNameId",
+            "value": "",
+            "label": "Question Text",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "VQA.REF_VERF_ANSWER_TYPE_ID", 
+            "id": "RefVerfAnswerTypeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefVerfAnswerType/GetListKeyValueActiveByCode",
+            "label": "Answer Type",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+          }
+    ],
+    "querystring": {
+        "name": "verifQuestionGrpMbrTempPaging"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Question Code",
+            "name": "VQA.VERF_QUESTION_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Question Text",
+            "name": "VQA.VERF_QUESTION_TEXT"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Answer Type",
+            "name": "VAT.VERF_ANSWER_TYPE_DESCR"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active",
+            "name": "IS_ACTIVE"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "VerfQuestionCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VerfQuestionText"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "VerfAnswerTypeDescr"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        }
+    ]
+}

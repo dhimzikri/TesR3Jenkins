@@ -1,0 +1,103 @@
+{
+    "title": "Fee",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "FEE_CODE",
+            "id": "FeeCodeId",
+            "value": "",
+            "label": "Fee Code",
+            "placeholder": "Fee Code"
+        },
+        {
+            "type": "textbox",
+            "name": "FEE_NAME",
+            "id": "FeeNameId",
+            "value": "",
+            "label": "Fee Name",
+            "placeholder": "Fee Name"
+        },        
+        {
+            "type": "dropdown",
+            "name": "IS_ACTIVE",
+            "id": "ActiveStatusId",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "true",
+                    "value": "Yes"
+                },
+                {
+                    "key": "false",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "searchRefFee"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Fee Code",
+            "name": "FeeCode"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Fee Name",
+            "name": "FeeName"
+        },        
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "ACTIVE STATUS",
+            "name": "IsActive"
+        },        
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "FeeCode"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "FeeName"
+        },        
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },        
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "FEE_ADD",
+                    "param": [
+                        {
+                            "type": "RefFeeId",
+                            "property": "RefFeeId"
+                        }                        
+                    ]
+                }
+            ]
+        }
+    ]
+}

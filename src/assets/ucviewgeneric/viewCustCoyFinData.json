@@ -1,0 +1,136 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "FinDataId",
+        "subSectionTitle": "Financial Information",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "currency",
+            "label": "Gross Monthly Income Amount",
+            "property": "GmiA"
+          },
+          {
+            "type": "currency",
+            "label": "Gross Profit Amount",
+            "property": "GpA"
+          },
+          {
+            "type": "text",
+            "label": "Return Of Investment Percent",
+            "property": "RoiP"
+          },
+          {
+            "type": "text",
+            "label": "Return Of Equity Percent",
+            "property": "RoeP"
+          },
+          {
+            "type": "text",
+            "label": "Return Of Asset Percent",
+            "property": "RoaP"
+          },
+
+          {
+            "type": "text",
+            "label": "Profit Margin Percent",
+            "property": "PmP"
+          },
+          {
+            "type": "text",
+            "label": "Current Ration Percent",
+            "property": "CrP"
+          },
+          {
+            "type": "text",
+            "label": "Debt Equity Ratio Percent",
+            "property": "DerP"
+          },
+          {
+            "type": "text",
+            "label": "Investment Turn Over Percent",
+            "property": "ItoP"
+          },
+          {
+            "type": "text",
+            "label": "Account Receivable Turn Over Percent",
+            "property": "AtoP"
+          },          
+          {
+            "type": "text",
+            "label": "Growth Percent",
+            "property": "GP"
+          },
+          {
+            "type": "currency",
+            "label": "Working Capital Amount",
+            "property": "WcA"
+          },
+          {
+            "type": "currency",
+            "label": "Other Monthly Installment Amount",
+            "property": "OmiA"
+          },
+          {
+            "type": "date",
+            "label": "Date As Of",
+            "property": "Dtao"
+          },
+          {
+            "type": "currency",
+            "label": "Revenue",
+            "property": "R"
+          },
+          {
+            "type": "currency",
+            "label": "Operation Cost",
+            "property": "Oc"
+          },
+          {
+            "type": "currency",
+            "label": "Profit Before Tax",
+            "property": "Pbt"
+          },
+          {
+            "type": "currency",
+            "label": "Current Asset",
+            "property": "Ca"
+          },
+          {
+            "type": "currency",
+            "label": "Nett Fixed Asset",
+            "property": "Nfa"
+          },
+          {
+            "type": "currency",
+            "label": "Total Asset",
+            "property": "Ta"
+          },
+          {
+            "type": "currency",
+            "label": "Current Liabilities",
+            "property": "Cl"
+          },
+          {
+            "type": "currency",
+            "label": "Long Term Liabilities",
+            "property": "Ltl"
+          },
+          {
+            "type": "currency",
+            "label": "Shareholder Equity",
+            "property": "Se"
+          },
+          {
+            "type": "text",
+            "label": "Current Ratio",
+            "property": "Cr"
+          }
+        ],
+        "querystring": {
+          "name": "viewCustCoyFinData"
+        }
+      }
+    ]
+  }

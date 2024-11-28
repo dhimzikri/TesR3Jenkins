@@ -1,0 +1,81 @@
+<div class="card">
+  <div class="card-body">
+    <div class="px-3">
+        <div class="ucSearch-Button-Right" >
+            <span class="mr-1" >
+                    <button type="button" class="backButton"  (click)="Back()">
+                    <i class="fa fa-arrow-left"> </i>&nbsp;<span translate>Back</span></button></span>
+            <span class="mr-1" >
+                <button type="button" class="addButton" [routerLink]="['/organization/struc/Detail']" skipLocationChange
+                [queryParams]="{orgMdlId:orgMdlId, mode:'add'}"
+                translate>
+                <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+              </button>
+            </span>
+          </div>
+      <form>
+        <h4 class="form-section card-title" translate><i class="ft-file-text"></i> Organization Model</h4>
+        <div class="form-group row">
+          <label class="col-md-3  adInsLabel">Organization Model</label>
+          <div class="col-md-9">
+            <label>{{orgMdlObj.orgMdlName}}</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<lib-UCSearch id="ucSearch" style="width:100%;" [searchInput]='inputObj' (result)="getResult($event)"></lib-UCSearch>
+
+<div [hidden]="resultData?.data == null">
+  <div style="overflow-x: auto;">
+    <table class="table table-responsive-md text-center table-hover">
+      <thead>
+        <tr class="table-header">
+          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='orgMdlLvl'>Level</span></th>
+          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='bizUnitName'>Business Unit Name</span></th>
+          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='parentName'>Business Unit Parent Name</span></th>
+          <th><span translate class="thead-header" (click)="searchSort($event)" name='isActive'>Active</span></th>
+          <th translate>Org Job Title</th>
+          <th translate>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of resultData?.data">
+          <td class="text-left">{{item.orgMdlLvl}}</td>
+          <td class="text-left">{{item.bizUnitName}}</td>
+          <td class="text-left">{{item.parentName}}</td>
+          <td>
+            <span *ngIf="item.isActive == '1'">Yes</span>
+            <span *ngIf="item.isActive == '0'">No</span>
+          </td>
+          <td>
+            <a class="success p-0" data-original-title="" title="" [routerLink]="['/organization/orgJob']" skipLocationChange
+              [queryParams]="{orgMdlStrucId:item.orgMdlStrucId,bizUnitName:item.bizUnitName, refOrgId: refOrgId}">
+              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+            </a>
+          </td>
+          <td>
+            <a class="success p-0" data-original-title="" title="" [routerLink]="['/organization/struc/Detail']" skipLocationChange
+              [queryParams]="{orgMdlStrucId:item.orgMdlStrucId,mode:'edit',orgMdlId:orgMdlId,refBizUnitId:item.refBizUnitId}">
+              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+            </a>
+            <a class="danger p-0" data-original-title="" title="" (click)="del(item.orgMdlStrucId)">
+              <i class="ft-trash-2 font-medium-3 mr-2"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <lib-ucgridfooter (select)="onSelect($event)"></lib-ucgridfooter>
+</div>
+<!-- <div class="form-actions">
+  <button type="button" (click)="Back()" class="btn btn-raised btn-warning mr-1">
+    <i class="far fa-window-close"></i> Cancel
+  </button>
+  <i class="fa fa-plus-circle" [routerLink]="['/organization/struc/Detail']"
+    [queryParams]="{orgMdlId:orgMdlId, mode:'add'}"
+    style="position: absolute; right: 30px; bottom: 0; cursor: pointer; font-size: 36px"></i>
+</div> -->

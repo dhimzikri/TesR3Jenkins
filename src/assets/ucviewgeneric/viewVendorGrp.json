@@ -1,0 +1,35 @@
+{
+    "title": "Supplier Group Member",
+    "subsection": [
+        {
+            "subSectionId": "Vendor Group Member Information",
+            "subSectionTitle": "VENDOR GROUP MEMBER",
+            "mainInfoPath": "/Generic/GetDataViewBySQL",
+            "mainInfo": [
+                {
+                    "type": "text",
+                    "label": "Vendor Category",
+                    "property": "Descri"
+                },
+                {
+                    "type": "boolean",
+                    "label": "Active Status",
+                    "property": "IsActive"
+                },
+                {
+                    "type": "text",
+                    "label": "Group Code",
+                    "property": "VendorGrpCode"
+                },
+                {
+                    "type": "text",
+                    "label": "Group Name",
+                    "property": "VendorGrpName"
+                }
+            ],
+            "querystring": {
+                "name":"viewVendorGrp"
+            }
+        }
+    ]
+}

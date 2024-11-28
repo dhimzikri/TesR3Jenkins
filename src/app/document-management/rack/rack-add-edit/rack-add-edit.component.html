@@ -1,0 +1,89 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="card-header header-title">
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="card-title" id="horz-layout-colored-controls" translate> {{title}} </h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-3">
+          
+          <lib-ucSubsection [id]="'CabRackInfoId'" [title]="'Cabinet-Rack Information'" [panel]="'dCabRackInfo'"></lib-ucSubsection>
+          <div id="dCabRackInfo">
+            <div class="form-group row">
+              <label class="col-md-3">Cabinet Code</label>
+              <a [routerLink]="[ViewLink]" target="_blank" class="col-md-3"
+              [queryParams]="{ CabinetCode: Cabinet.CabinetCode }">{{Cabinet.CabinetCode}}
+              </a>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3">Cabinet Name</label>
+              <label class="col-md-3">{{Cabinet.CabinetName}}</label>
+            </div>
+          </div>
+        
+          <lib-ucSubsection [id]="'rackId'" [title]="'Rack Information'" [panel]="'dRack'"></lib-ucSubsection>
+          <div id="dRack">
+            <form class="form form-horizontal" [formGroup]="RackForm" (ngSubmit)="RackForm.valid && SaveForm()"
+            #enjiForm="ngForm">
+              <div class="form-body" id="RackForm">
+                <div class="form-group row">
+                  <label class="col-md-3 adins-required-label" translate>Rack Code </label>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control adInsInput width-75-per" formControlName="RackCode"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && RackForm.controls.RackCode.invalid }">
+                    <lib-uc-show-errors [control]="RackForm.controls.RackCode" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 adins-required-label" translate>Rack Name </label>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control adInsInput width-75-per" formControlName="RackName"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && RackForm.controls.RackName.invalid }">
+                    <lib-uc-show-errors [control]="RackForm.controls.RackName" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3" translate>Rack Information </label>
+                  <div class="col-md-3">
+                    <textarea cols="3" rows="3" class="form-control" formControlName="RackInformation"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3" translate>Active </label>
+                  <div class="col-md-9">
+                    <input class="border-primary" type="checkbox" formControlName="IsActive">
+                  </div>
+                </div>
+
+                <div class="form-actions right">
+                  <span style="display: block; float:right;">
+                    <button type="button" class="btn btn-raised btn-warning mr-1" (click)="backClick()">
+                      <i class="fa fa-arrow-circle-left"></i>&nbsp;<span translate>Back</span>
+                    </button>
+                    <button type="submit" class="btn btn-raised btn-primary">
+                      <i class="far"></i>&nbsp;<span translate>Submit</span>
+                    </button>
+                  </span>
+                </div>
+              </div>          
+            </form>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

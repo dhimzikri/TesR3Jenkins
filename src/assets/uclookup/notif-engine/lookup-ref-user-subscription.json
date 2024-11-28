@@ -1,0 +1,81 @@
+{
+    "title": "Send To",
+    "sectionTitle": "Subscribed User",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "USERNAME",
+            "id": "UsernameId",
+            "value": "",
+            "label": "Username",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "IS_ACTIVE",
+            "id": "IS_ACTIVE",
+            "label": "Active Status",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "true",
+                    "value": "Yes"
+                },
+                {
+                    "key": "false",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "querystring": {
+        "name": "LookupRefUser"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Username",
+            "name": "Username"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "IsActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "Username"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "IsActive"
+        },
+        {
+          "type": "action",
+          "position": "center",
+          "action": [
+            {
+              "type": "select",
+              "property": "Username"
+            }
+          ]
+        }
+    ],
+    "propertyId": "Username",
+    "propertyName": "Username"
+}

@@ -1,0 +1,41 @@
+export class NegativeCustObj {
+    NegativeCustId: any;
+    CustId: any;
+    MrCustTypeCode: any;
+    CustNo: any;
+    CustName: any;
+    MrIdTypeCode: any;
+    IdNo: any;
+    IdExpiredDt: any;
+    TaxIdNo: any;
+    BirthPlace: any;
+    BirthDt: any;
+    MrGenderCode: any;
+    MotherMaidenName: any;
+    LegalAddr: any;
+    AreaCode1: any;
+    AreaCode2: any;
+    AreaCode3: any;
+    AreaCode4: any;
+    Zipcode: any;
+    City: any;
+    PhnArea1: any;
+    Phn1: any;
+    PhnExt1: any;
+    PhnArea2: any;
+    Phn2: any;
+    PhnExt2: any;
+    PhnArea3: any;
+    Phn3: any;
+    PhnExt3: any;
+    FaxArea: any;
+    Fax: any;
+    MobilePhn: any;
+    MrNegCustTypeCode: any;
+    MrNegCustSourceCode: any;
+    NegCustCause: any;
+    Notes: any;
+    IsActive: any;
+    RowVersion: any;
+    constructor() { this.NegativeCustId = 0, this.RowVersion = "" }
+}

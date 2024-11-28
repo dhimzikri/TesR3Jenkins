@@ -1,0 +1,56 @@
+{
+    "title": "Holiday Detail",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "dropdown",
+            "name": "isPublicHoliday",
+            "id": "isPublicHoliday",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "https://api.myjson.com/bins/ld6e8",
+            "label": "Public Holiday",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "textbox",
+            "name": "descr",
+            "id": "descr",
+            "value": "",
+            "label": "Description",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "datepicker",
+            "datatype": "date",
+            "name": "holidayDt",
+            "id": "holidayDtGte",
+            "value": "",
+            "restriction": "gte",
+            "label": "Date From",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "datepicker",
+            "datatype": "date",
+            "name": "holidayDt",
+            "id": "holidayDtLte",
+            "value": "",
+            "restriction": "lte",
+            "label": "Date To",
+            "placeholder": "Placeholder"
+        }
+    ]
+}

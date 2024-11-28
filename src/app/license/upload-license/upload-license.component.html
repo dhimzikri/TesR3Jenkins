@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-header header-title">
+    <div class="row">
+      <div class="col-md-8">
+        <h4 class="form-section card-title" translate>Upload License</h4>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="px-3">
+      <form class="form form-horizontal" [formGroup]="LicenseForm" (ngSubmit)="LicenseForm.valid && uploadDocument()"
+      #enjiForm="ngForm">
+
+        <lib-ucSubsection [id]="'NewLicenseId'" [title]="'New License'" [panel]="'NewLicense'">
+        </lib-ucSubsection>
+        <div id="NewLicense">
+          <div class="form-group row">
+            <label class="col-md-3  adInsLabel" translate>License File</label> 
+            <div class="col-md-4">
+              <input type="file" class="adInsInput" (change)="InputFileLicense($event.target.files)">
+              <lib-uc-show-errors [control]="LicenseForm.controls.LicenseFile" [submit]="enjiForm.submitted">
+              </lib-uc-show-errors>
+            </div>         
+          </div>
+        </div>
+
+        <lib-ucSubsection [id]="'NewLicenseStateId'" [title]="'New License State'" [panel]="'NewLicenseState'">
+          </lib-ucSubsection>
+        <div id="NewLicenseState">
+          <div class="form-group row">
+            <label class="col-md-3  adInsLabel" translate>License State File</label>
+            <div class="col-md-4">
+              <input type="file" class="adInsInput" (change)="InputFileLicenseState($event.target.files)">
+              <lib-uc-show-errors [control]="LicenseForm.controls.LicenseStateFile" [submit]="enjiForm.submitted">
+              </lib-uc-show-errors>
+            </div>     
+          </div>
+        </div>
+        <div class="form-actions right">
+          <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]" skipLocationChange translate>
+            <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+          </button>
+          <button type="submit" class="btn btn-raised btn-primary">
+            <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

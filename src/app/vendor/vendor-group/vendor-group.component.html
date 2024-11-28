@@ -1,0 +1,103 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header header-title">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="card-title" id="horz-layout-colored-controls" translate> {{pageType}} Vendor Group </h4>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row text-left">
+      <div class="card-body">
+        <div class="px-3">
+          <form class="form form-horizontal" [formGroup]="VendorGroupFrom"
+            (ngSubmit)="VendorGroupFrom.valid && SaveForm()" #enjiForm="ngForm">
+            <div class="form-body">
+              <div class="row text-left">
+                <div class="card-body">
+                  <div class="px-4">
+                    <lib-ucSubsection [id]="'GrpInfoId'" [title]="'Group Info'" [panel]="'GrpInfo'">
+                    </lib-ucSubsection>
+                    <div id="GrpInfo">
+                      <div class="form-group row adins-required">
+                        <label class="col-md-3  adInsLabel" translate>Vendor Category </label>
+                        <div class="col-md-9">
+                          <select class="form-control adInsInput" style="width: auto" formControlName="MrVendorCategoryCode"
+                            [ngClass]="{ 'is-invalid': enjiForm.submitted && VendorGroupFrom.controls.MrVendorCategoryCode.invalid }">
+                            <option *ngFor="let vc of allVendorCategory" value="{{vc.Key}}">
+                              {{vc.Value}}</option>
+                          </select>
+                          <lib-uc-show-errors [control]="VendorGroupFrom.controls.MrVendorCategoryCode" [submit]="enjiForm.submitted">
+                          </lib-uc-show-errors>
+                        </div>
+                      </div>
+                      <!-- <ng-container *ngIf="VendorGroupFrom.controls.MrVendorCategoryCode.value == 'LIFE_INS_HO'">
+                        <div class="form-group row adins-required">
+                          <label class="col-md-3  adInsLabel" translate>Group Type </label>
+                          <div class="col-md-9">
+                            <select class="form-control adInsInput" style="width: auto"
+                              formControlName="MrVendorTypeCode"
+                              [ngClass]="{ 'is-invalid': enjiForm.submitted && VendorGroupFrom.controls.MrVendorTypeCode.invalid }">
+                              <option *ngFor="let vt of allVendorType" value="{{vt.Key}}">
+                                {{vt.Value}}</option>
+                            </select>
+                            <lib-uc-show-errors [control]="VendorGroupFrom.controls.MrVendorTypeCode"
+                              [submit]="enjiForm.submitted">
+                            </lib-uc-show-errors>
+                          </div>
+                        </div>
+                      </ng-container> -->
+  
+  
+                      <div class="form-group row adins-required">
+                        <label class="col-md-3  adInsLabel" translate>Group Code </label>
+                        <div class="col-md-9">
+                          <input type="text" class="form-control adInsInput width-30-per" formControlName="VendorGrpCode">
+                          <lib-uc-show-errors [control]="VendorGroupFrom.controls.VendorGrpCode" [submit]="enjiForm.submitted">
+                          </lib-uc-show-errors>
+                        </div>
+                      </div>
+                      <div class="form-group row adins-required">
+                        <label class="col-md-3  adInsLabel" translate>Group Name </label>
+                        <div class="col-md-9">
+                          <input type="text" class="form-control adInsInput width-30-per" formControlName="VendorGrpName">
+                          <lib-uc-show-errors [control]="VendorGroupFrom.controls.VendorGrpName" [submit]="enjiForm.submitted">
+                          </lib-uc-show-errors>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-md-3  adInsLabel" translate>Description </label>
+                        <div class="col-md-9">
+                          <textarea class="form-control rounded-0" rows="3" formControlName = "VendorGrpDesc"></textarea>
+                          <lib-uc-show-errors [control]="VendorGroupFrom.controls.VenderGrpDesc" [submit]="enjiForm.submitted">
+                          </lib-uc-show-errors>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-md-3 adInsLabel">Active Status</label>
+                        <div class="col-md-9">
+                          <input type="checkbox" class="border-primary" formControlName="IsActive">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-actions right">
+                      <button type="button" class="btn btn-raised btn-warning mr-2" [routerLink]="[CancelLink]"  [queryParams]="{ Type: 'Group', MrVendorCategoryCode : this.MrVendorCategoryCode }" skipLocationChange>
+                        <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+                      </button> 
+                      <button type="submit" class="btn btn-raised btn-primary">
+                        <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+                      </button>
+                    </div>
+                    <!-- </form> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

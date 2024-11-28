@@ -1,0 +1,244 @@
+{
+    "title": "Loan Contract Plafond Info",
+    "hideTitle": true,
+    "id": "LoanContractPlafondInfo",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "PlafondInformationId",
+                    "subSectionTitle": "Plafond Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "service": "",
+                    "querystring": {
+                        "name": "viewLoanContractPlafondInfo"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "currency",
+                            "label": "Plafond Amount",
+                            "property": "PlafondAmount",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Active Loan",
+                            "property": "ActiveLoan",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Loan In Preparation",
+                            "property": "LoanInPreparation",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Outstanding Plafond",
+                            "property": "OutstandingPlafond",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Expired Loan",
+                            "property": "ExpiredLoan",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [
+                        "LoanContractNo"
+                    ],
+                    "fromValue": []
+                }
+            },
+            "id": "41324c83-01aa-415b-9c04-e6e4412b35d4"
+        },
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "Batch",
+                "resultData": "",
+                "isSubsection": false,
+                "usePagination": true,
+                "includeSubmit": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Batch No",
+                            "position": "center",
+                            "name": "LoanBatchNo"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Amount",
+                            "position": "right",
+                            "name": "DrawdownAmt"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Drawdown Date",
+                            "position": "center",
+                            "name": "DrawdownDt"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Status",
+                            "position": "center",
+                            "name": "BatchStat"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Os Principal Amount",
+                            "position": "right",
+                            "name": "OsPrincipalAmount"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Os Interest Amount",
+                            "position": "right",
+                            "name": "OsInterestAmount"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Outstanding Tenor",
+                            "position": "center",
+                            "name": "Tenor"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "LoanBatchNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "DrawdownAmt",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "DrawdownDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "BatchStat",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "OsPrincipalAmount",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "OsInterestAmount",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "Tenor",
+                            "isFlagColor": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "facilityMntUrl",
+                    "apiPath": "/v1/LoanBatch/GetListLoanBatchDataForPlafondInfo",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "Code",
+                            "propValue": "LoanContractNo"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "57341670-d5fa-43d2-92c8-4c33d76139fa"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

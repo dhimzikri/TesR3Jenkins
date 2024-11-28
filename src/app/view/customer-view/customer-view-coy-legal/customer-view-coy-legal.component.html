@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-body">
+    <div class="px-3">
+      <lib-ucSubsection [id]="'LegalDoc'" [title]="'Legal Doc Listing'" [panel]="'LegalDocId'"></lib-ucSubsection>
+      <div id="LegalDocId" style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-left"><span class="thead-header" name='fullAssetCode' translate>NO</span></th>
+              <th class="text-left"><span class="thead-header" name='fullAssetCode' translate>LEGAL DOC TYPE</span></th>
+              <th class="text-left"><span class="thead-header" name='fullAssetName' translate>DOCUMENT NO.</span></th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>DATE ISSUED</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>EXPIRED DATE</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>NOTES</span></th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>NOTARY NAME</span>
+              </th>
+              <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>NOTARY LOCATION</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let item of responseResultLegal ; let i = index">
+              <tr *ngIf="item.AddressTypeName == selectedOption">
+                <td class="text-left">{{i+1}}</td>
+                <td class="text-left">{{item.LegalDocType}}</td>
+                <td class="text-left">{{item.DocumentNo}}</td>
+                <td class="text-left">{{item.DateIssued | date:'dd-MMM-yyyy'}}</td>
+                <td class="text-left">{{item.ExpiredDate | date:'dd-MMM-yyyy'}}</td>
+                <td class="text-left">{{item.Notes}}</td>
+                <td class="text-left">{{item.NotaryName}}</td>
+                <td class="text-left">{{item.NotaryLocation}}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

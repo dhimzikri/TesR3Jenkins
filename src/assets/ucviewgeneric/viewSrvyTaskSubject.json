@@ -1,0 +1,39 @@
+{
+    "subsection": [
+      {
+        "subSectionId": "SurveyTaskId",
+        "subSectionTitle": "Subject Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Surveyee Name",
+            "property": "CustName"
+          },
+          {
+            "type": "text",
+            "label": "Surveyee Object",
+            "property": "SurveyeeObj"
+          },
+          {
+            "type": "text",
+            "label": "Subject Type",
+            "property": "SubjectType"
+          },
+          {
+            "type": "text",
+            "label": "Address",
+            "property": "Addr"
+          },
+          {
+            "type": "text",
+            "label": "Phone No",
+            "property": "PhoneNumber"
+          }
+        ],
+        "querystring": {
+          "name": "viewSurveyTask"
+        }
+      }
+    ]
+  }

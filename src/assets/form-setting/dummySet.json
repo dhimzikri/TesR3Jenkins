@@ -1,0 +1,17 @@
+{
+    "dummyCode" : {
+        "required" : false,
+        "placeholder" : "",
+        "pattern" : ""
+    },
+    "dummyName" : {
+        "required" : true,
+        "placeholder" : "",
+        "pattern" : ""
+    },
+    "dummyDesc" : {
+        "required" : true,
+        "placeholder" : "",
+        "pattern" : ""
+    }
+}

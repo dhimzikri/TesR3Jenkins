@@ -1,0 +1,39 @@
+<div class="customerData">
+  <form class="form form-horizontal" #enjiForm="ngForm">
+    <div class="form-body">
+      <!-- <div class="form-group row">
+                      <label class="col-md-3 adInsLabel adins-required" translate>Address Type Name </label>
+                      <div class="col-md-4">
+                        <select class="form-control adInsInput" formControlName="JobDataType">
+                          <option *ngFor="let ram of listJobType" [value]="ram.Key">
+                            {{ram.Value}}
+                          </option>
+                        </select>
+                        <lib-uc-show-errors [control]="CustJobDataForm.controls.JobDataType" [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                      </div>
+                    </div> -->
+      <div class="form-group row">
+        <label class="col-md-2 adInsLabel" translate>Customer Model</label>
+        <div class="col-md-4">
+          <select class="form-control adInsInput" [(ngModel)]="CustModel" [ngModelOptions]="{standalone: true}" (change)="ResetRefProf()">
+            <option *ngFor="let it of tempCustModel" [value]="it.Key">
+              {{it.Value}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div *ngIf="this.CustModel == modelEmp">
+        <app-job-data-employee [IsReset]="IsReset" (outputTab)="getValue($event)"></app-job-data-employee>
+      </div>
+      <div *ngIf="this.CustModel == modelNonProf">
+        <app-job-data-non-professional [IsReset]="IsReset" (outputTab)="getValue($event)"></app-job-data-non-professional>
+      </div>
+      <div *ngIf="this.CustModel == modelProf">
+        <app-job-data-professional [IsReset]="IsReset" (outputTab)="getValue($event)"></app-job-data-professional>
+      </div>
+      <div *ngIf="this.CustModel == modelSme">
+        <app-job-data-sme [IsReset]="IsReset" (outputTab)="getValue($event)"></app-job-data-sme>
+      </div>
+    </div>
+  </form>
+</div>

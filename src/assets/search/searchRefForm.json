@@ -1,0 +1,25 @@
+{
+    "url": "http://getParentForm",
+    "title":"Lookup Parent Form",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "formCode",
+        "id": "formCode",
+        "value": "",
+        "label": "Form Code",
+        "placeholder": "Placeholder",
+        "datatype": "text"
+      },
+      {
+        "type": "textbox",
+        "name": "title",
+        "id": "title",
+        "value": "",
+        "label": "Form Name",
+        "placeholder": "Placeholder",
+        "datatype": "text"
+      }
+    ]
+  }
+  

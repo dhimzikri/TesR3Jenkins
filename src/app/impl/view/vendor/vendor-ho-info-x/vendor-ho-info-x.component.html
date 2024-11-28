@@ -1,0 +1,75 @@
+<app-main-info-view></app-main-info-view>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Main Information">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <app-main-ho-info-x></app-main-ho-info-x>
+          </div>
+          <div>
+            <app-ho-info></app-ho-info>
+          </div>
+          <div *ngIf="MrVendorCategoryCode == 'SUPPLIER_HO'">
+            <app-ho-atpm-info [VendorId]="VendorId"></app-ho-atpm-info>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Tax">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <app-ho-tax-info></app-ho-tax-info>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Address">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <app-ho-address-info></app-ho-address-info>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Contact Person">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <app-ho-contact-person-info></app-ho-contact-person-info>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Bank Info">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <app-ho-bank-info></app-ho-bank-info>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Branch Info">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <app-ho-branch-info></app-ho-branch-info>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

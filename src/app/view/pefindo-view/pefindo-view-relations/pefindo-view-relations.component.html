@@ -1,0 +1,85 @@
+<div class="mt-3">
+	<div class="card">
+		<div class="card-body">
+			<div class="pl-3">
+				<div class="form-body mt-1">
+
+          <lib-ucSubsection [id]="'RelatedPartiesId'" [title]="'Related Parties'" [panel]="'RelatedParties'">
+          </lib-ucSubsection>
+          <div id="RelatedParties">
+            <div class="card-body" style="overflow-x: auto">
+              <table class="table table-responsive-md text-center table-hover">
+                <thead>
+                  <tr class="table-header">
+                    <th style="text-align: left;">
+                      <span name="Code" translate>Id</span>
+                    </th>
+                    <th style="text-align: left;">
+                      <span name="Description" translate>Full Name</span>
+                    </th>
+                    <th style="text-align: left;">
+                      <span name="Description" translate>Relation Type</span>
+                    </th>
+                  </tr>
+                </thead>
+          
+                <tbody *ngIf = "ResViewRelationsObj.ListRltdParty?.length == 0">
+                  <tr>
+                    <td colspan="100%">No Data Available</td>
+                  </tr>
+                </tbody>
+
+                <tbody>
+                  <tr *ngFor="let item of ResViewRelationsObj.ListRltdParty">
+                    <td style="text-align: left;">{{ item.Id }}</td>
+                    <td style="text-align: left;">{{ item.FullName }}</td>
+                    <td style="text-align: left;">{{ item.RelationType }}</td>
+                  </tr>
+                </tbody>
+          
+              </table>
+            </div>
+          </div>
+
+          <lib-ucSubsection [id]="'ContractRelationsId'" [title]="'Contract Relations'" [panel]="'ContractRelations'">
+          </lib-ucSubsection>
+          <div id="ContractRelations">
+            <div class="card-body" style="overflow-x: auto">
+              <table class="table table-responsive-md text-center table-hover">
+                <thead>
+                  <tr class="table-header">
+                    <th style="text-align: left;">
+                      <span name="Code" translate>Id</span>
+                    </th>
+                    <th style="text-align: left;">
+                      <span name="Description" translate>Full Name</span>
+                    </th>
+                    <th style="text-align: left;">
+                      <span name="Description" translate>Role Of The Customer</span>
+                    </th>
+                  </tr>
+                </thead>
+          
+                <tbody *ngIf = "ResViewRelationsObj.ListCntrctRltd?.length == 0">
+                  <tr>
+                    <td colspan="100%">No Data Available</td>
+                  </tr>
+                </tbody>
+
+                <tbody>
+                  <tr *ngFor="let item of ResViewRelationsObj.ListCntrctRltd">
+                    <td style="text-align: left;">{{ item.Id }}</td>
+                    <td style="text-align: left;">{{ item.FullName }}</td>
+                    <td style="text-align: left;">{{ item.CustRole }}</td>
+                  </tr>
+                </tbody>
+          
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

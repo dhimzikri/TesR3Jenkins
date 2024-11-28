@@ -1,0 +1,250 @@
+{
+  "title": "Add New Template Email",
+  "hideTitle": false,
+  "id": "Addnewtemplateemaildetailxcnaf",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "tabs": {
+        "tablist": [
+          {
+            "label": "Drawdown",
+            "panel": [
+              {
+                "isTemplate": true,
+                "content": "Addtemplateemaildrawdownxcnaf",
+                "conditions": [],
+                "params": []
+              }
+            ]
+          },
+          {
+            "label": "Payment Out",
+            "panel": [
+              {
+                "isTemplate": true,
+                "content": "Addtemplateemailpaymentoutxcnaf",
+                "conditions": [],
+                "params": []
+              }
+            ]
+          },
+          {
+            "label": "Early Termination",
+            "panel": [
+              {
+                "isTemplate": true,
+                "content": "Addtemplateemailetxcnaf",
+                "conditions": [],
+                "params": []
+              }
+            ]
+          },
+          {
+            "label": "Buyback",
+            "panel": [
+              {
+                "isTemplate": true,
+                "content": "Addtemplateemailbuybackxcnaf",
+                "conditions": [],
+                "params": []
+              }
+            ]
+          },
+          {
+            "label": "Asset Selling",
+            "panel": [
+              {
+                "isTemplate": true,
+                "content": "Addtemplateemailaseetsellingxcnaf",
+                "conditions": [],
+                "params": []
+              }
+            ]
+          },
+          {
+            "label": "Payment After WO",
+            "panel": [
+              {
+                "isTemplate": true,
+                "content": "Addtemplateemailpaymentafterwoxcnaf",
+                "conditions": [],
+                "params": []
+              }
+            ]
+          }
+        ]
+      },
+      "id": "930837f7-721c-4994-b645-b550ba76a59d"
+    },
+    {
+      "form": {
+        "subsection": {
+          "title": "",
+          "isVertical": false,
+          "isSubsection": false,
+          "isModeAdd": true,
+          "formInput": [],
+          "onLoad": [],
+          "criteria": [],
+          "mapCookie": [],
+          "initAction": [
+            {
+              "type": "loadLocalStorageValue",
+              "condition": [],
+              "key": "MainInfo",
+              "listBind": [
+                {
+                  "variable": "AffectedFundingCompany",
+                  "value": " form.AffectedFundingCompany"
+                },
+                { "variable": "TemplateName", "value": "form.TemplateName" },
+                { "variable": "IsUsePassword", "value": "form.isPassword" },
+                { "variable": "Password", "value": "form.Password" }
+              ]
+            }
+          ]
+        }
+      },
+      "id": "6d779d49-04af-45e1-aa97-efdd9135e059"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": true,
+  "hideCancelButton": false,
+  "listBtn": [
+    {
+      "displayName": "Submit",
+      "id": "submitId",
+      "key": "",
+      "position": "bottom",
+      "icon": "",
+      "cssClass": "",
+      "conditions": [],
+      "btnType": "submit",
+      "action": {
+        "environment": "facilityMntUrl",
+        "path": "/v1/MasterSettingTexfileX/AddMasterSettingTextfileX",
+        "onError": { "type": "toaster", "message": "" },
+        "excObj": [],
+        "reqObj": [
+          { "propName": "EmailDD", "propValue": "childDicts.form.EmailDD" },
+          { "propName": "BodyDD", "propValue": "childDicts.form.BodyDD" },
+          { "propName": "SubjectDD", "propValue": "childDicts.form.SubjectDD" },
+          {
+            "propName": "CCEmailDD",
+            "propValue": "childDicts.form.ccAddressDD"
+          },
+          {
+            "propName": "TemplateName",
+            "propValue": "MainInfo.form.TemplateName"
+          },
+          {
+            "propName": "IsUsePassword",
+            "propValue": "MainInfo.form.isPassword"
+          },
+          { "propName": "password", "propValue": "MainInfo.form.Password" },
+          {
+            "propName": "VendorCode",
+            "propValue": "MainInfo.form.AffectedFundingCompany"
+          },
+          { "propName": "Mode", "propValue": "mode" },
+          { "propName": "EmailPO", "propValue": "childDicts.form.EmailPO" },
+          { "propName": "BodyPO", "propValue": "childDicts.form.BodyPO" },
+          { "propName": "SubjectPO", "propValue": "childDicts.form.SubjectPO" },
+          {
+            "propName": "CCEmailPO",
+            "propValue": "childDicts.form.ccAddressPO"
+          },
+          { "propName": "EmailET", "propValue": "childDicts.form.EmailET" },
+          { "propName": "BodyET", "propValue": "childDicts.form.BodyET" },
+          { "propName": "SubjectET", "propValue": "childDicts.form.SubjectET" },
+          {
+            "propName": "CCEmailET",
+            "propValue": "childDicts.form.ccAddressET"
+          },
+          { "propName": "EmailBB", "propValue": "childDicts.form.EmailBB" },
+          { "propName": "BodyBB", "propValue": "childDicts.form.BodyBB" },
+          { "propName": "SubjectBB", "propValue": "childDicts.form.SubjectBB" },
+          {
+            "propName": "CCEmailBB",
+            "propValue": "childDicts.form.ccAddressBB"
+          },
+          { "propName": "EmailAS", "propValue": "childDicts.form.EmailAS" },
+          { "propName": "BodyAS", "propValue": "childDicts.form.BodyAS" },
+          { "propName": "SubjectAS", "propValue": "childDicts.form.SubjectAS" },
+          {
+            "propName": "CCEmailAS",
+            "propValue": "childDicts.form.ccAddressAS"
+          },
+          { "propName": "EmailPWO", "propValue": "childDicts.form.EmailPWO" },
+          { "propName": "BodyPWO", "propValue": "childDicts.form.BodyPWO" },
+          {
+            "propName": "SubjectPWO",
+            "propValue": "childDicts.form.SubjectPWO"
+          },
+          {
+            "propName": "CCEmailPWO",
+            "propValue": "childDicts.form.ccAddressPWO"
+          }
+        ],
+        "onSuccess": [
+          {
+            "conditions": [
+              { "property": "Message", "restriction": "NEQ", "value": "" }
+            ],
+            "result": {
+              "result": {
+                "type": "link",
+                "params": [],
+                "path": "/Setting/MasterSettingTextfile/PagingX",
+                "target": "_self"
+              },
+              "type": "confirm",
+              "message": "${Message}"
+            }
+          },
+          {
+            "conditions": [
+              { "property": "Message", "restriction": "EQ", "value": "" }
+            ],
+            "result": {
+              "type": "link",
+              "params": [],
+              "path": "/Setting/MasterSettingTextfile/PagingX",
+              "target": "_self"
+            }
+          }
+        ],
+        "type": "http",
+        "mapResToDict": [{ "propName": "Message", "propValue": "Message" }]
+      }
+    }
+  ],
+  "customToastrMsg": "",
+  "onInit": [],
+  "isOverrideSubmit": true,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [
+    {
+      "title": "Edit New Template Email",
+      "conditions": [
+        { "property": "mode", "restriction": "EQ", "value": "edit" }
+      ]
+    }
+  ],
+  "persistData": true,
+  "persistPropName": "MainInfo"
+}

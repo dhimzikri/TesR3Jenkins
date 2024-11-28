@@ -1,0 +1,55 @@
+<div class="card-header header-title">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="px-3">
+            <form>
+              <lib-ucSubsection [id]="'BankAccId'" [title]="'Bank Account List'" [panel]="'BankAcc'">
+              </lib-ucSubsection>
+              <div id="BankAcc" style="overflow-x: auto;">
+                <table class="table table-responsive-md text-center table-hover">
+                  <thead>
+                    <tr class="table-header">
+                    <th class="text-left"><span translate class="thead-header">Bank</span></th>
+                    <th class="text-left"><span translate class="thead-header" name='BankBranch'>Bank Branch</span>
+                    </th>
+                    <th class="text-left"><span translate class="thead-header" name='AccountNo'>Account No</span>
+                    </th>
+                    <th class="text-left"><span translate class="thead-header" name='AccountName'>Account Name</span>
+                    </th>
+                    <th class="text-left"><span translate class="thead-header" name='Notes'>Notes</span>
+                    </th>
+                    <th class="text-center"><span translate class="thead-header" name='IsDefault'>Default</span>
+                    </th>
+                    <th class="text-center"><span translate class="thead-header" name='IsActive'>Is Active</span>
+                    </th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="ListData?.length == 0">
+                    <tr>
+                      <td colspan="100%">No Data Available</td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <tr *ngFor="let item of ListData; let i = index">
+                      <td class="text-left">{{item.BankName}}</td>
+                      <td class="text-left">{{item.BankBranch}}</td>
+                      <td class="text-left">{{item.BankAccountNo}}</td>
+                      <td class="text-left">{{item.BankAccountName}}</td>
+                      <td class="text-left">{{item.Notes}}</td>
+                      <td class="text-center" *ngIf="item.IsDefault">Yes</td>
+                      <td class="text-center" *ngIf="!item.IsDefault">No</td>
+                      <td class="text-center" *ngIf="item.IsActive">Yes</td>
+                      <td class="text-center" *ngIf="!item.IsActive">No</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

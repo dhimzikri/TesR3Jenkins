@@ -1,0 +1,220 @@
+{
+  "title": "Master Setting Textfile Email",
+  "hideTitle": false,
+  "id": "Mastersettingtextfileemailxcnaf",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "paging": {
+        "environment": "facilityMntUrl",
+        "apiVersion": "v2.1",
+        "service": "",
+        "pagingInput": {
+          "title": "",
+          "sectionTitle": "search",
+          "querystring": { "name": "searchMasterSettingTextfileEmail" },
+          "exportExcel": false,
+          "component": [
+            {
+              "id": "msttemplateNameSearchId",
+              "type": "textbox",
+              "label": "Template Name",
+              "name": "MST.TEMPLATE_NAME",
+              "value": "",
+              "placeholder": "Input template name",
+              "datatype": "text",
+              "isReadonly": false,
+              "useAutofill": false,
+              "isUppercase": false,
+              "isCriteriaDataTable": false
+            },
+            {
+              "id": "mstdtmUpdSearchId",
+              "type": "datepicker",
+              "label": "Last Update Date >=",
+              "name": "MST.DTM_UPD",
+              "value": "",
+              "placeholder": "",
+              "datatype": "date",
+              "restriction": "gte",
+              "useDefVal": false
+            },
+            {
+              "id": "mstdtmUpdSearchId",
+              "type": "datepicker",
+              "label": "Last Update Date <=",
+              "name": "MST.DTM_UPD",
+              "value": "",
+              "placeholder": "",
+              "datatype": "date",
+              "restriction": "lte",
+              "useDefVal": false
+            },
+            {
+              "id": "mstisActiveSearchId",
+              "type": "dropdown",
+              "label": "Active Status",
+              "name": "MST.IS_ACTIVE",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": false,
+              "environment": "FOU",
+              "path": "/RefMaster/GetListKeyValueActiveByCode",
+              "criteriaPropName": "RefMasterTypeCode",
+              "criteriaPropValue": "TMS_ISACTIVE_STATUS",
+              "isQueryIn": false
+            }
+          ],
+          "headerList": [
+            {
+              "type": "label",
+              "label": "Template Name",
+              "position": "left",
+              "name": "mst.SETTING_NAME"
+            },
+            {
+              "type": "label",
+              "label": "Last Update Date",
+              "position": "center",
+              "name": "mst.DTM_UPD"
+            },
+            {
+              "type": "label",
+              "label": "Active Status",
+              "position": "center",
+              "name": "mst.IS_ACTIVE"
+            },
+            { "type": "label", "label": "Action", "position": "center" }
+          ],
+          "bodyList": [
+            {
+              "type": "text",
+              "position": "left",
+              "property": "TemplateName",
+              "isFlagColor": false
+            },
+            {
+              "type": "date",
+              "position": "center",
+              "property": "LastDate",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "center",
+              "property": "ActiveStatus",
+              "isFlagColor": false
+            },
+            {
+              "type": "action",
+              "position": "center",
+              "action": [
+                {
+                  "type": "edit",
+                  "param": [
+                    { "type": "mode", "property": "edit" },
+                    { "type": "TemplateNames", "property": "TemplateName" }
+                  ],
+                  "path": "/Setting/MasterSettingTextfile/AddX",
+                  "icon": ""
+                },
+                {
+                  "type": "switch",
+                  "case": [
+                    {
+                      "result": {
+                        "type": "callback",
+                        "isText": false,
+                        "key": "cancel",
+                        "icon": "ft-x-circle"
+                      },
+                      "conditions": [
+                        {
+                          "isUser": false,
+                          "property": "ActiveStatus",
+                          "restriction": "NEQ",
+                          "value": "No"
+                        }
+                      ],
+                      "isHide": false
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "property": "ActiveStatus",
+                          "value": "No",
+                          "isUser": false,
+                          "restriction": "EQ"
+                        }
+                      ],
+                      "isHide": false,
+                      "result": {
+                        "key": "cancel",
+                        "icon": "ft-check-circle",
+                        "type": "callback",
+                        "isText": false
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "criteria": [],
+        "whereValue": [],
+        "fromValue": [],
+        "useIntegration": false,
+        "isHideSearch": false,
+        "isSearched": false,
+        "delay": 1,
+        "isUseCustomApi": false,
+        "customApiQryPaging": ""
+      },
+      "id": "92666c88-1cdc-438b-8375-a718044f7550"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "hideCancelButton": false,
+  "listBtn": [
+    {
+      "displayName": "Add New Template",
+      "id": "add new templateId",
+      "key": "AddNewTemplate",
+      "position": "top",
+      "icon": "ft-plus",
+      "cssClass": "",
+      "conditions": [],
+      "btnType": "button",
+      "action": {
+        "type": "link",
+        "path": "/Setting/MasterSettingTextfile/AddX",
+        "params": [],
+        "target": "_self"
+      }
+    }
+  ],
+  "customToastrMsg": "",
+  "onInit": [],
+  "isOverrideSubmit": false,
+  "onSubmit": [],
+  "isOverrideCancel": false,
+  "onCancel": {},
+  "conditionalTitle": [],
+  "persistData": false,
+  "persistPropName": ""
+}

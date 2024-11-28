@@ -1,0 +1,105 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title" id="horz-layout-colored-controls" translate>{{pageType}} UPLOAD SETTING INFORMATION</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="px-3">
+        <div class="UploadSettingSomethingAddEdit" [hidden]="uploadSettingSomethingAddEdit">
+          <form class="form form-horizontal" name="uploadTypeForm" [formGroup]="UploadForm" #UploadTypeForm="ngForm" novalidate
+            (ngSubmit)="UploadTypeForm.form.valid && SaveForm()">
+            <lib-ucSubsection [id]="'UploadTypeInfoId'" [title]="'Upload Type Information'"
+              [panel]="'UploadTypeinformation'"></lib-ucSubsection>
+            <div class="form-body" id="UploadTypeinformation">
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" for="UploadTypeCode" translate>Upload Type Code</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control width-50-per" name="uploadTypeCode" required
+                    [(ngModel)]="uploadTypeCode" #UploadTypeCode="ngModel"
+                    [ngClass]="{ 'is-invalid': (UploadTypeForm.submitted || UploadTypeCode.touched || UploadTypeCode.dirty ) && UploadTypeCode.invalid }">
+                  <div
+                    *ngIf="(UploadTypeForm.submitted || UploadTypeCode.touched || UploadTypeCode.dirty ) && UploadTypeCode.invalid"
+                    class="invalid-feedback">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" for="UploadTypeName" translate>Upload Type Name</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" name="uploadTypeName" required [(ngModel)]="uploadTypeName"
+                    #UploadTypeName="ngModel"
+                    [ngClass]="{ 'is-invalid': (UploadTypeForm.submitted || UploadTypeName.touched || UploadTypeName.dirty ) && UploadTypeName.invalid }">
+                  <div
+                    *ngIf="(UploadTypeForm.submitted || UploadTypeName.touched || UploadTypeName.dirty ) && UploadTypeName.invalid"
+                    class="invalid-feedback">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" for="isActive" translate>Active Status </label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" [ngModel]="isActive" data-md-icheck name="isActive">
+                </div>
+              </div>
+            </div>
+            <lib-ucSubsection [id]="'ListRoleId'" [title]="'List Role'" [panel]="'ListRole'"></lib-ucSubsection>
+            <div class="form-body" id="ListRole">
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" for="roleName" translate>Role Name</label>
+                <div class="col-md-3">
+                  <lib-uclookupgeneric [lookupInput]="inputLookupObj" [parentForm]='UploadForm' [enjiForm]='UploadTypeForm' [identifier]="'RoleName'"></lib-uclookupgeneric>
+                </div>
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-raised btn-primary" (click)="add(inputLookupObj)">
+                    <i class="fa fa-plus"></i>&nbsp;<span translate>Add</span>
+                  </button>
+                </div>
+                <!-- <div *ngIf="uclRole.errors.required" translate>This field is required</div> -->
+              </div>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="table table-responsive-md text-center table-hover">
+                <thead>
+                  <tr class="table-header">
+                    <th><span class="thead-header" (click)="searchSort($event)" name='roleCode'
+                        translate>Role Code</span>
+                    </th>
+                    <th><span class="thead-header" (click)="searchSort($event)" name='roleName'
+                        translate>Role Name</span>
+                    </th>
+                    <th><span class="thead-header" (click)="searchSort($event)" name='IsActive' translate>Active Status</span></th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of tempRefRole">
+                    <td>{{item.RoleCode}}</td>
+                    <td>{{item.RoleName}}</td>
+                    <td *ngIf="item.IsActive == '1'">Yes</td>
+                    <td *ngIf="item.IsActive == '0'">No</td>
+                    <td>
+                      <a class="danger p-0" data-original-title="" title="" (click)="delete(item.RefRoleId)">
+                        <i class="ft-trash-2 font-medium-3 mr-2"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="form-actions button-right">
+              <button type="button" class="btn btn-raised btn-warning mr-1"
+                [routerLink]="[CancelLink]" skipLocationChange>
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary mr-1">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="px-3">
+    <app-customer-company-address-check *ngIf="mode == 'check'"  (outputValue)="terimaValue($event)"> </app-customer-company-address-check>
+    <app-customer-company-address-add *ngIf="mode == 'add' || mode =='edit'" [mode] = "this.mode"  [AddrId] = "this.AddrId" (outputValue)="terimaValue($event)"> </app-customer-company-address-add>
+
+    <div *ngIf="mode == 'check'"class="form-actions right" style="text-align: right;">
+        <button type="submit" class="btn btn-raised btn-primary-2 mr-1" (click)="SaveAndSync()">
+            <i class="far fa-check-square"></i>&nbsp;<span translate>Save and Sync</span>
+        </button>
+        <button type="submit" class="btn btn-raised btn-primary-2" (click)="SaveAndContinue()">
+        <i class="far fa-check-square"></i>&nbsp;<span translate>Save and Continue</span>
+        </button>
+    </div>
+</div>

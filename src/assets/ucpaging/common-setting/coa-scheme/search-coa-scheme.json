@@ -1,0 +1,113 @@
+{
+    "title": "COA SCHEME",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "cs.SCHM_CODE",
+            "id": "SchmCode",
+            "value": "",
+            "label": "Scheme Code",
+            "placeholder": "",
+            "datatype": "text"
+        },
+        {
+            "type": "textbox",
+            "name": "cs.SCHM_NAME",
+            "id": "SchmName",
+            "value": "",
+            "label": "Scheme Name",
+            "placeholder": "",
+            "datatype": "text"
+        },
+        {
+            "type": "dropdown",
+            "name": "cs.IS_ACTIVE",
+            "datatype": "text",
+            "id": "IsActive",
+            "value": "",
+            "placeholder": "",
+            "isFromURL": false,
+            "ddlType": "all",
+            "url": "",
+            "label": "Is Active",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        }
+    ],
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "SCHEME CODE",
+            "name": "cs.SCHM_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "SCHEME NAME",
+            "name": "cs.SCHM_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "IS ACTIVE",
+            "name": "IsActiveStr"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "ACTION"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "SchmCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "SchmName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "IsActiveStr"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "CS_COA_SCHM_DETAIL",
+                    "param": [
+                        {
+                            "type": "CoaSchmId",
+                            "property": "CoaSchmId"
+                        },
+                        {
+                            "type": "mode",
+                            "property": "Edit"
+                        }
+                    ],
+                    "icon": "ft-edit-2"
+                }
+            ]
+        }
+    ],
+    "querystring": {
+        "name": "searchCoaScheme"
+    }
+}

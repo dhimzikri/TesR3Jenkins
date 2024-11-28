@@ -1,0 +1,35 @@
+{
+    "title": "RACK VIEW",
+    "subsection": [
+      {
+        "subSectionId": "RackDetailId",
+        "subSectionTitle": "Rack Detail",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Rack Code",
+            "property": "RackCode"
+          },
+          {
+            "type": "text",
+            "label": "Rack Name",
+            "property": "RackName"
+          },
+          {
+            "type": "boolean",
+            "label": "Is Active",
+            "property": "IsActive"
+          },
+          {
+            "type": "text",
+            "label": "Rack Information",
+            "property": "RackInfo"
+          }
+        ],
+        "querystring": {
+          "name": "viewRack"
+        }
+      }
+    ]
+  }

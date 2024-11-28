@@ -1,0 +1,1945 @@
+{
+    "title": "VENDOR REGISTRATION",
+    "id": "BranchaddV2",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Main Info",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Vendor Category",
+                            "Variable": "MrVendorCategoryCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "UseDefaultValue": true,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "VENDOR_CATEGORY_GENERAL"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Branch Code",
+                            "Variable": "VendorCode",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Branch Name",
+                            "Variable": "VendorName",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "cbCallback",
+                                    "key": "MrVendorTypeCode"
+                                },
+                                {
+                                    "type": "showField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "C"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "RegistrationNo",
+                                        "LicenseNo"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "C"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "RegistrationNo",
+                                        "LicenseNo",
+                                        "IdNo"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": {
+                                        "variable": "MrVendorTypeCode",
+                                        "restriction": "Eq",
+                                        "value": "P"
+                                    },
+                                    "listField": [
+                                        "IdNo"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "hideField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "C"
+                                        },
+                                        {
+                                            "variable": "ShowInputVendorTaxSchmCode",
+                                            "restriction": "Eq",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "TaxSchmCodePersonal1"
+                                    ],
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "hideField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "P"
+                                        },
+                                        {
+                                            "variable": "ShowInputVendorTaxSchmCode",
+                                            "restriction": "Eq",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "TaxSchmCodeCompany1"
+                                    ],
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "showField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "C"
+                                        },
+                                        {
+                                            "variable": "ShowInputVendorTaxSchmCode",
+                                            "restriction": "Eq",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "TaxSchmCodeCompany1"
+                                    ],
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "showField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "P"
+                                        },
+                                        {
+                                            "variable": "ShowInputVendorTaxSchmCode",
+                                            "restriction": "Eq",
+                                            "value": "1"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "TaxSchmCodePersonal1"
+                                    ],
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "P"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "TaxSchmCodePersonal1"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "MrVendorTypeCode",
+                                            "restriction": "Eq",
+                                            "value": "C"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "TaxSchmCodeCompany1"
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "Branch Type",
+                            "Variable": "MrVendorTypeCode",
+                            "IsRequired": true,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": true,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "VENDOR_TYPE"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "cbCallback",
+                                    "key": "MrIdTypeCode"
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "ID Type",
+                            "Variable": "MrIdTypeCode",
+                            "IsRequired": true,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": true,
+                            "isUseAPI": false,
+                            "DdlItemsObj": [],
+                            "DdlReqObj": null
+                        },
+                        {
+                            "Action": [],
+                            "Type": "LOOKUP",
+                            "Label": "ASSET INSURANCE HO",
+                            "Variable": "ParentId",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "IsClear": false,
+                            "LookupName": "${Lookup-AssetInsuranceHo}",
+                            "Criteria": [],
+                            "pagingInput": {
+                                "lookupId": "Lookup-AssetInsuranceHo",
+                                "title": "Lookup - Asset Insurance HO",
+                                "component": [
+                                    {
+                                        "id": "vendorCodeSearchId",
+                                        "type": "textbox",
+                                        "label": "ASSET INSURANCE HO CODE",
+                                        "name": "VENDOR_CODE",
+                                        "value": "",
+                                        "placeholder": "",
+                                        "datatype": "text"
+                                    },
+                                    {
+                                        "id": "vendorNameSearchId",
+                                        "type": "textbox",
+                                        "label": "ASSET INSURANCE HO NAME",
+                                        "name": "VENDOR_NAME",
+                                        "value": "",
+                                        "placeholder": "",
+                                        "datatype": "text"
+                                    }
+                                ],
+                                "querystring": {
+                                    "name": "lookupVendorParent"
+                                },
+                                "orderby": null,
+                                "headerList": [
+                                    {
+                                        "type": "sort",
+                                        "label": "ASSET INSURANCE HO CODE",
+                                        "position": "left",
+                                        "name": "VENDOR_CODE"
+                                    },
+                                    {
+                                        "type": "sort",
+                                        "label": "ASSET INSURANCE HO NAME",
+                                        "position": "left",
+                                        "name": "VENDOR_NAME"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "position": "center",
+                                        "label": "Select"
+                                    }
+                                ],
+                                "bodyList": [
+                                    {
+                                        "type": "text",
+                                        "position": "left",
+                                        "property": "VendorCode",
+                                        "isFlagColor": false
+                                    },
+                                    {
+                                        "type": "text",
+                                        "position": "left",
+                                        "property": "VendorName",
+                                        "isFlagColor": false
+                                    },
+                                    {
+                                        "type": "action",
+                                        "position": "center",
+                                        "action": [
+                                            {
+                                                "type": "select",
+                                                "property": "VendorId"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "propertyId": "VendorId",
+                                "propertyName": "VendorName",
+                                "environment": "FoundationR3Url",
+                                "apiVersion": "v1"
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Registration Number",
+                            "Variable": "RegistrationNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "License Number",
+                            "Variable": "LicenseNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "ID Number",
+                            "Variable": "IdNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Mobile Phone 1",
+                            "Variable": "MobilePhnNo1",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[0-9]+$",
+                                    "invalidMsg": "Number Only"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Mobile Phone 2",
+                            "Variable": "MobilePhnNo2",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[0-9]+$",
+                                    "invalidMsg": "Number Only"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Email",
+                            "Variable": "Email",
+                            "Value": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$",
+                                    "invalidMsg": "Invalid Email Format"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Establishment Date",
+                            "Variable": "EstablishmentDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "BD",
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "BD"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Partnership Date",
+                            "Variable": "PartnershipDt",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "BD",
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "BD"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "NUMERIC",
+                            "Label": "Rating",
+                            "Variable": "VendorRating",
+                            "Value": "",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": "100"
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "Active Status",
+                            "Variable": "IsActive",
+                            "Value": true,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "One Affiliate",
+                            "Variable": "IsOneAffiliate",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "RowVersionVendor",
+                            "Variable": "RowVersionVendor",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "RowVersionAddr",
+                            "Variable": "RowVersionAddr",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Tax Scheme",
+                            "Variable": "TaxSchmCodePersonal1",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "TAX",
+                                "Url": "/v1/TaxCalculation/GetTaxSchemeHByTaxKindAndNationality",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "TaxSchmCode",
+                                "CustomValueName": "TaxSchmName",
+                                "ReqObj": {
+                                    "MrTaxKindCode": "P",
+                                    "MrNationalityCode": "WNI"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Tax Scheme",
+                            "Variable": "TaxSchmCodeCompany1",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "TAX",
+                                "Url": "/v1/TaxCalculation/GetTaxSchemeHByTaxKindAndNationality",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "TaxSchmCode",
+                                "CustomValueName": "TaxSchmName",
+                                "ReqObj": {
+                                    "MrTaxKindCode": "C",
+                                    "MrNationalityCode": "WNI"
+                                }
+                            }
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "mode",
+                                    "restriction": "EQ",
+                                    "value": "edit"
+                                }
+                            ],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/Vendor/GetVendorBranchAndVendorTaxAddrByVendorId",
+                            "reqObj": [
+                                {
+                                    "propName": "Id",
+                                    "propValue": "VendorId",
+                                    "isFromDict": false
+                                }
+                            ],
+                            "action": [
+                                {
+                                    "type": "cbCallback",
+                                    "key": "MrVendorCategoryCode"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "VendorObj.MrVendorCategoryCode",
+                                    "variableName": "MrVendorCategoryCode"
+                                },
+                                {
+                                    "accessorName": "VendorObj.VendorCode",
+                                    "variableName": "VendorCode"
+                                },
+                                {
+                                    "accessorName": "VendorObj.VendorName",
+                                    "variableName": "VendorName"
+                                },
+                                {
+                                    "accessorName": "VendorObj.MrVendorTypeCode",
+                                    "variableName": "MrVendorTypeCode"
+                                },
+                                {
+                                    "accessorName": "VendorObj.MrIdTypeCode",
+                                    "variableName": "MrIdTypeCode"
+                                },
+                                {
+                                    "accessorName": "VendorObj.RegistrationNo",
+                                    "variableName": "RegistrationNo"
+                                },
+                                {
+                                    "accessorName": "VendorObj.LicenseNo",
+                                    "variableName": "LicenseNo"
+                                },
+                                {
+                                    "accessorName": "VendorObj.IdNo",
+                                    "variableName": "IdNo"
+                                },
+                                {
+                                    "accessorName": "VendorObj.MobilePhnNo1",
+                                    "variableName": "MobilePhnNo1"
+                                },
+                                {
+                                    "accessorName": "VendorObj.MobilePhnNo2",
+                                    "variableName": "MobilePhnNo2"
+                                },
+                                {
+                                    "accessorName": "VendorObj.Email",
+                                    "variableName": "Email"
+                                },
+                                {
+                                    "accessorName": "VendorObj.VendorRating",
+                                    "variableName": "VendorRating"
+                                },
+                                {
+                                    "accessorName": "VendorObj.EstablishmentDt",
+                                    "variableName": "EstablishmentDt"
+                                },
+                                {
+                                    "accessorName": "VendorObj.PartnershipDt",
+                                    "variableName": "PartnershipDt"
+                                },
+                                {
+                                    "accessorName": "VendorObj.IsActive",
+                                    "variableName": "IsActive"
+                                },
+                                {
+                                    "accessorName": "VendorObj.IsOneAffiliate",
+                                    "variableName": "IsOneAffiliate"
+                                },
+                                {
+                                    "accessorName": "VendorObj.VendorRatingAlias",
+                                    "variableName": "VendorRatingAlias"
+                                }
+                            ],
+                            "isUseApi": true
+                        },
+                        {
+                            "conditions": [],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v2/Vendor/GetVendorAndVendorTaxAddrByVendorId",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "Id",
+                                    "propValue": "VendorId"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "VendorObj.RowVersion",
+                                    "variableName": "RowVersionVendor"
+                                },
+                                {
+                                    "accessorName": "VendorAddrObj.RowVersion",
+                                    "variableName": "RowVersionAddr"
+                                },
+                                {
+                                    "accessorName": "VendorObj.TaxSchmCode",
+                                    "variableName": "TaxSchmCodePersonal1"
+                                },
+                                {
+                                    "accessorName": "VendorObj.TaxSchmCode",
+                                    "variableName": "TaxSchmCodeCompany1"
+                                }
+                            ],
+                            "isUseApi": true,
+                            "action": []
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": [
+                        {
+                            "type": "bindValue",
+                            "condition": {
+                                "variable": "MrVendorCategoryCode",
+                                "restriction": "NEQ",
+                                "value": ""
+                            },
+                            "listBind": [
+                                {
+                                    "variable": "MrVendorCategoryCode",
+                                    "value": "MrVendorCategoryCode"
+                                }
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "bindValue",
+                            "condition": {
+                                "variable": "MrVendorCategoryCode",
+                                "restriction": "Eq",
+                                "value": "NOTARY_PERSONAL"
+                            },
+                            "listBind": [
+                                {
+                                    "variable": "MrVendorTypeCode",
+                                    "value": "P"
+                                }
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "disabledField",
+                            "condition": {
+                                "variable": "MrVendorCategoryCode",
+                                "restriction": "Eq",
+                                "value": "NOTARY_PERSONAL"
+                            },
+                            "listField": [
+                                "MrVendorTypeCode"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "bindValue",
+                            "condition": {
+                                "variable": "MrVendorCategoryCode",
+                                "restriction": "Eq",
+                                "value": "AGENCY_PERSONAL"
+                            },
+                            "listBind": [
+                                {
+                                    "variable": "MrVendorTypeCode",
+                                    "value": "P"
+                                }
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "disabledField",
+                            "condition": {
+                                "variable": "MrVendorCategoryCode",
+                                "restriction": "Eq",
+                                "value": "AGENCY_PERSONAL"
+                            },
+                            "listField": [
+                                "MrVendorTypeCode"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "showField",
+                            "condition": {
+                                "variable": "MrVendorCategoryCode",
+                                "restriction": "Eq",
+                                "value": "ASSET_INSCO_BRANCH"
+                            },
+                            "listField": [
+                                "VendorId"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "showField",
+                            "condition": {
+                                "variable": "MrVendorCategoryCode",
+                                "restriction": "Eq",
+                                "value": "CRD_INSCO_BRANCH"
+                            },
+                            "listField": [
+                                "VendorId"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "requiredField",
+                            "condition": {
+                                "variable": "MrVendorCategoryCode",
+                                "restriction": "Eq",
+                                "value": "CRD_INSCO_BRANCH"
+                            },
+                            "listField": [
+                                "VendorId"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "requiredField",
+                            "condition": {
+                                "variable": "MrVendorCategoryCode",
+                                "restriction": "Eq",
+                                "value": "ASSET_INSCO_BRANCH"
+                            },
+                            "listField": [
+                                "VendorId"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "showField",
+                            "condition": [
+                                {
+                                    "variable": "MrVendorTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "C"
+                                }
+                            ],
+                            "listField": [
+                                "RegistrationNo",
+                                "LicenseNo"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "requiredField",
+                            "condition": [
+                                {
+                                    "variable": "MrVendorTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "C"
+                                }
+                            ],
+                            "listField": [
+                                "RegistrationNo",
+                                "LicenseNo",
+                                "IdNo"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "requiredField",
+                            "condition": [
+                                {
+                                    "variable": "MrVendorTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "P"
+                                }
+                            ],
+                            "listField": [
+                                "IdNo"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "showField",
+                            "condition": [
+                                {
+                                    "variable": "MrVendorTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "C"
+                                },
+                                {
+                                    "variable": "ShowInputVendorTaxSchmCode",
+                                    "restriction": "Eq",
+                                    "value": "1"
+                                }
+                            ],
+                            "listField": [
+                                "TaxSchmCodeCompany1"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "showField",
+                            "condition": [
+                                {
+                                    "variable": "ShowInputVendorTaxSchmCode",
+                                    "restriction": "Eq",
+                                    "value": "1"
+                                },
+                                {
+                                    "variable": "MrVendorTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "P"
+                                }
+                            ],
+                            "listField": [
+                                "TaxSchmCodePersonal1"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "requiredField",
+                            "condition": [
+                                {
+                                    "variable": "MrVendorTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "P"
+                                }
+                            ],
+                            "listField": [
+                                "TaxSchmCodePersonal1"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "requiredField",
+                            "condition": [
+                                {
+                                    "variable": "MrVendorTypeCode",
+                                    "restriction": "Eq",
+                                    "value": "C"
+                                }
+                            ],
+                            "listField": [
+                                "TaxSchmCodeCompany1"
+                            ],
+                            "isRevertable": true
+                        }
+                    ]
+                }
+            },
+            "id": "6dd7da7a-698a-4fbe-afcb-8a7340038372"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Tax Info",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Tax Calculation Method",
+                            "Variable": "MrTaxCalcMethodCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": true,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "TAX_CALC_METHOD"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "VAT",
+                            "Variable": "IsVat",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": true,
+                            "isUseAPI": false,
+                            "DdlItemsObj": [
+                                {
+                                    "Key": "false",
+                                    "Value": "No"
+                                },
+                                {
+                                    "Key": "true",
+                                    "Value": "Yes"
+                                }
+                            ],
+                            "DdlReqObj": null
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Tax Scheme",
+                            "Variable": "TaxSchmCodePersonal",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "TAX",
+                                "Url": "/v1/TaxCalculation/GetTaxSchemeHByTaxKindAndNationality",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "TaxSchmCode",
+                                "CustomValueName": "TaxSchmName",
+                                "ReqObj": {
+                                    "MrTaxKindCode": "P",
+                                    "MrNationalityCode": "WNI"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Tax Scheme",
+                            "Variable": "TaxSchmCodeCompany",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "TAX",
+                                "Url": "/v1/TaxCalculation/GetTaxSchemeHByTaxKindAndNationality",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "TaxSchmCode",
+                                "CustomValueName": "TaxSchmName",
+                                "ReqObj": {
+                                    "MrTaxKindCode": "C",
+                                    "MrNationalityCode": "WNI"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "requiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "IsNpwpExist",
+                                            "restriction": "Eq",
+                                            "value": "true"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "TaxIdNo",
+                                        "TaxpayerName",
+                                        "Addr",
+                                        "AreaCode3",
+                                        "AreaCode4"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "unrequiredField",
+                                    "condition": [
+                                        {
+                                            "variable": "IsNpwpExist",
+                                            "restriction": "Eq",
+                                            "value": "false"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "TaxIdNo",
+                                        "TaxpayerName",
+                                        "Addr",
+                                        "AreaCode3",
+                                        "AreaCode4"
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "BOOL",
+                            "Label": "Tax Id No Exist",
+                            "Variable": "IsNpwpExist",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "mode",
+                                    "restriction": "EQ",
+                                    "value": "edit"
+                                }
+                            ],
+                            "isUseApi": true,
+                            "reqObj": [
+                                {
+                                    "propName": "Id",
+                                    "propValue": "VendorId",
+                                    "isFromDict": false
+                                }
+                            ],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/Vendor/GetVendorBranchAndVendorTaxAddrByVendorId",
+                            "mapRes": [
+                                {
+                                    "accessorName": "VendorObj.MrTaxCalcMethodCode",
+                                    "variableName": "MrTaxCalcMethodCode"
+                                },
+                                {
+                                    "accessorName": "VendorObj.IsVat",
+                                    "variableName": "IsVat"
+                                },
+                                {
+                                    "accessorName": "VendorObj.IsNpwpExist",
+                                    "variableName": "IsNpwpExist"
+                                }
+                            ]
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": [
+                        {
+                            "type": "requiredField",
+                            "condition": [
+                                {
+                                    "variable": "IsNpwpExist",
+                                    "restriction": "Eq",
+                                    "value": "true"
+                                }
+                            ],
+                            "listField": [
+                                "TaxIdNo",
+                                "TaxpayerName",
+                                "Addr",
+                                "Zipcode",
+                                "AreaCode3",
+                                "AreaCode4"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "unrequiredField",
+                            "condition": [
+                                {
+                                    "variable": "IsNpwpExist",
+                                    "restriction": "Eq",
+                                    "value": "false"
+                                }
+                            ],
+                            "listField": [
+                                "TaxIdNo",
+                                "TaxpayerName",
+                                "Addr",
+                                "Zipcode",
+                                "AreaCode3",
+                                "AreaCode4"
+                            ],
+                            "isRevertable": true
+                        }
+                    ]
+                }
+            },
+            "id": "6213461b-1ec2-450d-a338-7484ebbfcbf1"
+        },
+        {
+            "container": {
+                "key": "SelfCustomContainerOcrVendorComponent",
+                "className": "SelfCustomContainerOcrVendorComponent",
+                "cssClass": "",
+                "input": {}
+            },
+            "id": "bdb09610-7b7b-4f49-ba1b-d2552b0e28ea"
+        },
+        {
+            "form": {
+                "subsection": {
+                    "title": "Tax Info",
+                    "isVertical": true,
+                    "isSubsection": false,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Tax Id No",
+                            "Variable": "TaxIdNo",
+                            "Value": "",
+                            "Pattern": "^[0-9]+$",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "15",
+                            "Max": "16",
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Tax Payer Name",
+                            "Variable": "TaxpayerName",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXTAREA",
+                            "Label": "Tax Address",
+                            "Variable": "Addr",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "RT",
+                            "Variable": "AreaCode4",
+                            "Value": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "3",
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[0-9]{1,3}$",
+                                    "invalidMsg": "Number Only And Max 3 Characthers"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "RW",
+                            "Variable": "AreaCode3",
+                            "Value": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": "3",
+                            "Placeholder": "",
+                            "CustomPattern": [
+                                {
+                                    "pattern": "^[0-9]{1,3}$",
+                                    "invalidMsg": "Number Only And Max 3 Characthers"
+                                }
+                            ]
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "bindValue",
+                                    "condition": [
+                                        {
+                                            "variable": "Zipcode",
+                                            "restriction": "NEQ",
+                                            "value": ""
+                                        }
+                                    ],
+                                    "listBind": [
+                                        {
+                                            "variable": "AreaCode2",
+                                            "value": "LookupEv.AreaCode2"
+                                        },
+                                        {
+                                            "variable": "AreaCode1",
+                                            "value": "LookupEv.AreaCode1"
+                                        },
+                                        {
+                                            "variable": "City",
+                                            "value": "LookupEv.City"
+                                        },
+                                        {
+                                            "variable": "Province",
+                                            "value": "LookupEv.Province"
+                                        }
+                                    ],
+                                    "isRevertable": false
+                                }
+                            ],
+                            "Type": "LOOKUP",
+                            "Label": "Zip Code",
+                            "Variable": "Zipcode",
+                            "IsRequired": false,
+                            "IsCallback": true,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "IsClear": false,
+                            "LookupName": "${Lookupzipcode}",
+                            "Criteria": [],
+                            "pagingInput": {
+                                "lookupId": "Lookupzipcode",
+                                "title": "Lookup - Zipcode",
+                                "component": [
+                                    {
+                                        "id": "rzzipcodeSearchId",
+                                        "type": "textbox",
+                                        "label": "ZipCode",
+                                        "name": "RZ.ZIPCODE",
+                                        "value": "",
+                                        "placeholder": "",
+                                        "datatype": "text"
+                                    },
+                                    {
+                                        "id": "rzcitySearchId",
+                                        "type": "textbox",
+                                        "label": "Kota",
+                                        "name": "RZ.CITY",
+                                        "value": "",
+                                        "placeholder": "",
+                                        "datatype": "text"
+                                    },
+                                    {
+                                        "id": "rzareaCode2SearchId",
+                                        "type": "textbox",
+                                        "label": "Kelurahan",
+                                        "name": "RZ.AREA_CODE_2",
+                                        "value": "",
+                                        "placeholder": "",
+                                        "datatype": "text"
+                                    },
+                                    {
+                                        "id": "rzareaCode1SearchId",
+                                        "type": "textbox",
+                                        "label": "Kecamatan",
+                                        "name": "RZ.AREA_CODE_1",
+                                        "value": "",
+                                        "placeholder": "",
+                                        "datatype": "text"
+                                    }
+                                ],
+                                "querystring": {
+                                    "name": "lookupZipcode"
+                                },
+                                "orderby": null,
+                                "headerList": [
+                                    {
+                                        "type": "sort",
+                                        "label": "Kota",
+                                        "position": "left",
+                                        "name": "RZ.CITY"
+                                    },
+                                    {
+                                        "type": "sort",
+                                        "label": "Kelurahan",
+                                        "position": "left",
+                                        "name": "RZ.AREA_CODE_2"
+                                    },
+                                    {
+                                        "type": "sort",
+                                        "label": "Kecamatan",
+                                        "position": "left",
+                                        "name": "RZ.AREA_CODE_1"
+                                    },
+                                    {
+                                        "type": "sort",
+                                        "label": "ZipCode",
+                                        "position": "left",
+                                        "name": "RZ.ZIPCODE"
+                                    },
+                                    {
+                                        "type": "label",
+                                        "position": "center",
+                                        "label": "Select"
+                                    }
+                                ],
+                                "bodyList": [
+                                    {
+                                        "type": "text",
+                                        "position": "left",
+                                        "property": "City"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "position": "left",
+                                        "property": "AreaCode2"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "position": "left",
+                                        "property": "AreaCode1"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "position": "left",
+                                        "property": "Zipcode"
+                                    },
+                                    {
+                                        "type": "action",
+                                        "position": "center",
+                                        "action": [
+                                            {
+                                                "type": "select",
+                                                "property": "Zipcode"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "propertyId": "Zipcode",
+                                "propertyName": "Zipcode",
+                                "environment": "FoundationR3Url",
+                                "apiVersion": "v1"
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Kelurahan",
+                            "Variable": "AreaCode2",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Kecamatan",
+                            "Variable": "AreaCode1",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "City",
+                            "Variable": "City",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Province",
+                            "Variable": "Province",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "MrVendorCategoryCode",
+                            "Variable": "VendorCategoryCode",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/Vendor/GetVendorBranchAndVendorTaxAddrByVendorId",
+                            "reqObj": [
+                                {
+                                    "propName": "Id",
+                                    "propValue": "VendorId",
+                                    "isFromDict": false
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "VendorObj.TaxIdNo",
+                                    "variableName": "TaxIdNo"
+                                },
+                                {
+                                    "accessorName": "VendorObj.TaxpayerName",
+                                    "variableName": "TaxpayerName"
+                                },
+                                {
+                                    "accessorName": "VendorAddrObj.Addr",
+                                    "variableName": "Addr"
+                                },
+                                {
+                                    "accessorName": "VendorAddrObj.AreaCode3",
+                                    "variableName": "AreaCode3"
+                                },
+                                {
+                                    "accessorName": "VendorAddrObj.AreaCode4",
+                                    "variableName": "AreaCode4"
+                                },
+                                {
+                                    "accessorName": "VendorAddrObj.Zipcode",
+                                    "variableName": "Zipcode"
+                                },
+                                {
+                                    "accessorName": "VendorAddrObj.AreaCode1",
+                                    "variableName": "AreaCode1"
+                                },
+                                {
+                                    "accessorName": "VendorAddrObj.AreaCode2",
+                                    "variableName": "AreaCode2"
+                                },
+                                {
+                                    "accessorName": "VendorAddrObj.City",
+                                    "variableName": "City"
+                                },
+                                {
+                                    "accessorName": "VendorAddrObj.Province",
+                                    "variableName": "Province"
+                                }
+                            ],
+                            "action": [],
+                            "conditions": [
+                                {
+                                    "property": "mode",
+                                    "restriction": "EQ",
+                                    "value": "edit"
+                                },
+                                {
+                                    "property": "formRaw.IsNpwpExist",
+                                    "restriction": "EQ",
+                                    "value": "true"
+                                }
+                            ],
+                            "isUseApi": true
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": [
+                        {
+                            "type": "bindValue",
+                            "condition": [
+                                {
+                                    "variable": "MrVendorCategoryCode",
+                                    "restriction": "NEQ",
+                                    "value": ""
+                                }
+                            ],
+                            "listBind": [
+                                {
+                                    "variable": "VendorCategoryCode",
+                                    "value": "MrVendorCategoryCode"
+                                }
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "hideField",
+                            "condition": [
+                                {
+                                    "variable": "VendorCategoryCode",
+                                    "restriction": "IN",
+                                    "value": "ASSET_INSCO_BRANCH;LIFE_INSCO_BRANCH"
+                                }
+                            ],
+                            "listField": [
+                                "MrTaxCalcMethodCode",
+                                "IsVat"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "unrequiredField",
+                            "condition": [
+                                {
+                                    "variable": "MrVendorCategoryCode",
+                                    "restriction": "IN",
+                                    "value": "ASSET_INSCO_BRANCH;LIFE_INSCO_BRANCH"
+                                }
+                            ],
+                            "listField": [
+                                "MrTaxCalcMethodCode",
+                                "IsVat"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "bindValue",
+                            "condition": [
+                                {
+                                    "variable": "mode",
+                                    "restriction": "Eq",
+                                    "value": "edit"
+                                }
+                            ],
+                            "listBind": [
+                                {
+                                    "variable": "TaxIdNo",
+                                    "value": "TaxIdNo"
+                                },
+                                {
+                                    "variable": "TaxpayerName",
+                                    "value": "TaxpayerName"
+                                },
+                                {
+                                    "variable": "Addr",
+                                    "value": "Addr"
+                                },
+                                {
+                                    "variable": "AreaCode4",
+                                    "value": "AreaCode4"
+                                },
+                                {
+                                    "variable": "AreaCode3",
+                                    "value": "AreaCode3"
+                                },
+                                {
+                                    "variable": "Zipcode",
+                                    "value": "Zipcode"
+                                },
+                                {
+                                    "variable": "AreaCode2",
+                                    "value": "AreaCode2"
+                                },
+                                {
+                                    "variable": "AreaCode1",
+                                    "value": "AreaCode1"
+                                },
+                                {
+                                    "variable": "City",
+                                    "value": "City"
+                                },
+                                {
+                                    "variable": "Province",
+                                    "value": "Province"
+                                }
+                            ],
+                            "isRevertable": false
+                        }
+                    ]
+                }
+            },
+            "id": "3f925ce9-8c7f-4142-bef1-7efba156ecad",
+            "conditions": [
+                {
+                    "property": "formRaw.IsNpwpExist",
+                    "restriction": "EQ",
+                    "value": "true"
+                }
+            ]
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onCancel": {},
+    "isOverrideSubmit": true,
+    "isOverrideCancel": false,
+    "onSubmit": [
+        {
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "add"
+                }
+            ],
+            "result": {
+                "type": "function",
+                "target": "executor",
+                "alias": "addEditvendorBranch",
+                "methodName": "addEditvendorBranch",
+                "params": [
+                    {
+                        "propName": "dicts",
+                        "propValue": "dicts"
+                    },
+                    {
+                        "propName": "api",
+                        "propValue": "/v2/Vendor/AddVendorBranch"
+                    },
+                    {
+                        "propName": "next",
+                        "propValue": "/Vendor/SelfCustom/Branch/Detail"
+                    },
+                    {
+                        "propName": "http",
+                        "propValue": "http"
+                    },
+                    {
+                        "propName": "toastr",
+                        "propValue": "toastr"
+                    },
+                    {
+                        "propName": "router",
+                        "propValue": "router"
+                    }
+                ]
+            }
+        },
+        {
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "edit"
+                }
+            ],
+            "result": {
+                "type": "function",
+                "target": "executor",
+                "alias": "addEditvendorBranch",
+                "methodName": "addEditvendorBranch",
+                "params": [
+                    {
+                        "propName": "dicts",
+                        "propValue": "dicts"
+                    },
+                    {
+                        "propName": "api",
+                        "propValue": "/v2/Vendor/EditVendorBranch"
+                    },
+                    {
+                        "propName": "next",
+                        "propValue": "/Vendor/SelfCustom/Branch/Detail"
+                    },
+                    {
+                        "propName": "http",
+                        "propValue": "http"
+                    },
+                    {
+                        "propName": "toastr",
+                        "propValue": "toastr"
+                    },
+                    {
+                        "propName": "router",
+                        "propValue": "router"
+                    }
+                ]
+            }
+        }
+    ],
+    "hideCancelButton": false,
+    "onInit": [
+        {
+            "environment": "FoundationR3Url",
+            "apiPath": "/v1/GeneralSetting/GetGeneralSettingByCode",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Code",
+                    "propValue": "IS_USE_VENDOR_TAX_SCHM_CODE"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ShowInputVendorTaxSchmCode",
+                    "propValue": "GsValue"
+                }
+            ],
+            "conditions": []
+        },
+        {
+            "environment": "FoundationR3Url",
+            "apiPath": "/v2/Vendor/GetVendorBranchAndVendorTaxAddrByVendorId",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Id",
+                    "propValue": "VendorId"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "TaxIdNo",
+                    "propValue": "VendorObj.TaxIdNo"
+                },
+                {
+                    "propName": "TaxpayerName",
+                    "propValue": "VendorObj.TaxpayerName"
+                },
+                {
+                    "propName": "Addr",
+                    "propValue": "VendorAddrObj.Addr"
+                },
+                {
+                    "propName": "AreaCode3",
+                    "propValue": "VendorAddrObj.AreaCode3"
+                },
+                {
+                    "propName": "AreaCode4",
+                    "propValue": "VendorAddrObj.AreaCode4"
+                },
+                {
+                    "propName": "Zipcode",
+                    "propValue": "VendorAddrObj.Zipcode"
+                },
+                {
+                    "propName": "AreaCode1",
+                    "propValue": "VendorAddrObj.AreaCode1"
+                },
+                {
+                    "propName": "AreaCode2",
+                    "propValue": "VendorAddrObj.AreaCode2"
+                },
+                {
+                    "propName": "City",
+                    "propValue": "VendorAddrObj.City"
+                },
+                {
+                    "propName": "Province",
+                    "propValue": "VendorAddrObj.Province"
+                },
+                {
+                    "propName": "MrVendorCategoryCode",
+                    "propValue": "VendorObj.MrVendorCategoryCode"
+                }
+            ],
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "edit"
+                }
+            ]
+        }
+    ],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": ""
+}

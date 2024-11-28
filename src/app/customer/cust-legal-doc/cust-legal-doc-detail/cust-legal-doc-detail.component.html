@@ -1,0 +1,105 @@
+<form class="form form-horizontal" [formGroup]="CustCompanyLegalDocForm" #enjiForm="ngForm" novalidate
+  (ngSubmit)="enjiForm.form.valid && Save()">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Customer Legal Document</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('0')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12">
+      <div class="">
+        <div class="">
+          <div class="px-3">
+            <div class="form-body">
+              <div id="CustLegalDocSection">
+                <div class="form-group row adins-required">
+                  <label class="col-md-3 adInsLabel adins-required-label" for="MrLegalDocTypeCode" translate>Legal Doc
+                    Type</label>
+                  <div class="col-md-9">
+                    <select class="form-control adInsInput" formControlName="MrLegalDocTypeCode"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && CustCompanyLegalDocForm.controls.MrLegalDocTypeCode.invalid }"
+                      [attr.disabled]="Mode == 'Edit' ? true : null">
+                      <option *ngFor="let item of legalDocTypeList?.ReturnObject" [value]="item.Key">{{item.Value}}
+                      </option>
+                    </select>
+                    <lib-uc-show-errors [control]="CustCompanyLegalDocForm.controls.MrLegalDocTypeCode"
+                      [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 adInsLabel adins-required-label" for="DocNo" translate>Document No.</label>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control adInsInput" formControlName="DocNo"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && CustCompanyLegalDocForm.controls.DocNo.invalid }" />
+                    <lib-uc-show-errors [control]="CustCompanyLegalDocForm.controls.DocNo" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 adInsLabel adins-required-label" for="DocDt" translate>Date Issued</label>
+                  <div class="col-md-9">
+                    <input type="date" class="form-control adInsInput" formControlName="DocDt" [max]="businessDtMin | date: 'yyyy-MM-dd'"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && CustCompanyLegalDocForm.controls.DocDt.invalid }" />
+                    <lib-uc-show-errors [control]="CustCompanyLegalDocForm.controls.DocDt" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 adInsLabel" for="DocExpiredDt" translate>Expired Date</label>
+                  <div class="col-md-9">
+                    <input type="date" class="form-control adInsInput" formControlName="DocExpiredDt" [min]="businessDtMax | date: 'yyyy-MM-dd'"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && CustCompanyLegalDocForm.controls.DocExpiredDt.invalid }">
+                    <lib-uc-show-errors [control]="CustCompanyLegalDocForm.controls.DocExpiredDt"
+                      [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 adInsLabel" for="DocNotes" translate>Notes</label>
+                  <div class="col-md-9">
+                    <textarea class="form-control adInsInput" formControlName="DocNotes"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && CustCompanyLegalDocForm.controls.DocNotes.invalid }"></textarea>
+                    <lib-uc-show-errors [control]="CustCompanyLegalDocForm.controls.DocNotes" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 adInsLabel" for="NotaryName" translate>Notary Name</label>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control adInsInput" formControlName="NotaryName"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && CustCompanyLegalDocForm.controls.NotaryName.invalid }" />
+                    <lib-uc-show-errors [control]="CustCompanyLegalDocForm.controls.NotaryName" [submit]="enjiForm.submitted">
+                    </lib-uc-show-errors>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 adInsLabel" for="NotaryLocation" translate>Notary
+                    Location</label>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control adInsInput" formControlName="NotaryLocation"
+                      [ngClass]="{ 'is-invalid': enjiForm.submitted && CustCompanyLegalDocForm.controls.NotaryLocation.invalid }" />
+                    <lib-uc-show-errors [control]="CustCompanyLegalDocForm.controls.NotaryLocation"
+                      [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                  </div>
+                </div>
+                <!--div class="form-group row">
+                  <label class="col-md-3 adInsLabel adins-required-label" for="IsExpDtMandatory" translate>Expired Date Mandatory</label>
+                  <div class="col-md-9">
+                    <input type="checkbox" formControlName="IsExpDtMandatory" />
+                  </div>
+                </div-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning btn-raised" (click)="activeModal.dismiss('0')"> <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span></button>
+    <button type="submit" class="btn btn-raised btn-primary">
+      <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+    </button>
+    
+  </div>
+</form>

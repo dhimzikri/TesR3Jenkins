@@ -1,0 +1,74 @@
+{
+    "title": "Lookup - Ref Master Type",
+    "sectionTitle": "Search",
+    "component": [
+      {
+        "type": "textbox",
+        "name": "REF_MASTER_TYPE_CODE",
+        "id": "RefMasterTypeCodeId",
+        "value": "",
+        "label": "Ref Master Type Code",
+        "placeholder": "Ref Master Type Code"
+      },
+      {
+        "type": "textbox",
+        "name": "DESCR",
+        "id": "RefMasterTypeNameId",
+        "value": "",
+        "label": "Description",
+        "placeholder": "Description"
+      }
+    ],
+    "headerList": [
+      {
+        "type": "sort",
+        "position": "center",
+        "label": "Ref Master Type Code",
+        "name": "REF_MASTER_TYPE_CODE"
+      },
+      {
+        "type": "sort",
+        "position": "left",
+        "label": "Description",
+        "name": "DESCR"
+      },
+      {
+        "type": "label",
+        "position": "center",
+        "label": "Action"
+      }
+    ],
+  
+    "querystring": {
+      "name": "lookupRefMasterType"
+    },
+  
+    "bodyList": [
+      {
+        "type": "text",
+        "position": "center",
+        "property": "RefMasterTypeCode"
+      },
+      {
+        "type": "text",
+        "position": "left",
+        "property": "Descr"
+      },
+      {
+        "type": "action",
+        "position": "center",
+        "action": [
+          {
+            "type": "select",
+            "property": "RefMasterTypeCode"
+          }
+        ]
+      }
+    ],
+  
+    "propertyId": "RefMasterTypeCode",
+    "propertyName": "Descr"
+  
+  
+  }
+  

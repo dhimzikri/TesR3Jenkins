@@ -1,0 +1,89 @@
+{
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Currency Code",
+            "name": "currCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Currency",
+            "name": "currName"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Active Status",
+            "name": "isActive"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Exchange Rate"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Edit"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "currCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "currName"
+        },
+        {
+            "type": "boolean",
+            "position": "center",
+            "property": "isActive"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "/CommonSetting/Currency/add",
+                    "param": [
+                        {
+                            "type": "refCurrId",
+                            "property": "refCurrId"
+                        },
+                        {
+                            "type": "exRate",
+                            "property": "true"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "edit",
+                    "path": "/CommonSetting/Currency/add",
+                    "param": [
+                        {
+                            "type": "refCurrId",
+                            "property": "refCurrId"
+                        },
+                        {
+                            "type": "param",
+                            "property": "edit"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

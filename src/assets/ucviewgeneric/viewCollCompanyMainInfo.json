@@ -1,0 +1,57 @@
+{
+    "title":"",
+    "subsection": [
+      {
+        "subSectionId": "CollCompanyMainInfoId",
+        "subSectionTitle": "Main Collection Company Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Registration Number:",
+            "property": "RegistrationNo"
+          },
+          {
+            "type": "text",
+            "label": "Rating :",
+            "property": "VendorRating"
+          },
+          {
+            "type": "text",
+            "label": "License Number :",
+            "property": "LicenseNo"
+          },
+          {
+            "type": "text",
+            "label": "Email :",
+            "property": "Email"
+          },
+          {
+            "type": "date",
+            "label": "Establishment Date :",
+            "property": "EstablishmentDt"
+          },
+          {
+            "type": "text",
+            "label": "Mobile Phone 1 :",
+            "property": "Mp1"
+          },
+          {
+            "type": "date",
+            "label": "Partnership Date :",
+            "property": "PartnershipDt"
+          },
+          {
+            "type": "text",
+            "label": "Mobile Phone 2 :",
+            "property": "Mp2"
+          }
+
+        ],
+        "querystring": {
+            "name":"viewVendorCollCompanyMainInfo"
+        }
+      }
+    ]
+  }
+  

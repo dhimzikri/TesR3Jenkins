@@ -1,0 +1,317 @@
+{
+    "title": "Termination Paging",
+    "id": "TerminationPagingXCNAF",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "PayoutUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchTerminationPaging"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company Name",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "bthtrxStatSearchId",
+                            "type": "dropdown",
+                            "label": "Termination Batch Status",
+                            "name": "BTH.TRX_STAT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefStatusTms/GetListKeyValueActiveGrpCodeByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "TERMINATION_PREPARE_STATUS_TMS",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "bthtrxNoSearchId",
+                            "type": "textbox",
+                            "label": "Termination Batch No",
+                            "name": "BTH.TRX_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text"
+                        },
+                        {
+                            "id": "bthterminationTypeSearchId",
+                            "type": "dropdown",
+                            "label": "Batch Type",
+                            "name": "BTH.TERMINATION_TYPE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/RefStatusTms/GetListKeyValueActiveGrpCodeByCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "TERMINATION_PREPARE_TYPE_STATUS_TMS",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "bthtrxDtSearchId",
+                            "type": "datepicker",
+                            "label": "Batch Prepare Date >=",
+                            "name": "BTH.TRX_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "gt",
+                            "useDefVal": false
+                        },
+                        {
+                            "id": "bthtrxDtSearchId",
+                            "type": "datepicker",
+                            "label": "Batch Prepare Date <=",
+                            "name": "BTH.TRX_DT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "date",
+                            "restriction": "lte",
+                            "useDefVal": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "label",
+                            "label": "Funding Company Name",
+                            "position": "left"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Contract Name",
+                            "position": "left",
+                            "name": "JCT.JF_CONTRACT_NAME"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Batch No",
+                            "position": "center",
+                            "name": "JBT.JF_BATCH_NO"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Batch Prepare Date",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Termination Batch Status",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Batch Type",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Termination Batch No",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundCoyName",
+                            "key": "ViewVendor"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "ContractName",
+                            "key": "ViewFundingContract"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "center",
+                            "property": "BatchNo",
+                            "isFlagColor": false,
+                            "key": "ViewFundingBatch"
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "BatchPrepareDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "TerminationStatus",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "BatchType",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "link",
+                            "position": "center",
+                            "property": "PaymentBatchNo",
+                            "isFlagColor": false,
+                            "target": "_blank",
+                            "path": "/ViewTermination/Inquiry/View",
+                            "param": [
+                                {
+                                    "type": "TerminationBatchNo",
+                                    "property": "PaymentBatchNo"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/Termination/TerminationPrepare/View",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "TerminationNo",
+                                            "property": "PaymentBatchNo"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [
+                    {
+                        "propName": "RMT.DESCR",
+                        "restriction": "Eq",
+                        "value": "Early Termination",
+                        "conditions": [
+                            {
+                                "property": "Type",
+                                "restriction": "EQ",
+                                "value": "ET"
+                            }
+                        ]
+                    },
+                    {
+                        "propName": "RMT.DESCR",
+                        "restriction": "Eq",
+                        "value": "Buy Back",
+                        "conditions": [
+                            {
+                                "property": "Type",
+                                "restriction": "EQ",
+                                "value": "BB"
+                            }
+                        ]
+                    }
+                ],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "service": "",
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "5ed74203-b1ca-4e6f-9ed0-d65f846a38ed"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [
+        {
+            "displayName": "Add",
+            "id": "addId",
+            "key": "",
+            "position": "top",
+            "icon": "ft-plus-circle",
+            "cssClass": "btn-primary-2",
+            "conditions": [],
+            "btnType": "button",
+            "action": {
+                "type": "link",
+                "path": "/Termination/TerminationPrepare/AddEditX",
+                "params": [
+                    {
+                        "propName": "Type",
+                        "propValue": "Type"
+                    }
+                ],
+                "target": "_self"
+            }
+        }
+    ],
+    "customToastrMsg": "",
+    "child": [
+        "TerminationAddEdit"
+    ],
+    "onCancel": {},
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onSubmit": [],
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": "",
+    "hideCancelButton": false
+}

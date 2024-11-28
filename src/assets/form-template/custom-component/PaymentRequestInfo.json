@@ -1,0 +1,196 @@
+{
+    "id": "PaymentRequestInfo",
+    "name": "Payment Request Info",
+    "saveState": false,
+    "customComponent": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "PaymentRequestInfoId",
+                    "subSectionTitle": "Payment Request Info",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "FINOPS",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/v1/PaymentRequest/GetPaymentRequestInfo",
+                    "querystring": {
+                        "name": ""
+                    },
+                    "reqObj": {
+                        "TrxNo": "TransactionNo"
+                    },
+                    "resObjName": "",
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Office Name",
+                            "property": "OfficeName",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Request Status",
+                            "property": "PayReqStat",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Request No",
+                            "property": "PayReqNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Vendor",
+                            "property": "Vendor",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Request date",
+                            "property": "ReqDt",
+                            "dateFormat": "",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Vendor Bank Account",
+                            "property": "VendorBankAcc",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Request By",
+                            "property": "ReqBy",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Invoice No",
+                            "property": "InvoiceNo",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Request Type",
+                            "property": "PayReqType",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "date",
+                            "label": "Invoice Date",
+                            "property": "InvoiceDt",
+                            "dateFormat": "",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Invoice Amount",
+                            "property": "InvoiceAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "link",
+                            "label": "Charge To Agreement",
+                            "property": "ChargeToAgrmnt",
+                            "isFullpath": false,
+                            "path": "/agrmntview/view",
+                            "target": "_blank",
+                            "position": "left",
+                            "param": [
+                                {
+                                    "type": "AgrmntNo",
+                                    "property": "ChargeToAgrmnt"
+                                }
+                            ],
+                            "isCurrency": false,
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Request Amount",
+                            "property": "ReqAmt",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Amount Charged",
+                            "property": "AmtCharged",
+                            "precision": "0.2",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Currency / Currency Rates",
+                            "property": "CurrWithRate",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Payment Request Notes",
+                            "property": "PayReqNotes",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": []
+                }
+            },
+            "id": "487de8c2-90b9-4821-a415-810ebf41560b"
+        }
+    ]
+}

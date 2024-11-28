@@ -1,0 +1,148 @@
+<lib-ucviewgeneric [viewGenericObj]="viewVendorCollCompanyObj"></lib-ucviewgeneric>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Main Information">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <br>
+          <div>
+            <ng-container>
+              <lib-ucviewgeneric [viewGenericObj]="viewCollCompanyMainInfoObj"></lib-ucviewgeneric>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Tax">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <lib-ucviewgeneric [viewGenericObj]="viewVendorCollCompanyTaxObj"></lib-ucviewgeneric>
+            <lib-ucviewgeneric [viewGenericObj]="viewVendorCollCompanyTaxAddrObj"></lib-ucviewgeneric>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Address">
+    <ng-template matTabContent>
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <lib-ucviewgeneric [viewGenericObj]="viewVendorCollCompanyAddrObj"></lib-ucviewgeneric>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Bank Info">
+    <ng-template matTabContent>
+      <div style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-left" translate>BANK</th>
+              <th class="text-center" translate>ACCOUNT NUMBER</th>
+              <th class="text-left" translate>ACCOUNT NAME</th>
+              <th class="text-center" translate>DEFAULT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of VendorBankAcc">
+              <td class="text-left">{{item.BankName}}</td>
+              <td class="text-center">{{item.BankAccountNo}}</td>
+              <td class="text-left">{{item.BankAccountName}}</td>
+              <td class="text-center" *ngIf="item.IsDefault == true">Yes</td>
+              <td class="text-center" *ngIf="item.IsDefault == false">No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Employee">
+    <ng-template matTabContent>
+      <div style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-center" translate>EMPLOYEE NO</th>
+              <th class="text-left" translate>EMPLOYEE NAME</th>
+              <th class="text-center" translate>EMPLOYEE PHONE</th>
+              <th class="text-center" translate>RATING</th>
+              <th class="text-center" translate>CONTANCT PERSON</th>
+              <th class="text-center" translate>OWNER</th>
+              <th class="text-center" translate>ACTIVE STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of VendorEmp">
+              <td class="text-center">{{item.VendorEmpNo}}</td>
+              <td class="text-left">{{item.VendorEmpName}}</td>
+              <td class="text-center">{{item.MobilePhnNo1}}</td>
+              <td class="text-center">{{item.VendorEmpRating}}</td>
+              <td class="text-center" *ngIf="item.IsContactPerson == true">Yes</td>
+              <td class="text-center" *ngIf="item.IsContactPerson == false">No</td>
+              <td class="text-center" *ngIf="item.IsOwner == true">Yes</td>
+              <td class="text-center" *ngIf="item.IsOwner == false">No</td>
+              <td class="text-center" *ngIf="item.IsActive == true">Yes</td>
+              <td class="text-center" *ngIf="item.IsActive == false">No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <!-- <mat-tab label="Group Info">
+    <ng-template matTabContent>
+      <div style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-center" translate>GROUP CODE</th>
+              <th class="text-left" translate>GROUP NAME</th>
+              <th class="text-center" translate>ACTIVE STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of VendorGrp">
+              <td class="text-center">{{item.VendorGrpCode}}</td>
+              <td class="text-left">{{item.VendorGrpName}}</td>
+              <td class="text-center" *ngIf="item.IsActive == true">Yes</td>
+              <td class="text-center" *ngIf="item.IsActive == false">No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </mat-tab> -->
+  <mat-tab label="Office Info">
+    <ng-template matTabContent>
+      <div style="overflow-x: auto;">
+        <table class="table table-responsive-md text-center table-hover">
+          <thead>
+            <tr class="table-header">
+              <th class="text-center" translate>OFFICE CODE</th>
+              <th class="text-left" translate>OFFICE NAME</th>
+              <th class="text-left" translate>OFFICE ADDRESS</th>
+              <th class="text-center" translate>ACTIVE STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of VendorOfficeMbr">
+              <td class="text-center">{{item.OfficeCode}}</td>
+              <td class="text-left">{{item.OfficeName}}</td>
+              <td class="text-left">{{item.OfficeAddr}}</td>
+              <td class="text-center" *ngIf="item.IsActive == true">Yes</td>
+              <td class="text-center" *ngIf="item.IsActive == false">No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

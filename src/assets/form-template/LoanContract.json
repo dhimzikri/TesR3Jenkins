@@ -1,0 +1,431 @@
+{
+    "title": "Loan Contract",
+    "hideTitle": false,
+    "id": "LoanContract",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "facilityMntUrl",
+                "apiVersion": "v2.1",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "",
+                    "querystring": {
+                        "name": "searchLoanContract"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "vtvendorCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Company",
+                            "name": "VT.VENDOR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": true,
+                            "environment": "FOU",
+                            "path": "/Vendor/GetListKvpVendorObjByCategoryCode",
+                            "criteriaPropName": "Code",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [
+                                "LC.LOAN_CONTRACT_NO"
+                            ],
+                            "filterPropName": "VendorCode"
+                        },
+                        {
+                            "id": "lcloanContractNoSearchId",
+                            "type": "dropdown",
+                            "label": "Funding Contract",
+                            "name": "LC.LOAN_CONTRACT_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FACILITYMNT",
+                            "path": "/LoanContract/GetListLoanContractKeyAndValue",
+                            "criteriaPropName": "Key",
+                            "criteriaPropValue": "JF_FUNDING_COMPANY",
+                            "isQueryIn": false,
+                            "affectedFilter": [],
+                            "filterPropName": ""
+                        },
+                        {
+                            "id": "lcfacilityKindCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Facility Type",
+                            "name": "LC.FACILITY_KIND_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "environment": "FOU",
+                            "path": "/RefMaster/GetListKeyValueActiveByCode",
+                            "criteriaPropName": "RefMasterTypeCode",
+                            "criteriaPropValue": "TMS_FACILITY_TYPE",
+                            "isQueryIn": false,
+                            "affectedFilter": [],
+                            "filterPropName": "",
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": []
+                        },
+                        {
+                            "id": "lccurrCodeSearchId",
+                            "type": "dropdown",
+                            "label": "Currency",
+                            "name": "LC.CURR_CODE",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": true,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "environment": "FOU",
+                            "path": "/RefCurr/GetListKvpActiveRefCurr",
+                            "criteriaPropName": "",
+                            "criteriaPropValue": "",
+                            "isQueryIn": false
+                        },
+                        {
+                            "id": "(case when lcisActive=1 then 'yes' else 'no' end)SearchId",
+                            "type": "dropdown",
+                            "label": "Is Active",
+                            "name": "(case when LC.IS_ACTIVE=1 THEN 'YES' else 'NO' END)",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isFromURL": false,
+                            "ddlType": "all",
+                            "isEvent": false,
+                            "items": [
+                                {
+                                    "key": "YES",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "key": "NO",
+                                    "value": "No"
+                                }
+                            ]
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Funding Company Name",
+                            "position": "left",
+                            "name": "VT.VENDOR_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Contract Name",
+                            "position": "left",
+                            "name": "LC.LOAN_CONTRACT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Contract No",
+                            "position": "center",
+                            "name": "LC.LOAN_CONTRACT_NO"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Facility Type",
+                            "position": "left",
+                            "name": "LC.FACILITY_KIND_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Currency",
+                            "position": "left",
+                            "name": "LC.CURR_CODE"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Contract Date",
+                            "position": "center",
+                            "name": "LC.CONTRACT_DT"
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Status",
+                            "position": "center",
+                            "name": "(case when LC.IS_ACTIVE=1 THEN 'YES' else 'NO' END)"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Edit",
+                            "position": "center"
+                        },                        
+                        {
+                            "type": "label",
+                            "label": "Batch",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Fee",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Term And Condition",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Branch Plafond",
+                            "position": "center"
+                        },
+                        {
+                            "type": "label",
+                            "label": "Negative Covenant",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "FundingCompanyName",
+                            "isFlagColor": false,
+                            "key": "ViewVendor"
+                        },
+                        {
+                            "type": "callback",
+                            "position": "left",
+                            "property": "ContractName",
+                            "isFlagColor": false,
+                            "key": "ViewLoanContract"
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "LoanContractNo",
+                            "isFlagColor": false,
+                            "key": "ViewLoanContract"
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "FacilityType",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "left",
+                            "property": "Currency",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "ContractDate",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "Status",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "LoanContractNo",
+                                            "property": "LoanContractNo"
+                                        },
+                                        {
+                                            "type": "mode",
+                                            "property": "edit"
+                                        }
+                                    ],
+                                    "path": "/Setting/LoanContract/Add/Detail",
+                                    "icon": "ft-edit"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/Setting/LoanBatch/Paging",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "LoanContractNo",
+                                            "property": "LoanContractNo"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/Setting/LoanContract/Additional",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "LoanContractNo",
+                                            "property": "LoanContractNo"
+                                        },
+                                        {
+                                            "type": "Type",
+                                            "property": "FEE"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/Setting/LoanContract/Additional",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "LoanContractNo",
+                                            "property": "LoanContractNo"
+                                        },
+                                        {
+                                            "type": "Type",
+                                            "property": "TERMCOND"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/Setting/LoanContract/Additional",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "LoanContractNo",
+                                            "property": "LoanContractNo"
+                                        },
+                                        {
+                                            "type": "Type",
+                                            "property": "BRANCH_PLAFOND"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "link",
+                                    "path": "/Setting/LoanContract/Additional",
+                                    "target": "_self",
+                                    "param": [
+                                        {
+                                            "type": "LoanContractNo",
+                                            "property": "LoanContractNo"
+                                        },
+                                        {
+                                            "type": "Type",
+                                            "property": "NEG_COV"
+                                        }
+                                    ],
+                                    "property": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": false,
+                "isHideSearch": false,
+                "isSearched": false,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "customApiQryPaging": ""
+            },
+            "id": "91fb9bfa-86d8-4741-be08-76e5adca88e4"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "facilityMntUrl",
+            "apiPath": "/v1/LoanContractObj/AddEditObj",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [
+        {
+            "displayName": "Add Loan Contract",
+            "id": "add loan contractId",
+            "key": "",
+            "position": "top",
+            "icon": "",
+            "cssClass": "",
+            "conditions": [],
+            "btnType": "button",
+            "action": {
+                "type": "link",
+                "path": "/Setting/LoanContract/Add/Detail",
+                "target": "_self",
+                "params": []
+            }
+        }
+    ],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false
+}

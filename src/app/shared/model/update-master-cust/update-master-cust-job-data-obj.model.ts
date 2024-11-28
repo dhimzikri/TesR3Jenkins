@@ -1,0 +1,30 @@
+export class UpdateMasterCustJobDataObj {
+    CustJobDataId: any;
+    CustId: any;
+    CustModel: any;
+    ProfessionId: any;
+    InternalEmployee: any;
+    JobPosition: any;
+    JobTitleName: any;
+    JobStatus: any;
+    EstablishmentDate: any;
+    CompanyName: any;
+    IndustryTypeId: any;
+    CompanyScale: any;
+    NumOfEmployee: any;
+    Address: any;
+    Zipcode: any;
+    AreaCode1: any;
+    AreaCode2: any;
+    AreaCode3: any;
+    AreaCode4: any;
+    City: any;
+    Phn1: any;
+    Phn2: any;
+    Fax: any;
+    RowVersionCustJobData: any;
+    RowVersionJobAddr: any;
+    RowVersionCust: any;
+    ProfessionName: any;
+    IndustryTypeName: any;
+}

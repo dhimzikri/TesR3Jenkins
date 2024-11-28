@@ -1,0 +1,204 @@
+{
+  "title": "Funding Company",
+  "id": "VendorfundingcoyyXcnaf",
+  "addButton": false,
+  "addLink": "",
+  "pathOption": "",
+  "backButton": false,
+  "component": [
+    {
+      "paging": {
+        "environment": "FoundationR3Url",
+        "apiVersion": "v1",
+        "pagingInput": {
+          "title": "",
+          "sectionTitle": "",
+          "querystring": { "name": "searchFundingCompanyX" },
+          "exportExcel": false,
+          "component": [
+            {
+              "id": "vvendorNameSearchId",
+              "type": "textbox",
+              "label": "Funding Company Name",
+              "name": "v.VENDOR_NAME",
+              "value": "",
+              "placeholder": "Funding Company Name",
+              "datatype": "text",
+              "isRequired": false,
+              "isReadonly": false,
+              "useAutofill": false,
+              "isUppercase": true,
+              "isCriteriaDataTable": false
+            },
+            {
+              "id": "rbbankCodeSearchId",
+              "type": "dropdown",
+              "label": "Bank Name",
+              "name": "rb.BANK_CODE",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isRequired": false,
+              "isFromURL": true,
+              "ddlType": "all",
+              "isEvent": false,
+              "environment": "FOU",
+              "path": "/v1/RefBank/GetListKeyValueActiveByCode",
+              "criteriaPropName": "",
+              "criteriaPropValue": "",
+              "isQueryIn": false,
+              "useAutofill": false
+            },
+            {
+              "id": "visActiveSearchId",
+              "type": "dropdown",
+              "label": "Active Status",
+              "name": "v.IS_ACTIVE",
+              "value": "",
+              "placeholder": "",
+              "datatype": "text",
+              "isFromURL": false,
+              "ddlType": "all",
+              "isEvent": false,
+              "items": [
+                { "key": "0", "value": "No" },
+                { "key": "1", "value": "Yes" }
+              ]
+            }
+          ],
+          "headerList": [
+            {
+              "type": "sort",
+              "label": "Funding Company Code",
+              "position": "center",
+              "name": "v.VENDOR_CODE",
+              "isSelectAll": false
+            },
+            {
+              "type": "sort",
+              "label": "Funding Company Name",
+              "position": "left",
+              "name": "v.VENDOR_NAME",
+              "isSelectAll": false
+            },
+            {
+              "type": "sort",
+              "label": "Bank Name",
+              "position": "left",
+              "name": "rb.BANK_NAME",
+              "isSelectAll": false
+            },
+            {
+              "type": "sort",
+              "label": "Active Status",
+              "position": "center",
+              "name": "v.IS_ACTIVE",
+              "isSelectAll": false
+            },
+            { "type": "label", "label": "Action", "position": "center" }
+          ],
+          "bodyList": [
+            {
+              "type": "link",
+              "position": "center",
+              "property": "FundCoyCode",
+              "isFlagColor": false,
+              "target": "_blank",
+              "path": "/View/Vendor/FundingCompanyX",
+              "param": [
+                { "type": "FundCoyCode", "property": "FundCoyCode" },
+                { "type": "VendorId", "property": "VendorId" }
+              ]
+            },
+            {
+              "type": "text",
+              "position": "left",
+              "property": "FundCoyName",
+              "isFlagColor": false
+            },
+            {
+              "type": "text",
+              "position": "left",
+              "property": "BankName",
+              "isFlagColor": false
+            },
+            {
+              "type": "boolean",
+              "position": "center",
+              "property": "IsActive",
+              "isFlagColor": false
+            },
+            {
+              "type": "action",
+              "position": "center",
+              "action": [
+                {
+                  "type": "edit",
+                  "param": [
+                    { "type": "VendorId", "property": "VendorId" },
+                    { "type": "FundCoyCode", "property": "FundCoyCode" },
+                    { "type": "VendorCategory", "property": "VendorCategory" },
+                    { "type": "mode", "property": "edit" }
+                  ],
+                  "path": "/Vendor/FundingCompanyX/AddEditX",
+                  "icon": ""
+                }
+              ]
+            }
+          ],
+          "exportAsFileList": []
+        },
+        "criteria": [],
+        "whereValue": [],
+        "fromValue": [],
+        "useIntegration": false,
+        "isHideSearch": false,
+        "isSearched": false,
+        "delay": 1,
+        "isUseCustomApi": false,
+        "customApiQryPaging": "",
+        "service": ""
+      },
+      "id": "b9685af0-659b-4b42-896c-c03fda795611"
+    }
+  ],
+  "serviceUrl": {
+    "add": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "edit": { "environment": "", "apiPath": "", "apiUrl": "" },
+    "createRfa": { "environment": "", "apiPath": "", "apiUrl": "" }
+  },
+  "hideTitle": false,
+  "isRedirect": false,
+  "redirectOption": "",
+  "redirectLink": "",
+  "hideSubmitButton": false,
+  "listBtn": [
+    {
+      "displayName": "Add",
+      "id": "addId",
+      "key": "",
+      "position": "top",
+      "icon": "ft-plus-circle",
+      "cssClass": "btn btn-raised btn-primary-2",
+      "conditions": [],
+      "btnType": "button",
+      "action": {
+        "path": "/Vendor/FundingCompanyX/AddEditX",
+        "type": "link",
+        "target": "_self",
+        "params": [{ "propName": "mode", "propValue": "add" }]
+      }
+    }
+  ],
+  "customToastrMsg": "",
+  "onCancel": {},
+  "isOverrideSubmit": false,
+  "isOverrideCancel": false,
+  "onSubmit": [],
+  "hideCancelButton": false,
+  "onInit": [],
+  "conditionalTitle": [],
+  "persistData": false,
+  "persistPropName": "",
+  "overrideSubmitBtnText": ""
+}

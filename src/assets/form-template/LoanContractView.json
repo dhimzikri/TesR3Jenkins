@@ -1,0 +1,149 @@
+{
+    "title": "Loan Contract View",
+    "hideTitle": false,
+    "id": "LoanContractView",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "tabs": {
+                "tablist": [
+                    {
+                        "label": "Main Info",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "AdditionalAttributeLoanContract",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "LoanContractNo",
+                                        "propValue": "LoanContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Plafond Info",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "LoanContractPlafondInfo",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "LoanContractNo",
+                                        "propValue": "LoanContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Fee",
+                        "panel": [
+                            {
+                                "isTemplate": false,
+                                "content": "LoanContractFeeViewComponent",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "LoanContractNo",
+                                        "propValue": "LoanContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Term & Condition",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "LoanContractTermAndConditionView",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "LoanContractNo",
+                                        "propValue": "LoanContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Branch Plafond",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Loancontractbranchplafondview",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "LoanContractNo",
+                                        "propValue": "LoanContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Negative Covenant",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "LoanContractNegativeCovenantView",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "LoanContractNo",
+                                        "propValue": "LoanContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "id": "72b8e55d-b937-4af4-bf34-fe95bf55b4f7"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [
+        {
+            "title": "View Loan Contract",
+            "conditions": []
+        }
+    ],
+    "persistData": false
+}

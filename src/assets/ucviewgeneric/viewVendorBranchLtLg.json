@@ -1,0 +1,26 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "LatLongId",
+        "subSectionTitle": "Latitude Longitude Info",
+        "mainInfoUrl": "http://r3app-server.ad-ins.com/FOUNDATION_R3/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Latitude:",
+            "property": "Latitude"
+          },
+          {
+            "type": "text",
+            "label": "Longitude:",
+            "property": "Longitude"
+          }
+        ],
+        "querystring": {
+          "name":  "viewVendorBranchLtLg"
+        }
+      }
+    ]
+  }
+  

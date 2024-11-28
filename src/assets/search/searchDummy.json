@@ -1,0 +1,58 @@
+{
+    "title": "Dummy",
+    "exportExcel": true,
+    "component": [
+        {
+            "type": "dropdown",
+            "datatype": "text",
+            "name": "RefMasterTypeCode",
+            "id": "RefMasterTypeCode",
+            "value": "",
+            "placeholder": "Placeholder",
+            "isEvent": true,
+            "isFromURL": true,
+            "ddlType": "all",
+            "affectedFilter": [
+                "masterCode",
+                "is_Internal"
+            ],
+            "url": "http://r3app-server/setting/RefMaster/GetRefMasterTypeKeyValue",
+            "label": "Ref Master Type",
+            "items": [],
+            "itemsUrl": []
+        },
+        {
+            "type": "dropdown",
+            "name": "masterCode",
+            "id": "masterCode",
+            "label": "Ref Master",
+            "value": "",
+            "url": "http://r3app-server/setting/RefMaster/GetRefMasterDropDown",
+            "placeholder": "Placeholder",
+            "isEvent": false,
+            "isFromURL": true,
+            "ddlType": "all",
+            "items": [
+                {
+                    "key": "1",
+                    "value": "Yes"
+                },
+                {
+                    "key": "0",
+                    "value": "No"
+                }
+            ],
+            "itemsUrl": []
+        },
+        {
+            "type": "numeric",
+            "name": "orgMdlLvl",
+            "id": "orgMdlLvlNoId",
+            "value": "1",
+            "label": "Level <=",
+            "restriction": "lte",
+            "placeholder": "Placeholder",
+            "datatype": "numeric"
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "title": "Lookup - Office",
+    "sectionTitle": "Search",
+    "exportExcel": false,
+    "component": [
+        {
+            "type": "textbox",
+            "name": "OFFICE_CODE",
+            "id": "OfficeCodeId",
+            "value": "",
+            "label": "Office Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "OFFICE_NAME",
+            "id": "OfficeNameId",
+            "value": "",
+            "label": "Office Name",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "lookupEmployeeOffice"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "OFFICE CODE",
+            "name": "OfficeCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "OFFICE NAME",
+            "name": "OfficeName"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "SELECT"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefOfficeId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "OfficeName",
+    "propertyName": "OfficeName"
+}

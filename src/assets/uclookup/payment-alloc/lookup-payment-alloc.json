@@ -1,0 +1,68 @@
+{
+    "title": "Lookup - Payment Allocation Lookup",
+    "sectionTitle": "Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "RPA.PAYMENT_ALLOC_NAME",
+            "id": "PaymentAllocName",
+            "value": "",
+            "label": "Payment Allocation Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RPA.PAYMENT_ALLOC_CODE",
+            "id": "PaymentAllocCode",
+            "value": "",
+            "label": "Payment Allocation Code",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "lookupPaymentAlloc"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Payment Allocation Code",
+            "name": "PaymentAllocCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Payment Allocation Name",
+            "name": "PaymentAllocName"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Select"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "PaymentAllocCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "PaymentAllocName"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefPaymentAllocId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "RefPaymentAllocId",
+    "propertyName": "PaymentAllocCode"
+}

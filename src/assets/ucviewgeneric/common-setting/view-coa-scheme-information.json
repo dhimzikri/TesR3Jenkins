@@ -1,0 +1,25 @@
+{
+    "title": "",
+    "subsection": [
+        {
+            "subSectionId": "CoaSchemeInfoId",
+            "subSectionTitle": "COA Scheme Information",
+            "mainInfoPath": "/Generic/GetDataViewBySQL",
+            "mainInfo": [
+                {
+                    "type": "text",
+                    "label": "Scheme Code",
+                    "property": "SchemeCode"
+                },
+                {
+                    "type": "text",
+                    "label": "Scheme Name",
+                    "property": "SchemeName"
+                }
+            ],
+            "querystring": {
+                "name": "viewCoaSchemeInformation"
+            }
+        }
+    ]
+}

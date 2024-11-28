@@ -1,0 +1,27 @@
+<div class="wrapper bg-primary-2 bg-lighten-5" [dir]="options.direction">
+    <div class="app-sidebar" data-active-color="white" data-background-color="white" data-image="assets/img/sidebar-bg/01.jpg">
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background"></div>
+    </div>
+    <app-navbar></app-navbar>
+<!--    <br>-->
+    <div class="main-panel bg-primary-2 bg-lighten-5">
+        <div class="main-content">
+          <div class="content-wrapper bg-primary-2 bg-lighten-5">
+            <div class="container-fluid" style="padding-bottom: 40px;">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+    </div>
+  <app-footer></app-footer>
+</div>
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+<!-- <div class="float" cdkDrag>
+    <div cdkDragHandle>
+        <a [href]="webUrl" target="_blank">
+            <i class="bi-whatsapp my-float bi-align-center"></i>
+        </a>
+    </div>
+</div> -->

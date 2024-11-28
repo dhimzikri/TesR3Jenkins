@@ -1,0 +1,52 @@
+{
+    "keyProperty": "RefNotifAttrTemplateId",
+    "keyPropCriteria": "RNAT.REF_NOTIF_ATTR_TEMPLATE_ID",
+    "sectionTitle" : "",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "RNAT.NOTIF_ATTR_TEMPLATE_CODE",
+            "id": "NotifAttrTemplateCode",
+            "value": "",
+            "label": "Notification Attribute Template Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "RNAT.NOTIF_ATTR_TEMPLATE_DESCR",
+            "id": "NotifAttrTemplateDescr",
+            "value": "",
+            "label": "Notification Attribute Template Description",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "SearchNotifTemplateAttrTempPaging"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Notification Attribute Template Code",
+            "name": "NotifAttrTemplateCode"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Notification Attribute Template Description",
+            "name": "NotifAttrTemplateDescr"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotifAttrTemplateCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "NotifAttrTemplateDescr"
+        }        
+    ]
+}

@@ -1,0 +1,70 @@
+{
+  "title": "Master Type",
+  "exportExcel": true,
+  "component": [
+    {
+      "type": "textbox",
+      "name": "refMasterTypeCode",
+      "id": "refMasterTypeCodeId",
+      "value": "",
+      "label": "Ref Master Type Code",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "textbox",
+      "name": "descr",
+      "id": "descrId",
+      "value": "",
+      "label": "Description",
+      "placeholder": "Placeholder",
+      "datatype": "text"
+    },
+    {
+      "type": "dropdown",
+      "name": "isSandiBi",
+      "datatype": "text",
+      "id": "isSandiBid",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "url": "https://api.myjson.com/bins/ld6e8",
+      "label": "Sandi BI",
+      "items": [
+          {
+              "key": "1",
+              "value": "Yes"
+          },
+          {
+              "key": "0",
+              "value": "No"
+          }
+      ],
+      "itemsUrl": []
+  },
+    {
+      "type": "dropdown",
+      "name": "isActive",
+      "datatype": "text",
+      "id": "isActiveId",
+      "value": "",
+      "placeholder": "Placeholder",
+      "isFromURL": false,
+      "ddlType": "all",
+      "url": "https://api.myjson.com/bins/ld6e8",
+      "label": "Active Status",
+      "items": [
+          {
+              "key": "1",
+              "value": "Yes"
+          },
+          {
+              "key": "0",
+              "value": "No"
+          }
+      ],
+      "itemsUrl": []
+  }
+  ]
+}

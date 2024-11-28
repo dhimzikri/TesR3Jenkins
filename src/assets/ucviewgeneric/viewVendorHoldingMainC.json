@@ -1,0 +1,116 @@
+{
+    "title":"",
+    "subsection": [
+      {
+        "subSectionId": "MainInformationCId",
+        "subSectionTitle": "Main Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Id Type:",
+            "property": "IdType"
+          },
+          {
+            "type": "text",
+            "label": "Registration Number:",
+            "property": "RegistrationNo"
+          },
+          {
+            "type": "text",
+            "label": "License Number:",
+            "property": "LicenseNo"
+          },
+          {
+            "type": "date",
+            "label": "Establishment Date:",
+            "property": "EstablishmentDt"
+          },
+          {
+            "type": "date",
+            "label": "Partnership Date:",
+            "property": "PartnershipDt"
+          },
+          {
+            "type": "text",
+            "label": "Vendor Rating:",
+            "property": "VendorRating"
+          },
+          {
+            "type": "text",
+            "label": "Email:",
+            "property": "Email"
+          },
+          {
+            "type": "text",
+            "label": "Mobile Phone 1:",
+            "property": "Mp1"
+          },
+          {
+            "type": "text",
+            "label": "Mobile Phone 2:",
+            "property": "Mp2"
+          },
+          {
+            "type": "boolean",
+            "label": "Activity Status :",
+            "property": "IsActive"
+          },
+          {
+            "type": "boolean",
+            "label": "Is One Affiliate :",
+            "property": "IsOneAffiliate"
+          },
+          {
+            "type": "text",
+            "label": "Tax Calculation Method:",
+            "property": "MrTaxCalcMethod"
+          },
+          {
+            "type": "boolean",
+            "label": "VAT :",
+            "property": "IsVat"
+          },
+          {
+            "type": "text",
+            "label": "Tax Payer Name:",
+            "property": "TaxpayerName"
+          }, 
+          {
+            "type": "text",
+            "label": "Address:",
+            "property": "Address"
+          },
+          {
+            "type": "text",
+            "label": "Zip Code:",
+            "property": "ZipCode"
+          },
+          {
+            "type": "text",
+            "label": "Kelurahan",
+            "property": "Kelurahan"
+          },
+          {
+            "type": "text",
+            "label": "Kecamatan",
+            "property": "Kecamatan"
+          },
+          {
+            "type": "text",
+            "label": "City",
+            "property": "City"
+          },
+          {
+            "type": "text",
+            "label": "Province",
+            "property": "Province"
+          }
+        ],
+        "querystring": {
+            "name":"viewVendorHoldingMainC"
+        }
+      }
+    ]
+  }
+  

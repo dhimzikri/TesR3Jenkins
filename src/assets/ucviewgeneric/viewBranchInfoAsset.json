@@ -1,0 +1,31 @@
+{
+    "title":"",
+    "subsection": [
+      {
+        "subSectionId": "BranchInformationAssetId",
+        "subSectionTitle": "Asset Insco Branch Info",
+        "mainInfoPath" : "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "link",
+            "label": "Asset Insurance HO:",
+            "property": "AssetHo",
+            "name": "LinkAssetHO",
+            "target": "_blank",
+            "path": "VIEW_VENDOR_HO",
+            "environment": "FOU_WEB",
+            "param": [
+              {
+                "type": "VendorId",
+                "property": "VendorParentId"
+              }
+            ]
+          }
+        ],
+        "querystring": {
+           "name":"viewBranchInfoAsset"
+        }
+      }
+    ]
+  }
+  

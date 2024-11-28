@@ -1,0 +1,132 @@
+<fieldset ngModelGroup="contactInfo">
+    <div class="form-body">
+        <h4 class="form-section card-title" translate><i class="ft-file-text"></i> Contact Information</h4>
+        <div class="form-group row" *ngIf="useName">
+            <label class="col-md-3 adInsLabel" for="cntctPersonName" translate>Contact Person Name</label>
+            <div class="col-md-9">
+                <input type="text"id="cntctPersonName" class="form-control adInsInput" name="cntctPersonName" required
+                    [(ngModel)]="cntctPersonName" #CntctPersonName="ngModel"
+                    [ngClass]="{ 'is-invalid':(parentForm.submitted || CntctPersonName.touched || CntctPersonName.dirty) && CntctPersonName.invalid }">
+                <div *ngIf=" (parentForm.submitted || CntctPersonName.touched || CntctPersonName.dirty) && CntctPersonName.invalid"
+                    class="invalid-feedback">
+                    <div *ngIf="CntctPersonName.errors.required" class="adInsReqMsg" translate>This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row" *ngIf="useTitle">
+            <label class="col-md-3 adInsLabel" for="cntctPersonJobTitle" translate>Contact Person Job Title</label>
+            <div class="col-md-9">
+                <input type="text" id="cntctPersonJobTitle" class="form-control adInsInput" name="cntctPersonJobTitle" required
+                    [(ngModel)]="cntctPersonJobTitle" #CntctPersonJobTitle="ngModel"
+                    [ngClass]="{ 'is-invalid':(parentForm.submitted || CntctPersonJobTitle.touched || CntctPersonJobTitle.dirty) && CntctPersonJobTitle.invalid }">
+                <div *ngIf=" (parentForm.submitted || CntctPersonJobTitle.touched || CntctPersonJobTitle.dirty) && CntctPersonJobTitle.invalid"
+                    class="invalid-feedback">
+                    <div *ngIf="CntctPersonJobTitle.errors.required" class="adInsReqMsg" translate>This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 adInsLabel" for="mobilePhn1" translate>Mobile Phone 1</label>
+            <div class="col-md-9">
+                <input type="text" pattern="^[0-9]+$" id="mobilePhn1" class="form-control adInsInput" name="mobilePhn1" required
+                    [(ngModel)]="mobilePhn1" #MobilePhn1="ngModel"
+                    [ngClass]="{ 'is-invalid':(parentForm.submitted || MobilePhn1.touched || MobilePhn1.dirty) && MobilePhn1.invalid }">
+                <div *ngIf=" (parentForm.submitted || MobilePhn1.touched || MobilePhn1.dirty) && MobilePhn1.invalid"
+                    class="invalid-feedback">
+                    <div *ngIf="MobilePhn1.errors.required" class="adInsReqMsg" translate>This field is required</div>
+                    <div *ngIf="MobilePhn1.errors?.pattern" translate>Number Only</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 adInsLabel" for="mobilePhn2" translate>Mobile Phone 2</label>
+            <div class="col-md-9">
+                <input type="text" pattern="^[0-9]+$" id="mobilePhn2" class="form-control adInsInput" name="mobilePhn2"
+                    [(ngModel)]="mobilePhn2" #MobilePhn2="ngModel"
+                    [ngClass]="{ 'is-invalid':(parentForm.submitted || MobilePhn2.touched || MobilePhn2.dirty) && MobilePhn2.invalid }">
+                <div *ngIf=" (parentForm.submitted || MobilePhn2.touched || MobilePhn2.dirty) && MobilePhn2.invalid"
+                    class="invalid-feedback">
+                    <div *ngIf="MobilePhn2.errors.required" class="adInsReqMsg" translate>This field is required</div>
+                    <div *ngIf="MobilePhn2.errors?.pattern" translate>Number Only</div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group row">
+        <label class="col-md-3 adInsLabel" for="phn1">Phone 1</label>
+        <div class="col-md-9">
+            <div class="form-group row">
+                <div class="col-md-2" style="border-right: 1px solid grey">
+                    <input type="text" pattern="^[0-9]+$" id="phnArea1" class="form-control"
+                        name="phnArea1" required [(ngModel)]="phnArea1" #PhnArea1="ngModel">
+                </div>
+                <div class="col-md-4" style="border-right: 1px solid grey">
+                    <input type="text" pattern="^[0-9]+$" id="phn1" class="form-control adInsInput" name="phn1"
+                        required [(ngModel)]="phn1" #Phn1="ngModel">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" pattern="^[0-9]+$" id="phnExt1" class="form-control"
+                        name="phnExt1" required [(ngModel)]="phnExt1" #PhnExt1="ngModel">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-3 adInsLabel" for="phn2">Phone 2</label>
+        <div class="col-md-9">
+            <div class="form-group row">
+                <div class="col-md-2" style="border-right: 1px solid grey">
+                    <input type="text" pattern="^[0-9]+$" id="phnArea2" class="form-control"
+                        name="phnArea2" [(ngModel)]="phnArea2" #PhnArea2="ngModel">
+                </div>
+                <div class="col-md-4" style="border-right: 1px solid grey">
+                    <input type="text" pattern="^[0-9]+$" id="phn2" class="form-control adInsInput" name="phn2"
+                        [(ngModel)]="phn2" #Phn2="ngModel">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" pattern="^[0-9]+$" id="phnExt2" class="form-control"
+                        name="phnExt2" [(ngModel)]="phnExt2" #PhnExt2="ngModel">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-3 adInsLabel" for="phn3">Phone 3</label>
+        <div class="col-md-9">
+            <div class="form-group row">
+                <div class="col-md-2" style="border-right: 1px solid grey">
+                    <input type="text" pattern="^[0-9]+$" id="phnArea3" class="form-control"
+                        name="phnArea3" [(ngModel)]="phnArea3" #PhnArea3="ngModel">
+                </div>
+                <div class="col-md-4" style="border-right: 1px solid grey">
+                    <input type="text" pattern="^[0-9]+$" id="phn3" class="form-control adInsInput" name="phn3"
+                        [(ngModel)]="phn3" #Phn2="ngModel">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" pattern="^[0-9]+$" id="phnExt3" class="form-control"
+                        name="phnExt3" [(ngModel)]="phnExt3" #PhnExt3="ngModel">
+                </div>
+            </div>
+        </div>
+    </div> -->
+        <div class="form-group row">
+            <label class="col-md-3 adInsLabel" for="email1" translate>Email 1</label>
+            <div class="col-md-9">
+                <input type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" id="email1"
+                    class="form-control adInsInput" name="email1" required [(ngModel)]="email1" #Email1="ngModel"
+                    [ngClass]="{ 'is-invalid':(parentForm.submitted || Email1.touched || Email1.dirty) && Email1.invalid }">
+                <div *ngIf=" (parentForm.submitted || Email1.touched || Email1.dirty) && Email1.invalid"
+                    class="invalid-feedback">
+                    <div *ngIf="Email1.errors.required" class="adInsReqMsg" translate>This field is required</div>
+                    <div *ngIf="Email1.errors?.pattern" translate>Email 1 Invalid</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row" *ngIf="useEmail2">
+            <label class="col-md-3 adInsLabel" for="email2" translate>Email 2</label>
+            <div class="col-md-9">
+                <input type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" id="email2"
+                    class="form-control adInsInput" name="email2" [(ngModel)]="email2" #Email2="ngModel">
+            </div>
+        </div>
+    </div>
+</fieldset>

@@ -1,0 +1,62 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>Asset Category</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="AssetCategoryForm"
+          (ngSubmit)="AssetCategoryForm.valid && SaveForm()" #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'AssetCategoryId'" [title]="'Asset Category '+ pageType" [panel]="'AssetCategory'"></lib-ucSubsection>
+            <div id="AssetCategory">
+              <div class="form-group row">
+                <label class="col-md-3 adInsLabel" translate>Asset Type Name</label>
+                <div class="col-md-9">
+                  <label class="adInsLabel" translate>{{this.assetTypeName}}</label>
+                </div>
+              </div>
+              <div *ngIf="!isAuto" class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" translate>Asset Category Code </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput" formControlName="AssetCategoryCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && AssetCategoryForm.controls.AssetCategoryCode.invalid}">
+                  <lib-uc-show-errors [control]="AssetCategoryForm.controls.AssetCategoryCode"
+                    [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-3 adInsLabel" translate>Asset Category Name</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput" formControlName="AssetCategoryName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && AssetCategoryForm.controls.AssetCategoryName.invalid}">
+                  <lib-uc-show-errors [control]="AssetCategoryForm.controls.AssetCategoryName"
+                    [submit]="enjiForm.submitted"></lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" translate>Active Status</label>
+                <div class="col-md-9">
+                  <input class="border-primary" type="checkbox" data-md-icheck formControlName="IsActive" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions right">
+            <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="[CancelLink]"
+              [queryParams]="{ AssetTypeId: this.AssetTypeId }" skipLocationChange>
+              <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+            </button>
+            <button type="submit" class="btn btn-raised btn-primary">
+              <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

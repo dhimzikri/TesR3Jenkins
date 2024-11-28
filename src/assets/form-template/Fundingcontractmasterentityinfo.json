@@ -1,0 +1,382 @@
+{
+    "title": "Funding Contract Detail",
+    "hideTitle": false,
+    "id": "Fundingcontractmasterentityinfo",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "MainInformationId",
+                    "subSectionTitle": "Main Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "fundingContractMasterEntity"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "callback",
+                            "label": "Funding Company Name",
+                            "property": "FundingCompanyName",
+                            "key": "ViewVendor",
+                            "position": "left",
+                            "isHide": false,
+                            "isText": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "termination percentage",
+                            "property": "TerminationPercentage",
+                            "precision": "",
+                            "IsPrcnt": true,
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Funding Contract No",
+                            "property": "FundingContractNo",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "funding portion percentage",
+                            "property": "FundingPortionPercentage",
+                            "precision": "",
+                            "IsPrcnt": true,
+                            "position": "",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Funding Contract Name",
+                            "property": "FundingContractName",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "allocation priority",
+                            "property": "AllocationPriority",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "date",
+                            "label": "Contract period from",
+                            "property": "ContractPeriodeFrom",
+                            "dateFormat": "dd/MM/YYYY",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "date",
+                            "label": "Contract Periode To",
+                            "property": "ContractPeriodeTo",
+                            "dateFormat": "dd/MM/YYYY",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Plafond amount",
+                            "property": "PlafondAmount",
+                            "precision": "",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "OSP selection",
+                            "property": "OspSelection",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "currency",
+                            "label": "Outstanding plafond amount",
+                            "property": "OsPlafondAmt",
+                            "precision": "",
+                            "IsPrcnt": false,
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "payment condition",
+                            "property": "PaymentCondition",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "revolving status",
+                            "property": "RevolvingStatus",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "Include Insurance Capitalize",
+                            "property": "InculdeAssetCapitalize",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "mirroring status",
+                            "property": "MirroringStat",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Drawdown",
+                            "property": "Drawdown",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "include advance installment",
+                            "property": "IncludeAdvanceStat",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "Termination Accrual Method",
+                            "property": "AccruedIntrestMethod",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "boolean",
+                            "label": "active status",
+                            "property": "ActiveStat",
+                            "position": "left",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": ""
+                        },
+                        {
+                            "type": "text",
+                            "label": "notes",
+                            "property": "Notes",
+                            "position": "left",
+                            "isHide": false
+                        }
+                    ],
+                    "whereValue": [
+                        "JfContractNo"
+                    ],
+                    "fromValue": [],
+                    "subsectionId": "MainInformationId"
+                }
+            },
+            "id": "2ae9a8d0-eb0c-4b45-9884-04f5f2e21520"
+        },
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "BankInformationId",
+                    "subSectionTitle": "Bank Information",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "facilityMntUrl",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/Generic/GetDataViewBySQL",
+                    "querystring": {
+                        "name": "fundingContractMasterEntity"
+                    },
+                    "reqObj": {},
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Default bank in",
+                            "property": "DefaultBankAccountIn",
+                            "position": "left",
+                            "isHide": false
+                        },
+                        {
+                            "type": "text",
+                            "label": "Default bank out",
+                            "property": "DefaultBankAccountOut",
+                            "position": "left",
+                            "isHide": false
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": [],
+                    "subsectionId": "BankInformationId"
+                }
+            },
+            "id": "94130dc0-c24b-4ad8-8017-a50544df0328"
+        },
+        {
+            "tabs": {
+                "tablist": [
+                    {
+                        "label": "Default Fee",
+                        "panel": [
+                            {
+                                "isTemplate": false,
+                                "content": "ViewFundingContractFeeComponent",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "JfContractNo",
+                                        "propValue": "JfContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Interest Rate",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Interestratetab",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "JfContractNo",
+                                        "propValue": "JfContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Term And Condition",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Termcondtab",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "JfContractNo",
+                                        "propValue": "JfContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Office Branch ",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Officebranchtab",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "JfContractNo",
+                                        "propValue": "JfContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Batch",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Batchtab",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "JfContractNo",
+                                        "propValue": "JfContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Negative Covenant",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Negativecovtab",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "JfContractNo",
+                                        "propValue": "JfContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Payment History Fee Tab",
+                        "panel": [
+                            {
+                                "isTemplate": true,
+                                "content": "Payoutfeehisttab",
+                                "conditions": [],
+                                "params": [
+                                    {
+                                        "propName": "JfContractNo",
+                                        "propValue": "JfContractNo"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "id": "04e7f00b-0742-4b4a-9b19-8e9afb924aaf"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "child": [],
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false
+}

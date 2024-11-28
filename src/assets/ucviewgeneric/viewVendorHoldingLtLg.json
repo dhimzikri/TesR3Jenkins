@@ -1,0 +1,26 @@
+{
+    "title": "",
+    "subsection": [
+      {
+        "subSectionId": "LatLongId",
+        "subSectionTitle": "Latitude Longitude Info",
+        "mainInfoPath": "/Generic/GetDataViewBySQL",
+        "mainInfo": [
+          {
+            "type": "text",
+            "label": "Latitude:",
+            "property": "Latitude"
+          },
+          {
+            "type": "text",
+            "label": "Longitude:",
+            "property": "Longitude"
+          }
+        ],
+        "querystring": {
+          "name":  "viewVendorHoldingLtLg"
+        }
+      }
+    ]
+  }
+  

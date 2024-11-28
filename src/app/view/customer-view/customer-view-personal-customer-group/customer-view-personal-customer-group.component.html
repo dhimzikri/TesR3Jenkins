@@ -1,0 +1,28 @@
+<div style="overflow-x: auto;">
+  <table class="table table-responsive-md text-center table-hover">
+    <thead>
+      <tr class="table-header">
+        <th class="text-left"><span class="thead-header" name='fullAssetCode' translate>STATUS</span> </th>
+        <th class="text-left"><span class="thead-header" name='fullAssetName' translate>CUSTOMER NO.</span> </th>
+        <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>CUSTOMER NAME</span> </th>
+        <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>CUSTOMER RELATIONSHIP</span>
+        </th>
+        <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>NOTES</span> </th>
+        <th class="text-left"><span class="thead-header" name='assetCategoryName' translate>ACTIVE STATUS</span> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of responseObj">
+        <tr>
+          <td class="text-left"></td>
+          <td class="text-left">{{item.CustNo}}</td>
+          <td class="text-left">{{item.CustName}}</td>
+          <td class="text-left">{{item.CustRelationship}}</td>
+          <td class="text-left">{{item.Notes}}</td>
+          <td class="text-left" *ngIf="item.IsActive == true">Yes</td>
+          <td class="text-left" *ngIf="item.IsActive == false">No</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

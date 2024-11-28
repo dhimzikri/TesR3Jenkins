@@ -1,0 +1,93 @@
+{
+    "isSeq" : false, 
+    "headerList" : [ 
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Master Code",
+            "name" : "master_Code", 
+            "width": "width-50-per" 
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Description", 
+            "name" : "descr", 
+            "width": "width-50-per" 
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Sequence No", 
+            "name" : "seq_No", 
+            "width": "width-50-per" 
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "Active", 
+            "name" : "is_Active", 
+            "width": "width-50-per" 
+        },
+        {
+            "type" : "sort", 
+            "position" : "left", 
+            "label" : "System", 
+            "name" : "is_System", 
+            "width": "width-50-per" 
+        },
+        {
+            "type" : "label",
+            "position" : "center",
+            "label" : "Action"
+        }
+    ],
+    "bodyList" : [
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "masterCode" 
+        },
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "descr" 
+        },
+        {
+            "type" : "text", 
+            "position" : "left", 
+            "property" : "seq_No" 
+        },
+        {
+            "type" : "boolean", 
+            "position" : "center",
+            "property" : "is_Active"
+        },
+        {
+            "type" : "boolean", 
+            "position" : "center",
+            "property" : "is_System"
+        },
+        {
+            "type" : "action", 
+            "position" : "center",
+            "action" : [ 
+                {
+                    "type" : "edit", 
+                    "path" : "", 
+                    "param" : [ 
+                        {
+                            "type" : "", 
+                            "property" : "" 
+                        }
+                    ],
+                    "icon" : "ft-edit-2" 
+                },
+                {
+                    "type" : "delete", 
+                    "property" : "" 
+                }
+            ]
+        }
+    ]
+}

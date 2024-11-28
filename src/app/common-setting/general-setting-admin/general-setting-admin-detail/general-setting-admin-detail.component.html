@@ -1,0 +1,66 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-header header-title">
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="form-section card-title" translate>General Setting Admin Edit</h4>
+          </div>
+        </div>
+      </div>
+      <div class="px-3">
+        <form class="form form-horizontal" [formGroup]="GeneralSettingForm"
+          (ngSubmit)="GeneralSettingForm.valid && SaveForm()" #enjiForm="ngForm">
+          <div class="form-body">
+            <lib-ucSubsection [id]="'GeneralSettingId'" [title]="'General Setting Information'"
+              [panel]="'GeneralSetting'"></lib-ucSubsection>
+            <div id="GeneralSetting">
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" for="gsCode">General Setting Code</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput" formControlName="GsCode"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && GeneralSettingForm.controls.GsCode.invalid }">
+                  <lib-uc-show-errors [control]="GeneralSettingForm.controls.GsCode" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" for="gsName">General Setting Name</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput" formControlName="GsName"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && GeneralSettingForm.controls.GsName.invalid }">
+                  <lib-uc-show-errors [control]="GeneralSettingForm.controls.GsName" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row adins-required">
+                <label class="col-md-3  adInsLabel" for="gsValue">General Setting Value</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control adInsInput" formControlName="GsValue"
+                    [ngClass]="{ 'is-invalid': enjiForm.submitted && GeneralSettingForm.controls.GsValue.invalid }">
+                  <lib-uc-show-errors [control]="GeneralSettingForm.controls.GsValue" [submit]="enjiForm.submitted">
+                  </lib-uc-show-errors>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3  adInsLabel" for="gsDescr">General Setting Description</label>
+                <div class="col-md-9">
+                  <textarea class="form-control adInsInput" formControlName="GsDescr"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1"
+                [routerLink]="[CancelLink]" skipLocationChange>
+                <i class="far fa-window-close"></i>&nbsp;<span translate>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-raised btn-primary">
+                <i class="far fa-check-square"></i>&nbsp;<span translate>Save</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

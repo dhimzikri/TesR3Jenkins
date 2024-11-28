@@ -1,0 +1,52 @@
+<div class="ucSearch-Button-Right">
+  <span class="mr-1">
+      <button type="button" class="addButton" [routerLink]="['/systemSetting/refUser/Detail']" skipLocationChange>
+          <i class="ft-plus-circle"></i>&nbsp;<span translate>Add</span>
+      </button>
+  </span>
+</div>
+<lib-UCSearch id="ucSearch" style="width:100%;" [searchInput]='inputObj' (result)="getResult($event)"></lib-UCSearch>
+
+<div [hidden]="resultData?.data == null">
+  <div style="overflow-x: auto;">
+    <table class="table table-responsive-md text-center table-hover">
+      <thead>
+        <tr class="table-header">
+          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='username'>Username </span></th>
+          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='empNo'>Employee No </span></th>
+          <th class="text-left"><span translate class="thead-header" (click)="searchSort($event)" name='empName'>Employee Name</span></th>
+          <th translate>Roles</th>
+          <th translate>Reset Password</th>
+          <th translate>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of resultData?.data">
+          <td class="text-left">{{item.username}}</td>
+          <td class="text-left">{{item.empNo}}</td>
+          <td class="text-left">{{item.empName}}</td>
+          <td>
+            <a class="success p-0" data-original-title="" title="" [routerLink]="['/systemSetting/userRole']" skipLocationChange
+              [queryParams]="{refUserId:item.refUserId}">
+              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+            </a>
+          </td>
+          <td>
+            <a class="success p-0" data-original-title="" title="" (click)="resetPassword(item.refUserId)">
+              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+            </a>
+          </td>
+          <td>
+            <a class="success p-0" data-original-title="" title="" [routerLink]="['/systemSetting/refUser/Detail']" skipLocationChange
+              [queryParams]="{refUserId:item.refUserId,mode:'edit'}">
+              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <lib-ucgridfooter (select)="onSelect($event)"></lib-ucgridfooter>
+</div>
+<!--<i class="fa fa-plus-circle" [routerLink]="['/systemSetting/refUser/Detail']" [queryParams]="{mode:'add'}"
+  style="position: absolute; right: 30px; bottom: 0; cursor: pointer; font-size: 36px"></i>>-->

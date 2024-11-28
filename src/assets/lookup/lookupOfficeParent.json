@@ -1,0 +1,116 @@
+{
+    "title": "Lookup - Office Parent",
+    "sectionTitle": "Search",
+    "component": [
+        {
+            "type": "textbox",
+            "name": "A.OFFICE_CODE",
+            "id": "OfficeCodeId",
+            "value": "",
+            "label": "Office Code",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "dropdown",
+            "name": "A.MR_OFFICE_TYPE_CODE",
+            "id": "MrOfficeTypeId",
+            "value": "",
+            "placeholder": "Placeholder",
+            "datatype": "text",
+            "isFromURL": true,
+            "ddlType": "all",
+            "url": "",
+            "path": "/RefMaster/GetListKeyValueActiveByCode",
+            "label": "Type",
+            "criteriaPropName": "RefMasterTypeCode",
+            "criteriaPropValue": "OFFICE_TYPE",
+            "items": [],
+            "itemsUrl": [],
+            "environment": "FOU"
+        },
+        {
+            "type": "textbox",
+            "name": "A.OFFICE_NAME",
+            "id": "OfficeNameId",
+            "value": "",
+            "label": "Office Name",
+            "placeholder": "Placeholder"
+        },
+        {
+            "type": "textbox",
+            "name": "A.OFFICE_ADDR",
+            "id": "OfficeAddrId",
+            "value": "",
+            "label": "Office Address",
+            "placeholder": "Placeholder"
+        }
+    ],
+    "querystring": {
+        "name": "lookupOfficeParent"
+    },
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Office Code",
+            "name": "A.OFFICE_CODE"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Name",
+            "name": "A.OFFICE_NAME"
+        },
+        {
+            "type": "sort",
+            "position": "center",
+            "label": "Office Type",
+            "name": " B.DESCR"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Office Address",
+            "name": " A.OFFICE_ADDR"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "SELECT"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "center",
+            "property": "OfficeCode"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeName"
+        },
+        {
+            "type": "text",
+            "position": "center",
+            "property": "Descr"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "OfficeAddr"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "RefOfficeId"
+                }
+            ]
+        }
+    ],
+    "propertyId": "OfficeCode",
+    "propertyName": "OfficeCode"
+}

@@ -1,0 +1,65 @@
+{
+    "headerList": [
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "City",
+            "name": "rz.city"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Kelurahan",
+            "name": "rz.area_Code_2"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Kecamatan",
+            "name": "rz.area_Code_1"
+        },
+        {
+            "type": "sort",
+            "position": "left",
+            "label": "Zipcode",
+            "name": "rz.zipcode"
+        },
+        {
+            "type": "label",
+            "position": "center",
+            "label": "Action"
+        }
+    ],
+    "bodyList": [
+        {
+            "type": "text",
+            "position": "left",
+            "property": "city"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "areaCode2"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "areaCode1"
+        },
+        {
+            "type": "text",
+            "position": "left",
+            "property": "zipcode"
+        },
+        {
+            "type": "action",
+            "position": "center",
+            "action": [
+                {
+                    "type": "select",
+                    "property": "zipcode"
+                }
+            ]
+        }
+    ]
+}
