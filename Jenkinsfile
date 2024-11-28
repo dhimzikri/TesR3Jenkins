@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_HOST = 'tcp://host.docker.internal:2375' // Replace with your Docker host, if required
+        DOCKER_HOST = 'tcp://docker:2376' // Replace with your Docker host, if required
         DOCKER_IMAGE = 'dimas182/angular_front'
     }
     tools {
