@@ -8,18 +8,18 @@ WORKDIR /app
 COPY package.json ./
 
 # Add the npm token dynamically for installing dependencies
-ARG NPM_AUTH_TOKEN
-RUN echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
+# ARG NPM_AUTH_TOKEN
+# RUN echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
 
-# Install dependencies
-RUN npm install --legacy-peer-deps
+# # Install dependencies
+# RUN npm install --legacy-peer-deps
 
-# Remove the .npmrc to avoid leaving secrets in the final image
-RUN rm .npmrc
+# # Remove the .npmrc to avoid leaving secrets in the final image
+# RUN rm .npmrc
 
 # Copy the application code
 COPY . .
-
+COPY ./node_modules ./node_modules
 # Build the application (if needed)
 RUN npm run build
 
