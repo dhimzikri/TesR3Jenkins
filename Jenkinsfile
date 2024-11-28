@@ -28,15 +28,15 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        stage('Docker Build') {
-          steps {
-            withCredentials([string(credentialsId: 'NPM_AUTH_TOKEN', variable: 'NPM_AUTH_TOKEN')]) {
-                sh '''
-                    docker build --build-arg NPM_AUTH_TOKEN=${NPM_AUTH_TOKEN} -t angular_front .
-                  '''
-            }
-          }
-        }
+        // stage('Docker Build') {
+        //   steps {
+        //     withCredentials([string(credentialsId: 'NPM_AUTH_TOKEN', variable: 'NPM_AUTH_TOKEN')]) {
+        //         sh '''
+        //             docker build --build-arg NPM_AUTH_TOKEN=${NPM_AUTH_TOKEN} -t angular_front .
+        //           '''
+        //     }
+        //   }
+        // }
         stage('Docker Push') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
