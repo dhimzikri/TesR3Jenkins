@@ -17,8 +17,6 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'NPM_AUTH_TOKEN', variable: 'NPM_AUTH_TOKEN')]) {
                     sh '''
-                        npm cache clean -f
-                        rm -rf node_modules
                         npm config set //registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
                         npm install
                     '''
