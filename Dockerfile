@@ -21,7 +21,7 @@ RUN rm .npmrc
 COPY . .
 
 # Build the application (if needed)
-RUN npm run build (comment or uncomment if required)
+RUN npm run build
 
 # Expose the default AngularJS port
 EXPOSE 4200
