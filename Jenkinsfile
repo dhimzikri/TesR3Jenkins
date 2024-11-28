@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_HOST = 'tcp://docker:2376' // Replace with your Docker host, if required
-        DOCKER_IMAGE = 'dimas182/angular_front'
+        DOCKER_IMAGE = 'dimas182/node:latest'
     }
     tools {
         nodejs "node14.16.1" // Replace with your Node.js version name from Jenkins
