@@ -3,6 +3,7 @@ pipeline {
     environment {
         DOCKER_HOST = 'tcp://docker:2376' // Replace with your Docker host, if required
         DOCKER_IMAGE = 'dimas182/angular_front:tesbuild'
+        PATH = "$PATH:/usr/libexec/docker/cli-plugins/docker-compose"
     }
     tools {
         nodejs "node14.16.1" // Replace with your Node.js version name from Jenkins
@@ -50,8 +51,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    docker-compose down || true
-                    docker-compose up -d
+                    /usr/libexec/docker/cli-plugins/docker-composee down || true
+                    /usr/libexec/docker/cli-plugins/docker-compose up -d
                 '''
             }
         }
