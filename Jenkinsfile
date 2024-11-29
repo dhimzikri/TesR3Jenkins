@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_HOST = 'tcp://docker:2376' // Replace with your Docker host, if required
-        DOCKER_IMAGE = 'angular_front'
+        DOCKER_IMAGE = 'dimas182/angular_front:tesbuild'
     }
     tools {
         nodejs "node14.16.1" // Replace with your Node.js version name from Jenkins
@@ -32,7 +32,7 @@ pipeline {
           steps {
             withCredentials([string(credentialsId: 'NPM_AUTH_TOKEN', variable: 'NPM_AUTH_TOKEN')]) {
                 sh '''
-                    docker build --build-arg NPM_AUTH_TOKEN=${NPM_AUTH_TOKEN} -t angular_front .
+                    docker build --build-arg NPM_AUTH_TOKEN=${NPM_AUTH_TOKEN} -t dimas182/angular_front:tesbuild .
                   '''
             }
           }
@@ -42,7 +42,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
                         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-                        docker push angular_front:tesbuild
+                        docker push dimas182/angular_front:tesbuild
                     '''
                 }
             }
