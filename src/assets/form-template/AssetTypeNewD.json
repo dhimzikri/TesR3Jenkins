@@ -1,0 +1,194 @@
+{
+    "title": "Asset Type C N A F",
+    "id": "ReimburseapprovalpagingmenuCNAFSelfcustomdimasnew",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "paging": {
+                "environment": "FoundationR3Url",
+                "apiVersion": "v2",
+                "service": "",
+                "pagingInput": {
+                    "title": "",
+                    "sectionTitle": "Asset Type Paging",
+                    "querystring": {
+                        "name": "searchReimburseApproval"
+                    },
+                    "exportExcel": false,
+                    "component": [
+                        {
+                            "id": "reimburseNoSearchId",
+                            "type": "textbox",
+                            "label": "Reimburse No",
+                            "name": "REIMBURSE_NO",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "excludeFromCrit": false,
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        }
+                    ],
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Employee No",
+                            "position": "center",
+                            "name": "EMP_NO",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Reimburse No",
+                            "position": "center",
+                            "name": "REIMBURSE_NO",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Request Date",
+                            "position": "center",
+                            "name": "REQ_DT",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Status",
+                            "position": "center",
+                            "name": "STATUS",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "label",
+                            "label": "Action",
+                            "position": "center"
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "EmpNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "ReimbursNo",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "ReqDt",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "Status",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "action",
+                            "position": "center",
+                            "action": [
+                                {
+                                    "type": "edit",
+                                    "param": [
+                                        {
+                                            "type": "ReimburseNo",
+                                            "property": "ReimburseNo"
+                                        },
+                                        {
+                                            "type": "RequestId",
+                                            "property": "RequestId"
+                                        },
+                                        {
+                                            "type": "TaskId",
+                                            "property": "TaskId"
+                                        }
+                                    ],
+                                    "path": "REIMB_APV_DETAIL_CNAF",
+                                    "icon": "ft-edit-2"
+                                }
+                            ]
+                        }
+                    ],
+                    "exportAsFileList": []
+                },
+                "criteria": [],
+                "whereValue": [],
+                "fromValue": [],
+                "useIntegration": true,
+                "isHideSearch": false,
+                "isSearched": true,
+                "delay": 1,
+                "isUseCustomApi": false,
+                "integrationObj": {
+                    "baseUrl": "",
+                    "apiPath": "GetListOSApvTaskByCategoryCodeAndCurrentUserIdOrMainUserIdAndRoleCode",
+                    "requestObj": {
+                        "CategoryCode": "REIMB_DEMO",
+                        "Username": "UserName",
+                        "RoleCode": "RoleCode"
+                    },
+                    "leftColumnToJoin": "ReimburseNo",
+                    "rightColumnToJoin": "TransactionNo",
+                    "joinType": "INNER",
+                    "integrationType": "apv",
+                    "useOffice": false
+                }
+            },
+            "id": "d64ef71e-bbbb-42f7-ba6a-bf44a444a965"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "hideTitle": false,
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onCancel": {},
+    "isOverrideSubmit": false,
+    "isOverrideCancel": false,
+    "onSubmit": [],
+    "hideCancelButton": false,
+    "onInit": [],
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": "",
+    "overrideSubmitBtnText": "",
+    "isUpdated": false,
+    "metadata": {
+        "version": 1,
+        "createdAt": "20241105105001",
+        "updatedAt": "20241105105001",
+        "rowVersion": "20241105105001",
+        "updatedBy": "dimas"
+    }
+}

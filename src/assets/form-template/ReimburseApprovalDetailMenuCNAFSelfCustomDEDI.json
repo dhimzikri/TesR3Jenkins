@@ -1,0 +1,232 @@
+{
+    "title": "Reimburse Approval Detail",
+    "hideTitle": false,
+    "id": "ReimburseApprovalDetailMenuCNAFSelfCustomDEDI",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "view": {
+                "subsection": {
+                    "subSectionId": "ReimburseHeaderDetailId",
+                    "subSectionTitle": "Reimburse Header Detail",
+                    "concatDate": false,
+                    "setDate": "",
+                    "formatDate": "",
+                    "environment": "FOU",
+                    "apiVersion": "v1",
+                    "uri": "",
+                    "mainInfoPath": "/v1/ReimburseHCnafObj/GetObjectByUniqueNo",
+                    "service": "",
+                    "querystring": {
+                        "name": ""
+                    },
+                    "reqObj": {
+                        "TrxNo": "ReimburseNo"
+                    },
+                    "resObjName": "",
+                    "mainInfo": [
+                        {
+                            "type": "text",
+                            "label": "Reimburse No",
+                            "property": "ReimburseNo",
+                            "position": "center",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": "",
+                            "conditions": []
+                        },
+                        {
+                            "type": "text",
+                            "label": "Employee No",
+                            "property": "EmpNo",
+                            "position": "center",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": "",
+                            "conditions": []
+                        },
+                        {
+                            "type": "date",
+                            "label": "Request Date",
+                            "property": "ReqDt",
+                            "dateFormat": "dd-MM-yyyy",
+                            "position": "center",
+                            "isHide": false,
+                            "customClassLabel": "",
+                            "customClassProperty": "",
+                            "conditions": []
+                        }
+                    ],
+                    "whereValue": [],
+                    "fromValue": []
+                }
+            },
+            "id": "fc947e79-1c03-4477-ac27-e5871ba813c9"
+        },
+        {
+            "table": {
+                "isFromApi": true,
+                "title": "Reimburse Detail",
+                "resultData": "",
+                "isSubsection": true,
+                "usePagination": true,
+                "includeSubmit": false,
+                "defaultChecked": false,
+                "tableInput": {
+                    "isSeq": false,
+                    "isCanReorder": false,
+                    "headerList": [
+                        {
+                            "type": "sort",
+                            "label": "Payment Alloc Code",
+                            "position": "center",
+                            "name": "PayAllocCode",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Amount",
+                            "position": "center",
+                            "name": "Amount",
+                            "isSelectAll": false
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "type": "text",
+                            "position": "center",
+                            "property": "PayAllocCode",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "decimal",
+                            "position": "right",
+                            "property": "Amount",
+                            "isFlagColor": false,
+                            "precision": "0.2",
+                            "IsPrcnt": false
+                        }
+                    ]
+                },
+                "getData": {
+                    "environment": "FoundationR3Url",
+                    "apiPath": "/v1/ReimburseDCnafObj/GetListObjectByKeyAndValue",
+                    "customObjName": "ReturnObject",
+                    "reqObj": [
+                        {
+                            "isFromDict": false,
+                            "propName": "KeyAndValueObj.Key",
+                            "propValue": "ReimburseHCnafId"
+                        },
+                        {
+                            "isFromDict": false,
+                            "propName": "KeyAndValueObj.Value",
+                            "propValue": "ReimburseHId"
+                        },
+                        {
+                            "isFromDict": false,
+                            "propName": "KeyAndValueObj.Operator",
+                            "propValue": "EQ"
+                        }
+                    ],
+                    "conditions": []
+                }
+            },
+            "id": "fc627c35-72b7-4f9d-8ad0-4534b76ecc6a"
+        },
+        {
+            "approvalgeneralinfo": {
+                "environment": "",
+                "apiPath": "",
+                "isHideTrxNo": false,
+                "queryParams": {
+                    "RequestId": "RequestId"
+                }
+            },
+            "id": "70cebd6b-4a4f-4128-ba8d-239a7f184dde"
+        },
+        {
+            "approvalr3": {
+                "queryParams": {
+                    "TrxNo": "ReimburseNo",
+                    "TaskId": "TaskId",
+                    "RequestId": "RequestId"
+                },
+                "onInit": {},
+                "onSubmit": {
+                    "environment": "FoundationR3Url",
+                    "apiPath": "/v1/Approval/SubmitApproval",
+                    "approvalRequestObj": {}
+                },
+                "requiredNotes": true,
+                "notesReqWhen": [],
+                "showApvHistory": true,
+                "isReturnToRequestorOnly": false
+            },
+            "id": "148c8f5d-5b94-47d8-865e-2fb780063a85"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [
+        {
+            "environment": "FoundationR3Url",
+            "apiPath": "/v1/ReimburseHCnafObj/GetObjectByUniqueNo",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "TrxNo",
+                    "propValue": "ReimburseNo"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ReimburseHId",
+                    "propValue": "ReimburseHCnafId"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "isOverrideSubmit": false,
+    "onSubmit": [],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": "",
+    "overrideSubmitBtnText": "",
+    "isUpdated": false,
+    "metadata": {
+        "version": 10,
+        "createdAt": "20241030153528",
+        "updatedAt": "20241030202950",
+        "rowVersion": "20241030194603",
+        "updatedBy": "dedi"
+    }
+}

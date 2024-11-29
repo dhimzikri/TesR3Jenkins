@@ -1,6 +1,6 @@
 {
-    "title": "Employee",
-    "id": "EmployeePagingXCNAF",
+    "title": "Tes EMP New",
+    "id": "EmployeePagingXCNAFdimasnew",
     "addButton": false,
     "addLink": "",
     "pathOption": "",
@@ -12,96 +12,72 @@
                 "apiVersion": "v1",
                 "pagingInput": {
                     "title": "",
-                    "sectionTitle": "Employee",
+                    "sectionTitle": "Emp CNAF",
                     "querystring": {
-                        "name": "searchEmployee"
+                        "name": "getTesEmp"
                     },
                     "exportExcel": false,
                     "component": [
                         {
-                            "id": "upper(busername)SearchId",
+                            "id": "refEmpCnafIdSearchId",
                             "type": "textbox",
-                            "label": "Username",
-                            "name": "UPPER(B.USERNAME)",
+                            "label": "ID",
+                            "name": "REF_EMP_CNAF_ID",
                             "value": "",
                             "placeholder": "",
                             "datatype": "text",
+                            "isRequired": false,
+                            "excludeFromCrit": false,
                             "isReadonly": false,
                             "useAutofill": false,
-                            "isUppercase": true
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
                         },
                         {
-                            "id": "aempNameSearchId",
-                            "type": "textbox",
-                            "label": "Employee Name",
-                            "name": "A.EMP_NAME",
-                            "value": "",
-                            "placeholder": "",
-                            "datatype": "text"
-                        },
-                        {
-                            "id": "aempNoSearchId",
+                            "id": "empNoSearchId",
                             "type": "textbox",
                             "label": "Employee No",
-                            "name": "A.EMP_NO",
-                            "value": "",
-                            "placeholder": "",
-                            "datatype": "text"
-                        },
-                        {
-                            "id": "aisActiveSearchId",
-                            "type": "dropdown",
-                            "label": "Active Status",
-                            "name": "A.IS_ACTIVE",
+                            "name": "EMP_NO",
                             "value": "",
                             "placeholder": "",
                             "datatype": "text",
-                            "isFromURL": false,
-                            "ddlType": "all",
-                            "isEvent": false,
-                            "items": [
-                                {
-                                    "key": "1",
-                                    "value": "Yes"
-                                },
-                                {
-                                    "key": "0",
-                                    "value": "No"
-                                }
-                            ]
+                            "isRequired": false,
+                            "excludeFromCrit": false,
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        },
+                        {
+                            "id": "empNameSearchId",
+                            "type": "textbox",
+                            "label": "Employee Name",
+                            "name": "USERNAME",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "excludeFromCrit": false,
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
                         }
                     ],
                     "headerList": [
                         {
                             "type": "sort",
-                            "label": "Username",
+                            "label": "Employee Name",
                             "position": "center",
-                            "name": "B.USERNAME",
+                            "name": "EMP_NAME",
                             "isSelectAll": false
                         },
                         {
                             "type": "sort",
                             "label": "Employee No",
                             "position": "center",
-                            "name": "A.EMP_NO",
+                            "name": "EMP_NO",
                             "isSelectAll": false
-                        },
-                        {
-                            "type": "sort",
-                            "label": "Employee Name",
-                            "position": "center",
-                            "name": "A.EMP_NAME",
-                            "isSelectAll": false
-                        },
-                        {
-                            "type": "label",
-                            "label": "Active Status",
-                            "position": "center"
-                        },
-                        {
-                            "type": "label",
-                            "label": "Business Unit",
-                            "position": "center"
                         },
                         {
                             "type": "label",
@@ -112,8 +88,8 @@
                     "bodyList": [
                         {
                             "type": "text",
-                            "position": "left",
-                            "property": "username",
+                            "position": "center",
+                            "property": "empName",
                             "isFlagColor": false
                         },
                         {
@@ -121,35 +97,6 @@
                             "position": "center",
                             "property": "empNo",
                             "isFlagColor": false
-                        },
-                        {
-                            "type": "text",
-                            "position": "left",
-                            "property": "empName",
-                            "isFlagColor": false
-                        },
-                        {
-                            "type": "boolean",
-                            "position": "center",
-                            "property": "isActive",
-                            "isFlagColor": false
-                        },
-                        {
-                            "type": "action",
-                            "position": "center",
-                            "action": [
-                                {
-                                    "type": "edit",
-                                    "param": [
-                                        {
-                                            "type": "RefUserId",
-                                            "property": "RefUserId"
-                                        }
-                                    ],
-                                    "path": "/Employee/EmployeeBusinessUnit/PagingX",
-                                    "icon": "ft-edit-2"
-                                }
-                            ]
                         },
                         {
                             "type": "action",
@@ -244,5 +191,13 @@
     "conditionalTitle": [],
     "persistData": false,
     "persistPropName": "",
-    "overrideSubmitBtnText": ""
+    "overrideSubmitBtnText": "",
+    "isUpdated": false,
+    "metadata": {
+        "version": 1,
+        "createdAt": "20241112153023",
+        "updatedAt": "20241112153023",
+        "rowVersion": "20241112153023",
+        "updatedBy": "dimas"
+    }
 }

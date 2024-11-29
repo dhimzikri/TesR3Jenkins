@@ -1,0 +1,275 @@
+{
+    "title": "Request Header",
+    "hideTitle": false,
+    "id": "ReimburseRequestMenuCNAFSelfCustomDimas",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Requ",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isCollapsed": false,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Employee No",
+                            "Variable": "EmpNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Reimburse No",
+                            "Variable": "ReimburseNo",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Office Bank Account Code",
+                            "Variable": "OfficeBankAccCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/OfficeBankAcc/GetActiveOfficeBankAccountForDDL",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {}
+                            }
+                        }
+                    ],
+                    "onLoad": [],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "19ba4c76-eb00-46eb-aeb4-13c8a0fcd9c9"
+        },
+        {
+            "formarray": {
+                "title": "Reimburse Detail Data",
+                "isSubsection": true,
+                "isModeAdd": true,
+                "formGroupName": "ReimburseDCnaf",
+                "canAdd": true,
+                "isFromApi": false,
+                "resultData": "",
+                "customObjName": "",
+                "formInput": {
+                    "headerList": [
+                        {
+                            "Label": "Payment Allocation Code",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "Amount",
+                            "IsHide": false
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "Type": "LOOKUP",
+                            "Label": "Payment Allocation Code",
+                            "Variable": "PayAllocCode",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "IsClear": false,
+                            "LookupName": "${Lookuppaymentalloc}",
+                            "Criteria": [],
+                            "Placeholder": ""
+                        },
+                        {
+                            "Type": "CURRENCY",
+                            "Label": "Amount",
+                            "Variable": "Amount",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Min": "",
+                            "Max": "",
+                            "CurrencyMaskConfig": {
+                                "precision": "2"
+                            }
+                        }
+                    ],
+                    "addBodyList": [],
+                    "footerList": []
+                },
+                "getData": {
+                    "environment": "",
+                    "apiPath": "",
+                    "reqObj": {}
+                }
+            },
+            "id": "c2df9467-524a-43c0-847b-109525627a59"
+        },
+        {
+            "approvalcreate": {
+                "categoryCode": "REIMB_DEMO",
+                "requiredNotes": true,
+                "defaultApprover": "",
+                "refReasonTypeCode": "REIMBURSE",
+                "isHideTrxNo": true,
+                "trxNo": "",
+                "isHideNewRfa": false,
+                "apvTypecodes": [
+                    {
+                        "TypeCode": "General_APV_TYPE"
+                    }
+                ],
+                "setApprovalObj": {
+                    "environment": "",
+                    "apiPath": "",
+                    "reqObj": {}
+                },
+                "onSubmit": {
+                    "environment": "FOU",
+                    "apiPath": "/v1/ReimburseCNAF/RequestReimburseCNAF",
+                    "approvalRequestObj": {}
+                },
+                "fromApi": false,
+                "schmCode": "DEMO_REIMB_DIMAS",
+                "onLoad": [
+                    {
+                        "conditions": [],
+                        "environment": "FoundationR3Url",
+                        "apiPath": "/v1/TrxTypeConfig/GetTrxTypeConfigByTrxTypeCode",
+                        "reqObj": [
+                            {
+                                "isFromDict": false,
+                                "propName": "Code",
+                                "propValue": "REIMB"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "id": "d38c7592-7350-46d0-ba22-d0ff719f76fd"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "customToastrMsg": "",
+    "onInit": [],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "environment": "FoundationR3Url",
+                "path": "/v1/ReimburseCNAF/RequestReimburseCNAF",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "type": "http",
+                "reqObj": [
+                    {
+                        "propName": "EmpNo",
+                        "propValue": "form.EmpNo"
+                    },
+                    {
+                        "propName": "ReimburseNo",
+                        "propValue": "form.ReimburseNo"
+                    },
+                    {
+                        "propName": "OfficeBankAccCode",
+                        "propValue": "form.OfficeBankAccCode"
+                    },
+                    {
+                        "propName": "ReimburseDCnaf",
+                        "propValue": "form.ReimburseDCnaf"
+                    },
+                    {
+                        "propName": "RFAInfo",
+                        "propValue": "form.RFAInfo"
+                    }
+                ],
+                "excObj": [],
+                "mapResToDict": [],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "message": "Horeee Berhasil",
+                            "mode": "success"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "persistPropName": "",
+    "overrideSubmitBtnText": "",
+    "isUpdated": false,
+    "metadata": {
+        "version": 2,
+        "createdAt": "20241029160112",
+        "updatedAt": "20241029160412",
+        "rowVersion": "20241029160112",
+        "updatedBy": "dimas"
+    }
+}

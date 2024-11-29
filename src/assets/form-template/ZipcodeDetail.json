@@ -1,1 +1,264 @@
-{"title":"Zipcode Detail","hideTitle":false,"id":"ZipcodeDetail","addButton":false,"addLink":"","pathOption":"","backButton":false,"component":[{"form":{"subsection":{"title":"Zipcode Detail","isVertical":true,"isSubsection":true,"isModeAdd":true,"formInput":[{"Action":[],"Type":"TEXT","Label":"Kelurahan","Variable":"AreaCode2","Value":"","IsRequired":true,"IsUppercase":true,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"Placeholder":"","CustomPattern":[{"pattern":"^[a-zA-Z0-9\\s\\-\\'\\/.]{0,50}$","invalidMsg":"Only Allow Alphanumeric, Space [-], ['], [/], [.], And Max 50 Characters"}]},{"Action":[],"Type":"TEXT","Label":"Kecamatan","Variable":"AreaCode1","Value":"","IsRequired":true,"IsUppercase":true,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"Placeholder":"","CustomPattern":[{"pattern":"^[a-zA-Z0-9\\s\\-\\'\\/.]{0,50}$","invalidMsg":"Only Allow Alphanumeric, Space [-], ['], [/], [.], And Max 50 Characters"}]},{"Action":[],"Type":"TEXT","Label":"City","Variable":"City","Value":"","Pattern":"","IsRequired":true,"IsUppercase":true,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"Max":"50","Placeholder":""},{"Action":[],"Type":"TEXT","Label":"Zipcode","Variable":"Zipcode","Value":"","Pattern":"^[0-9]+$","IsRequired":true,"IsUppercase":true,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"Min":"5","Max":"5","Placeholder":""},{"Action":[],"Type":"TEXT","Label":"Sub Zipcode","Variable":"SubZipcode","Value":"","Pattern":"^[0-9]+$","IsRequired":false,"IsUppercase":true,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"Max":"4","Placeholder":""},{"Action":[{"type":"bindValue","condition":{"variable":"DistrictName","restriction":"NEQ","value":""},"listBind":[{"variable":"RefProvDistrictId","value":"LookupEv.RefProvDistrictId"}],"isRevertable":true}],"Type":"LOOKUP","Label":"District Name","Variable":"DistrictName","IsRequired":true,"IsCallback":true,"IsReadonly":true,"IsHide":false,"IsEditable":true,"IsClear":false,"LookupName":"${Lookupdistrict}","Criteria":[],"Placeholder":""},{"Action":[],"Type":"TEXT","Label":"RefProvDistrictId","Variable":"RefProvDistrictId","Value":"","Pattern":"","IsRequired":false,"IsUppercase":false,"IsCallback":false,"IsReadonly":false,"IsHide":true,"IsEditable":true,"Placeholder":""},{"Action":[],"Type":"TEXT","Label":"RowVersionData","Variable":"RowVersionData","Value":"","Pattern":"","IsRequired":false,"IsUppercase":false,"IsCallback":false,"IsReadonly":false,"IsHide":true,"IsEditable":true,"Placeholder":""},{"Action":[],"Type":"BOOL","Label":"Active Status","Variable":"IsActiveData","Value":true,"IsRequired":false,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true}],"onLoad":[{"conditions":[{"property":"mode","restriction":"EQ","value":"edit"}],"environment":"FoundationR3Url","apiPath":"/v1/RefZipcode/GetRefZipcodeById","reqObj":[{"isFromDict":false,"propName":"Id","propValue":"RefZipcodeId"}],"mapRes":[{"accessorName":"AreaCode1","variableName":"AreaCode1"},{"accessorName":"AreaCode2","variableName":"AreaCode2"},{"accessorName":"City","variableName":"City"},{"accessorName":"Zipcode","variableName":"Zipcode"},{"accessorName":"SubZipcode","variableName":"SubZipcode"},{"accessorName":"RefProvDistrictId","variableName":"RefProvDistrictId"},{"accessorName":"IsActive","variableName":"IsActiveData"},{"accessorName":"RowVersion","variableName":"RowVersionData"}]},{"conditions":[],"environment":"FoundationR3Url","apiPath":"/v1/RefProvDistrict/GetRefProvDistrictByRefProvDistrictId","reqObj":[{"isFromDict":false,"propName":"Id","propValue":"RefProvDistrictId"}],"mapRes":[{"accessorName":"ProvDistrictName","variableName":"DistrictName"}]}],"criteria":[],"mapCookie":[]}},"id":"f5f3fd23-579f-47bb-81c8-8a0da7005c11"}],"serviceUrl":{"add":{"environment":"","apiPath":"","apiUrl":""},"edit":{"environment":"","apiPath":"","apiUrl":""},"createRfa":{"environment":"","apiPath":"","apiUrl":""}},"isRedirect":false,"redirectOption":"","redirectLink":"","hideSubmitButton":false,"hideCancelButton":false,"listBtn":[],"customToastrMsg":"","onInit":[],"isOverrideSubmit":true,"onSubmit":[{"conditions":[],"result":{"type":"switch","cases":[{"conditions":[{"property":"mode","restriction":"EQ","value":"add"}],"result":{"type":"http","environment":"FoundationR3Url","path":"/v2/RefZipcode/AddRefZipcode","reqObj":[{"propName":"AreaCode1","propValue":"form.AreaCode1"},{"propName":"AreaCode2","propValue":"form.AreaCode2"},{"propName":"City","propValue":"form.City"},{"propName":"Zipcode","propValue":"form.Zipcode"},{"propName":"SubZipcode","propValue":"form.SubZipcode"},{"propName":"IsActive","propValue":"form.IsActiveData"},{"propName":"RefProvDistrictId","propValue":"form.RefProvDistrictId"}],"onSuccess":[{"result":{"type":"toaster","mode":"success","message":"Success"},"conditions":[]},{"result":{"type":"link","path":"/CommonSetting/SelfCustom/Zipcode/Paging","target":"_self","params":[]},"conditions":[]}],"onError":{"type":"toaster","message":""}}},{"conditions":[{"property":"mode","restriction":"EQ","value":"edit"}],"result":{"type":"http","environment":"FoundationR3Url","path":"/v2/RefZipcode/EditRefZipcode","reqObj":[{"propName":"AreaCode1","propValue":"form.AreaCode1"},{"propName":"AreaCode2","propValue":"form.AreaCode2"},{"propName":"City","propValue":"form.City"},{"propName":"Zipcode","propValue":"form.Zipcode"},{"propName":"SubZipcode","propValue":"form.SubZipcode"},{"propName":"IsActive","propValue":"form.IsActiveData"},{"propName":"RefProvDistrictId","propValue":"form.RefProvDistrictId"},{"propName":"RefZipcodeId","propValue":"RefZipcodeId"},{"propName":"RowVersion","propValue":"form.RowVersionData"}],"onSuccess":[{"result":{"type":"toaster","mode":"success","message":"Success"},"conditions":[]},{"result":{"type":"link","path":"/CommonSetting/SelfCustom/Zipcode/Paging","target":"_self","params":[]},"conditions":[]}],"onError":{"type":"toaster","message":""}}}]}}],"isOverrideCancel":false,"onCancel":{},"persistData":false,"persistPropName":"","overrideSubmitBtnText":""}
+{
+    "title": "ZipCodeDetail",
+    "hideTitle": false,
+    "id": "Zipcodedetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Zip Code Detail",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isCollapsed": false,
+                    "isModeAdd": false,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Emp ID",
+                            "Variable": "RefTesID",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Zip Code",
+                            "Variable": "ZipCode",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "City Name",
+                            "Variable": "CityName",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DATE",
+                            "Label": "Date Updated",
+                            "Variable": "DtmUpd",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Max": null,
+                            "MinDtCode": null,
+                            "MinOperator": null,
+                            "MinValue": null,
+                            "MaxDtCode": null,
+                            "MaxOperator": null,
+                            "MaxValue": null,
+                            "DtRestrictOptMin": "",
+                            "DtRestrictOptMax": "",
+                            "Value": ""
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [],
+                            "isUseApi": true,
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "RefTesID",
+                                    "propValue": "RefTesID"
+                                }
+                            ],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/RefTesCNAF/GetRefTesCNAFById"
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": []
+                }
+            },
+            "id": "71806dfd-e785-4f26-8b69-80021cb27992"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [],
+    "path": "/v1/RefTesCNAF/CreateRefTesCNAF",
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "EQ",
+                    "value": "edit"
+                }
+            ],
+            "result": {
+                "type": "http",
+                "environment": "FoundationR3Url",
+                "path": "/v1/RefTesCNAF/EditRefTesCNAF",
+                "reqObj": [
+                    {
+                        "propName": "RefTesID",
+                        "propValue": "form.RefTesID"
+                    },
+                    {
+                        "propName": "CityName",
+                        "propValue": "form.CityName"
+                    },
+                    {
+                        "propName": "ZipCode",
+                        "propValue": "form.ZipCode"
+                    },
+                    {
+                        "propName": "CreatedBy",
+                        "propValue": "form.CreatedBy"
+                    },
+                    {
+                        "propName": "DtmUpd",
+                        "propValue": "form.DtmUpd"
+                    }
+                ],
+                "onSuccess": [
+                    {
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success"
+                        },
+                        "conditions": []
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "path": "/Demo/SelfCustom/ZipCode/Paging",
+                            "target": "_self",
+                            "params": []
+                        }
+                    }
+                ],
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                }
+            }
+        },
+        {
+            "conditions": [
+                {
+                    "property": "mode",
+                    "restriction": "NEQ",
+                    "value": "edit"
+                }
+            ],
+            "result": {
+                "environment": "FoundationR3Url",
+                "path": "/v1/RefTesCNAF/CreateRefTesCNAF",
+                "onError": {
+                    "type": "toaster",
+                    "message": ""
+                },
+                "type": "http",
+                "reqObj": [
+                    {
+                        "propName": "RefTesID",
+                        "propValue": "form.RefTesID"
+                    },
+                    {
+                        "propName": "CityName",
+                        "propValue": "form.CityName"
+                    },
+                    {
+                        "propName": "ZipCode",
+                        "propValue": "form.ZipCode"
+                    }
+                ],
+                "excObj": [],
+                "onSuccess": [
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "toaster",
+                            "mode": "success",
+                            "message": "Success"
+                        }
+                    },
+                    {
+                        "conditions": [],
+                        "result": {
+                            "type": "link",
+                            "target": "_self",
+                            "params": [],
+                            "path": "/Demo/SelfCustom/ZipCode/Paging"
+                        }
+                    }
+                ],
+                "mapResToDict": []
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "conditionalTitle": [],
+    "persistData": false,
+    "overrideSubmitBtnText": "",
+    "isUpdated": false,
+    "metadata": {
+        "version": 10,
+        "createdAt": "20241112173309",
+        "updatedAt": "20241118143402",
+        "rowVersion": "20241115144728",
+        "updatedBy": "dimas"
+    },
+    "customToastrMsg": "",
+    "persistPropName": ""
+}

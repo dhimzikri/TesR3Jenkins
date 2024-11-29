@@ -27,6 +27,7 @@ import { HttpClient } from "@angular/common/http";
 import { NGXToastrService } from "app/components/extra/toastr/toastr.service";
 import { addEditFundingCoyX } from "../function/funding-functionX";
 import { addEditVendorBranchEmpX, addEditvendorBranchX, addEditvendorHOX, addEditEmployeeX, cancelHORegistrationX } from "app/impl/shared/function/supplier-function-x";
+import { addEditEmployeeCNAF } from "app/selfcustom/shared/funtion/supplier-function-x";
 
 @Injectable({
   providedIn: 'root'
@@ -90,7 +91,8 @@ export class AdInsExecutorService extends ExecutorService {
     this.setExecutor("submitIntegrityCheckingNonGeneral", submitIntegrityCheckingNonGeneral);
     this.setExecutor("exportToExcel", this.exportToExcel.bind(this));
     this.setExecutor("addEditFundingCoyX", addEditFundingCoyX);
-    this.setExecutor("addEditVendorBranchEmpX", addEditVendorBranchEmpX)
+    this.setExecutor("addEditVendorBranchEmpX", addEditVendorBranchEmpX);
+    this.setExecutor("addEditEmployeeCNAF", addEditEmployeeCNAF)
   }
 
   async exportToExcel(api: string,

@@ -1,137 +1,139 @@
 {
-    "title": "Employee",
-    "id": "EmployeePagingXCNAF",
+    "title": "Test ZipCode",
+    "id": "TestDBDnewnew",
     "addButton": false,
     "addLink": "",
-    "pathOption": "",
+    "pathOption": "selfCustom",
     "backButton": false,
     "component": [
         {
             "paging": {
                 "environment": "FoundationR3Url",
                 "apiVersion": "v1",
+                "service": "",
                 "pagingInput": {
                     "title": "",
-                    "sectionTitle": "Employee",
+                    "sectionTitle": "Tes ZipCode",
                     "querystring": {
-                        "name": "searchEmployee"
+                        "name": "getTesZip"
                     },
                     "exportExcel": false,
                     "component": [
                         {
-                            "id": "upper(busername)SearchId",
+                            "id": "empIdSearchId",
                             "type": "textbox",
-                            "label": "Username",
-                            "name": "UPPER(B.USERNAME)",
+                            "label": "EMP ID",
+                            "name": "EMP_ID",
                             "value": "",
                             "placeholder": "",
                             "datatype": "text",
+                            "isRequired": false,
+                            "excludeFromCrit": false,
                             "isReadonly": false,
                             "useAutofill": false,
-                            "isUppercase": true
+                            "isUppercase": false,
+                            "isCriteriaDataTable": false
                         },
                         {
-                            "id": "aempNameSearchId",
+                            "id": "empZipcodeSearchId",
                             "type": "textbox",
-                            "label": "Employee Name",
-                            "name": "A.EMP_NAME",
-                            "value": "",
-                            "placeholder": "",
-                            "datatype": "text"
-                        },
-                        {
-                            "id": "aempNoSearchId",
-                            "type": "textbox",
-                            "label": "Employee No",
-                            "name": "A.EMP_NO",
-                            "value": "",
-                            "placeholder": "",
-                            "datatype": "text"
-                        },
-                        {
-                            "id": "aisActiveSearchId",
-                            "type": "dropdown",
-                            "label": "Active Status",
-                            "name": "A.IS_ACTIVE",
+                            "label": "ZipCode",
+                            "name": "EMP_ZIPCODE",
                             "value": "",
                             "placeholder": "",
                             "datatype": "text",
-                            "isFromURL": false,
-                            "ddlType": "all",
-                            "isEvent": false,
-                            "items": [
-                                {
-                                    "key": "1",
-                                    "value": "Yes"
-                                },
-                                {
-                                    "key": "0",
-                                    "value": "No"
-                                }
-                            ]
+                            "isRequired": false,
+                            "excludeFromCrit": false,
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        },
+                        {
+                            "id": "usrCrtSearchId",
+                            "type": "textbox",
+                            "label": "Username",
+                            "name": "USR_CRT",
+                            "value": "",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "excludeFromCrit": false,
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
                         }
                     ],
                     "headerList": [
                         {
                             "type": "sort",
-                            "label": "Username",
+                            "label": "Emp ID",
                             "position": "center",
-                            "name": "B.USERNAME",
+                            "name": "EMP_ID",
                             "isSelectAll": false
                         },
                         {
                             "type": "sort",
-                            "label": "Employee No",
+                            "label": "Nama",
                             "position": "center",
-                            "name": "A.EMP_NO",
+                            "name": "USR_CRT",
                             "isSelectAll": false
                         },
                         {
                             "type": "sort",
-                            "label": "Employee Name",
+                            "label": "City Name",
+                            "name": "EMP_CITY",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Zip Code",
                             "position": "center",
-                            "name": "A.EMP_NAME",
+                            "name": "EMP_ZIPCODE",
+                            "isSelectAll": false
+                        },
+                        {
+                            "type": "sort",
+                            "label": "Last Modified",
+                            "position": "center",
+                            "name": "DTM_UPD",
                             "isSelectAll": false
                         },
                         {
                             "type": "label",
-                            "label": "Active Status",
-                            "position": "center"
-                        },
-                        {
-                            "type": "label",
-                            "label": "Business Unit",
-                            "position": "center"
-                        },
-                        {
-                            "type": "label",
-                            "label": "action",
+                            "label": "Action",
                             "position": "center"
                         }
                     ],
                     "bodyList": [
                         {
                             "type": "text",
-                            "position": "left",
-                            "property": "username",
+                            "position": "center",
+                            "property": "RefTesID",
                             "isFlagColor": false
                         },
                         {
                             "type": "text",
                             "position": "center",
-                            "property": "empNo",
+                            "property": "CreatedBy",
                             "isFlagColor": false
                         },
                         {
                             "type": "text",
-                            "position": "left",
-                            "property": "empName",
+                            "property": "CityName",
                             "isFlagColor": false
                         },
                         {
-                            "type": "boolean",
+                            "type": "text",
                             "position": "center",
-                            "property": "isActive",
+                            "property": "ZipCode",
+                            "isFlagColor": false
+                        },
+                        {
+                            "type": "date",
+                            "position": "center",
+                            "property": "DtmUpd",
                             "isFlagColor": false
                         },
                         {
@@ -142,32 +144,15 @@
                                     "type": "edit",
                                     "param": [
                                         {
-                                            "type": "RefUserId",
-                                            "property": "RefUserId"
-                                        }
-                                    ],
-                                    "path": "/Employee/EmployeeBusinessUnit/PagingX",
-                                    "icon": "ft-edit-2"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "action",
-                            "position": "center",
-                            "action": [
-                                {
-                                    "type": "edit",
-                                    "param": [
-                                        {
-                                            "type": "RefEmpId",
-                                            "property": "RefEmpId"
+                                            "type": "RefTesID",
+                                            "property": "RefTesID"
                                         },
                                         {
                                             "type": "mode",
                                             "property": "edit"
                                         }
                                     ],
-                                    "path": "/Demo/SelfCustom/Employee/DetailCNAF",
+                                    "path": "/Demo/SelfCustom/ZipCode/Detail",
                                     "icon": "ft-edit-2"
                                 }
                             ]
@@ -183,10 +168,9 @@
                 "isSearched": false,
                 "delay": 1,
                 "isUseCustomApi": false,
-                "customApiQryPaging": "",
-                "service": ""
+                "customApiQryPaging": ""
             },
-            "id": "33ef4397-ecc6-441a-8264-40ccb18e4993"
+            "id": "6d0fb3e3-3a8b-44bf-9f5d-efb041b004c5"
         }
     ],
     "serviceUrl": {
@@ -222,7 +206,7 @@
             "conditions": [],
             "btnType": "button",
             "action": {
-                "path": "/Demo/SelfCustom/Employee/DetailCNAF",
+                "path": "/Demo/SelfCustom/ZipCode/Detail",
                 "type": "link",
                 "target": "_self",
                 "params": [
@@ -244,5 +228,13 @@
     "conditionalTitle": [],
     "persistData": false,
     "persistPropName": "",
-    "overrideSubmitBtnText": ""
+    "overrideSubmitBtnText": "",
+    "isUpdated": false,
+    "metadata": {
+        "version": 8,
+        "createdAt": "20241112165448",
+        "updatedAt": "20241115144728",
+        "rowVersion": "20241115143203",
+        "updatedBy": "dimas"
+    }
 }

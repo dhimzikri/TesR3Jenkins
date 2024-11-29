@@ -1,6 +1,7 @@
 import { environment } from "environments/environment";
 import { PathConstant } from "./PathConstant";
 import { PathConstantX } from "app/impl/shared/constant/PathConstantX";
+import { PathConstantSelfCustom } from "app/selfcustom/shared/constant/PathConstantSelfCustom";
 
 export class NavigationConstant {
 
@@ -530,4 +531,11 @@ export class NavigationConstant {
     public static VENDOR_FUNDING_COY_PAGING_X = "/" + PathConstant.LR_VENDOR + "/" + PathConstantX.VENDOR_FUNDING_COY_PAGING_X;
     public static VENDOR_FUNDING_COY_ADD_EDIT_X = "/" + PathConstant.LR_VENDOR + "/" + PathConstantX.VENDOR_FUNDING_COY_ADD_EDIT_X;
     // #endregion
+
+    //#region 
+    public static REIMB_APV_PAGING_CNAF = "/" + PathConstantSelfCustom.REIMB_APV_PAGING_CNAF
+    public static REIMB_APV_DETAIL_CNAF = "/" + PathConstantSelfCustom.REIMB_APV_DETAIL_CNAF
+    public static REIMB_REQ_DETAIL_CNAF = "/" + PathConstantSelfCustom.REIMB_REQ_CNAF
+    public static TES_ZIPCODE_DETAIL = "/" + PathConstantSelfCustom.TES_ZIPCODE_DETAIL
+    //#endregion
 }

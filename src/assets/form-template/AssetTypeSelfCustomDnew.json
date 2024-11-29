@@ -1,137 +1,127 @@
 {
-    "title": "Employee",
-    "id": "EmployeePagingXCNAF",
-    "addButton": false,
-    "addLink": "",
-    "pathOption": "",
+    "title": "Asset Type Self Custom D",
+    "id": "AssetTypeSelfCustomDnew",
+    "addButton": true,
+    "addLink": "/Demo/SelfCustom/AssetType/Detail",
+    "pathOption": "selfCustom",
     "backButton": false,
     "component": [
         {
             "paging": {
                 "environment": "FoundationR3Url",
                 "apiVersion": "v1",
+                "service": "",
                 "pagingInput": {
                     "title": "",
-                    "sectionTitle": "Employee",
+                    "sectionTitle": "Asset Type",
                     "querystring": {
-                        "name": "searchEmployee"
+                        "name": "searchAssetType"
                     },
                     "exportExcel": false,
                     "component": [
                         {
-                            "id": "upper(busername)SearchId",
+                            "id": "assetTypeCodeSearchId",
                             "type": "textbox",
-                            "label": "Username",
-                            "name": "UPPER(B.USERNAME)",
+                            "label": "Asset Type Code",
+                            "name": "ASSET_TYPE_CODE",
                             "value": "",
                             "placeholder": "",
                             "datatype": "text",
+                            "isRequired": false,
+                            "excludeFromCrit": false,
                             "isReadonly": false,
                             "useAutofill": false,
-                            "isUppercase": true
+                            "isUppercase": false,
+                            "isCriteriaDataTable": false
                         },
                         {
-                            "id": "aempNameSearchId",
+                            "id": "assetTypeNameSearchId",
                             "type": "textbox",
-                            "label": "Employee Name",
-                            "name": "A.EMP_NAME",
-                            "value": "",
-                            "placeholder": "",
-                            "datatype": "text"
-                        },
-                        {
-                            "id": "aempNoSearchId",
-                            "type": "textbox",
-                            "label": "Employee No",
-                            "name": "A.EMP_NO",
-                            "value": "",
-                            "placeholder": "",
-                            "datatype": "text"
-                        },
-                        {
-                            "id": "aisActiveSearchId",
-                            "type": "dropdown",
-                            "label": "Active Status",
-                            "name": "A.IS_ACTIVE",
+                            "label": "Asset Type Name",
+                            "name": "ASSET_TYPE_NAME",
                             "value": "",
                             "placeholder": "",
                             "datatype": "text",
+                            "isRequired": false,
+                            "excludeFromCrit": false,
+                            "isReadonly": false,
+                            "useAutofill": false,
+                            "isUppercase": true,
+                            "isCriteriaDataTable": false
+                        },
+                        {
+                            "id": "isActiveSearchId",
+                            "type": "dropdown",
+                            "label": "Active Status",
+                            "name": "IS_ACTIVE",
+                            "value": "All",
+                            "placeholder": "",
+                            "datatype": "text",
+                            "isRequired": false,
+                            "excludeFromCrit": false,
                             "isFromURL": false,
                             "ddlType": "all",
                             "isEvent": false,
+                            "isCriteriaDataTable": false,
+                            "keepDdl": false,
                             "items": [
                                 {
-                                    "key": "1",
+                                    "key": "true",
                                     "value": "Yes"
                                 },
                                 {
-                                    "key": "0",
+                                    "key": "false",
                                     "value": "No"
                                 }
-                            ]
+                            ],
+                            "useAutofill": false
                         }
                     ],
                     "headerList": [
                         {
                             "type": "sort",
-                            "label": "Username",
+                            "label": "Asset Type Code",
                             "position": "center",
-                            "name": "B.USERNAME",
+                            "name": "AssetTypeCode",
                             "isSelectAll": false
                         },
                         {
                             "type": "sort",
-                            "label": "Employee No",
+                            "label": "Asset Type Name",
                             "position": "center",
-                            "name": "A.EMP_NO",
+                            "name": "AssetTypeName",
                             "isSelectAll": false
                         },
                         {
                             "type": "sort",
-                            "label": "Employee Name",
-                            "position": "center",
-                            "name": "A.EMP_NAME",
-                            "isSelectAll": false
-                        },
-                        {
-                            "type": "label",
                             "label": "Active Status",
-                            "position": "center"
+                            "position": "center",
+                            "name": "IS_ACTIVE",
+                            "isSelectAll": false
                         },
                         {
                             "type": "label",
-                            "label": "Business Unit",
-                            "position": "center"
-                        },
-                        {
-                            "type": "label",
-                            "label": "action",
+                            "label": "Action",
                             "position": "center"
                         }
                     ],
                     "bodyList": [
                         {
                             "type": "text",
-                            "position": "left",
-                            "property": "username",
+                            "position": "center",
+                            "property": "AssetTypeCode",
                             "isFlagColor": false
                         },
                         {
                             "type": "text",
                             "position": "center",
-                            "property": "empNo",
-                            "isFlagColor": false
-                        },
-                        {
-                            "type": "text",
-                            "position": "left",
-                            "property": "empName",
+                            "property": "AssetTypeName",
                             "isFlagColor": false
                         },
                         {
                             "type": "boolean",
                             "position": "center",
-                            "property": "isActive",
+                            "property": "IsActive",
                             "isFlagColor": false
                         },
                         {
@@ -142,32 +132,15 @@
                                     "type": "edit",
                                     "param": [
                                         {
-                                            "type": "RefUserId",
-                                            "property": "RefUserId"
-                                        }
-                                    ],
-                                    "path": "/Employee/EmployeeBusinessUnit/PagingX",
-                                    "icon": "ft-edit-2"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "action",
-                            "position": "center",
-                            "action": [
-                                {
-                                    "type": "edit",
-                                    "param": [
-                                        {
-                                            "type": "RefEmpId",
-                                            "property": "RefEmpId"
+                                            "type": "AssetTypeId",
+                                            "property": "AssetTypeId"
                                         },
                                         {
                                             "type": "mode",
                                             "property": "edit"
                                         }
                                     ],
-                                    "path": "/Demo/SelfCustom/Employee/DetailCNAF",
+                                    "path": "/Demo/SelfCustom/AssetType/Detail",
                                     "icon": "ft-edit-2"
                                 }
                             ]
@@ -183,10 +156,9 @@
                 "isSearched": false,
                 "delay": 1,
                 "isUseCustomApi": false,
-                "customApiQryPaging": "",
-                "service": ""
+                "customApiQryPaging": ""
             },
-            "id": "33ef4397-ecc6-441a-8264-40ccb18e4993"
+            "id": "639fcadc-7040-4b0a-9f3c-0a44b4ad8bac"
         }
     ],
     "serviceUrl": {
@@ -211,29 +183,7 @@
     "redirectOption": "",
     "redirectLink": "",
     "hideSubmitButton": false,
-    "listBtn": [
-        {
-            "displayName": "Add",
-            "id": "addId",
-            "key": "",
-            "position": "top",
-            "icon": "ft-plus-circle",
-            "cssClass": "btn-primary-2",
-            "conditions": [],
-            "btnType": "button",
-            "action": {
-                "path": "/Demo/SelfCustom/Employee/DetailCNAF",
-                "type": "link",
-                "target": "_self",
-                "params": [
-                    {
-                        "propName": "mode",
-                        "propValue": "add"
-                    }
-                ]
-            }
-        }
-    ],
+    "listBtn": [],
     "customToastrMsg": "",
     "onCancel": {},
     "isOverrideSubmit": false,
@@ -244,5 +194,13 @@
     "conditionalTitle": [],
     "persistData": false,
     "persistPropName": "",
-    "overrideSubmitBtnText": ""
+    "overrideSubmitBtnText": "",
+    "isUpdated": false,
+    "metadata": {
+        "version": 9,
+        "createdAt": "20241107140942",
+        "updatedAt": "20241107152930",
+        "rowVersion": "20241107151841",
+        "updatedBy": "dimas"
+    }
 }

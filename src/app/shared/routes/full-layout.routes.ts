@@ -36,6 +36,10 @@ export const Full_ROUTES: Routes = [
     loadChildren: () => import('app/impl/impl.module').then(m => m.ImplModule)
   },
   {
+    path: "",
+    loadChildren: () => import('app/selfcustom/selfcustom.module').then(m => m.SelfcustomModule)
+  },
+  {
     path: PathConstant.LR_ORG,
     loadChildren: () => import('app/organization/organization.module').then(m => m.OrganizationModule)
   },

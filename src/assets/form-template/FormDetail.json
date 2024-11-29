@@ -1,1 +1,845 @@
-{"title":"Form Detail","hideTitle":false,"id":"FormDetail","addButton":false,"addLink":"","pathOption":"","backButton":false,"component":[{"form":{"subsection":{"title":"Form","isVertical":true,"isSubsection":true,"isModeAdd":true,"formInput":[{"Action":[],"Type":"TEXT","Label":"Form Code","Variable":"FormCode","Value":"","Pattern":"","IsRequired":false,"IsUppercase":false,"IsCallback":false,"IsReadonly":false,"IsHide":true,"IsEditable":true,"Placeholder":""},{"Action":[{"type":"setLookupCrit","condition":{"variable":"RefModuleId","restriction":"NEQ","value":""},"lookupKey":"ParentName","listCrit":[{"variable":"","value":"","propName":"RF.CLASS","propValue":"has-sub","restriction":"Eq"},{"variable":"","value":"","propName":"RF.HIERARCHY_NO","propValue":"1;2","restriction":"IN"},{"variable":"","value":"","propName":"RF.REF_MODULE_ID","propValue":"form.RefModuleId","restriction":"Eq"}]}],"Type":"DDL","Label":"Module","Variable":"RefModuleId","IsRequired":false,"IsCallback":true,"IsReadonly":false,"IsHide":false,"IsEditable":true,"UseDefaultValue":true,"isUseAPI":true,"DdlItemsObj":null,"DdlReqObj":{"Environment":"FOU","Url":"/v1/RefModule/GetListRefModuleKeyValue","CustomObjName":"ReturnObject","CustomKeyName":"Key","CustomValueName":"Value","ReqObj":{}}},{"Action":[{"type":"disabledField","condition":{"variable":"Class","restriction":"Eq","value":"has-sub"},"listField":["Path"],"isRevertable":true},{"type":"unrequiredField","condition":{"variable":"Class","restriction":"Eq","value":"has-sub"},"listField":["Path"],"isRevertable":true},{"type":"bindValue","condition":{"variable":"Class","restriction":"Eq","value":"has-sub"},"listBind":[{"variable":"Path","value":""}],"isRevertable":false}],"Type":"DDL","Label":"Class","Variable":"Class","IsRequired":false,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"UseDefaultValue":true,"isUseAPI":true,"DdlItemsObj":null,"DdlReqObj":{"Environment":"FOU","Url":"/v1/RefMaster/GetListKeyValueActiveByCode","CustomObjName":"ReturnObject","CustomKeyName":"Key","CustomValueName":"Value","ReqObj":{"RefMasterTypeCode":"FORM_CLASS"}}},{"Action":[{"type":"bindValue","condition":{"variable":"ParentName","restriction":"NEQ","value":""},"listBind":[{"variable":"ParentId","value":"LookupEv.RefFormId"},{"variable":"HierarchyNo","value":"LookupEv.NextHierarchyNo"}],"isRevertable":true},{"type":"bindValue","condition":{"variable":"HierarchyNo","restriction":"GTE","value":"3"},"listBind":[{"variable":"Class","value":"no-sub"}],"isRevertable":false},{"type":"disabledField","condition":{"variable":"HierarchyNo","restriction":"GTE","value":"3"},"listField":["Class"],"isRevertable":true}],"Type":"LOOKUP","Label":"Parent Form","Variable":"ParentName","IsRequired":false,"IsCallback":true,"IsReadonly":true,"IsHide":false,"IsEditable":true,"IsClear":false,"LookupName":"${Lookup-RefForm}","Criteria":[]},{"Action":[],"Type":"TEXT","Label":"ParentId","Variable":"ParentId","Value":"","Pattern":"","IsRequired":false,"IsUppercase":false,"IsCallback":false,"IsReadonly":false,"IsHide":true,"IsEditable":true,"Placeholder":""},{"Action":[],"Type":"TEXT","Label":"Title","Variable":"Title","Value":"","Pattern":"","IsRequired":true,"IsUppercase":true,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"Placeholder":""},{"Action":[],"Type":"TEXT","Label":"Path","Variable":"Path","Value":"","Pattern":"","IsRequired":true,"IsUppercase":true,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"Placeholder":""},{"Action":[],"Type":"DDL","Label":"Icon","Variable":"Icon","IsRequired":false,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"UseDefaultValue":false,"isUseAPI":true,"DdlItemsObj":null,"DdlReqObj":{"Environment":"FOU","Url":"/v1/RefForm/GetTemplateIcon","CustomObjName":"ReturnObject","CustomKeyName":"Key","CustomValueName":"Value","ReqObj":{}}},{"Action":[],"Type":"NUMERIC","Label":"Order No","Variable":"OrderNo","Value":"1","IsRequired":true,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"Min":"","Max":""},{"Action":[{"type":"disabledField","condition":{"variable":"HierarchyNo","restriction":"GTE","value":"3"},"listField":["Class"],"isRevertable":false},{"type":"bindValue","condition":{"variable":"HierarchyNo","restriction":"GTE","value":"3"},"listBind":[{"variable":"Class","value":"no-sub"}],"isRevertable":false}],"Type":"TEXT","Label":"Hierarchy No","Variable":"HierarchyNo","Value":"1","Pattern":"","IsRequired":false,"IsUppercase":false,"IsCallback":true,"IsReadonly":true,"IsHide":false,"IsEditable":false,"Placeholder":""},{"Action":[],"Type":"BOOL","Label":"Is Hidden","Variable":"IsHidden","Value":false,"IsRequired":false,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true},{"Action":[],"Type":"BOOL","Label":"Is External","Variable":"IsExternalLink","Value":false,"IsRequired":false,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true},{"Action":[],"Type":"TEXT","Label":"RowVersionData","Variable":"RowVersionData","Value":"","Pattern":"","IsRequired":false,"IsUppercase":false,"IsCallback":false,"IsReadonly":false,"IsHide":true,"IsEditable":true,"Placeholder":""},{"Action":[],"Type":"BOOL","Label":"IsHaveChild","Variable":"IsHaveChild","Value":false,"IsRequired":false,"IsCallback":false,"IsReadonly":false,"IsHide":true,"IsEditable":true}],"onLoad":[{"conditions":[{"property":"mode","restriction":"EQ","value":"edit"}],"environment":"FoundationR3Url","apiPath":"/v1/RefForm/GetRefFormByRefFormId","reqObj":[{"isFromDict":false,"propName":"Id","propValue":"RefFormId"}],"mapRes":[{"accessorName":"RowVersion","variableName":"RowVersionData"},{"accessorName":"RefModuleId","variableName":"RefModuleId"},{"accessorName":"Class","variableName":"Class"},{"accessorName":"FormCode","variableName":"FormCode"},{"accessorName":"Title","variableName":"Title"},{"accessorName":"Path","variableName":"Path"},{"accessorName":"Icon","variableName":"Icon"},{"accessorName":"OrderNo","variableName":"OrderNo"},{"accessorName":"HierarchyNo","variableName":"HierarchyNo"},{"accessorName":"IsHidden","variableName":"IsHidden"},{"accessorName":"IsExternalLink","variableName":"IsExternalLink"},{"accessorName":"ParentTitle","variableName":"ParentName"},{"accessorName":"ParentId","variableName":"ParentId"}],"action":[{"type":"disabledField","condition":[{"variable":"mode","restriction":"Eq","value":"edit"}],"listField":["FormCode"],"isRevertable":false}]}],"criteria":[],"mapCookie":[],"initAction":[{"type":"disabledField","condition":{"variable":"IsHaveChild","restriction":"Eq","value":"1"},"listField":["Class"],"isRevertable":true},{"type":"bindValue","condition":{"variable":"IsHaveChild","restriction":"Eq","value":"1"},"listBind":[{"variable":"Class","value":"has-sub"}],"isRevertable":false},{"type":"showField","condition":[{"variable":"FR","restriction":"NOTIN","value":"ListGs"}],"listField":["FormCode"],"isRevertable":false},{"type":"bindValue","condition":[{"variable":"FR","restriction":"IN","value":"ListGs"}],"listBind":[{"variable":"FormCode","value":"-"}],"isRevertable":false}]}},"id":"0e85e157-e856-414e-8a80-e689512164eb"},{"formarray":{"title":"Parameter","isSubsection":true,"isModeAdd":true,"formGroupName":"ListParameter","canAdd":true,"isFromApi":false,"resultData":"ParameterList","customObjName":"","formInput":{"headerList":[{"Label":"Parameter Attribute","IsHide":false},{"Label":"Parameter Value","IsHide":false}],"bodyList":[{"Type":"TEXT","Label":"Parameter Attribute","Variable":"Attr","Pattern":"","IsRequired":true,"IsUppercase":false,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"Placeholder":""},{"Type":"TEXT","Label":"Parameter Value","Variable":"Value","Pattern":"","IsRequired":true,"IsUppercase":false,"IsCallback":false,"IsReadonly":false,"IsHide":false,"IsEditable":true,"Placeholder":""}],"addBodyList":[],"footerList":[]},"getData":{"environment":"","apiPath":"","reqObj":{}}},"id":"f1ea3751-d83e-49a6-879d-6342fbedfbb6"}],"serviceUrl":{"add":{"environment":"","apiPath":"","apiUrl":""},"edit":{"environment":"","apiPath":"","apiUrl":""},"createRfa":{"environment":"","apiPath":"","apiUrl":""}},"isRedirect":false,"redirectOption":"","redirectLink":"","hideSubmitButton":false,"hideCancelButton":false,"listBtn":[],"onInit":[{"environment":"FoundationR3Url","apiPath":"/v1/GeneralSetting/GetGeneralSettingByCode","reqObj":[{"isFromDict":false,"propName":"Code","propValue":"MASTER_AUTO_GNRT_CODE"}],"return":[{"propName":"ListGs","propValue":"GsValue"}],"conditions":[]}],"isOverrideSubmit":true,"onSubmit":[{"conditions":[],"result":{"type":"switch","cases":[{"conditions":[{"restriction":"EQ","value":"add","property":"mode"}],"result":{"type":"http","environment":"FoundationR3Url","path":"/v1/RefForm/AddRefForm","reqObj":[{"propName":"RefModuleId","propValue":"formRaw.RefModuleId"},{"propName":"Class","propValue":"formRaw.Class"},{"propName":"FormCode","propValue":"formRaw.FormCode"},{"propName":"Title","propValue":"formRaw.Title"},{"propName":"Icon","propValue":"formRaw.Icon"},{"propName":"OrderNo","propValue":"formRaw.OrderNo"},{"propName":"HierarchyNo","propValue":"formRaw.HierarchyNo"},{"propName":"IsHidden","propValue":"formRaw.IsHidden"},{"propName":"IsExternalLink","propValue":"formRaw.IsExternalLink"},{"propName":"ParameterList","propValue":"form.ListParameter"},{"propName":"Path","propValue":"formRaw.Path"},{"propName":"ParentId","propValue":"formRaw.ParentId"}],"onSuccess":[{"result":{"type":"toaster","mode":"success","message":"Success"},"conditions":[]},{"result":{"type":"link","path":"/SystemSetting/SelfCustom/RefForm/Paging","target":"_self","params":[]},"conditions":[]}],"onError":{"type":"toaster","message":""}}},{"conditions":[{"restriction":"EQ","value":"edit","property":"mode"}],"result":{"type":"http","environment":"FoundationR3Url","path":"/v1/RefForm/EditRefForm","reqObj":[{"propName":"RefModuleId","propValue":"formRaw.RefModuleId"},{"propName":"Class","propValue":"formRaw.Class"},{"propName":"FormCode","propValue":"formRaw.FormCode"},{"propName":"Title","propValue":"formRaw.Title"},{"propName":"Icon","propValue":"formRaw.Icon"},{"propName":"OrderNo","propValue":"formRaw.OrderNo"},{"propName":"HierarchyNo","propValue":"formRaw.HierarchyNo"},{"propName":"IsHidden","propValue":"formRaw.IsHidden"},{"propName":"IsExternalLink","propValue":"formRaw.IsExternalLink"},{"propName":"ParameterList","propValue":"form.ListParameter"},{"propName":"RowVersion","propValue":"formRaw.RowVersionData"},{"propName":"ParentId","propValue":"formRaw.ParentId"},{"propName":"RefFormId","propValue":"RefFormId"},{"propName":"Path","propValue":"formRaw.Path"}],"onSuccess":[{"result":{"type":"toaster","mode":"success","message":"Success"},"conditions":[]},{"result":{"type":"link","path":"/SystemSetting/SelfCustom/RefForm/Paging","target":"_self","params":[]},"conditions":[]}],"onError":{"type":"toaster","message":""}}}]}}],"isOverrideCancel":false,"onCancel":{},"customToastrMsg":""}
+{
+    "title": "Form Detail",
+    "hideTitle": false,
+    "id": "FormDetail",
+    "addButton": false,
+    "addLink": "",
+    "pathOption": "",
+    "backButton": false,
+    "component": [
+        {
+            "form": {
+                "subsection": {
+                    "title": "Form",
+                    "isVertical": true,
+                    "isSubsection": true,
+                    "isModeAdd": true,
+                    "formInput": [
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Form Code",
+                            "Variable": "FormCode",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "setLookupCrit",
+                                    "condition": {
+                                        "variable": "RefModuleId",
+                                        "restriction": "NEQ",
+                                        "value": ""
+                                    },
+                                    "lookupKey": "ParentName",
+                                    "listCrit": [
+                                        {
+                                            "variable": "",
+                                            "value": "",
+                                            "propName": "RF.CLASS",
+                                            "propValue": "has-sub",
+                                            "restriction": "Eq"
+                                        },
+                                        {
+                                            "variable": "",
+                                            "value": "",
+                                            "propName": "RF.HIERARCHY_NO",
+                                            "propValue": "1;2",
+                                            "restriction": "IN"
+                                        },
+                                        {
+                                            "variable": "",
+                                            "value": "",
+                                            "propName": "RF.REF_MODULE_ID",
+                                            "propValue": "form.RefModuleId",
+                                            "restriction": "Eq"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "Module",
+                            "Variable": "RefModuleId",
+                            "IsRequired": false,
+                            "IsCallback": true,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": true,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefModule/GetListRefModuleKeyValue",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {}
+                            }
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "disabledField",
+                                    "condition": {
+                                        "variable": "Class",
+                                        "restriction": "Eq",
+                                        "value": "has-sub"
+                                    },
+                                    "listField": [
+                                        "Path"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "unrequiredField",
+                                    "condition": {
+                                        "variable": "Class",
+                                        "restriction": "Eq",
+                                        "value": "has-sub"
+                                    },
+                                    "listField": [
+                                        "Path"
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "bindValue",
+                                    "condition": {
+                                        "variable": "Class",
+                                        "restriction": "Eq",
+                                        "value": "has-sub"
+                                    },
+                                    "listBind": [
+                                        {
+                                            "variable": "Path",
+                                            "value": ""
+                                        }
+                                    ],
+                                    "isRevertable": false
+                                }
+                            ],
+                            "Type": "DDL",
+                            "Label": "Class",
+                            "Variable": "Class",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": true,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefMaster/GetListKeyValueActiveByCode",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {
+                                    "RefMasterTypeCode": "FORM_CLASS"
+                                }
+                            }
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "bindValue",
+                                    "condition": {
+                                        "variable": "ParentName",
+                                        "restriction": "NEQ",
+                                        "value": ""
+                                    },
+                                    "listBind": [
+                                        {
+                                            "variable": "ParentId",
+                                            "value": "LookupEv.RefFormId"
+                                        },
+                                        {
+                                            "variable": "HierarchyNo",
+                                            "value": "LookupEv.NextHierarchyNo"
+                                        }
+                                    ],
+                                    "isRevertable": true
+                                },
+                                {
+                                    "type": "bindValue",
+                                    "condition": {
+                                        "variable": "HierarchyNo",
+                                        "restriction": "GTE",
+                                        "value": "3"
+                                    },
+                                    "listBind": [
+                                        {
+                                            "variable": "Class",
+                                            "value": "no-sub"
+                                        }
+                                    ],
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "disabledField",
+                                    "condition": {
+                                        "variable": "HierarchyNo",
+                                        "restriction": "GTE",
+                                        "value": "3"
+                                    },
+                                    "listField": [
+                                        "Class"
+                                    ],
+                                    "isRevertable": true
+                                }
+                            ],
+                            "Type": "LOOKUP",
+                            "Label": "Parent Form",
+                            "Variable": "ParentName",
+                            "IsRequired": false,
+                            "IsCallback": true,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "IsClear": false,
+                            "LookupName": "${Lookup-RefForm}",
+                            "Criteria": []
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "ParentId",
+                            "Variable": "ParentId",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Title",
+                            "Variable": "Title",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "Path",
+                            "Variable": "Path",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "DDL",
+                            "Label": "Icon",
+                            "Variable": "Icon",
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "UseDefaultValue": false,
+                            "isUseAPI": true,
+                            "DdlItemsObj": null,
+                            "DdlReqObj": {
+                                "Environment": "FOU",
+                                "Url": "/v1/RefForm/GetTemplateIcon",
+                                "CustomObjName": "ReturnObject",
+                                "CustomKeyName": "Key",
+                                "CustomValueName": "Value",
+                                "ReqObj": {}
+                            }
+                        },
+                        {
+                            "Action": [],
+                            "Type": "NUMERIC",
+                            "Label": "Order No",
+                            "Variable": "OrderNo",
+                            "Value": "1",
+                            "IsRequired": true,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Min": "",
+                            "Max": ""
+                        },
+                        {
+                            "Action": [
+                                {
+                                    "type": "disabledField",
+                                    "condition": {
+                                        "variable": "HierarchyNo",
+                                        "restriction": "GTE",
+                                        "value": "3"
+                                    },
+                                    "listField": [
+                                        "Class"
+                                    ],
+                                    "isRevertable": false
+                                },
+                                {
+                                    "type": "bindValue",
+                                    "condition": {
+                                        "variable": "HierarchyNo",
+                                        "restriction": "GTE",
+                                        "value": "3"
+                                    },
+                                    "listBind": [
+                                        {
+                                            "variable": "Class",
+                                            "value": "no-sub"
+                                        }
+                                    ],
+                                    "isRevertable": false
+                                }
+                            ],
+                            "Type": "TEXT",
+                            "Label": "Hierarchy No",
+                            "Variable": "HierarchyNo",
+                            "Value": "1",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": true,
+                            "IsReadonly": true,
+                            "IsHide": false,
+                            "IsEditable": false,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "Is Hidden",
+                            "Variable": "IsHidden",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "Is External",
+                            "Variable": "IsExternalLink",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true
+                        },
+                        {
+                            "Action": [],
+                            "Type": "TEXT",
+                            "Label": "RowVersionData",
+                            "Variable": "RowVersionData",
+                            "Value": "",
+                            "Pattern": "",
+                            "IsRequired": false,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Action": [],
+                            "Type": "BOOL",
+                            "Label": "IsHaveChild",
+                            "Variable": "IsHaveChild",
+                            "Value": false,
+                            "IsRequired": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": true,
+                            "IsEditable": true
+                        }
+                    ],
+                    "onLoad": [
+                        {
+                            "conditions": [
+                                {
+                                    "property": "mode",
+                                    "restriction": "EQ",
+                                    "value": "edit"
+                                }
+                            ],
+                            "environment": "FoundationR3Url",
+                            "apiPath": "/v1/RefForm/GetRefFormByRefFormId",
+                            "reqObj": [
+                                {
+                                    "isFromDict": false,
+                                    "propName": "Id",
+                                    "propValue": "RefFormId"
+                                }
+                            ],
+                            "mapRes": [
+                                {
+                                    "accessorName": "RowVersion",
+                                    "variableName": "RowVersionData"
+                                },
+                                {
+                                    "accessorName": "RefModuleId",
+                                    "variableName": "RefModuleId"
+                                },
+                                {
+                                    "accessorName": "Class",
+                                    "variableName": "Class"
+                                },
+                                {
+                                    "accessorName": "FormCode",
+                                    "variableName": "FormCode"
+                                },
+                                {
+                                    "accessorName": "Title",
+                                    "variableName": "Title"
+                                },
+                                {
+                                    "accessorName": "Path",
+                                    "variableName": "Path"
+                                },
+                                {
+                                    "accessorName": "Icon",
+                                    "variableName": "Icon"
+                                },
+                                {
+                                    "accessorName": "OrderNo",
+                                    "variableName": "OrderNo"
+                                },
+                                {
+                                    "accessorName": "HierarchyNo",
+                                    "variableName": "HierarchyNo"
+                                },
+                                {
+                                    "accessorName": "IsHidden",
+                                    "variableName": "IsHidden"
+                                },
+                                {
+                                    "accessorName": "IsExternalLink",
+                                    "variableName": "IsExternalLink"
+                                },
+                                {
+                                    "accessorName": "ParentTitle",
+                                    "variableName": "ParentName"
+                                },
+                                {
+                                    "accessorName": "ParentId",
+                                    "variableName": "ParentId"
+                                }
+                            ],
+                            "action": [
+                                {
+                                    "type": "disabledField",
+                                    "condition": [
+                                        {
+                                            "variable": "mode",
+                                            "restriction": "Eq",
+                                            "value": "edit"
+                                        }
+                                    ],
+                                    "listField": [
+                                        "FormCode"
+                                    ],
+                                    "isRevertable": false
+                                }
+                            ]
+                        }
+                    ],
+                    "criteria": [],
+                    "mapCookie": [],
+                    "initAction": [
+                        {
+                            "type": "disabledField",
+                            "condition": {
+                                "variable": "IsHaveChild",
+                                "restriction": "Eq",
+                                "value": "1"
+                            },
+                            "listField": [
+                                "Class"
+                            ],
+                            "isRevertable": true
+                        },
+                        {
+                            "type": "bindValue",
+                            "condition": {
+                                "variable": "IsHaveChild",
+                                "restriction": "Eq",
+                                "value": "1"
+                            },
+                            "listBind": [
+                                {
+                                    "variable": "Class",
+                                    "value": "has-sub"
+                                }
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "showField",
+                            "condition": [
+                                {
+                                    "variable": "FR",
+                                    "restriction": "NOTIN",
+                                    "value": "ListGs"
+                                }
+                            ],
+                            "listField": [
+                                "FormCode"
+                            ],
+                            "isRevertable": false
+                        },
+                        {
+                            "type": "bindValue",
+                            "condition": [
+                                {
+                                    "variable": "FR",
+                                    "restriction": "IN",
+                                    "value": "ListGs"
+                                }
+                            ],
+                            "listBind": [
+                                {
+                                    "variable": "FormCode",
+                                    "value": "-"
+                                }
+                            ],
+                            "isRevertable": false
+                        }
+                    ]
+                }
+            },
+            "id": "0e85e157-e856-414e-8a80-e689512164eb"
+        },
+        {
+            "formarray": {
+                "title": "Parameter",
+                "isSubsection": true,
+                "isModeAdd": true,
+                "formGroupName": "ListParameter",
+                "canAdd": true,
+                "isFromApi": false,
+                "resultData": "ParameterList",
+                "customObjName": "",
+                "formInput": {
+                    "headerList": [
+                        {
+                            "Label": "Parameter Attribute",
+                            "IsHide": false
+                        },
+                        {
+                            "Label": "Parameter Value",
+                            "IsHide": false
+                        }
+                    ],
+                    "bodyList": [
+                        {
+                            "Type": "TEXT",
+                            "Label": "Parameter Attribute",
+                            "Variable": "Attr",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        },
+                        {
+                            "Type": "TEXT",
+                            "Label": "Parameter Value",
+                            "Variable": "Value",
+                            "Pattern": "",
+                            "IsRequired": true,
+                            "IsUppercase": false,
+                            "IsCallback": false,
+                            "IsReadonly": false,
+                            "IsHide": false,
+                            "IsEditable": true,
+                            "Placeholder": ""
+                        }
+                    ],
+                    "addBodyList": [],
+                    "footerList": []
+                },
+                "getData": {
+                    "environment": "",
+                    "apiPath": "",
+                    "reqObj": {}
+                }
+            },
+            "id": "f1ea3751-d83e-49a6-879d-6342fbedfbb6"
+        }
+    ],
+    "serviceUrl": {
+        "add": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "edit": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        },
+        "createRfa": {
+            "environment": "",
+            "apiPath": "",
+            "apiUrl": ""
+        }
+    },
+    "isRedirect": false,
+    "redirectOption": "",
+    "redirectLink": "",
+    "hideSubmitButton": false,
+    "hideCancelButton": false,
+    "listBtn": [],
+    "onInit": [
+        {
+            "environment": "FoundationR3Url",
+            "apiPath": "/v1/GeneralSetting/GetGeneralSettingByCode",
+            "reqObj": [
+                {
+                    "isFromDict": false,
+                    "propName": "Code",
+                    "propValue": "MASTER_AUTO_GNRT_CODE"
+                }
+            ],
+            "return": [
+                {
+                    "propName": "ListGs",
+                    "propValue": "GsValue"
+                }
+            ],
+            "conditions": []
+        }
+    ],
+    "isOverrideSubmit": true,
+    "onSubmit": [
+        {
+            "conditions": [],
+            "result": {
+                "type": "switch",
+                "cases": [
+                    {
+                        "conditions": [
+                            {
+                                "restriction": "EQ",
+                                "value": "add",
+                                "property": "mode"
+                            }
+                        ],
+                        "result": {
+                            "type": "http",
+                            "environment": "FoundationR3Url",
+                            "path": "/v1/RefForm/AddRefForm",
+                            "reqObj": [
+                                {
+                                    "propName": "RefModuleId",
+                                    "propValue": "formRaw.RefModuleId"
+                                },
+                                {
+                                    "propName": "Class",
+                                    "propValue": "formRaw.Class"
+                                },
+                                {
+                                    "propName": "FormCode",
+                                    "propValue": "formRaw.FormCode"
+                                },
+                                {
+                                    "propName": "Title",
+                                    "propValue": "formRaw.Title"
+                                },
+                                {
+                                    "propName": "Icon",
+                                    "propValue": "formRaw.Icon"
+                                },
+                                {
+                                    "propName": "OrderNo",
+                                    "propValue": "formRaw.OrderNo"
+                                },
+                                {
+                                    "propName": "HierarchyNo",
+                                    "propValue": "formRaw.HierarchyNo"
+                                },
+                                {
+                                    "propName": "IsHidden",
+                                    "propValue": "formRaw.IsHidden"
+                                },
+                                {
+                                    "propName": "IsExternalLink",
+                                    "propValue": "formRaw.IsExternalLink"
+                                },
+                                {
+                                    "propName": "ParameterList",
+                                    "propValue": "form.ListParameter"
+                                },
+                                {
+                                    "propName": "Path",
+                                    "propValue": "formRaw.Path"
+                                },
+                                {
+                                    "propName": "ParentId",
+                                    "propValue": "formRaw.ParentId"
+                                }
+                            ],
+                            "onSuccess": [
+                                {
+                                    "result": {
+                                        "type": "toaster",
+                                        "mode": "success",
+                                        "message": "Success"
+                                    },
+                                    "conditions": []
+                                },
+                                {
+                                    "result": {
+                                        "type": "link",
+                                        "path": "/SystemSetting/SelfCustom/RefForm/Paging",
+                                        "target": "_self",
+                                        "params": []
+                                    },
+                                    "conditions": []
+                                }
+                            ],
+                            "onError": {
+                                "type": "toaster",
+                                "message": ""
+                            }
+                        }
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "restriction": "EQ",
+                                "value": "edit",
+                                "property": "mode"
+                            }
+                        ],
+                        "result": {
+                            "type": "http",
+                            "environment": "FoundationR3Url",
+                            "path": "/v1/RefForm/EditRefForm",
+                            "reqObj": [
+                                {
+                                    "propName": "RefModuleId",
+                                    "propValue": "formRaw.RefModuleId"
+                                },
+                                {
+                                    "propName": "Class",
+                                    "propValue": "formRaw.Class"
+                                },
+                                {
+                                    "propName": "FormCode",
+                                    "propValue": "formRaw.FormCode"
+                                },
+                                {
+                                    "propName": "Title",
+                                    "propValue": "formRaw.Title"
+                                },
+                                {
+                                    "propName": "Icon",
+                                    "propValue": "formRaw.Icon"
+                                },
+                                {
+                                    "propName": "OrderNo",
+                                    "propValue": "formRaw.OrderNo"
+                                },
+                                {
+                                    "propName": "HierarchyNo",
+                                    "propValue": "formRaw.HierarchyNo"
+                                },
+                                {
+                                    "propName": "IsHidden",
+                                    "propValue": "formRaw.IsHidden"
+                                },
+                                {
+                                    "propName": "IsExternalLink",
+                                    "propValue": "formRaw.IsExternalLink"
+                                },
+                                {
+                                    "propName": "ParameterList",
+                                    "propValue": "form.ListParameter"
+                                },
+                                {
+                                    "propName": "RowVersion",
+                                    "propValue": "formRaw.RowVersionData"
+                                },
+                                {
+                                    "propName": "ParentId",
+                                    "propValue": "formRaw.ParentId"
+                                },
+                                {
+                                    "propName": "RefFormId",
+                                    "propValue": "RefFormId"
+                                },
+                                {
+                                    "propName": "Path",
+                                    "propValue": "formRaw.Path"
+                                }
+                            ],
+                            "onSuccess": [
+                                {
+                                    "result": {
+                                        "type": "toaster",
+                                        "mode": "success",
+                                        "message": "Success"
+                                    },
+                                    "conditions": []
+                                },
+                                {
+                                    "result": {
+                                        "type": "link",
+                                        "path": "/SystemSetting/SelfCustom/RefForm/Paging",
+                                        "target": "_self",
+                                        "params": []
+                                    },
+                                    "conditions": []
+                                }
+                            ],
+                            "onError": {
+                                "type": "toaster",
+                                "message": ""
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "isOverrideCancel": false,
+    "onCancel": {},
+    "customToastrMsg": ""
+}
