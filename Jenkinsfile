@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_HOST = 'tcp://docker:2376' // Replace with your Docker host, if required
-        DOCKER_IMAGE = 'dimas182/angular_front'
+        DOCKER_IMAGE = 'angular_front'
     }
     tools {
         nodejs "node14.16.1" // Replace with your Node.js version name from Jenkins
@@ -42,7 +42,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
                         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-                        docker push dimas182/angular_front:tesbuild
+                        docker push angular_front:tesbuild
                     '''
                 }
             }
